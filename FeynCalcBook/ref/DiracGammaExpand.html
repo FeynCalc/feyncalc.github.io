@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DiracGammaExpand&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="DiracGammaExpand" />
+
+<meta name="description" content="DiracGammaExpand[exp] expands all DiracGamma[Momentum[a+b+..]] in exp into (DiracGamma[Momentum[a]] + DiracGamma[Momentum[b]] + ...)." />
+<script language="JavaScript" type="text/javascript">baselang='DiracGammaExpand';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>DiracGammaExpand</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/DiracGammaExpand/1.png" height="20" width="156" alt="" /></span> <br />expands all DiracGamma[Momentum[a+b+..]] in exp into (DiracGamma[Momentum[a]] + DiracGamma[Momentum[b]] + ...).</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="808958256"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/DiracGammaExpand/I_2.gif" height="17" width="419" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/DiracGammaExpand/O_1.gif" height="18" width="125" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="2029354787"></a>Momentum is the head of p-q, i.e., it is treated as one four-momentum.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="1573863723"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/DiracGammaExpand/I_4.gif" height="17" width="107" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[2]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/DiracGammaExpand/O_2.gif" width="367" height="17" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="2014620015"></a>With DiracGammaExpand the Momentum[p-q] gets expanded.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="260673945"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/DiracGammaExpand/I_6.gif" height="17" width="141" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/DiracGammaExpand/O_3.gif" height="18" width="130" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1184042108"></a>The inverse operation is DiracGammaCombine.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="1327296799"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/DiracGammaExpand/I_8.gif" height="17" width="384" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[4]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/DiracGammaExpand/O_4.gif" width="367" height="17" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="447085558"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/DiracGammaExpand/I_10.gif" height="17" width="241" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[5]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/DiracGammaExpand/O_5.gif" width="540" height="17" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="56861818"></a>In order to do non-commutative expansion use DiracSimplify.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="103977295"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/DiracGammaExpand/I_12.gif" height="17" width="102" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/DiracGammaExpand/O_6.gif" height="21" width="120" alt="" /></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+           <a name="2056643915"></a>
+           <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/DiracGammaExpand/I_14.gif" height="17" width="54" alt="Click for copyable input" /></a>
+          </div><div id="i_13_out" class="IFL"></div></td></tr>
+       </table>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="1587243701"></a><a href="../ref/DiracGamma.html">DiracGamma</a>, <a href="../ref/DiracGammaCombine.html">DiracGammaCombine</a>, <a href="../ref/DiracMatrix.html">DiracMatrix</a>, <a href="../ref/DiracSimplify.html">DiracSimplify</a>, <a href="../ref/DiracSlash.html">DiracSlash</a>, <a href="../ref/DiracTrick.html">DiracTrick</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

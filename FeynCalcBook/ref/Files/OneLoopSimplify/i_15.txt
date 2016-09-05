@@ -1,0 +1,2 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>OneLoopSimplify[
+ FAD[k - Subscript[p, 1], k - Subscript[p, 2]] SP[k, l]^2, k]</pre><div class='IFU'><a name='214879980'></a>http://wolfram.com/xid/0fnx5q0u7sai4aiu56biqky-dt7wqm</div>

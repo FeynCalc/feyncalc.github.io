@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>PlusDistribution[Log[x (1 - x)]/(1 - x)]</pre><div class='IFU'><a name='847354966'></a>http://wolfram.com/xid/0md0z2x3dnst5sksx4k7dm-oar1j8</div>

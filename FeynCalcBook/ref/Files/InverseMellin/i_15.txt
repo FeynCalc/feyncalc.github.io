@@ -1,0 +1,9 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>list = {1, 1/(OPEm + n), 1/(-OPEm + n), PolyGamma[0, OPEm], 
+   SumS[1, -1 + OPEm], SumS[1, -1 + OPEm]/(OPEm - 1), 
+   SumS[1, -1 + OPEm]/(1 - OPEm), SumS[1, -1 + OPEm]/(OPEm + 1), 
+   SumS[1, -1 + OPEm]/OPEm^2, SumS[1, -1 + OPEm]/OPEm, 
+   SumS[1, -1 + OPEm]^2/OPEm, SumS[2, -1 + OPEm], SumS[2, -1 + OPEm]/
+   OPEm, SumS[3, -1 + OPEm], SumS[1, 1, -1 + OPEm], 
+   SumS[1, OPEm - 1]^2, SumS[1, 2, -1 + OPEm], SumS[2, 1, -1 + OPEm], 
+   SumS[1, -1 + OPEm]^3, SumS[1, -1 + OPEm] SumS[2, -1 + OPEm], 
+   SumS[1, 1, 1, -1 + OPEm]};</pre><div class='IFU'><a name='988000997'></a>http://wolfram.com/xid/0g3d2anoefmyyrci8s9um-qmikqf</div>

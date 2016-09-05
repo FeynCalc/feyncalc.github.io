@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>a1 = GS[p - q].GS[p]</pre><div class='IFU'><a name='294479801'></a>http://wolfram.com/xid/0dot6agzccymmitn9o9gy-e5l0cr</div>

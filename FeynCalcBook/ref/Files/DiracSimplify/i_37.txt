@@ -1,0 +1,1 @@
+<pre name='i_37_in' id='i_37_in' class='IFT'>DiracSimplify[GA[\[Mu], \[Nu], \[Rho]], InsideDiracTrace -&gt; True]</pre><div class='IFU'><a name='1157409425'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq-tfdk33</div>

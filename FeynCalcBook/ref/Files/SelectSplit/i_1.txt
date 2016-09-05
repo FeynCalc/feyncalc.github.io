@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>SelectSplit[{a^2, b^3, c^4, d^5, e^6, f + g, h^4}, {MatchQ[#, _^2] &amp;, 
+  MatchQ[#, _^4] &amp;, FreeQ[#, Power] &amp;}]</pre><div class='IFU'><a name='1220131740'></a>http://wolfram.com/xid/04w9abyjsyddcef420b4-ugpxym</div>

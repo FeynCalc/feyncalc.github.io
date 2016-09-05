@@ -1,0 +1,4 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>t = I el^2/(16 Pi^4 (1 - D))
+    FAD[{q, mf}, {q - k, 
+     mf}] DiracTrace[(mf + GS[q - k]).GA[\[Mu]].(mf + 
+       GS[q]).GA[\[Mu]]] // FCI</pre><div class='IFU'><a name='257997891'></a>http://wolfram.com/xid/0b67y1d1vpag753658lc-ejv2qd</div>

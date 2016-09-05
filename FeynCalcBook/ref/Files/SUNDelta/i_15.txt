@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>SUNDelta[a, 2] SUNDelta[a, b] SUNDelta[c, 2] // SUNSimplify</pre><div class='IFU'><a name='69005829'></a>http://wolfram.com/xid/0cocv9p3k6ad7ma5v23sm4re-bfdbiv</div>

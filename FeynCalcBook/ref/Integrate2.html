@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Integrate2&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="Integrate2" />
+
+<meta name="description" content="Integrate2 is like Integrate, but : Integrate2[a_Plus, b__] := Map[Integrate2[#, b]&amp;amp;, a] ( more linear algebra and partial fraction decomposition is done) Integrate2[f[x] DeltaFunction[x], x] -&amp;gt; f[0] Integrate2[f[x] DeltaFunction[x0-x], x] -&amp;gt; f[x0]. Integrate2[f[x] DeltaFunction[a + b x], x] -&amp;gt; Integrate[f[x] (1/Abs[b]) DeltaFunction[a/b + x], x], where abs[b] -&amp;gt; b, if b is a Symbol, and if b = -c, then abs[-c] -&amp;gt; c, i.e., the variable contained in b is supposed to be positive. \[Pi]^2 is replaced by 6 Zeta2. Integrate2[1/(1-y),{y,x,1}] is intepreted as distribution, i.e. as Integrate2[-1/(1-y)],{y, 0, x}] -&amp;gt; Log[1-y]. Integrate2[1/(1-x),{x,0,1}] -&amp;gt; 0. NOTE: Since Integrate2 does do a reordering and partial fraction decomposition before calling the integral table of Integrate3 it will in general be slower compared to Integrate3 for sums of integrals. I.e., if the integrand has already an expanded form and if partial fraction decomposition is not necessary it is more effective to use Integrate3." />
+<script language="JavaScript" type="text/javascript">baselang='Integrate2';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>Integrate2</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/Integrate2/1.png" height="21" width="64" alt="" /></span> <br />is like Integrate, but : Integrate2[a_Plus, b__] := Map[Integrate2[#, b]&amp;, a] ( more linear algebra and partial fraction decomposition is done) Integrate2[f[x] DeltaFunction[x], x] <span class="special-character Rule">&#62754;</span> f[0] Integrate2[f[x] DeltaFunction[x0-x], x] <span class="special-character Rule">&#62754;</span> f[x0]. Integrate2[f[x] DeltaFunction[a + b x], x] <span class="special-character Rule">&#62754;</span> Integrate[f[x] (1/Abs[b]) DeltaFunction[a/b + x], x], where abs[b] <span class="special-character Rule">&#62754;</span> b, if b is a Symbol, and if b = -c, then abs[-c] <span class="special-character Rule">&#62754;</span> c, i.e., the variable contained in b is supposed to be positive. <img src="Files/Integrate2/2.png" height="19" width="23" style="vertical-align:middle;" alt=" pi^2" title=" pi^2" /> is replaced by 6 Zeta2. Integrate2[1/(1-y),{y,x,1}] is intepreted as distribution, i.e. as Integrate2[-1/(1-y)],{y, 0, x}] <span class="special-character Rule">&#62754;</span> Log[1-y]. Integrate2[1/(1-x),{x,0,1}] <span class="special-character Rule">&#62754;</span> 0.
+
+NOTE: Since Integrate2 does do a reordering and partial fraction decomposition before calling the integral table of Integrate3 it will in general be slower compared to Integrate3 for sums of integrals. I.e., if the integrand has already an expanded form and if partial fraction decomposition is not necessary it is more effective to use Integrate3.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="524907050"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_2.gif" height="17" width="379" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/Integrate2/O_1.gif" height="41" width="217" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1563728584"></a>Since Integrate2 uses table-look-up methods it is much faster than <em>Mathematica</em>'s Integrate.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="546710902"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_4.gif" height="17" width="256" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/Integrate2/O_2.gif" height="15" width="123" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="89878903"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_6.gif" height="17" width="247" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/Integrate2/O_3.gif" height="42" width="186" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="1742557754"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_8.gif" height="17" width="291" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/Integrate2/O_4.gif" height="45" width="356" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="1356840886"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_10.gif" height="17" width="310" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/Integrate2/O_5.gif" height="15" width="29" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1657711161"></a>Integrate2 does integration in a Hadamard sense, i.e., <img src="Files/Integrate2/CellNone_4.png" height="21" width="79" alt="" style="vertical-align:middle;" /> means acutally expanding the result of <img src="Files/Integrate2/CellNone_6.png" height="23" width="96" alt="" style="vertical-align:middle;" />up do <img src="Files/Integrate2/7.png" height="17" width="32" style="vertical-align:middle;" alt="O(delta)" title="O(delta)" /> and neglecting all <img src="Files/Integrate2/8.png" height="15" width="10" style="vertical-align:middle;" alt="delta" title="delta" />-dependent terms. E.g. <img src="Files/Integrate2/CellNone_10.png" height="23" width="407" alt="" style="vertical-align:middle;" /></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="1084770727"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_12.gif" height="17" width="211" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/Integrate2/O_6.gif" height="15" width="7" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1551126642"></a>In the physics literature sometimes the &quot;+&quot; notation is used. In FeynCalc the <img src="Files/Integrate2/CellNone_12.png" height="28" width="47" alt="" style="vertical-align:middle;" /> is represented by <img src="Files/Integrate2/13.png" height="17" width="174" style="vertical-align:middle;" alt="PlusDistribution[1/(1-x)]" title="PlusDistribution[1/(1-x)]" /> or just <img src="Files/Integrate2/14.png" height="17" width="70" style="vertical-align:middle;" alt="1/(1-x) ." title="1/(1-x) ." /></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="1725124689"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_14.gif" height="17" width="323" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/Integrate2/O_7.gif" height="15" width="7" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="1940746510"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_16.gif" height="17" width="335" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/Integrate2/O_8.gif" height="15" width="54" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="582396558"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_18.gif" height="17" width="331" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/Integrate2/O_9.gif" height="42" width="46" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="845490247"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_20.gif" height="17" width="268" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/Integrate2/O_10.gif" height="15" width="42" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="1121674397"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_22.gif" height="17" width="303" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/Integrate2/O_11.gif" height="42" width="141" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+            <a name="1584122311"></a>
+            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_24.gif" height="17" width="284" alt="Click for copyable input" /></a>
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/Integrate2/O_12.gif" height="15" width="65" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+            <a name="1907301251"></a>
+            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_26.gif" height="17" width="248" alt="Click for copyable input" /></a>
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/Integrate2/O_13.gif" height="42" width="129" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+            <a name="1237143526"></a>
+            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_28.gif" height="17" width="351" alt="Click for copyable input" /></a>
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/Integrate2/O_14.gif" height="47" width="267" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+            <a name="2080558124"></a>
+            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_30.gif" height="17" width="517" alt="Click for copyable input" /></a>
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/Integrate2/O_15.gif" height="283" width="537" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+            <a name="204763000"></a>
+            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_32.gif" height="17" width="449" alt="Click for copyable input" /></a>
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/Integrate2/O_16.gif" height="93" width="497" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
+            <a name="1234589200"></a>
+            <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_34.gif" height="49" width="502" alt="Click for copyable input" /></a>
+           </div><div id="i_33_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/Integrate2/O_17.gif" height="196" width="545" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
+            <a name="1839623139"></a>
+            <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_36.gif" height="17" width="99" alt="Click for copyable input" /></a>
+           </div><div id="i_35_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/Integrate2/O_18.gif" height="142" width="491" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[19]:=</a></td><td class="Input"><div>
+            <a name="1653791497"></a>
+            <a href="javascript:input('i_37')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_38.gif" height="17" width="36" alt="Click for copyable input" /></a>
+           </div><div id="i_37_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/Integrate2/O_19.gif" height="15" width="60" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
+            <a name="1526670238"></a>
+            <a href="javascript:input('i_39')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_40.gif" height="48" width="514" alt="Click for copyable input" /></a>
+           </div><div id="i_39_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[20]=</td><td class="Output"><img src="Files/Integrate2/O_20.gif" height="201" width="465" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_41')" onmouseover="javascript:return(true);">In[21]:=</a></td><td class="Input"><div>
+            <a name="20428829"></a>
+            <a href="javascript:input('i_41')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_42.gif" height="17" width="211" alt="Click for copyable input" /></a>
+           </div><div id="i_41_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[21]=</td><td class="Output"><img src="Files/Integrate2/O_21.gif" height="15" width="29" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_43')" onmouseover="javascript:return(true);">In[22]:=</a></td><td class="Input"><div>
+            <a name="512808203"></a>
+            <a href="javascript:input('i_43')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_44.gif" height="17" width="372" alt="Click for copyable input" /></a>
+           </div><div id="i_43_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[22]=</td><td class="Output"><img src="Files/Integrate2/O_22.gif" height="15" width="7" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1160689999"></a>This is the polarized non-singlet spin splitting function whose first moment vanishes.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_45')" onmouseover="javascript:return(true);">In[23]:=</a></td><td class="Input"><div>
+            <a name="18981591"></a>
+            <a href="javascript:input('i_45')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_46.gif" height="17" width="187" alt="Click for copyable input" /></a>
+           </div><div id="i_45_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[23]=</td><td class="Output"><img src="Files/Integrate2/O_23.gif" height="682" width="540" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_47')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+            <a name="182134904"></a>
+            <a href="javascript:input('i_47')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_48.gif" height="17" width="213" alt="Click for copyable input" /></a>
+           </div><div id="i_47_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/Integrate2/O_24.gif" height="2725" width="558" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1779842562"></a>Expanding t with respect to x yields a form already suitable for Integrate3 and therefore the following is faster:</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_49')" onmouseover="javascript:return(true);">In[25]:=</a></td><td class="Input"><div>
+            <a name="237838384"></a>
+            <a href="javascript:input('i_49')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_50.gif" height="17" width="354" alt="Click for copyable input" /></a>
+           </div><div id="i_49_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[25]=</td><td class="Output"><img src="Files/Integrate2/O_25.gif" height="1253" width="556" alt="" /></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_51')" onmouseover="javascript:return(true);">In[26]:=</a></td><td class="Input"><div>
+           <a name="1890146765"></a>
+           <a href="javascript:input('i_51')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_52.gif" height="17" width="60" alt="Click for copyable input" /></a>
+          </div><div id="i_51_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_53')" onmouseover="javascript:return(true);">In[27]:=</a></td><td class="Input"><div>
+            <a name="593727658"></a>
+            <a href="javascript:input('i_53')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_54.gif" height="17" width="310" alt="Click for copyable input" /></a>
+           </div><div id="i_53_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[27]=</td><td class="Output"><img src="Files/Integrate2/O_26.gif" height="15" width="29" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_55')" onmouseover="javascript:return(true);">In[28]:=</a></td><td class="Input"><div>
+            <a name="1759046432"></a>
+            <a href="javascript:input('i_55')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_56.gif" height="21" width="256" alt="Click for copyable input" /></a>
+           </div><div id="i_55_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[28]=</td><td class="Output"><img src="Files/Integrate2/O_27.gif" height="42" width="120" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_57')" onmouseover="javascript:return(true);">In[29]:=</a></td><td class="Input"><div>
+            <a name="1795528063"></a>
+            <a href="javascript:input('i_57')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_58.gif" height="17" width="40" alt="Click for copyable input" /></a>
+           </div><div id="i_57_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[29]=</td><td class="Output"><img src="Files/Integrate2/O_28.gif" height="15" width="60" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_59')" onmouseover="javascript:return(true);">In[30]:=</a></td><td class="Input"><div>
+            <a name="190638847"></a>
+            <a href="javascript:input('i_59')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_60.gif" height="21" width="258" alt="Click for copyable input" /></a>
+           </div><div id="i_59_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[30]=</td><td class="Output"><img src="Files/Integrate2/O_29.gif" height="15" width="60" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_61')" onmouseover="javascript:return(true);">In[31]:=</a></td><td class="Input"><div>
+            <a name="1701338238"></a>
+            <a href="javascript:input('i_61')" onmouseover="javascript:return(true);"><img src="Files/Integrate2/I_62.gif" height="21" width="319" alt="Click for copyable input" /></a>
+           </div><div id="i_61_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[31]=</td><td class="Output"><img src="Files/Integrate2/O_30.gif" height="310" width="475" alt="" /></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="1134437741"></a><a href="../ref/DeltaFunction.html">DeltaFunction</a>, <a href="../ref/Integrate3.html">Integrate3</a>, <a href="../ref/Integrate4.html">Integrate4</a>, <a href="../ref/Integrate5.html">Integrate5</a>, <a href="../ref/SumS.html">SumS</a>, <a href="../ref/SumT.html">SumT</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

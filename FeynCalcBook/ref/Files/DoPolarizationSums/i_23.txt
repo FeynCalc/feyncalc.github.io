@@ -1,0 +1,2 @@
+<pre name='i_23_in' id='i_23_in' class='IFT'>ptest // DoPolarizationSums;
+% // Contract</pre><div class='IFU'><a name='1480522060'></a>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg-yrq0e2</div>

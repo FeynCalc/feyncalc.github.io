@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Short introduction&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="Intro" />
+
+<meta name="description" content="FeynCalc is a Mathematica package for algebraic calculations in high energy physics. It provides tools for Lorentz structure manipulations, Dirac algebra manipulations, color factor calculations, Feynman rule derivation, Feynman loop integral calculations (e.g. Passarino-Veltman reduction) and noncommutative algebra calculations, as well as various tabulations of Feynman parameter integrals, Mellin transforms^&amp;dagger;, convolutions, lagrangians and Feynman rules. Also, translation facilities are provided to change the FeynCalc syntax to and from FORM syntax and to generate FORTRAN code. Some functions for input of objects like p^&amp;mu;,&amp;gamma;^&amp;nu;,g^&amp;mu; &amp;nu;, &amp;#949;^&amp;mu; &amp;nu; &amp;rho; &amp;sigma;, etc. (abbreviations in parentheses) are: GA (Dirac matrix), GS (Dirac slash), FV (4-vector), LC (Levi-Civita tensor), MT (metric tensor), Spinor, SUNDelta, SUNFDelta, SUNF, SP (scalar product)" />
+<script language="JavaScript" type="text/javascript">baselang='Intro';</script>
+<script language="JavaScript" type="text/javascript">packagename='FeynCalc';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+</head>
+<body id="tutorial">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC TUTORIAL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1 class="Title"><a name="509267359"></a>Short introduction</h1>
+ <div class="TutorialJumpBox">
+  <table class="nogridboxdividers">
+   <col />
+   <col />
+   <tr class="lineAbove" style=""><td><a href="../tutorial/Intro.html#1726202394">Starting FeynCalc</a></td><td><a href="../tutorial/Intro.html#1007300369">Example Calculations</a></td></tr>
+   <tr class="" style=""><td><a href="../tutorial/Intro.html#2100607586">Extra subpackages</a></td><td></td></tr>
+  </table>
+ </div>
+ <p class="Text"><a name="1534169418"></a>FeynCalc is a <em>Mathematica</em> package for algebraic calculations in high energy physics. It provides tools for Lorentz structure manipulations, Dirac algebra manipulations, color factor calculations, Feynman rule derivation, Feynman loop integral calculations (e.g. Passarino-Veltman reduction) and noncommutative algebra calculations, as well as various tabulations of Feynman parameter integrals, Mellin <img style="vertical-align:middle;" title="transforms^(|)" src="Files/Intro/Image_1.png" width="79" height="19" alt="transforms^(|)" />, convolutions, lagrangians and Feynman rules. Also, translation facilities are provided to change the FeynCalc syntax to and from FORM syntax and to generate FORTRAN code.</p>
+ <p class="Text"><a name="1157525339"></a>Some functions for input of objects like <img style="vertical-align:middle;" title="p^mu,gamma^nu,g^(mu nu), epsilon^(mu nu rho sigma), etc." src="Files/Intro/Image_2.png" width="181" height="17" alt="p^mu,gamma^nu,g^(mu nu), epsilon^(mu nu rho sigma), etc." /> (abbreviations in parentheses) are:</p>
+ <p class="Text"><a name="757206658"></a><a href="../ref/GA.html">GA</a> (Dirac matrix), <a href="../ref/GS.html">GS</a> (Dirac slash), <a href="../ref/FV.html">FV</a> (4-vector), <a href="../ref/LC.html">LC</a> (Levi-Civita tensor), <a href="../ref/MT.html">MT</a> (metric tensor), <a href="../ref/Spinor.html">Spinor</a>, <a href="../ref/SUNDelta.html">SUNDelta</a>, <a href="../ref/SUNFDelta.html">SUNFDelta</a>, <a href="../ref/SUNF.html">SUNF</a>, <a href="../ref/SP.html">SP</a> (scalar product)</p>
+ <p class="Text"><a name="1227796187"></a>Some functions for manipulations are:</p>
+ <p class="Text"><a name="833014432"></a><a href="../ref/Contract.html">Contract</a>, <a href="../ref/Tr.html">Tr</a>, <a href="../ref/DiracSimplify.html">DiracSimplify</a>, <a href="../ref/DiracTrick.html">DiracTrick</a>, <a href="../ref/Calc.html">Calc</a>, <a href="../ref/Convolute.html">Convolute</a>, <a href="../ref/FeynRule.html">FeynRule</a>, <a href="../ref/FeynCalc2FORM.html">FeynCalc2FORM</a>, <a href="../ref/Integrate2.html">Integrate2</a>, <a href="../ref/PaVeReduce.html">PaVeReduce</a>, <a href="../ref/SimplifyPolyLog.html">SimplifyPolyLog</a>, <a href="../ref/SUNSimplify.html">SUNSimplify</a>, <a href="../ref/Isolate.html">Isolate</a>, <a href="../ref/Collect2.html">Collect2</a>, <a href="../ref/OneLoopSimplify.html">OneLoopSimplify</a>, <a href="../ref/Series2.html">Series2</a>, <a href="../ref/ApartFF.html">ApartFF</a></p>
+ <p class="Text"><a name="1006364145"></a>Some functions for Feyman loop integral manipulations:</p>
+ <p class="Text"><a name="571834673"></a><a href="../ref/ApartFF.html">ApartFF</a>, <a href="../ref/FCLoopIsolate.html">FCLoopIsolate</a>, <a href="../ref/OneLoop.html">OneLoop</a>, <a href="../ref/OneLoopSimplify.html">OneLoopSimplify</a>, <a href="../ref/TID.html">TID</a>, <a href="../ref/ToPaVe.html">ToPaVe</a>, <a href="../ref/PaVeReduce.html">PaVeReduce</a> </p>
+ <p class="Text"><a name="4750988"></a>For more detailed information on FeynCalc functions, use the help system or look at the examples in  (evaluate the following command)</p>
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+      <a name="1220639322"></a>
+      <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_2.gif" height="17" width="313" alt="Click for copyable input" /></a>
+     </div><div id="i_1_out" class="IFL"></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/Intro/O_1.gif" height="15" width="393" alt="" /></td></tr>
+  </table>
+ </div>
+ <p class="Text"><a name="1833132382"></a>Not all functions are equally well documented in this notebook. Some are very special ones (e.g. for tools for 2-loop QCD diagrams originating in twist-2 OPE), some are still experimental.</p>
+ <p class="Text"><a name="716203363"></a>The <img style="vertical-align:middle;" title="gamma^5" src="Files/Intro/Image_3.png" width="17" height="17" alt="gamma^5" />scheme used in OneLoop is the naive one, i.e., <img style="vertical-align:middle;" title="{gamma^5,gamma^mu)=0" src="Files/Intro/Image_4.png" width="80" height="19" alt="{gamma^5,gamma^mu)=0" /> in 4 and D dimensions. See also <a href="../ref/ToLarin.html">ToLarin.</a></p>
+ <p class="Text"><a name="1566592169"></a>The metric used is the one from Bjorken and Drell (+---).</p>
+ <p class="SmallText" name="SmallText"><a name="721081683"></a><span class="special-character Dagger">&#8224;</span> Mellin transforms (e.g. all integrals - except 57,58 and 59, and correcting a minor misprint in 14) of Appendix 7 from <a href="http://xxx.lanl.gov/abs/hep-ph/9810241">hep-ph/9810241</a> are tabulated in <a href="../ref/Integrate2.html">Integrate2</a></p>
+ <h2 class="Section"><a name="1726202394"></a>Starting FeynCalc</h2>
+ <p class="Text"><a name="846823627"></a>If the directory &quot;FeynCalc&quot; has been put in the directory &quot;Applications&quot; in your <em>Mathematica</em> installation tree, which is (evaluate the following command)</p>
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[26]:=</a></td><td class="Input"><div>
+      <a name="1006438652"></a>
+      <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_4.gif" height="17" width="333" alt="Click for copyable input" /></a>
+     </div><div id="i_3_out" class="IFL"></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[26]=</td><td class="Output"><img src="Files/Intro/O_2.gif" height="15" width="243" alt="" /></td></tr>
+  </table>
+ </div>
+ <p class="Text"><a name="469196418"></a>you should be able to load FeynCalc via  &lt;&lt;FeynCalc` from a <em>Mathematica</em> session with no <br />further ado. You can also put this line into your &quot;init.m&quot; file. This will cause automatic loading of FeynCalc on every <em>Mathematica</em> startup.</p>
+ <p class="Text"><a name="434623157"></a>FeynCalc might suggest you to set the default output format type is to TraditionalForm, since this allows for nice typesetting of many FeynCalc objects. This can be done  by clicking on the <span class="TextNormal"><strong>Cell</strong></span> menu, then go to the <span class="TextNormal"><strong>Default Output Format Type </strong></span>item and select <strong>TraditionalForm</strong>.</p>
+ <p class="Text"><a name="13342743"></a>If you prefer <strong>StandardForm</strong> and don't want to be bothered, just uncomment the line</p>
+ <table class="InCell">
+  <tr><td class="lab" /><td class="Input"><div>
+     <a name="2016141554"></a>
+     <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_6.gif" height="17" width="139" alt="Click for copyable input" /></a>
+    </div><div id="i_5_out" class="IFL"></div></td></tr>
+ </table>
+ <p class="Text"><a name="491195527"></a>in FCConfig.m.</p>
+ <p class="Text"><a name="351638376"></a></p>
+ <p class="Text"><a name="430968534"></a>You might want to reverse this after quitting FeynCalc by clicking on the <span class="TextNormal"><strong>Cell</strong></span> menu, then go to the <span class="TextNormal"><strong>Default Output Format Type </strong></span>item and select <strong>StandardForm</strong>, or by evaluating</p>
+ <h2 class="Section"><a name="2100607586"></a>Extra subpackages</h2>
+ <p class="Text"><a name="953459903"></a>The directory  &quot;FeynCalc&quot; contains various files and subdirectories belonging to third-party packages which are not necessary to run 'standard' FeynCalc calculations and which do not use the autoloading conventions of FeynCalc. These packages are not initialized by default when starting FeynCalc. Loading them can be switched on and off by setting appropiate variables to False or True before loading FeynCalc.</p>
+ <p class="Text">
+  <a name="2108182812"></a>
+  <img style="vertical-align:middle;"
+      title="FrameBox[{{$LoadTARCER,  , {Specifies,  , if,  , TARCER,  , should,  , be,  , loaded,  , by,  , FeynCalc}}, ; , {$LoadPhi,  , {Specifies,  , if,  , PHI,  , should,  , be,  , loaded,  , by,  , FeynCalc}}, ; , {$LoadFeynArts,  , {Specifies,  , if,  , FeynArts,  , should,  , be,  , loaded,  , by,  , FeynCalc}}}]"
+      src="Files/Intro/Image_5.png"
+      width="555"
+      height="48"
+      alt="FrameBox[{{$LoadTARCER,  , {Specifies,  , if,  , TARCER,  , should,  , be,  , loaded,  , by,  , FeynCalc}}, ; , {$LoadPhi,  , {Specifies,  , if,  , PHI,  , should,  , be,  , loaded,  , by,  , FeynCalc}}, ; , {$LoadFeynArts,  , {Specifies,  , if,  , FeynArts,  , should,  , be,  , loaded,  , by,  , FeynCalc}}}]" />
+ </p>
+ <h3 class="Subsection"><a name="906844505"></a>TARCER</h3>
+ <p class="Text"><a name="1972678903"></a>TARCER is a <em>Mathematica</em> program for the reduction of two-loop propagator integrals. It was developed by R. Mertig and R. Scharf and published in <a href="http://arxiv.org/abs/hep-ph/9801383">hep-ph/9801383</a>.</p>
+ <p class="Text"><a name="1513547103"></a>TARCER is distributed with FeynCalc. To have FeynCalc load TARCER, evaluate</p>
+ <table class="InCell">
+  <tr><td class="lab" /><td class="Input"><div>
+     <a name="843778896"></a>
+     <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_8.gif" height="17" width="136" alt="Click for copyable input" /></a>
+    </div><div id="i_7_out" class="IFL"></div></td></tr>
+ </table>
+ <p class="Text"><a name="998781867"></a>before <span>loading FeynCalc</span>. You can also put the last input line into your &quot;FCConfig.m&quot; file.</p>
+ <h3 class="Subsection"><a name="932055296"></a>PHI </h3>
+ <p class="Text"><a name="1893421836"></a>PHI is a <em>Mathematica</em> package for manipulating covariant derivatives etc. of effective theories like Chiral Perturbation Theory developed by F. J. Orellana. Moreover it provides an alternative way of creating coupling definitions for FeynArts. This is convenient if one needs to generate a large number of Feynman rules from different lagrangians. PHI is distributed with FeynCalc.</p>
+ <p class="Text"><a name="528666319"></a>To have FeynCalc load PHI, evaluate</p>
+ <table class="InCell">
+  <tr><td class="lab" /><td class="Input"><div>
+     <a name="798844745"></a>
+     <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_10.gif" height="17" width="109" alt="Click for copyable input" /></a>
+    </div><div id="i_9_out" class="IFL"></div></td></tr>
+ </table>
+ <p class="Text"><a name="1295431310"></a>before loading FeynCalc You can also put this line into your &quot;FCConfig.m&quot; file.</p>
+ <p class="Text"><a name="1431249758"></a>More information is available at <a href="http://www.feyncalc.org/phi/">http://www.feyncalc.org/phi/</a>.</p>
+ <h3 class="Subsection"><a name="1026891602"></a>FeynArts</h3>
+ <p class="Text"><a name="1730838623"></a>FeynArts is a Mathematica package for generating Feynman diagrams and the corresponding amplitudes. The original FeynArts was created by J. K<span class="special-character UDoubleDot">&#252;</span>blbeck, M. B<span class="special-character ODoubleDot">&#246;</span>hm and A. Denner in 1990 (<a href="http://inspirehep.net/record/27276">INSPIRE</a>). Since 1998 it is developed further by Thomas Hahn (<a href="http://arxiv.org/abs/hep-ph/0012260">hep-ph/0012260</a>). For more information about FeynArts please visit the <a href="http://www.feynarts.de/">official site</a>. The manual is available <a href="http://www.feynarts.de/FA3Guide.pdf">here</a>.</p>
+ <p class="Text"><a name="1031127518"></a>FeynArts is not a part of FeynCalc but its output can be used by FeynCalc to evaluate the generated amplitudes. Unfortunately, many FeynArts functions have the same name as the FeynCalc functions which makes Mathematica produce lots of warnings when loading both packages in the same session.</p>
+ <p class="Text"><a name="791617764"></a>One possible workaround is to first generate the amplitudes with FeynArts, then save them in a notebook, quit Mathematica, open the notebook and only then load FeynCalc and evaluate the amplitudes. However, this method is rather inconvenient if one wants to play with different options and see how this affects the final result.</p>
+ <p class="Text"><a name="895418169"></a>The preferred way of using FeynArts with FeynCalc is to patch FeynArts, such that all corresponding FeynArts functions are renamed and no shadowing occurs. In this case one can use FeynArts and FeynCalc in the same Mathematica session without any unwanted interference effects.</p>
+ <p class="Text"><a name="2088550082"></a>For this you need to download the latest version of FeynArts and extract the tarball to the FeynArts directory inside FeynCalc, which (evaluate the following command) is</p>
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+      <a name="606741564"></a>
+      <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_12.gif" height="17" width="116" alt="Click for copyable input" /></a>
+     </div><div id="i_11_out" class="IFL"></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/Intro/O_3.gif" height="15" width="389" alt="" /></td></tr>
+  </table>
+ </div>
+ <p class="Text"><a name="1310937107"></a>Then you need to restart <em>Mathematica</em> and enter</p>
+ <table class="InCell">
+  <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+     <a name="342627804"></a>
+     <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_14.gif" height="17" width="142" alt="Click for copyable input" /></a>
+    </div><div id="i_13_out" class="IFL"></div></td></tr>
+ </table>
+ <p class="Text"><a name="570125418"></a>before loading FeynCalc. A dialog asking if you want to patch FeynArts will appear. Hit OK. Wait until the patching process finishes. Then restart <em>Mathematica</em> again and load FeynCalc with</p>
+ <table class="InCell">
+  <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
+     <a name="1900750623"></a>
+     <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_16.gif" height="17" width="142" alt="Click for copyable input" /></a>
+    </div><div id="i_15_out" class="IFL"></div></td></tr>
+ </table>
+ <p class="Text"><a name="1315560355"></a>each time you want to use FeynArts with FeynCalc.</p>
+ <h2 class="Section"><a name="1007300369"></a>Example Calculations</h2>
+ <p class="Text"><a name="1268182373"></a>A lot of examples can be found in (evaluate the following command)</p>
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+      <a name="1877395502"></a>
+      <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/Intro/I_18.gif" height="17" width="313" alt="Click for copyable input" /></a>
+     </div><div id="i_17_out" class="IFL"></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/Intro/O_4.gif" height="15" width="393" alt="" /></td></tr>
+  </table>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

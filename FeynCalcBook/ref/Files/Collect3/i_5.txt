@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>Collect3[Expand[(a - b - c - d)^5], {a}]</pre><div class='IFU'><a name='860117715'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qt-oidlc1</div>

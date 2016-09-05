@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>t = FAD[q1, q1 - p, q1 - q2, q2, q2 - p] // FCI</pre><div class='IFU'><a name='403484877'></a>http://wolfram.com/xid/0s5liscts2b1on3fxhpfthu188t6pg-gyic7j</div>

@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FeynAmpDenominatorSplit[t, q1] // FCE // StandardForm;
+FeynAmpDenominatorCombine[%] // FCE // StandardForm</pre><div class='IFU'><a name='1174376888'></a>http://wolfram.com/xid/0s5liscts2b1on3fxhpfthu188t6pg-tpg9ai</div>

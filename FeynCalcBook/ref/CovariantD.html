@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CovariantD&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="CovariantD" />
+
+<meta name="description" content="CovariantD[mu] is a generic covariant derivative with Lorentz index mu. With the option-setting Explicit -&amp;gt; True, an explicit expression for a fermionic field is returned, depending on the setting on the other options. CovariantD[x, mu] is a generic covariant derivative with respect to x^mu. CovariantD[mu, a, b] is a covariant derivative for a bosonic field; acting on QuantumField[f,{},{a,b}], where f is some field name and a and b are two SU(N) indices. Again, with the option-setting Explicit -&amp;gt; True, an explicit expression is returned, depending on the setting on the other options. CovariantD[OPEDelta, a, b] is a short form for CovariantD[mu,a,b]*FourVector[OPEDelta, mu]. CovariantD[{OPEDelta, a, b}, {n}] yields the product of n operators, where n is an integer. CovariantD[OPEDelta, a, b, {m, n}] gives the expanded form of CovariantD[OPEDelta, a, b]^m up to order g^n for the gluon, where n is an integer and g the coupling constant indicated by the setting of the option CouplingConstant. CovariantD[OPEDelta, {m, n}] gives the expanded form of CovariantD[OPEDelta]^m up to order g^n of the fermionic field. Possible settings of PartialD are: LeftPartialD, LeftRigthPartialD, RightPartialD. The default setting of QuantumField is GaugeField." />
+<script language="JavaScript" type="text/javascript">baselang='CovariantD';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>CovariantD</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/CovariantD/1.png" height="20" width="101" alt="" /></span> <br />is a generic covariant derivative with Lorentz index mu. With the option-setting Explicit <span class="special-character Rule">&#62754;</span> True, an explicit expression for a fermionic field is returned, depending on the setting on the other options.
+CovariantD[x, mu] is a generic covariant derivative with respect to x^mu.
+CovariantD[mu, a, b] is a covariant derivative for a bosonic field; acting on QuantumField[f,{},{a,b}], where f is some field name and a and b are two SU(N) indices. Again, with the option-setting Explicit <span class="special-character Rule">&#62754;</span> True, an explicit expression is returned, depending on the setting on the other options.
+CovariantD[OPEDelta, a, b] is a short form for  CovariantD[mu,a,b]*FourVector[OPEDelta, mu]. CovariantD[{OPEDelta, a, b}, {n}] yields the product of n operators, where n is an integer.  CovariantD[OPEDelta, a, b, {m, n}]  gives the expanded form of CovariantD[OPEDelta, a, b]^m up to order g^n for the gluon, where n is an integer and g the coupling constant  indicated by the setting of the option CouplingConstant. CovariantD[OPEDelta, {m, n}] gives the expanded form of  CovariantD[OPEDelta]^m up to order g^n of the fermionic field.
+
+ Possible settings of PartialD are: LeftPartialD, LeftRigthPartialD, RightPartialD. The default setting of QuantumField is GaugeField.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="1136125130"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_2.gif" height="17" width="130" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/CovariantD/O_1.gif" height="35" width="431" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="691762283"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_4.gif" height="17" width="92" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/CovariantD/O_2.gif" height="18" width="20" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="631235757"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_6.gif" height="17" width="129" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/CovariantD/O_3.gif" height="23" width="31" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="1730385129"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_8.gif" height="17" width="196" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/CovariantD/O_4.gif" height="28" width="123" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1590488263"></a>The first argument of CovariantD is intepreted as type LorentzIndex, except for OPEDelta, which is type Momentum.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="1980257576"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_10.gif" height="17" width="138" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/CovariantD/O_5.gif" height="15" width="21" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="840690314"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_12.gif" height="17" width="175" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/CovariantD/O_6.gif" height="21" width="31" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="82457380"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_14.gif" height="17" width="279" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/CovariantD/O_7.gif" height="26" width="167" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="570341066"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_16.gif" height="17" width="242" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/CovariantD/O_8.gif" height="26" width="124" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="1557639505"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_18.gif" height="17" width="207" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/CovariantD/O_9.gif" height="34" width="402" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="35437719"></a>This gives<img src="Files/CovariantD/CellNone_3.png" height="25" width="89" alt="" style="vertical-align:middle;" />the partial derivative <img src="Files/CovariantD/CellNone_5.png" height="27" width="22" alt="" style="vertical-align:middle;" />contracted with <img src="Files/CovariantD/6.png" height="15" width="25" style="vertical-align:middle;" alt="Delta^mu." title="Delta^mu." /></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="1826343413"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_20.gif" height="17" width="253" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/CovariantD/O_10.gif" height="24" width="79" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="745433336"></a>The expansion up to first order in the coupling constant <img src="Files/CovariantD/7.png" height="17" width="230" style="vertical-align:middle;" alt="g_s (thesumistheFeynCalcOPESum)." title="g_s (thesumistheFeynCalcOPESum)." /></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="1721350899"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_22.gif" height="17" width="253" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/CovariantD/O_11.gif" height="47" width="374" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="972705137"></a>The expansion up to second order in the <img src="Files/CovariantD/8.png" height="17" width="22" style="vertical-align:middle;" alt="g_s." title="g_s." /></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+            <a name="1002319987"></a>
+            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_24.gif" height="17" width="253" alt="Click for copyable input" /></a>
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/CovariantD/O_12.gif" height="139" width="541" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+            <a name="608320512"></a>
+            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_26.gif" height="17" width="206" alt="Click for copyable input" /></a>
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/CovariantD/O_13.gif" height="25" width="56" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+            <a name="512528140"></a>
+            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_28.gif" height="17" width="216" alt="Click for copyable input" /></a>
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/CovariantD/O_14.gif" height="107" width="523" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+            <a name="790160491"></a>
+            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_30.gif" height="17" width="346" alt="Click for copyable input" /></a>
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[15]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/CovariantD/O_15.gif" width="442" height="56" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+            <a name="160329117"></a>
+            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/CovariantD/I_32.gif" height="17" width="337" alt="Click for copyable input" /></a>
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[16]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/CovariantD/O_16.gif" width="524" height="37" alt="" /></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="2075533712"></a><a href="../ref/LeftPartialD.html">LeftPartialD</a>, <a href="../ref/LeftRightPartialD.html">LeftRightPartialD</a>, <a href="../ref/RightPartialD.html">RightPartialD</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

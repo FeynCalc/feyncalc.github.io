@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>TrickMandelstam[
+ M^2 s - s^2 + M^2 t - st + M^2 u - su, {s, t, u, 2 M^2}]</pre><div class='IFU'><a name='2075024335'></a>http://wolfram.com/xid/0bl1sloiyx608rkjkjatqlzn4idcv-8lo9a5</div>

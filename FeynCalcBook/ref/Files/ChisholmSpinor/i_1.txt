@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>Spinor[p1, m1].DiracGamma[LorentzIndex[\[Mu]]].Spinor[p2, m2]</pre><div class='IFU'><a name='30249209'></a>http://wolfram.com/xid/0l75u4ugf9g0wlsezo0u1wsug05u-samp3</div>

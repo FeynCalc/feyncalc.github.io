@@ -1,0 +1,1 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>TensorFunction[{f, &quot;S&quot;}, \[Alpha], \[Beta]]</pre><div class='IFU'><a name='1404961078'></a>http://wolfram.com/xid/0fnx5q0u7sai4aejj7jzezm-xirg6w</div>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ExpandPartialD&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="ExpandPartialD" />
+
+<meta name="description" content="ExpandPartialD[exp] expands all products of QuantumField&amp;apos;s and partial differentiation operators in exp and applies the Leibniz rule." />
+<script language="JavaScript" type="text/javascript">baselang='ExpandPartialD';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>ExpandPartialD</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/ExpandPartialD/1.png" height="20" width="128" alt="" /></span> <br />expands all products of QuantumField's and partial differentiation operators in exp and applies the Leibniz rule.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="1663995859"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_2.gif" height="37" width="343" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/ExpandPartialD/O_1.gif" height="27" width="64" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="42906170"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_4.gif" height="17" width="121" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/ExpandPartialD/O_2.gif" height="19" width="129" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="1003176166"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_6.gif" height="17" width="117" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[3]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/ExpandPartialD/O_3.gif" width="418" height="75" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="1133080623"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_8.gif" height="17" width="360" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/ExpandPartialD/O_4.gif" height="27" width="43" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="714332804"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_10.gif" height="17" width="121" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/ExpandPartialD/O_5.gif" height="41" width="122" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="1818055573"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_12.gif" height="37" width="451" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/ExpandPartialD/O_6.gif" height="27" width="67" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="1536725497"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_14.gif" height="17" width="121" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/ExpandPartialD/O_7.gif" height="41" width="335" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="302634492"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_16.gif" height="17" width="207" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/ExpandPartialD/O_8.gif" height="26" width="32" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="1446708912"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_18.gif" height="17" width="121" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/ExpandPartialD/O_9.gif" height="34" width="75" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="752224"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_20.gif" height="17" width="121" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/ExpandPartialD/O_10.gif" height="24" width="369" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="623620416"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_22.gif" height="17" width="310" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/ExpandPartialD/O_11.gif" height="27" width="145" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+            <a name="726282079"></a>
+            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/ExpandPartialD/I_24.gif" height="17" width="121" alt="Click for copyable input" /></a>
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/ExpandPartialD/O_12.gif" height="15" width="7" alt="" /></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="233477946"></a>See also: <a href="../ref/ExplicitPartialD.html">ExplicitPartialD</a>, <a href="../ref/LeftPartialD.html">LeftPartialD</a>, <a href="../ref/LeftRightPartialD.html">LeftRightPartialD</a>, <a href="../ref/PartialDRelations.html">PartialDRelations</a>, <a href="../ref/RightPartialD.html">RightPartialD</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

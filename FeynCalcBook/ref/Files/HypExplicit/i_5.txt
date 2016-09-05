@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>HypergeometricPFQ[{a, b, c}, {d, e}, z]</pre><div class='IFU'><a name='1980165795'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp3ruhg1x4-6073zp</div>

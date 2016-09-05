@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Convolute&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="Convolute" />
+
+<meta name="description" content="Convolute[f, g, x] convolutes f(x) and g(x), i.e., \[Integral]_0^1dx 1\ \[Integral]_0^1dx 2\ \[Delta](x\ - \ x1\ x2)\ f( x1)\ g(x2)\ . Convolute[f, g] is equivalent to Convolute[f, g, x]. Convolute[exp, {x1, x2}] assumes that exp is polynomial in x1 and x2. Convolute uses table-look-up and does not do any integral calculations, only linear algebra." />
+<script language="JavaScript" type="text/javascript">baselang='Convolute';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>Convolute</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/Convolute/1.png" height="21" width="124" alt="" /></span> <br />convolutes <em>f</em>(<em>x</em>) and <em>g</em>(<em>x</em>), i.e., <img src="Files/Convolute/CellNone_3.png" height="24" width="260" alt="" style="vertical-align:middle;" /> Convolute[f, g] is equivalent to Convolute[f, g, x]. Convolute[exp, {x1, x2}] assumes that exp is polynomial in x1 and x2. Convolute uses table-look-up and does not do any integral calculations, only linear algebra.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="846637972"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_2.gif" height="17" width="125" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/Convolute/O_1.gif" height="15" width="436" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="1183792130"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_4.gif" height="17" width="103" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/Convolute/O_2.gif" height="15" width="102" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="566730399"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_6.gif" height="17" width="105" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/Convolute/O_3.gif" height="18" width="122" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="1354290721"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_8.gif" height="17" width="104" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/Convolute/O_4.gif" height="15" width="114" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="694658515"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_10.gif" height="48" width="131" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/Convolute/O_5.gif" height="42" width="97" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="1694510014"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_12.gif" height="48" width="243" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/Convolute/O_6.gif" height="42" width="97" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="640655392"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_14.gif" height="48" width="132" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/Convolute/O_7.gif" height="42" width="109" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="440037844"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_16.gif" height="48" width="158" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/Convolute/O_8.gif" height="47" width="107" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="151808165"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_18.gif" height="17" width="163" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/Convolute/O_9.gif" height="15" width="169" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="1563371513"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_20.gif" height="17" width="175" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/Convolute/O_10.gif" height="15" width="181" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="1082077962"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_22.gif" height="48" width="191" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/Convolute/O_11.gif" height="42" width="164" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+            <a name="1247483115"></a>
+            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_24.gif" height="48" width="203" alt="Click for copyable input" /></a>
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/Convolute/O_12.gif" height="42" width="176" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+            <a name="2055743895"></a>
+            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_26.gif" height="49" width="168" alt="Click for copyable input" /></a>
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/Convolute/O_13.gif" height="42" width="176" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+            <a name="1292595425"></a>
+            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_28.gif" height="17" width="152" alt="Click for copyable input" /></a>
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/Convolute/O_14.gif" height="15" width="159" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+            <a name="342391696"></a>
+            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_30.gif" height="17" width="164" alt="Click for copyable input" /></a>
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/Convolute/O_15.gif" height="15" width="181" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+            <a name="1164478774"></a>
+            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_32.gif" height="49" width="171" alt="Click for copyable input" /></a>
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/Convolute/O_16.gif" height="47" width="152" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
+            <a name="260971955"></a>
+            <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_34.gif" height="17" width="140" alt="Click for copyable input" /></a>
+           </div><div id="i_33_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/Convolute/O_17.gif" height="15" width="147" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
+            <a name="935305016"></a>
+            <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_36.gif" height="17" width="155" alt="Click for copyable input" /></a>
+           </div><div id="i_35_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/Convolute/O_18.gif" height="18" width="167" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[19]:=</a></td><td class="Input"><div>
+            <a name="63581574"></a>
+            <a href="javascript:input('i_37')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_38.gif" height="48" width="168" alt="Click for copyable input" /></a>
+           </div><div id="i_37_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/Convolute/O_19.gif" height="42" width="142" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
+            <a name="1271585721"></a>
+            <a href="javascript:input('i_39')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_40.gif" height="49" width="144" alt="Click for copyable input" /></a>
+           </div><div id="i_39_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[20]=</td><td class="Output"><img src="Files/Convolute/O_20.gif" height="42" width="142" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_41')" onmouseover="javascript:return(true);">In[21]:=</a></td><td class="Input"><div>
+            <a name="1377475961"></a>
+            <a href="javascript:input('i_41')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_42.gif" height="48" width="180" alt="Click for copyable input" /></a>
+           </div><div id="i_41_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[21]=</td><td class="Output"><img src="Files/Convolute/O_21.gif" height="42" width="154" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_43')" onmouseover="javascript:return(true);">In[22]:=</a></td><td class="Input"><div>
+            <a name="2045548358"></a>
+            <a href="javascript:input('i_43')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_44.gif" height="49" width="145" alt="Click for copyable input" /></a>
+           </div><div id="i_43_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[22]=</td><td class="Output"><img src="Files/Convolute/O_22.gif" height="42" width="154" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_45')" onmouseover="javascript:return(true);">In[23]:=</a></td><td class="Input"><div>
+            <a name="1793379008"></a>
+            <a href="javascript:input('i_45')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_46.gif" height="17" width="152" alt="Click for copyable input" /></a>
+           </div><div id="i_45_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[23]=</td><td class="Output"><img src="Files/Convolute/O_23.gif" height="15" width="159" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_47')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+            <a name="1760428538"></a>
+            <a href="javascript:input('i_47')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_48.gif" height="17" width="141" alt="Click for copyable input" /></a>
+           </div><div id="i_47_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/Convolute/O_24.gif" height="15" width="159" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_49')" onmouseover="javascript:return(true);">In[25]:=</a></td><td class="Input"><div>
+            <a name="379553048"></a>
+            <a href="javascript:input('i_49')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_50.gif" height="49" width="194" alt="Click for copyable input" /></a>
+           </div><div id="i_49_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[25]=</td><td class="Output"><img src="Files/Convolute/O_25.gif" height="47" width="174" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_51')" onmouseover="javascript:return(true);">In[26]:=</a></td><td class="Input"><div>
+            <a name="1743318528"></a>
+            <a href="javascript:input('i_51')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_52.gif" height="49" width="227" alt="Click for copyable input" /></a>
+           </div><div id="i_51_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[26]=</td><td class="Output"><img src="Files/Convolute/O_26.gif" height="45" width="171" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_53')" onmouseover="javascript:return(true);">In[27]:=</a></td><td class="Input"><div>
+            <a name="1987067231"></a>
+            <a href="javascript:input('i_53')" onmouseover="javascript:return(true);"><img src="Files/Convolute/I_54.gif" height="49" width="200" alt="Click for copyable input" /></a>
+           </div><div id="i_53_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[27]=</td><td class="Output"><img src="Files/Convolute/O_27.gif" height="42" width="130" alt="" /></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="573828711"></a><a href="../ref/PlusDistribution.html">PlusDistribution</a>, <a href="../ref/ConvoluteTable.html">ConvoluteTable</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

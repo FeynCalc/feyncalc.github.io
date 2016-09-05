@@ -1,0 +1,1 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>a2 = DiracGammaExpand[a1]</pre><div class='IFU'><a name='324312499'></a>http://wolfram.com/xid/0dot6agzccymmitn9o9gy-fndfet</div>

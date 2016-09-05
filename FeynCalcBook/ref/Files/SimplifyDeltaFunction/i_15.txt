@@ -1,0 +1,2 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>PolyLog[2, 1 - x] DeltaFunctionPrime[1 - x];
+SimplifyDeltaFunction[ %, x]</pre><div class='IFU'><a name='523290366'></a>http://wolfram.com/xid/0vsxr48l0aa9magnpzp8lm6-ixt7ps</div>

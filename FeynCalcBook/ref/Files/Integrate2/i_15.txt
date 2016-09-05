@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>Integrate2[PolyLog[2, 1 - x]/(1 - x)^2, {x, 0, 1}]</pre><div class='IFU'><a name='1940746510'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-6dq7vk</div>

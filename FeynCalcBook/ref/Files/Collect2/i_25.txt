@@ -1,0 +1,2 @@
+<pre name='i_25_in' id='i_25_in' class='IFT'>exp = Sum[h[i], {i, 1, 200000}]*a + Sum[g[i], {i, 1, 200000}]*b + 
+   Sum[j[i], {i, 1, 200000}]*c;</pre><div class='IFU'><a name='18062506'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-k1fek</div>

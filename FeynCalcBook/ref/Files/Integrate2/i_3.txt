@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Integrate2[PolyLog[2, x^2], {x, 0, 1}]</pre><div class='IFU'><a name='546710902'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-jbr638</div>

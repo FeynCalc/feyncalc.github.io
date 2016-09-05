@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SimplifyPolyLog&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="SimplifyPolyLog" />
+
+<meta name="description" content="SimplifyPolyLog[y] performs several simplifications assuming that the variables occuring in the Log and PolyLog functions are between 0 and 1. " />
+<script language="JavaScript" type="text/javascript">baselang='SimplifyPolyLog';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>SimplifyPolyLog</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/SimplifyPolyLog/1.png" height="21" width="123" alt="" /></span> <br />performs several simplifications assuming that the variables occuring in the Log and PolyLog functions are between 0 and 1. </p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+           <a name="258376485"></a>
+           <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_2.gif" height="17" width="237" alt="Click for copyable input" /></a>
+          </div><div id="i_1_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="312810151"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_4.gif" height="17" width="143" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_1.gif" height="43" width="465" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="533586750"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_6.gif" height="17" width="123" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_2.gif" height="15" width="295" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="1083087116"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_8.gif" height="17" width="166" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_3.gif" height="21" width="436" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="273399044"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_10.gif" height="17" width="143" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_4.gif" height="21" width="415" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="1780815312"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_12.gif" height="17" width="190" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_5.gif" height="41" width="445" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="189309767"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_14.gif" height="17" width="179" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_6.gif" height="41" width="435" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="1734664877"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_16.gif" height="17" width="205" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_7.gif" height="41" width="248" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="128811971"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_18.gif" height="17" width="154" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_8.gif" height="47" width="289" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="919109136"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_20.gif" height="17" width="146" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_9.gif" height="15" width="29" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="418960340"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_22.gif" height="17" width="143" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_10.gif" height="43" width="407" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+            <a name="1663942518"></a>
+            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_24.gif" height="17" width="190" alt="Click for copyable input" /></a>
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_11.gif" height="87" width="505" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+            <a name="1897345533"></a>
+            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_26.gif" height="17" width="166" alt="Click for copyable input" /></a>
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_12.gif" height="96" width="413" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+            <a name="2143666635"></a>
+            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_28.gif" height="17" width="190" alt="Click for copyable input" /></a>
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_13.gif" height="158" width="525" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+            <a name="1854005981"></a>
+            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_30.gif" height="17" width="122" alt="Click for copyable input" /></a>
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_14.gif" height="44" width="175" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+            <a name="1150742435"></a>
+            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_32.gif" height="17" width="99" alt="Click for copyable input" /></a>
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_15.gif" height="43" width="120" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
+            <a name="1515894413"></a>
+            <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_34.gif" height="17" width="107" alt="Click for copyable input" /></a>
+           </div><div id="i_33_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_16.gif" height="43" width="181" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
+            <a name="1072815012"></a>
+            <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_36.gif" height="17" width="104" alt="Click for copyable input" /></a>
+           </div><div id="i_35_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_17.gif" height="37" width="202" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[19]:=</a></td><td class="Input"><div>
+            <a name="1622675607"></a>
+            <a href="javascript:input('i_37')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_38.gif" height="17" width="106" alt="Click for copyable input" /></a>
+           </div><div id="i_37_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/SimplifyPolyLog/O_18.gif" height="37" width="205" alt="" /></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
+           <a name="1270078266"></a>
+           <a href="javascript:input('i_39')" onmouseover="javascript:return(true);"><img src="Files/SimplifyPolyLog/I_40.gif" height="17" width="67" alt="Click for copyable input" /></a>
+          </div><div id="i_39_out" class="IFL"></div></td></tr>
+       </table>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="1770209649"></a><a href="../ref/Nielsen.html">Nielsen</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

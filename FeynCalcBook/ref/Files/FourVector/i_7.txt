@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>StandardForm[FourVector[p, \[Mu], Dimension -&gt; D]]</pre><div class='IFU'><a name='438982417'></a>http://wolfram.com/xid/0b67y1d1vpag752hsgey-hjm7ab</div>

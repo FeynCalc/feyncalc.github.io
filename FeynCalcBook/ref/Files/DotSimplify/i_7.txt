@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>DeclareNonCommutative[a, b, c]</pre><div class='IFU'><a name='194491386'></a>http://wolfram.com/xid/0b67y1d1vpag7527vm6a-dh2wss</div>

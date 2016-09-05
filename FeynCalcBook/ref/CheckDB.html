@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CheckDB&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="CheckDB" />
+
+<meta name="description" content="CheckDB[exp, fil] saves [with Put] or retrieves [with Get] exp from a file fil. It checks if the setting of the option Directory is a valid directory name and if fil is a valid file name and does exist. If it does, Get[fil] is executed. If fil does not exist, exp gets evaluated and saved to fil. Saving and evaluating can be further controlled with the options ForceSave and NoSave. If the option Check is set to False the return value is what is evaluated [see above]. If Check is set to True the return value is True or False depending on whether the evaluation of exp agrees with what is loaded from fil or fil does not exist. Default value of Check : False. NOTICE : If fil ends with &amp;quot;.Gen&amp;quot; or &amp;quot;.Mod&amp;quot;, the setting of Directory is ignored and fil is saved in the &amp;quot;CouplingVectors&amp;quot; subdirectory of &amp;quot;Phi&amp;quot;. If fil ends with &amp;quot;.Fac&amp;quot;, the setting of Directory is ignored and fil is saved in the &amp;quot;Factors&amp;quot; subdirectory of &amp;quot;Phi&amp;quot;. If fil is a file name with full path, the setting of Directory is also ignored." />
+<script language="JavaScript" type="text/javascript">baselang='CheckDB';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>CheckDB</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/CheckDB/1.png" height="20" width="113" alt="" /></span> <br />saves [with Put] or retrieves [with Get] exp from a file fil. It checks if the setting of the option Directory is a valid directory name and if fil is a valid file name and does exist. If it does, Get[fil] is executed. If fil does not exist, exp gets evaluated and saved to  fil. Saving and evaluating can be further controlled with the options ForceSave and NoSave. If the option Check is set to False  the return value is what is evaluated [see above]. If Check is set to True the return value is True or False depending on whether the evaluation of exp agrees with what is loaded from fil or fil does not exist.  Default value of Check : False.
+NOTICE : If fil ends with &quot;.Gen&quot; or &quot;.Mod&quot;, the   setting of Directory is ignored and fil is  saved in the &quot;CouplingVectors&quot;  subdirectory of &quot;Phi&quot;. If fil ends with  &quot;.Fac&quot;, the setting of Directory is  ignored and fil is saved in the &quot;Factors&quot; subdirectory of &quot;Phi&quot;. If fil is a file   name with full path, the setting of  Directory is also ignored.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+    <h3 class="Subsubsection"><a name="647730640"></a>Examples</h3>
+    <div class="IO">
+     <table class="InCell">
+      <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+         <a name="2004487562"></a>
+         <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/CheckDB/I_2.gif" height="17" width="116" alt="Click for copyable input" /></a>
+        </div><div id="i_1_out" class="IFL"></div></td></tr>
+     </table>
+     <table class="OCell">
+      <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/CheckDB/O_1.gif" height="35" width="380" alt="" /></td></tr>
+     </table>
+    </div>
+    <div class="IO">
+     <table class="InCell">
+      <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <a name="62116505"></a>
+         <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/CheckDB/I_4.gif" height="17" width="131" alt="Click for copyable input" /></a>
+        </div><div id="i_3_out" class="IFL"></div></td></tr>
+     </table>
+     <table class="OCell">
+      <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/CheckDB/O_2.gif" height="15" width="73" alt="" /></td></tr>
+     </table>
+    </div>
+    <div class="Text"><a name="1632453918"></a>The first time the Table function is evaluated and the result saved into the test.s file.</div>
+    <div class="IO">
+     <table class="InCell">
+      <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+         <a name="1433287094"></a>
+         <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/CheckDB/I_6.gif" height="17" width="441" alt="Click for copyable input" /></a>
+        </div><div id="i_5_out" class="IFL"></div></td></tr>
+     </table>
+     <div class="Print">
+      <a name="670482458"></a>
+      <img class="FlushInput"
+          src="Files/CheckDB/Image_2.gif"
+          alt=" " />
+     </div>
+     <table class="OCell">
+      <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/CheckDB/O_3.gif" height="15" width="36" alt="" /></td></tr>
+     </table>
+    </div>
+    <div class="Text"><a name="342347170"></a>Executing the same a second time will just load the result from test.s and not evaluate the Table function.</div>
+    <div class="IO">
+     <table class="InCell">
+      <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+         <a name="1024102984"></a>
+         <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/CheckDB/I_8.gif" height="17" width="441" alt="Click for copyable input" /></a>
+        </div><div id="i_7_out" class="IFL"></div></td></tr>
+     </table>
+     <table class="OCell">
+      <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/CheckDB/O_4.gif" height="15" width="36" alt="" /></td></tr>
+     </table>
+    </div>
+    <div class="Text"><a name="277506706"></a>This shows the actual saved value of test.s.</div>
+    <div class="IO">
+     <table class="InCell">
+      <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+         <a name="1578936180"></a>
+         <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/CheckDB/I_10.gif" height="17" width="450" alt="Click for copyable input" /></a>
+        </div><div id="i_9_out" class="IFL"></div></td></tr>
+     </table>
+     <table class="OCell">
+      <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/CheckDB/O_5.gif" height="15" width="36" alt="" /></td></tr>
+     </table>
+    </div>
+    <table class="InCell">
+     <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+        <a name="1720430951"></a>
+        <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/CheckDB/I_12.gif" height="17" width="415" alt="Click for copyable input" /></a>
+       </div><div id="i_11_out" class="IFL"></div></td></tr>
+    </table>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

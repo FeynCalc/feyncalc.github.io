@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>ToHypergeometric[t^b (1 - t)^c (1 + t z)^a, t]</pre><div class='IFU'><a name='1435030479'></a>http://wolfram.com/xid/0dot6agzccymmisplul4y-x0nyv1</div>

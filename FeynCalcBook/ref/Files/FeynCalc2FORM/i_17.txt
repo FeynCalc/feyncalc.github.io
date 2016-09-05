@@ -1,0 +1,2 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>DiracTrace[GA[\[Mu], \[Nu]]] DiracTrace[GA[\[Mu], \[Rho]]];
+FeynCalc2FORM[%];</pre><div class='IFU'><a name='1981124799'></a>http://wolfram.com/xid/0ez33esw5zap4vqko24x0c48voea9g-61snyp</div>

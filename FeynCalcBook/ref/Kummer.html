@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kummer&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="Kummer" />
+
+<meta name="description" content="Kummer[i][exp] applies Kummer relation number i (i =1, ... 24, 94,95,96) to all Hypergeometric2F1 in exp. i = 94 corresponds to eq. 9.131.2, i = 95 to eq. 9.132.1 and i = 96 to eq. 9.132.2 in Gradsteyn &amp;amp; Ryzhik." />
+<script language="JavaScript" type="text/javascript">baselang='Kummer';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>Kummer</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/Kummer/1.png" height="20" width="105" alt="" /></span> <br />applies Kummer relation number i (i =1, ... 24, 94,95,96) to all Hypergeometric2F1 in exp. i = 94 corresponds to eq. 9.131.2, i = 95 to eq. 9.132.1 and i = 96 to eq. 9.132.2 in Gradsteyn &amp; Ryzhik.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="318247247"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_2.gif" height="17" width="500" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/Kummer/O_1.gif" height="19" width="353" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="1547382498"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_4.gif" height="17" width="500" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/Kummer/O_2.gif" height="39" width="338" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="87779889"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_6.gif" height="17" width="500" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/Kummer/O_3.gif" height="39" width="338" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="196494184"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_8.gif" height="17" width="546" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/Kummer/O_4.gif" height="19" width="363" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="793293677"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_10.gif" height="37" width="387" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/Kummer/O_5.gif" height="18" width="522" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="39664086"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_12.gif" height="17" width="546" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/Kummer/O_6.gif" height="43" width="326" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="326626360"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_14.gif" height="37" width="387" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/Kummer/O_7.gif" height="43" width="488" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="2096680953"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_16.gif" height="17" width="546" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/Kummer/O_8.gif" height="43" width="326" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="1606284055"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_18.gif" height="37" width="387" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/Kummer/O_9.gif" height="43" width="488" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="1495083835"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_20.gif" height="37" width="344" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/Kummer/O_10.gif" height="43" width="440" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="2086065203"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_22.gif" height="37" width="436" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/Kummer/O_11.gif" height="93" width="376" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+            <a name="764355789"></a>
+            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_24.gif" height="37" width="344" alt="Click for copyable input" /></a>
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/Kummer/O_12.gif" height="42" width="393" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+            <a name="1556461178"></a>
+            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_26.gif" height="37" width="436" alt="Click for copyable input" /></a>
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/Kummer/O_13.gif" height="42" width="532" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+            <a name="487619941"></a>
+            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_28.gif" height="37" width="344" alt="Click for copyable input" /></a>
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/Kummer/O_14.gif" height="43" width="393" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+            <a name="1099088563"></a>
+            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_30.gif" height="37" width="436" alt="Click for copyable input" /></a>
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/Kummer/O_15.gif" height="93" width="402" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+            <a name="598392912"></a>
+            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_32.gif" height="37" width="344" alt="Click for copyable input" /></a>
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/Kummer/O_16.gif" height="43" width="440" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
+            <a name="1367394877"></a>
+            <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_34.gif" height="37" width="438" alt="Click for copyable input" /></a>
+           </div><div id="i_33_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/Kummer/O_17.gif" height="93" width="386" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
+            <a name="2076771032"></a>
+            <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_36.gif" height="37" width="344" alt="Click for copyable input" /></a>
+           </div><div id="i_35_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/Kummer/O_18.gif" height="43" width="377" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[19]:=</a></td><td class="Input"><div>
+            <a name="860912097"></a>
+            <a href="javascript:input('i_37')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_38.gif" height="37" width="438" alt="Click for copyable input" /></a>
+           </div><div id="i_37_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/Kummer/O_19.gif" height="93" width="428" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
+            <a name="1768264658"></a>
+            <a href="javascript:input('i_39')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_40.gif" height="37" width="344" alt="Click for copyable input" /></a>
+           </div><div id="i_39_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[20]=</td><td class="Output"><img src="Files/Kummer/O_20.gif" height="43" width="377" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_41')" onmouseover="javascript:return(true);">In[21]:=</a></td><td class="Input"><div>
+            <a name="1824141612"></a>
+            <a href="javascript:input('i_41')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_42.gif" height="37" width="438" alt="Click for copyable input" /></a>
+           </div><div id="i_41_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[21]=</td><td class="Output"><img src="Files/Kummer/O_21.gif" height="43" width="536" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_43')" onmouseover="javascript:return(true);">In[22]:=</a></td><td class="Input"><div>
+            <a name="748421164"></a>
+            <a href="javascript:input('i_43')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_44.gif" height="37" width="416" alt="Click for copyable input" /></a>
+           </div><div id="i_43_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[22]=</td><td class="Output"><img src="Files/Kummer/O_22.gif" height="19" width="487" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_45')" onmouseover="javascript:return(true);">In[23]:=</a></td><td class="Input"><div>
+            <a name="1906183256"></a>
+            <a href="javascript:input('i_45')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_46.gif" height="17" width="507" alt="Click for copyable input" /></a>
+           </div><div id="i_45_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[23]=</td><td class="Output"><img src="Files/Kummer/O_23.gif" height="19" width="353" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_47')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+            <a name="151044707"></a>
+            <a href="javascript:input('i_47')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_48.gif" height="37" width="416" alt="Click for copyable input" /></a>
+           </div><div id="i_47_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/Kummer/O_24.gif" height="39" width="538" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_49')" onmouseover="javascript:return(true);">In[25]:=</a></td><td class="Input"><div>
+            <a name="1217870653"></a>
+            <a href="javascript:input('i_49')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_50.gif" height="17" width="507" alt="Click for copyable input" /></a>
+           </div><div id="i_49_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[25]=</td><td class="Output"><img src="Files/Kummer/O_25.gif" height="39" width="328" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_51')" onmouseover="javascript:return(true);">In[26]:=</a></td><td class="Input"><div>
+            <a name="1953071601"></a>
+            <a href="javascript:input('i_51')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_52.gif" height="37" width="416" alt="Click for copyable input" /></a>
+           </div><div id="i_51_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[26]=</td><td class="Output"><img src="Files/Kummer/O_26.gif" height="39" width="538" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_53')" onmouseover="javascript:return(true);">In[27]:=</a></td><td class="Input"><div>
+            <a name="1999495516"></a>
+            <a href="javascript:input('i_53')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_54.gif" height="17" width="507" alt="Click for copyable input" /></a>
+           </div><div id="i_53_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[27]=</td><td class="Output"><img src="Files/Kummer/O_27.gif" height="39" width="328" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_55')" onmouseover="javascript:return(true);">In[28]:=</a></td><td class="Input"><div>
+            <a name="834381322"></a>
+            <a href="javascript:input('i_55')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_56.gif" height="37" width="440" alt="Click for copyable input" /></a>
+           </div><div id="i_55_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[28]=</td><td class="Output"><img src="Files/Kummer/O_28.gif" height="18" width="542" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_57')" onmouseover="javascript:return(true);">In[29]:=</a></td><td class="Input"><div>
+            <a name="2015364677"></a>
+            <a href="javascript:input('i_57')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_58.gif" height="17" width="553" alt="Click for copyable input" /></a>
+           </div><div id="i_57_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[29]=</td><td class="Output"><img src="Files/Kummer/O_29.gif" height="19" width="363" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_59')" onmouseover="javascript:return(true);">In[30]:=</a></td><td class="Input"><div>
+            <a name="71156327"></a>
+            <a href="javascript:input('i_59')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_60.gif" height="37" width="440" alt="Click for copyable input" /></a>
+           </div><div id="i_59_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[30]=</td><td class="Output"><img src="Files/Kummer/O_30.gif" height="63" width="355" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_61')" onmouseover="javascript:return(true);">In[31]:=</a></td><td class="Input"><div>
+            <a name="899498003"></a>
+            <a href="javascript:input('i_61')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_62.gif" height="17" width="553" alt="Click for copyable input" /></a>
+           </div><div id="i_61_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[31]=</td><td class="Output"><img src="Files/Kummer/O_31.gif" height="43" width="372" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_63')" onmouseover="javascript:return(true);">In[32]:=</a></td><td class="Input"><div>
+            <a name="735406262"></a>
+            <a href="javascript:input('i_63')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_64.gif" height="37" width="440" alt="Click for copyable input" /></a>
+           </div><div id="i_63_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[32]=</td><td class="Output"><img src="Files/Kummer/O_32.gif" height="43" width="561" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_65')" onmouseover="javascript:return(true);">In[33]:=</a></td><td class="Input"><div>
+            <a name="812767727"></a>
+            <a href="javascript:input('i_65')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_66.gif" height="17" width="553" alt="Click for copyable input" /></a>
+           </div><div id="i_65_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[33]=</td><td class="Output"><img src="Files/Kummer/O_33.gif" height="43" width="326" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_67')" onmouseover="javascript:return(true);">In[34]:=</a></td><td class="Input"><div>
+            <a name="1807092891"></a>
+            <a href="javascript:input('i_67')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_68.gif" height="17" width="507" alt="Click for copyable input" /></a>
+           </div><div id="i_67_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[34]=</td><td class="Output"><img src="Files/Kummer/O_34.gif" height="125" width="478" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_69')" onmouseover="javascript:return(true);">In[35]:=</a></td><td class="Input"><div>
+            <a name="434139577"></a>
+            <a href="javascript:input('i_69')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_70.gif" height="17" width="507" alt="Click for copyable input" /></a>
+           </div><div id="i_69_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[35]=</td><td class="Output"><img src="Files/Kummer/O_35.gif" height="125" width="468" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_71')" onmouseover="javascript:return(true);">In[36]:=</a></td><td class="Input"><div>
+            <a name="467969472"></a>
+            <a href="javascript:input('i_71')" onmouseover="javascript:return(true);"><img src="Files/Kummer/I_72.gif" height="17" width="507" alt="Click for copyable input" /></a>
+           </div><div id="i_71_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[36]=</td><td class="Output"><img src="Files/Kummer/O_36.gif" height="125" width="482" alt="" /></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="1248445733"></a><a href="../ref/HypergeometricAC.html">HypergeometricAC</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

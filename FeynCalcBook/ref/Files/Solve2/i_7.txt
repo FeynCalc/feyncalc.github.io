@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>Solve2[x + y, x, FinalSubstitutions -&gt; {y -&gt; h}]</pre><div class='IFU'><a name='455409208'></a>http://wolfram.com/xid/0tn9depw6mpqkcdebq-hte992</div>

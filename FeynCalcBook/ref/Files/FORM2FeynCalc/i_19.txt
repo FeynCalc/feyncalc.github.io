@@ -1,0 +1,2 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>FORM2FeynCalc[&quot;p(mu)*q(nu)+d_(mu,nu)&quot;, 
+ Replace -&gt; {mu -&gt; \[Mu], nu -&gt; \[Nu]}]</pre><div class='IFU'><a name='1352382070'></a>http://wolfram.com/xid/0cdri8akgdehbvtjmmehtkw7d6r54yy-wngiyw</div>

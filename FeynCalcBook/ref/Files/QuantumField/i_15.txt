@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>QuantumField[A, {OPEDelta}, {a}] // StandardForm</pre><div class='IFU'><a name='511543671'></a>http://wolfram.com/xid/0nwhua02ikznm8qua1e8u-iqufwp</div>

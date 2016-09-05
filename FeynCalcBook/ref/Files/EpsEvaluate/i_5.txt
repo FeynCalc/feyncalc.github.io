@@ -1,0 +1,4 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>Trick[LeviCivita[\[Mu], \[Nu], \[Rho], \[Sigma]] FourVector[
+   p + q, \[Sigma]]];
+EpsEvaluate[%];
+StandardForm[%]</pre><div class='IFU'><a name='1124825353'></a>http://wolfram.com/xid/04w9abyjsyddce07rxqs-svy62z</div>

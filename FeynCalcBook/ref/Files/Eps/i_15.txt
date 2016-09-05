@@ -1,0 +1,2 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>a1 = Eps[LorentzIndex[\[Mu], D], LorentzIndex[\[Nu], D], 
+  LorentzIndex[\[Rho], D], LorentzIndex[\[Sigma], D]]</pre><div class='IFU'><a name='49792760'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-3ximi</div>

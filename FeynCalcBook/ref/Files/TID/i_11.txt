@@ -1,0 +1,5 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FCClearScalarProducts[];
+SPD[Subscript[p, 1], Subscript[p, 1]] = 0;
+SPD[Subscript[p, 2], Subscript[p, 2]] = 0;
+SPD[Subscript[p, 1], Subscript[p, 2]] = 0;
+TID[int, k]</pre><div class='IFU'><a name='1842388488'></a>http://wolfram.com/xid/0v3h9arvjn9n3lydb-4q62ca</div>

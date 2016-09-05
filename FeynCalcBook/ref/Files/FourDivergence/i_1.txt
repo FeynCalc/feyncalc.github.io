@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>t = ScalarProduct[p, q]</pre><div class='IFU'><a name='1686706616'></a>http://wolfram.com/xid/0k1l07rf5aaryahu5rw81ho-16h9fu</div>

@@ -1,0 +1,1 @@
+<pre name='i_47_in' id='i_47_in' class='IFT'>t8 = DiracTrace[f[SUNIndex[a]] DiracMatrix[\[Mu]].DiracMatrix[\[Nu]]]</pre><div class='IFU'><a name='1263731064'></a>http://wolfram.com/xid/0bcjf11ba4ib03moby3f50jle-u6ofey</div>

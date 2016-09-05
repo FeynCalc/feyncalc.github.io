@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>$LeviCivitaSign = -I;
+Tr[GA[\[Mu], \[Nu], \[Rho], \[Sigma], 5]]</pre><div class='IFU'><a name='1075951969'></a>http://wolfram.com/xid/0cxtaw2rnl3r68y3eo2mpwpr2552w-r2vn4z</div>

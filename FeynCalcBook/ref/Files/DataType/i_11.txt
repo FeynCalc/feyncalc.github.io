@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>ptest2[x_] := x /. (-1)^n_ /; DataType[n, even] :&gt; 1;</pre><div class='IFU'><a name='1543768294'></a>http://wolfram.com/xid/0eld2y9rdg1pwiueq5q-zteliw</div>

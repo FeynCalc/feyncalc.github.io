@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>FileNameJoin[{$FeynCalcDirectory, &quot;Examples&quot;}]</pre><div class='IFU'><a name='1220639322'></a>http://wolfram.com/xid/0fqk91eolmr4rpqxm-ug0tl4</div>

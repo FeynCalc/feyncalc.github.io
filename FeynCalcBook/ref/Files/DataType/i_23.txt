@@ -1,0 +1,1 @@
+<pre name='i_23_in' id='i_23_in' class='IFT'>f[x_] := x /. {(-1)^p_ /; DataType[p, ganzeZahl] :&gt; 1};</pre><div class='IFU'><a name='846476868'></a>http://wolfram.com/xid/0eld2y9rdg1pwiueq5q-n9870m</div>

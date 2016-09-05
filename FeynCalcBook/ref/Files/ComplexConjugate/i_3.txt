@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>ComplexConjugate[MetricTensor[\[Mu], \[Nu]]];
+StandardForm[%]</pre><div class='IFU'><a name='138437204'></a>http://wolfram.com/xid/0dot6agzccymmirv6bbn2-ckpg36</div>

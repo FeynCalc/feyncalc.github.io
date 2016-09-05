@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>CrossProduct[ThreeVector[a], 
+ CrossProduct[ThreeVector[b], ThreeVector[c]]]</pre><div class='IFU'><a name='1337031083'></a>http://wolfram.com/xid/0bzj8admtbmggei7zc0wa-webh2l</div>

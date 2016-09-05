@@ -1,0 +1,3 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>FCClearScalarProducts[];
+int = FAD[{k, m}, k - Subscript[p, 1], k - Subscript[p, 2]] FVD[
+    k, \[Mu]] // FCI</pre><div class='IFU'><a name='1762979144'></a>http://wolfram.com/xid/0v3h9arvjn9n3lydb-3fw1o6</div>

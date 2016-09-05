@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>CommutatorExplicit[AntiCommutator[a + b, a - 2 b ]]</pre><div class='IFU'><a name='1495920503'></a>http://wolfram.com/xid/0bmo85gxinschsbsjcmw0bi-y0w1xl</div>

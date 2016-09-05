@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>SetOptions[Twist2GluonOperator, Polarization -&gt; 1, Explicit -&gt; All];</pre><div class='IFU'><a name='1824993691'></a>http://wolfram.com/xid/0bl1sloiyx608rkk3w4djlw5hmrdq-4gt8fh</div>

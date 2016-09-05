@@ -1,0 +1,2 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>FourVector[p, \[Mu]] DiracMatrix[\[Mu]];
+Contract[%]</pre><div class='IFU'><a name='1342373134'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-whhz0w</div>

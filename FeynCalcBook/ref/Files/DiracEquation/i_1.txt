@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>Spinor[Momentum[p], m, 1].DiracGamma[Momentum[p]]</pre><div class='IFU'><a name='1948002457'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lvr2-6h2qln</div>

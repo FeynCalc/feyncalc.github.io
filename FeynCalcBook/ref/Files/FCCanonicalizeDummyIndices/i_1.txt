@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>FVD[q, mu] FVD[p, mu] + FVD[q, nu] FVD[p, nu] + FVD[q, si] FVD[r, si]</pre><div class='IFU'><a name='720389846'></a>http://wolfram.com/xid/0u774fkk3gs1t9rxa6q8b8xnlajjs5rv70q-l66qnc</div>

@@ -1,0 +1,2 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>SP[p - q, q - r] // FCI;
+% /. Pair -&gt; ExpandScalarProduct</pre><div class='IFU'><a name='311719391'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybdxahjxcju-ffvih9</div>

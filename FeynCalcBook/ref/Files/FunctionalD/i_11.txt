@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>F1 = FieldStrength[\[Mu], \[Nu], a, {A, b, c}, 1, Explicit -&gt; True]</pre><div class='IFU'><a name='575936469'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-js6lpj</div>

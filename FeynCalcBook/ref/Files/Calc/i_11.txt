@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>GluonVertex[p, 1, q, 2, -p - q, 3];
+Calc[% FVD[p, li1] FVD[q, li2] FVD[-p - q, li3]]</pre><div class='IFU'><a name='1411490249'></a>http://wolfram.com/xid/0fqk91eolmr4ql55m-xmne4r</div>

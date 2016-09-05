@@ -1,0 +1,2 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>ScalarProductCancel[t1, q];
+FeynAmpDenominatorSimplify[%, q]</pre><div class='IFU'><a name='559110996'></a>http://wolfram.com/xid/0isbkgaigz2n8s0vqnwkcqekm-ji5y3a</div>

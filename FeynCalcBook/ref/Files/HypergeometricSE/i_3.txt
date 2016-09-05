@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>HypergeometricSE[Hypergeometric2F1[a, b, c, z], \[Nu]]</pre><div class='IFU'><a name='388138933'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp3rshr8nx-gpdf7b</div>

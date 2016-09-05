@@ -1,0 +1,2 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>Explicit[SumP[1, n/2]];
+% /. n -&gt; 8</pre><div class='IFU'><a name='1663422834'></a>http://wolfram.com/xid/0e4r12d60dd5css1h4-1sm7j4</div>

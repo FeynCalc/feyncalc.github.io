@@ -1,0 +1,1 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>Collect2[Expand[(a - b - c)^3], a, Factoring -&gt; fun]</pre><div class='IFU'><a name='1492093352'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-yym0vu</div>

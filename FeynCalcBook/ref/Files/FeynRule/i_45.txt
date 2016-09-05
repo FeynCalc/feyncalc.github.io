@@ -1,0 +1,4 @@
+<pre name='i_45_in' id='i_45_in' class='IFT'>fi4 = {QuantumField[GaugeField, {\[Mu]}, {a}][p], 
+  QuantumField[GaugeField, {\[Nu]}, {b}][q], 
+  QuantumField[GaugeField, {\[Rho]}, {c}][r], 
+  QuantumField[GaugeField, {\[Sigma]}, {d}][s]}</pre><div class='IFU'><a name='2124540082'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-9e6jwk</div>

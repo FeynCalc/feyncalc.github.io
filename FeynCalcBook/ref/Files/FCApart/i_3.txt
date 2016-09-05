@@ -1,0 +1,3 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Options[FCApart];
+SPD[q, q] FAD[{q, m}]
+FCApart[%, {q}]</pre><div class='IFU'><a name='591868896'></a>http://wolfram.com/xid/0k1l07rf5aaryaia1zc4xpy-j2n28y</div>

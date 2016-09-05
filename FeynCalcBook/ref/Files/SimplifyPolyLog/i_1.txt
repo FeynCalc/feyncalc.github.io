@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>sip[y_] := y == SimplifyPolyLog[y]</pre><div class='IFU'><a name='258376485'></a>http://wolfram.com/xid/0bmo85gxinschsaomii43sa-ej36uv</div>

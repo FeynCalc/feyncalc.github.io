@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>Spinor[p, SmallVariable[m]] // StandardForm</pre><div class='IFU'><a name='557218901'></a>http://wolfram.com/xid/08q4nt52zsdq75zdnaa-jh1e43</div>

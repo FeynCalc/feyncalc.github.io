@@ -1,0 +1,3 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>IFPD[Momentum[p], m];
+% // StandardForm;
+IFPDOff[%, p]</pre><div class='IFU'><a name='480977190'></a>http://wolfram.com/xid/0bmo85gxinschsbn7ky6krw-h8nans</div>

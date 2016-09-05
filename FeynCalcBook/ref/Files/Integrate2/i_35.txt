@@ -1,0 +1,4 @@
+<pre name='i_35_in' id='i_35_in' class='IFT'>Integrate2[
+  x^(OPEm - 1) Log[1 - x] Log[x] Log[1 + x]/(1 + x), {x, 0, 
+   1}] // Simplify;
+% /. OPEm -&gt; 2</pre><div class='IFU'><a name='1839623139'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-4pjsk1</div>

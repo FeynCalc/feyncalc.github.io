@@ -1,0 +1,2 @@
+<pre name='i_31_in' id='i_31_in' class='IFT'>t4 = Twist2QuarkOperator[{p}, {q}, {r, \[Mu], a}, {s, \[Nu], b}, 
+  Polarization -&gt; 0]</pre><div class='IFU'><a name='155964865'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-cu45jn</div>

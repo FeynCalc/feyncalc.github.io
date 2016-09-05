@@ -1,0 +1,3 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>TR[GAD[Subscript[\[Nu], 1], Subscript[\[Nu], 2], Subscript[\[Nu], 3], 
+   Subscript[\[Nu], 4], Subscript[\[Nu], 5], Subscript[\[Nu], 6]].GA[
+   5], West -&gt; False]</pre><div class='IFU'><a name='346772021'></a>http://wolfram.com/xid/0k6v9si2wy9y6x38x-f0qtaf</div>

@@ -1,0 +1,1 @@
+<pre name='i_39_in' id='i_39_in' class='IFT'>g3 = FeynRule[Lagrangian[&quot;QCD&quot;], fii]</pre><div class='IFU'><a name='1456048555'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-yc6gjh</div>

@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FCI[{SD[a, b], SUND[a, b, c], SUNF[a, b, c], FAD[q], 
+  LC[\[Mu], \[Nu], \[Rho], \[Sigma]]}]</pre><div class='IFU'><a name='1030775122'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg0gy1avxvg26-rbzdgk</div>

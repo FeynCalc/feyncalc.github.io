@@ -1,0 +1,2 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>DiracTrace[GA[\[Mu], \[Nu]], DiracTraceEvaluate -&gt; True, FCE -&gt; True];
+% // StandardForm</pre><div class='IFU'><a name='29438835'></a>http://wolfram.com/xid/0dot6agzccymmitn9o70q-rs9fp</div>

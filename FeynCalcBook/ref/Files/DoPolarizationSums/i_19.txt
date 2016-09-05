@@ -1,0 +1,4 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>ptest = Pair[LorentzIndex[\[Mu]], 
+   LorentzIndex[ComplexIndex[\[Mu]]]] Pair[LorentzIndex[\[Mu]], 
+   Momentum[Polarization[p4, -I]]] Pair[
+   LorentzIndex[ComplexIndex[\[Mu]]], Momentum[Polarization[p4, I]]]</pre><div class='IFU'><a name='1927925269'></a>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg-554exz</div>

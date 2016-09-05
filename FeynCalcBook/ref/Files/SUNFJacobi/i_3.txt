@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>SUNF[a, b, c] SUNF[e, f, c] // SUNSimplify[#, SUNFJacobi -&gt; True] &amp;</pre><div class='IFU'><a name='693485776'></a>http://wolfram.com/xid/0teu55sspea5oyha4ovnzga6-lq53b2</div>

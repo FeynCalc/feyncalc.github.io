@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>{GA[\[Mu]], GAD[\[Rho]], GS[p], SP[p, q], MT[\[Alpha], \[Beta]], 
+ FV[p, \[Mu]]}</pre><div class='IFU'><a name='1722777606'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg0gy1avxvg26-2rzdzs</div>

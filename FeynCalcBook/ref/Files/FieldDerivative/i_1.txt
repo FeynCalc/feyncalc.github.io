@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>QuantumField[A, {\[Mu]}][x].QuantumField[B, {\[Nu]}][
+  y].QuantumField[C, {\[Rho]}][x].QuantumField[D, {\[Sigma]}][y]</pre><div class='IFU'><a name='1922686463'></a>http://wolfram.com/xid/0nwhua02ikznm8a0nsg66-52z4nl</div>

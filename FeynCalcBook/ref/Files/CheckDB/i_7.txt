@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>CheckDB[Table[WriteString[&quot;stdout&quot;, &quot;test &quot;]; i, {i, 2}], &quot;test.s&quot;]</pre><div class='IFU'><a name='1024102984'></a>http://wolfram.com/xid/0d35nshtg4an51t9kycl-q70c7e</div>

@@ -1,0 +1,4 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>DotSimplify[ 
+\!\(\*OverscriptBox[\(d\), \(~\)]\) . 
+\!\(\*OverscriptBox[\(c\), \(~\)]\) . 
+\!\(\*OverscriptBox[\(d\), \(~\)]\) ]</pre><div class='IFU'><a name='598753128'></a>http://wolfram.com/xid/0bmo85gxinschsbsjcmw0bi-j6rm5m</div>

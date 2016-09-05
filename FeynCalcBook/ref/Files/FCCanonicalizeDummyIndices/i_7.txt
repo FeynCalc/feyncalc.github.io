@@ -1,0 +1,2 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>Uncontract[SPD[q, p]^2, q, p, Pair -&gt; All];
+FCCanonicalizeDummyIndices[%, LorentzIndexNames -&gt; {\[Mu], \[Nu]}]</pre><div class='IFU'><a name='151485661'></a>http://wolfram.com/xid/0u774fkk3gs1t9rxa6q8b8xnlajjs5rv70q-csg5db</div>

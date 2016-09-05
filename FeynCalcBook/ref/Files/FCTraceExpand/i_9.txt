@@ -1,0 +1,2 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>dtr2 = a*DiracTrace[GA[mu].(GS[p1] + m1).GA[nu]] + 
+  b*DiracTrace[GA[mu].(GS[p2] + m2).GA[nu]]</pre><div class='IFU'><a name='312665650'></a>http://wolfram.com/xid/0fnx5q0u7sai4aeanz0iiua-fgfsm8</div>

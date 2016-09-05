@@ -1,0 +1,1 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>GluonPropagator[p, \[Mu], a, \[Nu], b, CounterTerm -&gt; 3] // Explicit</pre><div class='IFU'><a name='2062559987'></a>http://wolfram.com/xid/0br0qd3s106ml2q4lw9538hxju1a-8d93q9</div>

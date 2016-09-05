@@ -1,0 +1,2 @@
+<pre name='i_63_in' id='i_63_in' class='IFT'>Hypergeometric2F1[c - a, c - b, c + 1 - a - b, 1 - z] == 
+ Kummer[24][Hypergeometric2F1[c - a, c - b, c + 1 - a - b, 1 - z]]</pre><div class='IFU'><a name='735406262'></a>http://wolfram.com/xid/0d35nshtg4an51y5os9m-mf4ld0</div>

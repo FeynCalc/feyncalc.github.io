@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FunctionalD&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="FunctionalD" />
+
+<meta name="description" content="FunctionalD[expr, {QuantumField[name, {mu}, {a}][p], ...}] calculates the functional derivative of expr with respect to the field list (with incoming momenta p etc.) and does the fourier transform. FunctionalD[expr, {QuantumField[name, {mu},{a}], ...}] calculates the functional derivative and does partial integration but omits the x-space delta functions. FunctionalD is a low level function used in FeynRule." />
+<script language="JavaScript" type="text/javascript">baselang='FunctionalD';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>FunctionalD</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/FunctionalD/1.png" height="21" width="394" alt="" /></span> <br />calculates the functional derivative of expr with respect to the field list (with incoming momenta p etc.) and does the fourier transform. FunctionalD[expr, {QuantumField[name, {mu},{a}], ...}] calculates the functional derivative and does partial integration but omits the x-space delta functions.
+
+FunctionalD is a low level function used in FeynRule.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="Text"><a name="2064540691"></a>Instead of the usual <img src="Files/FunctionalD/2.png" height="20" width="184" style="vertical-align:middle;" alt="deltaphi(x)/deltaphi(y)=delta^((D))(x-y)" title="deltaphi(x)/deltaphi(y)=delta^((D))(x-y)" /> the arguments and the <span class="special-character Delta">&#948;</span> function are omitted, i.e., for the program for simplicity: <img src="Files/FunctionalD/3.png" height="17" width="69" style="vertical-align:middle;" alt="deltaphi/deltaphi=1" title="deltaphi/deltaphi=1" /></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="622999086"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_2.gif" height="17" width="318" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/FunctionalD/O_1.gif" height="15" width="7" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="272557122"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_4.gif" height="17" width="338" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/FunctionalD/O_2.gif" height="15" width="22" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="412822781"></a>Instead of the usual <img src="Files/FunctionalD/4.png" height="22" width="237" style="vertical-align:middle;" alt="(delta partial_muphi(x))/deltaphi(y)=partial_mudelta^((D))(x-y)" title="(delta partial_muphi(x))/deltaphi(y)=partial_mudelta^((D))(x-y)" /> the arguments are omitted, and the <img src="Files/FunctionalD/5.png" height="19" width="17" style="vertical-align:middle;" alt="partial_mu" title="partial_mu" />operator is specified by default to be an integration by parts operator, i.e., the right hand side will be just <img src="Files/FunctionalD/6.png" height="15" width="28" style="vertical-align:middle;" alt="Null," title="Null," /> or, more precisely (by default) <img src="Files/FunctionalD/CellNone_8.png" height="27" width="30" alt="" style="vertical-align:middle;" />.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="1655052767"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_6.gif" height="17" width="416" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/FunctionalD/O_3.gif" height="27" width="30" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text">
+        <a name="726694991"></a>
+        <img src="Files/FunctionalD/9.png"
+            height="20"
+            width="348"
+            style="vertical-align:middle;"
+            alt="S[phi] =1/2int d^Dx [ partial_muphi(x) partial^muphi(x)-m^2phi(x) phi(y)]"
+            title="S[phi] =1/2int d^Dx [ partial_muphi(x) partial^muphi(x)-m^2phi(x) phi(y)]" />
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="593299923"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_8.gif" height="37" width="490" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/FunctionalD/O_4.gif" height="41" width="159" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="1102630385"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_10.gif" height="17" width="239" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/FunctionalD/O_5.gif" height="21" width="123" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text">
+        <a name="820504742"></a>
+        <img src="Files/FunctionalD/CellNone_11.png"
+            height="28"
+            width="221"
+            alt=""
+            style="vertical-align:middle;" />
+       </div>
+       <div class="Text">
+        <a name="883647128"></a>
+        <strong>First approach</strong>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="575936469"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_12.gif" height="17" width="369" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/FunctionalD/O_6.gif" height="23" width="189" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="1966798854"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_14.gif" height="17" width="368" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/FunctionalD/O_7.gif" height="23" width="187" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="733226876"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_16.gif" height="17" width="130" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/FunctionalD/O_8.gif" height="41" width="431" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1999439773"></a>In order to derive the equation of motion the functional derivative of <img src="Files/FunctionalD/12.png" height="15" width="10" style="vertical-align:middle;" alt="S" title="S" /> with respect to <img src="Files/FunctionalD/CellNone_14.png" height="18" width="21" alt="" style="vertical-align:middle;" />has to be set to zero. Bearing in mind that for FeynCalc we have to be precise as to where which operators (coming from the substitution of the derivative of the <span class="special-character Delta">&#948;</span> function) act:, act with the functional derivative operator on the first field strength:</div>
+       <div class="Text">
+        <a name="1758153070"></a>
+        <img src="Files/FunctionalD/CellNone_16.png"
+            height="20"
+            width="385"
+            alt=""
+            style="vertical-align:middle;" />
+        <img src="Files/FunctionalD/CellNone_18.png"
+            height="18"
+            width="56"
+            alt=""
+            style="vertical-align:middle;" />
+       </div>
+       <div class="Text">
+        <a name="833531771"></a>
+        <img src="Files/FunctionalD/CellNone_20.png"
+            height="19"
+            width="297"
+            alt=""
+            style="vertical-align:middle;" />
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="371171043"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_18.gif" height="17" width="211" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/FunctionalD/O_9.gif" height="20" width="20" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="2041925168"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_20.gif" height="17" width="160" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/FunctionalD/O_10.gif" height="28" width="441" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="133774632"></a>In order to minimize the number of dummy indices, replace b <span class="special-character Rule">&#62754;</span> c.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="1339957551"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_22.gif" height="17" width="107" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/FunctionalD/O_11.gif" height="28" width="439" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1685160773"></a>Instead of inserting the definition for the second <img src="Files/FunctionalD/CellNone_22.png" height="18" width="26" alt="" style="vertical-align:middle;" />, introduce a QuantumField object with antisymmetry built into the Lorentz indices:</div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+           <a name="324247296"></a>
+           <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_24.gif" height="37" width="388" alt="Click for copyable input" /></a>
+          </div><div id="i_23_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+            <a name="659226066"></a>
+            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_26.gif" height="17" width="194" alt="Click for copyable input" /></a>
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/FunctionalD/O_12.gif" height="19" width="26" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+            <a name="2097130638"></a>
+            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_28.gif" height="17" width="133" alt="Click for copyable input" /></a>
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/FunctionalD/O_13.gif" height="19" width="36" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+            <a name="1711609273"></a>
+            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_30.gif" height="56" width="550" alt="Click for copyable input" /></a>
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/FunctionalD/O_14.gif" height="41" width="392" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+            <a name="1021322617"></a>
+            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_32.gif" height="17" width="109" alt="Click for copyable input" /></a>
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/FunctionalD/O_15.gif" height="22" width="154" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
+            <a name="2111632726"></a>
+            <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_34.gif" height="17" width="314" alt="Click for copyable input" /></a>
+           </div><div id="i_33_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/FunctionalD/O_16.gif" height="22" width="154" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1366711149"></a>Since the variational derivative vanishes t4 implies that 0 = <img src="Files/FunctionalD/CellNone_24.png" height="20" width="50" alt="" style="vertical-align:middle;" /> .</div>
+       <div class="Text">
+        <a name="1672341951"></a>
+        <strong>Second approach</strong>
+       </div>
+       <div class="Text"><a name="680079191"></a>It is of course also possible to do the functional deriviate on the S[A] with both field strength tensors inserted.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
+            <a name="1996431184"></a>
+            <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_36.gif" height="17" width="34" alt="Click for copyable input" /></a>
+           </div><div id="i_35_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/FunctionalD/O_17.gif" height="41" width="431" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[19]:=</a></td><td class="Input"><div>
+            <a name="1238326201"></a>
+            <a href="javascript:input('i_37')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_38.gif" height="17" width="178" alt="Click for copyable input" /></a>
+           </div><div id="i_37_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/FunctionalD/O_18.gif" height="335" width="544" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1367707502"></a>This is just funcional derivation and partial integration and simple contraction of indices. No attempt is made to rename dummy indices (since this is difficult in general).</div>
+       <div class="Text"><a name="1173793345"></a>With a general replacement rule only valid for commuting fields the color indices can be canonicalized a bit more. The idea is to use the commutative properties of the vector fields, and canonicalize the color indices by a trick. This function will work on any commuting product of fields.</div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
+           <a name="62943147"></a>
+           <a href="javascript:input('i_39')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_40.gif" height="17" width="99" alt="Click for copyable input" /></a>
+          </div><div id="i_39_out" class="IFL"></div></td></tr>
+       </table>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_41')" onmouseover="javascript:return(true);">In[21]:=</a></td><td class="Input"><div>
+           <a name="915301036"></a>
+           <a href="javascript:input('i_41')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_42.gif" height="151" width="552" alt="Click for copyable input" /></a>
+          </div><div id="i_41_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_43')" onmouseover="javascript:return(true);">In[22]:=</a></td><td class="Input"><div>
+            <a name="832685091"></a>
+            <a href="javascript:input('i_43')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_44.gif" height="17" width="127" alt="Click for copyable input" /></a>
+           </div><div id="i_43_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[22]=</td><td class="Output"><img src="Files/FunctionalD/O_19.gif" height="188" width="530" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_45')" onmouseover="javascript:return(true);">In[23]:=</a></td><td class="Input"><div>
+            <a name="706809486"></a>
+            <a href="javascript:input('i_45')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_46.gif" height="17" width="101" alt="Click for copyable input" /></a>
+           </div><div id="i_45_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[23]=</td><td class="Output"><img src="Files/FunctionalD/O_20.gif" height="71" width="480" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="2140946790"></a>Inspection reveals that still terms are the same. Gather the terms with two <img src="Files/FunctionalD/25.png" height="15" width="11" style="vertical-align:middle;" alt="f " title="f " />'s:</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_47')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+            <a name="1693929986"></a>
+            <a href="javascript:input('i_47')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_48.gif" height="17" width="315" alt="Click for copyable input" /></a>
+           </div><div id="i_47_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/FunctionalD/O_21.gif" height="41" width="350" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_49')" onmouseover="javascript:return(true);">In[25]:=</a></td><td class="Input"><div>
+            <a name="1865190780"></a>
+            <a href="javascript:input('i_49')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_50.gif" height="17" width="459" alt="Click for copyable input" /></a>
+           </div><div id="i_49_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[25]=</td><td class="Output"><img src="Files/FunctionalD/O_22.gif" height="23" width="156" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_51')" onmouseover="javascript:return(true);">In[26]:=</a></td><td class="Input"><div>
+            <a name="1416466041"></a>
+            <a href="javascript:input('i_51')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_52.gif" height="17" width="161" alt="Click for copyable input" /></a>
+           </div><div id="i_51_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[26]=</td><td class="Output"><img src="Files/FunctionalD/O_23.gif" height="50" width="395" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1808944377"></a>Check that this is now indeed the same as the t4 result from the first attempt.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_53')" onmouseover="javascript:return(true);">In[27]:=</a></td><td class="Input"><div>
+            <a name="819260412"></a>
+            <a href="javascript:input('i_53')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_54.gif" height="17" width="14" alt="Click for copyable input" /></a>
+           </div><div id="i_53_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[27]=</td><td class="Output"><img src="Files/FunctionalD/O_24.gif" height="22" width="154" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_55')" onmouseover="javascript:return(true);">In[28]:=</a></td><td class="Input"><div>
+            <a name="611111290"></a>
+            <a href="javascript:input('i_55')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_56.gif" height="56" width="393" alt="Click for copyable input" /></a>
+           </div><div id="i_55_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[28]=</td><td class="Output"><img src="Files/FunctionalD/O_25.gif" height="28" width="255" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_57')" onmouseover="javascript:return(true);">In[29]:=</a></td><td class="Input"><div>
+            <a name="1841998165"></a>
+            <a href="javascript:input('i_57')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_58.gif" height="17" width="114" alt="Click for copyable input" /></a>
+           </div><div id="i_57_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[29]=</td><td class="Output"><img src="Files/FunctionalD/O_26.gif" height="30" width="515" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_59')" onmouseover="javascript:return(true);">In[30]:=</a></td><td class="Input"><div>
+            <a name="256131363"></a>
+            <a href="javascript:input('i_59')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_60.gif" height="17" width="257" alt="Click for copyable input" /></a>
+           </div><div id="i_59_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[30]=</td><td class="Output"><img src="Files/FunctionalD/O_27.gif" height="49" width="406" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_61')" onmouseover="javascript:return(true);">In[31]:=</a></td><td class="Input"><div>
+            <a name="1098654926"></a>
+            <a href="javascript:input('i_61')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_62.gif" height="17" width="93" alt="Click for copyable input" /></a>
+           </div><div id="i_61_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[31]=</td><td class="Output"><img src="Files/FunctionalD/O_28.gif" height="71" width="509" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_63')" onmouseover="javascript:return(true);">In[32]:=</a></td><td class="Input"><div>
+            <a name="2122973606"></a>
+            <a href="javascript:input('i_63')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_64.gif" height="17" width="147" alt="Click for copyable input" /></a>
+           </div><div id="i_63_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[32]=</td><td class="Output"><img src="Files/FunctionalD/O_29.gif" height="77" width="506" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="927805887"></a>quod erat demonstrandum.</div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_65')" onmouseover="javascript:return(true);">In[33]:=</a></td><td class="Input"><div>
+           <a name="1348622684"></a>
+           <a href="javascript:input('i_65')" onmouseover="javascript:return(true);"><img src="Files/FunctionalD/I_66.gif" height="37" width="448" alt="Click for copyable input" /></a>
+          </div><div id="i_65_out" class="IFL"></div></td></tr>
+       </table>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="2077547280"></a><a href="../ref/FeynRule.html">FeynRule</a>, <a href="../ref/QuantumField.html">QuantumField</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

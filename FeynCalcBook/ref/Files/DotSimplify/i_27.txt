@@ -1,0 +1,1 @@
+<pre name='i_27_in' id='i_27_in' class='IFT'>DotSimplify[t2, DotSimplifyRelations -&gt; {a.c -&gt; 1/z}]</pre><div class='IFU'><a name='2011362420'></a>http://wolfram.com/xid/0b67y1d1vpag7527vm6a-7jsrgm</div>

@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FeynAmpDenominatorSimplify[
+ FAD[k - Subscript[p, 1], k - Subscript[p, 2]], k]</pre><div class='IFU'><a name='1115628449'></a>http://wolfram.com/xid/0cdri8akgdehbvtiwu3ywe4ld54hwcy-sqh2pf</div>

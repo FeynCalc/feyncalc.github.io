@@ -1,0 +1,3 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>MomentumExpand[Momentum[p + q]] // StandardForm;
+% // StandardForm;
+Calc[%]</pre><div class='IFU'><a name='924306475'></a>http://wolfram.com/xid/0teu55sspea5oyjkieo1t9cy-pkldp5</div>

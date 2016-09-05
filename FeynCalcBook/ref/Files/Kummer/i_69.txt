@@ -1,0 +1,2 @@
+<pre name='i_69_in' id='i_69_in' class='IFT'>Hypergeometric2F1[a, b, c, z] == 
+ Kummer[95][Hypergeometric2F1[a, b, c, z]]</pre><div class='IFU'><a name='434139577'></a>http://wolfram.com/xid/0d35nshtg4an51y5os9m-hgreiz</div>

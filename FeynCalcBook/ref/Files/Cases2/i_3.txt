@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Cases2[Sin[x] Sin[y - z] + g[y], Sin, g]</pre><div class='IFU'><a name='1264635109'></a>http://wolfram.com/xid/0tn9depw6mpqkcjmiu-u67szb</div>

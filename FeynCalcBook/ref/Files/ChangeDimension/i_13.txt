@@ -1,0 +1,3 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>{GA[\[Mu], \[Nu]] MT[\[Mu], \[Nu]], 
+ GAD[\[Mu], \[Nu]] MTD[\[Mu], \[Nu]] f[D]};
+DiracTrick[Contract[ChangeDimension[%%, n]]]</pre><div class='IFU'><a name='443072956'></a>http://wolfram.com/xid/0dot6agzccymmir0joalu-hl2vke</div>

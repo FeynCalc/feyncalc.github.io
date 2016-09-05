@@ -1,0 +1,2 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>f2p = FullSimplify /@ 
+  Factor2[FeynRule[gop, fi, ZeroMomentumInsertion -&gt; False]]</pre><div class='IFU'><a name='1030963620'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-rb3ewm</div>

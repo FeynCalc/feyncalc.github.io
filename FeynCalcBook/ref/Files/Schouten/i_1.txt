@@ -1,0 +1,8 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>t = Sum[\!\(
+\*UnderoverscriptBox[\(\[Sum]\), \(a = 1\), \(4\)]\((SP[k, q[a]] \((
+\*FractionBox[\(1\), \(6\)] Eps[LorentzIndex[a], LorentzIndex[b], 
+         LorentzIndex[c], LorentzIndex[d]] Eps[LorentzIndex[\[Mu]], 
+         Momentum[q[b]], Momentum[q[c]], Momentum[q[d]]])\))\)\), {b, 
+    1, 4}, {c, 1, 4}, {d, 1, 4}] - 
+  Eps[Momentum[q[1]], Momentum[q[2]], Momentum[q[3]], Momentum[q[4]]]*
+   Pair[LorentzIndex[\[Mu]], Momentum[k]]</pre><div class='IFU'><a name='951506865'></a>http://wolfram.com/xid/0gb5m6l6ty1j71b5ar9q8i-p0sdoj</div>

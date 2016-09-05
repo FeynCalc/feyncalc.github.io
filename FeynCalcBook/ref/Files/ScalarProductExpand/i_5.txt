@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'> SP[p1 + p2 + p3, p4 + p5 + p6];
+% // ScalarProductExpand</pre><div class='IFU'><a name='1803662543'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybdxahjxcju-33407l</div>

@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Collect3[2 a (b - a) (h - 1) - b^2 (e a - c) + b^2, {a, b}]</pre><div class='IFU'><a name='956954453'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qt-p3042f</div>

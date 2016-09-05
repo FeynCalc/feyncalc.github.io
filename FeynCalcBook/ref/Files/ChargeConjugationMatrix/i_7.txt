@@ -1,0 +1,2 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>ChargeConjugationMatrix.DiracGamma[5].ChargeConjugationMatrixInv;
+Calc[%]</pre><div class='IFU'><a name='2071243719'></a>http://wolfram.com/xid/0hubfbmhj87ioyzze0oixba7he-8jf751</div>

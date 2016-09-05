@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>FCSymmetrize[f[a, b], {a, b}]</pre><div class='IFU'><a name='848650980'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg0zkzxadu0u2-objtkm</div>

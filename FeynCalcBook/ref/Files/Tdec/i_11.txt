@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>t[[2]] /. t[[1]];
+Contract[% FVD[p, \[Mu]] FVD[p, \[Nu]] FVD[p, \[Rho]]] // Factor</pre><div class='IFU'><a name='1116880881'></a>http://wolfram.com/xid/08q4nt52zsdq76hsivu-sq8w27</div>

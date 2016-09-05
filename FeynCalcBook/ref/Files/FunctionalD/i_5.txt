@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FunctionalD[QuantumField[FCPartialD[\[Mu]], \[Phi]], 
+ QuantumField[\[Phi]]]</pre><div class='IFU'><a name='1655052767'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-1nns59</div>

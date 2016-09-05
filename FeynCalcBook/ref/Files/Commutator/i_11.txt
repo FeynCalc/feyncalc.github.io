@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>\[Chi] = Commutator; DeclareNonCommutative[x, y, z];</pre><div class='IFU'><a name='1446605314'></a>http://wolfram.com/xid/08q4nt52zsdq758mlem-x7j128</div>

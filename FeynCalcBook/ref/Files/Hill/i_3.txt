@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Hill[a, b];
+% /. a :&gt; .123 /. b :&gt; .656 // Chop</pre><div class='IFU'><a name='814240014'></a>http://wolfram.com/xid/0jy9tuh3qgh0fboy09-nq19wg</div>

@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>Collect2[Expand[(x - y - z)^6], x];</pre><div class='IFU'><a name='836037655'></a>http://wolfram.com/xid/0jukp71jhuapzmw6r60vmy22-n31g2h</div>

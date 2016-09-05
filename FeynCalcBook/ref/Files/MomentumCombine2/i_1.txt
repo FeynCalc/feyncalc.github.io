@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>3 Pair[LorentzIndex[\[Mu]], Momentum[p]] + 
+ 2 Pair[LorentzIndex[\[Mu]], Momentum[q]]</pre><div class='IFU'><a name='1495417826'></a>http://wolfram.com/xid/0byqjekzwh1n5jrualqf19bo9b6-y0l92c</div>

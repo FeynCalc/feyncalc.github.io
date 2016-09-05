@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>SelectSplit[{a^2, b^3, c^4, d^5, e^6, f + g, h^4}, {FreeQ[#, Plus] &amp;, 
+  FreeQ[#, Power] &amp;}]</pre><div class='IFU'><a name='292281216'></a>http://wolfram.com/xid/04w9abyjsyddcef420b4-e4avwy</div>

@@ -1,0 +1,2 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>ExpandScalarProduct[ 
+ ScalarProduct[Subscript[p, 1] - q, Subscript[p, 2] - k]]</pre><div class='IFU'><a name='373851414'></a>http://wolfram.com/xid/0dot6agzccymmiq2pj1ca-ggu7vs</div>

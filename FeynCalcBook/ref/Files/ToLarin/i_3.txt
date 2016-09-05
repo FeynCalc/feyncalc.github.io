@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>DiracMatrix[\[Nu]].DiracMatrix[\[Mu]].DiracMatrix[5];
+ToLarin[%]</pre><div class='IFU'><a name='24926200'></a>http://wolfram.com/xid/0dot6agzccymmispk976q-o4jgq</div>

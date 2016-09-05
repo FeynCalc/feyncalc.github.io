@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>D[B1[Subscript[p, 2], Subscript[m, 1]^2, Subscript[m, 
+  2]^2], Subscript[p, 2]]</pre><div class='IFU'><a name='1972383299'></a>http://wolfram.com/xid/0iwhvn88gns5irenue8-6wlay9</div>

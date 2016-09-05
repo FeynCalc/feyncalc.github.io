@@ -1,0 +1,1 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>SUNSimplify[SUNT[a, b, a], SUNNToCACF -&gt; False]</pre><div class='IFU'><a name='568398491'></a>http://wolfram.com/xid/0plrsa4e1mbttcesafkc-joo1c9</div>

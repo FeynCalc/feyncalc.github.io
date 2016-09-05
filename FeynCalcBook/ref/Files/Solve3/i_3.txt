@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Solve3[{2 x == b - w/2, y - d == p}, {x, y}]</pre><div class='IFU'><a name='1175774569'></a>http://wolfram.com/xid/0tn9depw6mpqkcdebp-tqa7qz</div>

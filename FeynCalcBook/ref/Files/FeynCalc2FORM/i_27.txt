@@ -1,0 +1,3 @@
+<pre name='i_27_in' id='i_27_in' class='IFT'>TableForm[
+ ReadList[If[$OperatingSystem === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; &quot;fc2ftest.f&quot;, 
+  String]]</pre><div class='IFU'><a name='69651380'></a>http://wolfram.com/xid/0ez33esw5zap4vqko24x0c48voea9g-bfq5mu</div>

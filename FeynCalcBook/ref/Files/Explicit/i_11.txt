@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FieldStrength[\[Mu], \[Nu], a];
+Explicit[%]</pre><div class='IFU'><a name='1217375686'></a>http://wolfram.com/xid/0cft6mr0tvnz3ejznks-ue2vdk</div>

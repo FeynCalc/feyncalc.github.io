@@ -1,0 +1,2 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>MTD[\[Mu], \[Nu]] . MTD[\[Mu], \[Nu]];
+Contract[%]</pre><div class='IFU'><a name='587791315'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-jz8oyt</div>

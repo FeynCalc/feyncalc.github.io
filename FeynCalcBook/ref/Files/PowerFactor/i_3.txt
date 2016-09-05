@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>x^a y^a;
+PowerFactor[%]</pre><div class='IFU'><a name='485962359'></a>http://wolfram.com/xid/0b67y1d1vpag752r9q6a-ibl48p</div>

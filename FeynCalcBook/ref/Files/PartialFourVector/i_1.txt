@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>PartialFourVector[a E^FourVector[p, \[Nu]]^2, FourVector[p, \[Mu]]]</pre><div class='IFU'><a name='877301924'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybamad15y4q-oslwr6</div>

@@ -1,0 +1,3 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>FCI[GSD[q - p1].(GSD[q - p2] + M).GSD[p3] SPD[q, p2] FAD[q, 
+   q - p1, {q - p2, m}]]
+FCLoopExtract[int, {q}, loopInt]</pre><div class='IFU'><a name='1841949927'></a>http://wolfram.com/xid/0e2fh85wv2ah4ydumhobh9bq-4qxnx1</div>

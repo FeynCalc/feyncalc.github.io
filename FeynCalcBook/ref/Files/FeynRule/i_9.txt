@@ -1,0 +1,2 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>Explicit[gop];
+Cases2[%, QuantumField]</pre><div class='IFU'><a name='1005254277'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-qwsdf7</div>

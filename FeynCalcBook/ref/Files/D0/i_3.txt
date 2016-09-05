@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>PaVeOrder[D0[p10, p12, p23, p30, p20, p13, m1^2, m2^2, m3^2, m4^2], 
+ PaVeOrderList -&gt; {p13, p20}]</pre><div class='IFU'><a name='493215523'></a>http://wolfram.com/xid/0v3h9arvjn9n3l4h3-ifxlth</div>

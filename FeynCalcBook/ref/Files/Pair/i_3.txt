@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Pair[LorentzIndex[\[Alpha], D], LorentzIndex[\[Beta], D]]</pre><div class='IFU'><a name='1359804749'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbg9eq-wrvmcf</div>

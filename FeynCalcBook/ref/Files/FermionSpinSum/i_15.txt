@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>t = Spinor[k1, m].DiracSlash[p].GA[5].Spinor[p1, m]</pre><div class='IFU'><a name='1094170176'></a>http://wolfram.com/xid/04ieufm3d5y7w09uylx6ihwgre-sdp5ea</div>

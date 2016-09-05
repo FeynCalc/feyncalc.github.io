@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>t5 = Calc[DiracSimplify[DiracSigmaExplicit[t4.t4]]]</pre><div class='IFU'><a name='1302843775'></a>http://wolfram.com/xid/0dot6agzccymmitn9o86q-vtyqy5</div>

@@ -1,0 +1,2 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>FORM2FeynCalc[&quot;x + [(1)]*y -[(-1)^m]&quot;];
+ReleaseHold[%]</pre><div class='IFU'><a name='1512515442'></a>http://wolfram.com/xid/0cdri8akgdehbvtjmmehtkw7d6r54yy-zasqn4</div>

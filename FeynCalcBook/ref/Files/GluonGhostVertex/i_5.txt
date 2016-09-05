@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>GluonGhostVertex[{p, \[Mu], a}, {q, \[Nu], b}, {k, \[Rho], c}];
+% // Explicit // StandardForm</pre><div class='IFU'><a name='566433445'></a>http://wolfram.com/xid/0gz3arg4q5btrcd2qnrxibp9xne-jniw4n</div>

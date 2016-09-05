@@ -1,0 +1,5 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>Options[FCApart];
+SPD[q, q] FAD[{q, m}]
+FCApart[%, {q}];
+SPD[q, p] SPD[q, r] FAD[{q}, {q - p}, {q - r}]
+FCApart[%, {q}]</pre><div class='IFU'><a name='1827687893'></a>http://wolfram.com/xid/0k1l07rf5aaryaia1zc4xpy-4ifzaf</div>

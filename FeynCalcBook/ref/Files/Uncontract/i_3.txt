@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>t1 = LeviCivita[\[Mu], \[Nu]][p, q]</pre><div class='IFU'><a name='851114003'></a>http://wolfram.com/xid/0ripg176m1b0q8sqbqq-oc0l1x</div>

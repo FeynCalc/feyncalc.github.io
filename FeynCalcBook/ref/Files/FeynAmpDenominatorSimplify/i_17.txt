@@ -1,0 +1,1 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>FDS[FAD[k - p1, k - p2] SPD[k, OPEDelta]^2, k]</pre><div class='IFU'><a name='188914674'></a>http://wolfram.com/xid/0cdri8akgdehbvtiwu3ywe4ld54hwcy-derdr4</div>

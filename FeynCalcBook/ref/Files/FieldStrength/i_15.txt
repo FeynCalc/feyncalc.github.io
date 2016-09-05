@@ -1,0 +1,2 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>FieldStrength[\[Mu], \[Nu], a, CouplingConstant -&gt; -Gstrong, 
+ Explicit -&gt; True]</pre><div class='IFU'><a name='1847448290'></a>http://wolfram.com/xid/0bmo85gxinschsa8v1w4iqi-4t7iic</div>

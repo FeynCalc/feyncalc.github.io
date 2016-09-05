@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>QuantumField[A, {\[Mu]}].QuantumField[B, {\[Mu]}].LeftPartialD[\[Nu]]</pre><div class='IFU'><a name='1264073129'></a>http://wolfram.com/xid/0e2fh85wv2ah4yebmasfq3cj-u6vrcr</div>

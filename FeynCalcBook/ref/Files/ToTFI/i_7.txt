@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>SOD[q1] SOD[q2] FAD[q1, q1 - p, {q2, M}, {q2 - p, m}, q1 - q2] // FCI</pre><div class='IFU'><a name='47366036'></a>http://wolfram.com/xid/0plrsa4e1mbttck60asx-2hh5i</div>

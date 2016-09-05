@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Eps[LorentzIndex[\[Mu]], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], 
+ LorentzIndex[\[Sigma]]]</pre><div class='IFU'><a name='882253219'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-ovj075</div>

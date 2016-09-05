@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PolarizationVector&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="PolarizationVector" />
+
+<meta name="description" content="PolarizationVector[p, mu] gives a polarization vector." />
+<script language="JavaScript" type="text/javascript">baselang='PolarizationVector';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>PolarizationVector</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/PolarizationVector/1.png" height="20" width="163" alt="" /></span> <br />gives a polarization vector.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="1596092203"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_2.gif" height="17" width="155" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/PolarizationVector/O_1.gif" height="17" width="40" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="597384549"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_4.gif" height="17" width="231" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/PolarizationVector/O_2.gif" height="17" width="47" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1108597225"></a>A polarization vector <img src="Files/PolarizationVector/2.png" height="19" width="38" style="vertical-align:middle;" alt="epsilon_mu(k)" title="epsilon_mu(k)" />is a special four-vector.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="1765549294"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_6.gif" height="17" width="268" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[3]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/PolarizationVector/O_3.gif" width="331" height="17" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1023112491"></a>The transverality property is not automatic.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="1218109993"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_8.gif" height="17" width="303" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/PolarizationVector/O_4.gif" height="19" width="62" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="918402341"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_10.gif" height="17" width="82" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/PolarizationVector/O_5.gif" height="19" width="51" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="113884671"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_12.gif" height="17" width="447" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/PolarizationVector/O_6.gif" height="19" width="62" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="554867330"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_14.gif" height="17" width="82" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/PolarizationVector/O_7.gif" height="15" width="7" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1584802873"></a>Depending on the alphabetical ordering of the momenta, simplifcations are done - e.g. <br /><img src="Files/PolarizationVector/3.png" height="19" width="355" style="vertical-align:middle;" alt="-(k-p-k)^muepsilon_mu(k-p)=k^muepsilon_mu(k-p)=k.(epsilon(k-p))." title="-(k-p-k)^muepsilon_mu(k-p)=k^muepsilon_mu(k-p)=k.(epsilon(k-p))." /></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="367797496"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_16.gif" height="17" width="471" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/PolarizationVector/O_8.gif" height="19" width="88" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="1968835101"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_18.gif" height="17" width="82" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/PolarizationVector/O_9.gif" height="21" width="76" alt="" /></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+           <a name="88853703"></a>
+           <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/PolarizationVector/I_20.gif" height="17" width="113" alt="Click for copyable input" /></a>
+          </div><div id="i_19_out" class="IFL"></div></td></tr>
+       </table>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="1661672347"></a>See also: <a href="../ref/FourVector.html">FourVector</a>, <a href="../ref/Pair.html">Pair</a>, <a href="../ref/Polarization.html">Polarization</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

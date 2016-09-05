@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>a1 = PolarizationVector[k, \[Mu]] FourVector[k, \[Mu]]</pre><div class='IFU'><a name='1218109993'></a>http://wolfram.com/xid/0cy370nkq1aepack2rsv8ii-ufilyz</div>

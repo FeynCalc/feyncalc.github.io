@@ -1,0 +1,2 @@
+<pre name='i_49_in' id='i_49_in' class='IFT'>twofnew = (twof[[1]] + (twof[[2]] /. {b :&gt; c, c :&gt; b})) /. {a :&gt; c, 
+   c :&gt; a}</pre><div class='IFU'><a name='1865190780'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-44rspa</div>

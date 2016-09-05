@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>a3 = GAD[\[Mu]].GSD[p - q].GSD[q].GAD[\[Mu]]</pre><div class='IFU'><a name='667969280'></a>http://wolfram.com/xid/0dot6agzccymmitn9o9gy-lby6oi</div>

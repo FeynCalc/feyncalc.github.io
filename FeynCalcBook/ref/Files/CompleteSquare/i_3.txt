@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>t2 = CompleteSquare[t1, p]</pre><div class='IFU'><a name='1825124248'></a>http://wolfram.com/xid/0tn9depw6mpqkcibix-4gw052</div>

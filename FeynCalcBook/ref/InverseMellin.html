@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>InverseMellin&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="InverseMellin" />
+
+<meta name="description" content="InverseMellin[exp, y] performs the inverse Mellin transform of polynomials in OPEm. The inverse transforms are not calculated but a table-lookup is done. WARNING: do not &amp;quot;trust&amp;quot; the results for the inverse Mellin transform involving SumT&amp;apos;s; there is an unresolved inconsistency here (related to (-1)^m)." />
+<script language="JavaScript" type="text/javascript">baselang='InverseMellin';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>InverseMellin</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/InverseMellin/1.png" height="20" width="135" alt="" /></span> <br />performs the inverse Mellin transform of polynomials in OPEm. The inverse transforms are not calculated but a table-lookup is done. WARNING: do not &quot;trust&quot; the results for the inverse Mellin transform involving SumT's; there is an unresolved inconsistency here (related to <img src="Files/InverseMellin/2.png" height="19" width="67" style="vertical-align:middle;" alt="(-1)^m)." title="(-1)^m)." /></p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="1487905241"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_2.gif" height="17" width="170" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/InverseMellin/O_1.gif" height="18" width="37" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="1769575859"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_4.gif" height="17" width="205" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/InverseMellin/O_2.gif" height="18" width="37" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+            <a name="795107064"></a>
+            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_6.gif" height="17" width="122" alt="Click for copyable input" /></a>
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/InverseMellin/O_3.gif" height="18" width="93" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="1138973234"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_8.gif" height="17" width="190" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/InverseMellin/O_4.gif" height="41" width="114" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="634260831"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_10.gif" height="17" width="193" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/InverseMellin/O_5.gif" height="18" width="145" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+            <a name="323775439"></a>
+            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_12.gif" height="17" width="177" alt="Click for copyable input" /></a>
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/InverseMellin/O_6.gif" height="19" width="129" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="823482436"></a>The inverse operation to InverseMellin is done by Integrate2.</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+            <a name="1105681850"></a>
+            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_14.gif" height="17" width="315" alt="Click for copyable input" /></a>
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/InverseMellin/O_7.gif" height="41" width="19" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="1975947579"></a>Below is a list of all built-in basic inverse Mellin transforms .</div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+           <a name="988000997"></a>
+           <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_16.gif" height="276" width="518" alt="Click for copyable input" /></a>
+          </div><div id="i_15_out" class="IFL"></div></td></tr>
+       </table>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+           <a name="478330132"></a>
+           <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_18.gif" height="17" width="224" alt="Click for copyable input" /></a>
+          </div><div id="i_17_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="1863843750"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_20.gif" height="17" width="110" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/InverseMellin/O_8.gif" height="43" width="167" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="1662530554"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_22.gif" height="17" width="110" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/InverseMellin/O_9.gif" height="43" width="154" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+            <a name="1349819643"></a>
+            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_24.gif" height="17" width="171" alt="Click for copyable input" /></a>
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/InverseMellin/O_10.gif" height="44" width="323" alt="" /></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+           <a name="558376463"></a>
+           <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_26.gif" height="17" width="4" alt="Click for copyable input" /></a>
+          </div><div id="i_25_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+            <a name="209318413"></a>
+            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_28.gif" height="17" width="157" alt="Click for copyable input" /></a>
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/InverseMellin/O_11.gif" height="44" width="220" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+            <a name="108977754"></a>
+            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_30.gif" height="17" width="240" alt="Click for copyable input" /></a>
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/InverseMellin/O_12.gif" height="42" width="217" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+            <a name="1588128285"></a>
+            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_32.gif" height="17" width="240" alt="Click for copyable input" /></a>
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/InverseMellin/O_13.gif" height="42" width="373" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
+            <a name="1038982726"></a>
+            <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_34.gif" height="17" width="236" alt="Click for copyable input" /></a>
+           </div><div id="i_33_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/InverseMellin/O_14.gif" height="44" width="325" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
+            <a name="1975519554"></a>
+            <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_36.gif" height="17" width="216" alt="Click for copyable input" /></a>
+           </div><div id="i_35_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/InverseMellin/O_15.gif" height="42" width="276" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[19]:=</a></td><td class="Input"><div>
+            <a name="1312317430"></a>
+            <a href="javascript:input('i_37')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_38.gif" height="17" width="236" alt="Click for copyable input" /></a>
+           </div><div id="i_37_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/InverseMellin/O_16.gif" height="48" width="513" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
+            <a name="1086751012"></a>
+            <a href="javascript:input('i_39')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_40.gif" height="17" width="157" alt="Click for copyable input" /></a>
+           </div><div id="i_39_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[20]=</td><td class="Output"><img src="Files/InverseMellin/O_17.gif" height="45" width="302" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_41')" onmouseover="javascript:return(true);">In[21]:=</a></td><td class="Input"><div>
+            <a name="410476681"></a>
+            <a href="javascript:input('i_41')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_42.gif" height="17" width="205" alt="Click for copyable input" /></a>
+           </div><div id="i_41_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[21]=</td><td class="Output"><img src="Files/InverseMellin/O_18.gif" height="44" width="347" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_43')" onmouseover="javascript:return(true);">In[22]:=</a></td><td class="Input"><div>
+            <a name="1961481381"></a>
+            <a href="javascript:input('i_43')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_44.gif" height="17" width="157" alt="Click for copyable input" /></a>
+           </div><div id="i_43_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[22]=</td><td class="Output"><img src="Files/InverseMellin/O_19.gif" height="49" width="314" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_45')" onmouseover="javascript:return(true);">In[23]:=</a></td><td class="Input"><div>
+            <a name="617286063"></a>
+            <a href="javascript:input('i_45')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_46.gif" height="17" width="175" alt="Click for copyable input" /></a>
+           </div><div id="i_45_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[23]=</td><td class="Output"><img src="Files/InverseMellin/O_20.gif" height="45" width="235" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_47')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+            <a name="1098001734"></a>
+            <a href="javascript:input('i_47')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_48.gif" height="17" width="177" alt="Click for copyable input" /></a>
+           </div><div id="i_47_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/InverseMellin/O_21.gif" height="46" width="436" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_49')" onmouseover="javascript:return(true);">In[25]:=</a></td><td class="Input"><div>
+            <a name="1981996384"></a>
+            <a href="javascript:input('i_49')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_50.gif" height="17" width="177" alt="Click for copyable input" /></a>
+           </div><div id="i_49_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[25]=</td><td class="Output"><img src="Files/InverseMellin/O_22.gif" height="46" width="425" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_51')" onmouseover="javascript:return(true);">In[26]:=</a></td><td class="Input"><div>
+            <a name="371125491"></a>
+            <a href="javascript:input('i_51')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_52.gif" height="17" width="193" alt="Click for copyable input" /></a>
+           </div><div id="i_51_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[26]=</td><td class="Output"><img src="Files/InverseMellin/O_23.gif" height="49" width="273" alt="" /></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_53')" onmouseover="javascript:return(true);">In[27]:=</a></td><td class="Input"><div>
+           <a name="941829466"></a>
+           <a href="javascript:input('i_53')" onmouseover="javascript:return(true);"><img src="Files/InverseMellin/I_54.gif" height="17" width="100" alt="Click for copyable input" /></a>
+          </div><div id="i_53_out" class="IFL"></div></td></tr>
+       </table>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="344948900"></a><a href="../ref/DeltaFunction.html">DeltaFunction</a>, <a href="../ref/Integrate2.html">Integrate2</a>, <a href="../ref/OPEi.html">OPEm</a>, <a href="../ref/SumS.html">SumS</a>, <a href="../ref/SumT.html">SumT</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

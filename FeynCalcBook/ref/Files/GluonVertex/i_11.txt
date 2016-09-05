@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>GluonVertex[{p, \[Mu]}, {q, \[Nu]}, {r, \[Rho]}] // Explicit</pre><div class='IFU'><a name='238279967'></a>http://wolfram.com/xid/0md0z2x3dnst5sp6x7nkwq-d75f99</div>

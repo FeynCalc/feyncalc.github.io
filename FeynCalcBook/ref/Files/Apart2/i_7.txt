@@ -1,0 +1,3 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>Options[Apart2];
+Apart2[%];
+StandardForm[FCE[%]]</pre><div class='IFU'><a name='168515472'></a>http://wolfram.com/xid/0g3d2anoefmyyrdnjwczq-c2l5nm</div>

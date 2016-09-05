@@ -1,0 +1,14 @@
+<pre name='i_41_in' id='i_41_in' class='IFT'>symfun[z_, fieldname_Symbol] := 
+ Expand[SUNSimplify[
+   FixedPoint[
+    Collect2[
+      DotSimplify[#1 /. 
+          Times -&gt; 
+           Dot] /. (((qi___).QuantumField[par1___, fieldname, li1_, 
+              sui1_].QuantumField[par2___, fieldname, li2_, 
+              sui2_].qf___ ) any_) :&gt; ((qi.QuantumField[par1, A, li1, 
+               sui2].QuantumField[par2, fieldname, li2, 
+               sui1].qf ) (any /. {sui1 :&gt; sui2, 
+               sui2 :&gt; sui1})) /; (! (FreeQ2[
+               any, {sui1, su2}])) &amp;&amp; ! (OrderedQ[{sui1, sui2}]) /. 
+       Dot -&gt; Times, QuantumField] &amp;, z, 42]]]</pre><div class='IFU'><a name='915301036'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-pe8c22</div>

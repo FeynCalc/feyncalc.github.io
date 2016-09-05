@@ -1,0 +1,1 @@
+<pre name='i_59_in' id='i_59_in' class='IFT'>w2 = ExpandPartialD[w1] /. Dot -&gt; Times</pre><div class='IFU'><a name='256131363'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-eir2id</div>

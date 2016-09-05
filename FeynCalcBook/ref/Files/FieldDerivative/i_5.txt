@@ -1,0 +1,4 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>QuantumField[A, {\[Mu]}][x].QuantumField[B, {\[Nu]}][
+  y].QuantumField[C, {\[Rho]}][x].QuantumField[D, {\[Sigma]}][y];
+FieldDerivative[%, x, {\[Mu]}] // DotExpand;
+FieldDerivative[%, y, {\[Nu]}] // DotExpand</pre><div class='IFU'><a name='1996069937'></a>http://wolfram.com/xid/0nwhua02ikznm8a0nsg66-7aozpf</div>

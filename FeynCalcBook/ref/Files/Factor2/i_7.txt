@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>t3 = Expand[(a - b) (a + b)]</pre><div class='IFU'><a name='3094581'></a>http://wolfram.com/xid/0tn9depw6mpqkcltja-b4l2v</div>

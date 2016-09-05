@@ -1,0 +1,2 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>BackgroundGluonVertex[{p, \[Mu], a}, {q, \[Nu], b}, {k, \[Lambda], 
+  c}, {s, \[Sigma], d}, Gauge -&gt; \[Alpha]]</pre><div class='IFU'><a name='1007521255'></a>http://wolfram.com/xid/04ieufm3d5y7w1wfmlzihzuzyy-qx4ynt</div>

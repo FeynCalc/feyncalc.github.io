@@ -1,0 +1,1 @@
+<pre name='i_47_in' id='i_47_in' class='IFT'>g4 = FeynRule[Lagrangian[&quot;QCD&quot;], fi4]</pre><div class='IFU'><a name='1017933843'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-q4b42d</div>

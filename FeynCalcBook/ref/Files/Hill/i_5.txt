@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>Hill[x, x y] // PowerExpand // SimplifyPolyLog // Expand</pre><div class='IFU'><a name='209270855'></a>http://wolfram.com/xid/0jy9tuh3qgh0fboy09-dqvopl</div>

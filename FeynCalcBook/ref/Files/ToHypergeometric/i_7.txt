@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>ToHypergeometric[w t^(b - 1) (1 - t)^(c - b - 1) (u - t z)^-a, t]</pre><div class='IFU'><a name='1770257143'></a>http://wolfram.com/xid/0dot6agzccymmisplul4y-3j81ft</div>

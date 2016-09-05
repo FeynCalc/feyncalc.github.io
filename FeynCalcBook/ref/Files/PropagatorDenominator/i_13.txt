@@ -1,0 +1,2 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>PropagatorDenominatorExplicit[t1];
+StandardForm[%]</pre><div class='IFU'><a name='1713457301'></a>http://wolfram.com/xid/0f872pkdc9vnlf2q01cdopeqq5h6-2mfmef</div>

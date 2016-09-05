@@ -1,0 +1,2 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>mf /: MakeBoxes[mf, TraditionalForm] = 
+  InterpretationBox[SubscriptBox[&quot;m&quot;, &quot;f&quot;], mf];</pre><div class='IFU'><a name='1188939388'></a>http://wolfram.com/xid/0b67y1d1vpag753658lc-tx5dse</div>

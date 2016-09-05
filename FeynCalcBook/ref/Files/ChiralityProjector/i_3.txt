@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>{ChiralityProjector[+1], ChiralityProjector[-1]};
+DiracSimplify[%, DiracSubstitute67 -&gt; True]</pre><div class='IFU'><a name='2102778570'></a>http://wolfram.com/xid/0bl1sloiyx608rkat39tqqzyty1u2-8174l4</div>

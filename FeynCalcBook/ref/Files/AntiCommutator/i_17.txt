@@ -1,0 +1,4 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>AntiCommutator[
+\!\(\*OverscriptBox[\(d\), \(~\)]\), 
+\!\(\*OverscriptBox[\(c\), \(~\)]\)] = 
+\!\(\*OverscriptBox[\(z\), \(~\)]\)</pre><div class='IFU'><a name='392638266'></a>http://wolfram.com/xid/0bmo85gxinschsbsjcmw0bi-gr1vws</div>

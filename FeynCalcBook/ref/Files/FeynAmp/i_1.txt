@@ -1,0 +1,4 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>FeynAmp[q, 
+ GV[p, \[Mu], a, q - p, \[Alpha], c, -q, \[Beta], e] GP[
+   p - q, \[Alpha], c, \[Rho], d] GV[-p, \[Nu], b, p - q, \[Rho], d, 
+   q, \[Sigma], f] GP[q, \[Beta], e, \[Sigma], f]]</pre><div class='IFU'><a name='772375685'></a>http://wolfram.com/xid/0da7yqf8j4nw85uin8zr87-m14y6f</div>

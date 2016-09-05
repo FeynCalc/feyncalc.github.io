@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>Convolute[1/(1 - x), 1/(1 - x)]</pre><div class='IFU'><a name='440037844'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbd8w0-hj9tnq</div>

@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>TensorFunction[t, \[Mu], \[Nu], \[Tau]];
+% // StandardForm</pre><div class='IFU'><a name='608128480'></a>http://wolfram.com/xid/0fnx5q0u7sai4aejj7jzezm-kcck72</div>

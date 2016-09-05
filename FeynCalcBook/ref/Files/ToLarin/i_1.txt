@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>DiracMatrix[\[Nu]].DiracMatrix[\[Mu]].DiracMatrix[5]</pre><div class='IFU'><a name='975355057'></a>http://wolfram.com/xid/0dot6agzccymmispk976q-qezi2b</div>

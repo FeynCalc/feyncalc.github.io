@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FeynCalc&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="FeynCalc" />
+
+<meta name="description" content="FeynCalc is a Mathematica package for algebraic calculations in Quantum Field Theory and semi-automatic evaluation of Feynman Diagrams" />
+<script language="JavaScript" type="text/javascript">baselang='FeynCalc';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<!--#include virtual="/2013/includes/carousel-head.html"--> 
+</head>
+<body id="guide">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC GUIDE</span></span>
+  </div>
+  <ul class="dropdown">
+   <li>
+    <a href="#">Functions</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/A0.html"><span class="dropdownPad">A0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Abbreviation.html"><span class="dropdownPad">Abbreviation</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Amplitude.html"><span class="dropdownPad">Amplitude</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Amputate.html"><span class="dropdownPad">Amputate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/AnomalousDimension.html"><span class="dropdownPad">AnomalousDimension</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Anti5.html"><span class="dropdownPad">Anti5</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/AntiCommutator.html"><span class="dropdownPad">AntiCommutator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/AntiQuarkField.html"><span class="dropdownPad">AntiQuarkField</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Apart2.html"><span class="dropdownPad">Apart2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ApartFF.html"><span class="dropdownPad">ApartFF</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/B0.html"><span class="dropdownPad">B0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/B00.html"><span class="dropdownPad">B00</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/B1.html"><span class="dropdownPad">B1</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/B11.html"><span class="dropdownPad">B11</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/BackgroundGluonVertex.html"><span class="dropdownPad">BackgroundGluonVertex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/C0.html"><span class="dropdownPad">C0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CA.html"><span class="dropdownPad">CA</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Calc.html"><span class="dropdownPad">Calc</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CalcColorFactor.html"><span class="dropdownPad">CalcColorFactor</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Cases.html"><span class="dropdownPad">Cases</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Cases2.html"><span class="dropdownPad">Cases2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CF.html"><span class="dropdownPad">CF</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ChangeDimension.html"><span class="dropdownPad">ChangeDimension</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ChargeConjugationMatrix.html"><span class="dropdownPad">ChargeConjugationMatrix</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ChargeConjugationMatrixInv.html"><span class="dropdownPad">ChargeConjugationMatrixInv</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CheckDB.html"><span class="dropdownPad">CheckDB</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ChiralityProjector.html"><span class="dropdownPad">ChiralityProjector</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Chisholm.html"><span class="dropdownPad">Chisholm</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Collect.html"><span class="dropdownPad">Collect</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Collect2.html"><span class="dropdownPad">Collect2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Collect3.html"><span class="dropdownPad">Collect3</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Combine.html"><span class="dropdownPad">Combine</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Commutator.html"><span class="dropdownPad">Commutator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CommutatorExplicit.html"><span class="dropdownPad">CommutatorExplicit</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Complement.html"><span class="dropdownPad">Complement</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CompleteSquare.html"><span class="dropdownPad">CompleteSquare</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ComplexConjugate.html"><span class="dropdownPad">ComplexConjugate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Contract.html"><span class="dropdownPad">Contract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Convolute.html"><span class="dropdownPad">Convolute</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ConvoluteTable.html"><span class="dropdownPad">ConvoluteTable</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CounterTerm.html"><span class="dropdownPad">CounterTerm</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CovariantD.html"><span class="dropdownPad">CovariantD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/CovariantFieldDerivative.html"><span class="dropdownPad">CovariantFieldDerivative</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/D0.html"><span class="dropdownPad">D0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DataType.html"><span class="dropdownPad">DataType</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DB0.html"><span class="dropdownPad">DB0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DB1.html"><span class="dropdownPad">DB1</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DeclareNonCommutative.html"><span class="dropdownPad">DeclareNonCommutative</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DeltaFunction.html"><span class="dropdownPad">DeltaFunction</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DeltaFunctionDoublePrime.html"><span class="dropdownPad">DeltaFunctionDoublePrime</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DeltaFunctionPrime.html"><span class="dropdownPad">DeltaFunctionPrime</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracEquation.html"><span class="dropdownPad">DiracEquation</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGamma.html"><span class="dropdownPad">DiracGamma</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGammaCombine.html"><span class="dropdownPad">DiracGammaCombine</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGammaExpand.html"><span class="dropdownPad">DiracGammaExpand</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGammaT.html"><span class="dropdownPad">DiracGammaT</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracMatrix.html"><span class="dropdownPad">DiracMatrix</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracOrder.html"><span class="dropdownPad">DiracOrder</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracReduce.html"><span class="dropdownPad">DiracReduce</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSigma.html"><span class="dropdownPad">DiracSigma</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSigmaExplicit.html"><span class="dropdownPad">DiracSigmaExplicit</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSimplify.html"><span class="dropdownPad">DiracSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSlash.html"><span class="dropdownPad">DiracSlash</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSpinor.html"><span class="dropdownPad">DiracSpinor</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracTrace.html"><span class="dropdownPad">DiracTrace</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracTrick.html"><span class="dropdownPad">DiracTrick</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DoPolarizationSums.html"><span class="dropdownPad">DoPolarizationSums</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Dot.html"><span class="dropdownPad">Dot</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DotExpand.html"><span class="dropdownPad">DotExpand</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DotSimplify.html"><span class="dropdownPad">DotSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Eps.html"><span class="dropdownPad">Eps</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/EpsChisholm.html"><span class="dropdownPad">EpsChisholm</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/EpsEvaluate.html"><span class="dropdownPad">EpsEvaluate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Epsilon.html"><span class="dropdownPad">Epsilon</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Expand.html"><span class="dropdownPad">Expand</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Expand2.html"><span class="dropdownPad">Expand2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ExpandPartialD.html"><span class="dropdownPad">ExpandPartialD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ExpandScalarProduct.html"><span class="dropdownPad">ExpandScalarProduct</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Explicit.html"><span class="dropdownPad">Explicit</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ExplicitLorentzIndex.html"><span class="dropdownPad">ExplicitLorentzIndex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ExplicitPartialD.html"><span class="dropdownPad">ExplicitPartialD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ExplicitSUNIndex.html"><span class="dropdownPad">ExplicitSUNIndex</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Factor.html"><span class="dropdownPad">Factor</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Factor1.html"><span class="dropdownPad">Factor1</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Factor2.html"><span class="dropdownPad">Factor2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FAD.html"><span class="dropdownPad">FAD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCAntiSymmetrize.html"><span class="dropdownPad">FCAntiSymmetrize</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCApart.html"><span class="dropdownPad">FCApart</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCClearScalarProducts.html"><span class="dropdownPad">FCClearScalarProducts</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCE.html"><span class="dropdownPad">FCE</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCI.html"><span class="dropdownPad">FCI</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCIntegral.html"><span class="dropdownPad">FCIntegral</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCLoopExtract.html"><span class="dropdownPad">FCLoopExtract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCLoopIsolate.html"><span class="dropdownPad">FCLoopIsolate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCMultiLoopTID.html"><span class="dropdownPad">FCMultiLoopTID</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCPartialD.html"><span class="dropdownPad">FCPartialD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCSymmetrize.html"><span class="dropdownPad">FCSymmetrize</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FermionSpinSum.html"><span class="dropdownPad">FermionSpinSum</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynAmpDenominator.html"><span class="dropdownPad">FeynAmpDenominator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynAmpDenominatorCombine.html"><span class="dropdownPad">FeynAmpDenominatorCombine</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynAmpDenominatorSimplify.html"><span class="dropdownPad">FeynAmpDenominatorSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynAmpDenominatorSplit.html"><span class="dropdownPad">FeynAmpDenominatorSplit</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynCalc2FORM.html"><span class="dropdownPad">FeynCalc2FORM</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynCalcExternal.html"><span class="dropdownPad">FeynCalcExternal</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynCalcForm.html"><span class="dropdownPad">FeynCalcForm</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynCalcInternal.html"><span class="dropdownPad">FeynCalcInternal</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynCalcToLaTeX.html"><span class="dropdownPad">FeynCalcToLaTeX</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynmanParametrize.html"><span class="dropdownPad">FeynmanParametrize</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FeynRule.html"><span class="dropdownPad">FeynRule</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FieldDerivative.html"><span class="dropdownPad">FieldDerivative</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FieldStrength.html"><span class="dropdownPad">FieldStrength</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FORM2FeynCalc.html"><span class="dropdownPad">FORM2FeynCalc</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FourDivergence.html"><span class="dropdownPad">FourDivergence</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FourLaplacian.html"><span class="dropdownPad">FourLaplacian</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FourVector.html"><span class="dropdownPad">FourVector</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/FreeQ.html"><span class="dropdownPad">FreeQ</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FreeQ2.html"><span class="dropdownPad">FreeQ2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FRH.html"><span class="dropdownPad">FRH</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FromTFI.html"><span class="dropdownPad">FromTFI</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FunctionalD.html"><span class="dropdownPad">FunctionalD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FV.html"><span class="dropdownPad">FV</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FVD.html"><span class="dropdownPad">FVD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GA.html"><span class="dropdownPad">GA</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GA5.html"><span class="dropdownPad">GA5</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GAD.html"><span class="dropdownPad">GAD</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Gamma.html"><span class="dropdownPad">Gamma</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Gamma1.html"><span class="dropdownPad">Gamma1</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Gamma2.html"><span class="dropdownPad">Gamma2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Gamma3.html"><span class="dropdownPad">Gamma3</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GammaEpsilon.html"><span class="dropdownPad">GammaEpsilon</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GammaExpand.html"><span class="dropdownPad">GammaExpand</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GaugeField.html"><span class="dropdownPad">GaugeField</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GaugeXi.html"><span class="dropdownPad">GaugeXi</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GhostPropagator.html"><span class="dropdownPad">GhostPropagator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GluonField.html"><span class="dropdownPad">GluonField</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GluonGhostVertex.html"><span class="dropdownPad">GluonGhostVertex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GluonPropagator.html"><span class="dropdownPad">GluonPropagator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GluonSelfEnergy.html"><span class="dropdownPad">GluonSelfEnergy</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GluonVertex.html"><span class="dropdownPad">GluonVertex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GS.html"><span class="dropdownPad">GS</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GSD.html"><span class="dropdownPad">GSD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Gstrong.html"><span class="dropdownPad">Gstrong</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Hill.html"><span class="dropdownPad">Hill</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/HoldForm.html"><span class="dropdownPad">HoldForm</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Hypergeometric2F1.html"><span class="dropdownPad">Hypergeometric2F1</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/HypergeometricAC.html"><span class="dropdownPad">HypergeometricAC</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/HypergeometricIR.html"><span class="dropdownPad">HypergeometricIR</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/HypergeometricSE.html"><span class="dropdownPad">HypergeometricSE</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/HypExplicit.html"><span class="dropdownPad">HypExplicit</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/HypInt.html"><span class="dropdownPad">HypInt</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/IFPD.html"><span class="dropdownPad">IFPD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/IFPDOff.html"><span class="dropdownPad">IFPDOff</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/IFPDOn.html"><span class="dropdownPad">IFPDOn</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Integrate2.html"><span class="dropdownPad">Integrate2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Integrate3.html"><span class="dropdownPad">Integrate3</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Integrate4.html"><span class="dropdownPad">Integrate4</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Integrate5.html"><span class="dropdownPad">Integrate5</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/IntegrateByParts.html"><span class="dropdownPad">IntegrateByParts</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/InverseMellin.html"><span class="dropdownPad">InverseMellin</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Isolate.html"><span class="dropdownPad">Isolate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Kummer.html"><span class="dropdownPad">Kummer</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Lagrangian.html"><span class="dropdownPad">Lagrangian</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/LC.html"><span class="dropdownPad">LC</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/LCD.html"><span class="dropdownPad">LCD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/LeftPartialD.html"><span class="dropdownPad">LeftPartialD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/LeftRightPartialD.html"><span class="dropdownPad">LeftRightPartialD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/LeftRightPartialD2.html"><span class="dropdownPad">LeftRightPartialD2</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Length.html"><span class="dropdownPad">Length</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/LeviCivita.html"><span class="dropdownPad">LeviCivita</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Li2.html"><span class="dropdownPad">Li2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Li3.html"><span class="dropdownPad">Li3</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Log.html"><span class="dropdownPad">Log</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/LorentzIndex.html"><span class="dropdownPad">LorentzIndex</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Map.html"><span class="dropdownPad">Map</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Map2.html"><span class="dropdownPad">Map2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/MemSet.html"><span class="dropdownPad">MemSet</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/MetricTensor.html"><span class="dropdownPad">MetricTensor</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Momentum.html"><span class="dropdownPad">Momentum</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/MomentumCombine.html"><span class="dropdownPad">MomentumCombine</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/MomentumExpand.html"><span class="dropdownPad">MomentumExpand</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/MT.html"><span class="dropdownPad">MT</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/MTD.html"><span class="dropdownPad">MTD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/MTE.html"><span class="dropdownPad">MTE</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Nf.html"><span class="dropdownPad">Nf</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Nielsen.html"><span class="dropdownPad">Nielsen</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/NonCommFreeQ.html"><span class="dropdownPad">NonCommFreeQ</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/NonCommQ.html"><span class="dropdownPad">NonCommQ</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/NTerms.html"><span class="dropdownPad">NTerms</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/NumericalFactor.html"><span class="dropdownPad">NumericalFactor</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/NumericQ.html"><span class="dropdownPad">NumericQ</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/NumericQ1.html"><span class="dropdownPad">NumericQ1</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/OneLoop.html"><span class="dropdownPad">OneLoop</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/OneLoopSimplify.html"><span class="dropdownPad">OneLoopSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Pair.html"><span class="dropdownPad">Pair</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PairContract.html"><span class="dropdownPad">PairContract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PairContract2.html"><span class="dropdownPad">PairContract2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PairContract3.html"><span class="dropdownPad">PairContract3</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PartialIntegrate.html"><span class="dropdownPad">PartialIntegrate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PartitHead.html"><span class="dropdownPad">PartitHead</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PaVe.html"><span class="dropdownPad">PaVe</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PaVeReduce.html"><span class="dropdownPad">PaVeReduce</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PD.html"><span class="dropdownPad">PD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PlusDistribution.html"><span class="dropdownPad">PlusDistribution</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Polarization.html"><span class="dropdownPad">Polarization</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PolarizationSum.html"><span class="dropdownPad">PolarizationSum</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PolarizationVector.html"><span class="dropdownPad">PolarizationVector</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/PolyLog.html"><span class="dropdownPad">PolyLog</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Power.html"><span class="dropdownPad">Power</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Power2.html"><span class="dropdownPad">Power2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PowerFactor.html"><span class="dropdownPad">PowerFactor</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PowerSimplify.html"><span class="dropdownPad">PowerSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PropagatorDenominator.html"><span class="dropdownPad">PropagatorDenominator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/PropagatorDenominatorExplicit.html"><span class="dropdownPad">PropagatorDenominatorExplicit</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/QuantumField.html"><span class="dropdownPad">QuantumField</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/QuarkField.html"><span class="dropdownPad">QuarkField</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/QuarkGluonVertex.html"><span class="dropdownPad">QuarkGluonVertex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/QuarkPropagator.html"><span class="dropdownPad">QuarkPropagator</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/ReleaseHold.html"><span class="dropdownPad">ReleaseHold</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/RightPartialD.html"><span class="dropdownPad">RightPartialD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/RussianTrick.html"><span class="dropdownPad">RussianTrick</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ScalarGluonVertex.html"><span class="dropdownPad">ScalarGluonVertex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ScalarProduct.html"><span class="dropdownPad">ScalarProduct</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ScalarProductCancel.html"><span class="dropdownPad">ScalarProductCancel</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ScaleMu.html"><span class="dropdownPad">ScaleMu</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Schouten.html"><span class="dropdownPad">Schouten</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SD.html"><span class="dropdownPad">SD</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Select.html"><span class="dropdownPad">Select</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SelectFree.html"><span class="dropdownPad">SelectFree</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SelectNotFree.html"><span class="dropdownPad">SelectNotFree</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Series.html"><span class="dropdownPad">Series</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Series2.html"><span class="dropdownPad">Series2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Series3.html"><span class="dropdownPad">Series3</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SetMandelstam.html"><span class="dropdownPad">SetMandelstam</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SimplifyDeltaFunction.html"><span class="dropdownPad">SimplifyDeltaFunction</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SimplifyPolyLog.html"><span class="dropdownPad">SimplifyPolyLog</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SmallDelta.html"><span class="dropdownPad">SmallDelta</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SmallEpsilon.html"><span class="dropdownPad">SmallEpsilon</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SmallVariable.html"><span class="dropdownPad">SmallVariable</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SMP.html"><span class="dropdownPad">SMP</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SMVertex.html"><span class="dropdownPad">SMVertex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Sn.html"><span class="dropdownPad">Sn</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Solve.html"><span class="dropdownPad">Solve</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Solve2.html"><span class="dropdownPad">Solve2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Solve3.html"><span class="dropdownPad">Solve3</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SP.html"><span class="dropdownPad">SP</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SPD.html"><span class="dropdownPad">SPD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Spinor.html"><span class="dropdownPad">Spinor</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorU.html"><span class="dropdownPad">SpinorU</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorUBar.html"><span class="dropdownPad">SpinorUBar</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorV.html"><span class="dropdownPad">SpinorV</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorVBar.html"><span class="dropdownPad">SpinorVBar</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SplittingFunction.html"><span class="dropdownPad">SplittingFunction</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SumP.html"><span class="dropdownPad">SumP</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SumS.html"><span class="dropdownPad">SumS</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SumT.html"><span class="dropdownPad">SumT</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUND.html"><span class="dropdownPad">SUND</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNDelta.html"><span class="dropdownPad">SUNDelta</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNDeltaContract.html"><span class="dropdownPad">SUNDeltaContract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNF.html"><span class="dropdownPad">SUNF</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNDeltaContract.html"><span class="dropdownPad">SUNFDeltaContract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNIndex.html"><span class="dropdownPad">SUNIndex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNN.html"><span class="dropdownPad">SUNN</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNSimplify.html"><span class="dropdownPad">SUNSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNT.html"><span class="dropdownPad">SUNT</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNTrace.html"><span class="dropdownPad">SUNTrace</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Tdec.html"><span class="dropdownPad">Tdec</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TensorFunction.html"><span class="dropdownPad">TensorFunction</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Tf.html"><span class="dropdownPad">Tf</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TID.html"><span class="dropdownPad">TID</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TIDL.html"><span class="dropdownPad">TIDL</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ToDistribution.html"><span class="dropdownPad">ToDistribution</span></a>
+     </li>
+     <li>
+      <a href="/language/ref/Together.html"><span class="dropdownPad">Together</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ToHypergeometric.html"><span class="dropdownPad">ToHypergeometric</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ToLarin.html"><span class="dropdownPad">ToLarin</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ToTFI.html"><span class="dropdownPad">ToTFI</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TR.html"><span class="dropdownPad">TR</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Tr2.html"><span class="dropdownPad">Tr2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Trick.html"><span class="dropdownPad">Trick</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TrickIntegrate.html"><span class="dropdownPad">TrickIntegrate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TrickMandelstam.html"><span class="dropdownPad">TrickMandelstam</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Uncontract.html"><span class="dropdownPad">Uncontract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/UnDeclareNonCommutative.html"><span class="dropdownPad">UnDeclareNonCommutative</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/UVPart.html"><span class="dropdownPad">UVPart</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Write2.html"><span class="dropdownPad">Write2</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Zeta2.html"><span class="dropdownPad">Zeta2</span></a>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <a href="#">Tutorials</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/Intro.html"><span class="dropdownPad">Short introduction</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1><a name="942062912"></a>FeynCalc</h1>
+ <p class="intro"><a name="2001916300"></a>FeynCalc is a <em>Mathematica</em> package for algebraic calculations in Quantum Field Theory and semi-automatic evaluation of Feynman Diagrams</p>
+ <div class="expandWrap closed"
+     id="LearningResources">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Learning Resources</a><a class="collapse" title="hide" href="#">Learning Resources</a></h2>
+   <div class="expanded">
+    <table cellspacing="0"
+        cellpadding="0"
+        border="0">
+     <tr><td class="resourcesLeft"><div>
+        <h3 class="learning-tutorials">Tutorials</h3>
+        <div class="learning-links">
+         <a href="../ref/Intro.html">Short introduction</a>
+        </div>
+       </div></td></tr>
+    </table>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Reference">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Reference</a><a class="collapse" title="hide" href="#">Reference</a></h2>
+   <div class="expanded">
+    <div class="GuideDelimiterTop"><!-- --></div>
+    <h3><a name="1344981135"></a>Basic objects</h3>
+    <p class="singleFunction"><a name="552658513"></a><span class="IFSans"><a href="../ref/Abbreviation.html">Abbreviation</a></span> <span class="dash">&mdash;</span> gives a shortname for name (in <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/HoldForm.html">HoldForm</a></span>)</p>
+    <p class="singleFunction"><a name="1235023741"></a><span class="IFSans"><a href="../ref/AlphaStrong.html">AlphaStrong</a></span> <span class="dash">&mdash;</span> <span class="IF"><img src="Files/FeynCalc/1.png" height="17" width="17" alt="" /></span> in QCD</p>
+    <p class="singleFunction"><a name="1076523595"></a><span class="IFSans"><a href="../ref/AlphaFS.html">AlphaFS</a></span> <span class="dash">&mdash;</span> fine-strucutre constant</p>
+    <p class="singleFunction"><a name="917048888"></a><span class="IFSans"><a href="../ref/AntiQuarkField.html">AntiQuarkField</a></span>, <span class="IFSans"><a href="../ref/QuarkField.html">QuarkField</a></span> <span class="dash">&mdash;</span>name of a fermionic field</p>
+    <p class="singleFunction"><a name="1033282217"></a><span class="IFSans"><a href="../ref/CA.html">CA</a></span>, <span class="IFSans"><a href="../ref/CF.html">CF</a></span> <span class="dash">&mdash;</span>Casimir operator eigenvalues of SU(N)</p>
+    <p class="singleFunction"><a name="745071340"></a><span class="IFSans"><a href="../ref/ChiralityProjector.html">ChiralityProjector</a></span> <span class="dash">&mdash;</span> denotes <span class="IF"><img src="Files/FeynCalc/2.png" height="17" width="16" alt="" /></span> or <span class="IF"><img src="Files/FeynCalc/3.png" height="17" width="17" alt="" /></span></p>
+    <p class="singleFunction"><a name="1851196232"></a><span class="IFSans"><a href="../ref/DeltaFunction.html">DeltaFunction</a></span>, <span class="IFSans"><a href="../ref/DeltaFunctionPrime.html">DeltaFunctionPrime</a></span>, <span class="IFSans"><a href="../ref/DeltaFunctionDoublePrime.html">DeltaFunctionDoublePrime</a></span> <span class="dash">&mdash;</span> Dirac delta function and its derivatives</p>
+    <p class="singleFunction"><a name="1686448459"></a><span class="IFSans"><a href="../ref/DiracGamma.html">DiracGamma</a></span>, <span class="IFSans"><a href="../ref/DiracMatrix.html">DiracMatrix</a></span>, <span class="IFSans"><a href="../ref/DiracSlash.html">DiracSlash</a></span>, <span class="IFSans"><a href="../ref/GA.html">GA</a></span>, <span class="IFSans"><a href="../ref/GA5.html">GA5</a></span>, <span class="IFSans"><a href="../ref/GS.html">GS</a></span>, <span class="IFSans"><a href="../ref/GAD.html">GAD</a></span>, <span class="IFSans"><a href="../ref/GSD.html">GSD</a></span>, <span class="IFSans"><a href="../ref/GAE.html">GAE</a></span>, <span class="IFSans"><a href="../ref/GSE.html">GSE</a></span>  <span class="dash">&mdash;</span> representation of Dirac matrices and slashes</p>
+    <p class="singleFunction"><a name="264840152"></a><span class="IFSans"><a href="../ref/DiracGammaT.html">DiracGammaT</a></span> <span class="dash">&mdash;</span> tranpose of a Dirac matrix</p>
+    <p class="singleFunction"><a name="1624859494"></a><span class="IFSans"><a href="../ref/DiracSigma.html">DiracSigma</a></span> <span class="dash">&mdash;</span> denotes <span class="IF"><img src="Files/FeynCalc/4.png" height="28" width="67" alt="" /></span></p>
+    <p class="singleFunction"><a name="307637975"></a><span class="IFSans"><a href="../ref/DiracSpinor.html">DiracSpinor</a></span>, <span class="IFSans"><a href="../ref/Spinor.html">Spinor</a></span>, <span class="IFSans"><a href="../ref/SpinorU.html">SpinorU</a></span>, <span class="IFSans"><a href="../ref/SpinorUBar.html">SpinorUBar</a></span>, <span class="IFSans"><a href="../ref/SpinorV.html">SpinorV</a></span>, <span class="IFSans"><a href="../ref/SpinorVBar.html">SpinorVBar</a></span> <span class="dash">&mdash;</span> denotes spinors</p>
+    <p class="singleFunction"><a name="1680708588"></a><span class="IFSans"><a href="../ref/Eps.html">Eps</a></span>, <span class="IFSans"><a href="../ref/LC.html">LC</a></span>, <span class="IFSans"><a href="../ref/LCD.html">LCD</a></span>, <span class="IFSans"><a href="../ref/LeviCivita.html">LeviCivita</a></span> <span class="dash">&mdash;</span>totally antisymmetric epsilon (Levi-Civita) tensor</p>
+    <p class="singleFunction"><a name="1891570253"></a><span class="IFSans"><a href="../ref/Epsilon.html">Epsilon</a></span> <span class="dash">&mdash;</span> <span class="special-character Epsilon">&#1013;</span> from dimensional regularization</p>
+    <p class="singleFunction"><a name="1483552361"></a><span class="IFSans"><a href="../ref/ExplicitLorentzIndex.html">ExplicitLorentzIndex</a></span>, <span class="IFSans"><a href="../ref/LorentzIndex.html">LorentzIndex</a></span> <span class="dash">&mdash;</span> Lorentz index</p>
+    <p class="singleFunction"><a name="476236246"></a><span class="IFSans"><a href="../ref/ExplicitSUNIndex.html">ExplicitSUNIndex</a></span>, <span class="IFSans"><a href="../ref/SUNIndex.html">SUNIndex</a></span> <span class="dash">&mdash;</span>SU(N) adjoint index</p>
+    <p class="singleFunction"><a name="2139347147"></a><span class="IFSans"><a href="../ref/ExplicitSUNFIndex.html">ExplicitSUNFIndex</a></span>, <span class="IFSans"><a href="../ref/SUNFIndex.html">SUNFIndex</a></span> <span class="dash">&mdash;</span>SU(N) fundamental index</p>
+    <p class="singleFunction"><a name="1131303773"></a><span class="IFSans"><a href="../ref/FAD.html">FAD</a></span>, <span class="IFSans"><a href="../ref/FeynAmpDenominator.html">FeynAmpDenominator</a></span> <span class="dash">&mdash;</span> denominator of Feynman amplitudes </p>
+    <p class="singleFunction"><a name="1476055339"></a><span class="IFSans"><a href="../ref/FCPartialD.html">FCPartialD</a></span>, <span class="IFSans"><a href="../ref/LeftPartialD.html">LeftPartialD</a></span>, <span class="IFSans"><a href="../ref/LeftRightPartialD.html">LeftRightPartialD</a></span>, <span class="IFSans"><a href="../ref/LeftRightPartialD2.html">LeftRightPartialD2</a></span>,  <span class="IFSans"><a href="../ref/RightPartialD.html">RightPartialD</a></span> <span class="dash">&mdash;</span> partial derivatives acting on operators</p>
+    <p class="singleFunction"><a name="495428205"></a><span class="IFSans"><a href="../ref/FourVector.html">FourVector</a></span>, <span class="IFSans"><a href="../ref/FV.html">FV</a></span>, <span class="IFSans"><a href="../ref/FVD.html">FVD</a></span>, <span class="IFSans"><a href="../ref/FVE.html">FVE</a></span> <span class="dash">&mdash;</span> representation of 4-vectors</p>
+    <p class="singleFunction"><a name="1403563110"></a><span class="IFSans"><a href="../ref/GaugeField.html">GaugeField</a></span> <span class="dash">&mdash;</span> name of a gauge field</p>
+    <p class="singleFunction"><a name="1275284258"></a><span class="IFSans"><a href="../ref/GaugeXi.html">GaugeXi</a></span> <span class="dash">&mdash;</span> gauge parameter <span class="special-character Xi">&#958;</span></p>
+    <p class="singleFunction"><a name="1257907745"></a><span class="IFSans"><a href="../ref/GluonField.html">GluonField</a></span> <span class="dash">&mdash;</span>name of a gluon field</p>
+    <p class="singleFunction"><a name="1005983702"></a><span class="IFSans"><a href="../ref/Gstrong.html">Gstrong</a></span> <span class="dash">&mdash;</span> QCD coupling constant</p>
+    <p class="singleFunction"><a name="832103768"></a><span class="IFSans"><a href="../ref/Li2.html">Li2</a></span> <span class="dash">&mdash;</span> dilog function</p>
+    <p class="singleFunction"><a name="431072089"></a><span class="IFSans"><a href="../ref/Li3.html">Li3</a></span> <span class="dash">&mdash;</span> trilog function</p>
+    <p class="singleFunction"><a name="316776695"></a><span class="IFSans"><a href="../ref/Momentum.html">Momentum</a></span> <span class="dash">&mdash;</span> internal representation of momenta</p>
+    <p class="singleFunction"><a name="651468345"></a><span class="IFSans"><a href="../ref/MetricTensor.html">MetricTensor</a></span>, <span class="IFSans"><a href="../ref/MT.html">MT</a></span>, <span class="IFSans"><a href="../ref/MTD.html">MTD</a></span>, <span class="IFSans"><a href="../ref/MTE.html">MTE</a></span> <span class="dash">&mdash;</span> representation of the metric tensor</p>
+    <p class="singleFunction"><a name="1386416972"></a><span class="IFSans"><a href="../ref/Nf.html">Nf</a></span> <span class="dash">&mdash;</span> denotes the number of flavors</p>
+    <p class="singleFunction"><a name="1889374617"></a><span class="IFSans"><a href="../ref/Pair.html">Pair</a></span> <span class="dash">&mdash;</span> special pairing used in the internal representation to represent the metric, 4-vectors or scalar products</p>
+    <p class="singleFunction"><a name="1384558840"></a><span class="IFSans"><a href="../ref/Polarization.html">Polarization</a></span> <span class="dash">&mdash;</span> internal representation of polarizations</p>
+    <p class="singleFunction"><a name="2003827822"></a><span class="IFSans"><a href="../ref/PolarizationVector.html">PolarizationVector</a></span> <span class="dash">&mdash;</span> polarization vector</p>
+    <p class="singleFunction"><a name="827330458"></a><span class="IFSans"><a href="../ref/PlusDistribution.html">PlusDistribution</a></span> <span class="dash">&mdash;</span> a special distribution</p>
+    <p class="singleFunction"><a name="1486910634"></a><span class="IFSans"><a href="../ref/PropagatorDenominator.html">PropagatorDenominator</a></span>, <span class="IFSans"><a href="../ref/PD.html">PD</a></span> <span class="dash">&mdash;</span> internal representation of propagator denominators</p>
+    <p class="singleFunction"><a name="1015009742"></a><span class="IFSans"><a href="../ref/QuantumField.html">QuantumField</a></span> <span class="dash">&mdash;</span> generic name of a quantum field</p>
+    <p class="singleFunction"><a name="146220986"></a><span class="IFSans"><a href="../ref/ScaleMu.html">ScaleMu</a></span> <span class="dash">&mdash;</span> <span class="special-character Mu">&#956;</span> scale in dimensional regularization</p>
+    <p class="singleFunction"><a name="522984542"></a><span class="IFSans"><a href="../ref/SD.html">SD</a></span>, <span class="IFSans"><a href="../ref/SUNDelta.html">SUNDelta</a></span> <span class="dash">&mdash;</span> Kronecker delta for adjoint SU(N) indices</p>
+    <p class="singleFunction"><a name="1059337536"></a><span class="IFSans"><a href="../ref/SDF.html">SDF</a></span>, <span class="IFSans"><a href="../ref/SUNFDelta.html">SUNFDelta</a></span> <span class="dash">&mdash;</span> Kronecker delta for fundamental SU(N) indices</p>
+    <p class="singleFunction"><a name="137238398"></a><span class="IFSans"><a href="../ref/SmallDelta.html">SmallDelta</a></span>, <span class="IFSans"><a href="../ref/SmallEpsilon.html">SmallEpsilon</a></span> <span class="dash">&mdash;</span> denotes some small positive numbers</p>
+    <p class="singleFunction"><a name="590785021"></a><span class="IFSans"><a href="../ref/SmallVariable.html">SmallVariable</a></span> <span class="dash">&mdash;</span> small variable to be used as a regulator in PaVe functions</p>
+    <p class="singleFunction"><a name="305275299"></a><span class="IFSans"><a href="../ref/SP.html">SP</a></span>, <span class="IFSans"><a href="../ref/SPD.html">SPD</a></span>, <span class="IFSans"><a href="../ref/SPE.html">SPE</a></span> <span class="dash">&mdash;</span> denotes scalar products of 4-momenta</p>
+    <p class="singleFunction"><a name="1136659773"></a><span class="IFSans"><a href="../ref/SUND.html">SUND</a></span> <span class="dash">&mdash;</span> structure constant <span class="IF"><img src="Files/FeynCalc/5.png" height="17" width="28" alt="" /></span> in SU(N)</p>
+    <p class="singleFunction"><a name="920034572"></a><span class="IFSans"><a href="../ref/SUNF.html">SUNF</a></span> <span class="dash">&mdash;</span> structure constant <span class="IF"><img src="Files/FeynCalc/6.png" height="17" width="24" alt="" /></span> in SU(N)</p>
+    <p class="singleFunction"><a name="1328328343"></a><span class="IFSans"><a href="../ref/SUNN.html">SUNN</a></span> <span class="dash">&mdash;</span><span class="IF"><img src="Files/FeynCalc/7.png" height="17" width="17" alt="" /></span>in SU(N)</p>
+    <p class="singleFunction"><a name="1428923217"></a><span class="IFSans"><a href="../ref/SUNT.html">SUNT</a></span>, <span class="IFSans"><a href="../ref/SUNTF.html">SUNTF</a></span> <span class="dash">&mdash;</span><span class="IF"><img src="Files/FeynCalc/8.png" height="20" width="27" alt="" /></span><span class="dash">&mdash;</span>of SU(N) in the fundamental representation</p>
+    <p class="singleFunction"><a name="1763987334"></a><span class="IFSans"><a href="../ref/Tf.html">Tf</a></span> <span class="dash">&mdash;</span><span class="IF"><img src="Files/FeynCalc/9.png" height="17" width="18" alt="" /></span> group constant <span class="dash">&mdash;</span>n SU(N)</p>
+    <p class="singleFunction"><a name="1924638314"></a><span class="IFSans"><a href="../ref/Zeta2.html">Zeta2</a></span> <span class="dash">&mdash;</span> denotes <span class="IF"><img src="Files/FeynCalc/10.png" height="17" width="16" alt="" /></span></p>
+    <h3><a name="218620916"></a>Basic functions</h3>
+    <p class="singleFunction"><a name="1010301503"></a><span class="IFSans"><a href="../ref/Cases2.html">Cases2</a></span><span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Cases.html">Cases</a></span></p>
+    <p class="singleFunction"><a name="1271388718"></a><span class="IFSans"><a href="../ref/Combine.html">Combine</a></span><span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Together.html">Together</a></span></p>
+    <p class="singleFunction"><a name="1736502128"></a><span class="IFSans"><a href="../ref/Complement1.html">Complement1</a></span><span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Complement.html">Complement</a></span></p>
+    <p class="singleFunction"><a name="1287756566"></a><span class="IFSans"><a href="../ref/Collect2.html">Collect2</a></span>, <span class="IFSans"><a href="../ref/Collect3.html">Collect3</a></span> <span class="dash">&mdash;</span> alternatives to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Collect.html">Collect</a></span></p>
+    <p class="singleFunction"><a name="1747124358"></a><span class="IFSans"><a href="../ref/DataType.html">DataType</a></span> <span class="dash">&mdash;</span> defines data types</p>
+    <p class="singleFunction"><a name="1504394922"></a><span class="IFSans"><a href="../ref/Expand2.html">Expand2</a></span><span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Expand.html">Expand</a></span></p>
+    <p class="singleFunction"><a name="1596546686"></a><span class="IFSans"><a href="../ref/Explicit.html">Explicit</a></span> <span class="dash">&mdash;</span> inserts explicit expressions for certain objects</p>
+    <p class="singleFunction"><a name="187460383"></a><span class="IFSans"><a href="../ref/Factor1.html">Factor1</a></span>, <span class="IFSans"><a href="../ref/Factor2.html">Factor2</a></span> <span class="dash">&mdash;</span> alternatives to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Factor.html">Factor</a></span></p>
+    <p class="singleFunction"><a name="333715746"></a><span class="IFSans"><a href="../ref/FCAntiSymmetrize.html">FCAntiSymmetrize</a></span><span class="dash">&mdash;</span> antisymmetrizes with respect to the given variables</p>
+    <p class="singleFunction"><a name="27396530"></a><span class="IFSans"><a href="../ref/FCE.html">FCE</a></span>, <span class="IFSans"><a href="../ref/FeynCalcExternal.html">FeynCalcExternal</a></span> <span class="dash">&mdash;</span>converts the expression to the external FeynCalc representation</p>
+    <p class="singleFunction"><a name="1283386980"></a><span class="IFSans"><a href="../ref/FCF.html">FCF</a></span>, <span class="IFSans"><a href="../ref/FeynCalcForm.html">FeynCalcForm</a></span> <span class="dash">&mdash;</span> changes the printed output to an easy to read form.</p>
+    <p class="singleFunction"><a name="2100021916"></a><span class="IFSans"><a href="../ref/FCI.html">FCI</a></span>, <span class="IFSans"><a href="../ref/FeynCalcInternal.html">FeynCalcInternal</a></span> <span class="dash">&mdash;</span>converts the expression to the internal FeynCalc representation</p>
+    <p class="singleFunction"><a name="898863791"></a><span class="IFSans"><a href="../ref/FCSplit.html">FCSplit</a></span>, <span class="IFSans"><a href="../ref/PartitHead.html">PartitHead</a></span>, <span class="IFSans"><a href="../ref/SelectFree.html">SelectFree</a></span>, <span class="IFSans"><a href="../ref/SelectNotFree.html">SelectNotFree</a></span> <span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Select.html">Select</a></span></p>
+    <p class="singleFunction"><a name="1647672763"></a><span class="IFSans"><a href="../ref/FCSymmetrize.html">FCSymmetrize</a></span><span class="dash">&mdash;</span> symmetrizes with respect to the given variables</p>
+    <p class="singleFunction"><a name="683465492"></a><span class="IFSans"><a href="../ref/FreeQ2.html">FreeQ2</a></span> <span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/FreeQ.html">FreeQ</a></span></p>
+    <p class="singleFunction"><a name="1650215271"></a><span class="IFSans"><a href="../ref/FRH.html">FRH</a></span> <span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/ReleaseHold.html">ReleaseHold</a></span></p>
+    <p class="singleFunction"><a name="1498216592"></a><span class="IFSans"><a href="../ref/Isolate.html">Isolate</a></span> <span class="dash">&mdash;</span> replaces expressions by abbreviations</p>
+    <p class="singleFunction"><a name="253353205"></a><span class="IFSans"><a href="../ref/Map2.html">Map2</a></span> <span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Map.html">Map</a></span></p>
+    <p class="singleFunction"><a name="1212078011"></a><span class="IFSans"><a href="../ref/MemSet.html">MemSet</a></span> <span class="dash">&mdash;</span> memoization depending on the amount of free RAM</p>
+    <p class="singleFunction"><a name="178528196"></a><span class="IFSans"><a href="../ref/NTerms.html">NTerms</a></span> <span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Length.html">Length</a></span></p>
+    <p class="singleFunction"><a name="1298957094"></a><span class="IFSans"><a href="../ref/NumericalFactor.html">NumericalFactor</a></span> <span class="dash">&mdash;</span> gives overall numerical factor</p>
+    <p class="singleFunction"><a name="1374272511"></a><span class="IFSans"><a href="../ref/NumericQ1.html">NumericQ1</a></span> <span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/NumericQ.html">NumericQ</a></span></p>
+    <p class="singleFunction"><a name="1627933292"></a><span class="IFSans"><a href="../ref/Power2.html">Power2</a></span> <span class="dash">&mdash;</span> alternative to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Power.html">Power</a></span></p>
+    <p class="singleFunction"><a name="1708462303"></a><span class="IFSans"><a href="../ref/PowerFactor.html">PowerFactor</a></span>, <span class="IFSans"><a href="../ref/PowerSimplify.html">PowerSimplify</a></span> <span class="dash">&mdash;</span>simplification of expressions with exponents</p>
+    <p class="singleFunction"><a name="1659205566"></a><span class="IFSans"><a href="../ref/Series2.html">Series2</a></span>, <span class="IFSans"><a href="../ref/Series3.html">Series3</a></span> <span class="dash">&mdash;</span> alternatives to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Series.html">Series</a></span></p>
+    <p class="singleFunction"><a name="1809157918"></a><span class="IFSans"><a href="../ref/Solve2.html">Solve2</a></span>, <span class="IFSans"><a href="../ref/Solve3.html">Solve3</a></span>  <span class="dash">&mdash;</span> alternatives to <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Solve.html">Solve</a></span></p>
+    <p class="singleFunction"><a name="869117662"></a><span class="IFSans"><a href="../ref/SumP.html">SumP</a></span>, <span class="IFSans"><a href="../ref/SumS.html">SumS</a></span>, <span class="IFSans"><a href="../ref/SumT.html">SumT</a></span> <span class="dash">&mdash;</span> different summations</p>
+    <h3><a name="385817707"></a>Lorentz tensors</h3>
+    <p class="singleFunction"><a name="2009629793"></a><span class="IFSans"><a href="../ref/Amputate.html">Amputate</a></span> <span class="dash">&mdash;</span> amputates 4-vectors, Dirac matrices or Levi-Civita tensors</p>
+    <p class="singleFunction"><a name="512359346"></a><span class="IFSans"><a href="../ref/ChangeDimension.html">ChangeDimension</a></span> <span class="dash">&mdash;</span> changes dimension of Lorentz indices and momenta</p>
+    <p class="singleFunction"><a name="1524292158"></a><span class="IFSans"><a href="../ref/CompleteSquare.html">CompleteSquare</a></span> <span class="dash">&mdash;</span> completes the square of a second order polynomial in the momentum x</p>
+    <p class="singleFunction"><a name="231212511"></a><span class="IFSans"><a href="../ref/Contract.html">Contract</a></span> <span class="dash">&mdash;</span> contracts Lorentz indices of tensors and Dirac matrices</p>
+    <p class="singleFunction"><a name="1913592904"></a><span class="IFSans"><a href="../ref/EpsEvaluate.html">EpsEvaluate</a></span> <span class="dash">&mdash;</span> applies total antisymmetry and linearity to all Levi-Civita tensors</p>
+    <p class="singleFunction"><a name="693139341"></a><span class="IFSans"><a href="../ref/ExpandScalarProduct.html">ExpandScalarProduct</a></span> <span class="dash">&mdash;</span> expands scalar products of sums of momenta</p>
+    <p class="singleFunction"><a name="343872275"></a><span class="IFSans"><a href="../ref/FCClearScalarProducts.html">FCClearScalarProducts</a></span> <span class="dash">&mdash;</span> removes all user-specific specific definitions of scalar products</p>
+    <p class="singleFunction"><a name="548161550"></a><span class="IFSans"><a href="../ref/FCRenameDummyIndices.html">FCRenameDummyIndices</a></span> <span class="dash">&mdash;</span> renames dummy Lorentz and SU(N) indices</p>
+    <p class="singleFunction"><a name="987343741"></a><span class="IFSans"><a href="../ref/FourDivergence.html">FourDivergence</a></span> <span class="dash">&mdash;</span> calculates partial derivative with respect to a 4-vector</p>
+    <p class="singleFunction"><a name="1285601191"></a><span class="IFSans"><a href="../ref/FourLaplacian.html">FourLaplacian</a></span> <span class="dash">&mdash;</span> calculates the Laplacian</p>
+    <p class="singleFunction"><a name="1809925827"></a><span class="IFSans"><a href="../ref/MomentumCombine.html">MomentumCombine</a></span>,<span class="IFSans"><a href="../ref/MomentumCombine.html"> MomentumCombine2</a></span> <span class="dash">&mdash;</span> inverse operations to <span class="IFSans"><a href="../ref/MomentumExpand.html">MomentumExpand</a></span> and <span class="IFSans"><a href="../ref/ExpandScalarProduct.html">ExpandScalarProduct</a></span></p>
+    <p class="singleFunction"><a name="344422616"></a><span class="IFSans"><a href="../ref/MomentumExpand.html">MomentumExpand</a></span> <span class="dash">&mdash;</span> expands <a href="../ref/Momentum.html">Momentum</a>[a+b+ ...]</p>
+    <p class="singleFunction"><a name="2009219923"></a><span class="IFSans"><a href="../ref/PairContract.html">PairContract</a></span>, <span class="IFSans"><a href="../ref/PairContract2.html">PairContract2</a></span>, <span class="IFSans"><a href="../ref/PairContract3.html">PairContract3</a></span> <span class="dash">&mdash;</span> like Pair but with local contraction properties</p>
+    <p class="singleFunction"><a name="874103215"></a><span class="IFSans"><a href="../ref/ScalarProduct.html">ScalarProduct</a></span> <span class="dash">&mdash;</span> defines scalar products of 4-vectors</p>
+    <p class="singleFunction"><a name="579030092"></a><span class="IFSans"><a href="../ref/SetMandelstam.html">SetMandelstam</a></span> <span class="dash">&mdash;</span> defines the Mandelstam variables</p>
+    <p class="singleFunction"><a name="1156270314"></a><span class="IFSans"><a href="../ref/TensorFunction.html">TensorFunction</a></span> <span class="dash">&mdash;</span> defines an unspecified Lorentz tensor</p>
+    <p class="singleFunction"><a name="629389521"></a><span class="IFSans"><a href="../ref/TrickMandelstam.html">TrickMandelstam</a></span> <span class="dash">&mdash;</span> simplifies the expression by eliminating one of the Mandelstam variables</p>
+    <p class="singleFunction"><a name="715481727"></a><span class="IFSans"><a href="../ref/Uncontract.html">Uncontract</a></span> <span class="dash">&mdash;</span> uncontracts Lorentz indices of tensors and Dirac matrices</p>
+    <h3><a name="46643246"></a>Dirac algebra</h3>
+    <p class="singleFunction"><a name="2131819227"></a><span class="IFSans"><a href="../ref/Anti5.html">Anti5</a></span> <span class="dash">&mdash;</span> anticommutes all <span class="IF"><img src="Files/FeynCalc/11.png" height="17" width="18" alt="" /></span> matrices to the left or to the right</p>
+    <p class="singleFunction"><a name="1211971239"></a><span class="IFSans"><a href="../ref/Chisholm.html">Chisholm</a></span> <span class="dash">&mdash;</span> substitutes products of 3 Dirac matrices by the Chisholm identity</p>
+    <p class="singleFunction"><a name="333117850"></a><span class="IFSans"><a href="../ref/DiracEquation.html">DiracEquation</a></span> <span class="dash">&mdash;</span> applies the Dirac equation</p>
+    <p class="singleFunction"><a name="615769661"></a><span class="IFSans"><a href="../ref/DiracGammaCombine.html">DiracGammaCombine</a></span> <span class="dash">&mdash;</span> inverse operation to <span class="IFSans"><a href="../ref/DiracGammaExpand.html">DiracGammaExpand</a></span></p>
+    <p class="singleFunction"><a name="1531032786"></a><span class="IFSans"><a href="../ref/DiracGammaExpand.html">DiracGammaExpand</a></span> <span class="dash">&mdash;</span> expands sums of momenta contracted with Dirac matrices</p>
+    <p class="singleFunction"><a name="688938496"></a><span class="IFSans"><a href="../ref/DiracOrder.html">DiracOrder</a></span> <span class="dash">&mdash;</span> orders the Dirac matrices in expression alphabetically</p>
+    <p class="singleFunction"><a name="1740429042"></a><span class="IFSans"><a href="../ref/DiracReduce.html">DiracReduce</a></span> <span class="dash">&mdash;</span> reduces all 4-dimensional Dirac matrices to the standard basis (SPVAT-decomposition) </p>
+    <p class="singleFunction"><a name="297775359"></a><span class="IFSans"><a href="../ref/DiracSigmaExplicit.html">DiracSigmaExplicit</a></span> <span class="dash">&mdash;</span> inserts the explicit definition of <span class="IFSans"><a href="../ref/DiracSigma.html">DiracSigma</a></span></p>
+    <p class="singleFunction"><a name="255459663"></a><span class="IFSans"><a href="../ref/DiracSimplify.html">DiracSimplify</a></span> <span class="dash">&mdash;</span> simplifies products of Dirac matrices and expands non-commutative products</p>
+    <p class="singleFunction"><a name="1463755561"></a><span class="IFSans"><a href="../ref/DiracTrace.html">DiracTrace</a></span> <span class="dash">&mdash;</span> computes traces of Dirac matrices</p>
+    <p class="singleFunction"><a name="1334035786"></a><span class="IFSans"><a href="../ref/DiracTrick.html">DiracTrick</a></span> <span class="dash">&mdash;</span> contracts Dirac matrices with each other and performs several simplifications but no expansions</p>
+    <p class="singleFunction"><a name="525715973"></a><span class="IFSans"><a href="../ref/EpsChisholm.html">EpsChisholm</a></span> <span class="dash">&mdash;</span> substitutes Chisholm identity for a Dirac matrix contracted with a Levi-Civita tensor</p>
+    <p class="singleFunction"><a name="218430270"></a><span class="IFSans"><a href="../ref/Schouten.html">Schouten</a></span> <span class="dash">&mdash;</span> applies Schouten identity</p>
+    <p class="singleFunction"><a name="1707494307"></a><span class="IFSans"><a href="../ref/ToLarin.html">ToLarin</a></span> <span class="dash">&mdash;</span> substitutes <span class="IF"><img src="Files/FeynCalc/12.png" height="17" width="39" alt="" /></span> according to the Larin scheme</p>
+    <h3><a name="1113739100"></a>Algebra of non-commutative objects</h3>
+    <p class="singleFunction"><a name="1482543113"></a><span class="IFSans"><a href="../ref/AntiCommutator.html">AntiCommutator</a></span> <span class="dash">&mdash;</span> defines an anti-commutator</p>
+    <p class="singleFunction"><a name="1937939922"></a><span class="IFSans"><a href="../ref/Calc.html">Calc</a></span>, <span class="IFSans"><a href="../ref/Trick.html">Trick</a></span> <span class="dash">&mdash;</span> multiple simplifications for Dirac and SU(N) algebra</p>
+    <p class="singleFunction"><a name="526201837"></a><span class="IFSans"><a href="../ref/Commutator.html">Commutator</a></span> <span class="dash">&mdash;</span> defines a commutator</p>
+    <p class="singleFunction"><a name="369276061"></a><span class="IFSans"><a href="../ref/CommutatorExplicit.html">CommutatorExplicit</a></span> <span class="dash">&mdash;</span> substitutes explicit definitions of <span class="IFSans"><a href="../ref/Commutator.html">Commutator</a></span> and <span class="IFSans"><a href="../ref/AntiCommutator.html">AntiCommutator</a></span></p>
+    <p class="singleFunction"><a name="795497081"></a><span class="IFSans"><a href="../ref/DeclareNonCommutative.html">DeclareNonCommutative</a></span> <span class="dash">&mdash;</span>declares non-commutative objects</p>
+    <p class="singleFunction"><a name="284457576"></a><span class="IFSans"><a href="../ref/DotExpand.html">DotExpand</a></span> <span class="dash">&mdash;</span> expands <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Dot.html">Dot</a></span> products</p>
+    <p class="singleFunction"><a name="1861924278"></a><span class="IFSans"><a href="../ref/DotSimplify.html">DotSimplify</a></span> <span class="dash">&mdash;</span> expands and reorders noncommutative terms </p>
+    <p class="singleFunction"><a name="1355907511"></a><span class="IFSans"><a href="../ref/NonCommFreeQ.html">NonCommFreeQ</a></span>, <span class="IFSans"><a href="../ref/NonCommQ.html">NonCommQ</a></span>  <span class="dash">&mdash;</span> checks if the expression contains non-commutative quantities</p>
+    <p class="singleFunction"><a name="1719074274"></a><span class="IFSans"><a href="../ref/TR.html">TR</a></span>, <span class="IFSans"><a href="../ref/Tr2.html">Tr2</a></span>  <span class="dash">&mdash;</span> calculates Dirac  and possibly also SU(N) traces</p>
+    <p class="singleFunction"><a name="1309406098"></a><span class="IFSans"><a href="../ref/UnDeclareNonCommutative.html">UnDeclareNonCommutative</a></span> <span class="dash">&mdash;</span> undeclares non-commutative objects</p>
+    <h3><a name="121380019"></a>SU(N) algebra</h3>
+    <p class="singleFunction"><a name="821249197"></a><span class="IFSans"><a href="../ref/CalcColorFactor.html">CalcColorFactor</a></span> <span class="dash">&mdash;</span> calculates the color factor</p>
+    <p class="singleFunction"><a name="1593535902"></a><span class="IFSans"><a href="../ref/SUNDeltaContract.html">SUNDeltaContract</a></span> <span class="dash">&mdash;</span> contracts Kronecker deltas with adjoint color indices</p>
+    <p class="singleFunction"><a name="210505242"></a><span class="IFSans"><a href="../ref/SUNDeltaContract.html">SUNFDeltaContract</a></span> <span class="dash">&mdash;</span> contracts Kronecker deltas with fundamental color indices</p>
+    <p class="singleFunction"><a name="1595578132"></a><span class="IFSans"><a href="../ref/SUNSimplify.html">SUNSimplify</a></span>, <span class="IFSans"><a href="../ref/SUNFSimplify.html">SUNFSimplify</a></span> <span class="dash">&mdash;</span>simplifies expressions that contain SU(N) matrices </p>
+    <p class="singleFunction"><a name="1561361899"></a><span class="IFSans"><a href="../ref/SUNTrace.html">SUNTrace</a></span> <span class="dash">&mdash;</span> computes traces over SU(N) matrices</p>
+    <h3><a name="1137355821"></a>Loop integrals</h3>
+    <p class="singleFunction"><a name="484191528"></a><span class="IFSans"><a href="../ref/A0.html">A0</a></span> <span class="dash">&mdash;</span> Passarino-Veltman 1-point integral (tadpole)</p>
+    <p class="singleFunction"><a name="1364110476"></a><span class="IFSans"><a href="../ref/Apart2.html">Apart2</a></span> <span class="dash">&mdash;</span> partial fractions loop integrals (only very simple cases)</p>
+    <p class="singleFunction"><a name="863977560"></a><span class="IFSans"><a href="../ref/ApartFF.html">ApartFF</a></span> <span class="dash">&mdash;</span> partial fractions arbitrary loop integrals</p>
+    <p class="singleFunction"><a name="512824359"></a><span class="IFSans"><a href="../ref/B0.html">B0</a></span>, <span class="IFSans"><a href="../ref/B00.html">B00</a></span>, <span class="IFSans"><a href="../ref/B1.html">B1</a></span>, <span class="IFSans"><a href="../ref/B11.html">B11</a></span> <span class="dash">&mdash;</span> Passarino-Veltman 2-point integrals (bubbles)</p>
+    <p class="singleFunction"><a name="1115857362"></a><span class="IFSans"><a href="../ref/C0.html">C0</a></span> <span class="dash">&mdash;</span> Passarino-Veltman 3-point integrals (triangles)</p>
+    <p class="singleFunction"><a name="143835829"></a><span class="IFSans"><a href="../ref/D0.html">D0</a></span> <span class="dash">&mdash;</span> Passarino-Veltman 4-point integrals (boxes)</p>
+    <p class="singleFunction"><a name="883206687"></a><span class="IFSans"><a href="../ref/DB0.html">DB0</a></span> <span class="dash">&mdash;</span> derivative of <span class="IFSans"><a href="../ref/B0.html">B0</a></span> with respect to the external momentum</p>
+    <p class="singleFunction"><a name="439407944"></a><span class="IFSans"><a href="../ref/DB1.html">DB1</a></span> <span class="dash">&mdash;</span> derivative of <span class="IFSans"><a href="../ref/B1.html">B1</a></span> with respect to the external momentum</p>
+    <p class="singleFunction"><a name="1595882694"></a><span class="IFSans"><a href="../ref/FCApart.html">FCApart</a></span> <span class="dash">&mdash;</span> backend of <span class="IFSans"><a href="../ref/ApartFF.html">ApartFF</a></span>, works only on single loop integrals</p>
+    <p class="singleFunction"><a name="333845561"></a><span class="IFSans"><a href="../ref/FCIntegral.html">FCIntegral</a></span> <span class="dash">&mdash;</span> head of loop integrals</p>
+    <p class="singleFunction"><a name="1110841143"></a><span class="IFSans"><a href="../ref/FCLoopBasisIncompleteQ.html">FCLoopBasisIncompleteQ</a></span> <span class="dash">&mdash;</span> checks if the propagators of a loop integral do not form a basis</p>
+    <p class="singleFunction"><a name="714568367"></a><span class="IFSans"><a href="../ref/FCLoopBasisOverdeterminedQ.html">FCLoopBasisOverdeterminedQ</a></span> <span class="dash">&mdash;</span> checks if the propagators of a loop integral are linearly dependent</p>
+    <p class="singleFunction"><a name="251142308"></a><span class="IFSans"><a href="../ref/FCLoopBasisFindCompletion.html">FCLoopBasisFindCompletion</a></span> <span class="dash">&mdash;</span> determines propagators that need to be included in the loop integral to ensure that its propagators form a basis</p>
+    <p class="singleFunction"><a name="1336937891"></a><span class="IFSans"><a href="../ref/FCLoopCanonicalize.html">FCLoopCanonicalize</a></span> <span class="dash">&mdash;</span> auxiliary function that canonicalizes free Lorentz indices of 1-loop integrals</p>
+    <p class="singleFunction"><a name="1906541245"></a><span class="IFSans"><a href="../ref/FCLoopExtract.html">FCLoopExtract</a></span> <span class="dash">&mdash;</span> extracts loop integrals</p>
+    <p class="singleFunction"><a name="757005022"></a><span class="IFSans"><a href="../ref/FCLoopIsolate.html">FCLoopIsolate</a></span> <span class="dash">&mdash;</span> wraps loop integrals into specified heads</p>
+    <p class="singleFunction"><a name="284159366"></a><span class="IFSans"><a href="../ref/FCLoopSolutionList.html">FCLoopSolutionList</a></span> <span class="dash">&mdash;</span> auxiliary function that processes the output of <span class="IFSans"><a href="../ref/FCLoopCanonicalize.html">FCLoopCanonicalize</a></span> </p>
+    <p class="singleFunction"><a name="1711785091"></a><span class="IFSans"><a href="../ref/FCLoopSplit.html">FCLoopSplit</a></span> <span class="dash">&mdash;</span> splits the expressions into pieces that contain different types of loop integrals</p>
+    <p class="singleFunction"><a name="777565246"></a><span class="IFSans"><a href="../ref/FCMultiLoopTID.html">FCMultiLoopTID</a></span> <span class="dash">&mdash;</span> tensor reduction of multi-loop integrals (only for non-zero Gram determinants)</p>
+    <p class="singleFunction"><a name="127777310"></a><span class="IFSans"><a href="../ref/FeynAmpDenominatorCombine.html">FeynAmpDenominatorCombine</a></span> <span class="dash">&mdash;</span> combines products of propagators</p>
+    <p class="singleFunction"><a name="164601953"></a><span class="IFSans"><a href="../ref/FeynAmpDenominatorSimplify.html">FeynAmpDenominatorSimplify</a></span> <span class="dash">&mdash;</span> simplifies loop integrals by doing shifts and detects integrals that vanish by symmetry.</p>
+    <p class="singleFunction"><a name="1822975320"></a><span class="IFSans"><a href="../ref/FeynAmpDenominatorSplit.html">FeynAmpDenominatorSplit</a></span> <span class="dash">&mdash;</span> splits all <a href="../ref/FeynAmpDenominator.html">FeynAmpDenominator</a>'s into products of single propagators</p>
+    <p class="singleFunction"><a name="727371440"></a><span class="IFSans"><a href="../ref/FeynmanParametrize.html">FeynmanParametrize</a></span> <span class="dash">&mdash;</span> introduces Feynman parametrization for some 1-loop integrals</p>
+    <p class="singleFunction"><a name="1377966861"></a><span class="IFSans"><a href="../ref/FromTFI.html">FromTFI</a></span> <span class="dash">&mdash;</span> ranslates TFI, TVI and TJI Tarcer-notation to FeynCalc notation</p>
+    <p class="singleFunction"><a name="1684971587"></a><span class="IFSans"><a href="../ref/GammaExpand.html">GammaExpand</a></span> <span class="dash">&mdash;</span> rewrites <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Gamma.html">Gamma</a><br />[n + m]</span> where n is an integer</p>
+    <p class="singleFunction"><a name="1716225519"></a><span class="IFSans"><a href="../ref/GenPaVe.html">GenPaVe</a></span>, <span class="IFSans"><a href="../ref/PaVe.html">PaVe</a></span> <span class="dash">&mdash;</span> denote invariant Passarino-Veltman integrals</p>
+    <p class="singleFunction"><a name="671837658"></a><span class="IFSans"><a href="../ref/Hill.html">Hill</a></span> <span class="dash">&mdash;</span> gives the Hill identity</p>
+    <p class="singleFunction"><a name="1636252055"></a><span class="IFSans"><a href="../ref/HypergeometricAC.html">HypergeometricAC</a></span> <span class="dash">&mdash;</span> analytically continues <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Hypergeometric2F1.html">Hypergeometric2F1</a></span> functions</p>
+    <p class="singleFunction"><a name="1675333030"></a><span class="IFSans"><a href="../ref/HypergeometricIR.html">HypergeometricIR</a></span> <span class="dash">&mdash;</span> substitutes a particular integral represenetation for all <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Hypergeometric2F1.html">Hypergeometric2F1</a></span>[a,b,c,d]</p>
+    <p class="singleFunction"><a name="373844893"></a><span class="IFSans"><a href="../ref/HypergeometricSE.html">HypergeometricSE</a></span> <span class="dash">&mdash;</span></p>
+    <p class="singleFunction"><a name="1693861457"></a><span class="IFSans"><a href="../ref/HypExplicit.html">HypExplicit</a></span> <span class="dash">&mdash;</span> expresses <span class="dash">&mdash;</span></p>
+    <p class="singleFunction"><a name="305598727"></a><span class="IFSans"><a href="../ref/HypInt.html">HypInt</a></span> <span class="dash">&mdash;</span> substitutes <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Hypergeometric2F1.html">Hypergeometric2F1</a></span> functions by their integral definition</p>
+    <p class="singleFunction"><a name="554636843"></a><span class="IFSans"><a href="../ref/IFPDOff.html">IFPDOff</a></span> <span class="dash">&mdash;</span> changes from <span class="IFSans"><a href="../ref/IFPD.html">IFPD</a></span> representation to <span class="IFSans"><a href="../ref/FeynAmpDenominator.html">FeynAmpDenominator</a></span></p>
+    <p class="singleFunction"><a name="1378134869"></a><span class="IFSans"><a href="../ref/IFPDOn.html">IFPDOn</a></span> <span class="dash">&mdash;</span> changes from <span class="IFSans"><a href="../ref/FeynAmpDenominator.html">FeynAmpDenominator</a></span> representation to <span class="IFSans"><a href="../ref/IFPD.html">IFPD</a></span></p>
+    <p class="singleFunction"><a name="136967693"></a><span class="IFSans"><a href="../ref/IntegrateByParts.html">IntegrateByParts</a></span>, <a href="../ref/PartialIntegrate.html">PartialIntegrate</a> <span class="dash">&mdash;</span> integration by parts for particular Feynman parameter integrals</p>
+    <p class="singleFunction"><a name="965355169"></a><span class="IFSans"><a href="../ref/OneLoop.html">OneLoop</a></span> <span class="dash">&mdash;</span> calculates  1-loop Feynman diagram amplitudes</p>
+    <p class="singleFunction"><a name="479804421"></a><span class="IFSans"><a href="../ref/OneLoopSimplify.html">OneLoopSimplify</a></span> <span class="dash">&mdash;</span> simplifies  1-loop Feynman diagram amplitudes</p>
+    <p class="singleFunction"><a name="932281504"></a><span class="IFSans"><a href="../ref/ToHypergeometric.html">ToHypergeometric</a></span> <span class="dash">&mdash;</span> introduces <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Hypergeometric2F1.html">Hypergeometric2F1</a></span></p>
+    <p class="singleFunction"><a name="200996743"></a><span class="IFSans"><a href="../ref/PaveOrder.html">PaveOrder</a></span> <span class="dash">&mdash;</span> orders the arguments of <span class="IFSans"><a href="../ref/D0.html">D0</a></span> in a standard way</p>
+    <p class="singleFunction"><a name="1268052330"></a><span class="IFSans"><a href="../ref/PaVeReduce.html">PaVeReduce</a></span> <span class="dash">&mdash;</span> reduces Passarino-Veltman integrals down to <span class="IFSans"><a href="../ref/A0.html">A0</a></span>, <span class="IFSans"><a href="../ref/B0.html">B0</a></span>, <span class="IFSans"><a href="../ref/C0.html">C0</a></span> and <span class="IFSans"><a href="../ref/D0.html">D0</a></span></p>
+    <p class="singleFunction"><a name="2037908586"></a><span class="IFSans"><a href="../ref/PropagatorDenominatorExplicit.html">PropagatorDenominatorExplicit</a></span> <span class="dash">&mdash;</span> rewrites <span class="IFSans"><a href="../ref/FeynAmpDenominator.html">FeynAmpDenominator</a></span> in terms of scalar products and masses</p>
+    <p class="singleFunction"><a name="334277431"></a><span class="IFSans"><a href="../ref/RussianTrick.html">RussianTrick</a></span> <span class="dash">&mdash;</span> derives IBP relations for 2-loop self-energy integrals</p>
+    <p class="singleFunction"><a name="839585187"></a><span class="IFSans"><a href="../ref/ScalarProductCancel.html">ScalarProductCancel</a></span> <span class="dash">&mdash;</span> cancels scalar products with propagators</p>
+    <p class="singleFunction"><a name="1574102580"></a><span class="IFSans"><a href="../ref/SimplifyDeltaFunction.html">SimplifyDeltaFunction</a></span> <span class="dash">&mdash;</span> applies some simplifications to <span class="IFSans"><a href="../ref/DeltaFunction.html">DeltaFunction</a></span></p>
+    <p class="singleFunction"><a name="1554094936"></a><span class="IFSans"><a href="../ref/Sn.html">Sn</a></span> <span class="dash">&mdash;</span> denotes <span class="IF"><img src="Files/FeynCalc/13.png" height="28" width="81" alt="" /></span></p>
+    <p class="singleFunction"><a name="1979909722"></a><span class="IFSans"><a href="../ref/Tdec.html">Tdec</a></span> <span class="dash">&mdash;</span> calculates tensor decomposition formulas for loop integrals</p>
+    <p class="singleFunction"><a name="613914279"></a><span class="IFSans"><a href="../ref/TFIOrder.html">TFIOrder</a></span> <span class="dash">&mdash;</span> orders the arguments of some TFI functions in a standard way</p>
+    <p class="singleFunction"><a name="1765084008"></a><span class="IFSans"><a href="../ref/TID.html">TID</a></span> <span class="dash">&mdash;</span> does a 1-loop tensor integral decomposition</p>
+    <p class="singleFunction"><a name="982645341"></a><span class="IFSans"><a href="../ref/TIDL.html">TIDL</a></span> <span class="dash">&mdash;</span> library of tensor integral decomposition formulas</p>
+    <p class="singleFunction"><a name="2096516005"></a><span class="IFSans"><a href="../ref/ToDistribution.html">ToDistribution</a></span> <span class="dash">&mdash;</span> introduces <span class="IFSans"><a href="../ref/DeltaFunction.html">DeltaFunction</a></span>, <span class="IFSans"><a href="../ref/DeltaFunctionPrime.html">DeltaFunctionPrime</a></span> and <span class="IFSans"><a href="../ref/PlusDistribution.html">PlusDistribution</a></span></p>
+    <p class="singleFunction"><a name="1860467462"></a><span class="IFSans"><a href="../ref/ToFI.html">ToFI</a></span>, <span class="IFSans"><a href="../ref/ToTFI.html">ToTFI</a></span> <span class="dash">&mdash;</span> converts 1- and 2-loop scalar self-energy integrals to the Tarcer notation</p>
+    <p class="singleFunction"><a name="242380689"></a><span class="IFSans"><a href="../ref/ToPaVe.html">ToPaVe</a></span> <span class="dash">&mdash;</span> converts scalar 1-loop integrals to Passarino Veltman scalar functions </p>
+    <p class="singleFunction"><a name="485753619"></a><span class="IFSans"><a href="../ref/TrickIntegrate.html">TrickIntegrate</a></span> <span class="dash">&mdash;</span> integration of some special distributions</p>
+    <p class="singleFunction"><a name="91877457"></a><span class="IFSans"><a href="../ref/UVPart.html">UVPart</a></span> <span class="dash">&mdash;</span> discards UV-finite integrals</p>
+    <h3><a name="198236928"></a>Export and import</h3>
+    <p class="singleFunction"><a name="1077126346"></a><span class="IFSans"><a href="../ref/FeynCalc2FORM.html">FeynCalc2FORM</a></span> <span class="dash">&mdash;</span> displays expression in FORM syntax</p>
+    <p class="singleFunction"><a name="1438938037"></a><span class="IFSans"><a href="../ref/FeynCalcToLaTeX.html">FeynCalcToLaTeX</a></span> <span class="dash">&mdash;</span> generates LaTeX</p>
+    <p class="singleFunction"><a name="1856631784"></a><span class="IFSans"><a href="../ref/FORM2FeynCalc.html">FORM2FeynCalc</a></span> <span class="dash">&mdash;</span> translates teh FORM expression in file into FeynCalc notation</p>
+    <p class="singleFunction"><a name="440214481"></a><span class="IFSans"><a href="../ref/StringChomp.html">StringChomp</a></span> <span class="dash">&mdash;</span> chops initial and final white space of a string</p>
+    <p class="singleFunction"><a name="390527761"></a><span class="IFSans"><a href="../ref/Write2.html">Write2</a></span> <span class="dash">&mdash;</span> writes the given settings in sequence followed by a newline to the specified output file</p>
+    <h3><a name="1448855878"></a>Feynman rules and amplitudes</h3>
+    <p class="singleFunction"><a name="594655451"></a><span class="IFSans"><a href="../ref/BackgroundGluonVertex.html">BackgroundGluonVertex</a></span> <span class="dash">&mdash;</span> 3-gluon vertex in the background field gauge</p>
+    <p class="singleFunction"><a name="231184642"></a><span class="IFSans"><a href="../ref/ChargeConjugationMatrix.html">ChargeConjugationMatrix</a></span> <span class="dash">&mdash;</span> charge conjugation matrix</p>
+    <p class="singleFunction"><a name="2057902261"></a><span class="IFSans"><a href="../ref/ChargeConjugationMatrixInv.html">ChargeConjugationMatrixInv</a></span> <span class="dash">&mdash;</span> inverse of <span class="IFSans"><a href="../ref/ChargeConjugationMatrix.html">ChargeConjugationMatrix</a></span></p>
+    <p class="singleFunction"><a name="1847839027"></a><span class="IFSans"><a href="../ref/ComplexConjugate.html">ComplexConjugate</a></span> <span class="dash">&mdash;</span> complex conjugates Feynman amplitudes</p>
+    <p class="singleFunction"><a name="2013380245"></a><span class="IFSans"><a href="../ref/CovariantD.html">CovariantD</a></span> <span class="dash">&mdash;</span> generic covariant derivative</p>
+    <p class="singleFunction"><a name="2016043479"></a><span class="IFSans"><a href="../ref/CovariantFieldDerivative.html">CovariantFieldDerivative</a></span> <span class="dash">&mdash;</span> covariant field derivative</p>
+    <p class="singleFunction"><a name="397456419"></a><span class="IFSans"><a href="../ref/DoPolarizationSums.html">DoPolarizationSums</a></span> <span class="dash">&mdash;</span> sums over physical polarizations of external massless vector bosons</p>
+    <p class="singleFunction"><a name="747107785"></a><span class="IFSans"><a href="../ref/ExpandPartialD.html">ExpandPartialD</a></span> <span class="dash">&mdash;</span> expands DOT products of <span class="IFSans"><a href="../ref/QuantumField.html">QuantumField</a></span>'s using the Leibniz rule</p>
+    <p class="singleFunction"><a name="599890035"></a><span class="IFSans"><a href="../ref/ExplicitPartialD.html">ExplicitPartialD</a></span> <span class="dash">&mdash;</span> inserts the definition for <span class="IFSans"><a href="../ref/LeftRightPartialD.html">LeftRightPartialD</a></span>and <span class="IFSans"><a href="../ref/LeftRightPartialD2.html">LeftRightPartialD2</a></span></p>
+    <p class="singleFunction"><a name="593077025"></a><span class="IFSans"><a href="../ref/FAPatch.html">FAPatch</a></span> <span class="dash">&mdash;</span> patches FeynArts to be compatible with FeynCalc</p>
+    <p class="singleFunction"><a name="1711779075"></a><span class="IFSans"><a href="../ref/FCFAConvert.html">FCFAConvert</a></span> <span class="dash">&mdash;</span> converts a FeynArts amplitude to FeynCalc</p>
+    <p class="singleFunction"><a name="1327458149"></a><span class="IFSans"><a href="../ref/FCPrepareFAAmp.html">FCPrepareFAAmp</a></span> <span class="dash">&mdash;</span> auxiliary function for a partial conversion of a FeynArts amplitude to FeynCalc.</p>
+    <p class="singleFunction"><a name="2002786353"></a><span class="IFSans"><a href="../ref/FermionSpinSum.html">FermionSpinSum</a></span> <span class="dash">&mdash;</span> constructs Dirac traces out of squared ampliudes with external Dirac fermions.</p>
+    <p class="singleFunction"><a name="1230786365"></a><span class="IFSans"><a href="../ref/FeynRule.html">FeynRule</a></span> <span class="dash">&mdash;</span> determines Feynman rules from Lagrangians</p>
+    <p class="singleFunction"><a name="837206947"></a><span class="IFSans"><a href="../ref/FieldDerivative.html">FieldDerivative</a></span> <span class="dash">&mdash;</span> field derivative</p>
+    <p class="singleFunction"><a name="1427392211"></a><span class="IFSans"><a href="../ref/FieldStrength.html">FieldStrength</a></span> <span class="dash">&mdash;</span> field strength tensor <span class="IF"><img src="Files/FeynCalc/14.png" height="17" width="23" alt="" /></span></p>
+    <p class="singleFunction"><a name="866592844"></a><span class="IFSans"><a href="../ref/FunctionalD.html">FunctionalD</a></span> <span class="dash">&mdash;</span>functional derivative</p>
+    <p class="singleFunction"><a name="30813872"></a><span class="IFSans"><a href="../ref/GhostPropagator.html">GhostPropagator</a></span> <span class="dash">&mdash;</span> ghost propagator</p>
+    <p class="singleFunction"><a name="660953776"></a><span class="IFSans"><a href="../ref/GluonGhostVertex.html">GluonGhostVertex</a></span> <span class="dash">&mdash;</span> gluon ghost vertex</p>
+    <p class="singleFunction"><a name="183769818"></a><span class="IFSans"><a href="../ref/GluonPropagator.html">GluonPropagator</a></span> <span class="dash">&mdash;</span> gluon propagator</p>
+    <p class="singleFunction"><a name="2139004592"></a><span class="IFSans"><a href="../ref/GluonSelfEnergy.html">GluonSelfEnergy</a></span> <span class="dash">&mdash;</span> 1-loop gluon self-energy</p>
+    <p class="singleFunction"><a name="819406206"></a><span class="IFSans"><a href="../ref/GluonVertex.html">GluonVertex</a></span> <span class="dash">&mdash;</span> 3- and 4-gluon vertices</p>
+    <p class="singleFunction"><a name="202849658"></a><span class="IFSans"><a href="../ref/PolarizationSum.html">PolarizationSum</a></span> <span class="dash">&mdash;</span> sums over polarizations of vector bosons</p>
+    <p class="singleFunction"><a name="1044703852"></a><span class="IFSans"><a href="../ref/QCDFeynmanRuleConvention.html">QCDFeynmanRuleConvention</a></span> <span class="dash">&mdash;</span> sign convention for QCD Feynman rules</p>
+    <p class="singleFunction"><a name="1894290270"></a><span class="IFSans"><a href="../ref/QuarkGluonVertex.html">QuarkGluonVertex</a></span> <span class="dash">&mdash;</span> quark gluon vertex</p>
+    <p class="singleFunction"><a name="1081498198"></a><span class="IFSans"><a href="../ref/QuarkPropagator.html">QuarkPropagator</a></span> <span class="dash">&mdash;</span> quark propagator</p>
+    <p class="singleFunction"><a name="1449625308"></a><span class="IFSans"><a href="../ref/ScalarGluonVertex.html">ScalarGluonVertex</a></span> <span class="dash">&mdash;</span> scalar-scalar-gluon vertex</p>
+    <p class="singleFunction"><a name="1907820234"></a><span class="IFSans"><a href="../ref/SMP.html">SMP</a></span> <span class="dash">&mdash;</span> substitutes symbols for various SM paremeters</p>
+    <p class="singleFunction"><a name="1716995820"></a><span class="IFSans"><a href="../ref/SMVertex.html">SMVertex</a></span> <span class="dash">&mdash;</span> some SM vertices</p>
+    <h3><a name="16428002"></a>Tables</h3>
+    <p class="singleFunction"><a name="573273780"></a><span class="IFSans"><a href="../ref/Amplitude.html">Amplitude</a></span> <span class="dash">&mdash;</span> database of Feynman amplitudes</p>
+    <p class="singleFunction"><a name="58857743"></a><span class="IFSans"><a href="../ref/AnomalousDimension.html">AnomalousDimension</a></span> <span class="dash">&mdash;</span> non-singlet one-loop contribution to the anomalous dimension in the <span class="IF"><img src="Files/FeynCalc/15.png" height="19" width="20" alt="" /></span> scheme</p>
+    <p class="singleFunction"><a name="2085845974"></a><span class="IFSans"><a href="../ref/CheckDB.html">CheckDB</a></span> <span class="dash">&mdash;</span> saves or retrieves expressions from the database</p>
+    <p class="singleFunction"><a name="113893828"></a><span class="IFSans"><a href="../ref/Convolute.html">Convolute</a></span>, <span class="IFSans"><a href="../ref/ConvoluteTable.html">ConvoluteTable</a></span> <span class="dash">&mdash;</span> convolution of functions</p>
+    <p class="singleFunction"><a name="398578851"></a><span class="IFSans"><a href="../ref/CounterTerm.html">CounterTerm</a></span> <span class="dash">&mdash;</span> database of counter terms.</p>
+    <p class="singleFunction"><a name="1016459733"></a><span class="IFSans"><a href="../ref/Gamma1.html">Gamma1</a></span>, <span class="IFSans"><a href="../ref/Gamma2.html">Gamma2</a></span>, <span class="IFSans"><a href="../ref/Gamma3.html">Gamma3</a></span>, <span class="IFSans"><a href="../ref/GammaEpsilon.html">GammaEpsilon</a></span>  <span class="dash">&mdash;</span> special products and expansions of <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Gamma.html">Gamma</a></span> functions</p>
+    <p class="singleFunction"><a name="1266157"></a><span class="IFSans"><a href="../ref/Integrate2.html">Integrate2</a></span>, <span class="IFSans"><a href="../ref/Integrate3.html">Integrate3</a></span>, <span class="IFSans"><a href="../ref/Integrate4.html">Integrate4</a></span>, <span class="IFSans"><a href="../ref/Integrate5.html">Integrate5</a></span> <span class="dash">&mdash;</span> some integrals</p>
+    <p class="singleFunction"><a name="1817035294"></a><span class="IFSans"><a href="../ref/InverseMellin.html">InverseMellin</a></span> <span class="dash">&mdash;</span> inverse Mellin transform for some polynomials</p>
+    <p class="singleFunction"><a name="1052156503"></a><span class="IFSans"><a href="../ref/Kummer.html">Kummer</a></span> <span class="dash">&mdash;</span> applies Kummer relations</p>
+    <p class="singleFunction"><a name="1278270450"></a><span class="IFSans"><a href="../ref/Lagrangian.html">Lagrangian</a></span> <span class="dash">&mdash;</span> database of Lagrangians</p>
+    <p class="singleFunction"><a name="1690213129"></a><span class="IFSans"><a href="../ref/Nielsen.html">Nielsen</a></span> <span class="dash">&mdash;</span> denotes Nielsen's polylogarithm</p>
+    <p class="singleFunction"><a name="1901226625"></a><span class="IFSans"><a href="../ref/SimplifyPolyLog.html">SimplifyPolyLog</a></span> <span class="dash">&mdash;</span> several simplifications for <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/Log.html">Log</a></span> and <span class="IFSans"><a href="http://reference.wolfram.com/language/ref/PolyLog.html">PolyLog</a></span> functions under certain assumptions</p>
+    <p class="singleFunction"><a name="2052229439"></a><span class="IFSans"><a href="../ref/SplittingFunction.html">SplittingFunction</a></span> <span class="dash">&mdash;</span> database of splitting functiosn</p>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

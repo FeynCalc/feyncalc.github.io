@@ -1,0 +1,1 @@
+<pre name='i_33_in' id='i_33_in' class='IFT'>DiracSimplify[GA[\[Nu], \[Mu]], DiracCanonical -&gt; True]</pre><div class='IFU'><a name='990886795'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq-qn8ffh</div>

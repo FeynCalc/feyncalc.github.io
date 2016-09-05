@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CalcColorFactor&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="CalcColorFactor" />
+
+<meta name="description" content="CalcColorFactor[expr] calculates the color factor of expr. CalcColorFactor is useful for application on FeynArts produced amplitudes. CalcColorFactor is just a macro function for CalcColorFactor[x_] := If[FreeQ2[FeynCalcInternal[x], SUNIndex], x, SUNSimplify[SUNSimplify[ (If[ !FreeQ[#1, DiracGamma], DiracTrick[#1], #1] &amp;amp; )[SUNSimplify[x]], Explicit -&amp;gt; False], Explicit -&amp;gt; True]]." />
+<script language="JavaScript" type="text/javascript">baselang='CalcColorFactor';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>CalcColorFactor</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/CalcColorFactor/1.png" height="20" width="140" alt="" /></span> <br />calculates the color factor of expr.  CalcColorFactor is useful for application on FeynArts produced amplitudes. CalcColorFactor is just a macro function for CalcColorFactor[x_] := 
+If[FreeQ2[FeynCalcInternal[x], SUNIndex],  x, 
+                    SUNSimplify[SUNSimplify[  (If[ !FreeQ[#1, DiracGamma], DiracTrick[#1], #1] &amp; )[  SUNSimplify[x]], Explicit -&gt; False], Explicit -&gt; True]].</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+    <h3 class="Subsubsection"><a name="86935840"></a>Examples</h3>
+    <div class="IO">
+     <table class="InCell">
+      <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+         <a name="1491586567"></a>
+         <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/CalcColorFactor/I_2.gif" height="17" width="297" alt="Click for copyable input" /></a>
+        </div><div id="i_1_out" class="IFL"></div></td></tr>
+     </table>
+     <table class="OCell">
+      <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/CalcColorFactor/O_1.gif" height="19" width="50" alt="" /></td></tr>
+     </table>
+    </div>
+    <div class="IO">
+     <table class="InCell">
+      <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <a name="1818256691"></a>
+         <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/CalcColorFactor/I_4.gif" height="17" width="134" alt="Click for copyable input" /></a>
+        </div><div id="i_3_out" class="IFL"></div></td></tr>
+     </table>
+     <table class="OCell">
+      <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/CalcColorFactor/O_2.gif" height="81" width="499" alt="" /></td></tr>
+     </table>
+    </div>
+    <div class="IO">
+     <table class="InCell">
+      <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+         <a name="361683152"></a>
+         <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/CalcColorFactor/I_6.gif" height="17" width="190" alt="Click for copyable input" /></a>
+        </div><div id="i_5_out" class="IFL"></div></td></tr>
+     </table>
+     <table class="OCell">
+      <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/CalcColorFactor/O_3.gif" height="149" width="429" alt="" /></td></tr>
+     </table>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="1899752684"></a><a href="../ref/SUNSimplify.html">SUNSimplify</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

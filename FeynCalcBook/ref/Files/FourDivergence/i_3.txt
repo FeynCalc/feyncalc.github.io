@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>FourDivergence[t, FourVector[q, \[Mu]]]</pre><div class='IFU'><a name='1594453358'></a>http://wolfram.com/xid/0k1l07rf5aaryahu5rw81ho-0nkydc</div>

@@ -1,0 +1,2 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>FORM2FeynCalc[&quot;p(mu)*q(nu)+d_(mu,nu)&quot;];
+% // StandardForm</pre><div class='IFU'><a name='1054646204'></a>http://wolfram.com/xid/0cdri8akgdehbvtjmmehtkw7d6r54yy-rp60h6</div>

@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>FCTraceFactor[
+ DiracTrace[c1.(c2*(GS[p1] + M)).GA[\[Mu]].(c3*(GS[p2] + M2))]]</pre><div class='IFU'><a name='802335918'></a>http://wolfram.com/xid/0k1l07rf5aaryaia1pqqqb2-njy4m4</div>

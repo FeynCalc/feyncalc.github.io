@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>GluonVertex[p, \[Mu], a, q, \[Nu], b, r, \[Rho], c];
+Explicit[%]</pre><div class='IFU'><a name='1603275034'></a>http://wolfram.com/xid/0cft6mr0tvnz3ejznks-0st07w</div>

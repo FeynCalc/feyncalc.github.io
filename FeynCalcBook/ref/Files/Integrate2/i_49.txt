@@ -1,0 +1,1 @@
+<pre name='i_49_in' id='i_49_in' class='IFT'>Integrate3[Expand[t, x], {x, 0, 1}] // Expand // Timing</pre><div class='IFU'><a name='237838384'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-d7vzj2</div>

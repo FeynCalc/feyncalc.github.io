@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Collect2[t1 = a + r a + k^2 f[a] - k f[a] + x/2 - y/w, a]</pre><div class='IFU'><a name='1914400776'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-5x2jdm</div>

@@ -1,0 +1,3 @@
+<pre name='i_23_in' id='i_23_in' class='IFT'>LeviCivita[\[Mu], \[Nu], \[Rho], \[Tau]] RightPartialD[\[Alpha], \
+\[Mu], \[Beta], \[Nu]];
+ExpandPartialD[%]</pre><div class='IFU'><a name='726282079'></a>http://wolfram.com/xid/0da7yqf8j4nw85u2mitcjj-mao04h</div>

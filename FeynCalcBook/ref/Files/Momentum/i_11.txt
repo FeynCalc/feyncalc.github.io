@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>a2 = Momentum[p - q] + Momentum[2 q]</pre><div class='IFU'><a name='1010535805'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp10p1mud7-qzxkpb</div>

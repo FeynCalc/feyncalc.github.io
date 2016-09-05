@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>t3 = DiracSigma[GS[p], GS[q]]</pre><div class='IFU'><a name='938175920'></a>http://wolfram.com/xid/0nwhua02ikznm8ft7xv1a-psungi</div>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DoPolarizationSums&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.0, , , }" />
+<meta name="keywords" content="DoPolarizationSums" />
+
+<meta name="description" content="DoPolarizationSums[exp] sums over vector polarizations for expressions with a factor of the form Pair[LorentzIndex[rho1_], Momentum[Polarization[p_, -I]]]* Pair[LorentzIndex[rho2_], Momentum[Polarization[p_, I]]]." />
+<script language="JavaScript" type="text/javascript">baselang='DoPolarizationSums';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>DoPolarizationSums</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/DoPolarizationSums/1.png" height="20" width="159" alt="" /></span> <br />sums over vector polarizations for expressions with a factor of the form
+Pair[LorentzIndex[rho1_], Momentum[Polarization[p_, -I]]]*
+Pair[LorentzIndex[rho2_], Momentum[Polarization[p_, I]]].</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="Text"><a name="1284060336"></a>In the following (and indeed everywhere else within FeynCalc), notice that Lorentz indices written as super or subscripts are not to be taken as such. Instead, by convention, when two indices are contracted one is always lower and the other upper.</div>
+       <div class="Text"><a name="714795038"></a>FeynCalc uses the following normalization of Polarization vectors:</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+            <a name="492835519"></a>
+            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_2.gif" height="37" width="369" alt="Click for copyable input" /></a>
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_1.gif" height="17" width="106" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+            <a name="771272059"></a>
+            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_4.gif" height="17" width="83" alt="Click for copyable input" /></a>
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_2.gif" height="15" width="17" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="504712587"></a>DoPolarizationSums is chosen in such a way as to be consistent with this normalization and with <img src="Files/DoPolarizationSums/CellNone_3.png" height="18" width="81" alt="" style="vertical-align:middle;" /><img src="Files/DoPolarizationSums/4.png" height="20" width="146" style="vertical-align:middle;" alt="epsilon_(mu)(&quot;p&quot;_4) (epsilon^nu)_()(&quot;p&quot;_4)" title="epsilon_(mu)(&quot;p&quot;_4) (epsilon^nu)_()(&quot;p&quot;_4)" />=<img src="Files/DoPolarizationSums/5.png" height="15" width="23" style="vertical-align:middle;" alt="Null" title="Null" />:</div>
+       <div class="Text"><a name="1216514784"></a>We can choose e.g. the following polarization vectors, labeled with a subscript, {<img src="Files/DoPolarizationSums/6.png" height="17" width="17" style="vertical-align:middle;" alt="e_1" title="e_1" />,<img src="Files/DoPolarizationSums/7.png" height="17" width="17" style="vertical-align:middle;" alt="e_2" title="e_2" />,<img src="Files/DoPolarizationSums/8.png" height="17" width="17" style="vertical-align:middle;" alt="e_3" title="e_3" />,<img src="Files/DoPolarizationSums/9.png" height="17" width="17" style="vertical-align:middle;" alt="e_4" title="e_4" />} = {(<span class="special-character ImaginaryI">&#63310;</span>,0,0,0), (0,<span class="special-character ImaginaryI">&#63310;</span>,0,0), (0,0,<span class="special-character ImaginaryI">&#63310;</span>,0), (0,0,0,<span class="special-character ImaginaryI">&#63310;</span>)}.</div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+           <a name="243887081"></a>
+           <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_6.gif" height="17" width="84" alt="Click for copyable input" /></a>
+          </div><div id="i_5_out" class="IFL"></div></td></tr>
+       </table>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+           <a name="1289026175"></a>
+           <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_8.gif" height="17" width="263" alt="Click for copyable input" /></a>
+          </div><div id="i_7_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="654636595"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_10.gif" height="17" width="193" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_3.gif" height="69" width="76" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="883749055"></a><span class="Input">ee[i][<span class="special-character Mu">&#956;</span>]</span> is <img src="Files/DoPolarizationSums/10.png" height="17" width="24" style="vertical-align:middle;" alt="e_i^mu" title="e_i^mu" />:</div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+           <a name="1065974135"></a>
+           <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_12.gif" height="17" width="192" alt="Click for copyable input" /></a>
+          </div><div id="i_11_out" class="IFL"></div></td></tr>
+       </table>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+           <a name="1862975452"></a>
+           <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_14.gif" height="17" width="293" alt="Click for copyable input" /></a>
+          </div><div id="i_13_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="Text"><a name="1445508132"></a><span class="Input">tt[i,j,<span class="special-character Mu">&#956;</span>,<span class="special-character Nu">&#957;</span>]</span> is <img src="Files/DoPolarizationSums/11.png" height="17" width="24" style="vertical-align:middle;" alt="e_i^mu" title="e_i^mu" /><img src="Files/DoPolarizationSums/12.png" height="19" width="25" style="vertical-align:middle;" alt="e_j^nu" title="e_j^nu" />:</div>
+       <div class="Text"><a name="1899952175"></a><img src="Files/DoPolarizationSums/CellNone_14.png" height="20" width="26" alt="" style="vertical-align:middle;" /><img src="Files/DoPolarizationSums/15.png" height="15" width="25" style="vertical-align:middle;" alt=" Null" title=" Null" />=<img src="Files/DoPolarizationSums/16.png" height="15" width="23" style="vertical-align:middle;" alt="Null" title="Null" />:</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+            <a name="522265467"></a>
+            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_16.gif" height="47" width="328" alt="Click for copyable input" /></a>
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_4.gif" height="69" width="112" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="Text"><a name="631136558"></a><img src="Files/DoPolarizationSums/CellNone_18.png" height="20" width="29" alt="" style="vertical-align:middle;" /><img src="Files/DoPolarizationSums/19.png" height="15" width="25" style="vertical-align:middle;" alt=" Null" title=" Null" />=<img src="Files/DoPolarizationSums/20.png" height="15" width="23" style="vertical-align:middle;" alt="Null" title="Null" />:</div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+            <a name="1912639269"></a>
+            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_18.gif" height="46" width="320" alt="Click for copyable input" /></a>
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_5.gif" height="69" width="112" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+            <a name="1927925269"></a>
+            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_20.gif" height="56" width="480" alt="Click for copyable input" /></a>
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_6.gif" height="20" width="301" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
+            <a name="683494559"></a>
+            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_22.gif" height="17" width="171" alt="Click for copyable input" /></a>
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_7.gif" height="26" width="440" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
+            <a name="1480522060"></a>
+            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_24.gif" height="17" width="83" alt="Click for copyable input" /></a>
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_8.gif" height="15" width="156" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
+            <a name="1260436699"></a>
+            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_26.gif" height="17" width="103" alt="Click for copyable input" /></a>
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_9.gif" height="15" width="17" alt="" /></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+            <a name="1965173944"></a>
+            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_28.gif" height="17" width="151" alt="Click for copyable input" /></a>
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/DoPolarizationSums/O_10.gif" height="15" width="156" alt="" /></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+           <a name="1673171946"></a>
+           <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/DoPolarizationSums/I_30.gif" height="17" width="151" alt="Click for copyable input" /></a>
+          </div><div id="i_29_out" class="IFL"></div></td></tr>
+       </table>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <div class="Text"><a name="1363268460"></a><a href="../ref/Polarization.html">Polarization</a>, <a href="../ref/Uncontract.html">Uncontract</a>.</div>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>

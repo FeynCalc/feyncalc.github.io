@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>t2 = OPESum[a^i b^(j - i) c^(m - j - 4), {i, 0, j}, {j, 0, m - 4}]</pre><div class='IFU'><a name='1082502911'></a>http://wolfram.com/xid/0c9q6hxbtr2yxu8vr4rsviuscb9o-r6r2vl</div>

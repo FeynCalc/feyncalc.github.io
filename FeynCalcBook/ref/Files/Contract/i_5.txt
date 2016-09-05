@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>MetricTensor[\[Mu], \[Nu]] FourVector[p, \[Mu]];
+Contract[%]</pre><div class='IFU'><a name='26500400'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-p194i</div>

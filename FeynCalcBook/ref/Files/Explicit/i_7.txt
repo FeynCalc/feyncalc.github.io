@@ -1,0 +1,2 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>Twist2GluonOperator[p, \[Mu], a, \[Nu], b];
+Explicit[%]</pre><div class='IFU'><a name='441966106'></a>http://wolfram.com/xid/0cft6mr0tvnz3ejznks-hle5ik</div>
