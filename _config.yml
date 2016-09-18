@@ -29,3 +29,5 @@ github:
 
 # Build settings
 markdown: kramdown
+
+port: 3000 # change server port to 3000

@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
+{% include head.html %}
 
-  {% include head.html %}
-
-  <body>
-  <style type="text/css">body { overflow: hidden; }</style>
-      {% include sidebar.html %}
-
-      <div class="content_frame container">
-        {{ content }}
-      </div>
-
-  </body>
+<body>
+<style type="text/css">body { overflow: hidden; }</style>
+	{% include topbar.html %}
+	{{ content }}
+</body>
 </html>

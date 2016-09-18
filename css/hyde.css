@@ -114,35 +114,36 @@ a.sidebar-nav-item:focus {
  * with a 25%-wide `.sidebar`.
  */
 
-.content {
-  padding-top:    3rem;
-  padding-bottom: 1rem;
+.content.container {
+  padding-top:    24px;
+  padding-bottom: 24px;
+  width: 96%;
 }
 
 @media (min-width: 48em) {
   .content {
-    max-width: 58rem;
-    margin-left: 20rem;
-    margin-right: 2rem;
+    margin-left: 12px;
+    margin-right: 12px;
   }
 }
 
 @media (min-width: 64em) {
   .content {
-    margin-left: 22rem;
-    margin-right: 4rem;
+    margin-left: 12px;
+    margin-right: 12px;
   }
 }
 
 /* Here comes all the extra stuff */
 
 
-.fc_box {
-    border: 3px solid black;
+/*.fc_box {
+    border: 1px solid black;
     border-radius: 7px;
-}
+    margin-bottom: 32px;
+}*/
 
-.fc_box #title {
+.fc_box .box_title {
     color: black;
     font-weight: bolder;
     position: relative;
@@ -153,7 +154,7 @@ a.sidebar-nav-item:focus {
     border: 6px solid white;
 }
 
-.fc_box #content {
+.fc_box .box_content {
     color: black;
     margin-top: -0.3em;
     margin-bottom: 0.3em;
@@ -169,26 +170,29 @@ a.sidebar-nav-item:focus {
 }
 
 .footer {
-  font-size: small;
-  padding-top:    1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 96px;
+  padding-right: 2%;
+  padding-left: 2%;
+  padding-top: 1%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  width: 96%;
+  opacity: 0.8;
+  background-color: #111111;
+  color: #ffffff;
+  border-radius: 0px;
 }
 
-@media (min-width: 48em) {
-  .footer {
-    max-width: 58rem;
-    margin-left: 20rem;
-    margin-right: 2rem;
-  }
+.footer a {
+    color: #bbbbbb;
+    text-decoration: none;
 }
 
-@media (min-width: 64em) {
-  .footer {
-    margin-left: 22rem;
-    margin-right: 4rem;
-  }
+.footer a:hover, .footer a:focus {
+    color: #dddddd;
+    text-decoration: none;
 }
-
 
 ::-webkit-input-placeholder {
    font-size: small;
@@ -206,25 +210,35 @@ a.sidebar-nav-item:focus {
    font-size: small;
 }
 
+.pagehead {
+	margin-top: 12px;
+	margin-left: 10%;
+}
+
+.pagehead0 {
+	position: absolute;
+	left: 74%;
+	right: 12%;
+	top: 46px;
+}
+
 .pagehead1 {
-    font-family: "Times New Roman", "Times", "serif";
-    display: block;
-    color: black;
-    font-weight: bolder;
-    font-size: 3em;
-    margin-top: -0.67em;
-    margin-left: 0;
-    margin-right: 0;
+	font-family: "Times New Roman", "Times", "serif";
+	display: block;
+	color: black;
+	font-weight: bolder;
+	font-size: 3em;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .pagehead2 {
-    display: block;
-    font-size: 1em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-
+	display: block;
+	font-size: 1em;
+	margin-bottom: 0.67em;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 16px;
 }
 
 .content_frame {
@@ -233,11 +247,87 @@ a.sidebar-nav-item:focus {
 }
 
 div#content iframe {
-    display:block;
-
-    position: absolute;
-    height: 100%;
-    max-width: 58rem;
-    width: 100%;
+	display:block;
+	position: absolute;
+	height: 100%;
+	width: 96%;
+	margin-left: 36px;
+	margin-top: 52px;
 }
 
+@media (max-width: 48em) {
+	div#content iframe {
+		display:block;
+		position: absolute;
+		height: 100%;
+		margin-left: 8px;
+	}
+}
+
+@media (max-width: 36em) {
+	div#content iframe {
+		margin-top: 90px;
+	}
+}
+
+
+.page-title {
+	margin-top: 68px;
+}
+
+.logo{
+	width:180px;
+}
+
+.header_box {
+	background-color: #eeeeee;
+	border-radius: 6px;
+	color: inherit;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 30px;
+	margin-bottom: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+}
+
+.column1{ float: left; width: 32%; margin-right: 2%;}
+.column2{ display: inline-block; width: 32%; }
+.column3{ float: right; width: 32%; }
+
+@media (max-width: 48em) {
+	.column1{ float: none; width: 96%; margin-right: 2%;}
+	.column2{ display: auto; width: 96%; }
+	.column3{ float: none; width: 96%; }
+}
+
+img.paypal_button {
+	border-radius: 0;
+}
+
+.buttons {
+	margin-bottom: 0;
+	margin-top: 12px;
+}
+
+.navbar div div .nav > li > a {
+  padding: 15px;
+}
+
+.navbar div div .nav > li > form {
+  margin-top: 12px;
+  margin-bottom: 0;
+  margin-left: 16px;
+}
+
+.navbar div div .nav > li > form > input {
+	height: 27px;
+}
+
+.page, .post {
+    margin-bottom: 36px;
+    margin-left: 36px;
+}

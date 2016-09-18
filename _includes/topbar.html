@@ -1,0 +1,33 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+
+<!--
+      {% comment %}
+        The code below dynamically generates a topbar nav of pages with
+        `layout: page` in the front-matter. See readme for usage.
+      {% endcomment %}
+
+      {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+            <a class="topbar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+-->
+			<li><a class="topbar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/">Home</a></li>
+			<li><a class="topbar-nav-item" href="{{ site.url }}/news">News</a></li>
+			<li><a class="topbar-nav-item" href="{{ site.url }}/reference">Guide</a></li>
+			<li><a class="topbar-nav-item" href="{{ site.url }}/forum">Forum</a></li>
+			
+			<li><form method="get" action="https://encrypted.google.com/search">
+				<input type="hidden" name="as_q" value="site:feyncalc.org OR site:feyncalc.github.io OR site:github.com/FeynCalc">
+				<input type="text" name="q" placeholder="Search with Google" />
+			</form></li>
+
+			</div>
+	</div>
+</div>
