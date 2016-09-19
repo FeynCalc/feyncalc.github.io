@@ -115,7 +115,7 @@ a.sidebar-nav-item:focus {
  */
 
 .content.container {
-  padding-top:    24px;
+  padding-top:    88px;
   padding-bottom: 24px;
   width: 96%;
 }
@@ -219,7 +219,7 @@ a.sidebar-nav-item:focus {
 	position: absolute;
 	left: 74%;
 	right: 12%;
-	top: 46px;
+	top: 108px;
 }
 
 .pagehead1 {
