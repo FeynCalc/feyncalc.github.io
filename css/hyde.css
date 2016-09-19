@@ -268,6 +268,9 @@ div#content iframe {
 	div#content iframe {
 		margin-top: 90px;
 	}
+	.content.container {
+		padding-top: 104px;
+	}
 }
 
 
