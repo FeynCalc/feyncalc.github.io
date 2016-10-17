@@ -252,7 +252,7 @@ div#content iframe {
 	height: 100%;
 	width: 96%;
 	margin-left: 36px;
-	margin-top: 52px;
+	margin-top: 74px;
 }
 
 @media (max-width: 48em) {
@@ -334,3 +334,9 @@ img.paypal_button {
     margin-bottom: 36px;
     margin-left: 36px;
 }
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 10px 0 0;
+}
+
+
