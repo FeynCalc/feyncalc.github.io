@@ -335,7 +335,7 @@ img.paypal_button {
     margin-left: 36px;
 }
 
-iframe#frame2 h2 {
+body>h2 {
 	margin: 0 10px 0 0;
 }
 
