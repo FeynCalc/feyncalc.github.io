@@ -252,7 +252,7 @@ div#content iframe {
 	height: 100%;
 	width: 96%;
 	margin-left: 36px;
-	margin-top: 74px;
+	margin-top: 54px;
 }
 
 @media (max-width: 48em) {
@@ -261,7 +261,6 @@ div#content iframe {
 		position: absolute;
 		height: 100%;
 		margin-left: 8px;
-		margin-top: 90px;
 	}
 }
 
