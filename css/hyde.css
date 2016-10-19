@@ -271,6 +271,12 @@ div#content iframe {
 	.content.container {
 		padding-top: 104px;
 	}
+	.header_box {
+		margin-top: 18px;
+	}
+	.pagehead0 {
+		top: 134px
+	}
 }
 
 
