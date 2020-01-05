@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>t2 = GAD[\[Mu], \[Nu], \[Mu]]</pre><div class='IFU'><a name='1487919140'></a>http://wolfram.com/xid/0bmo85gxinschsbp05yp6gs-yv5j1i</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>GS[p].GS[p]</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbp05yp6gs</div>

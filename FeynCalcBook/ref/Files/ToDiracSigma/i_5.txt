@@ -1,0 +1,3 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>GA[\[Mu], \[Nu]];
+ToDiracSigma[%, GA[\[Mu]], GA[\[Nu]]];
+ToDiracSigma[%, GA[\[Mu]], GA[\[Nu]]]</pre><div class='IFU'><a name='1509824786'></a>http://wolfram.com/xid/0vsxr48l0aa9maq6wv93c56-y862jo</div>

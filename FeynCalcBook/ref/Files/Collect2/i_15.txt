@@ -1,2 +1,3 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>Collect2[Expand[(a - b - c - d)^5], a, IsolateNames -&gt; l];
-ReleaseHold[%]</pre><div class='IFU'><a name='683646211'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-lla62t</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>Collect2[t1 = a + r a + k^2 f[a] - k f[a] + x/2 - y/w, a];
+FRH[%];
+FRH[%]</pre><div class='IFU'><a name='683646211'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-lla62t</div>

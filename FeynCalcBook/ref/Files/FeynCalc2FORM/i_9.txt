@@ -1,2 +1,3 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'> LC[\[Alpha], \[Beta], \[Delta], \[Rho]];
+<pre name='i_9_in' id='i_9_in' class='IFT'>MT[\[Mu], \[Nu]] FV[p, \[Rho]] y^2/d;
+FeynCalc2FORM[%];;
 FeynCalc2FORM[%];</pre><div class='IFU'><a name='1598383483'></a>http://wolfram.com/xid/0ez33esw5zap4vqko24x0c48voea9g-0pw6vh</div>

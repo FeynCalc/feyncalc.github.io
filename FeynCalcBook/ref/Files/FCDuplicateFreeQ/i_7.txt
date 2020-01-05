@@ -1,0 +1,2 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>FCDuplicateFreeQ[{{a, b}, {a, c}}, 
+ Function[{x, y}, First[x] === First[y]]]</pre><div class='IFU'><a name='800569343'></a>http://wolfram.com/xid/0gz3arg4q5btrb98796rqklxgzn-niw9jl</div>

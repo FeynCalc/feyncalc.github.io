@@ -1,1 +1,1 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>ExpandScalarProduct[FourVector[p - q, \[Mu]]]</pre><div class='IFU'><a name='1761121824'></a>http://wolfram.com/xid/0b67y1d1vpag752hsgey-3es8ky</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>FV[p, \[Mu]]</pre><div class='IFU'>http://wolfram.com/xid/0b67y1d1vpag752hsgey</div>

@@ -1,2 +1,19 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>ptest // DoPolarizationSums;
-% // Contract</pre><div class='IFU'><a name='1480522060'></a>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg-yrq0e2</div>
+<pre name='i_23_in' id='i_23_in' class='IFT'>(-((Spinor[Momentum[p1], 0, 1].GS[
+          Polarization[k1, I, Transversality -&gt; True]].GS[k2 - p2].GS[
+          Polarization[k2, I, 
+           Transversality -&gt; True]].Spinor[-Momentum[p2], 0, 1]*
+        SMP[&quot;e&quot;]^2)/
+      t) - (Spinor[Momentum[p1], 0, 1].GS[
+        Polarization[k2, I, Transversality -&gt; True]].GS[k1 - p2].GS[
+        Polarization[k1, I, 
+         Transversality -&gt; True]].Spinor[-Momentum[p2], 0, 1]*
+      SMP[&quot;e&quot;]^2)/
+    u)*(-((Spinor[-Momentum[p2], 0, 1].GS[
+          Polarization[k1, -I, Transversality -&gt; True]].GS[
+          k1 - p2].GS[
+          Polarization[k2, -I, Transversality -&gt; True]].Spinor[
+          Momentum[p1], 0, 1]*SMP[&quot;e&quot;]^2)/
+      u) - (Spinor[-Momentum[p2], 0, 1].GS[
+        Polarization[k2, -I, Transversality -&gt; True]].GS[k2 - p2].GS[
+        Polarization[k1, -I, Transversality -&gt; True]].Spinor[
+        Momentum[p1], 0, 1]*SMP[&quot;e&quot;]^2)/t)</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

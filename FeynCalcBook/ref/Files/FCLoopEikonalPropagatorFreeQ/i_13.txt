@@ -1,0 +1,3 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>FCI@SFAD[p, p - q];
+FCLoopEikonalPropagatorFreeQ[%, Momentum -&gt; {q}];
+FCLoopEikonalPropagatorFreeQ[%, Momentum -&gt; {q}]</pre><div class='IFU'><a name='1669661030'></a>http://wolfram.com/xid/0bflvbloczhxmcaz0h2ia2zz9csh0wahnzxqslg44z-1wcwzc</div>

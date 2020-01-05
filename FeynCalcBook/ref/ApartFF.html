@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>ApartFF&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
@@ -10,23 +12,39 @@
 <script language="JavaScript" type="text/javascript">baselang='ApartFF';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -49,7 +67,7 @@
  <h1>ApartFF</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/ApartFF/1.png" height="21" width="179" alt="" /></span> <br />partial fractions loop integrals by decomposing them into simpler integrals that contain only linearly independent propagators. It uses FCApart as a backend and works and is suitable also for multiloop integrals. ApartFF effectively replaces the older function Apart2 and ScalarProductCancel which are now considered legacy.</p>
+   <p><span class="IF"><span class="specialcharacters">ApartFF<span class="openbracket">[</span>amp<span class="comma">,</span><span class="openbrace">{</span>q1<span class="comma">,</span>q2<span class="comma">,</span>...<span class="closebrace">}</span><span class="closebracket">]</span></span></span> <br />partial fractions loop integrals by decomposing them into simpler integrals that contain only linearly independent propagators. It uses FCApart as a backend and works and is suitable also for multiloop integrals. ApartFF effectively replaces the older function Apart2 and ScalarProductCancel which are now considered legacy.</p>
   </div>
  </div>
  <div class="expandWrap closed"
@@ -59,6 +77,25 @@
    <div class="expanded">
     <ul class="functionList">
      <li><a name="610107001"></a><span class="Input">ApartFF</span> uses <span class="Input">FCApart</span> as the backend for partial fractioning. The latter implements an algorithm which is very much based on the work and code of F. Feng (arXiv:1204.2314) that seems&nbsp;&nbsp;&nbsp;&nbsp;to employ a variety Leinartas's algorithm (see arXiv:1206.4740 for its description). Unlike Feng's&nbsp;&nbsp;&nbsp;&nbsp;$Apart that works on general multivariate polynomials,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Input">FCApart</span> is tailored to work only with FeynCalc's <span class="Input">FeynAmpDenominator</span> and <span class="Input">Pair</span> objects, i.e. it is less general. For the original $Apart see https://github.com/F-Feng/APart</li>
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[42]:=</td><td class="Input"><div>
+          <a name="1116592623"></a>
+          <img src="Files/ApartFF/I_2.png"
+              height="16"
+              width="100"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[42]=</td><td class="Output"><div class="output-image">
+          <img src="Files/ApartFF/O_1.png"
+              height="52"
+              width="467"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
     </ul>
    </div>
   </div>
@@ -70,73 +107,276 @@
    <div class="expanded">
     <div class="expandSubWrap">
      <div class="expandSubOuter">
-      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(6)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(6)</span></a></h3>
       <div class="expanded">
+       <table class="InCell">
+        <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+           <img src="Files/ApartFF/I_4.png"
+               height="16"
+               width="138"
+               alt="Click for copyable input" />
+          </div><div id="i_3_out" class="IFL"></div></td></tr>
+       </table>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-            <a name="1116592623"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/ApartFF/I_2.gif" height="17" width="112" alt="Click for copyable input" /></a>
-           </div><div id="i_1_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/ApartFF/O_1.gif" height="54" width="557" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="591868896"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/ApartFF/I_4.gif" height="37" width="150" alt="Click for copyable input" /></a>
-           </div><div id="i_3_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/ApartFF/O_2.gif" height="47" width="84" alt="" /></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/ApartFF/O_3.gif" height="51" width="59" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
-            <a name="1827687893"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/ApartFF/I_6.gif" height="37" width="305" alt="Click for copyable input" /></a>
+            <img src="Files/ApartFF/I_6.png"
+                height="16"
+                width="126"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/ApartFF/O_4.gif" height="48" width="294" alt="" /></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/ApartFF/O_5.gif" height="50" width="503" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_2.png"
+                height="43"
+                width="49"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
-            <a name="1902480830"></a>
-            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/ApartFF/I_8.gif" height="37" width="173" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_8.png"
+                height="16"
+                width="94"
+                alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/ApartFF/O_6.gif" height="48" width="210" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_3.png"
+                height="43"
+                width="49"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="1827687893"></a>
+            <img src="Files/ApartFF/I_10.png"
+                height="16"
+                width="253"
+                alt="Click for copyable input" />
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/ApartFF/O_7.gif" height="47" width="227" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_4.png"
+                height="39"
+                width="133"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_12.png"
+                height="16"
+                width="94"
+                alt="Click for copyable input" />
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_5.png"
+                height="93"
+                width="408"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="1902480830"></a>
+            <img src="Files/ApartFF/I_14.png"
+                height="16"
+                width="143"
+                alt="Click for copyable input" />
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_6.png"
+                height="40"
+                width="135"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_16.png"
+                height="16"
+                width="94"
+                alt="Click for copyable input" />
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_7.png"
+                height="40"
+                width="217"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="21286566"></a>
-            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/ApartFF/I_10.gif" height="37" width="482" alt="Click for copyable input" /></a>
-           </div><div id="i_9_out" class="IFL"></div></td></tr>
+            <img src="Files/ApartFF/I_18.png"
+                height="16"
+                width="400"
+                alt="Click for copyable input" />
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/ApartFF/O_8.gif" height="48" width="542" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_8.png"
+                height="45"
+                width="305"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_20.png"
+                height="16"
+                width="122"
+                alt="Click for copyable input" />
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/ApartFF/O_9.gif" height="303" width="562" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_9.png"
+                height="268"
+                width="505"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_22.png"
+                height="16"
+                width="186"
+                alt="Click for copyable input" />
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_10.png"
+                height="39"
+                width="115"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_24.png"
+                height="16"
+                width="94"
+                alt="Click for copyable input" />
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_11.png"
+                height="45"
+                width="205"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>If the propagators should not altered via momentum shifts (e.g. because they belong to a previously identified topology), use <span class="IF">FDS<span class="special-character Rule">&#62754;</span>False</span></li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_26.png"
+                height="16"
+                width="179"
+                alt="Click for copyable input" />
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_12.png"
+                height="45"
+                width="294"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_28.png"
+                height="16"
+                width="384"
+                alt="Click for copyable input" />
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_13.png"
+                height="42"
+                width="305"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_30.png"
+                height="16"
+                width="122"
+                alt="Click for copyable input" />
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_14.png"
+                height="150"
+                width="505"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/ApartFF/I_32.png"
+                height="16"
+                width="208"
+                alt="Click for copyable input" />
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/ApartFF/O_15.png"
+                height="363"
+                width="422"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -165,7 +405,6 @@
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

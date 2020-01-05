@@ -1,1 +1,1 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>SetOptions[B11, BReduce -&gt; False]</pre><div class='IFU'><a name='1279434093'></a>http://wolfram.com/xid/0tn9depw6mpqkc1ikt-vf0zx7</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>B11[SPD[p], m^2, m^2, BReduce -&gt; False]</pre><div class='IFU'>http://wolfram.com/xid/0tn9depw6mpqkc1ikt</div>

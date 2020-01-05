@@ -1,1 +1,3 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>DeclareNonCommutative /@ {a, b, c, d, e, f};</pre><div class='IFU'><a name='1021626920'></a>http://wolfram.com/xid/0iwhvn88gns5irehh3m-q6janu</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>DOT[a x + b y + c z, d + e + f];
+DotExpand[%];
+DotExpand[%]</pre><div class='IFU'><a name='407288908'></a>http://wolfram.com/xid/0iwhvn88gns5irehh3m-g0rwe2</div>

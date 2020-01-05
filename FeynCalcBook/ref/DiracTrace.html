@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>DiracTrace&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="DiracTrace" />
 
-<meta name="description" content="DiracTrace[expr] is the head of Dirac traces. Whether the trace is evaluated depends on the option DiracTraceEvaluate. Direct trace evaluation should be performed with TR (or Tr). The argument expr may be a product of Dirac matrices or slashes separated by the Mathematica Dot (.). For comments regarding \[Gamma]^5schemes see the notes for TR." />
+<meta name="description" content="DiracTrace[exp] is the head of Dirac traces. By default the trace is not evaluated. The evaluation occurs only when the option DiracTraceEvaluate is set to True. It is recommended to use DiracSimplify, which will automatically evaluate all Dirac traces in the input expression." />
 <script language="JavaScript" type="text/javascript">baselang='DiracTrace';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,15 +52,68 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/Contract.html"><span class="dropdownPad">Contract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracEquation.html"><span class="dropdownPad">DiracEquation</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGamma.html"><span class="dropdownPad">DiracGamma</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGammaCombine.html"><span class="dropdownPad">DiracGammaExpand</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracTrick.html"><span class="dropdownPad">DiracTrick</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCSetDiracGammaScheme.html"><span class="dropdownPad">FCGetDiracGammaScheme</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCGetDiracGammaScheme.html"><span class="dropdownPad">FCSetDiracGammaScheme</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>DiracTrace</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/DiracTrace/1.png" height="20" width="105" alt="" /></span> <br />is the head of Dirac traces. Whether the trace is evaluated depends on the option DiracTraceEvaluate. Direct trace evaluation should be performed with TR (or Tr). The argument expr may be a product of Dirac matrices or slashes separated by the Mathematica Dot (.).
-
-For comments regarding <img src="Files/DiracTrace/2.png" height="20" width="18" style="vertical-align:middle;" alt="gamma^5" title="gamma^5" />schemes see the notes for <span>TR</span>.</p>
+   <p><span class="IF"><span class="specialcharacters">DiracTrace<span class="openbracket">[</span>exp<span class="closebracket">]</span></span></span> <br />is the head of Dirac traces. By default the trace is not evaluated. The evaluation occurs only when the option <a href="../ref/DiracTraceEvaluate.html">DiracTraceEvaluate</a> is set to <span class="IF">True</span>. It is recommended to use <a href="../ref/DiracSimplify.html">DiracSimplify</a>, which will automatically evaluate all Dirac traces in the input expression.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[72]:=</td><td class="Input"><div>
+          <img src="Files/DiracTrace/I_2.png"
+              height="16"
+              width="114"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[72]=</td><td class="Output"><div class="output-image">
+          <img src="Files/DiracTrace/O_1.png"
+              height="52"
+              width="532"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -52,106 +123,782 @@ For comments regarding <img src="Files/DiracTrace/2.png" height="20" width="18" 
    <div class="expanded">
     <div class="expandSubWrap">
      <div class="expandSubOuter">
-      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(10)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(10)</span></a></h3>
       <div class="expanded">
+       <li>There is no automatic evaluation of Dirac traces</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-            <a name="1024967943"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_2.gif" height="17" width="126" alt="Click for copyable input" /></a>
-           </div><div id="i_1_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/DiracTrace/O_1.gif" height="73" width="457" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="60676203"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_4.gif" height="17" width="139" alt="Click for copyable input" /></a>
+            <img src="Files/DiracTrace/I_4.png"
+                height="16"
+                width="120"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/DiracTrace/O_2.gif" height="20" width="66" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_2.png"
+                height="14"
+                width="51"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="1088537337"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_6.gif" height="17" width="179" alt="Click for copyable input" /></a>
+            <img src="Files/DiracTrace/I_6.png"
+                height="16"
+                width="154"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/DiracTrace/O_3.gif" height="21" width="114" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_3.png"
+                height="14"
+                width="90"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>You can either set the option <a href="../ref/DiracTraceEvaluate.html">DiracTraceEvaluate</a> to <span class="IF">True</span> or use <a href="../ref/DiracSimplify.html">DiracSimplify</a>.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
             <a name="710007181"></a>
-            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_8.gif" height="17" width="132" alt="Click for copyable input" /></a>
+            <img src="Files/DiracTrace/I_8.png"
+                height="16"
+                width="313"
+                alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/DiracTrace/O_4.gif" height="21" width="259" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_4.png"
+                height="15"
+                width="214"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
-            <a name="196468068"></a>
-            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_10.gif" height="17" width="370" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_10.png"
+                height="16"
+                width="240"
+                alt="Click for copyable input" />
            </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/DiracTrace/O_5.gif" height="18" width="83" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_5.png"
+                height="15"
+                width="224"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
-            <a name="261281630"></a>
-            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_12.gif" height="17" width="406" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_12.png"
+                height="16"
+                width="143"
+                alt="Click for copyable input" />
            </div><div id="i_11_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/DiracTrace/O_6.gif" height="75" width="509" alt="" /></td></tr>
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_6.png"
+                height="15"
+                width="165"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
-            <a name="825892025"></a>
-            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_14.gif" height="17" width="171" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_14.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_13_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/DiracTrace/O_7.gif" height="18" width="200" alt="" /></td></tr>
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_7.png"
+                height="15"
+                width="284"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>The old methods of evaluating traces by replacing <a href="../ref/DiracTrace.html">DiracTrace</a> with <a href="../ref/Tr.html">Tr</a> or <a href="../ref/TR.html">TR</a> are deprecated and should not be used anymore. In particular, they are slower are less efficient than using <a href="../ref/DiracSimplify.html">DiracSimplify</a>. </li>
+       <div class="ExLine"><!-- --></div>
+       <li>Traces involving <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> or chirality projectors in <span class="IF">4</span>-dimensions are also possible</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
-            <a name="1341931123"></a>
-            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_16.gif" height="17" width="393" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="196468068"></a>
+            <img src="Files/DiracTrace/I_16.png"
+                height="16"
+                width="169"
+                alt="Click for copyable input" />
            </div><div id="i_15_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/DiracTrace/O_8.gif" height="17" width="43" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_8.png"
+                height="19"
+                width="108"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
-            <a name="29438835"></a>
-            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/DiracTrace/I_18.gif" height="17" width="117" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_18.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_17_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td colspan="2"><div class="celllabelTableForm">Out[9]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/DiracTrace/O_9.gif" width="67" height="17" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_9.png"
+                height="14"
+                width="65"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_20.png"
+                height="16"
+                width="200"
+                alt="Click for copyable input" />
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_10.png"
+                height="19"
+                width="143"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_22.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_11.png"
+                height="38"
+                width="371"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_24.png"
+                height="16"
+                width="199"
+                alt="Click for copyable input" />
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_12.png"
+                height="18"
+                width="144"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_26.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_13.png"
+                height="107"
+                width="483"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li><span class="IF">D</span>-dimensional traces that do not involve <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> are unambiguous.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracTrace/I_28.png"
+                data-big="462 16"
+                data-small="274 33"
+                alt="Click for copyable input" />
+           </div><div id="i_27_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_14.png"
+                height="15"
+                width="219"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_30.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_29_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_15.png"
+                height="17"
+                width="385"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Traces that contain <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> in <span class="IF">D</span>-dimensions are scheme-dependent. The default scheme used in FeynCalc is the naive dimension regularization (NDR), where <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> is assumed to anticommute with all other Dirac matrices. However, chiral traces are ambiguous NDR, unless the trace contains an even number of <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span>. This is why FeynCalc will leave such traces unevaluated.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_32.png"
+                height="16"
+                width="295"
+                alt="Click for copyable input" />
+           </div><div id="i_31_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_16.png"
+                height="19"
+                width="158"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_34.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_33_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_17.png"
+                height="74"
+                width="483"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_36.png"
+                height="16"
+                width="295"
+                alt="Click for copyable input" />
+           </div><div id="i_35_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_18.png"
+                height="19"
+                width="158"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_38.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_37_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_19.png"
+                height="112"
+                width="483"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Over the years people invented many different schemes to deal with <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> in dimensional regularization. Currently, only the t'Hooft-Veltman-Breitenlohner-Maison  (BMHV) prescription is fully supported in FeynCalc.</li>
+       <table class="InCell">
+        <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_40.png"
+               height="16"
+               width="210"
+               alt="Click for copyable input" />
+          </div><div id="i_39_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_42.png"
+                height="16"
+                width="380"
+                alt="Click for copyable input" />
+           </div><div id="i_41_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_20.png"
+                height="429"
+                width="483"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Keep in mind that the BMHV scheme violates axial Ward identities and requires special model-dependent counter-terms to restore those. Therefore, just setting <a href="../ref/FCSetDiracGammaScheme.html">FCSetDiracGammaScheme[&quot;BMHV&quot;]</a> does not automatically resolve all your troubles with <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> in <span class="IF">D</span>-dimensions. The proper treatment of <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> in dimensional regularization is an intricate issue that cannot be boiled down to a simple and universal recipe. FeynCalc merely carries out the algebraic operations that you request, but it is still your task to ensure that what you do makes sense.</li>
+       <div class="ExLine"><!-- --></div>
+       <li>Traces that are free of  <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> but contain both <span class="IF">4</span>- and <span class="IF">D</span>-dimensional Dirac matrices may appear in calculations that use the BMHV prescription, but they do not make sense in NDR. Therefore, their evaluation will be succesful only if the correct scheme is used.</li>
+       <table class="InCell">
+        <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_44.png"
+               height="16"
+               width="201"
+               alt="Click for copyable input" />
+          </div><div id="i_43_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracTrace/I_46.png"
+                data-big="472 16"
+                data-small="283 33"
+                alt="Click for copyable input" />
+           </div><div id="i_45_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_21.png"
+                height="15"
+                width="228"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_48.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_47_out" class="IFL"></div></td></tr>
+        </table>
+        <img src="Files/DiracTrace/1.gif"
+            height="92"
+            width="635"
+            alt=""
+            class="Message" />
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_22.png"
+                height="14"
+                width="49"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_50.png"
+               height="16"
+               width="210"
+               alt="Click for copyable input" />
+          </div><div id="i_49_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracTrace/I_52.png"
+                data-big="488 33"
+                data-small="299 33"
+                alt="Click for copyable input" />
+           </div><div id="i_51_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_23.png"
+                height="17"
+                width="399"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_54.png"
+                height="16"
+                width="143"
+                alt="Click for copyable input" />
+           </div><div id="i_53_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[6]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/DiracTrace/O_24.png" width="432" height="37" alt="" /></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab">In[7]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_56.png"
+               height="16"
+               width="201"
+               alt="Click for copyable input" />
+          </div><div id="i_55_out" class="IFL"></div></td></tr>
+       </table>
+       <li>Notice that in this case the result contains <span class="IF">4</span>- and <span class="IF">D</span>-dimensional tensors.</li>
+       <div class="ExLine"><!-- --></div>
+       <li>Traces involving <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> in the BMHV scheme are evaluated using West's formula. It is possible to turn it off by setting the option <a href="../ref/West.html">West</a> to <span class="IF">False</span>, but then the evaluation will require much more time.</li>
+       <table class="InCell">
+        <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_58.png"
+               height="16"
+               width="210"
+               alt="Click for copyable input" />
+          </div><div id="i_57_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracTrace/I_60.png"
+                data-big="507 16"
+                data-small="353 33"
+                alt="Click for copyable input" />
+           </div><div id="i_59_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_25.png"
+                height="14"
+                width="89"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracTrace/I_62.png"
+                data-big="505 33"
+                data-small="380 33"
+                alt="Click for copyable input" />
+           </div><div id="i_61_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_26.png"
+                height="14"
+                width="82"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_64.png"
+                height="16"
+                width="51"
+                alt="Click for copyable input" />
+           </div><div id="i_63_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_27.png"
+                height="14"
+                width="25"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_66.png"
+               height="16"
+               width="201"
+               alt="Click for copyable input" />
+          </div><div id="i_65_out" class="IFL"></div></td></tr>
+       </table>
+       <table class="InCell">
+        <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_68.png"
+               height="16"
+               width="84"
+               alt="Click for copyable input" />
+          </div><div id="i_67_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="ExLine"><!-- --></div>
+       <p><a name="2003592022"></a>If you know that traces with one <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span>  do not contribute to your final result, use the new NDR-Drop scheme to put them to zero</p>
+       <table class="InCell">
+        <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_70.png"
+               height="16"
+               width="236"
+               alt="Click for copyable input" />
+          </div><div id="i_69_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_72.png"
+                height="16"
+                width="380"
+                alt="Click for copyable input" />
+           </div><div id="i_71_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_28.png"
+                height="74"
+                width="483"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+           <img src="Files/DiracTrace/I_74.png"
+               height="16"
+               width="201"
+               alt="Click for copyable input" />
+          </div><div id="i_73_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="ExLine"><!-- --></div>
+       <li>Sorting of the matrices inside <span class="IF">4</span>-dimensional traces helps to avoid some spurious terms.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracTrace/I_76.png"
+                data-big="436 33"
+                data-small="367 50"
+                alt="Click for copyable input" />
+           </div><div id="i_75_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_29.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>When the sorting is turned off via <span class="IF">Sort<span class="special-character Rule">&#62754;</span>True</span>, one may obtain some spurious terms that vanish by Schouten's identity.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracTrace/I_78.png"
+                data-big="513 33"
+                data-small="357 50"
+                alt="Click for copyable input" />
+           </div><div id="i_77_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_30.png"
+                height="35"
+                width="481"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>The trace of the unit matrix in the Dirac space is fixed to 4, which is the standard choice in dimensional regularization.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_80.png"
+                height="16"
+                width="76"
+                alt="Click for copyable input" />
+           </div><div id="i_79_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_31.png"
+                height="14"
+                width="25"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_82.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_81_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_32.png"
+                height="14"
+                width="7"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>If, for some reason, this value must be modified, one can do so using the option <a href="../ref/TraceOfOne.html">TraceOfOne</a>.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_84.png"
+                height="16"
+                width="333"
+                alt="Click for copyable input" />
+           </div><div id="i_83_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_33.png"
+                height="14"
+                width="13"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_86.png"
+                height="16"
+                width="311"
+                alt="Click for copyable input" />
+           </div><div id="i_85_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_34.png"
+                height="15"
+                width="40"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Since FeynCalc 9.3 it is also possible to compute traces of Dirac matrices with Cartesian or temporal indices. However, the support of nonrelativistic calculations is a very new feature, so that things may not work as smooth as they do for manifestly Lorentz covariant expressions.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_88.png"
+                height="16"
+                width="151"
+                alt="Click for copyable input" />
+           </div><div id="i_87_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_35.png"
+                height="19"
+                width="92"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_90.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_89_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_36.png"
+                height="16"
+                width="206"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_92.png"
+                height="16"
+                width="241"
+                alt="Click for copyable input" />
+           </div><div id="i_91_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_37.png"
+                height="19"
+                width="153"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracTrace/I_94.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_93_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracTrace/O_38.png"
+                height="76"
+                width="483"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -169,7 +916,7 @@ For comments regarding <img src="Files/DiracTrace/2.png" height="20" width="18" 
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="2123270018"></a><a href="../ref/TR.html">TR</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/Contract.html">Contract</a>, <a href="../ref/DiracEquation.html">DiracEquation</a>, <a href="../ref/DiracGamma.html">DiracGamma</a>, <a href="../ref/DiracGammaCombine.html">DiracGammaExpand</a>, <a href="../ref/DiracTrick.html">DiracTrick</a>, <a href="../ref/FCSetDiracGammaScheme.html">FCGetDiracGammaScheme</a>, <a href="../ref/FCGetDiracGammaScheme.html">FCSetDiracGammaScheme</a>.</p>
    </div>
   </div>
  </div>
@@ -178,7 +925,6 @@ For comments regarding <img src="Files/DiracTrace/2.png" height="20" width="18" 
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

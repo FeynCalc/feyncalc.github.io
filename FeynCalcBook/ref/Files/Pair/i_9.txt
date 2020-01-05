@@ -1,1 +1,1 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>Pair[Momentum[p], Momentum[p]]</pre><div class='IFU'><a name='227830423'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbg9eq-d1xhc5</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>Pair[LorentzIndex[\[Alpha], D], Momentum[p, D]]</pre><div class='IFU'><a name='106742008'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbg9eq-b1t4x2</div>

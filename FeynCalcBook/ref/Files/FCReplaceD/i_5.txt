@@ -1,0 +1,3 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FCI[D MTD[\[Mu], \[Nu]]];
+% /. D -&gt; 4 - 2 Epsilon;
+% /. D -&gt; 4 - 2 Epsilon</pre><div class='IFU'>http://wolfram.com/xid/0da7yqf8j4nw85ujhz8gbj</div>

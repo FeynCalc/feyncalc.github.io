@@ -1,1 +1,3 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>SpinorV[p, m] // FCI // StandardForm</pre><div class='IFU'><a name='719384042'></a>http://wolfram.com/xid/0g3d2anoefmyyq7op6qgv-l6k6kc</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>SpinorV[p, m];
+FCI[%] // StandardForm;
+FCI[%] // StandardForm</pre><div class='IFU'><a name='1046277707'></a>http://wolfram.com/xid/0g3d2anoefmyyq7op6qgv-rk7nbx</div>

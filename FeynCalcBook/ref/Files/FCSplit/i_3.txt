@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>FCSplit[(a + b)^2, {a}]</pre><div class='IFU'><a name='1633798001'></a>http://wolfram.com/xid/0gb5m6l6ty1j71esptscks-1az8v3</div>

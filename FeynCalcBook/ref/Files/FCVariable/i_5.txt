@@ -1,0 +1,5 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>SPD[c1 p1 + c2 p2, q] // ExpandScalarProduct;
+FCI[SFAD[{q + c1 p1, m}]]
+% // StandardForm;
+FCI[SFAD[{q + c1 p1, m}]]
+% // StandardForm</pre><div class='IFU'><a name='228259200'></a>http://wolfram.com/xid/0g3d2anoefmyyrau0ob5y-d16n7m</div>

@@ -1,5 +1,5 @@
 $(document).ready( function() { 
-	var filelocation = 'Files/'+baselang+'/'+baselang.slice(0,-3).toLowerCase(); // example: Files/Plot.en/plot where plot is start of text file name
+	var filelocation = 'Files/'+baselang+'/'+baselang.toLowerCase(); // example: Files/Plot.en/plot where plot is start of text file name
 	var urlAnchor = window.location.hash; // get hash tag from url
 	$("#Examples .expanded .expanded").each(function(i){ // append ids to inner divs, open and populate contents on click
 		var expId = "#exp" + i;

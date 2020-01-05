@@ -15,7 +15,7 @@
   #guide h3 .rightguillemet a:hover { }
   #guide p .rightguillemet { font-weight:normal; }
 
-#guide .mainContent {/* border-top:5px solid #DF6600; */}
+#guide .mainContent {border-top:5px solid #DF6600;}
 
 #guide table tr td { font-size: 11px !important; color: #5C5C5C; }
 
@@ -42,10 +42,10 @@ div.GuideDelimiterTop { margin-top: 20px; }
 
 /* Learning Resources */
 #LearningResources .expanded { padding: 0; }
-  #LearningResources .expanded table { border-collapse: collapse; max-width: 704px; }
+  #LearningResources .expanded table { border-collapse: collapse; width: 704px; }
   #LearningResources .expanded tr { vertical-align: top; }
-  #LearningResources .expanded td.resourcesLeft { max-width: 386px; padding: 10px 20px 25px 0px; background-color:#f3f3f3; }
-  #LearningResources .expanded td.resourcesRight { max-width: 318px; background: #fdfdfd url('../images/resources-bg.gif') repeat-y; border-left:1px solid #d9d9d9 }
+  #LearningResources .expanded td.resourcesLeft { width: 386px; padding: 10px 20px 25px 0px; background-color:#f3f3f3; }
+  #LearningResources .expanded td.resourcesRight { width: 318px; background: #fdfdfd url('../images/resources-bg.gif') repeat-y; border-left:1px solid #d9d9d9 }
   
   .resourcesLeft h3 { margin: 12px 0 0 !important; border: 0; font-size: 12px !important; color:#2f2f2f !important; font-weight:bold; font-family:Arial, Helvetica, sans-serif; display: block;background-repeat: no-repeat; padding: 4px 0 13px 34px; }
   .resourcesLeft h3 span { color: #999; }

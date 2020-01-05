@@ -1,0 +1,1 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>ChangeDimension[CartesianMomentum[p], d] // StandardForm</pre><div class='IFU'><a name='1679956191'></a>http://wolfram.com/xid/0ez33esw5zap4vpy46otrixvwve9en-12hkr1</div>

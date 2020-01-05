@@ -1,1 +1,1 @@
-<pre name='i_45_in' id='i_45_in' class='IFT'>r3 = r2 /. \[Nu] -&gt; \[Mu]</pre><div class='IFU'><a name='706809486'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-ly3ny4</div>
+<pre name='i_45_in' id='i_45_in' class='IFT'>twofnew = ((twof[[1]] /. {a -&gt; b, b -&gt; a}) + twof[[2]]) // DotSimplify</pre><div class='IFU'>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf</div>

@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FeynAmpDenominatorCombine[CFAD[q, q - p] SFAD[l, l + k]]</pre><div class='IFU'><a name='218433689'></a>http://wolfram.com/xid/0bbimfvolh5vm9tdm50r5nkc4ubvuvpl389r3-dwb2sr</div>

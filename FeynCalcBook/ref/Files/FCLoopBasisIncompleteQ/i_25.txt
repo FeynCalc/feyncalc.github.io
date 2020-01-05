@@ -1,0 +1,3 @@
+<pre name='i_25_in' id='i_25_in' class='IFT'>FAD[{q1, m1}];
+FCLoopBasisIncompleteQ[%, {q1, q2}];
+FCLoopBasisIncompleteQ[%, {q1, q2}]</pre><div class='IFU'><a name='1934608699'></a>http://wolfram.com/xid/0bgqqkexz7jd8xnc7k1r106aiv1epv-593nwt</div>

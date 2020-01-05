@@ -1,1 +1,3 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>DiracGammaCombine[2 GS[p] - 2 GS[q]]</pre><div class='IFU'><a name='2255714'></a>http://wolfram.com/xid/0teu55sspea5oyup8k1z5iyf-bmms0</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>GS[p] + GS[q];
+DiracGammaCombine[%];
+DiracGammaCombine[%]</pre><div class='IFU'><a name='69726605'></a>http://wolfram.com/xid/0teu55sspea5oyup8k1z5iyf-bfsrof</div>

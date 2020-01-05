@@ -1,2 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Trick[LeviCivita[\[Mu], \[Nu], \[Rho], \[Sigma]] FourVector[
-   p + q, \[Sigma]]]</pre><div class='IFU'><a name='684764895'></a>http://wolfram.com/xid/04w9abyjsyddce07rxqs-lly59d</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>Options[EpsEvaluate]</pre><div class='IFU'>http://wolfram.com/xid/04w9abyjsyddce07rxqs</div>

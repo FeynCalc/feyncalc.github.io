@@ -1,2 +1,1 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>t1 = LeviCivita[\[Alpha], \[Beta], \[Gamma], \[Rho]].LeviCivita[\
-\[Alpha], \[Beta], \[Gamma], \[Rho]] </pre><div class='IFU'><a name='1953796449'></a>http://wolfram.com/xid/0cocv9p3k6ad7mdkiqb7cqqo-6liw9v</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>LC[][p, q, r, s]</pre><div class='IFU'><a name='528234025'></a>http://wolfram.com/xid/0cocv9p3k6ad7mdkiqb7cqqo-i0r59n</div>

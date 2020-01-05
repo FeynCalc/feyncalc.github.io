@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>SUNDelta[SUNIndex[a], SUNIndex[b]]^2</pre><div class='IFU'>http://wolfram.com/xid/0br0qd3s106ml2pppxw89gr8t3le</div>

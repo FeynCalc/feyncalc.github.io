@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>Twist3QuarkOperator&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
@@ -10,23 +12,39 @@
 <script language="JavaScript" type="text/javascript">baselang='Twist3QuarkOperator';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,13 +52,54 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/Twist2QuarkOperator.html"><span class="dropdownPad">Twist2QuarkOperator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Twist2GluonOperator.html"><span class="dropdownPad">Twist2GluonOperator</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>Twist3QuarkOperator</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/Twist3QuarkOperator/1.png" height="20" width="153" alt="" /></span> <br />or  Twist3QuarkOperator[p,_,_]  yields the  2-quark operator (p is momentum in the direction of the fermion number flow). Twist3QuarkOperator[{p1,___}, {p2,___}, {p3, mu, a}] or Twist3QuarkOperator[p1,_,_,  p2,_,_,  p3,mu,a] Quark-Quark-Gluon-operator, where p1 is the incoming quark, p2 the incoming antiquark and p3 denotes the (incoming) gluon momentum.  Twist3QuarkOperator[{p1,___}, {p2,___}, {p3, mu, a}, {p4, nu, b}] or Twist3QuarkOperator[p1,_,_,  p2,_,_,  p3,mu,a, p4, nu, b]  gives the Quark-Quark-Gluon-Gluon-operator. The setting of the option Polarization (unpolarized: 0; polarized: 1) determines whether the uppolarized or polarized operator is returned.</p>
+   <p><span class="IF"><span class="specialcharacters">Twist3QuarkOperator<span class="openbracket">[</span>p<span class="closebracket">]</span></span></span> <br />or  Twist3QuarkOperator[p,_,_]  yields the  2-quark operator (p is momentum in the direction of the fermion number flow). Twist3QuarkOperator[{p1,___}, {p2,___}, {p3, mu, a}] or Twist3QuarkOperator[p1,_,_,  p2,_,_,  p3,mu,a] Quark-Quark-Gluon-operator, where p1 is the incoming quark, p2 the incoming antiquark and p3 denotes the (incoming) gluon momentum.  Twist3QuarkOperator[{p1,___}, {p2,___}, {p3, mu, a}, {p4, nu, b}] or Twist3QuarkOperator[p1,_,_,  p2,_,_,  p3,mu,a, p4, nu, b]  gives the Quark-Quark-Gluon-Gluon-operator. The setting of the option Polarization (unpolarized: 0; polarized: 1) determines whether the uppolarized or polarized operator is returned.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+          <a name="336849087"></a>
+          <img src="Files/Twist3QuarkOperator/I_2.png"
+              height="16"
+              width="178"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+          <img src="Files/Twist3QuarkOperator/O_1.png"
+              height="15"
+              width="321"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -54,24 +113,21 @@
       <div class="expanded">
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-            <a name="336849087"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Twist3QuarkOperator/I_2.gif" height="17" width="193" alt="Click for copyable input" /></a>
-           </div><div id="i_1_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/Twist3QuarkOperator/O_1.gif" height="15" width="384" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="645443038"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Twist3QuarkOperator/I_4.gif" height="17" width="154" alt="Click for copyable input" /></a>
+            <img src="Files/Twist3QuarkOperator/I_4.png"
+                height="16"
+                width="141"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/Twist3QuarkOperator/O_2.gif" height="20" width="181" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Twist3QuarkOperator/O_2.png"
+                height="17"
+                width="148"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -89,7 +145,7 @@
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="325391970"></a><a href="../ref/Twist2QuarkOperator.html">Twist2QuarkOperator</a>, <a href="../ref/Twist2GluonOperator.html">Twist2GluonOperator</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/Twist2QuarkOperator.html">Twist2QuarkOperator</a>, <a href="../ref/Twist2GluonOperator.html">Twist2GluonOperator</a>.</p>
    </div>
   </div>
  </div>
@@ -98,7 +154,6 @@
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

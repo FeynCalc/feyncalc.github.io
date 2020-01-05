@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>DCHN[SpinorUBar[p1, m1], i] DCHN[GAD[\[Mu]].GAD[\[Nu]], i, j] DCHN[j, 
+  SpinorV[p2, m2]]</pre><div class='IFU'><a name='857331981'></a>http://wolfram.com/xid/0jukp71jhuapzmkh9fimz8xe-ogpvvj</div>

@@ -1,2 +1,2 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>LeviCivita[\[Mu], \[Nu], \[Rho], \[Tau]] RightPartialD[\[Alpha], \
-\[Mu], \[Beta], \[Nu]]</pre><div class='IFU'><a name='623620416'></a>http://wolfram.com/xid/0da7yqf8j4nw85u2mitcjj-klkmvm</div>
+<pre name='i_21_in' id='i_21_in' class='IFT'>LC[\[Mu], \[Nu], \[Rho], \[Tau]] RightPartialD[\[Alpha], \[Mu], \
+\[Beta], \[Nu]]</pre><div class='IFU'><a name='623620416'></a>http://wolfram.com/xid/0da7yqf8j4nw85u2mitcjj-klkmvm</div>

@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>SFAD[p1]
+FCLoopBasisExtract[%, {p1, p2, p3}, FCTopology -&gt; True, FCE -&gt; True]</pre><div class='IFU'><a name='280018364'></a>http://wolfram.com/xid/0byqjekzwh1n5jr90qs1hiory5i-ewz1t6</div>

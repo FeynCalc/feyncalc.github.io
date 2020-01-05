@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FCDuplicateFreeQ[{{a, b}, {a, c}}]</pre><div class='IFU'><a name='1576732881'></a>http://wolfram.com/xid/0gz3arg4q5btrb98796rqklxgzn-0c045v</div>

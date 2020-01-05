@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
+<title>FCSetDiracGammaScheme&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.3, , , }" />
+<meta name="keywords" content="FCSetDiracGammaScheme" />
+
+<meta name="description" content="FCSetDiracGammaScheme[&amp;quot;scheme&amp;quot;] allows you to specify how Dirac matrices will be handled in D dimensions. This is mainly relevant to the treatment of the fifth Dirac matrix \[Gamma]^5, which is not well-defined in dimensional regularization." />
+<script language="JavaScript" type="text/javascript">baselang='FCSetDiracGammaScheme';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+ 
+<div class="main-wrapper">
+<div class="outer-wrapper">
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/FCGetDiracGammaScheme.html"><span class="dropdownPad">FCGetDiracGammaScheme</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracTrace.html"><span class="dropdownPad">DiracTrace</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>FCSetDiracGammaScheme</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><span class="specialcharacters">FCSetDiracGammaScheme<span class="openbracket">[</span>&quot;scheme&quot;<span class="closebracket">]</span></span></span> <br />allows you to specify how Dirac matrices will be handled in D dimensions. This is mainly relevant to the treatment of the fifth Dirac matrix <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span>, which is not well-defined in dimensional regularization.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><a name="1067943069"></a>Following schemes are supported: </li>
+     <li><a name="190401776"></a>&quot;NDR&quot; - This is the default value. In the naive dimensional regularization (also known as conventional dimensional regularization or CDR) <span class="special-character Gamma">&#947;</span><sup>5</sup> is assumed to anticommute with all Dirac matrices in <span class="IF">D</span> dimensions. Hence, every Dirac trace can be rewritten in such a way, that it contains either just one or not a single <span class="special-character Gamma">&#947;</span><sup>5</sup> matrix. The latter traces are obviously unambiguous. The traces with one <span class="special-character Gamma">&#947;</span><sup>5</sup> are not well-defined in this scheme. It usually depends on the physics of the process, whether and how they can contribute to the final result. Therefore, FeynCalc will keep such traces unevaluated, leaving it to the user to decide how to treat them. </li>
+     <li><a name="1784502655"></a>Notice that traces with an odd number of the usual Dirac matrices and one <span class="special-character Gamma">&#947;</span><sup>5</sup>, that vanish in 4 dimensions, will be also put to zero in this scheme.</li>
+     <li><a name="665441283"></a>&quot;NDR-Discard&quot; - This is a special version of the NDR scheme. The Dirac algebra is
+evaluated in the same way as with &quot;NDR&quot;, but the remaining traces with one <span class="special-character Gamma">&#947;</span><sup>5</sup>
+are put to zero. This assumes that such traces do not contribute to the final result,
+which is obviously true only for specific calculations.</li>
+     <li><a name="2003509557"></a>&quot;BMHV&quot; - The Breitenlohner-Maison extension of the t'Hooft-Veltman scheme. This scheme introduces Dirac and Lorentz tensors living in <span class="IF">4</span>, <span class="IF">D</span> or <span class="IF">D-4</span> dimensions, while <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> is a purely <span class="IF">4</span>-dimensional object. BMHV is algebraically consistent but often suffers from nonconservation of currents in the final results. The conservation must be then enfornced by introducing finite counter-terms. The counter-terms are to be supplied by the users, FeynCalc does not do this automatically.</li>
+     <li><a name="93561036"></a>&quot;Larin&quot; - Special prescription developed by Larin, also known as the Larin-Gorishny-Atkyampo-DelBurgo scheme. Essentially, it is a shortcut (mostly used in QCD) for obtaining the same results as in BMHV but without the necessity to deal with tensors from different dimensions. That is, before evaluating traces (but after moving gamma5 anticommuting in D-dimensions to the right of the Dirac string inside a trace) a product  gamma[mu].gamma5 is substituted to -I/6 Eps[mu,al,be,si] gamma[al,be,si], where all indices live in D-dimensions now. The Levi-Civita tensor is taken to be<span class="Tutorials"> </span><span class="IF">D</span><span class="Tutorials">-</span>dimensional, i.e., contraction of two Eps's results in D's. \
+This scheme is often used for performance reasons and is assumed to give the same results as the Breitenlohner-Maison-'t Hooft-Veltman (BMHV) scheme. However, <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> is not anticommuting inside closed fermion loops and it is not so clear if this scheme works for more than one fermion line involving <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> When in doubt, it might be better to use BMHV instead.</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="1948773281"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_2.png"
+                height="16"
+                width="197"
+                alt="Click for copyable input" />
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_1.png"
+                height="14"
+                width="28"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <a name="98306849"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_4.png"
+                height="16"
+                width="207"
+                alt="Click for copyable input" />
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_2.png"
+                height="19"
+                width="140"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <p><a name="1475497628"></a>In NDR chiral traces remain unevaluated. You decide how to treat them.</p>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <a name="933234494"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_6.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_3.png"
+                height="19"
+                width="140"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <a name="1854871493"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_8.png"
+                height="16"
+                width="232"
+                alt="Click for copyable input" />
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_4.png"
+                height="15"
+                width="62"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <p><a name="2003592022"></a>If you know that such traces do not contribute, use NDR-Drop scheme to put them to zero</p>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <a name="415066987"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_10.png"
+                height="16"
+                width="292"
+                alt="Click for copyable input" />
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_5.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <a name="1400459732"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_12.png"
+                height="16"
+                width="206"
+                alt="Click for copyable input" />
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_6.png"
+                height="14"
+                width="39"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <p><a name="204593488"></a>In BMHV chiral traces are algebraically well-defined</p>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[7]:=</td><td class="Input"><div>
+            <a name="1352029659"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_14.png"
+                height="16"
+                width="328"
+                alt="Click for copyable input" />
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_7.png"
+                height="73"
+                width="483"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[8]:=</td><td class="Input"><div>
+            <a name="969077787"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_16.png"
+                height="16"
+                width="201"
+                alt="Click for copyable input" />
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_8.png"
+                height="14"
+                width="28"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <p><a name="1939646369"></a>In Larin's scheme reproduces the results of the BMHV scheme</p>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[9]:=</td><td class="Input"><div>
+            <a name="1886065691"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_18.png"
+                height="16"
+                width="329"
+                alt="Click for copyable input" />
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_9.png"
+                height="54"
+                width="467"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <p><a name="958789175"></a>Owing to Schouten identities, proving the equivalence of chiral traces is not so simple, especially for many terms. FCSchoutenBruteForce can be helpful here</p>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[10]:=</td><td class="Input"><div>
+            <a name="1406824487"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_20.png"
+                height="16"
+                width="218"
+                alt="Click for copyable input" />
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_10.png"
+                height="15"
+                width="473"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[11]:=</td><td class="Input"><div>
+            <a name="1776546156"></a>
+            <img src=""
+                data-src="Files/FCSetDiracGammaScheme/I_22.png"
+                data-big="417 33"
+                data-small="374 50"
+                alt="Click for copyable input" />
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_11.png"
+                height="46"
+                width="396"
+                alt="" />
+           </div></td></tr>
+        </table>
+        <div class="Print">
+         <a name="1870797322"></a>
+         <img class="FlushInput"
+             src="Files/FCSetDiracGammaScheme/Image_1.gif"
+             alt=" " />
+        </div>
+        <div class="Print">
+         <a name="2083320504"></a>
+         <img class="FlushInput"
+             src="Files/FCSetDiracGammaScheme/Image_2.gif"
+             alt=" " />
+        </div>
+        <div class="Print">
+         <a name="353050808"></a>
+         <img class="FlushInput"
+             src="Files/FCSetDiracGammaScheme/Image_3.gif"
+             alt=" " />
+        </div>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_12.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[12]:=</td><td class="Input"><div>
+            <a name="692469312"></a>
+            <img src="Files/FCSetDiracGammaScheme/I_24.png"
+                height="16"
+                width="197"
+                alt="Click for copyable input" />
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCSetDiracGammaScheme/O_13.png"
+                height="14"
+                width="28"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <p class="inlineFunctionList"><a href="../ref/FCGetDiracGammaScheme.html">FCGetDiracGammaScheme</a>, <a href="../ref/DiracTrace.html">DiracTrace</a>.</p>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+
+
+</body></html>

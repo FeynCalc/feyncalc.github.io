@@ -1,2 +1,1 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>DiracSigma[GA[\[Alpha]], GA[\[Beta]]];
-DiracSigmaExplicit[%]</pre><div class='IFU'><a name='280405798'></a>http://wolfram.com/xid/0d2ausydw9qwhmoznp3tly0nbw-ew8cr8</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>DiracSigma[GA[\[Alpha]], GA[\[Beta]]]</pre><div class='IFU'><a name='535100858'></a>http://wolfram.com/xid/0d2ausydw9qwhmoznp3tly0nbw-i4vcq0</div>

@@ -1,3 +1,1 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>TableForm[
- ReadList[If[$OperatingSystem === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename, 
-  String]]</pre><div class='IFU'><a name='1505586368'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbppk2-y6n75u</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>DeleteFile[If[$OperatingSystem === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename]</pre><div class='IFU'>http://wolfram.com/xid/0jy9tuh3qgh0fbppk2</div>

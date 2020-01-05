@@ -1,1 +1,3 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>DiracTrick[t3]</pre><div class='IFU'><a name='1789422594'></a>http://wolfram.com/xid/0bmo85gxinschsbp05yp6gs-3vntlg</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>GA[\[Mu], \[Nu], \[Mu]];
+DiracTrick[%];
+DiracTrick[%]</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbp05yp6gs</div>

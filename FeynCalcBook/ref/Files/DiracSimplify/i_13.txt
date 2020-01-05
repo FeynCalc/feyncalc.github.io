@@ -1,1 +1,3 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>DiracSimplify[t3]</pre><div class='IFU'><a name='264425668'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq-enpufq</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>GS[p].GS[p];
+DiracSimplify[%];
+DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>FeynRule&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="FeynRule" />
 
-<meta name="description" content="FeynRule[lag, {fields}] derives the Feynman rule corresponding to the field configuration fields of the lagrangian lag. FeynRule does not calculate propagator Feynman rules. The option ZeroMomentumInsertion can be used for twist-2 and higher twist operators." />
+<meta name="description" content="FeynRule[lag, {fields}] derives the Feynman rule corresponding to the field configuration fields of the lagrangian lag." />
 <script language="JavaScript" type="text/javascript">baselang='FeynRule';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,17 +52,53 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/Lagrangian.html"><span class="dropdownPad">Lagrangian</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>FeynRule</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/FeynRule/1.png" height="21" width="147" alt="" /></span> <br />derives the Feynman rule corresponding to the field configuration fields of the lagrangian lag.
-
-FeynRule does not calculate propagator Feynman rules.
-
-The option ZeroMomentumInsertion can be used for twist-2 and higher twist operators.</p>
+   <p><span class="IF"><span class="specialcharacters">FeynRule<span class="openbracket">[</span>lag<span class="comma">,</span> <span class="openbrace">{</span>fields<span class="closebrace">}</span><span class="closebracket">]</span></span></span> <br />derives the Feynman rule corresponding to the field configuration <span class="IF">fields</span> of the lagrangian <span class="IF">lag</span>.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><a href="../ref/FeynRule.html">FeynRule</a> does not calculate propagator Feynman rules.</li>
+     <li>The option <a href="../ref/ZeroMomentumInsertion.html">ZeroMomentumInsertion</a> can be used for twist-2 and higher twist operators.</li>
+     <li><a name="1067943069"></a><a href="../ref/FeynRule.html">FeynRule</a> is not very versatile and was primarily developed for QCD calculations. It is often more useful when dealing with bosonic fields than with fermions. If you need a more powerful and universal solution for deriving Feynman rules, have a look at the standalone <em>Mathematica</em> Package <a href="http://feynrules.irmp.ucl.ac.be/">FeynRules</a> (not related to FeynCalc).</li>
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[31]:=</td><td class="Input"><div>
+          <img src="Files/FeynRule/I_2.png"
+              height="16"
+              width="106"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[31]=</td><td class="Output"><div class="output-image">
+          <img src="Files/FeynRule/O_1.png"
+              height="52"
+              width="425"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -54,302 +108,508 @@ The option ZeroMomentumInsertion can be used for twist-2 and higher twist operat
    <div class="expanded">
     <div class="expandSubWrap">
      <div class="expandSubOuter">
-      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(5)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(5)</span></a></h3>
       <div class="expanded">
+       <li>Derive the Feyman rule for the <span class="IF"><span class="special-character Phi">&#981;</span><sup>4</sup></span> theory.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-            <a name="1110862301"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_2.gif" height="17" width="120" alt="Click for copyable input" /></a>
-           </div><div id="i_1_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/FeynRule/O_1.gif" height="54" width="524" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
-            <a name="365740759"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_4.gif" height="17" width="161" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_4.png"
+                height="16"
+                width="157"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/FeynRule/O_2.gif" height="41" width="351" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_2.png"
+                height="39"
+                width="37"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
-            <a name="231547110"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_6.gif" height="17" width="163" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_6.png"
+                data-big="537 33"
+                data-small="336 33"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/FeynRule/O_3.gif" height="41" width="549" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_3.png"
+                height="14"
+                width="23"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>Derive the Feyman rule for the quark-gluon vertex</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
-            <a name="2084194058"></a>
-            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_8.gif" height="17" width="84" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_8.png"
+                data-big="458 16"
+                data-small="296 33"
+                alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/FeynRule/O_4.gif" height="154" width="546" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_4.png"
+                height="18"
+                width="67"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
-            <a name="1005254277"></a>
-            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_10.gif" height="17" width="165" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_10.png"
+                data-big="411 33"
+                data-small="313 50"
+                alt="Click for copyable input" />
            </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/FeynRule/O_5.gif" height="68" width="367" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_5.png"
+                height="15"
+                width="62"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1873597477"></a>2-gluon Feynman rules (unpolarized)</div>
+       <div class="ExLine"><!-- --></div>
+       <li>Derive the Feyman rule for the 4-gluon vertex.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
-            <a name="1070076155"></a>
-            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_12.gif" height="37" width="550" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_12.png"
+                height="41"
+                width="271"
+                alt="Click for copyable input" />
            </div><div id="i_11_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/FeynRule/O_6.gif" height="25" width="109" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_6.png"
+                height="36"
+                width="73"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
-            <a name="1360773115"></a>
-            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_14.gif" height="17" width="518" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_14.png"
+                data-big="549 33"
+                data-small="313 67"
+                alt="Click for copyable input" />
            </div><div id="i_13_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/FeynRule/O_7.gif" height="79" width="507" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_7.png"
+                height="57"
+                width="360"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1948485262"></a>2-gluon Feynman rules (polarized)</div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
-            <a name="1064711177"></a>
-            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_16.gif" height="37" width="550" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_16.png"
+                data-big="481 16"
+                data-small="249 33"
+                alt="Click for copyable input" />
            </div><div id="i_15_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/FeynRule/O_8.gif" height="25" width="109" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_8.png"
+                height="61"
+                width="358"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
-            <a name="1030963620"></a>
-            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_18.gif" height="17" width="520" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_18.png"
+                height="16"
+                width="275"
+                alt="Click for copyable input" />
            </div><div id="i_17_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/FeynRule/O_9.gif" height="81" width="517" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_9.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Derive the Feyman rule for the 3-gluon vertex.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
-            <a name="2139802029"></a>
-            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_20.gif" height="17" width="361" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_20.png"
+                height="41"
+                width="271"
+                alt="Click for copyable input" />
            </div><div id="i_19_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/FeynRule/O_10.gif" height="24" width="263" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_10.png"
+                height="36"
+                width="73"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="163895632"></a>Compare with the Feynman rule tabulated in Twist2GluonOperator.</div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
-            <a name="1311336663"></a>
-            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_22.gif" height="17" width="471" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_22.png"
+                data-big="483 33"
+                data-small="307 50"
+                alt="Click for copyable input" />
            </div><div id="i_21_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/FeynRule/O_11.gif" height="24" width="246" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_11.png"
+                height="17"
+                width="347"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1475726296"></a>quark-quark Feynman rule (unpolarized)</div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
-            <a name="940220202"></a>
-            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_24.gif" height="17" width="156" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_24.png"
+                data-big="423 16"
+                data-small="247 33"
+                alt="Click for copyable input" />
            </div><div id="i_23_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/FeynRule/O_12.gif" height="21" width="152" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_12.png"
+                height="17"
+                width="327"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="624473640"></a>quark-quark -gluon-gluon Feynman rule (unpolarized)</div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
-            <a name="463480668"></a>
-            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_26.gif" height="17" width="156" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_26.png"
+                height="16"
+                width="228"
+                alt="Click for copyable input" />
            </div><div id="i_25_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/FeynRule/O_13.gif" height="21" width="152" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_13.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Derive the Feynman rules for the Higgs EFT.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
-            <a name="1181779598"></a>
-            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_28.gif" height="37" width="551" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_28.png"
+                data-big="442 16"
+                data-small="394 33"
+                alt="Click for copyable input" />
            </div><div id="i_27_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/FeynRule/O_14.gif" height="25" width="208" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_14.png"
+                height="36"
+                width="131"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>Higgs-gg vertex.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
-            <a name="920183877"></a>
-            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_30.gif" height="17" width="533" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_30.png"
+                height="33"
+                width="386"
+                alt="Click for copyable input" />
            </div><div id="i_29_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/FeynRule/O_15.gif" height="139" width="517" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_15.png"
+                height="19"
+                width="204"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>Higgs-ggg vertex.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
-            <a name="155964865"></a>
-            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_32.gif" height="17" width="478" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_32.png"
+                data-big="461 50"
+                data-small="322 67"
+                alt="Click for copyable input" />
            </div><div id="i_31_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/FeynRule/O_16.gif" height="130" width="498" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_16.png"
+                height="20"
+                width="395"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>Higgs-gggg vertex.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
-            <a name="1098560652"></a>
-            <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_34.gif" height="17" width="333" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_34.png"
+                data-big="511 84"
+                data-small="377 118"
+                alt="Click for copyable input" />
            </div><div id="i_33_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/FeynRule/O_17.gif" height="15" width="7" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_17.png"
+                height="41"
+                width="472"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="884578703"></a> In general equality can be shown by Timing[Factor2[ FCE[Calc[ChangeDimension[FCE[OPESumExplicit[n4-t4]],4]/.s<span class="special-character Rule">&#62754;</span>-p-q-r]]]] but it is a little bit slow ...</div>
-       <table class="InCell">
-        <tr><td class="lab"><a href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
-           <a name="1397309872"></a>
-           <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_36.gif" height="17" width="129" alt="Click for copyable input" /></a>
-          </div><div id="i_35_out" class="IFL"></div></td></tr>
-       </table>
-       <div class="Text"><a name="1987436758"></a>QCD vertices</div>
+       <div class="ExLine"><!-- --></div>
+       <li>Some OPE-related examples:</li>
+       <li>2-gluon Feynman rules (unpolarized).</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[19]:=</a></td><td class="Input"><div>
-            <a name="32161051"></a>
-            <a href="javascript:input('i_37')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_38.gif" height="37" width="552" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_36.png"
+                height="16"
+                width="107"
+                alt="Click for copyable input" />
+           </div><div id="i_35_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_18.png"
+                height="36"
+                width="297"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_38.png"
+                data-big="542 33"
+                data-small="307 50"
+                alt="Click for copyable input" />
            </div><div id="i_37_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/FeynRule/O_18.gif" height="25" width="156" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_19.png"
+                height="61"
+                width="451"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>2-gluon Feynman rules (polarized).</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
-            <a name="1456048555"></a>
-            <a href="javascript:input('i_39')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_40.gif" height="17" width="253" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_40.png"
+                height="16"
+                width="108"
+                alt="Click for copyable input" />
            </div><div id="i_39_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[20]=</td><td class="Output"><img src="Files/FeynRule/O_19.gif" height="22" width="402" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_20.png"
+                height="36"
+                width="468"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_41')" onmouseover="javascript:return(true);">In[21]:=</a></td><td class="Input"><div>
-            <a name="172674222"></a>
-            <a href="javascript:input('i_41')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_42.gif" height="17" width="394" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_42.png"
+                data-big="542 33"
+                data-small="307 50"
+                alt="Click for copyable input" />
            </div><div id="i_41_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[21]=</td><td class="Output"><img src="Files/FeynRule/O_20.gif" height="22" width="361" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_21.png"
+                height="64"
+                width="498"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_43')" onmouseover="javascript:return(true);">In[22]:=</a></td><td class="Input"><div>
-            <a name="1637338472"></a>
-            <a href="javascript:input('i_43')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_44.gif" height="17" width="224" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_44.png"
+                height="16"
+                width="306"
+                alt="Click for copyable input" />
            </div><div id="i_43_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[22]=</td><td class="Output"><img src="Files/FeynRule/O_21.gif" height="15" width="7" alt="" /></td></tr>
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_22.png"
+                height="19"
+                width="216"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>Compare with the Feynman rule tabulated in Twist2GluonOperator.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_45')" onmouseover="javascript:return(true);">In[23]:=</a></td><td class="Input"><div>
-            <a name="2124540082"></a>
-            <a href="javascript:input('i_45')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_46.gif" height="56" width="551" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <a name="1311336663"></a>
+            <img src=""
+                data-src="Files/FeynRule/I_46.png"
+                data-big="414 16"
+                data-small="242 33"
+                alt="Click for copyable input" />
            </div><div id="i_45_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[23]=</td><td class="Output"><img src="Files/FeynRule/O_22.gif" height="25" width="204" alt="" /></td></tr>
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_23.png"
+                height="17"
+                width="201"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>quark-quark -gluon-gluon Feynman rule (unpolarized).</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_47')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
-            <a name="1017933843"></a>
-            <a href="javascript:input('i_47')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_48.gif" height="17" width="256" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[7]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_48.png"
+                height="16"
+                width="108"
+                alt="Click for copyable input" />
            </div><div id="i_47_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/FeynRule/O_23.gif" height="77" width="409" alt="" /></td></tr>
+         <tr><td class="lab">Out[7]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_24.png"
+                height="16"
+                width="118"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_49')" onmouseover="javascript:return(true);">In[25]:=</a></td><td class="Input"><div>
-            <a name="1003097458"></a>
-            <a href="javascript:input('i_49')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_50.gif" height="17" width="463" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[8]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/FeynRule/I_50.png"
+                data-big="481 50"
+                data-small="386 84"
+                alt="Click for copyable input" />
            </div><div id="i_49_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[25]=</td><td class="Output"><img src="Files/FeynRule/O_24.gif" height="83" width="410" alt="" /></td></tr>
+         <tr><td class="lab">Out[8]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_25.png"
+                height="124"
+                width="483"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_51')" onmouseover="javascript:return(true);">In[26]:=</a></td><td class="Input"><div>
-            <a name="1307092387"></a>
-            <a href="javascript:input('i_51')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_52.gif" height="17" width="224" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[9]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_52.png"
+                height="16"
+                width="389"
+                alt="Click for copyable input" />
            </div><div id="i_51_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[26]=</td><td class="Output"><img src="Files/FeynRule/O_25.gif" height="15" width="7" alt="" /></td></tr>
+         <tr><td class="lab">Out[9]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_26.png"
+                height="95"
+                width="524"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <table class="InCell">
-        <tr><td class="lab"><a href="javascript:input('i_53')" onmouseover="javascript:return(true);">In[27]:=</a></td><td class="Input"><div>
-           <a name="2027297687"></a>
-           <a href="javascript:input('i_53')" onmouseover="javascript:return(true);"><img src="Files/FeynRule/I_54.gif" height="37" width="404" alt="Click for copyable input" /></a>
-          </div><div id="i_53_out" class="IFL"></div></td></tr>
-       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[10]:=</td><td class="Input"><div>
+            <img src="Files/FeynRule/I_54.png"
+                height="16"
+                width="284"
+                alt="Click for copyable input" />
+           </div><div id="i_53_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FeynRule/O_27.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
       </div>
      </div>
     </div>
@@ -365,7 +625,9 @@ The option ZeroMomentumInsertion can be used for twist-2 and higher twist operat
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="1949003728"></a><a href="../ref/Lagrangian.html">Lagrangian</a>.</div>
+    <p class="inlineFunctionList">
+     <a href="../ref/Lagrangian.html">Lagrangian</a>
+    </p>
    </div>
   </div>
  </div>
@@ -374,7 +636,6 @@ The option ZeroMomentumInsertion can be used for twist-2 and higher twist operat
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

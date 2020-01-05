@@ -7,7 +7,7 @@ body > .main-wrapper { position: relative; margin: 0 auto -47px auto; min-height
 
 /* header */
 .header { text-align: right; }
-.header-inner { background: url('/2013/images/top-header-subpage.png') no-repeat; width: 704px; margin:35px auto 20px; position: relative; padding-bottom: 30px; }
+.header-inner { background: url('../images/top-header-subpage.png') no-repeat; width: 704px; margin:35px auto 20px; position: relative; padding-bottom: 30px; }
 .header label.placeholder { color: #ccc; position: absolute; z-index: 0; top: 40px; right: 112px; display: none; font-family: 'Open Sans', serif; font-size: 14px; } 
 #query { width: 225px; height: 20px; margin: 39px 0 0 0; background: transparent; font-family: 'Open Sans', serif; font-size: 14px; color: #eaeaea; border: 0; outline: none; z-index: 3; position: relative; }
 input.search-reference-input-button { background: transparent; width: 25px; height: 19px; margin: 0 5px 0; border: 0; font-size: 0; cursor: pointer; outline: none; }
@@ -15,7 +15,7 @@ input.search-reference-input-button { background: transparent; width: 25px; heig
 .language-1 { width: 240px; height: 27px; display: inline-block; position: absolute; top: 20px; left: 0; }
 .language-2 { width: 122px; height: 27px; display: inline-block; position: absolute; top: 20px; left: 240px; }
 .language-3 { width: 283px; height: 24px; position: absolute; top: 48px; }
-/*#referenceHeader  { margin: 40px auto; border: 1px solid #d5d5d5; box-shadow: 0 0 6px rgba(0,0,0,0.2); border-radius: 4px; overflow:hidden; background: url('/2013/images/mathematica/docs-header-mainImage.png') no-repeat transparent !important; }
+/*#referenceHeader  { margin: 40px auto; border: 1px solid #d5d5d5; box-shadow: 0 0 6px rgba(0,0,0,0.2); border-radius: 4px; overflow:hidden; background: url('../images/mathematica/docs-header-mainImage.png') no-repeat transparent !important; }
   #referenceHeader form { display: inline-block; float: right; margin-right: 40px; padding: 0 0 34px 0; position: relative; }
   #referenceHeader input#query { border: 0; padding: 0; width: 290px; height: 23px !important; line-height: 23px !important; float: left; font-size: 11px !important; font-family: Verdana; font-style: normal; color: #494949; z-index: 3; background: transparent; display: block; position: relative; }
     #referenceHeader input#query:focus { outline: none; }
@@ -25,7 +25,7 @@ input.search-reference-input-button { background: transparent; width: 25px; heig
   	#searchlink p { font-size: 13px; width: 704px; margin: 0 auto; color: #fff; font-family: Arial, Verdana, sans-serif !important; }
 	#searchlink a { text-decoration: underline; color: #fff; font-family: Arial, Verdana, sans-serif !important; }
 
-.outer-wrapper { background: #f1f1f1 url('/2013/images/background-gradient-subpage.png') repeat-x left top; padding-top: 30px; }
+.outer-wrapper { background: #f1f1f1 url('../images/background-gradient-subpage.png') repeat-x left top; padding-top: 30px; }
 
 /* html/cdf chooser */
 #formatChooser { margin-top: 5px; margin-bottom: 18px; text-align: right; font-size: 10px; font-weight: normal; color: #999; }
@@ -62,12 +62,12 @@ input.search-reference-input-button { background: transparent; width: 25px; heig
 
 /* footer feedback */
 .footer-give-feedback { margin: 0 auto; }
-	.footer-give-feedback .feedback-button { background: url('/2013/images/mathematica/give-feedback.png') no-repeat left top; float: right; height: 26px; width: 103px; box-shadow: 1px 1px 5px rgba(0,0,0,0.2); border: 1px solid #d5d5d5; border-top: 0; }
+	.footer-give-feedback .feedback-button { background: url('../images/mathematica/give-feedback.png') no-repeat left top; float: right; height: 26px; width: 103px; box-shadow: 1px 1px 5px rgba(0,0,0,0.2); border: 1px solid #d5d5d5; border-top: 0; }
 	.feedback-button a { font-size: 11px !important; color: #5c5c5c; line-height: 25px; width: 103px; display: block; text-align: center; } 
 	.feedback-button a:hover { color: #142899; }
 	.feedback-open .feedback-button { height: 16px; width: 16px; margin: 12px 12px; box-shadow: none; border: 0;}
 	.feedback-open { border: 1px solid #d5d5d5; background: #ffffff; box-shadow: 0px 0px 6px rgba(0,0,0,0.2), inset 0 10px 6px -6px #dddddd; border-radius: 0 0 4px 4px !important; overflow: hidden; width: 704px; }
-	a.close { background: url('/2013/images/mathematica/TBcloseButton_sm.gif') no-repeat right top; height: 16px; width: 16px; }
+	a.close { background: url('../images/mathematica/TBcloseButton_sm.gif') no-repeat right top; height: 16px; width: 16px; }
 	.mainContent.feedback { border-radius: 4px 4px 0 0 !important; }
 	
 form#feedbackForm { margin: 50px 47px 25px 47px !important; overflow: hidden; margin: 0; }	
@@ -101,7 +101,7 @@ form#feedbackForm { margin: 50px 47px 25px 47px !important; overflow: hidden; ma
 	div.largebutton input { background:transparent; border:0px; width: auto; overflow: visible; height:33px; line-height: 33px; color:#fff; letter-spacing:.03em; font-size:16px; font-family: Trebuchet MS,Arial,Verdana,Geneva,sans-serif; padding:0px; margin:0; cursor:pointer;}
 	
 /* footer */	
-.wrapper#referenceFooter { width: 706px !important; overflow: hidden; margin-top: 80px; margin-bottom: 57px; background: url('/2013/images/mathematica/spikey.png') no-repeat 20px center #ffffff; padding: 20px 0 20px 0; font: 12px Arial; color: #353535; box-shadow: 0 0 6px rgba(0,0,0,0.2); border: 1px solid #d5d5d5; border-radius: 4px; }
+.wrapper#referenceFooter { width: 706px !important; overflow: hidden; margin-top: 80px; margin-bottom: 57px; background: url('../images/mathematica/spikey.png') no-repeat 20px center #ffffff; padding: 20px 0 20px 0; font: 12px Arial; color: #353535; box-shadow: 0 0 6px rgba(0,0,0,0.2); border: 1px solid #d5d5d5; border-radius: 4px; }
 	#referenceFooter .Mathematica9NowAvailable { width: 293px; margin: 0 0 0 151px; float: left; }
 	#referenceFooter .footerHeading { margin: 8px 0 0 0; color: #000000; font-size: 14px; border: 0; font-weight: bold; display: block; }
 	#referenceFooter p { display: inline-block; padding: 0 !important; margin: 0 0 10px 0 !important; width: 260px; }
@@ -111,8 +111,8 @@ form#feedbackForm { margin: 50px 47px 25px 47px !important; overflow: hidden; ma
 	#referenceFooter .questions { font-weight: bold; color: #000000; width: 211px; margin: 0 0 0 23px; float: left; border-left: 1px solid #e5e5e5; padding: 5px 0 5px 23px; }
 	#referenceFooter .questions a { display: block; font-size: 11px; font-weight: normal;}
 	#referenceFooter a.TryNow, #referenceFooter a.BuyUpgrade { display: inline-block; margin-right: 10px; }
-	#referenceFooter .NewToMathematica { margin: 10px 0 20px 0; background: url('/2013/images/mathematica/new-to-mathematica.png') no-repeat left center; padding-left: 43px; height: 32px; }
-	#referenceFooter .HaveAQuestion { margin: 0; background: url('/2013/images/mathematica/have-a-question.png') no-repeat left center; padding-left: 43px; }
+	#referenceFooter .NewToMathematica { margin: 10px 0 20px 0; background: url('../images/mathematica/new-to-mathematica.png') no-repeat left center; padding-left: 43px; height: 32px; }
+	#referenceFooter .HaveAQuestion { margin: 0; background: url('../images/mathematica/have-a-question.png') no-repeat left center; padding-left: 43px; }
 div.button { overflow: hidden; display: inline-block; }
 	div.button a { color: #ffffff !important; line-height: 21px; text-align: center; margin-right: 10px; }
 	div.button span.buttonLeft { background: url('/common/images2010/m8/button.png') no-repeat top left; float: left; height: 21px; width: 10px; }
@@ -132,7 +132,7 @@ div.button { overflow: hidden; display: inline-block; }
 }
 
 #TB_closeAjaxWindow {
-	background: url('/2013/images/close.png') !important; 
+	background: url('../images/close.png') !important; 
 	width: 28px !important;
 	height: 28px !important;
 	position: absolute !important;

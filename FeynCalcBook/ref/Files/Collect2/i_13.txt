@@ -1,1 +1,1 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>Collect2[Expand[(a - b - c - d)^5], a, IsolateNames -&gt; l]</pre><div class='IFU'><a name='741587872'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-mjs25e</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>Collect2[Expand[(a - b - c - d)^5], a, IsolateNames -&gt; KK]</pre><div class='IFU'><a name='741587872'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-mjs25e</div>

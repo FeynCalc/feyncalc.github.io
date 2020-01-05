@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>GAD[\[Mu], \[Nu], \[Mu]].GA5.GAD[\[Alpha], \[Beta], \[Alpha]];
-DiracSimplify2[%]</pre><div class='IFU'><a name='535525902'></a>http://wolfram.com/xid/0cy370nkq1aepac5r1l4ssm-i44gps</div>

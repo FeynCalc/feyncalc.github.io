@@ -1,1 +1,1 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>TR[(GS[p] + m).GA[\[Mu]].(GS[q] + m).GA[\[Mu]], Factoring -&gt; True]</pre><div class='IFU'><a name='1692893205'></a>http://wolfram.com/xid/0k6v9si2wy9y6x38x-196u1j</div>
+<pre name='i_17_in' id='i_17_in' class='IFT'>GA[\[Mu], \[Nu]] SUNT[b].SUNT[c] SUNDelta[c, b]</pre><div class='IFU'><a name='496024133'></a>http://wolfram.com/xid/0k6v9si2wy9y6x38x-ihlsyf</div>

@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>Schouten&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="Schouten" />
 
-<meta name="description" content="Schouten[expr] applies the Schouten identity on at most 42 terms in a sum. If Schouten should operate on larger expression you can give a second argument, e.g.: Schouten[expr, 4711] which will work on sums with less than 4711 terms. Schouten is also an option of Contract and DiracTrace. It may be set to an integer indicating the maximum number of terms onto which the function Schouten will be applied ." />
+<meta name="description" content="Schouten[exp] attempts to automatically remove spurious terms in exp by applying the Schouten identity." />
 <script language="JavaScript" type="text/javascript">baselang='Schouten';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,14 +52,41 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/Contract.html"><span class="dropdownPad">Contract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracTrace.html"><span class="dropdownPad">DiracTrace</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCSchoutenBruteForce.html"><span class="dropdownPad">FCSchoutenBruteForce</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>Schouten</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/Schouten/1.png" height="20" width="100" alt="" /></span> <br />applies the Schouten identity on at most 42 terms in a sum. If Schouten should operate on larger expression you can give a second argument, e.g.: Schouten[expr, 4711] which will work on sums with less than 4711 terms.
-Schouten is also an option of Contract and DiracTrace. It may be set to an integer indicating the maximum number of terms onto which the function Schouten will be applied .</p>
+   <p><span class="IF"><span class="specialcharacters">Schouten<span class="openbracket">[</span>exp<span class="closebracket">]</span></span></span> <br />attempts to automatically remove spurious terms in <span class="IF">exp</span> by applying the Schouten identity.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><a href="../ref/Schouten.html">Schouten</a> applies the identity for 4-vectors on at most <span class="IF">42</span> terms in a sum.</li>
+     <li>If it should operate on a larger expression you can give a second argument, e.g. <span class="IF"><span class="specialcharacters">Schouten<span class="openbracket">[</span>expr<span class="comma">,</span>4711<span class="closebracket">]</span></span></span> which will work on sums with less than <span class="IF">4711</span> terms.</li>
+     <li><a href="../ref/Schouten.html">Schouten</a> is also an option of <a href="../ref/Contract.html">Contract</a> and <a href="../ref/DiracTrace.html">DiracTrace</a>. It may be set to an integer indicating the maximum number of terms onto which the function <a href="../ref/Schouten.html">Schouten</a> will be applied </li>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -55,24 +100,39 @@ Schouten is also an option of Contract and DiracTrace. It may be set to an integ
       <div class="expanded">
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-            <a name="951506865"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Schouten/I_2.gif" height="180" width="488" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/Schouten/I_2.png"
+                data-big="459 33"
+                data-small="317 50"
+                alt="Click for copyable input" />
            </div><div id="i_1_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/Schouten/O_1.gif" height="622" width="399" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Schouten/O_1.png"
+                height="18"
+                width="434"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
-            <a name="1513797212"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Schouten/I_4.gif" height="17" width="81" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/Schouten/I_4.png"
+                height="16"
+                width="74"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/Schouten/O_2.gif" height="15" width="7" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Schouten/O_2.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -90,7 +150,7 @@ Schouten is also an option of Contract and DiracTrace. It may be set to an integ
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="1485744956"></a>See also: <a href="../ref/Contract.html">Contract</a>, <a href="../ref/DiracTrace.html">DiracTrace</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/Contract.html">Contract</a>, <a href="../ref/DiracTrace.html">DiracTrace</a>, <a href="../ref/FCSchoutenBruteForce.html">FCSchoutenBruteForce</a>.</p>
    </div>
   </div>
  </div>
@@ -99,7 +159,6 @@ Schouten is also an option of Contract and DiracTrace. It may be set to an integ
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

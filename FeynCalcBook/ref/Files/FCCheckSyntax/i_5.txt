@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FCCheckSyntax[FV[p, \[Mu]] FV[q, \[Mu]] FV[r, \[Mu]]]</pre><div class='IFU'><a name='237256672'></a>http://wolfram.com/xid/0bcjf11ba4ib03m2s1uy4bcoi-d7jipe</div>

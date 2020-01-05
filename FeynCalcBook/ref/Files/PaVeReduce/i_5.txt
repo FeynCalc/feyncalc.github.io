@@ -1,0 +1,4 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>PaVeReduce[PaVe[1, 2, {s, m^2, m^2}, {m^2, m^2, M^2}], 
+ IsolateNames -&gt; FF];
+FRH[%];
+FRH[%]</pre><div class='IFU'><a name='927282004'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp2kqywpmq-pmc5nq</div>

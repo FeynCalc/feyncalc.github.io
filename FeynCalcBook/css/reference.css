@@ -24,7 +24,8 @@
 @import url('reference-overviews.css');
 /* root guide */
 @import url('reference-root-guide.css');
-
+/* global footer */
+@import url('reference-global-footer.css');
 /* ##############################
 	COLORS
 #################################

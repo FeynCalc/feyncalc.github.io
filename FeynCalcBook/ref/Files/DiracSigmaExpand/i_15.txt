@@ -1,0 +1,2 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>DiracSigma[GSD[p], GSD[r] + GSD[t]] + 
+ DiracSigma[GSD[l] + GSD[n], GSD[p]]</pre><div class='IFU'><a name='2037164471'></a>http://wolfram.com/xid/0e2fh85wv2ah4yfd9uvcs0iq-7y5sf9</div>

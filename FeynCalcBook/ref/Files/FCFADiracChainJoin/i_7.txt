@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>SpinorChainTranspose[res, Select -&gt; {{Spinor[__], Spinor[__]}}]</pre><div class='IFU'><a name='163807183'></a>http://wolfram.com/xid/07tx9eeszn5ezuudiikqhdhrhtddq8y-czs8pt</div>

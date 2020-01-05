@@ -1,1 +1,1 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>Convolute[1, 1/(1 - x)]</pre><div class='IFU'><a name='694658515'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbd8w0-lru775</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>Convolute[1, 1/(1 - x)] /. FCGV[z_] :&gt; ToExpression[z]</pre><div class='IFU'><a name='694658515'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbd8w0-lru775</div>

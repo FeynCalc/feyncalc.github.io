@@ -1,0 +1,3 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FCGetPauliSigmaScheme[];
+% // PauliTrick[#, PauliReduce -&gt; True] &amp;;
+% // PauliTrick[#, PauliReduce -&gt; True] &amp;</pre><div class='IFU'><a name='1706373353'></a>http://wolfram.com/xid/0xuguo8df34d99pmnzk1lsas2qakzhl0ym-2h7sd3</div>

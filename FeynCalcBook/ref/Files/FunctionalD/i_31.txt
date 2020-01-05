@@ -1,1 +1,2 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>t3 = t2 /. \[Nu] -&gt; \[Mu]</pre><div class='IFU'><a name='1021322617'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-q6cruz</div>
+<pre name='i_31_in' id='i_31_in' class='IFT'>t3 = FCCanonicalizeDummyIndices[t2, LorentzIndexNames -&gt; {mu}, 
+   SUNIndexNames -&gt; {aa, cc}] /. {mu -&gt; \[Mu], aa -&gt; a, cc -&gt; c}</pre><div class='IFU'>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf</div>

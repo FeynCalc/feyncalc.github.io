@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>GHP[p, a, b] // Explicit
+GGV[{p, \[Mu], a}, {q, \[Nu], b}, {k, \[Rho], c}] // Explicit</pre><div class='IFU'><a name='324395928'></a>http://wolfram.com/xid/0bxw8wpmbjexmnsqnnwt4014i40rxxj7q-fne7sa</div>

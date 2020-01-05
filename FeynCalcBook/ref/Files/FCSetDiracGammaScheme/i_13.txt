@@ -1,0 +1,3 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>res1 = DiracSimplify[
+  DiracTrace[
+   GAD[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa], 5]]]</pre><div class='IFU'><a name='1352029659'></a>http://wolfram.com/xid/0gwt4rzmfasvnr4g440xp2syk4xzaz66m-wm8y1p</div>

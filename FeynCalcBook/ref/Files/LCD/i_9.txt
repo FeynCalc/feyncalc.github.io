@@ -1,1 +1,2 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>LCD[\[Mu], \[Nu]][p, q]</pre><div class='IFU'><a name='1568724284'></a>http://wolfram.com/xid/0bhwp8a9gs181wybp7-z79hou</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>Factor2[Contract[
+  LCD[\[Mu], \[Nu], \[Rho]][p] LCD[\[Mu], \[Nu], \[Rho]][q]]]</pre><div class='IFU'><a name='173575058'></a>http://wolfram.com/xid/0bhwp8a9gs181wybp7-c5mlno</div>

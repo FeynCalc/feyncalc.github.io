@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>Spinor&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="Spinor" />
 
-<meta name="description" content="Spinor[p, m, o] is the head of Dirac spinors. Which of the spinors u, v, OverscriptBox[u, _] , or OverscriptBox[v, _\ ]is understood, depends on the sign of the momentum (p) argument and the relative position of DiracSlash[p]: Spinor[sign p, mass] is that spinor which yields: sign*mass*Spinor[p, mass] if the Dirac equation is applied (by DiracEquation or DiracSimplify). The optional argument o can be used for additional degrees of freedom. If no optional argument o is supplied, a 1 is subsituted in. Spinors of fermions of mass m are normalized to have square OverscriptBox[u, _]u=2 m and OverscriptBox[v, _\ ]v=-2 m." />
+<meta name="description" content="Spinor[p, m, o] is the head of Dirac spinors. " />
 <script language="JavaScript" type="text/javascript">baselang='Spinor';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,15 +52,54 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/FermionSpinSum.html"><span class="dropdownPad">FermionSpinSum</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSimplify.html"><span class="dropdownPad">DiracSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorU.html"><span class="dropdownPad">SpinorU</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorV.html"><span class="dropdownPad">SpinorV</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorUBar.html"><span class="dropdownPad">SpinorUBar</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorVBar.html"><span class="dropdownPad">SpinorVBar</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>Spinor</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/Spinor/1.png" height="20" width="106" alt="" /></span> <br />is the head of Dirac spinors. Which of the spinors <em>u</em>, <em>v</em>, <img src="Files/Spinor/CellNone_3.png" height="18" width="12" alt="" style="vertical-align:middle;" /> <img src="Files/Spinor/4.png" height="18" width="11" style="vertical-align:middle;" alt=", " title=", " />or <img src="Files/Spinor/CellNone_6.png" height="18" width="12" alt="" style="vertical-align:middle;" />is understood, depends on the sign of the momentum (p) argument and the relative position of DiracSlash[p]: Spinor[sign p, mass] is that spinor which yields: sign*mass*Spinor[p, mass] if the Dirac equation is applied (by DiracEquation or DiracSimplify).
-The optional argument o can be used for additional degrees of freedom. If no optional argument o is supplied, a 1 is subsituted in.
-Spinors of fermions of mass <em>m</em> are normalized to have square <img src="Files/Spinor/CellNone_8.png" height="18" width="12" alt="" style="vertical-align:middle;" /><em>u</em>=2 <em>m</em> and  <img src="Files/Spinor/CellNone_10.png" height="18" width="12" alt="" style="vertical-align:middle;" /><em>v=</em>-2 <em>m</em>.</p>
+   <p><span class="IF"><span class="specialcharacters">Spinor<span class="openbracket">[</span>p<span class="comma">,</span> m<span class="comma">,</span> o<span class="closebracket">]</span></span></span> <br />is the head of Dirac spinors. </p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li>Which of the spinors <em>u</em>, <em>v</em>, <img src="Files/Spinor/CellNone_2.png" height="15" width="11" alt="" style="vertical-align:middle;" /> or <img src="Files/Spinor/CellNone_4.png" height="15" width="11" alt="" style="vertical-align:middle;" />is understood, depends on the sign of the momentum (p) argument and the relative position in the chain.</li>
+     <li>Spinor[Momentum[p],m] means &#127;<img src="Files/Spinor/CellNone_6.png" height="15" width="11" alt="" style="vertical-align:middle;" /> if it stands at the beginning of the chain.</li>
+     <li>Spinor[Momentum[p],m] means &#127;<img src="Files/Spinor/7.png" height="15" width="10" style="vertical-align:middle;" alt="u" title="u" /> if it stands at the end of the chain.</li>
+     <li>Spinor[-Momentum[p],m] means &#127;<img src="Files/Spinor/CellNone_9.png" height="15" width="10" alt="" style="vertical-align:middle;" /> if it stands at the beginning of the chain.</li>
+     <li>Spinor[-Momentum[p],m] means &#127;<img src="Files/Spinor/10.png" height="15" width="9" style="vertical-align:middle;" alt="v" title="v" /> if it stands at the end of the chain.</li>
+     <li><a name="1067943069"></a>Spinors of fermions of mass <em>m</em> are normalized to have square <img src="Files/Spinor/CellNone_12.png" height="15" width="11" alt="" style="vertical-align:middle;" /><em>u</em>=2 <em>m</em> and  <img src="Files/Spinor/CellNone_14.png" height="15" width="11" alt="" style="vertical-align:middle;" /><em>v=</em>-2 <em>m</em>.</li>
+     <li>The optional argument o can be used for additional degrees of freedom. If no optional argument o is supplied, a 1 is subsituted in.</li>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -56,97 +113,140 @@ Spinors of fermions of mass <em>m</em> are normalized to have square <img src="F
       <div class="expanded">
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="1573141935"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Spinor/I_2.gif" height="17" width="65" alt="Click for copyable input" /></a>
+            <img src="Files/Spinor/I_2.png"
+                height="16"
+                width="55"
+                alt="Click for copyable input" />
            </div><div id="i_1_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/Spinor/O_1.gif" height="17" width="42" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Spinor/O_1.png"
+                height="15"
+                width="36"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="67205944"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Spinor/I_4.gif" height="17" width="87" alt="Click for copyable input" /></a>
+            <img src="Files/Spinor/I_4.png"
+                height="16"
+                width="73"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/Spinor/O_2.gif" height="17" width="66" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Spinor/O_2.png"
+                height="15"
+                width="57"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="815063905"></a>FeynCalc uses covariant normalization (as opposed to e.g. the normalization used in Bjorken&amp;Drell).</div>
+       <li>FeynCalc uses covariant normalization (as opposed to e.g. the normalization used in Bjorken&amp;Drell).</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
             <a name="540190510"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/Spinor/I_6.gif" height="17" width="279" alt="Click for copyable input" /></a>
+            <img src="Files/Spinor/I_6.png"
+                height="16"
+                width="241"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/Spinor/O_3.gif" height="15" width="25" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Spinor/O_3.png"
+                height="14"
+                width="23"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
             <a name="654515033"></a>
-            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/Spinor/I_8.gif" height="17" width="285" alt="Click for copyable input" /></a>
+            <img src="Files/Spinor/I_8.png"
+                height="16"
+                width="203"
+                alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/Spinor/O_4.gif" height="18" width="116" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Spinor/O_4.png"
+                height="15"
+                width="98"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
             <a name="864077691"></a>
-            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/Spinor/I_10.gif" height="17" width="169" alt="Click for copyable input" /></a>
+            <img src="Files/Spinor/I_10.png"
+                height="16"
+                width="151"
+                alt="Click for copyable input" />
            </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[5]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/Spinor/O_5.gif" width="168" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/Spinor/O_5.png" width="166" height="17" alt="" /></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1281981934"></a>By convention, ChangeDimension does not operate on momenta in Spinor's (but on e.g.  DiracSlash[Momentum[p]]). </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
             <a name="39280367"></a>
-            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/Spinor/I_12.gif" height="17" width="310" alt="Click for copyable input" /></a>
+            <img src="Files/Spinor/I_12.png"
+                height="16"
+                width="276"
+                alt="Click for copyable input" />
            </div><div id="i_11_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[6]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/Spinor/O_6.gif" width="185" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/Spinor/O_6.png" width="183" height="17" alt="" /></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[7]:=</td><td class="Input"><div>
             <a name="1410615258"></a>
-            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/Spinor/I_14.gif" height="17" width="191" alt="Click for copyable input" /></a>
+            <img src="Files/Spinor/I_14.png"
+                height="16"
+                width="169"
+                alt="Click for copyable input" />
            </div><div id="i_13_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[7]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/Spinor/O_7.gif" width="172" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/Spinor/O_7.png" width="169" height="17" alt="" /></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1926267215"></a>SmallVariable's are discarded by Spinor.</div>
+       <li>SmallVariable's are discarded by Spinor.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[8]:=</td><td class="Input"><div>
             <a name="557218901"></a>
-            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/Spinor/I_16.gif" height="17" width="288" alt="Click for copyable input" /></a>
+            <img src="Files/Spinor/I_16.png"
+                height="16"
+                width="257"
+                alt="Click for copyable input" />
            </div><div id="i_15_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[8]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/Spinor/O_8.gif" width="168" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/Spinor/O_8.png" width="166" height="17" alt="" /></td></tr>
         </table>
        </div>
       </div>
@@ -164,7 +264,7 @@ Spinors of fermions of mass <em>m</em> are normalized to have square <img src="F
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="659330762"></a><a href="../ref/FermionSpinSum.html">FermionSpinSum</a>, <a href="../ref/DiracSimplify.html">DiracSimplify</a>, <a href="../ref/SpinorU.html">SpinorU</a>, <a href="../ref/SpinorV.html">SpinorV</a>, <a href="../ref/SpinorUBar.html">SpinorUBar</a>, <a href="../ref/SpinorVBar.html">SpinorVBar</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/FermionSpinSum.html">FermionSpinSum</a>, <a href="../ref/DiracSimplify.html">DiracSimplify</a>, <a href="../ref/SpinorU.html">SpinorU</a>, <a href="../ref/SpinorV.html">SpinorV</a>, <a href="../ref/SpinorUBar.html">SpinorUBar</a>, <a href="../ref/SpinorVBar.html">SpinorVBar</a>.</p>
    </div>
   </div>
  </div>
@@ -173,7 +273,6 @@ Spinors of fermions of mass <em>m</em> are normalized to have square <img src="F
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

@@ -1,0 +1,7 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>FAD[q, {q - p + l, m}];
+FCLoopBasisFindCompletion[%, {q1, q2}, 
+ Method -&gt; {FAD[{q2 + k, m}], FAD[{q1 - p, m}], SPD[p, q2], 
+   SPD[k, q1]}];
+FCLoopBasisFindCompletion[%, {q1, q2}, 
+ Method -&gt; {FAD[{q2 + k, m}], FAD[{q1 - p, m}], SPD[p, q2], 
+   SPD[k, q1]}]</pre><div class='IFU'><a name='149942360'></a>http://wolfram.com/xid/0o60xv4alkf4dne7pg0yxx7pqv0qwzqq-crj2ju</div>

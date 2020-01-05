@@ -45,7 +45,7 @@ div.GuideDelimiterTop { margin-top: 20px; }
   #LearningResources .expanded table { border-collapse: collapse; width: 704px; }
   #LearningResources .expanded tr { vertical-align: top; }
   #LearningResources .expanded td.resourcesLeft { width: 386px; padding: 10px 20px 25px 0px; background-color:#f3f3f3; }
-  #LearningResources .expanded td.resourcesRight { width: 318px; background: #fdfdfd url('/2013/images/resources-bg.gif') repeat-y; border-left:1px solid #d9d9d9 }
+  #LearningResources .expanded td.resourcesRight { width: 318px; background: #fdfdfd url('../images/resources-bg.gif') repeat-y; border-left:1px solid #d9d9d9 }
   
   .resourcesLeft h3 { margin: 12px 0 0 !important; border: 0; font-size: 12px !important; color:#2f2f2f !important; font-weight:bold; font-family:Arial, Helvetica, sans-serif; display: block;background-repeat: no-repeat; padding: 4px 0 13px 34px; }
   .resourcesLeft h3 span { color: #999; }
@@ -53,22 +53,22 @@ div.GuideDelimiterTop { margin-top: 20px; }
     .resourcesLeft .learning-links a { display: block; font-weight:normal; }
   .resourcesLeft div { padding-left: 34px; }
     .resourcesLeft div div { padding-left:25; font-size:12px; font-weight: bold; line-height:18px; font-family:Arial, Helvetica, sans-serif; }
-  .learning-tutorials {background: url('/2013/images/tutorial-icon.png') bottom left; }
-  .learning-howtos {background: url('/2013/images/how-to-icon.png') bottom left; }
+  .learning-tutorials {background: url('../images/tutorial-icon.png') bottom left; }
+  .learning-howtos {background: url('../images/how-to-icon.png') bottom left; }
   
   .resourcesRight {font-family:Arial, Helvetica, sans-serif;}
     .resourcesRight p { margin: 20px 0px 0px 35px !important; }
     .resourcesRight a { display: block; margin: 0 25px 0 35px; padding-left: 44px; background-repeat: no-repeat; background-position: 15px 0; border-bottom: 1px solid #e0e0e0; font-size: 12px; font-weight:bold; line-height: 45px; color: #2f2f2f; }
-      .resourcesRight a#res-training { background-image: url('/2013/images/resources-training3.png'); background-position: 1px 5px; }
-      .resourcesRight a#res-videos { background-image: url('/2013/images/resources-videos4.png');background-position: 1px 5px; }
-      .resourcesRight a#res-demonstrations { background-image: url('/2013/images/resources-demonstrations4.png'); background-position: 1px 5px; }
-      .resourcesRight a#res-community { background-image: url('/2013/images/resources-community4.png'); border: none; background-position: 1px 5px; margin-bottom:7px; }
+      .resourcesRight a#res-training { background-image: url('../images/resources-training3.png'); background-position: 1px 5px; }
+      .resourcesRight a#res-videos { background-image: url('../images/resources-videos4.png');background-position: 1px 5px; }
+      .resourcesRight a#res-demonstrations { background-image: url('../images/resources-demonstrations4.png'); background-position: 1px 5px; }
+      .resourcesRight a#res-community { background-image: url('../images/resources-community4.png'); border: none; background-position: 1px 5px; margin-bottom:7px; }
 	   .resourcesRight a:visited, .resourcesRight a:link { color: #2f2f2f; }  
 	   .resourcesRight a:hover { color: #142899; }
-      .resourcesRight a#res-training:hover { background-image: url('/2013/images/resources-training_on3.png'); }
-      .resourcesRight a#res-videos:hover { background-image: url('/2013/images/resources-videos_on4.png'); }
-      .resourcesRight a#res-demonstrations:hover { background-image: url('/2013/images/resources-demonstrations_on4.png'); }
-      .resourcesRight a#res-community:hover { background-image: url('/2013/images/resources-community_on4.png'); border: none; }
+      .resourcesRight a#res-training:hover { background-image: url('../images/resources-training_on3.png'); }
+      .resourcesRight a#res-videos:hover { background-image: url('../images/resources-videos_on4.png'); }
+      .resourcesRight a#res-demonstrations:hover { background-image: url('../images/resources-demonstrations_on4.png'); }
+      .resourcesRight a#res-community:hover { background-image: url('../images/resources-community_on4.png'); border: none; }
 
 
 /* Reference */
@@ -91,7 +91,7 @@ p.singleFunction a, p.inlineFunctionList a, span.noLink { font-weight: bold; }
 
 /* special guides */
 #specialGuide h2 { margin: 20px 0px 1px 25px; font-size: 12px; color: #B46625; }
-#specialGuide h3 a { background: url("/2013/images/bullet-greysq.gif") no-repeat scroll 0 center transparent; font-weight: bold; padding-left: 10px; margin: 0px 25px 10px 25px !important; color: #142899; display: inline-block; }
+#specialGuide h3 a { background: url("../images/bullet-greysq.gif") no-repeat scroll 0 center transparent; font-weight: bold; padding-left: 10px; margin: 0px 25px 10px 25px !important; color: #142899; display: inline-block; }
 #specialGuide h3 a:hover { color: #da6525; }
 #specialGuide h3:last-child { margin-bottom: 20px; } 
 #specialGuide .GuideDelimiterSubsection { margin: 10px 25px -10px 25px; }
@@ -124,21 +124,21 @@ p.singleFunction a, p.inlineFunctionList a, span.noLink { font-weight: bold; }
 /* ################################################## */
 /* # CAROUSEL                                         */
 /* ################################################## */
-#mycarousel { height: 215px; overflow:hidden; background: url('/2013/images/background-gradient-carousel.png') repeat-x bottom left; }
+#mycarousel { height: 215px; overflow:hidden; background: url('../images/background-gradient-carousel.png') repeat-x bottom left; }
 #mycarousel .viewport { float: left; width: 100%; height: 170px; overflow: hidden; position: relative; }
 #mycarousel .jcarousel-scroll { float:right; margin: -27px 25px 0 0;  padding: 0; position: relative; height: 22px; }
 	#mycarousel .buttons, #mycarousel-show-all, #mycarousel-minimize { display: inline-block; padding: 0; }
 	#mycarousel .next, #mycarousel .prev, #mycarousel .disable-prev, #mycarousel .disable-next { display: inline-block; width: 21px; height: 19px; position: relative; vertical-align: top; line-height: 22px; font-size: 10px; margin-top: 2px; }
-	#mycarousel-show-all{ margin-left: 10px; width: 57px; height: 19px; background: url('/2013/images/show-all-button.png') no-repeat; vertical-align: top; line-height: 22px; font-size: 10px; margin-top: 2px; }
-		#mycarousel-show-all:hover{ background: url('/2013/images/show-all-button-over.png') no-repeat }
-	#mycarousel-minimize{ float: right; display: none; width: 57px; height: 19px; background: url('/2013/images/show-less-button.png') no-repeat; vertical-align: top; line-height: 22px; font-size: 10px; margin-top: 2px; }
-		#mycarousel-minimize:hover{ background: url('/2013/images/show-less-button-over.png') no-repeat; }
-	#mycarousel .next { margin-left: 3px; background: url('/2013/images/_Next_Slide_Button.png') no-repeat; }
-		#mycarousel .next:hover { background: url('/2013/images/_Next_Slide_Button_Over.png') no-repeat; }
-		#mycarousel  .disable-next { margin-left: 7px; margin-right: -4px; background: url('/2013/images/arrow-forward-noselect.png') no-repeat; }
-	#mycarousel .prev { margin-right: 3px; background: url('/2013/images/_Previous_Slide_Button.png') no-repeat; }
-		#mycarousel .prev:hover { background: url('/2013/images/_Previous_Slide_Button_Over.png') no-repeat; }
-		#mycarousel  .disable-prev { margin-right: 6px; background: url('/2013/images/arrow-back-noselect.png') no-repeat; }
+	#mycarousel-show-all{ margin-left: 10px; width: 57px; height: 19px; background: url('../images/show-all-button.png') no-repeat; vertical-align: top; line-height: 22px; font-size: 10px; margin-top: 2px; }
+		#mycarousel-show-all:hover{ background: url('../images/show-all-button-over.png') no-repeat }
+	#mycarousel-minimize{ float: right; display: none; width: 57px; height: 19px; background: url('../images/show-less-button.png') no-repeat; vertical-align: top; line-height: 22px; font-size: 10px; margin-top: 2px; }
+		#mycarousel-minimize:hover{ background: url('../images/show-less-button-over.png') no-repeat; }
+	#mycarousel .next { margin-left: 3px; background: url('../images/_Next_Slide_Button.png') no-repeat; }
+		#mycarousel .next:hover { background: url('../images/_Next_Slide_Button_Over.png') no-repeat; }
+		#mycarousel  .disable-next { margin-left: 7px; margin-right: -4px; background: url('../images/arrow-forward-noselect.png') no-repeat; }
+	#mycarousel .prev { margin-right: 3px; background: url('../images/_Previous_Slide_Button.png') no-repeat; }
+		#mycarousel .prev:hover { background: url('../images/_Previous_Slide_Button_Over.png') no-repeat; }
+		#mycarousel  .disable-prev { margin-right: 6px; background: url('../images/arrow-back-noselect.png') no-repeat; }
 	#mycarousel .page-out-of, #mycarousel .total-pages, #mycarousel .divider  { font-size: 10px; font-family: Verdana; font-weight: normal; vertical-align: top; line-height: 22px; display: inline-block; }
 	#mycarousel .page-out-of, #mycarousel .total-pages { color: #757575; text-align: center; width: 14px !important; }
 	#mycarousel .divider { color: #b2b2b2; margin: 0; }

@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>FCProductSplit[(a^2 + b)*b*(c + d), {a, c}]</pre><div class='IFU'><a name='719144238'></a>http://wolfram.com/xid/08afeya605ft4dnmy10vayflg-l6f1i4</div>

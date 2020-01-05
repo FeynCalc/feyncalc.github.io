@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>DiracChain[DiracGamma[LorentzIndex[\[Mu]]], DiracIndex[i], 
+ DiracIndex[j]]</pre><div class='IFU'><a name='1948609293'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5ln26-6ifqt7</div>

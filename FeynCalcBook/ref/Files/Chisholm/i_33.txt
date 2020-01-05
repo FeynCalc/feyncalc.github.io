@@ -1,0 +1,3 @@
+<pre name='i_33_in' id='i_33_in' class='IFT'>DiracSimplify[
+ GA[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa]].GA[\[Mu], \
+\[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa]]]</pre><div class='IFU'>http://wolfram.com/xid/0cy370nkq1aepabvqqhkspr</div>

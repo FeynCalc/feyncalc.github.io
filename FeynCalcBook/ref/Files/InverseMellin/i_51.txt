@@ -1,1 +1,1 @@
-<pre name='i_51_in' id='i_51_in' class='IFT'>im[SumS[1, 1, 1, OPEm - 1]]</pre><div class='IFU'><a name='371125491'></a>http://wolfram.com/xid/0g3d2anoefmyyrci8s9um-ge8sjp</div>
+<pre name='i_51_in' id='i_51_in' class='IFT'>Clear[im, list];</pre><div class='IFU'><a name='941829466'></a>http://wolfram.com/xid/0g3d2anoefmyyrci8s9um-pu0yjw</div>

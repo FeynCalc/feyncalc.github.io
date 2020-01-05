@@ -1,0 +1,2 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>SPD[q, p] SFAD[q, q - p, q - p]
+FCLoopBasisExtract[%, {q}, SetDimensions -&gt; {4, D}]</pre><div class='IFU'><a name='1087542221'></a>http://wolfram.com/xid/0byqjekzwh1n5jr90qs1hiory5i-r9r28f</div>

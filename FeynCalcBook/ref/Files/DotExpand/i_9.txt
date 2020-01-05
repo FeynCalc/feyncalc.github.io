@@ -1,1 +1,1 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>DotExpand[DOT[a x + b y + c z, d + e + f]]</pre><div class='IFU'><a name='1551070412'></a>http://wolfram.com/xid/0iwhvn88gns5irehh3m-zxq3vi</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>UnDeclareNonCommutative /@ {a, b, c, d, e, f};</pre><div class='IFU'><a name='1926968700'></a>http://wolfram.com/xid/0iwhvn88gns5irehh3m-55jwum</div>

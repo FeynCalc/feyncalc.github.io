@@ -1,1 +1,1 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>t2 = DiracSigma[GA[\[Beta]], GA[\[Alpha]]]</pre><div class='IFU'><a name='334267816'></a>http://wolfram.com/xid/0nwhua02ikznm8ft7xv1a-ftasze</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>DiracSigma[GA[\[Beta]], GA[\[Alpha]]]</pre><div class='IFU'><a name='334267816'></a>http://wolfram.com/xid/0nwhua02ikznm8ft7xv1a-ftasze</div>

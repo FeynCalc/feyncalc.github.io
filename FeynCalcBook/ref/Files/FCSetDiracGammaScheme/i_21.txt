@@ -1,0 +1,7 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>FCSetDiracGammaScheme[&quot;NDR&quot;];
+Contract[FV[p1, \[Mu]] FV[p2, \[Nu]] FV[p3, \[Rho]] FV[
+   p4, \[Sigma]] FV[p5, \[Tau]] FV[p6, \[Kappa]] diff]
+FCSchoutenBruteForce[%, {}, {}];
+Contract[FV[p1, \[Mu]] FV[p2, \[Nu]] FV[p3, \[Rho]] FV[
+   p4, \[Sigma]] FV[p5, \[Tau]] FV[p6, \[Kappa]] diff]
+FCSchoutenBruteForce[%, {}, {}]</pre><div class='IFU'><a name='1776546156'></a>http://wolfram.com/xid/0gwt4rzmfasvnr4g440xp2syk4xzaz66m-3nzt2m</div>

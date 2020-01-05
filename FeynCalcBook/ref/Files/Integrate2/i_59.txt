@@ -1,1 +1,3 @@
-<pre name='i_59_in' id='i_59_in' class='IFT'>NIntegrate[x^5 Log[1 + x]^2, {x, 0, 1}]</pre><div class='IFU'><a name='190638847'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-dfsb5t</div>
+<pre name='i_59_in' id='i_59_in' class='IFT'>Integrate2[Log[1 + x] Log[x]/(1 - x), {x, 0, 1}] // Timing;
+N@%;
+N@%</pre><div class='IFU'><a name='1795528063'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-3zaolt</div>

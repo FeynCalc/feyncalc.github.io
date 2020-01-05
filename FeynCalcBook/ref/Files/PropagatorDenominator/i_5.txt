@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>t1 = PropagatorDenominator[q, m] </pre><div class='IFU'><a name='1389901751'></a>http://wolfram.com/xid/0f872pkdc9vnlf2q01cdopeqq5h6-w9spb9</div>

@@ -1,2 +1,1 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>FourVector[p, \[Mu]] FourVector[q, \[Mu]];
-Contract[% ]</pre><div class='IFU'><a name='460754742'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-hwluw4</div>
+<pre name='i_23_in' id='i_23_in' class='IFT'>FV[p - q, \[Mu]] FV[a - b, \[Mu]]</pre><div class='IFU'><a name='1283410538'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-vid760</div>

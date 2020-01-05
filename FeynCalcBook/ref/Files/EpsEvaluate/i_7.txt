@@ -1,0 +1,4 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>Contract[LC[\[Mu], \[Nu], \[Rho], \[Sigma]] FV[
+    p + q, \[Sigma]]] // MomentumCombine;
+StandardForm[%];
+StandardForm[%]</pre><div class='IFU'><a name='1124825353'></a>http://wolfram.com/xid/04w9abyjsyddce07rxqs-svy62z</div>

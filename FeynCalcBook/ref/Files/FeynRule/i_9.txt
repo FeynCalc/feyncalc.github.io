@@ -1,2 +1,5 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>Explicit[gop];
-Cases2[%, QuantumField]</pre><div class='IFU'><a name='1005254277'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-qwsdf7</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>- \[Lambda]/4! QuantumField[\[Phi]]^4;
+FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p1], 
+  QuantumField[QuarkField][p2], QuantumField[AntiQuarkField][p3]}];
+FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p1], 
+  QuantumField[QuarkField][p2], QuantumField[AntiQuarkField][p3]}]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

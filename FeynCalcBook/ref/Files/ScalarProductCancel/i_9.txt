@@ -1,1 +1,3 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>SPC[t1, q, FDS -&gt; True]</pre><div class='IFU'><a name='2094061205'></a>http://wolfram.com/xid/0isbkgaigz2n8s0vqnwkcqekm-8w0983</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>SPD[q, p] FAD[{q, m}, {q - p, 0}];
+SPC[%, q1, q2, FDS -&gt; True];
+SPC[%, q1, q2, FDS -&gt; True]</pre><div class='IFU'><a name='1734687931'></a>http://wolfram.com/xid/0isbkgaigz2n8s0vqnwkcqekm-2y2n15</div>

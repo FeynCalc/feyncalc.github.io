@@ -3,7 +3,7 @@
 /* ################################################## */
 * { margin: 0; }
 html, body { height: 100%; }
-body { background: #f1f1f1 url('/2013/images/header-bg.png') repeat-x; padding: 0; margin: 0; }
+body { background: #f1f1f1; padding: 0; margin: 0; }
   body, p, td, textarea, input { font: 12px/18px Verdana, Arial, sans-serif; }
 
 a, a:link, a:visited {color: #142899; text-decoration: none; outline: none;}

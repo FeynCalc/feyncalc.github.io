@@ -1,1 +1,1 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>t1 = SPD[q, p] FAD[{q, m}, {q - p, 0}] // FCI</pre><div class='IFU'><a name='2001963960'></a>http://wolfram.com/xid/0isbkgaigz2n8s0vqnwkcqekm-7d7bka</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>SPD[q, p] FAD[{q, m}, {q - p, 0}]</pre><div class='IFU'><a name='2001963960'></a>http://wolfram.com/xid/0isbkgaigz2n8s0vqnwkcqekm-7d7bka</div>

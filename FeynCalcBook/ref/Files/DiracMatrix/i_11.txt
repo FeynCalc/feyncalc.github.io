@@ -1,2 +1,1 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>DiracMatrix[\[Mu]] // FCE;
-% // StandardForm</pre><div class='IFU'><a name='80209945'></a>http://wolfram.com/xid/0dot6agzccymmitn9o66q-bl1gob</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>GAD[\[Mu]]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o66q</div>

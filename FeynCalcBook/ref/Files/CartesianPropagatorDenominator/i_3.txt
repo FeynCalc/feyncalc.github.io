@@ -1,0 +1,4 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>FeynAmpDenominator[
+ CartesianPropagatorDenominator[0, 
+  CartesianPair[CartesianMomentum[p, D - 1], 
+   CartesianMomentum[q, D - 1]], m^2, {1, -1}]]</pre><div class='IFU'><a name='754989132'></a>http://wolfram.com/xid/0swgc2zfv72yr1rgk8oyn0gahr1q7gwft8pq-mrsbmm</div>

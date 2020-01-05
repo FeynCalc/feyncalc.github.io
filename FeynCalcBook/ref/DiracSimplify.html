@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>DiracSimplify&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="DiracSimplify" />
 
-<meta name="description" content="DiracSimplify[expr] simplifies products of Dirac matrices in expr and expands non-commutative products. Double Lorentz indices and four vectors are contracted. The Dirac equation is applied. All DiracMatrix[5], DiracMatrix[6] and DiracMatrix[7] are moved to the right. The order of the other Dirac matrices is not changed." />
+<meta name="description" content="DiracSimplify[exp] simplifies products of Dirac matrices in exp and expands non-commutative products." />
 <script language="JavaScript" type="text/javascript">baselang='DiracSimplify';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,13 +52,96 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/Contract.html"><span class="dropdownPad">Contract</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracEquation.html"><span class="dropdownPad">DiracEquation</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSigmaExplicit.html"><span class="dropdownPad">DiracSigmaExplicit</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSubstitute5.html"><span class="dropdownPad">DiracSubstitute5</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracSubstitute67.html"><span class="dropdownPad">DiracSubstitute67</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGamma.html"><span class="dropdownPad">DiracGamma</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGammaCombine.html"><span class="dropdownPad">DiracGammaExpand</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracOrder.html"><span class="dropdownPad">DiracOrder</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracTrace.html"><span class="dropdownPad">DiracTrace</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracTraceEvaluate.html"><span class="dropdownPad">DiracTraceEvaluate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracTrick.html"><span class="dropdownPad">DiracTrick</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/FCDiracIsolate.html"><span class="dropdownPad">FCDiracIsolate</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SirlinSimplify.html"><span class="dropdownPad">SirlinSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorChainTrick.html"><span class="dropdownPad">SpinorChainTrick</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/ToDiracGamma67.html"><span class="dropdownPad">ToDiracGamma67</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>DiracSimplify</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/DiracSimplify/1.png" height="20" width="121" alt="" /></span> <br />simplifies products of Dirac matrices in expr and expands non-commutative products. Double Lorentz indices and four vectors are contracted. The Dirac equation is applied. All DiracMatrix[5], DiracMatrix[6] and DiracMatrix[7] are moved to the right. The order of the other Dirac matrices is not changed.</p>
+   <p><span class="IF"><span class="specialcharacters">DiracSimplify<span class="openbracket">[</span>exp<span class="closebracket">]</span></span></span> <br />simplifies products of Dirac matrices in <span class="IF">exp</span> and expands non-commutative products.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><a name="1067943069"></a>The simplifications are done by applying <a href="../ref/Contract.html">Contract</a>, <a href="../ref/DiracEquation.html">DiracEquation</a>, <a href="../ref/DiracTrick.html">DiracTrick</a>, <a href="../ref/SpinorChainTrick.html">SpinorChainTrick</a> and <a href="../ref/SirlinSimplify.html">SirlinSimplify</a>.</li>
+     <li>All <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span>, <span class="IF"><span class="special-character Gamma">&#947;</span><sup>6</sup></span> and <span class="IF"><span class="special-character Gamma">&#947;</span><sup>7</sup></span> are moved to the right .</li>
+     <li>The order of the other Dirac matrices is not changed, unless the option <a href="../ref/DiracOrder.html">DiracOrder</a> is set to <span class="IF">True</span>.</li>
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+          <a name="2098245619"></a>
+          <img src="Files/DiracSimplify/I_2.png"
+              height="16"
+              width="130"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+          <img src="Files/DiracSimplify/O_1.png"
+              height="126"
+              width="494"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -50,229 +151,1269 @@
    <div class="expanded">
     <div class="expandSubWrap">
      <div class="expandSubOuter">
-      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(13)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(13)</span></a></h3>
       <div class="expanded">
+       <li>Simplify a 4-dimensional Dirac matrix chain with a dummy Lorentz index</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-            <a name="2098245619"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_2.gif" height="17" width="144" alt="Click for copyable input" /></a>
-           </div><div id="i_1_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/DiracSimplify/O_1.gif" height="54" width="519" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="Text"><a name="1154366536"></a>This is a string of Dirac matrices in four dimensions. </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="201005194"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_4.gif" height="17" width="112" alt="Click for copyable input" /></a>
+            <img src="Files/DiracSimplify/I_4.png"
+                height="16"
+                width="67"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/DiracSimplify/O_2.gif" height="17" width="64" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_2.png"
+                height="14"
+                width="52"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="28604534"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_6.gif" height="17" width="109" alt="Click for copyable input" /></a>
+            <img src="Files/DiracSimplify/I_6.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/DiracSimplify/O_3.gif" height="17" width="39" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_3.png"
+                height="14"
+                width="33"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="321850317"></a>This is a string of Dirac matrices in D dimensions. </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Another common concerns Dirac matrices contracted to the same <span class="IF">4</span>-vector</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
-            <a name="149362799"></a>
-            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_8.gif" height="17" width="120" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_8.png"
+                height="16"
+                width="68"
+                alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/DiracSimplify/O_4.gif" height="17" width="61" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_4.png"
+                height="15"
+                width="74"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
-            <a name="1129253480"></a>
-            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_10.gif" height="17" width="109" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_10.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/DiracSimplify/O_5.gif" height="17" width="39" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_5.png"
+                height="16"
+                width="18"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>Unlike <a href="../ref/DiracTrick.html">DiracTrick</a>, <a href="../ref/DiracSimplify.html">DiracSimplify</a> does noncommutative expansion.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
-            <a name="570896083"></a>
-            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_12.gif" height="17" width="110" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_12.png"
+                height="16"
+                width="181"
+                alt="Click for copyable input" />
            </div><div id="i_11_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/DiracSimplify/O_6.gif" height="18" width="63" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_6.png"
+                height="19"
+                width="218"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="766299813"></a>By default <img src="Files/DiracSimplify/2.png" height="17" width="17" style="vertical-align:middle;" alt="gamma^5" title="gamma^5" />is moved to the right.</div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
-            <a name="264425668"></a>
-            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_14.gif" height="17" width="109" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_14.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_13_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/DiracSimplify/O_7.gif" height="18" width="63" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_7.png"
+                height="42"
+                width="492"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
-            <a name="1307415504"></a>
-            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_16.gif" height="17" width="109" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_16.png"
+                height="16"
+                width="248"
+                alt="Click for copyable input" />
            </div><div id="i_15_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/DiracSimplify/O_8.gif" height="18" width="63" alt="" /></td></tr>
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_8.png"
+                height="19"
+                width="371"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <li>Some of those expansions can be inhibited via the option <a href="../ref/Expanding.html">Expanding</a>.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
-            <a name="1923692276"></a>
-            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_18.gif" height="17" width="109" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_18.png"
+                height="16"
+                width="379"
+                alt="Click for copyable input" />
            </div><div id="i_17_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/DiracSimplify/O_9.gif" height="18" width="41" alt="" /></td></tr>
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_9.png"
+                height="19"
+                width="395"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <div class="ExLine"><!-- --></div>
+       <li>The matrix chain may also live in <span class="IF">D</span>-dimensions</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
-            <a name="1879344534"></a>
-            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_20.gif" height="17" width="265" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="149362799"></a>
+            <img src="Files/DiracSimplify/I_20.png"
+                height="16"
+                width="75"
+                alt="Click for copyable input" />
            </div><div id="i_19_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/DiracSimplify/O_10.gif" height="26" width="250" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_10.png"
+                height="14"
+                width="50"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1032130436"></a>Contrary to DiracTrick DiracSimplify does non-commutative expansion.</div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
-            <a name="697887732"></a>
-            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_22.gif" height="17" width="109" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <a name="1129253480"></a>
+            <img src="Files/DiracSimplify/I_22.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_21_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/DiracSimplify/O_11.gif" height="26" width="473" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_11.png"
+                height="14"
+                width="67"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
-            <a name="1805591394"></a>
-            <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_24.gif" height="17" width="89" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_24.png"
+                height="16"
+                width="146"
+                alt="Click for copyable input" />
            </div><div id="i_23_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/DiracSimplify/O_12.gif" height="26" width="180" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_12.png"
+                height="16"
+                width="108"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
-            <a name="106324036"></a>
-            <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_26.gif" height="17" width="281" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_26.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_25_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/DiracSimplify/O_13.gif" height="18" width="113" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_13.png"
+                height="16"
+                width="244"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
-            <a name="1935005981"></a>
-            <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_28.gif" height="17" width="109" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_28.png"
+                height="16"
+                width="233"
+                alt="Click for copyable input" />
            </div><div id="i_27_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[14]=</td><td class="Output"><img src="Files/DiracSimplify/O_14.gif" height="15" width="7" alt="" /></td></tr>
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_14.png"
+                height="14"
+                width="169"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
-            <a name="1949590828"></a>
-            <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_30.gif" height="17" width="276" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_30.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_29_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/DiracSimplify/O_15.gif" height="17" width="209" alt="" /></td></tr>
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_15.png"
+                height="129"
+                width="483"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
-            <a name="789913816"></a>
-            <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_32.gif" height="17" width="108" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[7]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_32.png"
+                height="16"
+                width="287"
+                alt="Click for copyable input" />
            </div><div id="i_31_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/DiracSimplify/O_16.gif" height="109" width="509" alt="" /></td></tr>
+         <tr><td class="lab">Out[7]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_16.png"
+                height="36"
+                width="149"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1099320763"></a> With the option DiracCanonical an alphabetic ordering is done.</div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
-            <a name="990886795"></a>
-            <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_34.gif" height="17" width="305" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[8]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_34.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_33_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/DiracSimplify/O_17.gif" height="17" width="98" alt="" /></td></tr>
+         <tr><td class="lab">Out[8]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_17.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="120600204"></a>Setting InsideDiracTrace<span class="special-character Rule">&#62754;</span>True assumes that a trace is still to be taken later on.</div>
+       <div class="ExLine"><!-- --></div>
+       <li><span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> and the chirality projectors are always moved to the right</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
-            <a name="634548915"></a>
-            <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_36.gif" height="17" width="355" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="570896083"></a>
+            <img src="Files/DiracSimplify/I_36.png"
+                height="16"
+                width="65"
+                alt="Click for copyable input" />
            </div><div id="i_35_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/DiracSimplify/O_18.gif" height="18" width="234" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_18.png"
+                height="16"
+                width="51"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[19]:=</a></td><td class="Input"><div>
-            <a name="1157409425"></a>
-            <a href="javascript:input('i_37')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_38.gif" height="17" width="335" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_38.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
            </div><div id="i_37_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/DiracSimplify/O_19.gif" height="15" width="7" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_19.png"
+                height="16"
+                width="51"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_40.png"
+                height="16"
+                width="88"
+                alt="Click for copyable input" />
+           </div><div id="i_39_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_20.png"
+                height="16"
+                width="88"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_42.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_41_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_21.png"
+                height="16"
+                width="120"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>The properties of the chirality projectors are taken into account without substituting explicit expressions for <span class="IF"><span class="special-character Gamma">&#947;</span><sup>6</sup></span> and <span class="IF"><span class="special-character Gamma">&#947;</span><sup>7</sup></span>.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_44.png"
+                height="16"
+                width="381"
+                alt="Click for copyable input" />
+           </div><div id="i_43_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_22.png"
+                height="18"
+                width="259"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Moreover,  <span class="IF"> <img src="Files/DiracSimplify/1.png" height="32" width="12" style="vertical-align:middle;" alt="" title="" /><span class="openparenthesis">(</span>1<span class="special-character PlusMinus">&#177;</span><span class="special-character Gamma">&#947;</span><sup>5</sup><span class="closeparenthesis">)</span></span> is automatically replaced by <span class="IF"><span class="special-character Gamma">&#947;</span><sup>6/7</sup></span>.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_46.png"
+                height="16"
+                width="314"
+                alt="Click for copyable input" />
+           </div><div id="i_45_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_23.png"
+                height="43"
+                width="220"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_48.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_47_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_24.png"
+                height="39"
+                width="138"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Suitable combinations of <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> will not be rewritten in terms of chirality projectors, if the option <a href="../ref/ToDiracGamma67.html">ToDiracGamma67</a> is set to <span class="IF">False</span>.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_50.png"
+                height="33"
+                width="399"
+                alt="Click for copyable input" />
+           </div><div id="i_49_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_25.png"
+                height="39"
+                width="224"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>However, it the final result must contain only <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> but not <span class="IF"><span class="special-character Gamma">&#947;</span><sup>6</sup></span> or <span class="IF"><span class="special-character Gamma">&#947;</span><sup>7</sup></span>, it is better to invoke the option <a href="../ref/DiracSubstitute67.html">DiracSubstitute67</a>. This way <a href="../ref/DiracSimplify.html">DiracSimplify</a> can perform more intermediate simplifications before presenting the final result.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_52.png"
+                height="33"
+                width="399"
+                alt="Click for copyable input" />
+           </div><div id="i_51_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_26.png"
+                height="39"
+                width="224"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>It is also possible to eliminate <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> by rewriting it in terms of the chirality projectors</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_54.png"
+                height="16"
+                width="295"
+                alt="Click for copyable input" />
+           </div><div id="i_53_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_27.png"
+                height="15"
+                width="115"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>The Dirac equation is routinely used to simplify closed spinor chains.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_56.png"
+                height="16"
+                width="297"
+                alt="Click for copyable input" />
+           </div><div id="i_55_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_28.png"
+                height="16"
+                width="190"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_58.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_57_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_29.png"
+                height="16"
+                width="190"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_60.png"
+                height="16"
+                width="192"
+                alt="Click for copyable input" />
+           </div><div id="i_59_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_30.png"
+                height="15"
+                width="101"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_62.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_61_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_31.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Use the option <a href="../ref/DiracEquation.html">DiracEquation</a> to deactivate this type of simplifications.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracSimplify/I_64.png"
+                data-big="409 16"
+                data-small="277 33"
+                alt="Click for copyable input" />
+           </div><div id="i_63_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_32.png"
+                height="15"
+                width="140"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Suitable products of <span class="IF">4</span>-dimensional spinor chains are simplified using Sirlin's identities</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_66.png"
+                height="33"
+                width="306"
+                alt="Click for copyable input" />
+           </div><div id="i_65_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_33.png"
+                height="16"
+                width="382"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_68.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_67_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_34.png"
+                height="17"
+                width="450"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>The applications of Sirlin's identities can be disabled by setting the option <a href="../ref/SirlinSimplify.html">SirlinSimplify</a> to <span class="IF">False</span>.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracSimplify/I_70.png"
+                data-big="451 33"
+                data-small="378 50"
+                alt="Click for copyable input" />
+           </div><div id="i_69_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_35.png"
+                height="37"
+                width="337"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Even when the usage of Sirlin's identities is disabled, <a href="../ref/DiracSimplify.html">DiracSimplify</a> will still try to perform some simplficiations on the spinor chains, e.g. by canonicalizing the dummy indices.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_72.png"
+                height="67"
+                width="326"
+                alt="Click for copyable input" />
+           </div><div id="i_71_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_36.png"
+                height="35"
+                width="409"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_74.png"
+                height="16"
+                width="278"
+                alt="Click for copyable input" />
+           </div><div id="i_73_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_37.png"
+                height="37"
+                width="387"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Setting <a href="../ref/SpinorChainTrick.html">SpinorChainTrick</a> to <span class="IF">False</span> disables this behavior.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_76.png"
+                height="84"
+                width="393"
+                alt="Click for copyable input" />
+           </div><div id="i_75_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_38.png"
+                height="85"
+                width="327"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li><a href="../ref/DiracSimplify.html">DiracSimplify</a> will not reorder Dirac matrices lexicographically, but can be forced to do so via the option <a href="../ref/DiracOrder.html">DiracOrder</a>.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_78.png"
+                height="16"
+                width="136"
+                alt="Click for copyable input" />
+           </div><div id="i_77_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_39.png"
+                height="14"
+                width="33"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <a name="990886795"></a>
+            <img src="Files/DiracSimplify/I_80.png"
+                height="16"
+                width="248"
+                alt="Click for copyable input" />
+           </div><div id="i_79_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_40.png"
+                height="15"
+                width="82"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Setting <span class="IF">InsideDiracTrace<span class="special-character Rule">&#62754;</span>True</span> makes the function assume that it is acting inside a Dirac trace. For instance, chains with an odd number of Dirac matrices will be set to zero.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_82.png"
+                height="16"
+                width="67"
+                alt="Click for copyable input" />
+           </div><div id="i_81_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_41.png"
+                height="14"
+                width="52"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_84.png"
+                height="16"
+                width="241"
+                alt="Click for copyable input" />
+           </div><div id="i_83_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_42.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Yet, it will not explicitly calculate the trace</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_86.png"
+                height="16"
+                width="85"
+                alt="Click for copyable input" />
+           </div><div id="i_85_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_43.png"
+                height="14"
+                width="72"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_88.png"
+                height="16"
+                width="241"
+                alt="Click for copyable input" />
+           </div><div id="i_87_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_44.png"
+                height="14"
+                width="72"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Since FeynCalc 9.3, <a href="../ref/DiracSimplify.html">DiracSimplify</a> will automatically evaluate Dirac traces in the input expression </li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_90.png"
+                height="16"
+                width="154"
+                alt="Click for copyable input" />
+           </div><div id="i_89_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_45.png"
+                height="14"
+                width="90"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_92.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_91_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_46.png"
+                height="15"
+                width="224"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracSimplify/I_94.png"
+                data-big="462 16"
+                data-small="274 33"
+                alt="Click for copyable input" />
+           </div><div id="i_93_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_47.png"
+                height="15"
+                width="219"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_96.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_95_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_48.png"
+                height="17"
+                width="385"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>This will not happen in the option <a href="../ref/DiracTraceEvaluate.html">DiracTraceEvaluate</a> is set to False. However, <a href="../ref/DiracSimplify.html">DiracSimplify</a> will still perform some simplifications inside the trace, without evaluating it explicitly.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracSimplify/I_98.png"
+                data-big="547 33"
+                data-small="405 33"
+                alt="Click for copyable input" />
+           </div><div id="i_97_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_49.png"
+                height="40"
+                width="394"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Set <span class="IF">DiracTrace<span class="special-character Rule">&#62754;</span>False</span> if you want <a href="../ref/DiracSimplify.html">DiracSimplify</a> not to touch the Dirac traces.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/DiracSimplify/I_100.png"
+                data-big="547 33"
+                data-small="292 50"
+                alt="Click for copyable input" />
+           </div><div id="i_99_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_50.png"
+                height="15"
+                width="219"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>When doing calculations at one loop and above, you may encounter expressions that contain <span class="IF">D</span>- and <span class="IF">4</span>-dimensional objects.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_102.png"
+                height="16"
+                width="157"
+                alt="Click for copyable input" />
+           </div><div id="i_101_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_51.png"
+                height="14"
+                width="89"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Although <a href="../ref/DiracSimplify.html">DiracSimplify</a> can handle such terms effortlessly, it will not do so unless you certify that you fully understand what you are doing: being sloppy with the dimensions easily leads to inconsistencies and wrong results!</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_104.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_103_out" class="IFL"></div></td></tr>
+        </table>
+        <img src="Files/DiracSimplify/2.gif"
+            height="92"
+            width="635"
+            alt=""
+            class="Message" />
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_52.png"
+                height="14"
+                width="49"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>By default, FeynCalc uses the naive dimensional regularization (NDR) scheme, where all Dirac matrices are taken to be <span class="IF">D</span>-dimensional. Therefore, in NDR you may not have mixtures of Dirac matrices living in <span class="IF">D</span> and 4 dimensions. However, such expressions are possible in the t'Hooft-Veltman-Breitenlohner-Maison (BMHV) scheme.</li>
+       <table class="InCell">
+        <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+           <img src="Files/DiracSimplify/I_106.png"
+               height="16"
+               width="210"
+               alt="Click for copyable input" />
+          </div><div id="i_105_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_108.png"
+                height="16"
+                width="242"
+                alt="Click for copyable input" />
+           </div><div id="i_107_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_53.png"
+                height="14"
+                width="124"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <table class="InCell">
-        <tr><td class="lab"><a href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
-           <a name="1926028871"></a>
-           <a href="javascript:input('i_39')" onmouseover="javascript:return(true);"><img src="Files/DiracSimplify/I_40.gif" height="17" width="176" alt="Click for copyable input" /></a>
-          </div><div id="i_39_out" class="IFL"></div></td></tr>
+        <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+           <img src="Files/DiracSimplify/I_110.png"
+               height="16"
+               width="201"
+               alt="Click for copyable input" />
+          </div><div id="i_109_out" class="IFL"></div></td></tr>
        </table>
+       <li>The BMHV scheme is a special prescription for handling <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> in dimensional regularization. Do not activate this scheme mindlessly just to get rid of errors from <a href="../ref/DiracSimplify.html">DiracSimplify</a>! If you are doing a calculation in NDR or a calculation that does not involve <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span>, better make sure that your input expressions are correctly written to be <span class="IF">D</span>-dimensional objects.</li>
+       <div class="ExLine"><!-- --></div>
+       <li>Traces that contain an odd number of  <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span>  or chirality projectors cannot be calculated unambigously in NDR. To avoid inconsistencies, <a href="../ref/DiracTrace.html">DiracTrace</a> will refuse to evaluate such traces in NDR.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_112.png"
+                height="16"
+                width="232"
+                alt="Click for copyable input" />
+           </div><div id="i_111_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_54.png"
+                height="19"
+                width="143"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_114.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_113_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_55.png"
+                height="19"
+                width="143"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Such traces can be consistently calculated in the BMHV scheme. Our scheme choice as of course also possible, but those are not implemented in FeynCalc.</li>
+       <table class="InCell">
+        <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+           <img src="Files/DiracSimplify/I_116.png"
+               height="16"
+               width="210"
+               alt="Click for copyable input" />
+          </div><div id="i_115_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_118.png"
+                height="16"
+                width="317"
+                alt="Click for copyable input" />
+           </div><div id="i_117_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_56.png"
+                height="76"
+                width="483"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <table class="InCell">
+        <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+           <img src="Files/DiracSimplify/I_120.png"
+               height="16"
+               width="201"
+               alt="Click for copyable input" />
+          </div><div id="i_119_out" class="IFL"></div></td></tr>
+       </table>
+       <li>Keep in mind that the BMHV scheme violates axial Ward identities and requires special model-dependent counter-terms to restore those. Therefore, just setting <a href="../ref/FCSetDiracGammaScheme.html">FCSetDiracGammaScheme[&quot;BMHV&quot;]</a> does not automatically resolve all your troubles with <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> in <span class="IF">D</span>-dimensions. The proper treatment of <span class="IF"><span class="special-character Gamma">&#947;</span><sup>5</sup></span> in dimensional regularization is an intricate issue that cannot be boiled down to a simple and universal recipe. FeynCalc merely carries out the algebraic operations that you request, but it is still your task to ensure that what you do makes sense.</li>
+       <div class="ExLine"><!-- --></div>
+       <li>Since FeynCalc 9.3 it is also possible to simplify Dirac matrices with Cartesian or temporal indices. However, the support of nonrelativistic calculations is a very new feature, so that things may not work as smooth as they do for manifestly Lorentz covariant expressions.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_122.png"
+                height="16"
+                width="76"
+                alt="Click for copyable input" />
+           </div><div id="i_121_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_57.png"
+                height="16"
+                width="33"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_124.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_123_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_58.png"
+                height="14"
+                width="15"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_126.png"
+                height="16"
+                width="184"
+                alt="Click for copyable input" />
+           </div><div id="i_125_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_59.png"
+                height="17"
+                width="147"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_128.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_127_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_60.png"
+                height="17"
+                width="281"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_130.png"
+                height="16"
+                width="227"
+                alt="Click for copyable input" />
+           </div><div id="i_129_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_61.png"
+                height="18"
+                width="173"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_132.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_131_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_62.png"
+                height="16"
+                width="107"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[7]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_134.png"
+                height="16"
+                width="109"
+                alt="Click for copyable input" />
+           </div><div id="i_133_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_63.png"
+                height="16"
+                width="51"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[8]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_136.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_135_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_64.png"
+                height="16"
+                width="24"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[9]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_138.png"
+                height="16"
+                width="151"
+                alt="Click for copyable input" />
+           </div><div id="i_137_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_65.png"
+                height="19"
+                width="92"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[10]:=</td><td class="Input"><div>
+            <img src="Files/DiracSimplify/I_140.png"
+                height="16"
+                width="97"
+                alt="Click for copyable input" />
+           </div><div id="i_139_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DiracSimplify/O_66.png"
+                height="16"
+                width="206"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
       </div>
      </div>
     </div>
@@ -288,7 +1429,7 @@
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="1981859865"></a><a href="../ref/Calc.html">Calc</a>, <a href="../ref/DiracGammaExpand.html">DiracGammaExpand</a>, <a href="../ref/DiracTrick.html">DiracTrick</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/Contract.html">Contract</a>, <a href="../ref/DiracEquation.html">DiracEquation</a>, <a href="../ref/DiracSigmaExplicit.html">DiracSigmaExplicit</a>, <a href="../ref/DiracSubstitute5.html">DiracSubstitute5</a>, <a href="../ref/DiracSubstitute67.html">DiracSubstitute67</a>, <a href="../ref/DiracGamma.html">DiracGamma</a>, <a href="../ref/DiracGammaCombine.html">DiracGammaExpand</a>, <a href="../ref/DiracOrder.html">DiracOrder</a>, <a href="../ref/DiracTrace.html">DiracTrace</a>, <a href="../ref/DiracTraceEvaluate.html">DiracTraceEvaluate</a>, <a href="../ref/DiracTrick.html">DiracTrick</a>, <a href="../ref/FCDiracIsolate.html">FCDiracIsolate</a>, <a href="../ref/SirlinSimplify.html">SirlinSimplify</a>, <a href="../ref/SpinorChainTrick.html">SpinorChainTrick</a>, <a href="../ref/ToDiracGamma67.html">ToDiracGamma67</a>.</p>
    </div>
   </div>
  </div>
@@ -297,7 +1438,6 @@
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

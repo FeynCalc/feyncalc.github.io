@@ -1,1 +1,1 @@
-<pre name='i_39_in' id='i_39_in' class='IFT'>Clear[t1, t2, t3, t4, t5, t6]</pre><div class='IFU'><a name='1926028871'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq-54zrn9</div>
+<pre name='i_39_in' id='i_39_in' class='IFT'>GA[6].GS[p + q]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

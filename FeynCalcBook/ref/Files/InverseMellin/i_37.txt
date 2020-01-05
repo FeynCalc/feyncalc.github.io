@@ -1,1 +1,1 @@
-<pre name='i_37_in' id='i_37_in' class='IFT'>im[SumS[1, -1 + OPEm]^2/OPEm]</pre><div class='IFU'><a name='1312317430'></a>http://wolfram.com/xid/0g3d2anoefmyyrci8s9um-vzlsv8</div>
+<pre name='i_37_in' id='i_37_in' class='IFT'>im[SumS[2, OPEm - 1]]</pre><div class='IFU'><a name='1086751012'></a>http://wolfram.com/xid/0g3d2anoefmyyrci8s9um-r9a4qe</div>

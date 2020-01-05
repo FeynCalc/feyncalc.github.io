@@ -1,1 +1,1 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Calc[SUNF[a, b, c] SUNF[a, b, e]]</pre><div class='IFU'><a name='779661922'></a>http://wolfram.com/xid/0fqk91eolmr4ql55m-m6g49w</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>Calc[ MTD[\[Nu], \[Nu]]]</pre><div class='IFU'>http://wolfram.com/xid/0fqk91eolmr4ql55m</div>

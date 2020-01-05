@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>ExplicitPartialD[ LeftRightPartialD[\[Mu]] ]</pre><div class='IFU'><a name='2001527654'></a>http://wolfram.com/xid/0e2fh85wv2ah4yeo4zoxv4an-7dxywo</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'> LeftRightPartialD[\[Mu]] </pre><div class='IFU'>http://wolfram.com/xid/0e2fh85wv2ah4yeo4zoxv4an</div>

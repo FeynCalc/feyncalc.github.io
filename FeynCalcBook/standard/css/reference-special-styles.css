@@ -38,7 +38,7 @@ span.MenuName, span.MenuName a { color: #545454 !important; }
 .PointerEvent { color: #494949; font-weight: bold; }
 .InlineGuideFunction { font-size: 100%; font-weight: bold; word-spacing: -0.25em; }
 .FunctionAnnotation { color: #5c5c5c; }
-.AwaitingReviewNote, .ObsolescenceNote, .UnderDevelopment { padding: 10px 8px 10px 45px; background: #f0f0f0 url('/2013/images/warning-icon.png') no-repeat 15px center; border: 1px solid #d5d5d5; margin: 15px 25px 0 25px; font-size: 11px; }
+.AwaitingReviewNote, .ObsolescenceNote, .UnderDevelopment { padding: 10px 8px 10px 45px; background: #f0f0f0 url('../images/warning-icon.png') no-repeat 15px center; border: 1px solid #d5d5d5; margin: 15px 25px 0 25px; font-size: 11px; }
 
 .inlineSeparator {padding-left:3px; padding-right:3px;}
 
@@ -67,6 +67,6 @@ div.GuideDelimiter { margin: 20px 0; border-top: 1px solid #c8c8c8; }
 
 .br { display: block; line-height: 10px; }
 
-.UnfinishedDraft { padding: 10px 226px 0px 15px; background: #fff url('/2013/images/unfinisheddraft.png') no-repeat; }
+.UnfinishedDraft { padding: 10px 226px 0px 15px; background: #fff url('../images/unfinisheddraft.png') no-repeat; }
 
 .WebImage img {margin: 5px 42px;}

@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Options[FermionSpinSum]</pre><div class='IFU'><a name='1391906924'></a>http://wolfram.com/xid/04ieufm3d5y7w09uylx6ihwgre-xazoji</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>Options[FermionSpinSum]</pre><div class='IFU'>http://wolfram.com/xid/04ieufm3d5y7w09uylx6ihwgre</div>

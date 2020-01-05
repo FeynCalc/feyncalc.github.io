@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>MetricTensor[\[Alpha], \[Beta], Dimension -&gt; n] DiracMatrix[\[Alpha], 
-  Dimension -&gt; n]</pre><div class='IFU'><a name='1846109645'></a>http://wolfram.com/xid/005ib61n5qgf6jig5jp6gfko946-4tetlr</div>

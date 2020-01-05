@@ -1,4 +1,2 @@
-<pre name='i_39_in' id='i_39_in' class='IFT'>SetOptions[Eps, Dimension -&gt; D]; 
-LCD[\[Mu], \[Nu], \[Alpha], \[Beta]] LCD[\[Mu], \[Nu], \[Alpha], \
-\[Sigma]];
-Contract[%] // Factor2</pre><div class='IFU'><a name='1284270864'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-viwn0y</div>
+<pre name='i_39_in' id='i_39_in' class='IFT'>LCD[\[Mu], \[Nu], \[Alpha], \[Beta]] LCD[\[Mu], \[Nu], \[Alpha], \
+\[Sigma]]</pre><div class='IFU'><a name='730363468'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-mc4ice</div>

@@ -1,2 +1,3 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>-I/Pi^2 FAD[{q, m}] // FCI;
+<pre name='i_5_in' id='i_5_in' class='IFT'>-I/Pi^2 FAD[{q, m}];
+OneLoop[q, %];
 OneLoop[q, %]</pre><div class='IFU'><a name='1041679425'></a>http://wolfram.com/xid/0b67y1d1vpag753658lc-rig29v</div>

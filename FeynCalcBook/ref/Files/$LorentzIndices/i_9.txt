@@ -1,2 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>MTD[\[Alpha], \[Beta]] FVD[p, \[Beta]] GAD[\[Mu]] // FCI;
-% // StandardForm</pre><div class='IFU'><a name='1327558227'></a>http://wolfram.com/xid/005ib61n5qgf6jig5jp6gfko946-v8ogrp</div>

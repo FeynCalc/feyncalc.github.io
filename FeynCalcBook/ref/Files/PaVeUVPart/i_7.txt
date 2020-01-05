@@ -1,0 +1,5 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>PaVeUVPart[A0[m^2]];
+PaVe[0, 0, {p10, p12, p20}, {m1^2, m2^2, m3^2}]
+PaVeUVPart[%];
+PaVe[0, 0, {p10, p12, p20}, {m1^2, m2^2, m3^2}]
+PaVeUVPart[%]</pre><div class='IFU'><a name='759345267'></a>http://wolfram.com/xid/08afeya605ft4drai76zosdyq-mudoud</div>

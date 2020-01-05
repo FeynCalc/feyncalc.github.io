@@ -1,1 +1,2 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>ee[i_][mu_] := ev[i][[mu]];</pre><div class='IFU'><a name='1065974135'></a>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg-rwxs6x</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>Pair[LorentzIndex[\[Mu]], Momentum[Polarization[p, -I]]] Pair[
+  LorentzIndex[\[Nu]], Momentum[Polarization[p, I]]]</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

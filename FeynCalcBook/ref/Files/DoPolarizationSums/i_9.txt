@@ -1,1 +1,2 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>{ev[1], ev[2], ev[3], ev[4]}</pre><div class='IFU'><a name='654636595'></a>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg-k31e35</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>FCClearScalarProducts[]
+SP[p] = 0;</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

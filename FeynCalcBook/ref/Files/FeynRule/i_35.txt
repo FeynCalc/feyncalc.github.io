@@ -1,1 +1,1 @@
-<pre name='i_35_in' id='i_35_in' class='IFT'>Clear[qggf, n2, n4]</pre><div class='IFU'><a name='1397309872'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-xd7hhe</div>
+<pre name='i_35_in' id='i_35_in' class='IFT'>Lagrangian[&quot;ogu&quot;]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

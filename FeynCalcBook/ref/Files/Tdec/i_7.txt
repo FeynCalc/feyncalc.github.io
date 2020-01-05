@@ -1,2 +1,2 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>t = Tdec[{{Subscript[q, 1], \[Mu]}, {Subscript[q, 
-     2], \[Nu]}, {Subscript[q, 3], \[Rho]}}, {p}];</pre><div class='IFU'><a name='739868135'></a>http://wolfram.com/xid/08q4nt52zsdq76hsivu-mir76x</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>Tdec[{{Subscript[q, 1], \[Mu]}, {Subscript[q, 2], \[Nu]}, {Subscript[
+   q, 3], \[Rho]}}, {p}, List -&gt; False]</pre><div class='IFU'><a name='739868135'></a>http://wolfram.com/xid/08q4nt52zsdq76hsivu-mir76x</div>

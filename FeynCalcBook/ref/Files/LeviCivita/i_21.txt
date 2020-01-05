@@ -1,2 +1,1 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>SetOptions[LeviCivita, Dimension -&gt; 4]; SetOptions[Eps, 
- Dimension -&gt; 4];</pre><div class='IFU'><a name='506638236'></a>http://wolfram.com/xid/0cocv9p3k6ad7mdkiqb7cqqo-inxaum</div>
+<pre name='i_21_in' id='i_21_in' class='IFT'>LCD[\[Alpha], \[Beta]][p, q]</pre><div class='IFU'>http://wolfram.com/xid/0cocv9p3k6ad7mdkiqb7cqqo</div>

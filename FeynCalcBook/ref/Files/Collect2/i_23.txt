@@ -1,2 +1,3 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>Collect2[Expand[(a - b - c)^3], a, Factoring -&gt; fun];
+<pre name='i_23_in' id='i_23_in' class='IFT'>Collect2[t1 = a + r a + k^2 f[a] - k f[a] + x/2 - y/w, a];
+% /. fun -&gt; FactorTerms;
 % /. fun -&gt; FactorTerms</pre><div class='IFU'><a name='1964581263'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-6rx2v1</div>

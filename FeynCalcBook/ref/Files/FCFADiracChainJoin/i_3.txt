@@ -1,0 +1,4 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>-(1/(16 \[Pi]^4)) I el^2 DCHN[Spinor[-Momentum[p, D], me, 1], 
+  Dir1] DCHN[Spinor[Momentum[q, D], me, 1], Dir2] DCHN[GAD[Lor1], 
+  Dir1, Dir3] DCHN[GAD[Lor2], Dir2, Dir4] DCHN[me - GSD[k], Dir3, 
+  Dir4] FAD[{k, me}, k - q] MTD[Lor1, Lor2]</pre><div class='IFU'><a name='846878145'></a>http://wolfram.com/xid/07tx9eeszn5ezuudiikqhdhrhtddq8y-oahtm7</div>

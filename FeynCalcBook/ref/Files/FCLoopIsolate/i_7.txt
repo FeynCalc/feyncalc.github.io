@@ -1,8 +1,4 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Options[FCLoopIsolate];
-TID[FVD[q, \[Mu]] FVD[
-   q, \[Nu]] FAD[{q, m}, {q + p, m}, {q + r, m}], q, 
- UsePaVeBasis -&gt; True]
-FCLoopIsolate[%, {q}, Head -&gt; l]
-Cases2[%, l];
-SPD[q, q]^2 FAD[{q, m}] + SPD[q, q]
-FCLoopIsolate[%, {q}, DropScaleless -&gt; True]</pre><div class='IFU'><a name='197320434'></a>http://wolfram.com/xid/0racumaqnpu17byyloj6m11vo-djrjpg</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>FCI[GSD[q - p1].(GSD[q - p2] + M).GSD[p3] SPD[q, p2] FAD[q, 
+   q - p1, {q - p2, m}]];
+Cases2[%, loopInt];
+Cases2[%, loopInt]</pre><div class='IFU'>http://wolfram.com/xid/0racumaqnpu17byyloj6m11vo</div>

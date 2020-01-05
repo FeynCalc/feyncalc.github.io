@@ -1,0 +1,6 @@
+<pre name='i_69_in' id='i_69_in' class='IFT'>DiracSimplify[
+ SpinorUBar[Subscript[p, 3], Subscript[m, 3]].GA[\[Mu], \[Rho], \[Nu],
+     6].SpinorU[Subscript[p, 1], Subscript[m, 1]] SpinorUBar[
+    Subscript[p, 4], Subscript[m, 4]].GA[\[Mu], \[Tau], \[Nu], 
+    6].SpinorU[Subscript[p, 2], Subscript[m, 2]], 
+ SirlinSimplify -&gt; False]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

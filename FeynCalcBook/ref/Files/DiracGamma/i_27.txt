@@ -1,0 +1,1 @@
+<pre name='i_27_in' id='i_27_in' class='IFT'>DiracGamma[CartesianMomentum[p, D - 1], D]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o9gy</div>

@@ -1,1 +1,3 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>OneLoopSimplify[r, k]</pre><div class='IFU'><a name='934998310'></a>http://wolfram.com/xid/0cdri8akgdehbvtiwu3ywe4ld54hwcy-pqyjlk</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>FDS;
+TID[%, k] // Factor2;
+TID[%, k] // Factor2</pre><div class='IFU'><a name='934998310'></a>http://wolfram.com/xid/0cdri8akgdehbvtiwu3ywe4ld54hwcy-pqyjlk</div>

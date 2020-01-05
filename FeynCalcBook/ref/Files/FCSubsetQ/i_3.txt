@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>FCSubsetQ[{a, b, c, d}, {a, d}]</pre><div class='IFU'><a name='772553479'></a>http://wolfram.com/xid/0bhbk9z6xqab8ya6dctl5zgj-m18sc5</div>

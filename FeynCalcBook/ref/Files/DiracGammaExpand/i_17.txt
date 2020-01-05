@@ -1,0 +1,4 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>c1 GAD[\[Mu]].(GSD[p1 + p2] + m).GAD[\[Nu]] +
+ c2 GAD[\[Mu]].(GSD[q1 + q2] + m).GAD[\[Nu]];
+DiracGammaExpand[%, Momentum -&gt; {q1}];
+DiracGammaExpand[%, Momentum -&gt; {q1}]</pre><div class='IFU'>http://wolfram.com/xid/0bhbk9z6xqab8ybj96ginile</div>

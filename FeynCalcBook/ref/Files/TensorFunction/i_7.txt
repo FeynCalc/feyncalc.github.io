@@ -1,3 +1,3 @@
 <pre name='i_7_in' id='i_7_in' class='IFT'>TensorFunction[t, \[Mu], \[Nu], \[Tau]];
-Contract[FV[p, \[Mu]] %];
+% // StandardForm;
 % // StandardForm</pre><div class='IFU'><a name='1813534641'></a>http://wolfram.com/xid/0fnx5q0u7sai4aejj7jzezm-390mkj</div>

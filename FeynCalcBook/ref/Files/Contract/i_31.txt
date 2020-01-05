@@ -1,2 +1,1 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>LeviCivita[\[Mu], \[Nu], \[Alpha], \[Sigma]] FourVector[p, \[Sigma]];
-Contract[%]</pre><div class='IFU'><a name='634794036'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-kr74hy</div>
+<pre name='i_31_in' id='i_31_in' class='IFT'>LC[\[Mu], \[Nu], \[Alpha], \[Sigma]] FV[p, \[Sigma]]</pre><div class='IFU'><a name='1720608034'></a>http://wolfram.com/xid/0e4r12d60dd5cst84i-2qovxw</div>

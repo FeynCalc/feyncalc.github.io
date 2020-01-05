@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>CartesianScalarProduct[p, q] // StandardForm</pre><div class='IFU'><a name='158991943'></a>http://wolfram.com/xid/0kwectf7rlj9x4ik7s6z32qrvw192-cwx085</div>

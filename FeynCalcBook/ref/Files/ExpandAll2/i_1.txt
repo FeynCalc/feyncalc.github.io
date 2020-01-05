@@ -1,0 +1,1 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>exp = Sum[p[i], {i, 1, 100}] Sum[q[i], {i, 1, 1000}];</pre><div class='IFU'><a name='815060274'></a>http://wolfram.com/xid/04w9abyjsyddcez88v5i-nrjutg</div>

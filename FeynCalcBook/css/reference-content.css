@@ -7,15 +7,27 @@
 p.smallTitle { margin: 0!important; font-size: 11px; color: #a4a4a4 !important; text-transform: uppercase; }
 p img, li img { vertical-align: middle; padding-bottom: 1px; }
 
+ul {
+	padding:0px;
+}
+
 ul.bulletedList, ul #BulletedText, ul .BulletedText { margin: 15px 25px; color: #5c5c5c; }
   .bulletedList li, li#BulletedText, li.BulletedText { padding-left: 10px; background: url('../images/bullet-greysq.gif') no-repeat 0 7px; }
   .bulletedList li { margin: 7px 0; }
 
   li.Subitem { margin-left: 7px;}
   li.Subsubitem { margin-left: 17px;}
+  
+  ul li {
+background: url("../images/li-bullet1.gif") no-repeat 0 .18em;
+padding-left: 1.5em;
+margin: .65em 0;
+padding-bottom: 0;
+list-style: none;
+}
 
 /* ribbon and dropdowns */
-.topContentWrap { /* max-width: 706px; */ min-height: 25px; }
+.topContentWrap { width: 706px; min-height: 25px; }
 .topContentWrap + table {width:100%;}
 .ribbonWrap { float: left; height: 25px; margin-top: 1px; } 
  .ribbonOuter { display: inline-block; min-width: 260px; height: 25px; font: 10px/24px Verdana, Arial, sans-serif; color: #525252; }

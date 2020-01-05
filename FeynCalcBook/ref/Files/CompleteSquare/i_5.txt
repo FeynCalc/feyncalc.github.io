@@ -1,1 +1,7 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>t1 - t2 // ScalarProductExpand // Expand</pre><div class='IFU'><a name='1768514898'></a>http://wolfram.com/xid/0tn9depw6mpqkcibix-3i7o34</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>5 SP[2 p + 3 r, p + r];
+CompleteSquare[%, p];
+5 SP[2 p + 3 r, p + r];
+CompleteSquare[%, p];
+5 SP[2 p + 3 r, p + r];
+% - %% // ScalarProductExpand // Expand;
+% - %% // ScalarProductExpand // Expand</pre><div class='IFU'><a name='1768514898'></a>http://wolfram.com/xid/04w9abyjsyddceorcjaa-3i7o34</div>

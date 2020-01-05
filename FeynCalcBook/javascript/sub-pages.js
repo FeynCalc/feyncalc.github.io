@@ -1,4 +1,25 @@
 $(document).ready( function() {
+    $('.InCell img').each(function() {
+        if($(this).is('[data-src]')) {
+            if ($(window).width() < 600) {
+                var src = $(this).attr('data-src');
+                var w = $(this).attr('data-small').split(' ')[0];
+                var h = $(this).attr('data-small').split(' ')[1];
+                if (src.indexOf('_405') < 0) {
+                    $(this).prop('src', src.replace('.png', '_405.png'));
+                    $(this).prop('width', w);
+                    $(this).prop('height', h);
+                }
+            } else {
+                var src = $(this).attr('data-src');
+                var w = $(this).attr('data-big').split(' ')[0];
+                var h = $(this).attr('data-big').split(' ')[1];
+                $(this).prop('src', src);
+                $(this).prop('width', w);
+                $(this).prop('height', h);
+            }
+        }
+    });
 	// subsubs
 	$(".expandSubsubInner a.expand").click(function(e) {
 		e.preventDefault();
@@ -31,7 +52,7 @@ $(document).ready( function() {
 		return false;
 	});
 	$(".expanded h6:first").addClass('first');
-	
+
 	// append ids to subsub and subsubsub sections
 	$('.expandSubsubOuter .expanded').each(function(i){
 		$(this).attr('id', 'subExp' + i);

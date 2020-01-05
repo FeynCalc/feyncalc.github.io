@@ -1,0 +1,3 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>FAD[{q, m}, {q - p, 0}];
+% // FCE // StandardForm;
+% // FCE // StandardForm</pre><div class='IFU'>http://wolfram.com/xid/0hqnl27afxc7byuoykbtszh1r3hqpc7g</div>

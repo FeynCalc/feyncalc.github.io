@@ -191,7 +191,7 @@ $(document).ready( function() {
 			$('div#thank_you').removeClass('hide');
 			$('table#formTable').addClass('hide');
 			$('#feedbackMessageTable').removeClass('errorHighlight');
-			$.post("/2013/includes/reference-feedback.cgi", { 
+			$.post("../includes/reference-feedback.cgi", { 
 			       feedback: $('#feedbackMessage').val(), 
 			       name: $('input#name').val(),
 			       email: $('input#email').val(),

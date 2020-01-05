@@ -1,2 +1,10 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>f2u = FullSimplify /@ 
-  Factor2[FeynRule[gou, fi, ZeroMomentumInsertion -&gt; False]]</pre><div class='IFU'><a name='1360773115'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-wsgdjh</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>-(1/4) FieldStrength[\[Alpha], \[Beta], 
+   i].FieldStrength[\[Alpha], \[Beta], i];
+FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p1], 
+  QuantumField[GaugeField, {\[Nu]}, {b}][p2], 
+  QuantumField[GaugeField, {\[Rho]}, {c}][p3], 
+  QuantumField[GaugeField, {\[Sigma]}, {d}][p4]}];
+FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p1], 
+  QuantumField[GaugeField, {\[Nu]}, {b}][p2], 
+  QuantumField[GaugeField, {\[Rho]}, {c}][p3], 
+  QuantumField[GaugeField, {\[Sigma]}, {d}][p4]}]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

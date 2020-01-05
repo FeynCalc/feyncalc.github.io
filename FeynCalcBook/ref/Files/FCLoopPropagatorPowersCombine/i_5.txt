@@ -1,0 +1,5 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>SFAD[{{q, 0}, {m, 1}, 1}, {{q, 0}, {m, 1}, 1}];
+FCLoopPropagatorPowersCombine[%]
+% // StandardForm;
+FCLoopPropagatorPowersCombine[%]
+% // StandardForm</pre><div class='IFU'><a name='629606014'></a>http://wolfram.com/xid/0extszgkorqgep57d83ip1y9i3zbxguotf6v-ko4xd8</div>

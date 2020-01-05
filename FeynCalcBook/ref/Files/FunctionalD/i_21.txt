@@ -1,1 +1,3 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>t1 = t1 /. b -&gt; c</pre><div class='IFU'><a name='1339957551'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-wf175d</div>
+<pre name='i_21_in' id='i_21_in' class='IFT'>F1 = FieldStrength[\[Mu], \[Nu], a, {A, b, c}, 1, Explicit -&gt; True];
+t1 = FCCanonicalizeDummyIndices[%, SUNIndexNames -&gt; {c1}] /. c1 -&gt; c;
+t1 = FCCanonicalizeDummyIndices[%, SUNIndexNames -&gt; {c1}] /. c1 -&gt; c</pre><div class='IFU'>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf</div>

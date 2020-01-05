@@ -1,1 +1,1 @@
-<pre name='i_47_in' id='i_47_in' class='IFT'>Integrate2[t, {x, 0, 1}] // Timing</pre><div class='IFU'><a name='182134904'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-dap2g6</div>
+<pre name='i_47_in' id='i_47_in' class='IFT'>t // Expand</pre><div class='IFU'>http://wolfram.com/xid/0eld2y9rdg1pwitw6py</div>

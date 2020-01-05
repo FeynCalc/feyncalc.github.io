@@ -1,3 +1,3 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>DiracMatrix[5, \[Mu]] ;
+<pre name='i_5_in' id='i_5_in' class='IFT'>GA[5, \[Mu]] ;
 Anti5[%];
-Anti5[%, -1]</pre><div class='IFU'><a name='1609506190'></a>http://wolfram.com/xid/0bc18gi5j2y46ufcm0s-0wjk7k</div>
+Anti5[%]</pre><div class='IFU'><a name='1232582412'></a>http://wolfram.com/xid/0bc18gi5j2y46ufcm0s-un4sym</div>

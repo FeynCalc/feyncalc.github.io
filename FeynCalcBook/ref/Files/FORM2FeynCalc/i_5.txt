@@ -1,2 +1,3 @@
 <pre name='i_5_in' id='i_5_in' class='IFT'>FORM2FeynCalc[&quot;p.q + 2*x m^2&quot;];
+% // StandardForm;
 % // StandardForm</pre><div class='IFU'><a name='1292875249'></a>http://wolfram.com/xid/0cdri8akgdehbvtjmmehtkw7d6r54yy-vn027n</div>

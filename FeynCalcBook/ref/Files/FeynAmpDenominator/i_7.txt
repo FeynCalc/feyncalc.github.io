@@ -1,1 +1,2 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>StandardForm[t // FCI]</pre><div class='IFU'><a name='1540629635'></a>http://wolfram.com/xid/005ib61n5qgf6h9ypea9diq430u-zrjbpx</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>FeynAmpDenominator[
+ StandardPropagatorDenominator[Momentum[p, D], 0, -m^2, {1, 1}]]</pre><div class='IFU'>http://wolfram.com/xid/005ib61n5qgf6h9ypea9diq430u</div>

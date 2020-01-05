@@ -1,1 +1,3 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>Contract[a2]</pre><div class='IFU'><a name='554867330'></a>http://wolfram.com/xid/0cy370nkq1aepack2rsv8ii-jgm0no</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>PolarizationVector[k, \[Mu]];
+Contract[%];
+Contract[%]</pre><div class='IFU'><a name='554867330'></a>http://wolfram.com/xid/0cy370nkq1aepack2rsv8ii-jgm0no</div>

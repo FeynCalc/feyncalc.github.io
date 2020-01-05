@@ -1,3 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>FCI[FVD[q1, mu] FVD[q2, nu] FAD[q1, 
-   q2, {q1 - p1}, {q2 - p1}, {q1 - q2}]]
-FCMultiLoopTID[%, {q1, q2}]</pre><div class='IFU'><a name='1095109255'></a>http://wolfram.com/xid/0bl1sloiyx608rkh2tykl4hjhby9b-sd99zt</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>Options[FCMultiLoopTID]</pre><div class='IFU'>http://wolfram.com/xid/0bl1sloiyx608rkh2tykl4hjhby9b</div>

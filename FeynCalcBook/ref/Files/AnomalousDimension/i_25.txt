@@ -1,3 +1,5 @@
-<pre name='i_25_in' id='i_25_in' class='IFT'>AnomalousDimension[gsgg1];
-AnomalousDimension[GSGG1];
+<pre name='i_25_in' id='i_25_in' class='IFT'>AnomalousDimension[GSGG1];
+AnomalousDimension[gnsqq0];
+SetOptions[ AnomalousDimension, Polarization -&gt; 1];
+Table[% - %% /. OPEm -&gt; ij, {ij, 1, 17, 2}];
 Table[% - %% /. OPEm -&gt; ij, {ij, 1, 17, 2}]</pre><div class='IFU'><a name='621534472'></a>http://wolfram.com/xid/0l75u4ugf9g0wlyqqpst0i7y6raq-kkbxcq</div>

@@ -1,0 +1,1 @@
+<pre name='i_29_in' id='i_29_in' class='IFT'>DiracGamma[ExplicitLorentzIndex[0]]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o9gy</div>

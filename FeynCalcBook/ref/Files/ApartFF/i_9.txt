@@ -1,6 +1,1 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>Options[ApartFF];
-FAD[{q}, {q - p}, {q + p}]
-ApartFF[%, {q}];
-SPD[p, q1] SPD[p, q2]^2 FAD[{q1, m}, {q2, m}, q1 - p, q2 - p, 
-  q1 - q2]
-ApartFF[%, {q1, q2, q3}]</pre><div class='IFU'><a name='21286566'></a>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq-myi3s</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>SPD[q, p] SPD[q, r] FAD[{q}, {q - p}, {q - r}]</pre><div class='IFU'><a name='1827687893'></a>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq-4ifzaf</div>

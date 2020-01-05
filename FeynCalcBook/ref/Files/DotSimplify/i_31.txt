@@ -1,1 +1,1 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>DotSimplify[x.x.x]</pre><div class='IFU'><a name='1173966576'></a>http://wolfram.com/xid/0b67y1d1vpag7527vm6a-to8goy</div>
+<pre name='i_31_in' id='i_31_in' class='IFT'>DeclareNonCommutative[x]</pre><div class='IFU'><a name='1063178346'></a>http://wolfram.com/xid/0b67y1d1vpag7527vm6a-ru9vx4</div>

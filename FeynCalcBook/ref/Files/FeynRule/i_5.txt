@@ -1,1 +1,5 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>gop = Lagrangian[&quot;ogp&quot;]</pre><div class='IFU'><a name='231547110'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-d3446g</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>- \[Lambda]/4! QuantumField[\[Phi]]^4;
+FeynRule[%, {QuantumField[\[Phi]][p1], QuantumField[\[Phi]][p2], 
+  QuantumField[\[Phi]][p3], QuantumField[\[Phi]][p4]}];
+FeynRule[%, {QuantumField[\[Phi]][p1], QuantumField[\[Phi]][p2], 
+  QuantumField[\[Phi]][p3], QuantumField[\[Phi]][p4]}]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

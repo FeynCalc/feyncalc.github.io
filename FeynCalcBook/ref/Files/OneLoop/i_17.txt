@@ -1,2 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>SP[k, r] FAD[{k, m} , k - p] // FCI;
-OneLoop[k, %]</pre><div class='IFU'><a name='128259577'></a>http://wolfram.com/xid/0b67y1d1vpag753658lc-cenb0b</div>

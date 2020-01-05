@@ -12,15 +12,18 @@
 #ref h5  a.expand span, #ref  h5 a.collapse span { color: #909090; font-size: 10px }
  
 /* details and options */
-#ref ul.functionList li table { position: relative; left: 15px; /*width: 585px;*/ margin: 5px 0 15px; border-collapse: collapse; border-top: 1px solid #ddd;  }
+#ref ul.functionList li table { position: relative; left: 15px; width: 585px; margin: 5px 0 15px; border-collapse: collapse; border-top: 1px solid #ddd;  }
   #ref ul.functionList li td { border-bottom: 1px solid #ddd; padding-right: 5px; }
+    #ref ul.functionList li table.nogridboxdividers td { border-bottom: 0px; }
+    #ref ul.functionList li table.nogridboxdividers { border-top: 0px; }
+    #ref ul.functionList li table.nogridboxdividers { width: auto;}
 
-#ref .mainContent { /* border-top:5px solid #7B84D3; */}
+#ref .mainContent { border-top:5px solid #7B84D3; }
 
 
 /* examples */
-#ref #Examples .expandInner a { display: inline-block; width: 300px; vertical-align: top; }
-  #ref #Examples .expandInner a.all {width: 102px; padding: 0; font-size: 11px; color: #888; text-align: right; float:right; margin-right:30px}
+#ref #Examples .expandInner a { display: inline-block; width: 528px; vertical-align: top; }
+  #ref #Examples .expandInner a.all { width: 102px; padding: 0; font-size: 11px; color: #888; text-align: right; }
     #ref #Examples .expandInner a.all:hover { color: #0E3EB9; }
     #ref #Examples .expandInner a.all span { font-weight: normal; }
   #ref #Examples .expandSubOuter .OCell, #ref #Examples .expandSubOuter .InCell  { margin-left: -32px !important; }
@@ -36,6 +39,8 @@
 	.toplink a, #example .toplink a { padding-right: 15px; background: url('../images/toplink-arrow2.png') no-repeat right center; color: #585858; font-family: Arial, Helvetica, sans-serif; }
 		.toplink a:hover, #example .toplink a:hover {color:#000000;}
 
+	   
+ 
 #ref .modified, #example .modified, #tutorial .modified { margin: 0 20px 15px; padding-top: 12px; border-top: 1px solid #d5d5d5; color: #999999; font-style: italic; font-size: 11px; }
   .modified p { float: left; }
   .modified .toplink { margin: 0 !important; }
@@ -66,7 +71,8 @@ div.functionIntroWrap .IF a:hover {}
 p.inlineFunctionList .IF { font-family:Verdana, Geneva, sans-serif;!important; font-size:11px; }  
 .DeviceList { margin: 10px 30px 0px 24px; }
   .DeviceList li { padding-left: 10px; background: url('../images/bullet-greysq.gif') no-repeat 0 7px; font-size: 12px; color: #494949; }
-	 
+
+
 /* character */
  #ref .functionIntroWrap { border-top:3px solid #FF9900; overflow: hidden; }
 #ref.character .functionIntroWrap { margin: 20px 0; }
@@ -159,4 +165,5 @@ li.functionessay {background: none; margin-bottom:15px; padding-left:0px;}
 .showless {cursor:pointer; padding-right:15px; background: url('../images/showless-arrow.png') no-repeat right center; color: #585858; font-family: Arial, Helvetica, sans-serif;}
 
 .showmore:hover, .showless:hover {color:#000000;}
+
 .FunctionEssayShowMore {display:none;}

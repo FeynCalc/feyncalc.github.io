@@ -1,1 +1,3 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>ct = ComplexConjugate[t]</pre><div class='IFU'><a name='1096475209'></a>http://wolfram.com/xid/04ieufm3d5y7w09uylx6ihwgre-se3jyz</div>
+<pre name='i_17_in' id='i_17_in' class='IFT'>SpinorUBar[k1, m].GS[p].GA[5].SpinorU[p1, m];
+% ComplexConjugate[%];
+% ComplexConjugate[%]</pre><div class='IFU'>http://wolfram.com/xid/04ieufm3d5y7w09uylx6ihwgre</div>

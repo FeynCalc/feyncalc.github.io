@@ -1,1 +1,1 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>Clear[t1, t2, t3]</pre><div class='IFU'><a name='1941239189'></a>http://wolfram.com/xid/0nwhua02ikznm8ft7xv1a-6d1r03</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>DiracSigma[GA[\[Alpha]], GA[\[Alpha]]]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8ft7xv1a</div>

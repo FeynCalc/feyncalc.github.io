@@ -1,1 +1,1 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>LeviCivita[\[Mu], \[Nu]][OPEDelta, p] // StandardForm</pre><div class='IFU'><a name='851260878'></a>http://wolfram.com/xid/0cocv9p3k6ad7mdkiqb7cqqo-oc3rds</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>LC[\[Alpha], \[Beta], \[Gamma], \[Delta]]</pre><div class='IFU'><a name='2075117917'></a>http://wolfram.com/xid/0cocv9p3k6ad7mdkiqb7cqqo-8lq9in</div>

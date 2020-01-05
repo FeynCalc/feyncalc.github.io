@@ -1,0 +1,1 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>CartesianScalarProduct[Subscript[p, 1], Subscript[p, 2]] = s/2</pre><div class='IFU'><a name='1579106051'></a>http://wolfram.com/xid/0kwectf7rlj9x4ik7s6z32qrvw192-0ef0a9</div>

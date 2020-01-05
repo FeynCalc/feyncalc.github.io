@@ -1,0 +1,4 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>PaVeOrder[
+ D0[a, b, c, d, e, f, m12, m22, m32, m42] + 
+  D0[me2, me2, mw2, mw2, t, s, me2, 0, me2, 0], 
+ PaVeOrderList -&gt; {{me2, me2, 0, 0}, {f, e}}]</pre><div class='IFU'><a name='1444685309'></a>http://wolfram.com/xid/0da7yqf8j4nw85uu7ni63m-x6ewlr</div>

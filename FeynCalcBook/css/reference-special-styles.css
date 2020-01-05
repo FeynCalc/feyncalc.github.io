@@ -14,7 +14,7 @@ h1 span.MenuPointer { color: #7c7c7c; font-size: 22px; }
 	.mainContent > .ItemizedText + .Code,.mainContent > .ItemizedTextParagraph + .Code { margin-left: 50px !important; }
 
 /* inline styles */
-.IF, .ICN { font-weight: 600; font-family:  "Source Sans Pro", "Courier New", monospace; }
+.IF, .ICN { font-weight: 600; font-family:  "Source Sans Pro", "Courier New", monospace; white-space: nowrap;}
 .IF img, .IM img { vertical-align: middle; }
 .functionList .IF img, .functionList .IM img { vertical-align: middle; } 
 .IF a:hover { color: #da6525; }

@@ -1,2 +1,3 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>x Log[x] DeltaFunctionPrime[1 - x];
+<pre name='i_11_in' id='i_11_in' class='IFT'>g[x] DeltaFunction[1 - x];
+SimplifyDeltaFunction[ %, x];
 SimplifyDeltaFunction[ %, x]</pre><div class='IFU'><a name='954894660'></a>http://wolfram.com/xid/0vsxr48l0aa9magnpzp8lm6-p2szpy</div>

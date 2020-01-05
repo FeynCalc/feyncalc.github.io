@@ -1,3 +1,2 @@
-<pre name='i_27_in' id='i_27_in' class='IFT'>qggf = {QuantumField[QuarkField][p], QuantumField[AntiQuarkField][q], 
-  QuantumField[GaugeField, {\[Mu]}, {a}][r], 
-  QuantumField[GaugeField, {\[Nu]}, {b}][s]}</pre><div class='IFU'><a name='1181779598'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-ttvw9c</div>
+<pre name='i_27_in' id='i_27_in' class='IFT'>-(1/4) CH FieldStrength[mu, nu, a].FieldStrength[mu, nu, 
+   a].QuantumField[H]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

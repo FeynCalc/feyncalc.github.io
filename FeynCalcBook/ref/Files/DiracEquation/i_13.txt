@@ -1,0 +1,3 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>GS[p].SpinorU[p, m];
+DiracEquation[%];
+DiracEquation[%]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lvr2</div>

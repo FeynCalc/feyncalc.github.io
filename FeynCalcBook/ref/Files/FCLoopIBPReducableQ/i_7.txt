@@ -1,0 +1,3 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>FAD[q, q - p];
+FCLoopIBPReducableQ[FCI[%]];
+FCLoopIBPReducableQ[FCI[%]]</pre><div class='IFU'><a name='1330916288'></a>http://wolfram.com/xid/0brao17wzeee098zs3985sd7gdr9ebbw6r-waofu6</div>

@@ -1,0 +1,1 @@
+<pre name='i_25_in' id='i_25_in' class='IFT'>FCSetDiracGammaScheme[&quot;NDR&quot;];</pre><div class='IFU'>http://wolfram.com/xid/0bc18gi5j2y46ufcm0s</div>

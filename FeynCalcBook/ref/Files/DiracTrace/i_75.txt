@@ -1,0 +1,4 @@
+<pre name='i_75_in' id='i_75_in' class='IFT'>DiracTrace[GA[\[Mu], \[Nu], 5, \[Rho], \[Sigma], \[Tau], \[Kappa]], 
+   DiracTraceEvaluate -&gt; True] - 
+  DiracTrace[GA[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa], 5], 
+   DiracTraceEvaluate -&gt; True] // Expand</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o70q</div>

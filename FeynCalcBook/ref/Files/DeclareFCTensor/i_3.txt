@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>DeclareFCTensor[myTens]</pre><div class='IFU'><a name='384608883'></a>http://wolfram.com/xid/0teu55sspea5oyuck25sqye6-gm9sed</div>

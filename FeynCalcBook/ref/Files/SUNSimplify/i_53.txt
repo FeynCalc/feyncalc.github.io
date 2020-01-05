@@ -1,1 +1,1 @@
-<pre name='i_53_in' id='i_53_in' class='IFT'>Clear[t1, t2, t3, t4, t5, t6, t7, t8]</pre><div class='IFU'><a name='244792958'></a>http://wolfram.com/xid/0bcjf11ba4ib03moby3f50jle-eb01qo</div>
+<pre name='i_53_in' id='i_53_in' class='IFT'>SUNSimplify[SUNF[a, b, c] SUND[a, b, d]]</pre><div class='IFU'><a name='849009416'></a>http://wolfram.com/xid/0bcjf11ba4ib03moby3f50jle-obrh46</div>

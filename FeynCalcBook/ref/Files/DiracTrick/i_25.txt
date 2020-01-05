@@ -1,1 +1,0 @@
-<pre name='i_25_in' id='i_25_in' class='IFT'>GAD @@ Join[{\[Mu]}, Table[Subscript[\[Nu], i], {i, 6}], {\[Mu]}]</pre><div class='IFU'><a name='774999439'></a>http://wolfram.com/xid/0bmo85gxinschsbp05yp6gs-m3o7oh</div>

@@ -1,0 +1,2 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>Calc[ CartesianScalarProduct[Subscript[p, 1] - q, 
+  Subscript[p, 2] - k]]</pre><div class='IFU'><a name='54231534'></a>http://wolfram.com/xid/0kwectf7rlj9x4ik7s6z32qrvw192-6knls</div>

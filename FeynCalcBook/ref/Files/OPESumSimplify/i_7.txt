@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>OPESumSimplify[OPESum[{j, 0, i}, {i, 0, m}] a^(j - i) b^i]</pre><div class='IFU'><a name='445474412'></a>http://wolfram.com/xid/04ieufm3d5y7w10kxhgm0bjhf2-hnicji</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>OPESumSimplify[OPESum[{OPEi, 0, OPEm}] a^OPEi]</pre><div class='IFU'><a name='341981151'></a>http://wolfram.com/xid/04ieufm3d5y7w10kxhgm0bjhf2-fxv4mp</div>

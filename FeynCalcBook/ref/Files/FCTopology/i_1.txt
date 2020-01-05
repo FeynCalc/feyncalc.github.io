@@ -1,0 +1,2 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>FCTopology[topo1, {SFAD[p1], SFAD[p2], SFAD[Q - p1 - p2], 
+  SFAD[Q - p2], SFAD[Q - p1]}]</pre><div class='IFU'><a name='118610951'></a>http://wolfram.com/xid/0jukp71jhuapzmheyn1rh4qe-b8wi2x</div>

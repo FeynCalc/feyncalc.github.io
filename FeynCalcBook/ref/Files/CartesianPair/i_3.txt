@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>CartesianPair[CartesianIndex[i, D - 1], CartesianIndex[j, D - 1]]</pre><div class='IFU'><a name='1359804749'></a>http://wolfram.com/xid/04ieufm3d5y7w0525wrspihi26-wrvmcf</div>

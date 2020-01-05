@@ -1,3 +1,2 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Trick[LeviCivita[\[Mu], \[Nu], \[Rho], \[Sigma]] FourVector[
-   p + q, \[Sigma]]];
-EpsEvaluate[%]</pre><div class='IFU'><a name='84932068'></a>http://wolfram.com/xid/04w9abyjsyddce07rxqs-bouoae</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>Contract[LC[\[Mu], \[Nu], \[Rho], \[Sigma]] FV[
+    p + q, \[Sigma]]] // MomentumCombine</pre><div class='IFU'><a name='684764895'></a>http://wolfram.com/xid/04w9abyjsyddce07rxqs-lly59d</div>

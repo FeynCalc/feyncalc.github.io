@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>HypExplicit&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
@@ -10,23 +12,39 @@
 <script language="JavaScript" type="text/javascript">baselang='HypExplicit';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,13 +52,22 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/HypergeometricIR.html"><span class="dropdownPad">HypergeometricIR</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>HypExplicit</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/HypExplicit/1.png" height="20" width="128" alt="" /></span> <br />expresses Hypergeometric functions in exp by their definition in terms of a sum (the Sum is omitted and nu is the summation index).</p>
+   <p><span class="IF"><span class="specialcharacters">HypExplicit<span class="openbracket">[</span>exp<span class="comma">,</span> nu<span class="closebracket">]</span></span></span> <br />expresses Hypergeometric functions in exp by their definition in terms of a sum (the Sum is omitted and nu is the summation index).</p>
   </div>
  </div>
  <div class="expandWrap"
@@ -54,46 +81,78 @@
       <div class="expanded">
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="713088732"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/HypExplicit/I_2.gif" height="17" width="194" alt="Click for copyable input" /></a>
+            <img src="Files/HypExplicit/I_2.png"
+                height="16"
+                width="169"
+                alt="Click for copyable input" />
            </div><div id="i_1_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/HypExplicit/O_1.gif" height="15" width="97" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/HypExplicit/O_1.png"
+                height="14"
+                width="85"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="335460950"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/HypExplicit/I_4.gif" height="17" width="116" alt="Click for copyable input" /></a>
+            <img src="Files/HypExplicit/I_4.png"
+                height="16"
+                width="102"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/HypExplicit/O_2.gif" height="47" width="175" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/HypExplicit/O_2.png"
+                height="39"
+                width="156"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
             <a name="1980165795"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/HypExplicit/I_6.gif" height="17" width="262" alt="Click for copyable input" /></a>
+            <img src="Files/HypExplicit/I_6.png"
+                height="16"
+                width="227"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/HypExplicit/O_3.gif" height="15" width="131" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/HypExplicit/O_3.png"
+                height="14"
+                width="118"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
             <a name="1855078663"></a>
-            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/HypExplicit/I_8.gif" height="17" width="116" alt="Click for copyable input" /></a>
+            <img src="Files/HypExplicit/I_8.png"
+                height="16"
+                width="102"
+                alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/HypExplicit/O_4.gif" height="47" width="263" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/HypExplicit/O_4.png"
+                height="39"
+                width="235"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -111,7 +170,7 @@
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="762625741"></a><a href="../ref/HypergeometricIR.html">HypergeometricIR</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/HypergeometricIR.html">HypergeometricIR</a>.</p>
    </div>
   </div>
  </div>
@@ -120,7 +179,6 @@
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

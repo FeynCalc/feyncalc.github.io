@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>GluonVertex&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="GluonVertex" />
 
-<meta name="description" content="GluonVertex[{p, mu, a}, {q, nu, b}, {k, la, c}] or GluonVertex[p,mu,a , q,nu,b , k,la,c ] yields the 3-gluon vertex. GluonVertex[{p,mu}, {q,nu}, {k,la}] yields the 3-gluon vertex without color structure and the coupling constant. GluonVertex[{p,mu,a}, {q,nu,b}, {k,la,c}, {s,si,d}] or GluonVertex[{mu,a}, {nu,b}, {la,c}, {si,d}] or GluonVertex[p,mu,a , q,nu,b , k,la,c , s,si,d] or GluonVertex[mu,a , nu,b , la,c , si,d ] yields the 4-gluon vertex. The dimension and the name of the coupling constant are determined by the options Dimension and CouplingConstant. Note: All momenta are flowing into the vertex. GV can be used as an abbreviation of GluonVertex." />
+<meta name="description" content="GluonVertex[{p, mu, a}, {q, nu, b}, {k, la, c}] or GluonVertex[p, mu, a, q, nu, b, k, la, c] yields the 3-gluon vertex. GluonVertex[{p, mu}, {q, nu}, {k, la}] yields the 3-gluon vertex without color structure and the coupling constant. GluonVertex[{p, mu, a}, {q, nu, b}, {k, la, c}, {s, si, d}] or GluonVertex[{mu, a}, {nu, b}, {la, c}, {si, d}] or GluonVertex[p, mu, a, q, nu, b, k, la, c , s, si, d] or GluonVertex[mu, a, nu, b, la, c, si, d ] yields the 4-gluon vertex." />
 <script language="JavaScript" type="text/javascript">baselang='GluonVertex';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,17 +52,62 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/GhostPropagator.html"><span class="dropdownPad">GluonPropagator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GluonGhostVertex.html"><span class="dropdownPad">GluonGhostVertex</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>GluonVertex</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/GluonVertex/1.png" height="21" width="301" alt="" /></span> <br />or GluonVertex[p,mu,a , q,nu,b , k,la,c ] yields the 3-gluon vertex. GluonVertex[{p,mu}, {q,nu}, {k,la}] yields the 3-gluon vertex without color structure and the coupling constant. GluonVertex[{p,mu,a}, {q,nu,b}, {k,la,c}, {s,si,d}] or GluonVertex[{mu,a}, {nu,b}, {la,c}, {si,d}] or GluonVertex[p,mu,a , q,nu,b , k,la,c , s,si,d] or GluonVertex[ mu,a , nu,b , la,c , si,d ] yields the 4-gluon vertex. The dimension and the name of the coupling constant are determined by the options Dimension and CouplingConstant.
-
-Note: All momenta are flowing into the vertex.
-
-GV can be used as an abbreviation of GluonVertex.</p>
+   <p><span class="IF"><span class="specialcharacters">GluonVertex<span class="openbracket">[</span><span class="openbrace">{</span>p<span class="comma">,</span>mu<span class="comma">,</span>a<span class="closebrace">}</span><span class="comma">,</span> <span class="openbrace">{</span>q<span class="comma">,</span>nu<span class="comma">,</span>b<span class="closebrace">}</span><span class="comma">,</span> <span class="openbrace">{</span>k<span class="comma">,</span>la<span class="comma">,</span>c<span class="closebrace">}</span><span class="closebracket">]</span></span></span> <br />or <span class="IF"><span class="specialcharacters">GluonVertex<span class="openbracket">[</span>p<span class="comma">,</span> mu<span class="comma">,</span> a<span class="comma">,</span> q<span class="comma">,</span> nu<span class="comma">,</span> b<span class="comma">,</span> k<span class="comma">,</span> la<span class="comma">,</span> c<span class="closebracket">]</span></span></span> yields the 3-gluon vertex. </p>
+  </div>
+  <div class="functionIntro">
+   <p><span class="IF"><span class="specialcharacters">GluonVertex<span class="openbracket">[</span><span class="openbrace">{</span>p<span class="comma">,</span>mu<span class="closebrace">}</span><span class="comma">,</span><span class="openbrace">{</span>q<span class="comma">,</span>nu<span class="closebrace">}</span><span class="comma">,</span><span class="openbrace">{</span>k<span class="comma">,</span>la<span class="closebrace">}</span><span class="closebracket">]</span></span></span> <br />yields the 3-gluon vertex without color structure and the coupling constant.</p>
+  </div>
+  <div class="functionIntro">
+   <p><span class="IF"><span class="specialcharacters">GluonVertex<span class="openbracket">[</span><span class="openbrace">{</span>p<span class="comma">,</span>mu<span class="comma">,</span>a<span class="closebrace">}</span><span class="comma">,</span><span class="openbrace">{</span>q<span class="comma">,</span>nu<span class="comma">,</span>b<span class="closebrace">}</span><span class="comma">,</span><span class="openbrace">{</span>k<span class="comma">,</span>la<span class="comma">,</span>c<span class="closebrace">}</span><span class="comma">,</span><span class="openbrace">{</span>s<span class="comma">,</span>si<span class="comma">,</span>d<span class="closebrace">}</span><span class="closebracket">]</span></span></span> <br />or <span class="IF"><span class="specialcharacters">GluonVertex<span class="openbracket">[</span><span class="openbrace">{</span>mu<span class="comma">,</span>a<span class="closebrace">}</span><span class="comma">,</span> <span class="openbrace">{</span>nu<span class="comma">,</span>b<span class="closebrace">}</span><span class="comma">,</span> <span class="openbrace">{</span>la<span class="comma">,</span>c<span class="closebrace">}</span><span class="comma">,</span> <span class="openbrace">{</span>si<span class="comma">,</span>d<span class="closebrace">}</span><span class="closebracket">]</span></span></span> or <span class="IF"><span class="specialcharacters">GluonVertex<span class="openbracket">[</span>p<span class="comma">,</span>mu<span class="comma">,</span>a<span class="comma">,</span> q<span class="comma">,</span>nu<span class="comma">,</span>b<span class="comma">,</span> k<span class="comma">,</span>la<span class="comma">,</span>c <span class="comma">,</span> s<span class="comma">,</span>si<span class="comma">,</span>d<span class="closebracket">]</span></span></span> or <span class="IF"><span class="specialcharacters">GluonVertex<span class="openbracket">[</span>mu<span class="comma">,</span>a<span class="comma">,</span>nu<span class="comma">,</span>b<span class="comma">,</span>la<span class="comma">,</span>c<span class="comma">,</span> si<span class="comma">,</span>d <span class="closebracket">]</span></span></span> yields the 4-gluon vertex.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><span class="IF">GV</span> can be used as an abbreviation of <a href="../ref/GluonVertex.html">GluonVertex</a>.</li>
+     <li><a name="14058075"></a>The dimension and the name of the coupling constant are determined by the options <a href="../ref/Dimension.html">Dimension</a> and <a href="../ref/CouplingConstant.html">CouplingConstant</a>. </li>
+     <li><a name="1067943069"></a>All momenta are flowing into the vertex.</li>
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[16]:=</td><td class="Input"><div>
+          <img src="Files/GluonVertex/I_2.png"
+              height="16"
+              width="123"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[16]=</td><td class="Output"><div class="output-image">
+          <img src="Files/GluonVertex/O_1.png"
+              height="15"
+              width="383"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -54,128 +117,157 @@ GV can be used as an abbreviation of GluonVertex.</p>
    <div class="expanded">
     <div class="expandSubWrap">
      <div class="expandSubOuter">
-      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(4)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(4)</span></a></h3>
       <div class="expanded">
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-            <a name="1626723090"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_2.gif" height="17" width="19" alt="Click for copyable input" /></a>
-           </div><div id="i_1_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/GluonVertex/O_1.gif" height="15" width="78" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
-            <a name="970529707"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_4.gif" height="17" width="138" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="824487557"></a>
+            <img src="Files/GluonVertex/I_4.png"
+                height="16"
+                width="241"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/GluonVertex/O_2.gif" height="15" width="455" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonVertex/O_2.png"
+                height="17"
+                width="135"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
-            <a name="824487557"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_6.gif" height="17" width="290" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/GluonVertex/I_6.png"
+                height="16"
+                width="64"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/GluonVertex/O_3.gif" height="21" width="148" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonVertex/O_3.png"
+                height="17"
+                width="336"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <div class="ExLine"><!-- --></div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
-            <a name="1236447463"></a>
-            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_8.gif" height="17" width="354" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="1094321460"></a>
+            <img src="Files/GluonVertex/I_8.png"
+                height="16"
+                width="146"
+                alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/GluonVertex/O_4.gif" height="22" width="390" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonVertex/O_4.png"
+                height="15"
+                width="97"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
-            <a name="1094321460"></a>
-            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_10.gif" height="17" width="235" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/GluonVertex/I_10.png"
+                height="16"
+                width="64"
+                alt="Click for copyable input" />
            </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/GluonVertex/O_5.gif" height="19" width="107" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonVertex/O_5.png"
+                height="15"
+                width="298"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <div class="ExLine"><!-- --></div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
-            <a name="238279967"></a>
-            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_12.gif" height="17" width="299" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="410547695"></a>
+            <img src="Files/GluonVertex/I_12.png"
+                height="16"
+                width="299"
+                alt="Click for copyable input" />
            </div><div id="i_11_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/GluonVertex/O_6.gif" height="20" width="349" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonVertex/O_6.png"
+                height="17"
+                width="125"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
-            <a name="410547695"></a>
-            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_14.gif" height="17" width="359" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/GluonVertex/I_14.png"
+                height="16"
+                width="64"
+                alt="Click for copyable input" />
            </div><div id="i_13_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/GluonVertex/O_7.gif" height="22" width="141" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonVertex/O_7.png"
+                height="61"
+                width="345"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <div class="ExLine"><!-- --></div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="1809122983"></a>
-            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_16.gif" height="17" width="288" alt="Click for copyable input" /></a>
+            <img src="Files/GluonVertex/I_16.png"
+                height="16"
+                width="190"
+                alt="Click for copyable input" />
            </div><div id="i_15_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/GluonVertex/O_8.gif" height="19" width="54" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonVertex/O_8.png"
+                height="16"
+                width="53"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
-            <a name="581429220"></a>
-            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_18.gif" height="17" width="296" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/GluonVertex/I_18.png"
+                height="16"
+                width="64"
+                alt="Click for copyable input" />
            </div><div id="i_17_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/GluonVertex/O_9.gif" height="83" width="402" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="Text"><a name="606211454"></a>A very convenient way to enter diagrams by hand is to label each line hitting a vertex by a number and put this number after the inflowing momentum.</div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
-            <a name="1320893353"></a>
-            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_20.gif" height="17" width="131" alt="Click for copyable input" /></a>
-           </div><div id="i_19_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/GluonVertex/O_10.gif" height="21" width="186" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
-            <a name="997671247"></a>
-            <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/GluonVertex/I_22.gif" height="17" width="230" alt="Click for copyable input" /></a>
-           </div><div id="i_21_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/GluonVertex/O_11.gif" height="86" width="469" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonVertex/O_9.png"
+                height="61"
+                width="344"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -193,7 +285,7 @@ GV can be used as an abbreviation of GluonVertex.</p>
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="731094773"></a><a href="../ref/GluonGhostVertex.html">GluonGhostVertex</a>, <a href="../ref/GluonPropagator.html">GluonPropagator</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/GhostPropagator.html">GluonPropagator</a>, <a href="../ref/GluonGhostVertex.html">GluonGhostVertex</a>.</p>
    </div>
   </div>
  </div>
@@ -202,7 +294,6 @@ GV can be used as an abbreviation of GluonVertex.</p>
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

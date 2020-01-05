@@ -1,0 +1,3 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>PauliSigma[LorentzIndex[\[Alpha]]];
+% // PauliSigmaExpand;
+% // PauliSigmaExpand</pre><div class='IFU'>http://wolfram.com/xid/0md0z2x3dnst5skk6q3kvi</div>

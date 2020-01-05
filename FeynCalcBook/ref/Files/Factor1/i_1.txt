@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>t1 = (a - x) (b - x)</pre><div class='IFU'><a name='106113384'></a>http://wolfram.com/xid/0tn9depw6mpqkclti8-b1gnwa</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>(a - x) (b - x)</pre><div class='IFU'><a name='106113384'></a>http://wolfram.com/xid/0tn9depw6mpqkclti8-b1gnwa</div>

@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>SpinorVBar[p]</pre><div class='IFU'><a name='646348691'></a>http://wolfram.com/xid/0cocv9p3k6ad7maybiu6fmq6-ky3r4l</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>SpinorVBar[p, m]</pre><div class='IFU'><a name='1066488732'></a>http://wolfram.com/xid/0cocv9p3k6ad7maybiu6fmq6-rw8t9a</div>

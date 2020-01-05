@@ -1,2 +1,10 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>a2 = Eps[LorentzIndex[\[Mu], D], LorentzIndex[\[Nu], D], 
-  LorentzIndex[\[Rho], D], LorentzIndex[\[Sigma], D]]</pre><div class='IFU'><a name='864825422'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-ok6huo</div>
+<pre name='i_21_in' id='i_21_in' class='IFT'>-(I/24) LCD[Derivative[1][\[Mu]], Derivative[1][\[Nu]], Derivative[
+    1][\[Rho]], Derivative[1][\[Alpha]]].GAD[Derivative[1][\[Mu]], 
+    Derivative[1][\[Nu]], Derivative[1][\[Rho]], Derivative[
+    1][\[Alpha]]] // FCI;
+Eps[Momentum[p], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], 
+ LorentzIndex[\[Sigma]]];
+Eps[LorentzIndex[\[Mu]], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], 
+ LorentzIndex[\[Sigma]]];
+DiracSimplify[%.%%] // Factor2;
+DiracSimplify[%.%%] // Factor2</pre><div class='IFU'>http://wolfram.com/xid/0c0fr5uhfyi7if85c</div>

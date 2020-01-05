@@ -1,0 +1,2 @@
+<pre name='i_23_in' id='i_23_in' class='IFT'>DiracGammaExpand[DiracSigma[GSD[p + q], GSD[r]], 
+ DiracSigmaExpand -&gt; False]</pre><div class='IFU'>http://wolfram.com/xid/0bhbk9z6xqab8ybj96ginile</div>

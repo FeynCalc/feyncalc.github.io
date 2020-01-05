@@ -1,1 +1,2 @@
-<pre name='i_49_in' id='i_49_in' class='IFT'>Convolute[1/(1 - x), Log[1 - x]/(1 - x)]</pre><div class='IFU'><a name='379553048'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbd8w0-gj9fai</div>
+<pre name='i_49_in' id='i_49_in' class='IFT'>Convolute[1/(1 - x), Log[1 - x]/(1 - x)] /. 
+ FCGV[z_] :&gt; ToExpression[z]</pre><div class='IFU'><a name='379553048'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbd8w0-gj9fai</div>

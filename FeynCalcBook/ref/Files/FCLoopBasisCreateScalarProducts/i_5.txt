@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FCLoopBasisCreateScalarProducts[{l}, {p1, p2}, {4}, Pair]</pre><div class='IFU'><a name='188169265'></a>http://wolfram.com/xid/0brao17wzeee098zs3985yfc1ylcqpmur7-debemb</div>

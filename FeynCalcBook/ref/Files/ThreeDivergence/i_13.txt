@@ -1,0 +1,3 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>CSP[p, q];
+ThreeDivergence[%, CVD[p, i]];
+ThreeDivergence[%, CVD[p, i]]</pre><div class='IFU'><a name='703915902'></a>http://wolfram.com/xid/0vsxr48l0aa9maq4uyzv43g-lxdm9s</div>

@@ -1,0 +1,5 @@
+<pre name='i_61_in' id='i_61_in' class='IFT'>AbsoluteTiming[
+ r2 = DiracSimplify[
+    DiracTrace[
+     GAD[\[Mu], \[Nu], \[Rho]].GA[
+       5].GAD[\[Sigma], \[Delta], \[Tau]].GA[7], West -&gt; False]];]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o70q</div>

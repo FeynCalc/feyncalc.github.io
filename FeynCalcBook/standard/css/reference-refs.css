@@ -36,7 +36,7 @@
 
 /* back to top link, mod info */
 .toplink { margin: 10px -25px -50px 0; float: right; } 
-	.toplink a, #example .toplink a { padding-right: 15px; background: url('/2013/images/toplink-arrow2.png') no-repeat right center; color: #585858; font-family: Arial, Helvetica, sans-serif; }
+	.toplink a, #example .toplink a { padding-right: 15px; background: url('../images/toplink-arrow2.png') no-repeat right center; color: #585858; font-family: Arial, Helvetica, sans-serif; }
 		.toplink a:hover, #example .toplink a:hover {color:#000000;}
 
 	   
@@ -66,11 +66,11 @@ div.functionIntroWrap .IF a {}
 div.functionIntroWrap .IF a:hover {}
  ul.functionList { margin: 20px 0px -8px 0px; }
    .functionList .NotesTable { background:  none; }
-	.functionList li { /*margin: 7px 0px 17px 0px;*/ padding-left: 10px; background: url('/2013/images/bullet-greysq.gif') no-repeat 0 7px; font-size: 11px; }
+	.functionList li { /*margin: 7px 0px 17px 0px;*/ padding-left: 10px; background: url('../images/bullet-greysq.gif') no-repeat 0 7px; font-size: 11px; }
 	.functionList td { font-size:11px; }
 p.inlineFunctionList .IF { font-family:Verdana, Geneva, sans-serif;!important; font-size:11px; }  
 .DeviceList { margin: 10px 30px 0px 24px; }
-  .DeviceList li { padding-left: 10px; background: url('/2013/images/bullet-greysq.gif') no-repeat 0 7px; font-size: 12px; color: #494949; }
+  .DeviceList li { padding-left: 10px; background: url('../images/bullet-greysq.gif') no-repeat 0 7px; font-size: 12px; color: #494949; }
 
 
 /* character */
@@ -104,7 +104,7 @@ div.formatIntro, div.indicatorIntro { background-color: #ededed; border: 1px sol
 #ref #Examples .expanded { padding-bottom: 35px; }
   #ref.format #Examples .expanded .expanded { padding-bottom: 20px; }
 .FN  { margin-left: 25px; }
-  .FN li { background: url('/2013/images/bullet-greysq.gif') no-repeat 0 7px; padding-left: 10px; margin-left: 5px; font-size: 11px; }
+  .FN li { background: url('../images/bullet-greysq.gif') no-repeat 0 7px; padding-left: 10px; margin-left: 5px; font-size: 11px; }
 .expanded .FN { margin-left: 0 !important; }
 
 .NotesTable { list-style-type: none; }
@@ -137,10 +137,10 @@ div.indicatorIntro p { margin: 0; font-size: 11px; }
 
 /* highlighting modified text */
 .highlight-link, .highlighting { display: block; float: right; margin: 21px 16px 0 0; width: 108px; height: 45px; }
-.highlight-link { background: url('/2013/images/mathematica/UpdatedIn10-show.png') no-repeat right top; }
-  .highlight-link:hover { background: url('/2013/images/mathematica/UpdatedIn10-show-over.png') no-repeat right top; }
-.highlighting { background: url('/2013/images/mathematica/UpdatedIn10-hide.png') no-repeat right top; }
-  .highlighting:hover { background: url('/2013/images/mathematica/UpdatedIn10-hide-over.png') no-repeat right top; }
+.highlight-link { background: url('../images/mathematica/UpdatedIn10-show.png') no-repeat right top; }
+  .highlight-link:hover { background: url('../images/mathematica/UpdatedIn10-show-over.png') no-repeat right top; }
+.highlighting { background: url('../images/mathematica/UpdatedIn10-hide.png') no-repeat right top; }
+  .highlighting:hover { background: url('../images/mathematica/UpdatedIn10-hide-over.png') no-repeat right top; }
 
 li.modified-text { background-image: none !important;}
   li.modified-text:before{ margin: 5px 5px 5px -10px; vertical-align: middle; display: inline-block; width: 4px; height: 4px; background: #adadad; content: "";} 
@@ -161,8 +161,8 @@ li.functionessay:not(:first-child) {display: none;}
 li.functionessay {background: none; margin-bottom:15px; padding-left:0px;}
 
 .essaybuttonWrap {float:left; margin: 9px 0px 0px 0px; width:100px;}
-.showmore {cursor:pointer; padding-right:15px; background: url('/2013/images/showmore-arrow.png') no-repeat right center; color: #585858; font-family: Arial, Helvetica, sans-serif;}
-.showless {cursor:pointer; padding-right:15px; background: url('/2013/images/showless-arrow.png') no-repeat right center; color: #585858; font-family: Arial, Helvetica, sans-serif;}
+.showmore {cursor:pointer; padding-right:15px; background: url('../images/showmore-arrow.png') no-repeat right center; color: #585858; font-family: Arial, Helvetica, sans-serif;}
+.showless {cursor:pointer; padding-right:15px; background: url('../images/showless-arrow.png') no-repeat right center; color: #585858; font-family: Arial, Helvetica, sans-serif;}
 
 .showmore:hover, .showless:hover {color:#000000;}
 

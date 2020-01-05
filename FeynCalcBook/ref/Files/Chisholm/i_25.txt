@@ -1,1 +1,1 @@
-<pre name='i_25_in' id='i_25_in' class='IFT'>Calc[a2.a3]</pre><div class='IFU'><a name='375938433'></a>http://wolfram.com/xid/0cy370nkq1aepabvqqhkspr-gh3x8j</div>
+<pre name='i_25_in' id='i_25_in' class='IFT'>GS[p, q, r]</pre><div class='IFU'>http://wolfram.com/xid/0cy370nkq1aepabvqqhkspr</div>

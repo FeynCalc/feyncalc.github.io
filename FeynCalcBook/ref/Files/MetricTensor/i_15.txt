@@ -1,1 +1,1 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>StandardForm[FCE[MetricTensor[a, b, Dimension -&gt; D]]]</pre><div class='IFU'><a name='1275057625'></a>http://wolfram.com/xid/0nwhua02ikznm767g6r3m-vde61n</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>MTD[\[Mu], \[Nu]]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm767g6r3m</div>

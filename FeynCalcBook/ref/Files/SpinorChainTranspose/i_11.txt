@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>SpinorUBarD[p1, m1].GAD[\[Mu]].(GSD[p] + m).GAD[\[Mu]].SpinorVD[p2, 
+  m2]</pre><div class='IFU'><a name='1726192320'></a>http://wolfram.com/xid/0peckcyot74q3nk57f2qlkefmi-2t0ksy</div>

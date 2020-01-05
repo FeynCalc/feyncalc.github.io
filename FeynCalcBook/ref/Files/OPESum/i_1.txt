@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>t1 = OPESum[SO[p]^OPEi SO[k]^(OPEm - OPEi - 3), {OPEi, 0, OPEm - 3}]</pre><div class='IFU'><a name='448625968'></a>http://wolfram.com/xid/0fnx5q0u7sai4aizzx4hcka-hpdwaq</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>OPESum[SO[p]^OPEi SO[k]^(OPEm - OPEi - 3), {OPEi, 0, OPEm - 3}]</pre><div class='IFU'><a name='448625968'></a>http://wolfram.com/xid/0fnx5q0u7sai4aizzx4hcka-hpdwaq</div>

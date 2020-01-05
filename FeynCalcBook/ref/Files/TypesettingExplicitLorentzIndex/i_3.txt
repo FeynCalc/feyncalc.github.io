@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>TypesettingExplicitLorentzIndex = Function[x, Style[x, Red]];</pre><div class='IFU'><a name='240390894'></a>http://wolfram.com/xid/00shn83muccnr9ok37gh4f7d5dcfj4oyl-d9eo24</div>

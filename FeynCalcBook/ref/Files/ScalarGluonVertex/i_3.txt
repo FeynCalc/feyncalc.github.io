@@ -1,1 +1,1 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>ScalarGluonVertex[{p}, {q}, {mu, a}]</pre><div class='IFU'><a name='581447761'></a>http://wolfram.com/xid/0b6akjmb3r0ldyf61xg4ess56y-jwgp8z</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>ScalarGluonVertex[{p}, {q}, {\[Mu], a}]</pre><div class='IFU'><a name='581447761'></a>http://wolfram.com/xid/0b6akjmb3r0ldyf61xg4ess56y-jwgp8z</div>

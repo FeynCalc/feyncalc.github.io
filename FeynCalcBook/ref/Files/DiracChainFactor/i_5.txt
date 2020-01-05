@@ -1,0 +1,3 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>DCHN[FV[p, \[Nu]] GA[\[Mu]].GA[\[Nu]].GA[\[Mu]], i, j] ;
+DiracChainFactor[%];
+DiracChainFactor[%]</pre><div class='IFU'><a name='745783464'></a>http://wolfram.com/xid/0teu55sspea5oyup8kqzp1m6-mma0hm</div>

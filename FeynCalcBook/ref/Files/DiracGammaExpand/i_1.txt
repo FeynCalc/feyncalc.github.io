@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>t = DiracGamma[Momentum[q]] . DiracGamma[Momentum[p - q]]</pre><div class='IFU'><a name='808958256'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybj96ginile-nnw2gy</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>Options[DiracGammaExpand]</pre><div class='IFU'>http://wolfram.com/xid/0bhbk9z6xqab8ybj96ginile</div>
