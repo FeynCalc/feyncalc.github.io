@@ -1,0 +1,3 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>CSI[k, j, i];
+PauliOrder[%];
+PauliOrder[%%, {j, i, k}]</pre><div class='IFU'><a name='2068399078'></a>http://wolfram.com/xid/0gb5m6l6ty1j71ffqio4mq-8hq878</div>

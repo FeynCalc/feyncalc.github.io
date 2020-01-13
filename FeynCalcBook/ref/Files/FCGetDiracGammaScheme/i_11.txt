@@ -1,0 +1,3 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FCSetDiracGammaScheme[&quot;BMHV&quot;];
+% // FullForm;
+% // FullForm</pre><div class='IFU'><a name='1736915585'></a>http://wolfram.com/xid/0bxw8wpmbjexmnqtzyz1ccutga87vx2ce-20eexf</div>

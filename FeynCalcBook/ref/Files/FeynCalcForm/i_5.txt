@@ -1,4 +1,4 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>SetOptions[$FrontEnd, 
-  Evaluate[(Options[$FrontEnd, 
+<pre name='i_5_in' id='i_5_in' class='IFT'>SetOptions[$FrontEndSession, 
+  Evaluate[(Options[$FrontEndSession, 
        &quot;CommonDefaultFormatTypes&quot;] /. (&quot;Output&quot; -&gt; _) -&gt; (&quot;Output&quot; -&gt; 
          OutputForm))[[1]]]];</pre><div class='IFU'><a name='204502333'></a>http://wolfram.com/xid/0teu55sspea5oyoeezvtvjiy-dn1han</div>

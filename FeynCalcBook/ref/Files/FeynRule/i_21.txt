@@ -1,2 +1,8 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>Twist2GluonOperator[q, {\[Mu], a}, {\[Nu], b}, Polarization -&gt; 1, 
- Explicit -&gt; True]</pre><div class='IFU'><a name='1311336663'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-vy0r4p</div>
+<pre name='i_21_in' id='i_21_in' class='IFT'>-(1/4) FieldStrength[\[Alpha], \[Beta], 
+   i].FieldStrength[\[Alpha], \[Beta], i];
+FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p], 
+  QuantumField[GaugeField, {\[Nu]}, {b}][q], 
+  QuantumField[GaugeField, {\[Rho]}, {c}][r]}];
+FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p], 
+  QuantumField[GaugeField, {\[Nu]}, {b}][q], 
+  QuantumField[GaugeField, {\[Rho]}, {c}][r]}]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

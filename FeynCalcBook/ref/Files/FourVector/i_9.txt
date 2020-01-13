@@ -1,1 +1,1 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>StandardForm[FCE[FourVector[p, \[Mu]]]]</pre><div class='IFU'><a name='757794355'></a>http://wolfram.com/xid/0b67y1d1vpag752hsgey-mtgf5h</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>StandardForm[FourVector[p, \[Mu], Dimension -&gt; D]]</pre><div class='IFU'><a name='438982417'></a>http://wolfram.com/xid/0b67y1d1vpag752hsgey-hjm7ab</div>

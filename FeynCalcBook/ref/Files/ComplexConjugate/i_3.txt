@@ -1,2 +1,8 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>ComplexConjugate[MetricTensor[\[Mu], \[Nu]]];
-StandardForm[%]</pre><div class='IFU'><a name='138437204'></a>http://wolfram.com/xid/0dot6agzccymmirv6bbn2-ckpg36</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>Spinor[Momentum[k1], SMP[&quot;m_e&quot;], 1].GA[\[Mu]].Spinor[Momentum[p2], 
+    SMP[&quot;m_e&quot;], 1]*
+  Spinor[Momentum[k2], SMP[&quot;m_e&quot;], 1].GA[\[Nu]].Spinor[Momentum[p1], 
+    SMP[&quot;m_e&quot;], 1]*FAD[k1 - p2, Dimension -&gt; 4]*SMP[&quot;e&quot;]^2 - 
+ Spinor[Momentum[k1], SMP[&quot;m_e&quot;], 1].GA[\[Mu]].Spinor[Momentum[p1], 
+    SMP[&quot;m_e&quot;], 1]*
+  Spinor[Momentum[k2], SMP[&quot;m_e&quot;], 1].GA[\[Nu]].Spinor[Momentum[p2], 
+    SMP[&quot;m_e&quot;], 1]*FAD[k2 - p2, Dimension -&gt; 4]*SMP[&quot;e&quot;]^2</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmirv6bbn2</div>

@@ -1,4 +1,4 @@
 <pre name='i_7_in' id='i_7_in' class='IFT'>{GA[\[Mu]], GAD[\[Rho]], GS[p], SP[p, q], MT[\[Alpha], \[Beta]], 
  FV[p, \[Mu]]};
-% // FeynCalcInternal;
+% // StandardForm;
 % // StandardForm</pre><div class='IFU'><a name='1783117065'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg0gy1avxvg26-3rwn7v</div>

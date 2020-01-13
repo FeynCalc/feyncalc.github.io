@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>Dimension&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
@@ -10,23 +12,39 @@
 <script language="JavaScript" type="text/javascript">baselang='Dimension';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -40,7 +58,7 @@
  <h1>Dimension</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/Dimension/1.png" height="20" width="65" alt="" /></span> <br />is an option of several functions and denotes the number of space-time dimensions. Possible settings are: 4, n, d, D, ... ,the variable does not matter, but it should have Head Symbol.</p>
+   <p><span class="IF">Dimension</span> <br />is an option of several functions and denotes the number of space-time dimensions. Possible settings are: 4, n, d, D, ... ,the variable does not matter, but it should have Head Symbol.</p>
   </div>
  </div>
  <div class="expandWrap"
@@ -48,79 +66,65 @@
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
    <div class="expanded">
-    <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
-    <h3 class="Subsubsection"><a name="269185513"></a>Examples</h3>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-         <a name="48360105"></a>
-         <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Dimension/I_2.gif" height="17" width="142" alt="Click for copyable input" /></a>
-        </div><div id="i_1_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/Dimension/O_1.gif" height="15" width="277" alt="" /></td></tr>
-     </table>
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="48360105"></a>
+            <img src="Files/Dimension/I_2.png"
+                height="16"
+                width="134"
+                alt="Click for copyable input" />
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Dimension/O_1.png"
+                height="15"
+                width="363"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <a name="1811829745"></a>
+            <img src="Files/Dimension/I_4.png"
+                height="16"
+                width="205"
+                alt="Click for copyable input" />
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/Dimension/O_2.png"
+                height="14"
+                width="31"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/Dimension/I_6.png"
+                height="16"
+                width="108"
+                alt="Click for copyable input" />
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td colspan="2"><div class="celllabelTableForm">Out[3]//StandardForm=</div></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/Dimension/O_3.png" width="251" height="17" alt="" /></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
     </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
-         <a name="1811829745"></a>
-         <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Dimension/I_4.gif" height="17" width="423" alt="Click for copyable input" /></a>
-        </div><div id="i_3_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/Dimension/O_2.gif" height="17" width="57" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="Text"><a name="1652643284"></a>The dimension of the indices is not shown by default but can be inspected easily.</div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
-         <a name="799099233"></a>
-         <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/Dimension/I_6.gif" height="17" width="527" alt="Click for copyable input" /></a>
-        </div><div id="i_5_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td colspan="2"><div class="celllabelTableForm">Out[3]//StandardForm=</div></td></tr>
-      <tr><td class="lab"> </td><td class="Output"><img src="Files/Dimension/O_3.gif" width="487" height="17" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="Text"><a name="1658312621"></a>Setting the global variable $LorentzIndices to True will display the dimension (if different from 4) as a subscript.</div>
-    <table class="InCell">
-     <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
-        <a name="136991377"></a>
-        <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/Dimension/I_8.gif" height="17" width="148" alt="Click for copyable input" /></a>
-       </div><div id="i_7_out" class="IFL"></div></td></tr>
-    </table>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
-         <a name="1877198136"></a>
-         <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/Dimension/I_10.gif" height="17" width="424" alt="Click for copyable input" /></a>
-        </div><div id="i_9_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/Dimension/O_4.gif" height="19" width="80" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
-         <a name="40947459"></a>
-         <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/Dimension/I_12.gif" height="17" width="117" alt="Click for copyable input" /></a>
-        </div><div id="i_11_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td colspan="2"><div class="celllabelTableForm">Out[6]//StandardForm=</div></td></tr>
-      <tr><td class="lab"> </td><td class="Output"><img src="Files/Dimension/O_5.gif" width="485" height="17" alt="" /></td></tr>
-     </table>
-    </div>
-    <table class="InCell">
-     <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
-        <a name="889371773"></a>
-        <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/Dimension/I_14.gif" height="17" width="152" alt="Click for copyable input" /></a>
-       </div><div id="i_13_out" class="IFL"></div></td></tr>
-    </table>
     <div class="toplink">
      <a href="#top">Top</a>
     </div>
@@ -133,7 +137,6 @@
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

@@ -1,1 +1,2 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>Clear[t1, t2, t3, t4, t5];</pre><div class='IFU'><a name='1260437833'></a>http://wolfram.com/xid/0g3d2anoefmyyrc18397m-u4pucb</div>
+<pre name='i_23_in' id='i_23_in' class='IFT'>DiracOrder[
+ GA[\[Alpha], \[Beta], \[Delta]], {\[Delta], \[Beta], \[Alpha]}]</pre><div class='IFU'>http://wolfram.com/xid/0g3d2anoefmyyrc18397m</div>

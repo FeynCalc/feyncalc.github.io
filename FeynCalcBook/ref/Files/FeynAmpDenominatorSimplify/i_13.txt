@@ -1,1 +1,3 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>r = SPC[t, k, FDS -&gt; True]</pre><div class='IFU'><a name='189899711'></a>http://wolfram.com/xid/0cdri8akgdehbvtiwu3ywe4ld54hwcy-dfcht9</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>FDS;
+ApartFF[%, {k}];
+ApartFF[%, {k}]</pre><div class='IFU'><a name='189899711'></a>http://wolfram.com/xid/0cdri8akgdehbvtiwu3ywe4ld54hwcy-dfcht9</div>

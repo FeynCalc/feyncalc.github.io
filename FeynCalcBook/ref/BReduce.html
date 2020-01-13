@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>BReduce&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
@@ -10,23 +12,39 @@
 <script language="JavaScript" type="text/javascript">baselang='BReduce';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,13 +52,34 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/A0.html"><span class="dropdownPad">A0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/B0.html"><span class="dropdownPad">B0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/B00.html"><span class="dropdownPad">B00</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/B1.html"><span class="dropdownPad">B1</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/B11.html"><span class="dropdownPad">B11</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>BReduce</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/BReduce/1.png" height="20" width="54" alt="" /></span> <br />is an option for B0, B00, B1, B11 determining whether reductions to A0 and B0 will be done. </p>
+   <p><span class="IF">BReduce</span> <br />is an option for B0, B00, B1, B11 determining whether reductions to A0 and B0 will be done. </p>
   </div>
  </div>
  <div class="expandWrap"
@@ -52,28 +91,44 @@
      <div class="expandSubOuter">
       <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
       <div class="expanded">
-       <div class="Text"><a name="233833972"></a>By default <img src="Files/BReduce/2.png" height="17" width="18" style="vertical-align:middle;" alt="B_0" title="B_0" /> is not expressed in terms of <img src="Files/BReduce/3.png" height="17" width="18" style="vertical-align:middle;" alt="A_0" title="A_0" />.</div>
+       <li>By default <img src="Files/BReduce/1.png" height="17" width="18" style="vertical-align:middle;" alt="B_0" title="B_0" /> is not expressed in terms of <img src="Files/BReduce/2.png" height="17" width="19" style="vertical-align:middle;" alt="A_0" title="A_0" />.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="768966684"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/BReduce/I_2.gif" height="17" width="73" alt="Click for copyable input" /></a>
+            <img src="Files/BReduce/I_2.png"
+                height="16"
+                width="58"
+                alt="Click for copyable input" />
            </div><div id="i_1_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/BReduce/O_1.gif" height="15" width="69" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/BReduce/O_1.png"
+                height="14"
+                width="60"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="174829946"></a>With BReduce<span class="special-character Rule">&#62754;</span>True, transformation is done.</div>
+       <li>With BReduce<span class="special-character Rule">&#62754;</span>True, transformation is done.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="876027895"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/BReduce/I_4.gif" height="17" width="184" alt="Click for copyable input" /></a>
+            <img src="Files/BReduce/I_4.png"
+                height="16"
+                width="157"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/BReduce/O_2.gif" height="42" width="66" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/BReduce/O_2.png"
+                height="36"
+                width="90"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -91,7 +146,7 @@
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="1422133579"></a><a href="../ref/A0.html">A0</a>, <a href="../ref/B0.html">B0</a>, <a href="../ref/B00.html">B00</a>, <a href="../ref/B1.html">B1</a>, <a href="../ref/B11.html">B11</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/A0.html">A0</a>, <a href="../ref/B0.html">B0</a>, <a href="../ref/B00.html">B00</a>, <a href="../ref/B1.html">B1</a>, <a href="../ref/B11.html">B11</a>.</p>
    </div>
   </div>
  </div>
@@ -100,7 +155,6 @@
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

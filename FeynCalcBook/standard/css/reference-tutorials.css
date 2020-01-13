@@ -47,7 +47,7 @@
 #tutorial tr.topBorder td { padding-top: 5px; }
 #tutorial .MathTable .TT { font-weight: 400; display: inline-block; margin: 3px }
 
-#tutorial .MathTable ul li, #tutorial .MathLink ul li { margin: 0; padding-left: 10px; background: url('/2013/images/bullet-greysq.gif') no-repeat 0 7px; }
+#tutorial .MathTable ul li, #tutorial .MathLink ul li { margin: 0; padding-left: 10px; background: url('../images/bullet-greysq.gif') no-repeat 0 7px; }
 #tutorial .MathLink { margin: 0 25px 0 25px; }
 
 #tutorial .InCell, #tutorial .OCell  { margin-left: 0; }
@@ -76,8 +76,8 @@
 /* jump-to box */
 .jumpTo { margin: 0 0 -5px 3px; padding: 0 25px; display: block; font-size: 11px; clear: both; overflow: hidden; }
 	.jumpTo ul { padding: 0; line-height: 18px; }
-		.jumpTo li { margin: 6px 0; padding: 0 75px 0 17px; background: url('/2013/images/jump-arrow-off.png') no-repeat 0 3px; line-height: 14px; }
-		.jumpTo li:hover { background-image: url('/2013/images/jump-arrow-on.png'); }
+		.jumpTo li { margin: 6px 0; padding: 0 75px 0 17px; background: url('../images/jump-arrow-off.png') no-repeat 0 3px; line-height: 14px; }
+		.jumpTo li:hover { background-image: url('../images/jump-arrow-on.png'); }
 	.jumpTo a { color: #5c5c5c; }
 .jumpColumnLeft, .jumpColumnRight { float: left; } /* just in case they don't want the columns equal for some reason */
   .jumpColumnLeft { width: 55%; }
@@ -85,8 +85,8 @@
 /* temporary */
 .TutorialJumpBox { margin: 0; font-size: 11px; display: block; }
 .TutorialJumpBox td { width: 48%; line-height: 18px; }
-.TutorialJumpBox a { color: #5c5c5c; background: url('/2013/images/jump-arrow-off.png') no-repeat 0 3px; font-size: 11px; line-height: 13px; display: block; padding-left: 15px; text-indent: 0px !important;} 
-.TutorialJumpBox a:hover { background-image: url('/2013/images/jump-arrow-on.png'); }
+.TutorialJumpBox a { color: #5c5c5c; background: url('../images/jump-arrow-off.png') no-repeat 0 3px; font-size: 11px; line-height: 13px; display: block; padding-left: 15px; text-indent: 0px !important;} 
+.TutorialJumpBox a:hover { background-image: url('../images/jump-arrow-on.png'); }
 .TutorialJumpBox table, .TutorialJumpBox tr td, .TutorialJumpBox  tr.lineAbove { border: none !important; padding: 5px 20px 5px 0 !important; vertical-align: top; }
 
 .MathTable .TutorialJumpBox a, .MathTable .jumpTo a { color: #142899 !important; }
@@ -137,5 +137,5 @@ color: #494949;
 
 #tutorial .Notes li {
 padding-left: 10px;
-background: url('/2013/images/bullet-greysq.gif') no-repeat 0 7px;
+background: url('../images/bullet-greysq.gif') no-repeat 0 7px;
 }

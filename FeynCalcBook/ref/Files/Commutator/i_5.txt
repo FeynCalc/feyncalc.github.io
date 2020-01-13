@@ -1,2 +1,3 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Commutator[a, b];
+<pre name='i_5_in' id='i_5_in' class='IFT'>DeclareNonCommutative[a, b, c, d];
+CommutatorExplicit[%];
 CommutatorExplicit[%]</pre><div class='IFU'><a name='1899692439'></a>http://wolfram.com/xid/08q4nt52zsdq758mlem-5pbacp</div>

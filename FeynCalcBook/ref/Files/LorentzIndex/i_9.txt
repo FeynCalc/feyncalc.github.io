@@ -1,2 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>{LorentzIndex[\[Alpha], D], LorentzIndex[\[Nu], n], 
- LorentzIndex[\[Beta], 4]}</pre><div class='IFU'><a name='490327018'></a>http://wolfram.com/xid/0cesltscbyqdrw08a9mhclp3h-id7o08</div>

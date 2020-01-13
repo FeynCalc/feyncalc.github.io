@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>CompleteSquare[t1, p, q]</pre><div class='IFU'><a name='1850431752'></a>http://wolfram.com/xid/0tn9depw6mpqkcibix-4vzgka</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>CompleteSquare[5 SP[2 p + 3 r, p + r], p, q]</pre><div class='IFU'><a name='1850431752'></a>http://wolfram.com/xid/04w9abyjsyddceorcjaa-4vzgka</div>

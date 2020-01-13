@@ -1,5 +1,0 @@
-<pre name='i_27_in' id='i_27_in' class='IFT'>g5p = -(I/24)
-     LCD[Derivative[1][\[Mu]], Derivative[1][\[Nu]], Derivative[
-     1][\[Rho]], Derivative[1][\[Alpha]]].GAD[Derivative[1][\[Mu]], 
-     Derivative[1][\[Nu]], Derivative[1][\[Rho]], Derivative[
-     1][\[Alpha]]] // FCI</pre><div class='IFU'><a name='1736669356'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-2z84xq</div>

@@ -1,0 +1,3 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>SMP[&quot;Delta&quot;];
+FCShowEpsilon[%];
+FCShowEpsilon[%]</pre><div class='IFU'><a name='513597549'></a>http://wolfram.com/xid/0d2ausydw9qwhmnrovnhhxhf1e-ir2gov</div>

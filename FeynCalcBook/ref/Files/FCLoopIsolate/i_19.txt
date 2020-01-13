@@ -1,0 +1,1 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>a FAD[{q1, m}, {q2, m}] + b FAD[{q1, m, 2}]</pre><div class='IFU'>http://wolfram.com/xid/0racumaqnpu17byyloj6m11vo</div>

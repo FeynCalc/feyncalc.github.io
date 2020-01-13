@@ -1,1 +1,3 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>GluonPropagator[p, \[Mu], a, \[Nu], b]</pre><div class='IFU'><a name='1432103581'></a>http://wolfram.com/xid/0br0qd3s106ml2q4lw9538hxju1a-xyw8hb</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>GluonPropagator[p, \[Mu], a, \[Nu], b];
+Explicit[%];
+Explicit[%]</pre><div class='IFU'>http://wolfram.com/xid/0br0qd3s106ml2q4lw9538hxju1a</div>

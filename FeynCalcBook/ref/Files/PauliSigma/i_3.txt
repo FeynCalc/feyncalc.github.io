@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>PauliSigma[CartesianIndex[i]]</pre><div class='IFU'>http://wolfram.com/xid/0md0z2x3dnst5skk6q3kvi</div>

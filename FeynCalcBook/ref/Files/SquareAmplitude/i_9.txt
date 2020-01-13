@@ -1,0 +1,2 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>SquareAmplitude[{a1, a2, a3}, {b1, b2, b3}, Real -&gt; True, 
+ List -&gt; False]</pre><div class='IFU'><a name='1492913147'></a>http://wolfram.com/xid/0fnx5q0u7sai4ab0w00gegg-yy4lfx</div>

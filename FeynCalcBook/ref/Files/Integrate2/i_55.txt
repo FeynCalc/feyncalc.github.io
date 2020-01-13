@@ -1,1 +1,1 @@
-<pre name='i_55_in' id='i_55_in' class='IFT'>Integrate2[x^5 Log[1 + x]^2, {x, 0, 1}]</pre><div class='IFU'><a name='1759046432'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-3dkq66</div>
+<pre name='i_55_in' id='i_55_in' class='IFT'>Integrate2[DeltaFunction[1 - x] f[x], {x, 0, 1}]</pre><div class='IFU'><a name='593727658'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-j3rxg8</div>

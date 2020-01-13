@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>QCDFeynmanRuleConvention[GhostPropagator] = 1
+QCDFeynmanRuleConvention[GluonGhostVertex] = 1</pre><div class='IFU'><a name='465790131'></a>http://wolfram.com/xid/0bxw8wpmbjexmnsqnnwt4014i40rxxj7q-hzlr81</div>

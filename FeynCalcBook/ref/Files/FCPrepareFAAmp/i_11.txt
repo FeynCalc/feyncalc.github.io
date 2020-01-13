@@ -1,0 +1,4 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FeynArts`IndexDelta[FeynArts`Index[Global`Gluon, 1], 
+ FeynArts`Index[Global`Gluon, 2]];
+FCPrepareFAAmp[%];
+FCPrepareFAAmp[%]</pre><div class='IFU'><a name='34271691'></a>http://wolfram.com/xid/0viifcl48wt9lytqywgt3ppy2nv0s-uouhp</div>

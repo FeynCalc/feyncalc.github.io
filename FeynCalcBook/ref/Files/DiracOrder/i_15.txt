@@ -1,1 +1,1 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>DiracOrder[t4]</pre><div class='IFU'><a name='332885129'></a>http://wolfram.com/xid/0g3d2anoefmyyrc18397m-fsg53f</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>GA[6, \[Mu], 7]</pre><div class='IFU'><a name='71636230'></a>http://wolfram.com/xid/0g3d2anoefmyyrc18397m-bgxo5k</div>

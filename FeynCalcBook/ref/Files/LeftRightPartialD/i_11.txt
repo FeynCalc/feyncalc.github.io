@@ -1,4 +1,3 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>QuantumField[A, 
-  LorentzIndex[\[Mu]]].LeftRightPartialD[\[Nu]].QuantumField[A, 
-  LorentzIndex[\[Rho]]];
+<pre name='i_11_in' id='i_11_in' class='IFT'>LeftRightPartialD[\[Mu]];
+ExpandPartialD[%];
 ExpandPartialD[%]</pre><div class='IFU'><a name='1596263636'></a>http://wolfram.com/xid/0e2fh85wv2ah4ygt11qrffen-0onq6u</div>

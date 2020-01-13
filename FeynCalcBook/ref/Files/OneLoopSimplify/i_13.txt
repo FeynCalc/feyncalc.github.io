@@ -1,3 +1,3 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>Options[OneLoopSimplify];
-OneLoopSimplify[ %, k];
+<pre name='i_13_in' id='i_13_in' class='IFT'>SPD[k, r] FAD[{k, m} , k - p] // FCI;
+FCE[%] /. SPD[Subscript[p, 1]] -&gt; 0 // FCI;
 FCE[%] /. SPD[Subscript[p, 1]] -&gt; 0 // FCI</pre><div class='IFU'><a name='1848776094'></a>http://wolfram.com/xid/0fnx5q0u7sai4aiu56biqky-4uzy1s</div>

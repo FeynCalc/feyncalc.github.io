@@ -1,0 +1,8 @@
+<pre name='i_31_in' id='i_31_in' class='IFT'>ClearAll[s, t, u];
+FCClearScalarProducts[];
+SP[p1] = 0;
+SP[p2] = 0;;
+% // DoPolarizationSums[#, p1, p2, ExtraFactor -&gt; 1/2] &amp; // 
+  DoPolarizationSums[#, p2, p1, ExtraFactor -&gt; 1/2] &amp; // Simplify;
+% // DoPolarizationSums[#, p1, p2, ExtraFactor -&gt; 1/2] &amp; // 
+  DoPolarizationSums[#, p2, p1, ExtraFactor -&gt; 1/2] &amp; // Simplify</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

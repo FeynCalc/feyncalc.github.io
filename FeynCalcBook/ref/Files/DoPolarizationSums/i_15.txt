@@ -1,3 +1,2 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>Table[\!\(
-\*UnderoverscriptBox[\(\[Sum]\), \(i = 1\), \(4\)]\(tt[i, i, mu, 
-   nu]\)\), {mu, 1, 4}, {nu, 1, 4}]</pre><div class='IFU'><a name='522265467'></a>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg-iw78wd</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>FCClearScalarProducts[]
+SP[p] = m^2;</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

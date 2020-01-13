@@ -1,1 +1,1 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>GluonVertex[{\[Mu], a}, {\[Nu], b}, {\[Rho], c}, {\[Sigma], d}]</pre><div class='IFU'><a name='1809122983'></a>http://wolfram.com/xid/0md0z2x3dnst5sp6x7nkwq-37d2ih</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>GV[{\[Mu], a}, {\[Nu], b}, {\[Rho], c}, {\[Sigma], d}]</pre><div class='IFU'><a name='1809122983'></a>http://wolfram.com/xid/0md0z2x3dnst5sp6x7nkwq-37d2ih</div>

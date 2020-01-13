@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Cases2[DiracSlash[p].DiracSlash[q] + ScalarProduct[p, p], Dot]</pre><div class='IFU'><a name='775837316'></a>http://wolfram.com/xid/0tn9depw6mpqkcjmiu-m3656u</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>Cases2[GS[p].GS[q] + SP[p, p], Dot]</pre><div class='IFU'><a name='775837316'></a>http://wolfram.com/xid/0tn9depw6mpqkcjmiu-m3656u</div>

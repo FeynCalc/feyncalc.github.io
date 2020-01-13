@@ -1,1 +1,1 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>ScalarProduct[Subscript[p, 1], Subscript[p, 2]] = s/2</pre><div class='IFU'><a name='1579106051'></a>http://wolfram.com/xid/0dot6agzccymmiq2pj1ca-0ef0a9</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>ScalarProduct[p, q, Dimension -&gt; D] // StandardForm</pre><div class='IFU'><a name='1173751525'></a>http://wolfram.com/xid/0dot6agzccymmiq2pj1ca-to3urb</div>

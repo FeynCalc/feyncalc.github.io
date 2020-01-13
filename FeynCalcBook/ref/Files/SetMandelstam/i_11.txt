@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FCClearScalarProducts[];
+SetMandelstam[x, {p1, p2, -p3, -p4, -p5}, {m1, m2, m3, m4, m5}] </pre><div class='IFU'>http://wolfram.com/xid/0peckcyot74q3nkyubyjaosefz</div>

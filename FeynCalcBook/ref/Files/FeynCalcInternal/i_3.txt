@@ -1,3 +1,4 @@
 <pre name='i_3_in' id='i_3_in' class='IFT'>{GA[\[Mu]], GAD[\[Rho]], GS[p], SP[p, q], MT[\[Alpha], \[Beta]], 
  FV[p, \[Mu]]};
+% // StandardForm;
 % // StandardForm</pre><div class='IFU'><a name='1982442552'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg0gy1avxvg26-62kwqy</div>

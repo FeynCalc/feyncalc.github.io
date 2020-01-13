@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>DotExpand[DOT[a x + b y + c z, d + e + f]]</pre><div class='IFU'><a name='407288908'></a>http://wolfram.com/xid/0iwhvn88gns5irehh3m-g0rwe2</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>DOT[a x + b y + c z, d + e + f]</pre><div class='IFU'>http://wolfram.com/xid/0iwhvn88gns5irehh3m</div>

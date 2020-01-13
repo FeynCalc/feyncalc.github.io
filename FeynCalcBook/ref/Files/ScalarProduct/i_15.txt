@@ -1,2 +1,1 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>ExpandScalarProduct[ 
- ScalarProduct[Subscript[p, 1] - q, Subscript[p, 2] - k]]</pre><div class='IFU'><a name='373851414'></a>http://wolfram.com/xid/0dot6agzccymmiq2pj1ca-ggu7vs</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>ScalarProduct[Subscript[p, 1], Subscript[p, 2]] = s/2</pre><div class='IFU'><a name='1579106051'></a>http://wolfram.com/xid/0dot6agzccymmiq2pj1ca-0ef0a9</div>

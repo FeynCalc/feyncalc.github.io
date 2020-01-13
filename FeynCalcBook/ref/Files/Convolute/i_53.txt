@@ -1,1 +1,0 @@
-<pre name='i_53_in' id='i_53_in' class='IFT'>ConvoluteTable[Log[1 - x]/(1 - x), 1]</pre><div class='IFU'><a name='1987067231'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbd8w0-65b059</div>

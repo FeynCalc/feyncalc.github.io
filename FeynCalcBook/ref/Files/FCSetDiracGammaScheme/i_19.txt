@@ -1,0 +1,1 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>diff = ChangeDimension[res1 - res2, D]</pre><div class='IFU'><a name='1406824487'></a>http://wolfram.com/xid/0gwt4rzmfasvnr4g440xp2syk4xzaz66m-xjvez9</div>

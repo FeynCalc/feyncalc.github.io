@@ -1,1 +1,1 @@
-<pre name='i_33_in' id='i_33_in' class='IFT'>DotSimplify[x.x.x, DotPower -&gt; False]</pre><div class='IFU'><a name='49078014'></a>http://wolfram.com/xid/0b67y1d1vpag7527vm6a-3h64g</div>
+<pre name='i_33_in' id='i_33_in' class='IFT'>DotSimplify[x.x.x]</pre><div class='IFU'>http://wolfram.com/xid/0b67y1d1vpag7527vm6a</div>

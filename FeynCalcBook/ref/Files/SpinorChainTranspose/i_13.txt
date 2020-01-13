@@ -1,0 +1,6 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>SpinorVBarD[p1, m1].GAD[\[Mu]].(GSD[p] + m).GAD[\[Mu]].SpinorUD[p2, 
+  m2];
+SpinorChainTranspose[%, 
+ Select -&gt; {{SpinorUBarD[_, _], SpinorVD[_, _]}}];
+SpinorChainTranspose[%, 
+ Select -&gt; {{SpinorUBarD[_, _], SpinorVD[_, _]}}]</pre><div class='IFU'><a name='1681222815'></a>http://wolfram.com/xid/0peckcyot74q3nk57f2qlkefmi-128p31</div>

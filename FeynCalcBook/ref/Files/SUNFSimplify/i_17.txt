@@ -1,0 +1,2 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>SDF[a, b] (SUNTF[i, a, d] SUNTF[j, d, b] + 
+   SD[i, j] SUNTF[i, a, d] SUNTF[i, d, b])</pre><div class='IFU'><a name='1780598793'></a>http://wolfram.com/xid/0isbkgaigz2n8s1ensrsdf1si-3qeo3v</div>

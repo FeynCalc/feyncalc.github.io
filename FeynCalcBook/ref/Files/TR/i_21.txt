@@ -1,2 +1,3 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>TR[GA[\[Alpha], \[Beta]], FCE -&gt; True];
-% // StandardForm</pre><div class='IFU'><a name='288461758'></a>http://wolfram.com/xid/0k6v9si2wy9y6x38x-e100sw</div>
+<pre name='i_21_in' id='i_21_in' class='IFT'>GA[\[Mu], \[Nu]];
+TR[%, SUNTrace -&gt; False, SUNNToCACF -&gt; True];
+TR[%%, SUNTrace -&gt; True, SUNNToCACF -&gt; True]</pre><div class='IFU'><a name='73677015'></a>http://wolfram.com/xid/0k6v9si2wy9y6x38x-bh5ft1</div>

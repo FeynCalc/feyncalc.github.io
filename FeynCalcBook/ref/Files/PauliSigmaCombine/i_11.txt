@@ -1,0 +1,3 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>SIS[p] + SIS[q];
+PauliSigmaCombine[%];
+PauliSigmaCombine[%]</pre><div class='IFU'><a name='742653397'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg7586733s89z-mkfxbb</div>

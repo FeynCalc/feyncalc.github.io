@@ -1,1 +1,1 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>GluonSelfEnergy[{\[Mu], a}, {\[Nu], b}, Gauge -&gt; \[Xi]]</pre><div class='IFU'><a name='1914387770'></a>http://wolfram.com/xid/0bl1sloiyx608rk88mp48g9iysweo-5x19cc</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>GluonSelfEnergy[{\[Mu], a}, {\[Nu], b}, Gauge -&gt; \[Xi], Momentum -&gt; q]</pre><div class='IFU'><a name='1914387770'></a>http://wolfram.com/xid/0bl1sloiyx608rk88mp48g9iysweo-5x19cc</div>

@@ -1,1 +1,2 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>ComplexConjugate[SUNF[a, b, c]]</pre><div class='IFU'><a name='243405382'></a>http://wolfram.com/xid/0dot6agzccymmirv6bbn2-ea7a2w</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>GS[Polarization[k1, -I, Transversality -&gt; True]].(GS[k1 - p2] + 
+   SMP[&quot;m_e&quot;]).GS[Polarization[k2, -I, Transversality -&gt; True]]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmirv6bbn2</div>

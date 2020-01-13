@@ -100,7 +100,7 @@ $(document).ready(function(){
 	}
 	//});
 	// search page text and magnifying glass
-	$('.search-all img').attr('src','/2013/images/mathematica/small-magnifying-glass.png');
+	$('.search-all img').attr('src','../images/mathematica/small-magnifying-glass.png');
 	$('#nextdemo').before('<strong>Next</strong> &raquo;');
 	$('#nextdemo').css('display','none');
 	if($('#prevdemo').length > 0 ){

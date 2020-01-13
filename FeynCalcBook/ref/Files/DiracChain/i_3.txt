@@ -1,0 +1,3 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>DiracChain[
+ DiracGamma[LorentzIndex[\[Mu], D], D].DiracGamma[
+   LorentzIndex[\[Nu], D], D], DiracIndex[i], DiracIndex[j]]</pre><div class='IFU'><a name='699845331'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5ln26-luyeed</div>

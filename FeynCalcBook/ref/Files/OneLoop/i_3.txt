@@ -1,1 +1,1 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>-I/Pi^2 FAD[{q, m}] // FCI</pre><div class='IFU'><a name='1162504480'></a>http://wolfram.com/xid/0b67y1d1vpag753658lc-tieshe</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>-I/Pi^2 FAD[{q, m}]</pre><div class='IFU'><a name='1162504480'></a>http://wolfram.com/xid/0b67y1d1vpag753658lc-tieshe</div>

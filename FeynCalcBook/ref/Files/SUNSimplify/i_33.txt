@@ -1,1 +1,2 @@
-<pre name='i_33_in' id='i_33_in' class='IFT'>SUNSimplify[SUNF[a, b, c], Explicit -&gt; True]</pre><div class='IFU'><a name='741099718'></a>http://wolfram.com/xid/0bcjf11ba4ib03moby3f50jle-mjimhk</div>
+<pre name='i_33_in' id='i_33_in' class='IFT'>SUNSimplify[SUND[a, b, c] SUND[e, b, c], 
+  SUNNToCACF -&gt; False] // Simplify</pre><div class='IFU'><a name='1134202251'></a>http://wolfram.com/xid/0bcjf11ba4ib03moby3f50jle-s1j6cd</div>

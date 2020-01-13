@@ -1,4 +1,5 @@
 <pre name='i_13_in' id='i_13_in' class='IFT'>QuantumField[A, 
   LorentzIndex[\[Mu]]].(LeftRightPartialD[OPEDelta]^2).QuantumField[A,
    LorentzIndex[\[Rho]]];
+ExpandPartialD[%];
 ExpandPartialD[%]</pre><div class='IFU'><a name='1536725497'></a>http://wolfram.com/xid/0da7yqf8j4nw85u2mitcjj-zo7m9n</div>

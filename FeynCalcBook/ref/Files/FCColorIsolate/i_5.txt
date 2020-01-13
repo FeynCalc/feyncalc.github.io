@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>ampIso = FCColorIsolate[amp, Head -&gt; colorS]</pre><div class='IFU'><a name='184667609'></a>http://wolfram.com/xid/0npwa8ny70dc8d976mtje868npg-db8cp3</div>

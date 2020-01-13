@@ -1,1 +1,1 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Isolate[Solve[x^3 - x - 1 == 0], x, IsolateNames -&gt; hh]</pre><div class='IFU'><a name='971664034'></a>http://wolfram.com/xid/0ripg176m1b0q8cvz3g-qcse1w</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>Isolate[Solve[x^3 - x - 1 == 0], x, IsolateNames -&gt; KK]</pre><div class='IFU'><a name='971664034'></a>http://wolfram.com/xid/0ripg176m1b0q8cvz3g-qcse1w</div>

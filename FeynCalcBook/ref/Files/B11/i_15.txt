@@ -1,1 +1,1 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>B11[0, m^2, m^2]</pre><div class='IFU'><a name='1384698038'></a>http://wolfram.com/xid/0tn9depw6mpqkc1ikt-w6o54o</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>B11[SmallVariable[M^2], m^2, m^2]</pre><div class='IFU'><a name='1335567043'></a>http://wolfram.com/xid/0tn9depw6mpqkc1ikt-wdf4et</div>

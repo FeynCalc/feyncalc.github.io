@@ -1,0 +1,7 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>FCClearScalarProducts[]; 
+SPD[p1, p1] = 0;
+SPD[p2, p2] = 0;
+SPD[p3, p3] = 0;
+SPD[p1, p2] = s/2; SPD[p1, p3] = -(s + t)/2; SPD[p2, p3] = t/2;;
+FCAbbreviate[%, {q}, {p1, p2, p3}, Head -&gt; spd];
+FCAbbreviate[%, {q}, {p1, p2, p3}, Head -&gt; spd]</pre><div class='IFU'><a name='1709010853'></a>http://wolfram.com/xid/04ieufm3d5y7w095i7byp5ujxf-2jsbhz</div>

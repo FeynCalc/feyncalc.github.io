@@ -1,1 +1,1 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>Pair[Momentum[-q], Momentum[p]] + Pair[Momentum[q], Momentum[p]]</pre><div class='IFU'><a name='1586756083'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbg9eq-0izy35</div>
+<pre name='i_21_in' id='i_21_in' class='IFT'>ExpandScalarProduct[Pair[Momentum[p - q], Momentum[p]]]</pre><div class='IFU'><a name='294431519'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbg9eq-e5ky3l</div>

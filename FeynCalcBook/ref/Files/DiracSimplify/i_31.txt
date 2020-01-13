@@ -1,2 +1,1 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>GAD @@ Join[{\[Mu]}, Table[Subscript[\[Nu], i], {i, 6}], {\[Mu]}];
-DiracSimplify[%]</pre><div class='IFU'><a name='789913816'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq-nckvoq</div>
+<pre name='i_31_in' id='i_31_in' class='IFT'>-1/2 GA[5].(GAD[\[Mu]].GSD[v] - FVD[v, \[Mu]]) FVD[v, \[Mu]]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

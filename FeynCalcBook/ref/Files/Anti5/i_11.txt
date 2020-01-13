@@ -1,2 +1,1 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>DiracMatrix[5, \[Alpha], \[Beta], \[Gamma], \[Delta]];
-Anti5[%%, Infinity]</pre><div class='IFU'><a name='1010214576'></a>http://wolfram.com/xid/0bc18gi5j2y46ufcm0s-qzqoua</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>Anti5[%, 2]</pre><div class='IFU'><a name='197831622'></a>http://wolfram.com/xid/0bc18gi5j2y46ufcm0s-dj2h44</div>

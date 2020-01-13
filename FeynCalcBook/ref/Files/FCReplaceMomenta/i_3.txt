@@ -1,0 +1,8 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>amp = (-I)*
+  Spinor[-Momentum[l2], ME, 1].GA[\[Mu]].Spinor[Momentum[l1], ME, 1]*
+  Spinor[Momentum[p1], SMP[&quot;m_Q&quot;], 1].GS[
+    Polarization[kp, -I, Transversality -&gt; True]].(GS[kp + p1] + 
+     SMP[&quot;m_Q&quot;]).GA[\[Mu]].Spinor[-Momentum[p2], SMP[&quot;m_Q&quot;], 1]*
+  FAD[kp + p1 + p2, Dimension -&gt; 4]*
+  FAD[{-l1 - l2 - p2, SMP[&quot;m_Q&quot;]}, Dimension -&gt; 4]*SDF[cq, cqbar]*
+  SMP[&quot;e&quot;]^3*SMP[&quot;Q_u&quot;]^2</pre><div class='IFU'><a name='652639515'></a>http://wolfram.com/xid/0ejaxdaedm6g9jpgc4pk59ce8-k2ul5p</div>

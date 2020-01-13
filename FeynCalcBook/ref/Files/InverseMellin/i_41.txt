@@ -1,1 +1,1 @@
-<pre name='i_41_in' id='i_41_in' class='IFT'>im[SumS[2, OPEm - 1]/OPEm]</pre><div class='IFU'><a name='410476681'></a>http://wolfram.com/xid/0g3d2anoefmyyrci8s9um-g2n74b</div>
+<pre name='i_41_in' id='i_41_in' class='IFT'>im[SumS[3, OPEm - 1]]</pre><div class='IFU'><a name='1961481381'></a>http://wolfram.com/xid/0g3d2anoefmyyrci8s9um-6p3mz7</div>

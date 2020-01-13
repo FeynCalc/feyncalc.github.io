@@ -1,3 +1,3 @@
 <pre name='i_7_in' id='i_7_in' class='IFT'>t = RHI[{2, 0, 0, 0, 0}, {1, 1, 1, 1, 1}];
-RussianTrick[% // RHI2FC, q2];
+FC2RHI[%];
 FC2RHI[%]</pre><div class='IFU'><a name='2066492260'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybrweuyq4fw-8gmdw2</div>

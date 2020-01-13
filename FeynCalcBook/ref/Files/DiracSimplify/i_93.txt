@@ -1,0 +1,2 @@
+<pre name='i_93_in' id='i_93_in' class='IFT'>DiracTrace[(-GSD[q] + SMP[&quot;m_e&quot;]).GAD[\[Nu]].(GSD[p - q] + 
+    SMP[&quot;m_e&quot;]).GAD[\[Mu]]] </pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

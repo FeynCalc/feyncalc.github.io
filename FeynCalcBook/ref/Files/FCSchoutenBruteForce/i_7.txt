@@ -1,0 +1,3 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>FCClearScalarProducts[];
+FCSchoutenBruteForce[%, {}, {}];
+FCSchoutenBruteForce[%, {}, {}]</pre><div class='IFU'><a name='148970268'></a>http://wolfram.com/xid/0u774fkk3gs1t9rxagm1405ygw6eiu8ulh6-cqy8ha</div>

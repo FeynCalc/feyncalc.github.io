@@ -1,0 +1,4 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FeynArts`FAFeynAmpDenominator[
+ FeynArts`FAPropagatorDenominator[Momentum[P, D], 
+  MW Sqrt[FeynArts`FAGaugeXi[W]]], 
+ FeynArts`FAPropagatorDenominator[Momentum[k, D], m]]</pre><div class='IFU'><a name='1953497285'></a>http://wolfram.com/xid/0viifcl48wt9lytqywgt3ppy2nv0s-6lcifr</div>

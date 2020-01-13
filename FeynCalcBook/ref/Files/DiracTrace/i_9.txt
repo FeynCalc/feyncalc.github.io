@@ -1,2 +1,1 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>DiracTrace[GA[\[Mu], \[Nu], \[Rho], \[Sigma], 5], 
- DiracTraceEvaluate -&gt; True]</pre><div class='IFU'><a name='196468068'></a>http://wolfram.com/xid/0dot6agzccymmitn9o70q-di890m</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>DiracSimplify[DiracTrace[GA[\[Mu], \[Nu], \[Rho], \[Sigma]]]]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o70q</div>

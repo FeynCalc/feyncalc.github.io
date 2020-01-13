@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
+<title>FCChargeConjugateTransposed&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.3, , , }" />
+<meta name="keywords" content="FCChargeConjugateTransposed" />
+
+<meta name="description" content="FCChargeConjugateTransposed[exp] represents the application of the charge conjugation operator to the transposed of exp, i.e. C exp^T C -1. Here exp is understood to be a single Dirac matrix or a chain thereof." />
+<script language="JavaScript" type="text/javascript">baselang='FCChargeConjugateTransposed';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+ 
+<div class="main-wrapper">
+<div class="outer-wrapper">
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/SpinorChainTranspose.html"><span class="dropdownPad">SpinorChainTranspose</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracGamma.html"><span class="dropdownPad">DiracGamma</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Spinor.html"><span class="dropdownPad">Spinor</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>FCChargeConjugateTransposed</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><span class="specialcharacters">FCChargeConjugateTransposed<span class="openbracket">[</span>exp<span class="closebracket">]</span></span></span> <br />represents the application of the charge conjugation operator to the transposed of <span class="IF">exp</span>, i.e. <span class="IF">C exp<sup>T</sup> C<sup>-1</sup></span>. Here <span class="IF">exp</span> is understood to be a single Dirac matrix or a chain thereof.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><a name="184725283"></a>The option setting <span class="IF">Explicit</span> determines whether the explicit result is returned or whether it is left in the unevaluated form.</li>
+     <li><a name="407289918"></a>The unevaluated form will be also maintained if the function does not know how to obtain <span class="IF">C exp<sup>T</sup> C<sup>-1</sup></span> from the given <span class="IF">exp</span>.</li>
+     <li><a name="798826111"></a>The shortcut for <a href="../ref/FCChargeConjugateTransposed.html">FCChargeConjugateTransposed</a> is <a href="../ref/FCCCT.html">FCCCT</a>.</li>
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[95]:=</td><td class="Input"><div>
+          <a name="1284994965"></a>
+          <img src="Files/FCChargeConjugateTransposed/I_2.png"
+              height="16"
+              width="229"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[95]=</td><td class="Output"><div class="output-image">
+          <img src="Files/FCChargeConjugateTransposed/O_1.png"
+              height="34"
+              width="383"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
+    </ul>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="219403019"></a>
+            <img src="Files/FCChargeConjugateTransposed/I_4.png"
+                height="16"
+                width="67"
+                alt="Click for copyable input" />
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCChargeConjugateTransposed/O_2.png"
+                height="14"
+                width="52"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <a name="1159741749"></a>
+            <img src="Files/FCChargeConjugateTransposed/I_6.png"
+                height="16"
+                width="196"
+                alt="Click for copyable input" />
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCChargeConjugateTransposed/O_3.png"
+                height="16"
+                width="113"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <a name="1573360164"></a>
+            <img src="Files/FCChargeConjugateTransposed/I_8.png"
+                height="16"
+                width="344"
+                alt="Click for copyable input" />
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCChargeConjugateTransposed/O_4.png"
+                height="14"
+                width="61"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <a name="1664135997"></a>
+            <img src="Files/FCChargeConjugateTransposed/I_10.png"
+                height="16"
+                width="33"
+                alt="Click for copyable input" />
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCChargeConjugateTransposed/O_5.png"
+                height="16"
+                width="15"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <a name="873144111"></a>
+            <img src="Files/FCChargeConjugateTransposed/I_12.png"
+                height="16"
+                width="57"
+                alt="Click for copyable input" />
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCChargeConjugateTransposed/O_6.png"
+                height="16"
+                width="75"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <a name="227446180"></a>
+            <img src="Files/FCChargeConjugateTransposed/I_14.png"
+                height="16"
+                width="69"
+                alt="Click for copyable input" />
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/FCChargeConjugateTransposed/O_7.png"
+                height="16"
+                width="15"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <p class="inlineFunctionList"><a href="../ref/SpinorChainTranspose.html">SpinorChainTranspose</a>, <a href="../ref/DiracGamma.html">DiracGamma</a>, <a href="../ref/Spinor.html">Spinor</a>.</p>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+
+
+</body></html>

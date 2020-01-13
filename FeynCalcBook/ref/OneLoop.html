@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>OneLoop&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="OneLoop" />
 
-<meta name="description" content="OneLoop[q, amplitude] calculates the one-loop Feynman diagram amplitude (n-point, where n&amp;lt;=4 and the highest tensor rank of the integration momenta (after cancellation of scalar products) may be up to 3; unless OneLoopSimplify is used). The argument q denotes the integration variable, i.e., the loop momentum. OneLoop[name, q, amplitude] has as first argument a name of the amplitude. If the second argument has head FeynAmp then OneLoop[q, FeynAmp[name, k, expr]] and OneLoop[FeynAmp[name, k, expr]] tranform to OneLoop[name, k, expr]. NOTICE: While OneLoop is restricted to &amp;apos;t Hooft Feynman gauge, the function OneLoopSimplify does not have this restriction (but is usually slower). WARNING: If you encounter anomalies: The default setting of West is True, i.e., the way tr(\[Gamma]^\[Mu] \[Gamma]^\[Nu] \[Gamma]^\[Rho] \[Gamma]^\[Sigma] \ \[Gamma]^\[Tau] \[Gamma]^\[Lambda] \[Gamma]^5) is calculated in D dimensions has changed compared to the old FeynCalc version. Please keep in mind that the issue of \[Gamma]^5schemes is inherintly tricky." />
+<meta name="description" content="OneLoop[q, amplitude] calculates the one-loop Feynman diagram amplitude. The argument q denotes the integration variable, i.e., the loop momentum. OneLoop[name, q, amplitude] has as first argument a name of the amplitude. If the second argument has head FeynAmp then OneLoop[q, FeynAmp[name, k, expr]] and OneLoop[FeynAmp[name, k, expr]] tranform to OneLoop[name, k, expr]." />
 <script language="JavaScript" type="text/javascript">baselang='OneLoop';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,19 +52,70 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/B0.html"><span class="dropdownPad">B0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/C0.html"><span class="dropdownPad">C0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/D0.html"><span class="dropdownPad">D0</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TID.html"><span class="dropdownPad">TID</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TID.html"><span class="dropdownPad">TID</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/TIDL.html"><span class="dropdownPad">TIDL</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/$LimitTo4.html"><span class="dropdownPad">$LimitTo4</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>OneLoop</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/OneLoop/1.png" height="20" width="152" alt="" /></span> <br />calculates the one-loop Feynman diagram amplitude (<em>n</em>-point, where <em>n</em><span class="special-character LessEqual">&#8804;</span>4 and the highest tensor rank of the integration momenta (after cancellation of scalar products) may be up to 3; unless OneLoopSimplify is used).
-
-The argument q denotes the integration variable, i.e., the loop momentum. OneLoop[name, q, amplitude] has as first argument a name of the amplitude. If the second argument has head FeynAmp then OneLoop[q, FeynAmp[name, k, expr]] and OneLoop[FeynAmp[name, k, expr]] tranform to OneLoop[name, k, expr].
-
-NOTICE: While OneLoop is restricted to 't Hooft Feynman gauge, the function <span>OneLoopSimplify</span> does not have this restriction (but is usually slower).
-
-WARNING: If you encounter anomalies: The default setting of West is True, i.e., the way <img src="Files/OneLoop/2.png" height="23" width="163" style="vertical-align:middle;" alt=" tr(gamma^mugamma^nugamma^rhogamma^sigmagamma^taugamma^lambdagamma^5)" title=" tr(gamma^mugamma^nugamma^rhogamma^sigmagamma^taugamma^lambdagamma^5)" /> is calculated in D dimensions has changed compared to the old FeynCalc version. Please keep in mind that the issue of <img src="Files/OneLoop/3.png" height="20" width="18" style="vertical-align:middle;" alt="gamma^5" title="gamma^5" />schemes is inherintly tricky.</p>
+   <p><span class="IF"><span class="specialcharacters">OneLoop<span class="openbracket">[</span>q<span class="comma">,</span> amplitude<span class="closebracket">]</span></span></span> <br />calculates the one-loop Feynman diagram amplitude. The argument q denotes the integration variable, i.e., the loop momentum. OneLoop[name, q, amplitude] has as first argument a name of the amplitude. If the second argument has head FeynAmp then OneLoop[q, FeynAmp[name, k, expr]] and OneLoop[FeynAmp[name, k, expr]] tranform to OneLoop[name, k, expr].</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><a name="1067943069"></a>OneLoop is deprecated, please use TID instead!</li>
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[41]:=</td><td class="Input"><div>
+          <a name="183705859"></a>
+          <img src="Files/OneLoop/I_2.png"
+              height="16"
+              width="104"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[41]=</td><td class="Output"><div class="output-image">
+          <img src="Files/OneLoop/O_1.png"
+              height="106"
+              width="485"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -60,106 +129,79 @@ WARNING: If you encounter anomalies: The default setting of West is True, i.e., 
       <div class="expanded">
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-            <a name="183705859"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_2.gif" height="17" width="117" alt="Click for copyable input" /></a>
-           </div><div id="i_1_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/OneLoop/O_1.gif" height="130" width="470" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="1162504480"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_4.gif" height="17" width="185" alt="Click for copyable input" /></a>
+            <img src="Files/OneLoop/I_4.png"
+                height="16"
+                width="119"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/OneLoop/O_2.gif" height="49" width="106" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/OneLoop/O_2.png"
+                height="41"
+                width="83"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="1041679425"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_6.gif" height="17" width="99" alt="Click for copyable input" /></a>
+            <img src="Files/OneLoop/I_6.png"
+                height="16"
+                width="86"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/OneLoop/O_3.gif" height="21" width="54" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/OneLoop/O_3.png"
+                height="18"
+                width="45"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <table class="InCell">
-        <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
-           <a name="1188939388"></a>
-           <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_8.gif" height="37" width="339" alt="Click for copyable input" /></a>
-          </div><div id="i_7_out" class="IFL"></div></td></tr>
-       </table>
-       <div class="Text"><a name="878853717"></a>Remember that FAD[{q,mf},{q-k,mf}] is a fast possibility to enter <img src="Files/OneLoop/4.png" height="19" width="217" style="vertical-align:middle;" alt="1/( (q^2-mf^2) ( (q-k)^2-mf^2) )." title="1/( (q^2-mf^2) ( (q-k)^2-mf^2) )." /></div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
             <a name="257997891"></a>
-            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_10.gif" height="77" width="454" alt="Click for copyable input" /></a>
+            <img src="Files/OneLoop/I_8.png"
+                height="68"
+                width="353"
+                alt="Click for copyable input" />
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/OneLoop/O_4.png"
+                height="45"
+                width="246"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <img src="Files/OneLoop/I_10.png"
+                height="16"
+                width="86"
+                alt="Click for copyable input" />
            </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/OneLoop/O_4.gif" height="57" width="308" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/OneLoop/O_5.png"
+                height="93"
+                width="530"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1557552127"></a>The input to OneLoop may be in 4 dimensions, since the function changes the dimension of the objects automatically to the setting of the Dimension option (D by default).</div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
-            <a name="1098604939"></a>
-            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_12.gif" height="17" width="93" alt="Click for copyable input" /></a>
-           </div><div id="i_11_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/OneLoop/O_5.gif" height="112" width="464" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
-            <a name="67502148"></a>
-            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_14.gif" height="17" width="101" alt="Click for copyable input" /></a>
-           </div><div id="i_13_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/OneLoop/O_6.gif" height="52" width="493" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
-            <a name="784091824"></a>
-            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_16.gif" height="17" width="232" alt="Click for copyable input" /></a>
-           </div><div id="i_15_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/OneLoop/O_7.gif" height="54" width="130" alt="" /></td></tr>
-        </table>
-       </div>
-       <div class="IO">
-        <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
-            <a name="128259577"></a>
-            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_18.gif" height="17" width="100" alt="Click for copyable input" /></a>
-           </div><div id="i_17_out" class="IFL"></div></td></tr>
-        </table>
-        <table class="OCell">
-         <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/OneLoop/O_8.gif" height="113" width="474" alt="" /></td></tr>
-        </table>
-       </div>
-       <table class="InCell">
-        <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
-           <a name="1779805039"></a>
-           <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/OneLoop/I_20.gif" height="17" width="54" alt="Click for copyable input" /></a>
-          </div><div id="i_19_out" class="IFL"></div></td></tr>
-       </table>
       </div>
      </div>
     </div>
@@ -175,7 +217,7 @@ WARNING: If you encounter anomalies: The default setting of West is True, i.e., 
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="1073109549"></a><a href="../ref/B0.html">B0</a>, <a href="../ref/C0.html">C0</a>, <a href="../ref/D0.html">D0</a>, <a href="../ref/OneLoopSimplify.html">OneLoopSimplify</a>, <a href="../ref/TID.html">TID</a>, <a href="../ref/TIDL.html">TIDL</a>, <a href="../ref/$LimitTo4.html">$LimitTo4</a></div>
+    <p class="inlineFunctionList"><a href="../ref/B0.html">B0</a>, <a href="../ref/C0.html">C0</a>, <a href="../ref/D0.html">D0</a>, <a href="../ref/TID.html">TID</a>, <a href="../ref/TID.html">TID</a>, <a href="../ref/TIDL.html">TIDL</a>, <a href="../ref/$LimitTo4.html">$LimitTo4</a></p>
    </div>
   </div>
  </div>
@@ -184,7 +226,6 @@ WARNING: If you encounter anomalies: The default setting of West is True, i.e., 
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

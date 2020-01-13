@@ -1,0 +1,22 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>amp = Spinor[Momentum[p2], SMP[&quot;m_u&quot;], 
+     1].(-I GA[\[Mu]] SMP[&quot;g_s&quot;] SUNTF[{Glu2}, Col3, 
+       Col5]).(GS[-k1 + p2] + 
+      SMP[&quot;m_u&quot;]).(-I GA[\[Nu]] SMP[&quot;g_s&quot;] SUNTF[{Glu4}, Col5, 
+       Col1]).Spinor[Momentum[p1], SMP[&quot;m_u&quot;], 1] FAD[{k1 - p2, 
+     SMP[&quot;m_u&quot;]}, Dimension -&gt; 4] FV[Polarization[k1, I], \[Mu]] FV[
+    Polarization[k2, -I], \[Nu]] + 
+  Spinor[Momentum[p2], SMP[&quot;m_u&quot;], 
+     1].(-I GA[\[Nu]] SMP[&quot;g_s&quot;] SUNTF[{Glu4}, Col3, Col5]).(GS[
+       k2 + p2] + 
+      SMP[&quot;m_u&quot;]).(-I GA[\[Mu]] SMP[&quot;g_s&quot;] SUNTF[{Glu2}, Col5, 
+       Col1]).Spinor[Momentum[p1], SMP[&quot;m_u&quot;], 1] FAD[{-k2 - p2, 
+     SMP[&quot;m_u&quot;]}, Dimension -&gt; 4] FV[Polarization[k1, I], \[Mu]] FV[
+    Polarization[k2, -I], \[Nu]] - 
+  Spinor[Momentum[p2], SMP[&quot;m_u&quot;], 
+     1].(-I GA[Lor3] SMP[&quot;g_s&quot;] SUNTF[{Glu5}, Col3, Col1]).Spinor[
+     Momentum[p1], SMP[&quot;m_u&quot;], 1] FAD[-k1 + k2, Dimension -&gt; 4] FV[
+    Polarization[k1, I], \[Mu]] FV[Polarization[k2, -I], \[Nu]] MT[
+    Lor3, Lor4] (FV[2 k1 - k2, \[Nu]] MT[Lor4, \[Mu]] + 
+     FV[-k1 + 2 k2, \[Mu]] MT[Lor4, \[Nu]] + 
+     FV[-k1 - k2, Lor4] MT[\[Mu], \[Nu]]) SMP[&quot;g_s&quot;] SUNF[Glu2, Glu4, 
+    Glu5]</pre><div class='IFU'><a name='678574635'></a>http://wolfram.com/xid/005ib61n5qgf6h9518qoap29mg0-liahtp</div>

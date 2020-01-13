@@ -1,1 +1,1 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>FAD[p] FAD[p - q] // FeynAmpDenominatorCombine // StandardForm</pre><div class='IFU'><a name='844291899'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbf8xv-n8yd21</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>FAD[q, p - q] // FCI // StandardForm</pre><div class='IFU'><a name='2024009960'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbf8xv-7rbuc6</div>

@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>SMP&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="SMP" />
 
-<meta name="description" content="SMP[par] displays a symbol for the model parameter par. Typical parameters are masses, coupling constants, mixing angles etc. Parameters that are complex, like CKM matrix element, have an I as an additional parameter, i.e. SMP[\&amp;quot;V_ud\&amp;quot;,I] and SMP[\&amp;quot;V_ud\&amp;quot;,-I]. SMP[] shows the list of available parameters.&amp;quot;" />
+<meta name="description" content="SMP[&amp;quot;par&amp;quot;] displays a symbol for the model parameter &amp;quot;par&amp;quot;." />
 <script language="JavaScript" type="text/javascript">baselang='SMP';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,13 +52,35 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/SMVertex.html"><span class="dropdownPad">SMVertex</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>SMP</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/SMP/1.png" height="20" width="62" alt="" /></span> <br />displays a symbol for the model parameter par. Typical parameters are masses, coupling constants, mixing angles etc. Parameters that are complex, like CKM matrix element, have an I as an additional parameter, i.e. SMP[\&quot;V_ud\&quot;,I] and SMP[\&quot;V_ud\&quot;,-I].  SMP[] shows the list of available parameters.&quot;</p>
+   <p><span class="IF"><span class="specialcharacters">SMP<span class="openbracket">[</span>&quot;par&quot;<span class="closebracket">]</span></span></span> <br />displays a symbol for the model parameter <span class="IF">&quot;par&quot;</span>.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><a name="1067943069"></a>Typical parameters are masses, coupling constants, mixing angles etc. </li>
+     <li>Parameters that are complex, like CKM matrix element, have an <span class="IF">I</span> as an additional argument, i.e. <span class="IF"><span class="specialcharacters">SMP<span class="openbracket">[</span>&quot;V_ud&quot;<span class="comma">,</span>I<span class="closebracket">]</span></span></span> and <span class="IF"><span class="specialcharacters">SMP<span class="openbracket">[</span>&quot;V_ud&quot;<span class="comma">,</span>-I<span class="closebracket">]</span></span></span>.  </li>
+     <li><span class="IF"><span class="specialcharacters">SMP<span class="openbracket">[</span><span class="closebracket">]</span></span></span> shows the list of all available parameters.</li>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -50,39 +90,86 @@
    <div class="expanded">
     <div class="expandSubWrap">
      <div class="expandSubOuter">
-      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(3)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(3)</span></a></h3>
       <div class="expanded">
+       <li>Electron mass <span class="IF">m<sub>e</sub></span></li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="519370115"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/SMP/I_2.gif" height="17" width="85" alt="Click for copyable input" /></a>
+            <img src="Files/SMP/I_2.png"
+                height="16"
+                width="73"
+                alt="Click for copyable input" />
            </div><div id="i_1_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/SMP/O_1.gif" height="15" width="19" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SMP/O_1.png"
+                height="14"
+                width="18"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
+       <div class="ExLine"><!-- --></div>
+       <li>Weak coupling constant <span class="IF">g<sub>W</sub></span></li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
-            <a name="947204407"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/SMP/I_4.gif" height="17" width="40" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <img src="Files/SMP/I_4.png"
+                height="33"
+                width="74"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/SMP/O_2.gif" height="92" width="515" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SMP/O_2.png"
+                height="15"
+                width="21"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <li>List all available <a href="../ref/SMP.html">SMP</a>'s</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="947204407"></a>
+            <img src="Files/SMP/I_6.png"
+                height="16"
+                width="34"
+                alt="Click for copyable input" />
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SMP/O_3.png"
+                height="3144"
+                width="155"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="307037125"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/SMP/I_6.gif" height="17" width="91" alt="Click for copyable input" /></a>
-           </div><div id="i_5_out" class="IFL"></div></td></tr>
+            <img src="Files/SMP/I_8.png"
+                height="16"
+                width="126"
+                alt="Click for copyable input" />
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/SMP/O_3.gif" height="62" width="478" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SMP/O_4.png"
+                height="237"
+                width="483"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -100,7 +187,9 @@
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="450516788"></a><a href="../ref/SMVertex.html">SMVertex</a>.</div>
+    <p class="inlineFunctionList">
+     <a href="../ref/SMVertex.html">SMVertex</a>
+    </p>
    </div>
   </div>
  </div>
@@ -109,7 +198,6 @@
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Options[FeynRule]</pre><div class='IFU'><a name='1110862301'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-snnw4f</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>Options[FeynRule]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

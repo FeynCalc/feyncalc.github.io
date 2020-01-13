@@ -1,3 +1,2 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>Table[\!\(
-\*UnderoverscriptBox[\(\[Sum]\), \(mu = 1\), \(4\)]\(tt[i, j, mu, 
-   mu]\)\), {i, 1, 4}, {j, 1, 4}]</pre><div class='IFU'><a name='1912639269'></a>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg-5w0r6v</div>
+<pre name='i_17_in' id='i_17_in' class='IFT'>Pair[LorentzIndex[\[Mu]], Momentum[Polarization[p, -I]]] Pair[
+  LorentzIndex[\[Nu]], Momentum[Polarization[p, I]]]</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

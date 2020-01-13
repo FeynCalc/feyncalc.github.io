@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>B00[SP[p], m^2, m^2]</pre><div class='IFU'><a name='1244341296'></a>http://wolfram.com/xid/0cft6mr0tvnz3ela8o7-uu4t6a</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>B00[SPD[p], m^2, M^2, BReduce -&gt; False]</pre><div class='IFU'><a name='1245211962'></a>http://wolfram.com/xid/0cft6mr0tvnz3ela8o7-uvnhzg</div>

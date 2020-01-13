@@ -1,2 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>dtr1 = DiracTrace[
-  GA[mu].(GS[p1] + m1).GA[nu].(GS[p2] + m2).GA[rho] + x]</pre><div class='IFU'><a name='55860621'></a>http://wolfram.com/xid/0fnx5q0u7sai4aeanz0iiua-7jkl7</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>Options[FCTraceExpand]</pre><div class='IFU'>http://wolfram.com/xid/0fnx5q0u7sai4aeanz0iiua</div>

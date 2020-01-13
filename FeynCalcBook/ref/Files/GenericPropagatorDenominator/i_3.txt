@@ -1,0 +1,5 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>FeynAmpDenominator[
+ GenericPropagatorDenominator[
+  2 z Pair[Momentum[p1, D], Momentum[Q, D]] Pair[Momentum[p2, D], 
+     Momentum[Q, D]] - Pair[Momentum[p1, D], Momentum[p2, D]], {1, 
+   1}]]</pre><div class='IFU'><a name='1129234700'></a>http://wolfram.com/xid/0in692beymq2gojm19kygi4acln57by-sylpcu</div>

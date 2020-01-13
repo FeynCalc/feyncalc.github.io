@@ -1,1 +1,1 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>SetOptions[ToDistribution, PlusDistribution -&gt; PlusDistribution]</pre><div class='IFU'><a name='1230244334'></a>http://wolfram.com/xid/01ipebruqvo0z6doktbp2-umqov0</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>ToDistribution[(1 - x)^(Epsilon - 1), x, PlusDistribution -&gt; pd]</pre><div class='IFU'><a name='1094502312'></a>http://wolfram.com/xid/01ipebruqvo0z6doktbp2-sdw9oa</div>

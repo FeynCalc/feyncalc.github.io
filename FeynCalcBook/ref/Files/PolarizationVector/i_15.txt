@@ -1,2 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>a3 = PolarizationVector[k - p, \[Mu], 
-   Transversality -&gt; True] FourVector[p, \[Mu]]</pre><div class='IFU'><a name='367797496'></a>http://wolfram.com/xid/0cy370nkq1aepack2rsv8ii-gc9gne</div>

@@ -1,1 +1,1 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>B0 // Options</pre><div class='IFU'><a name='168010706'></a>http://wolfram.com/xid/0d35nshtg4an51xvzfg7-c2bb6c</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>B0[s, 0, s, B0Real -&gt; True, B0Unique -&gt; True]</pre><div class='IFU'><a name='848873063'></a>http://wolfram.com/xid/0d35nshtg4an51xvzfg7-obokxl</div>

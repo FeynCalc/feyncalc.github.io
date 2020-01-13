@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>DiracGammaT[LorentzIndex[\[Mu]]];
-Transpose[%]</pre><div class='IFU'><a name='1231382405'></a>http://wolfram.com/xid/0gb5m6l6ty1j71gq48wt47-une203</div>

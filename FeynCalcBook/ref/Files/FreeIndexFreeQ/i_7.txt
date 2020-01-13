@@ -1,0 +1,3 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>FCI[FV[p, \[Mu]] FV[q, \[Nu]]];
+FreeIndexFreeQ[%, {LorentzIndex}];
+FreeIndexFreeQ[%, {LorentzIndex}]</pre><div class='IFU'><a name='2058588956'></a>http://wolfram.com/xid/0teu55sspea5oyni9zslex4j-8bwzou</div>

@@ -1,1 +1,2 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>SetOptions[SplittingFunction, Polarization -&gt; 0];</pre><div class='IFU'><a name='665292837'></a>http://wolfram.com/xid/0da7yqf8j4nw85s4l5bwcy-ladtiv</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>SplittingFunction[Pqq, Polarization -&gt; 0] /. 
+ FCGV[z_] :&gt; ToExpression[z]</pre><div class='IFU'><a name='2029473456'></a>http://wolfram.com/xid/0da7yqf8j4nw85s4l5bwcy-7ukx0y</div>

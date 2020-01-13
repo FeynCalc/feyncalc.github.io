@@ -1,0 +1,9 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>(-I)*Spinor[-Momentum[l2], ME, 1].GA[\[Mu]].Spinor[Momentum[l1], ME, 
+   1]*Spinor[Momentum[p1], SMP[&quot;m_Q&quot;], 1].GS[
+   Polarization[kp, -I, Transversality -&gt; True]].(GS[kp + p1] + 
+    SMP[&quot;m_Q&quot;]).GA[\[Mu]].Spinor[-Momentum[p2], SMP[&quot;m_Q&quot;], 1]*
+ FAD[kp + p1 + p2, Dimension -&gt; 4]*
+ FAD[{-l1 - l2 - p2, SMP[&quot;m_Q&quot;]}, Dimension -&gt; 4]*SDF[cq, cqbar]*
+ SMP[&quot;e&quot;]^3*SMP[&quot;Q_u&quot;]^2;
+FCRerouteMomenta[%, {l1, l2}, {p1, p2, kp}];
+FCRerouteMomenta[%, {l1, l2}, {p1, p2, kp}]</pre><div class='IFU'><a name='216847885'></a>http://wolfram.com/xid/0ez33esw5zap4vqlzg7ak9bqslyz9w-dvd26n</div>

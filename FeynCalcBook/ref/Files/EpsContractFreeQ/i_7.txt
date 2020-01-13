@@ -1,0 +1,3 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>FCI[LC[p1, p2, p3, p4]];
+EpsContractFreeQ[%];
+EpsContractFreeQ[%]</pre><div class='IFU'><a name='1103072881'></a>http://wolfram.com/xid/0racumaqnpu17b2g74eqyc2rn-si0yrn</div>

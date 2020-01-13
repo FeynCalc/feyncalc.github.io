@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Spinor[p1, m1].DiracGamma[LorentzIndex[\[Mu]]].Spinor[p2, m2];
-% // ChisholmSpinor</pre><div class='IFU'><a name='970486194'></a>http://wolfram.com/xid/0l75u4ugf9g0wlsezo0u1wsug05u-qb2574</div>

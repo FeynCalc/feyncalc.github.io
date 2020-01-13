@@ -1,0 +1,3 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>FCGramMatrix[{p1, p2}];
+Det[%];
+Det[%]</pre><div class='IFU'><a name='1020838088'></a>http://wolfram.com/xid/0fnx5q0u7sai4aean0h7btu-q52dzu</div>

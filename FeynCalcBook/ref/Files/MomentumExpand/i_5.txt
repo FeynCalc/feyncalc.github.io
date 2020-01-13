@@ -1,2 +1,3 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>ScalarProduct[p + q, r];
+<pre name='i_5_in' id='i_5_in' class='IFT'>MomentumExpand[Momentum[p + q]] // StandardForm;
+% // StandardForm;
 % // StandardForm</pre><div class='IFU'><a name='422127778'></a>http://wolfram.com/xid/0teu55sspea5oyjkieo1t9cy-g9lx5w</div>

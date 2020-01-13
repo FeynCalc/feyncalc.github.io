@@ -1,0 +1,2 @@
+<pre name='i_23_in' id='i_23_in' class='IFT'>DiracReduce[GA[\[Mu], \[Nu], \[Rho], \[Sigma]], 
+ FinalSubstitutions -&gt; {}]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o86q</div>

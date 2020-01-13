@@ -1,0 +1,3 @@
+<pre name='i_45_in' id='i_45_in' class='IFT'>MT[\[Mu], \[Nu]] FV[p, \[Mu]];
+Contract[%];
+Contract[%]</pre><div class='IFU'>http://wolfram.com/xid/0e4r12d60dd5cst84i</div>

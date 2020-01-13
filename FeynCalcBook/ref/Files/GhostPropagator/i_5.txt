@@ -1,1 +1,3 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>GhostPropagator[p]</pre><div class='IFU'><a name='357152074'></a>http://wolfram.com/xid/0br0qd3s106ml2q40mdep3up6162-f6xak8</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>GhostPropagator[p, a, b];
+Explicit[%];
+Explicit[%]</pre><div class='IFU'>http://wolfram.com/xid/0br0qd3s106ml2q40mdep3up6162</div>

@@ -1,1 +1,4 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>tt[i_, j_, mu_, nu_] := ee[i][mu] ee[j][nu]</pre><div class='IFU'><a name='1862975452'></a>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg-43gbce</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>FCClearScalarProducts[]
+SP[p] = 0;;
+DoPolarizationSums[%, p, 0];
+DoPolarizationSums[%, p, 0]</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

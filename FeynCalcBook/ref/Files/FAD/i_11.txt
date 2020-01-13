@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FAD[p] FAD[p - q] // 
+  FeynAmpDenominatorCombine[#, FCE -&gt; True] &amp; // StandardForm</pre><div class='IFU'><a name='844291899'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbf8xv-n8yd21</div>

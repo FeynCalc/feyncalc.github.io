@@ -1,0 +1,3 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>SFAD[p1];
+FCLoopBasisIntegralToPropagators[%, {p1}];
+FCLoopBasisIntegralToPropagators[%, {p1}]</pre><div class='IFU'><a name='1918606203'></a>http://wolfram.com/xid/07do29az9ac9tu89qht6fwa41rbxalq7lnzq8-50koa1</div>

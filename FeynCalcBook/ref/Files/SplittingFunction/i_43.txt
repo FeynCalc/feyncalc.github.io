@@ -1,1 +1,2 @@
-<pre name='i_43_in' id='i_43_in' class='IFT'>SplittingFunction[aggd]</pre><div class='IFU'><a name='1079830623'></a>http://wolfram.com/xid/0da7yqf8j4nw85s4l5bwcy-r46sxd</div>
+<pre name='i_43_in' id='i_43_in' class='IFT'>SplittingFunction[PQQNS, Polarization -&gt; 1] /. 
+ FCGV[z_] :&gt; ToExpression[z]</pre><div class='IFU'><a name='111584241'></a>http://wolfram.com/xid/0da7yqf8j4nw85s4l5bwcy-b4pw8j</div>

@@ -1,7 +1,6 @@
 /* ################################################## */
 /* # ROOT GUIDE                                       */
 /* ################################################## */
-body#languageRootGuide { background:#4d4d4d url('../images/body-bg.png') repeat-x; }
 body#rootGuide { background:#4d4d4d url('../images/body-bg.png') repeat-x; }
 #rootGuide  .wrapper { width: 706px; font-family: Helvetica !important; position: relative; margin-bottom: 100px; }
 body > #rootGuide .wrapper { height: 100%; }
@@ -60,28 +59,29 @@ body > #rootGuide .wrapper { height: 100%; }
   
 #rootGuide .root-guide-seo p { margin: 20px 25px 0; font-size: 10px; line-height: 14px; color: #ddd; }
 
-#languageRootGuide body { text-align:center;margin:0px;padding:0px; background:#4d4d4d url('../images/body-bg.png') repeat-x; }
+#languageRootGuide { text-align:center;margin:0px;padding:0px; background:#4d4d4d url('../images/body-bg.png') repeat-x !important; }
 #languageRootGuide body, #languageRootGuide p, #languageRootGuide td, #languageRootGuide tr, #languageRootGuide blockquote { font: 11px/15px Arial, Geneva ,sans-serif; }
+#languageRootGuide .language-1 { width: 278px; height: 32px; display: inline-block; position: absolute; top: 20px; left: 0; }
+#languageRootGuide .language-2 { width: 132px; height: 32px; display: inline-block; position: absolute; top: 20px; left: 278px; }
+#languageRootGuide .language-3 { width: 325px; height: 32px; position: absolute; top: 53px; }
 
 #languageRootGuide .header { margin: 60px auto 10px; background: url('../images/top-header.png') no-repeat; width: 920px; height: 77px; text-align: right; padding-bottom: 20px; }
 #languageRootGuide .header-inner { width: auto; background: transparent; }
-
 #languageRootGuide .outer-wrapper { background: transparent; padding: 0 0 250px 0; }
-#languageRootGuide .container { max-width:937px; margin:0px auto 90px auto; padding: 0 0 40px;}
-#languageRootGuide .thumb { text-align: left; position: relative; display: inline-block; margin: 5px; width:222px; height:152px; box-shadow: 0px 0px 9px rgba(0,0,0,.3); cursor: pointer; }
+#languageRootGuide .container { width:930px; margin:0px auto 90px auto; padding: 0 0 40px; text-align: left; }
+#languageRootGuide .thumb { text-align: left; position: relative; display: inline-block; float: left; margin: 5px; width:222px; height:152px; box-shadow: 0px 0px 9px rgba(0,0,0,.3); cursor: pointer; }
   #languageRootGuide .thumb a:link img{border-color:#ccc;}
   #languageRootGuide .thumb a:hover img{border-color:#ffbf4c;}
 
-#languageRootGuide .links-list { width: 299px; background: #fff; position: absolute; top: 80px; display: none; z-index: 9999; box-shadow: 0px 0px 9px rgba(0,0,0,.3); cursor: default; font-family: Arial, Helvetica, sans-serif; }
+#languageRootGuide .links-list { width: 299px; background: #fff; position: absolute; top: 100px; display: none; z-index: 9999; box-shadow: 0px 0px 9px rgba(0,0,0,.3); cursor: default; font-family: Arial, Helvetica, sans-serif; }
   #languageRootGuide .links-list ul { list-style-type: none; margin: 11px 0px 14px 0px; padding: 0; }
     #languageRootGuide .links-list ul li { background: none; padding: 0px; margin: .75em 0; }
   #languageRootGuide .links-list a { font-weight: bold; font-size: 14px; line-height: 1.3em; padding: 3px 15px; margin: 5px 0; display: block; cursor: pointer; }
   #languageRootGuide .links-list a:hover { background: #dadada; }
 
-#languageRootGuide .thumb { width: 299px; height: 80px; }
-#languageRootGuide .podheader { width: 299px; height: 80px; display: table-cell; vertical-align: middle; font-family: 'Open Sans', serif; }
+#languageRootGuide .thumb { width: 299px; height: 100px; }
+#languageRootGuide .podheader { width: 299px; height: 100px; display: table-cell; vertical-align: middle; font-family: 'Open Sans', serif; }
   #languageRootGuide .podheader .title { color: #fff; font-size: 17px; line-height: 1.4em; display: inline-block; width: 160px; padding: 0 0 0 20px; text-shadow: 0px 1px 4px rgba(0,0,0,.3); }
-
 
 #languageRootGuide .icon1 { background: url('../images/icon_corelang.png') right center no-repeat; }
 #languageRootGuide .icon2 { background: url('../images/icon_symbolic.png') right center no-repeat; }
@@ -130,7 +130,7 @@ body > #rootGuide .wrapper { height: 100%; }
 #languageRootGuide .greybg {background:url('../images/greypod.png') repeat-x;}
 #languageRootGuide .greybg:hover {background:url('../images/greypodover.png') repeat-x;}
 
-#languageRootGuide .footer-link a { color: #ccc; margin: 10px 0 0 25px; display: none; }
+#languageRootGuide .footer-link a { color: #ccc; margin: 10px 0 0 25px; display: inline-block; }
 #languageRootGuide .footer-link a:hover { color: #fff; }
 
 #languageRootGuide .clearfloats { clear: both; }
@@ -143,12 +143,3 @@ body > #rootGuide .wrapper { height: 100%; }
 .noscript { color: #ccc; background: #555; padding: 10px 15px; border: 1px solid #888; margin: 20px 5px; }
   .noscript a { color: #e77477; }
     .noscript a:hover { color: #bb7777; }
-    
-@media all and (max-width: 951px) {
-    #languageRootGuide .container { width: 627px; }
-}
-
-@media all and (max-width: 638px) {
-    #languageRootGuide .container { width: 300px; }
-}
-

@@ -1,1 +1,1 @@
-<pre name='i_47_in' id='i_47_in' class='IFT'>twof = Select[r3, Count[#, SUNF[__]] === 2 &amp;]</pre><div class='IFU'><a name='1693929986'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-2as200</div>
+<pre name='i_47_in' id='i_47_in' class='IFT'>r3 = r2 - twof + twofnew</pre><div class='IFU'><a name='1144637557'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-s7rt9z</div>

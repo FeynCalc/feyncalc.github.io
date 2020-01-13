@@ -1,1 +1,1 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>t5 = GS[a + b] . GS[p].GS[p].GS[c + d]</pre><div class='IFU'><a name='1879344534'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq-5c65s4</div>
+<pre name='i_19_in' id='i_19_in' class='IFT'>GAD[\[Mu], \[Nu], \[Mu]]</pre><div class='IFU'><a name='149362799'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq-cq7ncx</div>

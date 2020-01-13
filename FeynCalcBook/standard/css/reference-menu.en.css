@@ -3,7 +3,7 @@
 /* ################################################## */
 
 /* general */
-#menu { height: 56px; background:url('/2013/images/topnav-bg.png') repeat-x; text-align: center; width: 100%; }
+#menu { height: 56px; background:url('../images/topnav-bg.png') repeat-x; text-align: center; width: 100%; }
 #menu table { width: 929px; margin: -5px auto 0 !important; text-align: left; height: 54px; vertical-align: middle; }
 #menu .logo { background: url('/common/images2010/wolframlogo10-red.gif') left 10px no-repeat; }
 #menu .logo img { margin: 0; }

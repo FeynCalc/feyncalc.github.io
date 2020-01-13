@@ -26,8 +26,8 @@ h2.overviews { margin-left: 40px; font-size: 14px; }
 .overviews h6, .overviews h6 a { margin: 0 0 0 20px; font-size: 11px; line-height: 15px; font-weight: normal; color: #1a1a1a; }
 	.overviews h6.first {  }
 
-.overviews .expandInner .expand { background: url('/2013/images/expand-arrow-off4.png') no-repeat 28px center; }
-.overviews .expandInner .collapse { background: url('/2013/images/expand-arrow-on4.png') no-repeat 0px center !important; }
+.overviews .expandInner .expand { background: url('../images/expand-arrow-off4.png') no-repeat 28px center; }
+.overviews .expandInner .collapse { background: url('../images/expand-arrow-on4.png') no-repeat 0px center !important; }
 
 .overviews a { color: #142899 !important; display: inline; }
   .overviews .expanded h3 a { background-position: 4px center; }
@@ -38,13 +38,13 @@ h2.overviews { margin-left: 40px; font-size: 14px; }
 .overviews  h3 a:hover, .overviews h4 a:hover, .overviews h5 a:hover, .overviews h6 a:hover { color: #da6525 !important; }
 
 .overviews .expandSubInner { line-height: 20px !important; }
-    .overviews .expandSubInner .collapse { margin-left: -14px !important; padding-left: 14px; height: 20px; background: url('/2013/images/expand-arrow-sub-on2.png') no-repeat 0px center !important; }
-    .overviews .expandSubInner .expand { margin-left: -14px !important; padding-left: 14px; height: 20px; background: url('/2013/images/expand-arrow-sub-off2.png') no-repeat 0px center !important; }
+    .overviews .expandSubInner .collapse { margin-left: -14px !important; padding-left: 14px; height: 20px; background: url('../images/expand-arrow-sub-on2.png') no-repeat 0px center !important; }
+    .overviews .expandSubInner .expand { margin-left: -14px !important; padding-left: 14px; height: 20px; background: url('../images/expand-arrow-sub-off2.png') no-repeat 0px center !important; }
 	.overviews .expandSubInner a { padding: 0px; }
 	.overviews .expandSubsubInner a { padding: 0px !important; }
 	.overviews .expandSubsubInner .expand, .overviews .expandSubsubInner .collapse { margin-left: -15px !important; padding: 15px !important; }
-	.overviews .expandSubsubsubInner .collapse { margin-left: -14px !important; padding-left: 14px; height: 20px; background: url('/2013/images/expand-arrow-sub-on2.png') no-repeat 0px center !important; }
-    .overviews .expandSubsubsubInner .expand { margin-left: -14px !important; padding-left: 14px; height: 20px; background: url('/2013/images/expand-arrow-sub-off2.png') no-repeat 0px center !important; }
+	.overviews .expandSubsubsubInner .collapse { margin-left: -14px !important; padding-left: 14px; height: 20px; background: url('../images/expand-arrow-sub-on2.png') no-repeat 0px center !important; }
+    .overviews .expandSubsubsubInner .expand { margin-left: -14px !important; padding-left: 14px; height: 20px; background: url('../images/expand-arrow-sub-off2.png') no-repeat 0px center !important; }
 .overviews .expanded  { padding-top: 0; }
 
 	.overviews .collapse, .overviews  .expandSubOuter .collapse, .overviews  .expandSubsubOuter .collapse {margin: 0; display: inline; }

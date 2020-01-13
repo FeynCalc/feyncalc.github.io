@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>FCLoopBasisCreateScalarProducts[{l}, {}, {D - 1}, CartesianPair]</pre><div class='IFU'><a name='2129701176'></a>http://wolfram.com/xid/0brao17wzeee098zs3985yfc1ylcqpmur7-9h858a</div>

@@ -24,8 +24,8 @@ table.OCell { margin-bottom:20px; }
       .IFF form { width: 400px; margin: 12px 0 0 12px; padding: 0; }
         .IFF textarea { width: 394px; margin: 0; padding: 2px; font: 11px/14px Verdana, Arial, sans-serif; background: #fff; border: 1px solid #cccccc; }
       .IFF .mailLink { width: 40px; }
-        .IFF .mailLink a { background: url('/2013/images/input-mail.gif') no-repeat left center; padding-left: 15px; color: #aaaaaa; }
-          .IFF .mailLink a:hover { background-image: url('/2013/images/input-mail-over.gif'); color: #df6600; }
+        .IFF .mailLink a { background: url('../images/input-mail.gif') no-repeat left center; padding-left: 15px; color: #aaaaaa; }
+          .IFF .mailLink a:hover { background-image: url('../images/input-mail-over.gif'); color: #df6600; }
     .IFF .bottomStuff { margin: 12px; }
     .IFF .closePopup, .IFF .IFU { float: right; text-align: right; }
       .IFF .closePopup { width: auto; height: 15px; margin-right: 4px; font: 12px/15px Verdana, sans-serif; font-weight: bold; }

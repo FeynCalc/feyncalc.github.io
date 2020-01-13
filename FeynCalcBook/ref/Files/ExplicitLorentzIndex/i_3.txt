@@ -1,2 +1,3 @@
 <pre name='i_3_in' id='i_3_in' class='IFT'>Pair[LorentzIndex[1], LorentzIndex[\[Mu]]];
+% // StandardForm;
 % // StandardForm</pre><div class='IFU'><a name='93969146'></a>http://wolfram.com/xid/0bgqqkexz7jd8xnkqihhrae39izqk9-bt8dcc</div>

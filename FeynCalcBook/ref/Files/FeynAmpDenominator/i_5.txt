@@ -1,1 +1,2 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>t = FeynAmpDenominator[PropagatorDenominator[p, m]];</pre><div class='IFU'><a name='1741601383'></a>http://wolfram.com/xid/005ib61n5qgf6h9ypea9diq430u-226uih</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>FeynAmpDenominator[PropagatorDenominator[Momentum[p, D], m]] // 
+  FCE // StandardForm</pre><div class='IFU'><a name='1592188506'></a>http://wolfram.com/xid/005ib61n5qgf6h9ypea9diq430u-0l8ess</div>

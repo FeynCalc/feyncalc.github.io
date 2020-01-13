@@ -1,0 +1,1 @@
+<pre name='i_57_in' id='i_57_in' class='IFT'>FCSetDiracGammaScheme[&quot;BMHV&quot;];</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o70q</div>

@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FAD[{q, m}, {q - p, 0}] // FCI;
-PropagatorDenominatorExplicit[%] // FCE</pre><div class='IFU'><a name='1414487344'></a>http://wolfram.com/xid/0bxw8wpmbjexmnqywmlwmzvdesgu35r0s-xofnpe</div>

@@ -1,1 +1,1 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>SUNDelta[1, 2] // FCI // StandardForm</pre><div class='IFU'><a name='1853160304'></a>http://wolfram.com/xid/0cocv9p3k6ad7ma5v23sm4re-4xlxxe</div>
+<pre name='i_19_in' id='i_19_in' class='IFT'>SD[1, 2] // FCI // StandardForm</pre><div class='IFU'><a name='1853160304'></a>http://wolfram.com/xid/0cocv9p3k6ad7ma5v23sm4re-4xlxxe</div>

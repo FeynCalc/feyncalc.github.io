@@ -1,0 +1,1 @@
+<pre name='i_25_in' id='i_25_in' class='IFT'>DiracSimplify[GS[q].(GS[p - q])]</pre><div class='IFU'>http://wolfram.com/xid/0bhbk9z6xqab8ybj96ginile</div>

@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FCReplaceMomenta[amp, {p1 -&gt; P + 1/2 q, p2 -&gt; P - 1/2 q}]</pre><div class='IFU'><a name='1708580280'></a>http://wolfram.com/xid/0ejaxdaedm6g9jpgc4pk59ce8-2ji29m</div>

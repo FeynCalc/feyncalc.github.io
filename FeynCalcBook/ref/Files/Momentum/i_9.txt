@@ -1,1 +1,3 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>a1 // StandardForm</pre><div class='IFU'><a name='1156784400'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp10p1mud7-tez6ua</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>Momentum[p];
+% // StandardForm;
+% // StandardForm</pre><div class='IFU'><a name='1156784400'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp10p1mud7-tez6ua</div>

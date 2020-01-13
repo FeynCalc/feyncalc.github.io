@@ -1,1 +1,2 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>qo = Lagrangian[&quot;oqu&quot;]</pre><div class='IFU'><a name='940220202'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-pt2gt4</div>
+<pre name='i_23_in' id='i_23_in' class='IFT'>GluonVertex[{p, \[Mu], a}, {q, \[Nu], b}, {r, \[Rho], c}, 
+ Dimension -&gt; 4, Explicit -&gt; True]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

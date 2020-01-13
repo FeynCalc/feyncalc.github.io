@@ -1,1 +1,3 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>ScalarProductCancel[t1, q]</pre><div class='IFU'><a name='704586696'></a>http://wolfram.com/xid/0isbkgaigz2n8s0vqnwkcqekm-lxr0uy</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>SPD[q, p] FAD[{q, m}, {q - p, 0}];
+ScalarProductCancel[%, q];
+ScalarProductCancel[%, q]</pre><div class='IFU'><a name='704586696'></a>http://wolfram.com/xid/0isbkgaigz2n8s0vqnwkcqekm-lxr0uy</div>

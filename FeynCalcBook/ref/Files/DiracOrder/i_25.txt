@@ -1,0 +1,1 @@
+<pre name='i_25_in' id='i_25_in' class='IFT'>DiracSimplify[GAD[\[Mu],\[Nu]] + GAD[\[Nu], \[Mu]]]</pre><div class='IFU'>http://wolfram.com/xid/0g3d2anoefmyyrc18397m</div>

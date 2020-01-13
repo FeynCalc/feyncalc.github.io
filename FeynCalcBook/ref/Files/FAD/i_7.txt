@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FAD[q, p - q] // FCI // StandardForm</pre><div class='IFU'><a name='2024009960'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbf8xv-7rbuc6</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>FAD[{p, 0, 2}, {p - q, m, 3}]</pre><div class='IFU'>http://wolfram.com/xid/0jy9tuh3qgh0fbf8xv</div>

@@ -1,1 +1,1 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>SetOptions[LeviCivita, Dimension -&gt; D];</pre><div class='IFU'><a name='1024340055'></a>http://wolfram.com/xid/0dot6agzccymmir0joalu-q75f4p</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>LC[\[Mu], \[Nu], \[Rho], \[Sigma]]</pre><div class='IFU'><a name='2013502188'></a>http://wolfram.com/xid/0dot6agzccymmir0joalu-7k2mim</div>

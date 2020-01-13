@@ -1,0 +1,3 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>SUNFDelta[SUNFIndex[a], SUNFIndex[b]]^2;
+SUNFDeltaContract[%];
+SUNFDeltaContract[%]</pre><div class='IFU'><a name='1040305798'></a>http://wolfram.com/xid/0cxtaw2rnl3r68tpp4bayr5to1gaa-rhnndk</div>

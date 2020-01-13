@@ -1,0 +1,5 @@
+<pre name='i_57_in' id='i_57_in' class='IFT'>SpinorVBar[Subscript[p, 2], Subscript[m, 
+  2]] . (GS[Subscript[p, 1]] + Subscript[m, 1]) . 
+ SpinorU[Subscript[p, 1], Subscript[m, 1]];
+DiracSimplify[%];
+DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

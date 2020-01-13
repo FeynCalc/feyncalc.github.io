@@ -1,1 +1,3 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>GluonVertex[{p, \[Mu]}, {q, \[Nu]}, {r, \[Rho]}]</pre><div class='IFU'><a name='1094321460'></a>http://wolfram.com/xid/0md0z2x3dnst5sp6x7nkwq-sdtd4m</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>GV[{p, \[Mu]}, {q, \[Nu]}, {r, \[Rho]}];
+Explicit[%];
+Explicit[%]</pre><div class='IFU'>http://wolfram.com/xid/0md0z2x3dnst5sp6x7nkwq</div>

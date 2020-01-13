@@ -1,0 +1,3 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>PauliEta[I];
+% // ComplexConjugate;
+% // ComplexConjugate</pre><div class='IFU'><a name='306922129'></a>http://wolfram.com/xid/0da7yqf8j4nw85uu0ehnp3-fc0owz</div>

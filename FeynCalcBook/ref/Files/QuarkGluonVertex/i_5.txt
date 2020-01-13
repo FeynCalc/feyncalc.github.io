@@ -1,1 +1,1 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>QuarkGluonVertex[\[Mu], a, CounterTerm -&gt; 1, Explicit -&gt; True]</pre><div class='IFU'><a name='196044183'></a>http://wolfram.com/xid/04ieufm3d5y7w18ehoededofbu-diz6x1</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>QGV[\[Mu], a]</pre><div class='IFU'>http://wolfram.com/xid/04ieufm3d5y7w18ehoededofbu</div>

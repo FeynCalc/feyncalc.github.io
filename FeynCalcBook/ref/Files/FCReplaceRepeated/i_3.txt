@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>FCReplaceRepeated[a c, {a -&gt; b, c -&gt; d}]</pre><div class='IFU'><a name='2016543797'></a>http://wolfram.com/xid/0bcjf11ba4ib03m2szv30dhue-7mvtfr</div>

@@ -1,0 +1,13 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>-e eQ gs Spinor[Momentum[k2], mu, 1].GS[
+    Polarization[k1, -I, Transversality -&gt; True]].(mu + 
+     GS[k1 + k2]).GS[Polarization[p2, I]].Spinor[Momentum[p1], mu, 
+    1] FAD[{-k1 - k2, mu}, Dimension -&gt; 4] SUNTF[{Glu3}, Col4, Col1] -
+  e eQ gs DCHN[Spinor[Momentum[k2], mu, 1], i] DCHN[
+   GS[Polarization[p2, I]].(mu + GS[k2 - p2]).GS[
+     Polarization[k1, -I, Transversality -&gt; True]], i, j] DCHN[
+   Spinor[Momentum[p1], mu, 1], j] FAD[{-k2 + p2, mu}, 
+   Dimension -&gt; 4] SUNTF[{Glu3}, Col4, Col1];
+FCMatrixIsolate[%, FCDiracIsolate -&gt; {dch}, FCColorIsolate -&gt; {cch}, 
+ FCPauliIsolate -&gt; {pch}, Head -&gt; re, FCE -&gt; True];
+FCMatrixIsolate[%, FCDiracIsolate -&gt; {dch}, FCColorIsolate -&gt; {cch}, 
+ FCPauliIsolate -&gt; {pch}, Head -&gt; re, FCE -&gt; True]</pre><div class='IFU'><a name='868980652'></a>http://wolfram.com/xid/0dm6sivpips10s99re02hw98gsk-onnj1q</div>

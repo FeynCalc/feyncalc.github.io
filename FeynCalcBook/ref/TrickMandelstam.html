@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>TrickMandelstam&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
@@ -10,23 +12,39 @@
 <script language="JavaScript" type="text/javascript">baselang='TrickMandelstam';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -40,8 +58,7 @@
  <h1>TrickMandelstam</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/TrickMandelstam/1.png" height="21" width="423" alt="" /></span> <br />simplifies all sums in expr so that one of the 
-Mandelstam variables s, t or u is eliminated by the relation <em>s</em> + <em>t</em> + <em>u</em> = <img src="Files/TrickMandelstam/CellNone_3.png" height="21" width="23" alt="" style="vertical-align:middle;" /> + <img src="Files/TrickMandelstam/CellNone_5.png" height="21" width="23" alt="" style="vertical-align:middle;" />+ <img src="Files/TrickMandelstam/CellNone_7.png" height="21" width="23" alt="" style="vertical-align:middle;" />+ <img src="Files/TrickMandelstam/CellNone_9.png" height="21" width="23" alt="" style="vertical-align:middle;" /> . The trick is that the resulting sum has the most short number of terms.</p>
+   <p><span class="IF"><span class="specialcharacters">TrickMandelstam<span class="openbracket">[</span>expr<span class="comma">,</span> <span class="openbrace">{</span>s<span class="comma">,</span> t<span class="comma">,</span> u<span class="comma">,</span>m1^2+m2^2+m3^2+m4^2<span class="closebrace">}</span><span class="closebracket">]</span></span></span> <br />simplifies all sums in expr so that one of the Mandelstam variables s, t or u is eliminated by the relation <em>s</em> + <em>t</em> + <em>u</em> = <img src="Files/TrickMandelstam/CellNone_2.png" height="Transmogrify`Private`newheight$2439935" width="Transmogrify`Private`newwidth$2439935" alt="" style="vertical-align:middle;" /> + <img src="Files/TrickMandelstam/CellNone_4.png" height="Transmogrify`Private`newheight$2440067" width="Transmogrify`Private`newwidth$2440067" alt="" style="vertical-align:middle;" />+ <img src="Files/TrickMandelstam/CellNone_6.png" height="Transmogrify`Private`newheight$2440199" width="Transmogrify`Private`newwidth$2440199" alt="" style="vertical-align:middle;" />+ <img src="Files/TrickMandelstam/CellNone_8.png" height="Transmogrify`Private`newheight$2440331" width="Transmogrify`Private`newwidth$2440331" alt="" style="vertical-align:middle;" /> . The trick is that the resulting sum has the most short number of terms.</p>
   </div>
  </div>
  <div class="expandWrap"
@@ -55,24 +72,41 @@ Mandelstam variables s, t or u is eliminated by the relation <em>s</em> + <em>t<
       <div class="expanded">
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="576381697"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/TrickMandelstam/I_2.gif" height="21" width="448" alt="Click for copyable input" /></a>
+            <img src="Files/TrickMandelstam/I_2.png"
+                height="19"
+                width="382"
+                alt="Click for copyable input" />
            </div><div id="i_1_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/TrickMandelstam/O_1.gif" height="21" width="97" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/TrickMandelstam/O_1.png"
+                height="18"
+                width="85"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="2075024335"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/TrickMandelstam/I_4.gif" height="17" width="508" alt="Click for copyable input" /></a>
+            <img src=""
+                data-src="Files/TrickMandelstam/I_4.png"
+                data-big="432 16"
+                data-small="342 33"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/TrickMandelstam/O_2.gif" height="18" width="123" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/TrickMandelstam/O_2.png"
+                height="15"
+                width="106"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
       </div>
@@ -90,7 +124,6 @@ Mandelstam variables s, t or u is eliminated by the relation <em>s</em> + <em>t<
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

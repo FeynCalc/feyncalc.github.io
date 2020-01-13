@@ -1,2 +1,11 @@
-<pre name='i_49_in' id='i_49_in' class='IFT'>GluonVertex[{p, \[Mu], a}, {q, \[Nu], b}, {r, \[Rho], 
-  c}, {s, \[Sigma], d}, Explicit -&gt; True]</pre><div class='IFU'><a name='1003097458'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-qvh48k</div>
+<pre name='i_49_in' id='i_49_in' class='IFT'>Lagrangian[&quot;ogu&quot;];
+FeynRule[%, {QuantumField[QuarkField][p], 
+  QuantumField[AntiQuarkField][q], 
+  QuantumField[GaugeField, {\[Mu]}, {a}][r], 
+  QuantumField[GaugeField, {\[Nu]}, {b}][s]}, 
+ ZeroMomentumInsertion -&gt; True, InitialFunction -&gt; Identity];
+FeynRule[%, {QuantumField[QuarkField][p], 
+  QuantumField[AntiQuarkField][q], 
+  QuantumField[GaugeField, {\[Mu]}, {a}][r], 
+  QuantumField[GaugeField, {\[Nu]}, {b}][s]}, 
+ ZeroMomentumInsertion -&gt; True, InitialFunction -&gt; Identity]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

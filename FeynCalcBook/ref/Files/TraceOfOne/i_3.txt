@@ -1,1 +1,3 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>TR[1, SUNTrace -&gt; True, SUNNToCACF -&gt; True, TraceOfOne -&gt; tr2]</pre><div class='IFU'><a name='1954279511'></a>http://wolfram.com/xid/01ipebruqvo0z6dc3u6en-6ls9z9</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>DiracTrace[1];
+DiracSimplify[%];
+DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6dc3u6en</div>

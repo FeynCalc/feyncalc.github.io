@@ -1,1 +1,1 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>Pair[Momentum[p], Momentum[p]]^2</pre><div class='IFU'><a name='1431519685'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbg9eq-xykpxz</div>
+<pre name='i_13_in' id='i_13_in' class='IFT'>Pair[Momentum[p], Momentum[p]]</pre><div class='IFU'><a name='227830423'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbg9eq-d1xhc5</div>

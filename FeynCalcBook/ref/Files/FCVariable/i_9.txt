@@ -1,0 +1,5 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>SPD[c1 p1 + c2 p2, q] // ExpandScalarProduct;
+CSI[i].CSIS[c1 p].CSI[j] // FCI
+% // StandardForm;
+CSI[i].CSIS[c1 p].CSI[j] // FCI
+% // StandardForm</pre><div class='IFU'><a name='897525840'></a>http://wolfram.com/xid/0g3d2anoefmyyrau0ob5y-o4ndnm</div>

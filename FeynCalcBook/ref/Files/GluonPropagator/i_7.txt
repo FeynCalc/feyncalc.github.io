@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>GluonPropagator[p, \[Mu], a, \[Nu], b, Gauge -&gt; \[Alpha]] // Explicit</pre><div class='IFU'><a name='922890899'></a>http://wolfram.com/xid/0br0qd3s106ml2q4lw9538hxju1a-pjq1gl</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>GP[p, \[Mu], a, \[Nu], b, Gauge -&gt; \[Alpha]]</pre><div class='IFU'><a name='922890899'></a>http://wolfram.com/xid/0br0qd3s106ml2q4lw9538hxju1a-pjq1gl</div>

@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>ChargeConjugationMatrix.DiracMatrix[\[Mu]].ChargeConjugationMatrixInv;
-Calc[%]</pre><div class='IFU'><a name='570632679'></a>http://wolfram.com/xid/0hubfbmhj87ioyzze0oixba7he-jp0w91</div>

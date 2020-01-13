@@ -1,1 +1,1 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>SUNDelta[a, b] // FCI // FCE // StandardForm</pre><div class='IFU'><a name='1106151471'></a>http://wolfram.com/xid/0cocv9p3k6ad7ma5v23sm4re-skux71</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>SUNDelta[SUNIndex[a], SUNIndex[b]] // FCI // FCE // StandardForm</pre><div class='IFU'><a name='1106151471'></a>http://wolfram.com/xid/0cocv9p3k6ad7ma5v23sm4re-skux71</div>

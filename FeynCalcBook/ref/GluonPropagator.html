@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>GluonPropagator&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="GluonPropagator" />
 
-<meta name="description" content="GluonPropagator[p, {mu, a}, {nu, b}] or GluonPropagator[p, mu, a , nu, b ] yields the gluon propagator. GluonPropagator[p, {mu}, {nu}] or GluonPropagator[p, mu, nu] omits the SUNDelta. The gauge and the dimension is determined by the option Gauge and Dimension. The following settings of Gauge are possible: 1 for the Feynman gauge; \[Alpha] for the general covariant gauge; {Momentum[n] ,1} for the axial gauge. GP can be used as an abbreviation of GluonPropagator." />
+<meta name="description" content="GluonPropagator[p, {\[Mu], a}, {\[Nu], b}] or GluonPropagator[p, \[Mu], a, \[Nu], b] yields the gluon propagator. GluonPropagator[p, {\[Mu]}, {\[Nu]}] or GluonPropagator[p, \[Mu], \[Nu]] omits the SUNDelta." />
 <script language="JavaScript" type="text/javascript">baselang='GluonPropagator';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,15 +52,68 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/GluonSelfEnergy.html"><span class="dropdownPad">GluonSelfEnergy</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GluonVertex.html"><span class="dropdownPad">GluonVertex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GhostVertex.html"><span class="dropdownPad">GhostVertex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GhostPropagator.html"><span class="dropdownPad">GhostPropagator</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/GluonGhostVertex.html"><span class="dropdownPad">GluonGhostVertex</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>GluonPropagator</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/GluonPropagator/1.png" height="21" width="251" alt="" /></span> <br />or GluonPropagator[p, mu, a , nu, b ] yields the gluon propagator. GluonPropagator[p, {mu}, {nu}] or GluonPropagator[p, mu, nu] omits the SUNDelta. The gauge and the dimension is determined by the option Gauge and Dimension. The following settings of Gauge are possible: 1 for the Feynman gauge; <img src="Files/GluonPropagator/2.png" height="18" width="12" style="vertical-align:middle;" alt="alpha" title="alpha" /> for the general covariant gauge; {Momentum[n] ,1} for the axial gauge.
-
-GP can be used as an abbreviation of GluonPropagator.</p>
+   <p><span class="IF">GluonPropagator<span class="openbracket">[</span>p<span class="comma">,</span> <span class="openbrace">{</span><span class="special-character Mu">&#956;</span><span class="comma">,</span> a<span class="closebrace">}</span><span class="comma">,</span> <span class="openbrace">{</span><span class="special-character Nu">&#957;</span><span class="comma">,</span> b<span class="closebrace">}</span><span class="closebracket">]</span></span> <br />or <span class="IF">GluonPropagator<span class="openbracket">[</span>p<span class="comma">,</span> <span class="special-character Mu">&#956;</span><span class="comma">,</span> a<span class="comma">,</span> <span class="special-character Nu">&#957;</span><span class="comma">,</span> b<span class="closebracket">]</span></span> yields the gluon propagator.</p>
+  </div>
+  <div class="functionIntro">
+   <p><span class="IF">GluonPropagator<span class="openbracket">[</span>p<span class="comma">,</span><span class="openbrace">{</span><span class="special-character Mu">&#956;</span><span class="closebrace">}</span><span class="comma">,</span><span class="openbrace">{</span><span class="special-character Nu">&#957;</span><span class="closebrace">}</span><span class="closebracket">]</span></span> <br />or <span class="IF">GluonPropagator<span class="openbracket">[</span>p<span class="comma">,</span> <span class="special-character Mu">&#956;</span><span class="comma">,</span> <span class="special-character Nu">&#957;</span><span class="closebracket">]</span></span> omits the <a href="../ref/SUNDelta.html">SUNDelta</a>.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li><span class="IF">GP</span> can be used as an abbreviation of <a href="../ref/GluonPropagator.html">GluonPropagator</a>.</li>
+     <li><a name="1067943069"></a>The gauge and the dimension are determined by the options <a href="../ref/Gauge.html">Gauge</a> and <a href="../ref/Dimension.html">Dimension</a>. </li>
+     <li>The following settings of Gauge are possible: <span class="IF">1</span> for the Feynman gauge;  <span class="IF"><span class="special-character Alpha">&#945;</span></span> for the general covariant gauge; <span class="IF"><span class="specialcharacters"><span class="openbrace">{</span>Momentum<span class="openbracket">[</span>n<span class="closebracket">]</span> <span class="comma">,</span>1<span class="closebrace">}</span></span></span> for the axial gauge.</li>
+     <div class="IO">
+      <table class="InCell">
+       <tr><td class="lab">In[392]:=</td><td class="Input"><div>
+          <img src="Files/GluonPropagator/I_2.png"
+              height="16"
+              width="151"
+              alt="Click for copyable input" />
+         </div><div id="i_1_out" class="IFL"></div></td></tr>
+      </table>
+      <table class="OCell">
+       <tr><td class="lab">Out[392]=</td><td class="Output"><div class="output-image">
+          <img src="Files/GluonPropagator/O_1.png"
+              height="34"
+              width="320"
+              alt="" />
+         </div></td></tr>
+      </table>
+     </div>
+    </ul>
+   </div>
   </div>
  </div>
  <div class="expandWrap"
@@ -50,152 +121,242 @@ GP can be used as an abbreviation of GluonPropagator.</p>
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
    <div class="expanded">
-    <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
-    <h3 class="Subsubsection"><a name="1676340970"></a>Examples</h3>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
-         <a name="730734970"></a>
-         <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_2.gif" height="17" width="19" alt="Click for copyable input" /></a>
-        </div><div id="i_1_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/GluonPropagator/O_1.gif" height="15" width="107" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
-         <a name="1962710719"></a>
-         <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_4.gif" height="17" width="167" alt="Click for copyable input" /></a>
-        </div><div id="i_3_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/GluonPropagator/O_2.gif" height="35" width="379" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
-         <a name="1432103581"></a>
-         <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_6.gif" height="17" width="204" alt="Click for copyable input" /></a>
-        </div><div id="i_5_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/GluonPropagator/O_3.gif" height="21" width="50" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
-         <a name="922890899"></a>
-         <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_8.gif" height="17" width="348" alt="Click for copyable input" /></a>
-        </div><div id="i_7_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/GluonPropagator/O_4.gif" height="66" width="181" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
-         <a name="617351725"></a>
-         <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_10.gif" height="17" width="459" alt="Click for copyable input" /></a>
-        </div><div id="i_9_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/GluonPropagator/O_5.gif" height="67" width="337" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
-         <a name="1065132203"></a>
-         <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_12.gif" height="17" width="231" alt="Click for copyable input" /></a>
-        </div><div id="i_11_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/GluonPropagator/O_6.gif" height="50" width="55" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="Text"><a name="688757709"></a>This is a convenient way to enter amplitudes by hand (GP is an abbreviation GluonPropagator).</div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
-         <a name="629708898"></a>
-         <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_14.gif" height="17" width="215" alt="Click for copyable input" /></a>
-        </div><div id="i_13_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[7]=</td><td class="Output"><img src="Files/GluonPropagator/O_7.gif" height="68" width="216" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
-         <a name="1462464756"></a>
-         <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_16.gif" height="17" width="298" alt="Click for copyable input" /></a>
-        </div><div id="i_15_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td colspan="2"><div class="celllabelTableForm">Out[8]//StandardForm=</div></td></tr>
-      <tr><td class="lab"> </td><td class="Output"><img src="Files/GluonPropagator/O_8.gif" width="214" height="17" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
-         <a name="739433365"></a>
-         <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_18.gif" height="17" width="387" alt="Click for copyable input" /></a>
-        </div><div id="i_17_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/GluonPropagator/O_9.gif" height="59" width="274" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
-         <a name="493368144"></a>
-         <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_20.gif" height="17" width="387" alt="Click for copyable input" /></a>
-        </div><div id="i_19_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[10]=</td><td class="Output"><img src="Files/GluonPropagator/O_10.gif" height="54" width="278" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[11]:=</a></td><td class="Input"><div>
-         <a name="2062559987"></a>
-         <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_22.gif" height="17" width="387" alt="Click for copyable input" /></a>
-        </div><div id="i_21_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[11]=</td><td class="Output"><img src="Files/GluonPropagator/O_11.gif" height="59" width="275" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[12]:=</a></td><td class="Input"><div>
-         <a name="807671915"></a>
-         <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_24.gif" height="17" width="387" alt="Click for copyable input" /></a>
-        </div><div id="i_23_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[12]=</td><td class="Output"><img src="Files/GluonPropagator/O_12.gif" height="59" width="274" alt="" /></td></tr>
-     </table>
-    </div>
-    <div class="IO">
-     <table class="InCell">
-      <tr><td class="lab"><a href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[13]:=</a></td><td class="Input"><div>
-         <a name="1621125251"></a>
-         <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/GluonPropagator/I_26.gif" height="17" width="387" alt="Click for copyable input" /></a>
-        </div><div id="i_25_out" class="IFL"></div></td></tr>
-     </table>
-     <table class="OCell">
-      <tr><td class="lab">Out[13]=</td><td class="Output"><img src="Files/GluonPropagator/O_13.gif" height="59" width="532" alt="" /></td></tr>
-     </table>
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(5)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(5)</span></a></h3>
+      <div class="expanded">
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="1432103581"></a>
+            <img src="Files/GluonPropagator/I_4.png"
+                height="16"
+                width="175"
+                alt="Click for copyable input" />
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_2.png"
+                height="17"
+                width="47"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/GluonPropagator/I_6.png"
+                height="16"
+                width="64"
+                alt="Click for copyable input" />
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_3.png"
+                height="43"
+                width="72"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="922890899"></a>
+            <img src="Files/GluonPropagator/I_8.png"
+                height="16"
+                width="162"
+                alt="Click for copyable input" />
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_4.png"
+                height="67"
+                width="166"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/GluonPropagator/I_10.png"
+                height="16"
+                width="64"
+                alt="Click for copyable input" />
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_5.png"
+                height="67"
+                width="166"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="617351725"></a>
+            <img src=""
+                data-src="Files/GluonPropagator/I_12.png"
+                data-big="431 16"
+                data-small="266 33"
+                alt="Click for copyable input" />
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_6.png"
+                height="68"
+                width="327"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="1065132203"></a>
+            <img src="Files/GluonPropagator/I_14.png"
+                height="16"
+                width="65"
+                alt="Click for copyable input" />
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_7.png"
+                height="18"
+                width="44"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src="Files/GluonPropagator/I_16.png"
+                height="16"
+                width="64"
+                alt="Click for copyable input" />
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_8.png"
+                height="41"
+                width="44"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="ExLine"><!-- --></div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="739433365"></a>
+            <img src="Files/GluonPropagator/I_18.png"
+                height="16"
+                width="338"
+                alt="Click for copyable input" />
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_9.png"
+                height="61"
+                width="248"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <a name="493368144"></a>
+            <img src="Files/GluonPropagator/I_20.png"
+                height="16"
+                width="339"
+                alt="Click for copyable input" />
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_10.png"
+                height="57"
+                width="244"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <a name="2062559987"></a>
+            <img src="Files/GluonPropagator/I_22.png"
+                height="16"
+                width="339"
+                alt="Click for copyable input" />
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_11.png"
+                height="61"
+                width="242"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <a name="807671915"></a>
+            <img src="Files/GluonPropagator/I_24.png"
+                height="16"
+                width="339"
+                alt="Click for copyable input" />
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_12.png"
+                height="61"
+                width="249"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <a name="1621125251"></a>
+            <img src="Files/GluonPropagator/I_26.png"
+                height="16"
+                width="339"
+                alt="Click for copyable input" />
+           </div><div id="i_25_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/GluonPropagator/O_13.png"
+                height="61"
+                width="476"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
     </div>
     <div class="toplink">
      <a href="#top">Top</a>
@@ -209,7 +370,7 @@ GP can be used as an abbreviation of GluonPropagator.</p>
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="1661110705"></a><a href="../ref/GluonSelfEnergy.html">GluonSelfEnergy</a>, <a href="../ref/GluonVertex.html">GluonVertex</a>, <a href="../ref/GhostPropagator.html">GhostPropagator</a>, <a href="../ref/GluonGhostVertex.html">GluonGhostVertex</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/GluonSelfEnergy.html">GluonSelfEnergy</a>, <a href="../ref/GluonVertex.html">GluonVertex</a>, <a href="../ref/GhostVertex.html">GhostVertex</a>, <a href="../ref/GhostPropagator.html">GhostPropagator</a>, <a href="../ref/GluonGhostVertex.html">GluonGhostVertex</a>.</p>
    </div>
   </div>
  </div>
@@ -218,7 +379,6 @@ GP can be used as an abbreviation of GluonPropagator.</p>
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

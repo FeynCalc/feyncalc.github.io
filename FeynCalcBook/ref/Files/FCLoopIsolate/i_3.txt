@@ -1,5 +1,2 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Options[FCLoopIsolate];
-FCI[GSD[q - p1].(GSD[q - p2] + M).GSD[p3] SPD[q, p2] FAD[q, 
-   q - p1, {q - p2, m}]]
-FCLoopIsolate[%, {q}, Head -&gt; loopInt]
-Cases2[%, loopInt]</pre><div class='IFU'><a name='1295259209'></a>http://wolfram.com/xid/0racumaqnpu17byyloj6m11vo-vpf6or</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>FCI[GSD[q - p1].(GSD[q - p2] + M).GSD[p3] SPD[q, p2] FAD[q, 
+   q - p1, {q - p2, m}]]</pre><div class='IFU'>http://wolfram.com/xid/0racumaqnpu17byyloj6m11vo</div>

@@ -1,3 +1,2 @@
-<pre name='i_51_in' id='i_51_in' class='IFT'>GluonVertex[{p, \[Mu], a}, {q, \[Nu], b}, {r, \[Rho], 
-  c}, {s, \[Sigma], d}, Explicit -&gt; True];
-Calc[g4 - ChangeDimension[%, 4]]</pre><div class='IFU'><a name='1307092387'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-vwhs75</div>
+<pre name='i_51_in' id='i_51_in' class='IFT'>Twist2QuarkOperator[{p}, {q}, {r, \[Mu], a}, {s, \[Nu], b}, 
+ Polarization -&gt; 0]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

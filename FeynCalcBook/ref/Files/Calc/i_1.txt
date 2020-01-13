@@ -1,1 +1,1 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Calc[{GA[\[Mu], \[Mu]], MTD[\[Nu], \[Nu]]}]</pre><div class='IFU'><a name='781527999'></a>http://wolfram.com/xid/0fqk91eolmr4ql55m-m7k45d</div>
+<pre name='i_1_in' id='i_1_in' class='IFT'>Calc[GA[\[Mu], \[Mu]]]</pre><div class='IFU'>http://wolfram.com/xid/0fqk91eolmr4ql55m</div>

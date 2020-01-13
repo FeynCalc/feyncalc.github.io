@@ -1,0 +1,5 @@
+<pre name='i_33_in' id='i_33_in' class='IFT'>DiracTrace[
+ GAD[\[Mu], \[Nu], \[Rho]].GA[5].GAD[\[Sigma], \[Delta], \[Tau]].GA[
+   5]];
+DiracSimplify[%];
+DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o70q</div>

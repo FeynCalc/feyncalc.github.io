@@ -1,1 +1,3 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>t2 = CompleteSquare[t1, p]</pre><div class='IFU'><a name='1825124248'></a>http://wolfram.com/xid/0tn9depw6mpqkcibix-4gw052</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>5 SP[2 p + 3 r, p + r];
+CompleteSquare[%, p];
+CompleteSquare[%, p]</pre><div class='IFU'><a name='1825124248'></a>http://wolfram.com/xid/04w9abyjsyddceorcjaa-4gw052</div>

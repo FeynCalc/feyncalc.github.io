@@ -1,2 +1,1 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>MetricTensor[\[Alpha], \[Beta]];
-Contract[% %]</pre><div class='IFU'><a name='888467606'></a>http://wolfram.com/xid/0nwhua02ikznm767g6r3m-oy8790</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>MetricTensor[\[Alpha], \[Beta]]</pre><div class='IFU'><a name='187143262'></a>http://wolfram.com/xid/0nwhua02ikznm767g6r3m-ddpex8</div>

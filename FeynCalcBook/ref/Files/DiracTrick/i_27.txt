@@ -1,2 +1,0 @@
-<pre name='i_27_in' id='i_27_in' class='IFT'>GAD @@ Join[{\[Mu]}, Table[Subscript[\[Nu], i], {i, 6}], {\[Mu]}];
-DiracTrick[%]</pre><div class='IFU'><a name='1243868217'></a>http://wolfram.com/xid/0bmo85gxinschsbp05yp6gs-uuuo47</div>

@@ -1,1 +1,1 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>StandardForm[MetricTensor[a, b, Dimension -&gt; D]]</pre><div class='IFU'><a name='1544242781'></a>http://wolfram.com/xid/0nwhua02ikznm767g6r3m-ztorm3</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>StandardForm[MetricTensor[a, b]]</pre><div class='IFU'><a name='1318549517'></a>http://wolfram.com/xid/0nwhua02ikznm767g6r3m-v3bdlr</div>

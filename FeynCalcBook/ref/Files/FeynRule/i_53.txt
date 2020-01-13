@@ -1,2 +1,9 @@
-<pre name='i_53_in' id='i_53_in' class='IFT'>Clear[f2p, f2u, f3, f32, fi, fi4, fii, g3, g4, gop, gou, n3, nf3, n4, \
-np2, npf3, p33, pf3, pn3, pqo, qf, qp, qgf, qo, t4]</pre><div class='IFU'><a name='2027297687'></a>http://wolfram.com/xid/0nwhua02ikznm8bb04g26-7taa6x</div>
+<pre name='i_53_in' id='i_53_in' class='IFT'>Twist2QuarkOperator[{p}, {q}, {r, \[Mu], a}, {s, \[Nu], b}, 
+ Polarization -&gt; 0];
+Lagrangian[&quot;ogu&quot;];
+FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p], 
+   QuantumField[GaugeField, {\[Nu]}, {b}][q]}, 
+  ZeroMomentumInsertion -&gt; False] // Factor;
+Lagrangian[&quot;ogu&quot;];
+Calc[% - %% /. OPEm -&gt; 5 /. s -&gt; -p - q - r /. D -&gt; 4];
+Calc[% - %% /. OPEm -&gt; 5 /. s -&gt; -p - q - r /. D -&gt; 4]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

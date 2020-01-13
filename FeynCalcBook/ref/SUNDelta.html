@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
 <title>SUNDelta&mdash;Wolfram Language Documentation</title>
 <meta name="buildnumber" content="0000000" />
 <meta name="historydata" content="{9.0, , , }" />
 <meta name="keywords" content="SUNDelta" />
 
-<meta name="description" content="SUNDelta[a, b] is the Kronecker-delta for SU(N) with color indices a and b." />
+<meta name="description" content="SUNDelta[a, b] is the Kronecker-delta for SU(N) with color indices a and b in the adjoint representation." />
 <script language="JavaScript" type="text/javascript">baselang='SUNDelta';</script>
 <!--#include virtual="/common/includes/gl-head-includes.html"-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
-		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
-		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
-<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
 </head>
 <body id="ref" class="function">
 <a name="top"></a>
-<!--#include virtual="/common/includes/gl-header.html"--> 
+ 
 <div class="main-wrapper">
-
+<div class="outer-wrapper">
 
 <div class="wrapper mainOuter">
     <div class="mainContent">
@@ -34,13 +52,37 @@
   <div class="ribbonWrap">
    <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
   </div>
-  
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/ExplicitSUNIndex.html"><span class="dropdownPad">ExplicitSUNIndex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SD.html"><span class="dropdownPad">SD</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNF.html"><span class="dropdownPad">SUNF</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNIndex.html"><span class="dropdownPad">SUNIndex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/SUNSimplify.html"><span class="dropdownPad">SUNSimplify</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/Trick.html"><span class="dropdownPad">Trick</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
   <div class="clear"><!-- --></div>
  </div>
  <h1>SUNDelta</h1>
  <div class="functionIntroWrap">
   <div class="functionIntro">
-   <p><span class="IF"><img src="Files/SUNDelta/1.png" height="20" width="100" alt="" /></span> <br />is the Kronecker-delta for SU(<em>N</em>) with color indices a and b.</p>
+   <p><span class="IF"><span class="specialcharacters">SUNDelta<span class="openbracket">[</span>a<span class="comma">,</span> b<span class="closebracket">]</span></span></span> <br /> is the Kronecker-delta for SU(N) with color indices a and b in the adjoint representation.</p>
   </div>
  </div>
  <div class="expandWrap"
@@ -54,119 +96,173 @@
       <div class="expanded">
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="582133429"></a>
-            <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_2.gif" height="17" width="99" alt="Click for copyable input" /></a>
+            <img src="Files/SUNDelta/I_2.png"
+                height="16"
+                width="215"
+                alt="Click for copyable input" />
            </div><div id="i_1_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[1]=</td><td class="Output"><img src="Files/SUNDelta/O_1.gif" height="19" width="29" alt="" /></td></tr>
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SUNDelta/O_1.png"
+                height="16"
+                width="25"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
-            <a name="223165993"></a>
-            <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_4.gif" height="17" width="249" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/SUNDelta/I_4.png"
+                data-big="433 16"
+                data-small="227 33"
+                alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[2]=</td><td class="Output"><img src="Files/SUNDelta/O_2.gif" height="15" width="28" alt="" /></td></tr>
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SUNDelta/O_2.png"
+                height="16"
+                width="52"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
-            <a name="2091383946"></a>
-            <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_6.gif" height="17" width="247" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <img src="Files/SUNDelta/I_6.png"
+                height="16"
+                width="93"
+                alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[3]=</td><td class="Output"><img src="Files/SUNDelta/O_3.gif" height="19" width="29" alt="" /></td></tr>
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SUNDelta/O_3.png"
+                height="14"
+                width="23"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
-            <a name="2066302871"></a>
-            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_8.gif" height="17" width="203" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <a name="2091383946"></a>
+            <img src="Files/SUNDelta/I_8.png"
+                height="16"
+                width="215"
+                alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td colspan="2"><div class="celllabelTableForm">Out[4]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_4.gif" width="92" height="17" alt="" /></td></tr>
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SUNDelta/O_4.png"
+                height="16"
+                width="25"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
-            <a name="76062746"></a>
-            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_10.gif" height="17" width="241" alt="Click for copyable input" /></a>
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <a name="2066302871"></a>
+            <img src="Files/SUNDelta/I_10.png"
+                height="16"
+                width="311"
+                alt="Click for copyable input" />
            </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[5]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_5.gif" width="230" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_5.png" width="229" height="17" alt="" /></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
             <a name="1106151471"></a>
-            <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_12.gif" height="17" width="282" alt="Click for copyable input" /></a>
+            <img src="Files/SUNDelta/I_12.png"
+                height="16"
+                width="378"
+                alt="Click for copyable input" />
            </div><div id="i_11_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[6]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_6.gif" width="53" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_6.png" width="52" height="17" alt="" /></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[7]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[7]:=</td><td class="Input"><div>
             <a name="892399657"></a>
-            <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_14.gif" height="17" width="200" alt="Click for copyable input" /></a>
+            <img src="Files/SUNDelta/I_14.png"
+                height="16"
+                width="174"
+                alt="Click for copyable input" />
            </div><div id="i_13_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[7]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_7.gif" width="230" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_7.png" width="229" height="17" alt="" /></td></tr>
         </table>
        </div>
-       <div class="Text"><a name="1535277851"></a>Symbolic arguments to SUNDelta are transformed into the data type SUNIndex and integer arguments are transformed to ExplicitSUNIndex. The difference is that SUNSimplify will only sum over symbolic indices.</div>
+       <li><a name="879136127"></a>The arguments of SUNDelta may also represent explicit integer indices via the head ExplictiSUNIndex. The difference is that SUNSimplify will only sum over symbolic indices.</li>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[8]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[8]:=</td><td class="Input"><div>
             <a name="69005829"></a>
-            <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_16.gif" height="17" width="393" alt="Click for copyable input" /></a>
+            <img src=""
+                data-src="Files/SUNDelta/I_16.png"
+                data-big="476 33"
+                data-small="366 50"
+                alt="Click for copyable input" />
            </div><div id="i_15_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
-         <tr><td class="lab">Out[8]=</td><td class="Output"><img src="Files/SUNDelta/O_8.gif" height="19" width="58" alt="" /></td></tr>
+         <tr><td class="lab">Out[8]=</td><td class="Output"><div class="output-image">
+            <img src="Files/SUNDelta/O_8.png"
+                height="16"
+                width="49"
+                alt="" />
+           </div></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[9]:=</td><td class="Input"><div>
             <a name="965204507"></a>
-            <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_18.gif" height="17" width="117" alt="Click for copyable input" /></a>
+            <img src="Files/SUNDelta/I_18.png"
+                height="16"
+                width="108"
+                alt="Click for copyable input" />
            </div><div id="i_17_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[9]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_9.gif" width="541" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_9.png" width="281" height="37" alt="" /></td></tr>
         </table>
        </div>
        <div class="IO">
         <table class="InCell">
-         <tr><td class="lab"><a href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[10]:=</a></td><td class="Input"><div>
+         <tr><td class="lab">In[10]:=</td><td class="Input"><div>
             <a name="1853160304"></a>
-            <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/SUNDelta/I_20.gif" height="17" width="240" alt="Click for copyable input" /></a>
+            <img src="Files/SUNDelta/I_20.png"
+                height="16"
+                width="174"
+                alt="Click for copyable input" />
            </div><div id="i_19_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[10]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_10.gif" width="308" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/SUNDelta/O_10.png" width="307" height="17" alt="" /></td></tr>
         </table>
        </div>
       </div>
@@ -184,7 +280,7 @@
   <div class="expandOuter">
    <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
    <div class="expanded">
-    <div class="Text"><a name="1124087961"></a>See also: <a href="../ref/ExplicitSUNIndex.html">ExplicitSUNIndex</a>, <a href="../ref/SD.html">SD</a>, <a href="../ref/SUNF.html">SUNF</a>, <a href="../ref/SUNIndex.html">SUNIndex</a>, <a href="../ref/SUNSimplify.html">SUNSimplify</a>, <a href="../ref/Trick.html">Trick</a>.</div>
+    <p class="inlineFunctionList"><a href="../ref/ExplicitSUNIndex.html">ExplicitSUNIndex</a>, <a href="../ref/SD.html">SD</a>, <a href="../ref/SUNF.html">SUNF</a>, <a href="../ref/SUNIndex.html">SUNIndex</a>, <a href="../ref/SUNSimplify.html">SUNSimplify</a>, <a href="../ref/Trick.html">Trick</a>.</p>
    </div>
   </div>
  </div>
@@ -193,7 +289,6 @@
 
 	
 </div>
-<!--#include virtual="/common/includes/gl-footer.html"-->
-<!--#include virtual="/common/includes/gl-footer-includes.html"-->
-</body>
-		 </html>
+
+
+</body></html>

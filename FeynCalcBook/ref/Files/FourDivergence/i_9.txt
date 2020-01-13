@@ -1,1 +1,3 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>Clear[t]</pre><div class='IFU'><a name='1056090995'></a>http://wolfram.com/xid/0k1l07rf5aaryahu5rw81ho-rq1za9</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>SP[p, q];
+FourDivergence[%, FV[k, \[Mu]]];
+FourDivergence[%, FV[k, \[Mu]]]</pre><div class='IFU'><a name='822682822'></a>http://wolfram.com/xid/0k1l07rf5aaryahu5rw81ho-nv28ew</div>

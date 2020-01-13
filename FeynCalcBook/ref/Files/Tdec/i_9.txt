@@ -1,1 +1,3 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>t[[2]] /. t[[1]]</pre><div class='IFU'><a name='1848782179'></a>http://wolfram.com/xid/08q4nt52zsdq76hsivu-4uz3qt</div>
+<pre name='i_9_in' id='i_9_in' class='IFT'>Tdec[{q, \[Mu]}, {p}];
+Contract[% FVD[p, \[Mu]] FVD[p, \[Nu]] FVD[p, \[Rho]]] // Factor;
+Contract[% FVD[p, \[Mu]] FVD[p, \[Nu]] FVD[p, \[Rho]]] // Factor</pre><div class='IFU'><a name='1116880881'></a>http://wolfram.com/xid/08q4nt52zsdq76hsivu-sq8w27</div>

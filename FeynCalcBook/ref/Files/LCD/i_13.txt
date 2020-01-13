@@ -1,2 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>Factor2[Contract[
-  LCD[\[Mu], \[Nu], \[Rho]][p] LCD[\[Mu], \[Nu], \[Rho]][q]]]</pre><div class='IFU'><a name='173575058'></a>http://wolfram.com/xid/0bhwp8a9gs181wybp7-c5mlno</div>

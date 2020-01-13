@@ -1,1 +1,3 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>t3 = DiracMatrix[\[Mu], \[Nu], \[Rho], \[Sigma]]</pre><div class='IFU'><a name='1144474685'></a>http://wolfram.com/xid/0dot6agzccymmitn9o86q-s7oclr</div>
+<pre name='i_11_in' id='i_11_in' class='IFT'>SpinorUBar[Subscript[p, 1], Subscript[m, 
+  1]].GA[\[Mu], \[Nu], \[Rho]].SpinorV[Subscript[p, 2], Subscript[m, 
+  2]]</pre><div class='IFU'><a name='1405125223'></a>http://wolfram.com/xid/0dot6agzccymmitn9o86q-xiuzuh</div>

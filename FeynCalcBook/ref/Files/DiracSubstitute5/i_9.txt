@@ -1,0 +1,4 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>SpinorUBar[Subscript[p, 1]].GA[\[Mu]].GA[5].GA[\[Nu]].SpinorU[
+  Subscript[p, 2]];
+DiracSubstitute5[%];
+DiracSubstitute5[%]</pre><div class='IFU'><a name='201004118'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybj96fjd58c-dlyh10</div>

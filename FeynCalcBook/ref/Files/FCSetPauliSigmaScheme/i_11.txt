@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>PauliTrick[CSID[i, j, k], PauliReduce -&gt; True] // Contract</pre><div class='IFU'><a name='1542692665'></a>http://wolfram.com/xid/0xuguo8df34d99pmnzk1lsas2qakzhl0ym-zsrjkb</div>

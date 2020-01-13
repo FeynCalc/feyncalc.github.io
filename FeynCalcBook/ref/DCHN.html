@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+
+<title>DCHN&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{9.3, , , }" />
+<meta name="keywords" content="DCHN" />
+
+<meta name="description" content="DCHN[x, i, j] is a chain of Dirac matrices x and is transformed into DiracChain[FCI[x],DiracIndex[i],DiracIndex[j]] by FeynCalcInternal." />
+<script language="JavaScript" type="text/javascript">baselang='DCHN';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]>
+<style type="text/css">
+/* doctype problem overrides */
+#menu .searchboxsub, #menu .searchboxsub-on { padding-bottom: 0; }
+#menu .headerSearchSubmit { margin-bottom: 4px; }
+
+/*
+.WRIdropMenu .WRImenuContents { margin-top: -2px; margin-left: -2px; }
+.WRIdropMenu .WRImenuContents .WRImenuContents { margin: 0; }
+*/
+</style>
+<![endif]-->
+<link rel="stylesheet" href="../css/reference.css" />
+
+
+            <link rel="stylesheet" href="../css/clipboard.css" />
+            <script src="../javascript/jquery/core/1.7.2/jquery.min.js"></script>
+            <script src="../javascript/reference.js"></script>
+        
+<script src="../javascript/documentation-search.js"></script>
+<script src="../javascript/faster-page-load.js"></script>
+<script src="../javascript/hyperlink-filter.js"></script>
+<script src="../javascript/brokenlinks.js"></script>
+<script src="../javascript/clipboard.js"></script>
+<script src="../javascript/image-swap.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="../javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+ 
+<div class="main-wrapper">
+<div class="outer-wrapper">
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">FEYN CALC SYMBOL</span></span>
+  </div>
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="/language/FeynCalc/ref/DiracChain.html"><span class="dropdownPad">DiracChain</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DCHN.html"><span class="dropdownPad">DCHN</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracIndex.html"><span class="dropdownPad">DiracIndex</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracIndexDelta.html"><span class="dropdownPad">DiracIndexDelta</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracChainJoin.html"><span class="dropdownPad">DiracChainJoin</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracChainExpand.html"><span class="dropdownPad">DiracChainExpand</span></a>
+     </li>
+     <li>
+      <a href="/language/FeynCalc/ref/DiracChainFactor.html"><span class="dropdownPad">DiracChainFactor</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>DCHN</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF"><span class="specialcharacters">DCHN<span class="openbracket">[</span>x<span class="comma">,</span>i<span class="comma">,</span>j<span class="closebracket">]</span></span></span> <br />is a chain of Dirac matrices x and is transformed into DiracChain[FCI[x],DiracIndex[i],DiracIndex[j]] by FeynCalcInternal.</p>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <li><a name="562724937"></a>A standalone Dirac matrix with open Dirac indices</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+            <a name="883461262"></a>
+            <img src="Files/DCHN/I_2.png"
+                height="16"
+                width="106"
+                alt="Click for copyable input" />
+           </div><div id="i_1_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_1.png"
+                height="17"
+                width="39"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="1618780636"></a>A chain of Dirac matrices with open Dirac indices</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[2]:=</td><td class="Input"><div>
+            <a name="2010253364"></a>
+            <img src="Files/DCHN/I_4.png"
+                height="16"
+                width="152"
+                alt="Click for copyable input" />
+           </div><div id="i_3_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[2]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_2.png"
+                height="17"
+                width="56"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="1250331575"></a>A single <span class="IF"><img src="Files/DCHN/1.png" height="17" width="8" style="vertical-align:middle;" alt="" title="" /></span> spinor with an open Dirac index</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[3]:=</td><td class="Input"><div>
+            <a name="1134519360"></a>
+            <img src="Files/DCHN/I_6.png"
+                height="16"
+                width="153"
+                alt="Click for copyable input" />
+           </div><div id="i_5_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[3]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_3.png"
+                height="15"
+                width="65"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="63600432"></a>A single <span class="IF"><img src="Files/DCHN/2.png" height="17" width="9" style="vertical-align:middle;" alt="" title="" /></span> spinor with an open Dirac index</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[4]:=</td><td class="Input"><div>
+            <a name="443709048"></a>
+            <img src="Files/DCHN/I_8.png"
+                height="16"
+                width="151"
+                alt="Click for copyable input" />
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_4.png"
+                height="15"
+                width="65"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="1458298795"></a>A single <span class="IF">u</span> spinor with an open Dirac index</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[5]:=</td><td class="Input"><div>
+            <a name="791949561"></a>
+            <img src="Files/DCHN/I_10.png"
+                height="16"
+                width="133"
+                alt="Click for copyable input" />
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_5.png"
+                height="15"
+                width="64"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="2030312156"></a>A single <span class="IF">v</span> spinor with an open Dirac index</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[6]:=</td><td class="Input"><div>
+            <a name="227593440"></a>
+            <img src="Files/DCHN/I_12.png"
+                height="16"
+                width="132"
+                alt="Click for copyable input" />
+           </div><div id="i_11_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[6]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_6.png"
+                height="15"
+                width="64"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="1268031370"></a> <span class="IF"><img src="Files/DCHN/3.png" height="17" width="8" style="vertical-align:middle;" alt="" title="" /></span> spinor contracted with a chain of Dirac matrices</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[7]:=</td><td class="Input"><div>
+            <a name="1380755633"></a>
+            <img src="Files/DCHN/I_14.png"
+                height="16"
+                width="249"
+                alt="Click for copyable input" />
+           </div><div id="i_13_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[7]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_7.png"
+                height="17"
+                width="102"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="867998080"></a> <span class="IF"><img src="Files/DCHN/4.png" height="17" width="9" style="vertical-align:middle;" alt="" title="" /></span> spinor contracted with a chain of Dirac matrices</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[8]:=</td><td class="Input"><div>
+            <a name="1948837227"></a>
+            <img src="Files/DCHN/I_16.png"
+                height="16"
+                width="247"
+                alt="Click for copyable input" />
+           </div><div id="i_15_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[8]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_8.png"
+                height="17"
+                width="102"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="1238042528"></a> <span class="IF">u</span> spinor contracted with a chain of Dirac matrices</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[9]:=</td><td class="Input"><div>
+            <a name="1936823151"></a>
+            <img src="Files/DCHN/I_18.png"
+                height="16"
+                width="227"
+                alt="Click for copyable input" />
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_9.png"
+                height="15"
+                width="99"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li><a name="1861495104"></a> <span class="IF">v</span> spinor contracted with a chain of Dirac matrices</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[10]:=</td><td class="Input"><div>
+            <a name="1335889439"></a>
+            <img src="Files/DCHN/I_20.png"
+                height="16"
+                width="227"
+                alt="Click for copyable input" />
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><div class="output-image">
+            <img src="Files/DCHN/O_10.png"
+                height="15"
+                width="99"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <p class="inlineFunctionList"><a href="../ref/DiracChain.html">DiracChain</a>, <a href="../ref/DCHN.html">DCHN</a>, <a href="../ref/DiracIndex.html">DiracIndex</a>, <a href="../ref/DiracIndexDelta.html">DiracIndexDelta</a>, <a href="../ref/DiracChainJoin.html">DiracChainJoin</a>, <a href="../ref/DiracChainExpand.html">DiracChainExpand</a>, <a href="../ref/DiracChainFactor.html">DiracChainFactor</a>.</p>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+
+
+</body></html>

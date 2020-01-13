@@ -1,0 +1,4 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>DiracChain[
+ DiracGamma[
+   LorentzIndex[\[Mu]]].(m + DiracGamma[Momentum[p]]).DiracGamma[
+   LorentzIndex[\[Nu]]], DiracIndex[i], Spinor[Momentum[p], m, 1]]</pre><div class='IFU'><a name='1504197659'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5ln26-y5ugml</div>

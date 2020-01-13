@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>PauliSimplify[CSIS[p].CSI[i, j, k].CSIS[p], PauliReduce -&gt; False]</pre><div class='IFU'><a name='932118586'></a>http://wolfram.com/xid/0yhrpvlwg1bd1auv27wve6-po8tk8</div>

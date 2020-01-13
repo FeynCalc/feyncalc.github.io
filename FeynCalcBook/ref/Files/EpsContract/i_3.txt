@@ -1,1 +1,3 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Contract[a1 a1, EpsContract -&gt; False]</pre><div class='IFU'><a name='1929247061'></a>http://wolfram.com/xid/0dot6agzccymmis9z6w72-56wquf</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>LCD[\[Mu], \[Nu], \[Rho], \[Sigma]];
+EpsContract[% %] // Factor2;
+EpsContract[% %] // Factor2</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmis9z6w72</div>

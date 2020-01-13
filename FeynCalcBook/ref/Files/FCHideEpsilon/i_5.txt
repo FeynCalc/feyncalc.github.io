@@ -1,0 +1,3 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>1/Epsilon + Log[4 Pi] - EulerGamma;
+FCHideEpsilon[%];
+FCHideEpsilon[%]</pre><div class='IFU'><a name='797045486'></a>http://wolfram.com/xid/0isbkgaigz2n8s4mgcwu7zzaq-ngtqio</div>

@@ -1,0 +1,4 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>$RenameFeynCalcObjects = {&quot;MetricTensor&quot; -&gt; &quot;FCMetricTensor&quot;, 
+   &quot;Factor1&quot; -&gt; &quot;FCFactor1&quot;, &quot;Factor2&quot; -&gt; &quot;FCFactor2&quot;};
+(*&lt;&lt;FeynCalc`*)
+(*&lt;&lt;LiteRed`*)</pre><div class='IFU'><a name='1698473390'></a>http://wolfram.com/xid/0jpxwjbj1oa5zhmhtg8s6jb5srvcz2-2digqo</div>

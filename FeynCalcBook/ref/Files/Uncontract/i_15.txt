@@ -1,1 +1,1 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>Uncontract[ScalarProduct[p, q], q, Pair -&gt; All]</pre><div class='IFU'><a name='765993198'></a>http://wolfram.com/xid/0ripg176m1b0q8sqbqq-myb6e4</div>
+<pre name='i_15_in' id='i_15_in' class='IFT'>Uncontract[SP[p, q], q, Pair -&gt; All]</pre><div class='IFU'><a name='765993198'></a>http://wolfram.com/xid/0ripg176m1b0q8sqbqq-myb6e4</div>

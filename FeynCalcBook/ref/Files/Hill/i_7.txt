@@ -1,2 +1,3 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Hill[x, x y] // PowerExpand // SimplifyPolyLog // Expand;
+<pre name='i_7_in' id='i_7_in' class='IFT'>Hill[a, b];
+% /. x :&gt; .34 /. y -&gt; .6 // N // Chop;
 % /. x :&gt; .34 /. y -&gt; .6 // N // Chop</pre><div class='IFU'><a name='1494969413'></a>http://wolfram.com/xid/0jy9tuh3qgh0fboy09-y0cn2f</div>

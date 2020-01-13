@@ -1,0 +1,4 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>DCHN[SpinorUBar[p1, m1], i] DCHN[GAD[\[Mu]].GAD[\[Nu]], i, j] DCHN[j, 
+  SpinorV[p2, m2]];
+DiracChainJoin[%];
+DiracChainJoin[%]</pre><div class='IFU'><a name='1834507663'></a>http://wolfram.com/xid/0jukp71jhuapzmkh9fimz8xe-4mh5gh</div>

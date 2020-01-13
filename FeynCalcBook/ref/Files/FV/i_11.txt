@@ -1,2 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>ExpandScalarProduct[FV[p - q, \[Mu]]];
-StandardForm[%]</pre><div class='IFU'><a name='306111649'></a>http://wolfram.com/xid/0k6v9si2wy9y6x3h7-fcjbjn</div>
