@@ -20,7 +20,7 @@ $FAVerbose = 0;
 FCCheckVersion[9, 3, 0]; 
 ```
 
-![0qnnh03rto7wq](img/0qnnh03rto7wq.svg)
+![15rnxse19dln3](img/15rnxse19dln3.svg)
 
 ![02tqcun616cas](img/02tqcun616cas.svg)
 
@@ -136,14 +136,15 @@ amp[2] = Simplify[amp[1] /. loopInt]
 ![0vnuiqz9nyc93](img/0vnuiqz9nyc93.svg)
 
 ```mathematica
-ampFull[0] = Expand[amp[2] + ampCT[0] /. SMP["d_g^MSbar"] -> 
-         (3*g^2*SMP["Delta"])/(32*Pi^2)]
+ampFull[0] = Expand[amp[2] + ampCT[0] /. 
+       {SMP["d_g^MSbar"] -> (3*g*SMP["Delta"])/(32*Pi^2), 
+         Zphi -> 1}]
 ```
 
-![1ivc1qkl2ezer](img/1ivc1qkl2ezer.svg)
+![1p3sgdg636qc8](img/1p3sgdg636qc8.svg)
 
 ```mathematica
-FCCompareResults[FreeQ[ampFull, SMP["Delta"]], True, 
+FCCompareResults[FreeQ[ampFull[0], SMP["Delta"]], True, 
      Text -> 
        {"\tThe UV divergence is cancelled by the counter-term:", 
          "CORRECT.", "WRONG!"}, Interrupt -> 
@@ -159,7 +160,7 @@ ampFullAsy[0] = Normal[Series[ampFull[0] /. u -> -s - t,
        {s, Infinity, 0}]]
 ```
 
-![0q3ablo9zyty4](img/0q3ablo9zyty4.svg)
+![0qaylrapsj65n](img/0qaylrapsj65n.svg)
 
 The leading order behavior is governed by the log of s
 
@@ -184,4 +185,4 @@ Print["\tCPU Time used: ", Round[N[TimeUsed[], 4], 0.001],
 
 ![1dowyj2d5odnw](img/1dowyj2d5odnw.svg)
 
-![13rk8r467txo3](img/13rk8r467txo3.svg)
+![071yvqb9eqi36](img/071yvqb9eqi36.svg)
