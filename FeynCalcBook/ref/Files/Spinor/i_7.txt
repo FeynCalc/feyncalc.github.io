@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>DiracSimplify[Spinor[-p, m].GS[p]]</pre><div class='IFU'><a name='654515033'></a>http://wolfram.com/xid/08q4nt52zsdq75zdnaa-k3ytbf</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>DiracSimplify[Spinor[-Momentum[p], m].GS[p]]</pre><div class='IFU'><a name='654515033'></a>http://wolfram.com/xid/08q4nt52zsdq75zdnaa-k3ytbf</div>

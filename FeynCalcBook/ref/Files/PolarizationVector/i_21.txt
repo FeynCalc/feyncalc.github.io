@@ -1,0 +1,4 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>&#1077;&#1093;2 = SP[k1, Polarization[k1, I, Transversality -&gt; True]] SP[k2, 
+    Polarization[k1, -I, Transversality -&gt; True]] SP[k1, 
+    Polarization[k2, I, Transversality -&gt; True]] SP[k2, 
+    Polarization[k2, -I, Transversality -&gt; True]] // FCI</pre><div class='IFU'>http://wolfram.com/xid/0cy370nkq1aepack2rsv8ii</div>

@@ -1,0 +1,2 @@
+<pre name='i_145_in' id='i_145_in' class='IFT'>DiracSimplify[ex, DiracOrder -&gt; True, 
+ LorentzIndexNames -&gt; {i1, i2, i3, i4, i5}]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

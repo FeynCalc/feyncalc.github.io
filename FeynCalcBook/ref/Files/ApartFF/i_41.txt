@@ -1,0 +1,1 @@
+<pre name='i_41_in' id='i_41_in' class='IFT'>int = FAD[k, p - k, {k, m}] (SPD[q] + SPD[p, k])</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq</div>

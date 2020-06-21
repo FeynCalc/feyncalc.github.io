@@ -1,0 +1,1 @@
+<pre name='i_45_in' id='i_45_in' class='IFT'>ApartFF[int, {k}, FeynAmpDenominator -&gt; False]</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq</div>

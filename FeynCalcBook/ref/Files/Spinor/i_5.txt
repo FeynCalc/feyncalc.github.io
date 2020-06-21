@@ -1,1 +1,1 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Spinor[p, m].Spinor[p, m] // DiracSimplify</pre><div class='IFU'><a name='540190510'></a>http://wolfram.com/xid/08q4nt52zsdq75zdnaa-i7wfx8</div>
+<pre name='i_5_in' id='i_5_in' class='IFT'>Spinor[Momentum[p], m].Spinor[Momentum[p], m] // DiracSimplify</pre><div class='IFU'><a name='540190510'></a>http://wolfram.com/xid/08q4nt52zsdq75zdnaa-i7wfx8</div>

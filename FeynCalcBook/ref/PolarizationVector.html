@@ -90,7 +90,7 @@
          <tr><td class="lab">In[1]:=</td><td class="Input"><div>
             <a name="1596092203"></a>
             <img src="Files/PolarizationVector/I_2.png"
-                height="16"
+                height="18"
                 width="139"
                 alt="Click for copyable input" />
            </div><div id="i_1_out" class="IFL"></div></td></tr>
@@ -109,8 +109,8 @@
          <tr><td class="lab">In[2]:=</td><td class="Input"><div>
             <a name="597384549"></a>
             <img src="Files/PolarizationVector/I_4.png"
-                height="16"
-                width="205"
+                height="18"
+                width="206"
                 alt="Click for copyable input" />
            </div><div id="i_3_out" class="IFL"></div></td></tr>
         </table>
@@ -129,14 +129,14 @@
          <tr><td class="lab">In[3]:=</td><td class="Input"><div>
             <a name="1765549294"></a>
             <img src="Files/PolarizationVector/I_6.png"
-                height="16"
-                width="243"
+                height="18"
+                width="244"
                 alt="Click for copyable input" />
            </div><div id="i_5_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td colspan="2"><div class="celllabelTableForm">Out[3]//StandardForm=</div></td></tr>
-         <tr><td class="lab"> </td><td class="Output"><img src="Files/PolarizationVector/O_3.png" width="329" height="17" alt="" /></td></tr>
+         <tr><td class="lab"> </td><td class="Output"><img src="Files/PolarizationVector/O_3.png" width="329" height="19" alt="" /></td></tr>
         </table>
        </div>
        <li>The transverality property is not automatic.</li>
@@ -145,8 +145,8 @@
          <tr><td class="lab">In[4]:=</td><td class="Input"><div>
             <a name="1218109993"></a>
             <img src="Files/PolarizationVector/I_8.png"
-                height="16"
-                width="190"
+                height="18"
+                width="191"
                 alt="Click for copyable input" />
            </div><div id="i_7_out" class="IFL"></div></td></tr>
         </table>
@@ -164,8 +164,8 @@
          <tr><td class="lab">In[5]:=</td><td class="Input"><div>
             <a name="918402341"></a>
             <img src="Files/PolarizationVector/I_10.png"
-                height="16"
-                width="70"
+                height="18"
+                width="71"
                 alt="Click for copyable input" />
            </div><div id="i_9_out" class="IFL"></div></td></tr>
         </table>
@@ -183,8 +183,8 @@
          <tr><td class="lab">In[6]:=</td><td class="Input"><div>
             <a name="113884671"></a>
             <img src="Files/PolarizationVector/I_12.png"
-                height="16"
-                width="320"
+                height="18"
+                width="322"
                 alt="Click for copyable input" />
            </div><div id="i_11_out" class="IFL"></div></td></tr>
         </table>
@@ -202,14 +202,99 @@
          <tr><td class="lab">In[7]:=</td><td class="Input"><div>
             <a name="554867330"></a>
             <img src="Files/PolarizationVector/I_14.png"
-                height="16"
-                width="70"
+                height="18"
+                width="71"
                 alt="Click for copyable input" />
            </div><div id="i_13_out" class="IFL"></div></td></tr>
         </table>
         <table class="OCell">
          <tr><td class="lab">Out[7]=</td><td class="Output"><div class="output-image">
             <img src="Files/PolarizationVector/O_7.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Suppose that you are using unphysical polarization vectors for massless gauge bosons and intend to remove the unphysical degrees of freedom at a later stage using ghosts. In this case you must not use <span class="InlineFormula">Transversality<span class="special-character Rule">&#62754;</span>True</span>, since your polarization vectors are not transverse. Otherwise the result will be inconsistent.</li>
+       <li>Here everything is correct, we can use the gauge trick with unphysical polarization vectors.</li>
+       <table class="InCell">
+        <tr><td class="lab">In[8]:=</td><td class="Input"><div>
+           <img src="Files/PolarizationVector/I_16.png"
+               height="18"
+               width="272"
+               alt="Click for copyable input" />
+          </div><div id="i_15_out" class="IFL"></div></td></tr>
+       </table>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[9]:=</td><td class="Input"><div>
+            <img src="Files/PolarizationVector/I_18.png"
+                height="38"
+                width="341"
+                alt="Click for copyable input" />
+           </div><div id="i_17_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[9]=</td><td class="Output"><div class="output-image">
+            <img src="Files/PolarizationVector/O_8.png"
+                height="19"
+                width="265"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[10]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/PolarizationVector/I_20.png"
+                data-big="420 18"
+                data-small="232 38"
+                alt="Click for copyable input" />
+           </div><div id="i_19_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[10]=</td><td class="Output"><div class="output-image">
+            <img src="Files/PolarizationVector/O_9.png"
+                height="16"
+                width="57"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <li>Here we erroneously set  <span class="InlineFormula">Transversality<span class="special-character Rule">&#62754;</span>True</span>  and consequently obtain a wrong result. In pure QED the full result (physical amplitude squared) would still come out correct owing to Ward identities, but e.g. in QCD this would not be the case.</li>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[11]:=</td><td class="Input"><div>
+            <img src="Files/PolarizationVector/I_22.png"
+                height="77"
+                width="353"
+                alt="Click for copyable input" />
+           </div><div id="i_21_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[11]=</td><td class="Output"><div class="output-image">
+            <img src="Files/PolarizationVector/O_10.png"
+                height="14"
+                width="8"
+                alt="" />
+           </div></td></tr>
+        </table>
+       </div>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab">In[12]:=</td><td class="Input"><div>
+            <img src=""
+                data-src="Files/PolarizationVector/I_24.png"
+                data-big="420 18"
+                data-small="232 38"
+                alt="Click for copyable input" />
+           </div><div id="i_23_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[12]=</td><td class="Output"><div class="output-image">
+            <img src="Files/PolarizationVector/O_11.png"
                 height="14"
                 width="8"
                 alt="" />

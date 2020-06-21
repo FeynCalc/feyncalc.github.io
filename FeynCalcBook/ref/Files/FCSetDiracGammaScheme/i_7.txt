@@ -1,1 +1,1 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FCSetDiracGammaScheme[&quot;NDR-Drop&quot;]</pre><div class='IFU'><a name='1854871493'></a>http://wolfram.com/xid/0gwt4rzmfasvnr4g440xp2syk4xzaz66m-4ymmaf</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>FCSetDiracGammaScheme[&quot;NDR-Discard&quot;]</pre><div class='IFU'><a name='1854871493'></a>http://wolfram.com/xid/0gwt4rzmfasvnr4g440xp2syk4xzaz66m-4ymmaf</div>
