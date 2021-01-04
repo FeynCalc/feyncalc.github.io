@@ -1,0 +1,10 @@
+Reporting-MTA: dns; mpv7.tis.cwru.edu
+Arrival-Date: Tue, 29 Sep 2015 05:19:12 -0400
+
+Final-Recipient: RFC822; klk3@po.cwru.edu
+Action: failed
+Status: 5.2.2
+Remote-MTA: DNS; alt2.aspmx.l.google.com
+Diagnostic-Code: SMTP; 552-5.7.0 This message was blocked because its content presents a potential
+Last-Attempt-Date: Tue, 29 Sep 2015 05:19:13 -0400
+

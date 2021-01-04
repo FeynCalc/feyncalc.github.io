@@ -1,0 +1,2109 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     75698,       1955]*)
+(*NotebookOutlinePosition[     76881,       1994]*)
+(*  CellTagsIndexPosition[     76749,       1987]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \($Version\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"5.0 for Microsoft Windows (November 18, 2003)"\)], \
+"Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(starttime = AbsoluteTime[]\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`3.3116260023669994`17.27261627310624*^9\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(<< HighEnergyPhysics`FeynCalc`\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($FeynCalcVersion\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"5.0.0beta1"\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(tr = TR[Calc[#]] &;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\({ScalarProduct[p, p] = mw^2, ScalarProduct[q, q] = 0, 
+        ScalarProduct[l, l] = \ \((x + y)\)^2\ \ mw^2, 
+        ScalarProduct[l3, l3] = \ x^2\ \ mw^2, 
+        ScalarProduct[l4, l4] = \ x^2\ \ mw^2, 
+        ScalarProduct[p, l] = \ \((x + y)\)\ \ mw^2, 
+        ScalarProduct[p, l3] = \ x\ \ mw^2, 
+        ScalarProduct[p, l4] = \ x\ \ mw^2, ScalarProduct[l, q] = 0, 
+        ScalarProduct[l3, q] = 0, ScalarProduct[l4, q] = 0, 
+        ScalarProduct[p, q] = 0, 
+        Pair[Momentum[q, ___], LorentzIndex[\[Mu], ___]] = 0, 
+        Pair[Momentum[p, d___], LorentzIndex[\[Alpha], ___]] = \ \ Pair[
+            Momentum[q, d], LorentzIndex[\[Alpha], d]], 
+        Pair[Momentum[p, d___], 
+            LorentzIndex[\[Beta], ___]] = \(-Pair[Momentum[q, d], 
+              LorentzIndex[\[Beta], d]]\), \ 
+        Pair[Momentum[l, d___], 
+            LorentzIndex[\[Alpha], ___]] = \ \ 2\ \ y\ \ Pair[Momentum[q, d], 
+              LorentzIndex[\[Alpha], d]], 
+        Pair[Momentum[l, d___], 
+            LorentzIndex[\[Beta], ___]] = \(-2\)\ \ x\ \ Pair[Momentum[q, d], 
+              LorentzIndex[\[Beta], d]], \ 
+        Pair[Momentum[l, d___], 
+            LorentzIndex[\[Mu], ___]] = \((x + y)\)\ \ Pair[Momentum[p, d], 
+              LorentzIndex[\[Mu], d]], \ 
+        Pair[Momentum[l3, d___], LorentzIndex[\[Alpha], ___]] = 
+          2  x\ Pair[Momentum[q, d], LorentzIndex[\[Alpha], d]], 
+        Pair[Momentum[l3, d___], LorentzIndex[\[Beta], ___]] = 0, \ 
+        Pair[Momentum[l3, d___], LorentzIndex[\[Mu], ___]] = 
+          x\ \ Pair[Momentum[p, d], LorentzIndex[\[Mu], d]], 
+        Pair[Momentum[l4, d___], LorentzIndex[\[Alpha], ___]] = 0, 
+        Pair[Momentum[l4, d___], LorentzIndex[\[Beta], ___]] = \(-2\) 
+            x\ Pair[Momentum[q, d], LorentzIndex[\[Beta], d]], \ 
+        Pair[Momentum[l4, d___], LorentzIndex[\[Mu], ___]] = 
+          x\ Pair[Momentum[p, d], LorentzIndex[\[Mu], d]]};\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(PL = \((1 - GAD[5])\)/2;\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(PR = \((1 + GAD[5])\)/2;\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(s[a_, b_] := 
+      I/2 \((GAD[a] . GAD[b] - GAD[b] . GAD[a])\)\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]a[c_, 
+        d_]\)\(:=\)\(FullSimplify[
+        Calc[GAD[\[Alpha]] . \((AL\ PL\  + AR\ \ PR\ )\)\  + \ 
+            1\/\[CapitalLambda]\ \((\ \(-\((\ 
+                        CL\ PL\  + CR\ \ PR)\)\)\ \((FVD[c, \[Alpha]] + 
+                        FVD[d, \[Alpha]])\)\  - 
+                  4\ I\ \((DL\ PL\  + \ DR\ \ PR)\) . \ 
+                      Contract[
+                        s[\[Alpha], \[Rho]]\ \ \((FVD[p, \[Rho]] - \ 
+                              FVD[q, \[Rho]])\)]\ )\)]]\)\(\ \)\)\)\)], \
+"Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]\[Alpha]\[Mu] = 
+        FullSimplify[
+          Calc[\ 1\/\[CapitalLambda]\ \((\ \ \ \((\ \((\ Qb\ CL\  + BL\ )\) 
+                          PL\  + \((\ Qb\ CR\  + BR\ )\) 
+                          PR\ )\)\ MTD[\[Alpha], \[Mu]] + 
+                  4\ I\ \((DL\ PL\  + \ DR\ \ PR)\) . \ 
+                      s[\[Alpha], \[Mu]]\ )\)]];\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]b[e_, f_] := 
+      FullSimplify[
+        Calc[GAD[\[Beta]] . \((\(AL\^*\)\ PL\  + \(AR\^*\)\ \ PR\ )\)\  + \ 
+            1\/\[CapitalLambda]\ \((\ \(-\((\ \(CL\^*\)\ PR\  + \(CR\^*\)\ \
+PL)\)\)\ \((FVD[e, \[Beta]] + FVD[f, \[Beta]])\)\  + 
+                  4\ I\ \((\(DL\^*\)\ \ PR\  + \ \(DR\^*\)\ PL)\) . \ 
+                      Contract[
+                        s[\[Beta], \[Lambda]]\ \ \((FVD[p, \[Lambda]] + \ 
+                              FVD[q, \[Lambda]])\)]\ )\)]]\)\(\
+\[IndentingNewLine]\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]\[Beta]\[Mu] = 
+        FullSimplify[
+          Calc[\ 1\/\[CapitalLambda]\ \((\ \ \ \((\ \((\ 
+                            Qb\ \ \(CL\^*\)\  + \ \(BL\^*\)\ )\) 
+                          PR\  + \((\ Qb\ \ \(CR\^*\)\  + \(BR\^*\)\ )\) 
+                          PL\ )\)\ MTD[\[Beta], \[Mu]] - 
+                  4\ I\ \((\(DL\^*\)\ PR\  + \ \(DR\^*\)\ \ PL)\) . \ 
+                      s[\ \[Beta], \[Mu]]\ )\)]];\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]\[Alpha]\[Beta] = 
+        Calc[\ 2\/\[CapitalLambda]\ \((\ \ \ \((Co\  + \ 
+                    I\ C5\ \ GAD[5])\) . \ 
+                s[\ \[Alpha], \[Beta]]\ )\)]\ ;\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[CapitalGamma]t\[Mu] = \ 
+        DiracReduce[
+          Qt\ \ GAD[\[Mu]]\  - \ 
+            4\/\[CapitalLambda]\ \((I\ abo\  - ab5)\)\ Contract[
+                s[\[Mu], \[Lambda]]\ \ FVD[
+                    q, \[Lambda]]]]\ ;\)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\[CapitalGamma]b\[Mu] = 
+        Qb\ GAD[\[Mu]]\ ;\)\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Options@Isolate\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{IsolateNames \[Rule] KK, 
+      HighEnergyPhysics`FeynCalc`IsolatePrint`IsolatePrint \[Rule] False, 
+      HighEnergyPhysics`FeynCalc`IsolateSplit`IsolateSplit \[Rule] \
+\[Infinity]}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($NonComm\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{ChiralityProjector, DiracGamma, DiracGammaT, 
+      DiracMatrix, DiracSigma, DiracSlash, Spinor, GAD, GA, GSD, GS, 
+      LeftPartialD, LeftRightPartialD2, LeftRightPartialD, PartialD, 
+      PauliSigma, QuantumField, RightPartialD, SpinorUBar, SpinorU, 
+      SpinorVBar, SpinorV, SUNT, FieldStrength, QuarkGluonVertex, 
+      QuarkPropagator, C, Twist2QuarkOperator}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(tmp1 = 
+      Isolate[FCI[\[CapitalGamma]\[Alpha]\[Mu] . \((GSD[k] - 
+                x\ \((GSD[p] + GSD[q])\) + mb)\) . \[CapitalGamma]b[
+              k, \(-l3\)] . \((GSD[k] + \((1 - x)\) \((GSD[p] + GSD[q])\) + 
+                mt)\)], $NonComm, IsolateNames \[Rule] Z]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        FractionBox[
+          RowBox[{
+            RowBox[{\(-2\), " ", 
+              RowBox[{
+                SuperscriptBox["\[Gamma]", 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], ".", 
+                SuperscriptBox["\[Gamma]", 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], " ", 
+              TagBox[\(Z(1)\),
+                HoldForm]}], "+", 
+            RowBox[{"2", " ", 
+              RowBox[{
+                SuperscriptBox["\[Gamma]", 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], ".", 
+                SuperscriptBox["\[Gamma]", 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], " ", 
+              TagBox[\(Z(1)\),
+                HoldForm]}], "+", 
+            RowBox[{"2", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{
+                    SuperscriptBox["\[Gamma]", 
+                      FormBox[
+                        FormBox["\[Alpha]",
+                          "TraditionalForm"],
+                        "TraditionalForm"]], ".", 
+                    SuperscriptBox["\[Gamma]", 
+                      FormBox[
+                        FormBox["\[Mu]",
+                          "TraditionalForm"],
+                        "TraditionalForm"]], ".", \(\[Gamma]\^5\)}], "-", 
+                  RowBox[{
+                    SuperscriptBox["\[Gamma]", 
+                      FormBox[
+                        FormBox["\[Mu]",
+                          "TraditionalForm"],
+                        "TraditionalForm"]], ".", 
+                    SuperscriptBox["\[Gamma]", 
+                      FormBox[
+                        FormBox["\[Alpha]",
+                          "TraditionalForm"],
+                        "TraditionalForm"]], ".", \(\[Gamma]\^5\)}]}], ")"}], 
+              " ", 
+              TagBox[\(Z(2)\),
+                HoldForm]}], "+", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"BL", "+", "BR", "+", 
+                  RowBox[{"Qb", " ", 
+                    TagBox[\(Z(3)\),
+                      HoldForm]}], "-", 
+                  RowBox[{\(\[Gamma]\^5\), " ", 
+                    TagBox[\(Z(4)\),
+                      HoldForm]}]}], ")"}], 
+              " ", \(g\^\(\[Alpha]  \[Mu]\)\)}]}], \(2\ \[CapitalLambda]\)], 
+        ".", 
+        RowBox[{"(", 
+          RowBox[{"mb", "+", 
+            RowBox[{
+              FormBox["\<\"\[Gamma]\"\>",
+                "TraditionalForm"], "\[CenterDot]", 
+              FormBox["k",
+                "TraditionalForm"]}], "-", 
+            RowBox[{"x", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{
+                    FormBox["\<\"\[Gamma]\"\>",
+                      "TraditionalForm"], "\[CenterDot]", 
+                    FormBox["p",
+                      "TraditionalForm"]}], "+", 
+                  RowBox[{
+                    FormBox["\<\"\[Gamma]\"\>",
+                      "TraditionalForm"], "\[CenterDot]", 
+                    FormBox["q",
+                      "TraditionalForm"]}]}], ")"}]}]}], ")"}], ".", 
+        RowBox[{\(1\/\(2\ \[CapitalLambda]\)\), 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{"\[CapitalLambda]", " ", 
+                RowBox[{
+                  SuperscriptBox["\[Gamma]", 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"]], ".", \(\[Gamma]\^5\)}], " ", 
+                TagBox[\(Z(5)\),
+                  HoldForm]}], "+", 
+              RowBox[{"\[CapitalLambda]", " ", 
+                SuperscriptBox["\[Gamma]", 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                TagBox[\(Z(6)\),
+                  HoldForm]}], "-", 
+              RowBox[{"2", " ", 
+                RowBox[{
+                  SuperscriptBox["\[Gamma]", 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"]], ".", 
+                  RowBox[{"(", 
+                    RowBox[{
+                      FormBox["\<\"\[Gamma]\"\>",
+                        "TraditionalForm"], "\[CenterDot]", 
+                      FormBox["p",
+                        "TraditionalForm"]}], ")"}]}], " ", 
+                TagBox[\(Z(7)\),
+                  HoldForm]}], "-", 
+              RowBox[{"2", " ", 
+                RowBox[{
+                  SuperscriptBox["\[Gamma]", 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"]], ".", 
+                  RowBox[{"(", 
+                    RowBox[{
+                      FormBox["\<\"\[Gamma]\"\>",
+                        "TraditionalForm"], "\[CenterDot]", 
+                      FormBox["q",
+                        "TraditionalForm"]}], ")"}]}], " ", 
+                TagBox[\(Z(7)\),
+                  HoldForm]}], "-", 
+              RowBox[{
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                " ", \((\[Gamma]\^5\ \(CL\^*\) + \(CL\^*\) - \[Gamma]\^5\ \
+\(CR\^*\) + \(CR\^*\))\)}], "+", 
+              RowBox[{"2", " ", 
+                RowBox[{"(", 
+                  RowBox[{
+                    RowBox[{
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["p",
+                            "TraditionalForm"]}], ")"}], ".", 
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]]}], "+", 
+                    RowBox[{
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["q",
+                            "TraditionalForm"]}], ")"}], ".", 
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]]}], "-", 
+                    RowBox[{
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", 
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["p",
+                            "TraditionalForm"]}], ")"}], 
+                      ".", \(\[Gamma]\^5\)}], "-", 
+                    RowBox[{
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", 
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["q",
+                            "TraditionalForm"]}], ")"}], 
+                      ".", \(\[Gamma]\^5\)}], "+", 
+                    RowBox[{
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["p",
+                            "TraditionalForm"]}], ")"}], ".", 
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", \(\[Gamma]\^5\)}], "+", 
+                    RowBox[{
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["q",
+                            "TraditionalForm"]}], ")"}], ".", 
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", \(\[Gamma]\^5\)}]}], 
+                  ")"}], " ", \(DL\^*\)}], "+", 
+              RowBox[{"2", " ", 
+                RowBox[{"(", 
+                  RowBox[{
+                    RowBox[{
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["p",
+                            "TraditionalForm"]}], ")"}], ".", 
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]]}], "+", 
+                    RowBox[{
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["q",
+                            "TraditionalForm"]}], ")"}], ".", 
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]]}], "+", 
+                    RowBox[{
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", 
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["p",
+                            "TraditionalForm"]}], ")"}], 
+                      ".", \(\[Gamma]\^5\)}], "+", 
+                    RowBox[{
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", 
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["q",
+                            "TraditionalForm"]}], ")"}], 
+                      ".", \(\[Gamma]\^5\)}], "-", 
+                    RowBox[{
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["p",
+                            "TraditionalForm"]}], ")"}], ".", 
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", \(\[Gamma]\^5\)}], "-", 
+                    RowBox[{
+                      RowBox[{"(", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[CenterDot]", 
+                          FormBox["q",
+                            "TraditionalForm"]}], ")"}], ".", 
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox["\[Beta]",
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", \(\[Gamma]\^5\)}]}], 
+                  ")"}], " ", \(DR\^*\)}]}], ")"}]}], ".", 
+        RowBox[{"(", 
+          RowBox[{"mt", "+", 
+            RowBox[{
+              FormBox["\<\"\[Gamma]\"\>",
+                "TraditionalForm"], "\[CenterDot]", 
+              FormBox["k",
+                "TraditionalForm"]}], "+", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{
+                    FormBox["\<\"\[Gamma]\"\>",
+                      "TraditionalForm"], "\[CenterDot]", 
+                    FormBox["p",
+                      "TraditionalForm"]}], "+", 
+                  RowBox[{
+                    FormBox["\<\"\[Gamma]\"\>",
+                      "TraditionalForm"], "\[CenterDot]", 
+                    FormBox["q",
+                      "TraditionalForm"]}]}], ")"}], " ", 
+              TagBox[\(Z(8)\),
+                HoldForm]}]}], ")"}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Options@DiracSimplify\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{DiracCanonical \[Rule] False, 
+      DiracSigmaExplicit \[Rule] True, DiracSimpCombine \[Rule] False, 
+      DiracSubstitute67 \[Rule] False, Expanding \[Rule] True, 
+      Factoring \[Rule] False, FeynCalcInternal \[Rule] False, 
+      InsideDiracTrace \[Rule] False}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(?DotExpand\)\)], "Input"],
+
+Cell[BoxData[
+    \("DotExpand[expr] expands DOT products in expr."\)], "Print",
+  CellTags->"Info3311626020-8066195"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Options@Collect2\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{Denominator \[Rule] False, Dot \[Rule] False, 
+      Expanding \[Rule] True, Factoring \[Rule] Factor2, 
+      IsolateNames \[Rule] False}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(AbsoluteTiming[\(tmp2 = 
+          Collect2[DiracTrick[DotExpand[tmp1]] // FRH, $NonComm, 
+            IsolateNames \[Rule] Z, 
+            Factoring \[Rule] Expand];\)]\), "\[IndentingNewLine]", 
+    \(tmp2 // Length\)}], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{21.9615792`8.793208559382716\ Second, 
+      Null}\)], "Output"],
+
+Cell[BoxData[
+    \(TraditionalForm\`234\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(AbsoluteTiming[\(t2 = 
+          Collect2[Tr[tmp2] // FRH, LorentzIndex, IsolateNames \[Rule] R, 
+            Factoring -> Factor2];\)]\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{1.6924336`7.680056632318868\ Second, 
+      Null}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(t2\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{"-", 
+          FractionBox[
+            RowBox[{"8", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"], 
+                  FormBox["k",
+                    "TraditionalForm"]}]], " ", 
+              TagBox[\(R(1)\),
+                HoldForm]}], \(\[CapitalLambda]\^2\)]}], "-", 
+        FractionBox[
+          RowBox[{"8", " ", 
+            SuperscriptBox["\[Epsilon]", 
+              RowBox[{
+                FormBox[
+                  FormBox["\[Alpha]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox[
+                  FormBox["\[Beta]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox[
+                  FormBox["\[Mu]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox["p",
+                  "TraditionalForm"]}]], " ", 
+            TagBox[\(R(2)\),
+              HoldForm]}], \(\[CapitalLambda]\^2\)], "-", 
+        FractionBox[
+          RowBox[{"8", " ", 
+            SuperscriptBox["\[Epsilon]", 
+              RowBox[{
+                FormBox[
+                  FormBox["\[Alpha]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox[
+                  FormBox["\[Beta]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox[
+                  FormBox["\[Mu]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox["q",
+                  "TraditionalForm"]}]], " ", 
+            TagBox[\(R(2)\),
+              HoldForm]}], \(\[CapitalLambda]\^2\)], "-", 
+        FractionBox[
+          RowBox[{"8", " ", 
+            TagBox[\(R(3)\),
+              HoldForm], " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Alpha]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            " ", \(g\^\(\[Beta]  \[Mu]\)\)}], \(\[CapitalLambda]\^2\)], "-", 
+        FractionBox[
+          RowBox[{"16", " ", 
+            TagBox[\(R(4)\),
+              HoldForm], " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Alpha]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            " ", \(g\^\(\[Beta]  \[Mu]\)\)}], \(\[CapitalLambda]\^2\)], "+", 
+        FractionBox[
+          RowBox[{"8", " ", 
+            SuperscriptBox["\[Epsilon]", 
+              RowBox[{
+                FormBox[
+                  FormBox["\[Alpha]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox[
+                  FormBox["\[Mu]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox["k",
+                  "TraditionalForm"], 
+                FormBox["p",
+                  "TraditionalForm"]}]], " ", 
+            TagBox[\(R(6)\),
+              HoldForm], " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Beta]",
+                  "TraditionalForm"],
+                "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+        FractionBox[
+          RowBox[{"8", " ", 
+            SuperscriptBox["\[Epsilon]", 
+              RowBox[{
+                FormBox[
+                  FormBox["\[Alpha]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox[
+                  FormBox["\[Mu]",
+                    "TraditionalForm"],
+                  "TraditionalForm"], 
+                FormBox["k",
+                  "TraditionalForm"], 
+                FormBox["q",
+                  "TraditionalForm"]}]], " ", 
+            TagBox[\(R(6)\),
+              HoldForm], " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Beta]",
+                  "TraditionalForm"],
+                "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+        FractionBox[
+          RowBox[{"2", " ", 
+            TagBox[\(R(5)\),
+              HoldForm], " ", \(g\^\(\[Alpha]  \[Mu]\)\), " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Beta]",
+                  "TraditionalForm"],
+                "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+        FractionBox[
+          RowBox[{"8", " ", 
+            TagBox[\(R(3)\),
+              HoldForm], " ", \(g\^\(\[Alpha]  \[Beta]\)\), " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Mu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+        FractionBox[
+          RowBox[{"16", " ", 
+            TagBox[\(R(7)\),
+              HoldForm], " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Alpha]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Beta]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Mu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+        FractionBox[
+          RowBox[{"8", " ", 
+            TagBox[\(R(4)\),
+              HoldForm], " ", \(g\^\(\[Alpha]  \[Beta]\)\), " ", 
+            SuperscriptBox[
+              FormBox["p",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Mu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+        FractionBox[
+          RowBox[{"8", " ", 
+            TagBox[\(R(7)\),
+              HoldForm], " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Alpha]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["k",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Beta]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["p",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Mu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(?? R\)], "Input"],
+
+Cell["Global`R", "Print",
+  CellTags->"Info3311626044-4153782"],
+
+Cell[BoxData[
+    InterpretationBox[GridBox[{
+          {GridBox[{
+                {\(R[1] = 
+                    DR\ mb\ \[CapitalLambda]\ \(AL\^*\) + 
+                      DL\ mt\ \[CapitalLambda]\ \(AL\^*\) - 
+                      DL\ mb\ \[CapitalLambda]\ \(AR\^*\) - 
+                      DR\ mt\ \[CapitalLambda]\ \(AR\^*\) - 
+                      4\ DL\ mw\^2\ \(DL\^*\) + 8\ DL\ mw\^2\ x\ \(DL\^*\) - 
+                      8\ DL\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(DL\^*\) - 
+                      8\ DL\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(DL\^*\) + 
+                      4\ DR\ mw\^2\ \(DR\^*\) - 8\ DR\ mw\^2\ x\ \(DR\^*\) + 
+                      8\ DR\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(DR\^*\) + 
+                      8\ DR\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(DR\^*\)\)},
+                {" "},
+                {\(R[2] = 
+                    DR\ mb\ \[CapitalLambda]\ \(AL\^*\) - 
+                      DR\ mb\ x\ \[CapitalLambda]\ \(AL\^*\) - 
+                      DL\ mt\ x\ \[CapitalLambda]\ \(AL\^*\) - 
+                      DL\ mb\ \[CapitalLambda]\ \(AR\^*\) + 
+                      DL\ mb\ x\ \[CapitalLambda]\ \(AR\^*\) + 
+                      DR\ mt\ x\ \[CapitalLambda]\ \(AR\^*\) - 
+                      4\ DR\ mb\ mt\ \(DL\^*\) + 4\ DL\ mw\^2\ x\ \(DL\^*\) - 
+                      4\ DL\ mw\^2\ x\^2\ \(DL\^*\) + 
+                      4\ DL\ Pair[Momentum[k, D], 
+                          Momentum[k, D]]\ \(DL\^*\) + 
+                      4\ DL\ mb\ mt\ \(DR\^*\) - 4\ DR\ mw\^2\ x\ \(DR\^*\) + 
+                      4\ DR\ mw\^2\ x\^2\ \(DR\^*\) - 
+                      4\ DR\ Pair[Momentum[k, D], 
+                          Momentum[k, D]]\ \(DR\^*\)\)},
+                {" "},
+                {\(R[3] = 
+                    DR\ mb\ \[CapitalLambda]\ \(AL\^*\) - 
+                      DL\ mt\ \[CapitalLambda]\ \(AL\^*\) + 
+                      DL\ mb\ \[CapitalLambda]\ \(AR\^*\) - 
+                      DR\ mt\ \[CapitalLambda]\ \(AR\^*\) + 
+                      4\ DL\ mw\^2\ \(DL\^*\) - 8\ DL\ mw\^2\ x\ \(DL\^*\) + 
+                      8\ DL\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(DL\^*\) + 
+                      8\ DL\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(DL\^*\) + 
+                      4\ DR\ mw\^2\ \(DR\^*\) - 8\ DR\ mw\^2\ x\ \(DR\^*\) + 
+                      8\ DR\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(DR\^*\) + 
+                      8\ DR\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(DR\^*\)\)},
+                {" "},
+                {\(R[4] = 
+                    DR\ mb\ \[CapitalLambda]\ \(AL\^*\) - 
+                      DR\ mb\ x\ \[CapitalLambda]\ \(AL\^*\) + 
+                      DL\ mt\ x\ \[CapitalLambda]\ \(AL\^*\) + 
+                      DL\ mb\ \[CapitalLambda]\ \(AR\^*\) - 
+                      DL\ mb\ x\ \[CapitalLambda]\ \(AR\^*\) + 
+                      DR\ mt\ x\ \[CapitalLambda]\ \(AR\^*\) - 
+                      4\ DR\ mb\ mt\ \(DL\^*\) - 4\ DL\ mw\^2\ x\ \(DL\^*\) + 
+                      4\ DL\ mw\^2\ x\^2\ \(DL\^*\) - 
+                      4\ DL\ Pair[Momentum[k, D], 
+                          Momentum[k, D]]\ \(DL\^*\) - 
+                      4\ DL\ mb\ mt\ \(DR\^*\) - 4\ DR\ mw\^2\ x\ \(DR\^*\) + 
+                      4\ DR\ mw\^2\ x\^2\ \(DR\^*\) - 
+                      4\ DR\ Pair[Momentum[k, D], 
+                          Momentum[k, D]]\ \(DR\^*\)\)},
+                {" "},
+                {\(R[5] = 
+                    BR\ mb\ \[CapitalLambda]\ \(AL\^*\) + 
+                      BL\ mt\ \[CapitalLambda]\ \(AL\^*\) + 
+                      CR\ mb\ Qb\ \[CapitalLambda]\ \(AL\^*\) + 
+                      CL\ mt\ Qb\ \[CapitalLambda]\ \(AL\^*\) + 
+                      BL\ mb\ \[CapitalLambda]\ \(AR\^*\) + 
+                      BR\ mt\ \[CapitalLambda]\ \(AR\^*\) + 
+                      CL\ mb\ Qb\ \[CapitalLambda]\ \(AR\^*\) + 
+                      CR\ mt\ Qb\ \[CapitalLambda]\ \(AR\^*\) - 
+                      BR\ mb\ mt\ \(CL\^*\) - CR\ mb\ mt\ Qb\ \(CL\^*\) + 
+                      BL\ mw\^2\ x\ \(CL\^*\) + CL\ mw\^2\ Qb\ x\ \(CL\^*\) - 
+                      BL\ mw\^2\ x\^2\ \(CL\^*\) - 
+                      CL\ mw\^2\ Qb\ x\^2\ \(CL\^*\) - 
+                      BL\ Pair[Momentum[k, D], Momentum[k, D]]\ \(CL\^*\) - 
+                      CL\ Qb\ Pair[Momentum[k, D], 
+                          Momentum[k, D]]\ \(CL\^*\) - 
+                      BL\ Pair[Momentum[k, D], Momentum[p, D]]\ \(CL\^*\) - 
+                      CL\ Qb\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(CL\^*\) + 
+                      2\ BL\ x\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(CL\^*\) + 
+                      2\ CL\ Qb\ x\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(CL\^*\) - 
+                      BL\ Pair[Momentum[k, D], Momentum[q, D]]\ \(CL\^*\) - 
+                      CL\ Qb\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(CL\^*\) + 
+                      2\ BL\ x\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(CL\^*\) + 
+                      2\ CL\ Qb\ x\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(CL\^*\) - 
+                      BL\ mb\ mt\ \(CR\^*\) - CL\ mb\ mt\ Qb\ \(CR\^*\) + 
+                      BR\ mw\^2\ x\ \(CR\^*\) + CR\ mw\^2\ Qb\ x\ \(CR\^*\) - 
+                      BR\ mw\^2\ x\^2\ \(CR\^*\) - 
+                      CR\ mw\^2\ Qb\ x\^2\ \(CR\^*\) - 
+                      BR\ Pair[Momentum[k, D], Momentum[k, D]]\ \(CR\^*\) - 
+                      CR\ Qb\ Pair[Momentum[k, D], 
+                          Momentum[k, D]]\ \(CR\^*\) - 
+                      BR\ Pair[Momentum[k, D], Momentum[p, D]]\ \(CR\^*\) - 
+                      CR\ Qb\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(CR\^*\) + 
+                      2\ BR\ x\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(CR\^*\) + 
+                      2\ CR\ Qb\ x\ Pair[Momentum[k, D], 
+                          Momentum[p, D]]\ \(CR\^*\) - 
+                      BR\ Pair[Momentum[k, D], Momentum[q, D]]\ \(CR\^*\) - 
+                      CR\ Qb\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(CR\^*\) + 
+                      2\ BR\ x\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(CR\^*\) + 
+                      2\ CR\ Qb\ x\ Pair[Momentum[k, D], 
+                          Momentum[q, D]]\ \(CR\^*\) - 
+                      4\ BL\ mw\^2\ \(DL\^*\) - 4\ CL\ mw\^2\ Qb\ \(DL\^*\) - 
+                      4\ BR\ mw\^2\ \(DR\^*\) - 
+                      4\ CR\ mw\^2\ Qb\ \(DR\^*\)\)},
+                {" "},
+                {\(R[6] = 
+                    DL\ \(CL\^*\) - DR\ \(CR\^*\) - 8\ DL\ \(DL\^*\) + 
+                      8\ DR\ \(DR\^*\)\)},
+                {" "},
+                {\(R[7] = 
+                    DL\ \(CL\^*\) + DR\ \(CR\^*\) - 8\ DL\ \(DL\^*\) - 
+                      8\ DR\ \(DR\^*\)\)}
+                },
+              GridBaseline->{Baseline, {1, 1}},
+              ColumnWidths->0.999,
+              ColumnAlignments->{Left}]}
+          },
+        GridBaseline->{Baseline, {1, 1}},
+        ColumnAlignments->{Left}],
+      Definition[ "R"],
+      Editable->False]], "Print",
+  CellTags->"Info3311626044-4153782"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(ntr = 
+        Collect2[
+            Tr[Collect2[
+                  DiracTrick[
+                      DotExpand[
+                        Isolate[FCI[#], $NonComm, IsolateNames \[Rule] Z]]] // 
+                    FRH, $NonComm, IsolateNames \[Rule] Z, 
+                  Factoring \[Rule] Expand]] // FRH, LorentzIndex, 
+            IsolateNames \[Rule] R, 
+            Factoring \[Rule] Factor2] &;\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(AbsoluteTiming[
+      t3 = ntr[\[CapitalGamma]\[Alpha]\[Mu] . \((GSD[k] - 
+                x\ \((GSD[p] + GSD[q])\) + mb)\) . \[CapitalGamma]b[
+              k, \(-l3\)] . \((GSD[k] + \((1 - x)\) \((GSD[p] + GSD[q])\) + 
+                mt)\)]]\)\)\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"{", 
+        RowBox[{\(23.383624`8.820456812607324\ Second\), ",", 
+          RowBox[{
+            RowBox[{"-", 
+              FractionBox[
+                RowBox[{"8", " ", 
+                  SuperscriptBox["\[Epsilon]", 
+                    RowBox[{
+                      FormBox[
+                        FormBox["\[Alpha]",
+                          "TraditionalForm"],
+                        "TraditionalForm"], 
+                      FormBox[
+                        FormBox["\[Beta]",
+                          "TraditionalForm"],
+                        "TraditionalForm"], 
+                      FormBox[
+                        FormBox["\[Mu]",
+                          "TraditionalForm"],
+                        "TraditionalForm"], 
+                      FormBox["k",
+                        "TraditionalForm"]}]], " ", 
+                  TagBox[\(R(1)\),
+                    HoldForm]}], \(\[CapitalLambda]\^2\)]}], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["p",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(2)\),
+                  HoldForm]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(2)\),
+                  HoldForm]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                TagBox[\(R(3)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                " ", \(g\^\(\[Beta]  \[Mu]\)\)}], \(\[CapitalLambda]\^2\)], 
+            "-", 
+            FractionBox[
+              RowBox[{"16", " ", 
+                TagBox[\(R(4)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                " ", \(g\^\(\[Beta]  \[Mu]\)\)}], \(\[CapitalLambda]\^2\)], 
+            "+", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["p",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(6)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(6)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"2", " ", 
+                TagBox[\(R(5)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Mu]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                TagBox[\(R(3)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Beta]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"16", " ", 
+                TagBox[\(R(7)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                TagBox[\(R(4)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Beta]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["p",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                TagBox[\(R(7)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["p",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)]}]}], 
+        "}"}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(AbsoluteTiming[
+      t4 = ntr[\[CapitalGamma]a[
+              k, \(-l4\)] . \((GSD[k] - x\ \((GSD[p] - GSD[q])\) + 
+                mb)\) . \[CapitalGamma]\[Beta]\[Mu] . \((GSD[
+                  k] + \((1 - x)\) \((GSD[p] - GSD[q])\) + 
+                mt)\)]]\)\)\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"{", 
+        RowBox[{\(41.3294288`9.06780439658261\ Second\), ",", 
+          RowBox[{
+            RowBox[{"-", 
+              FractionBox[
+                RowBox[{"8", " ", 
+                  SuperscriptBox["\[Epsilon]", 
+                    RowBox[{
+                      FormBox[
+                        FormBox["\[Alpha]",
+                          "TraditionalForm"],
+                        "TraditionalForm"], 
+                      FormBox[
+                        FormBox["\[Beta]",
+                          "TraditionalForm"],
+                        "TraditionalForm"], 
+                      FormBox[
+                        FormBox["\[Mu]",
+                          "TraditionalForm"],
+                        "TraditionalForm"], 
+                      FormBox["k",
+                        "TraditionalForm"]}]], " ", 
+                  TagBox[\(R(8)\),
+                    HoldForm]}], \(\[CapitalLambda]\^2\)]}], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["p",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(9)\),
+                  HoldForm]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(9)\),
+                  HoldForm]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["p",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(15)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(15)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"2", " ", 
+                TagBox[\(R(10)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                " ", \(g\^\(\[Beta]  \[Mu]\)\)}], \(\[CapitalLambda]\^2\)], 
+            "+", 
+            FractionBox[
+              RowBox[{"64", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["p",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(13)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"64", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(13)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                TagBox[\(R(11)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Mu]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"128", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["p",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(12)\),
+                  HoldForm], " ", 
+                TagBox[\(R(13)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"128", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(12)\),
+                  HoldForm], " ", 
+                TagBox[\(R(13)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"16", " ", 
+                TagBox[\(R(14)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Mu]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"64", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["p",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(13)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"64", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(13)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                TagBox[\(R(11)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Beta]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"16", " ", 
+                TagBox[\(R(16)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"64", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["p",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(12)\),
+                  HoldForm], " ", 
+                TagBox[\(R(13)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["p",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"64", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(12)\),
+                  HoldForm], " ", 
+                TagBox[\(R(13)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["p",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                TagBox[\(R(14)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Beta]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["p",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"8", " ", 
+                TagBox[\(R(16)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["p",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)]}]}], 
+        "}"}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(AbsoluteTiming[
+      t5 = ntr[\[CapitalGamma]t\[Mu] . \((GSD[k] - x\ GSD[q] + 
+                mt)\) . \[CapitalGamma]\[Alpha]\[Beta] . \((GSD[
+                  k] + \((2\  - x)\) GSD[q] + mt)\)]]\)\)\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"{", 
+        RowBox[{\(0.8712528`7.391689180323812\ Second\), ",", 
+          RowBox[{
+            FractionBox[
+              RowBox[{"16", " ", "C5", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(17)\),
+                  HoldForm]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"64", " ", "C5", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(18)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"64", " ", "C5", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Beta]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(18)\),
+                  HoldForm], " ", 
+                TagBox[\(R(19)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"16", " ", "Co", " ", 
+                TagBox[\(R(20)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                " ", \(g\^\(\[Beta]  \[Mu]\)\)}], \(\[CapitalLambda]\^2\)], 
+            "-", 
+            FractionBox[
+              RowBox[{"64", " ", "C5", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(18)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"64", " ", "C5", " ", 
+                SuperscriptBox["\[Epsilon]", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Alpha]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], 
+                    FormBox["k",
+                      "TraditionalForm"], 
+                    FormBox["q",
+                      "TraditionalForm"]}]], " ", 
+                TagBox[\(R(18)\),
+                  HoldForm], " ", 
+                TagBox[\(R(19)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"16", " ", "Co", " ", 
+                TagBox[\(R(20)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Mu]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"64", " ", "Co", " ", 
+                TagBox[\(R(21)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"64", " ", "Co", " ", 
+                TagBox[\(R(21)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["q",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Mu]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]]}], \(\[CapitalLambda]\^2\)], "+", 
+            FractionBox[
+              RowBox[{"64", " ", "Co", " ", 
+                TagBox[\(R(21)\),
+                  HoldForm], " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Alpha]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", \(g\^\(\[Beta]  \[Mu]\)\), " ", 
+                
+                RowBox[{
+                  FormBox["k",
+                    "TraditionalForm"], "\[CenterDot]", 
+                  FormBox["q",
+                    "TraditionalForm"]}]}], \(\[CapitalLambda]\^2\)], "-", 
+            FractionBox[
+              RowBox[{"64", " ", "Co", " ", 
+                TagBox[\(R(21)\),
+                  HoldForm], " ", \(g\^\(\[Alpha]  \[Mu]\)\), " ", 
+                SuperscriptBox[
+                  FormBox["k",
+                    "TraditionalForm"], 
+                  FormBox[
+                    FormBox["\[Beta]",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], " ", 
+                RowBox[{
+                  FormBox["k",
+                    "TraditionalForm"], "\[CenterDot]", 
+                  FormBox["q",
+                    "TraditionalForm"]}]}], \(\[CapitalLambda]\^2\)]}]}], 
+        "}"}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Round[AbsoluteTime[] - starttime]\ segundos\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`108\ segundos\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1400}, {0, 967}},
+CellGrouping->Manual,
+WindowSize->{1063, 845},
+WindowMargins->{{125, Automatic}, {Automatic, 10}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+ShowSelection->True,
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{
+  "Info3311626020-8066195"->{
+    Cell[23086, 583, 118, 2, 35, "Print",
+      CellTags->"Info3311626020-8066195"]},
+  "Info3311626044-4153782"->{
+    Cell[32051, 862, 63, 1, 34, "Print",
+      CellTags->"Info3311626044-4153782"],
+    Cell[32117, 865, 7537, 138, 1252, "Print",
+      CellTags->"Info3311626044-4153782"]}
+  }
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{
+  {"Info3311626020-8066195", 76433, 1975},
+  {"Info3311626044-4153782", 76549, 1978}
+  }
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 41, 1, 42, "Input"],
+Cell[1820, 56, 100, 2, 41, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[1957, 63, 59, 1, 42, "Input"],
+Cell[2019, 66, 90, 1, 43, "Output"]
+}, Open  ]],
+Cell[2124, 70, 63, 1, 42, "Input"],
+
+Cell[CellGroupData[{
+Cell[2212, 75, 49, 1, 42, "Input"],
+Cell[2264, 78, 63, 1, 41, "Output"]
+}, Open  ]],
+Cell[2342, 82, 56, 1, 42, "Input"],
+Cell[2401, 85, 1960, 34, 692, "Input"],
+Cell[4364, 121, 88, 1, 68, "Input"],
+Cell[4455, 124, 88, 1, 68, "Input"],
+Cell[4546, 127, 127, 2, 68, "Input"],
+Cell[4676, 131, 580, 11, 209, "Input"],
+Cell[5259, 144, 449, 8, 207, "Input"],
+Cell[5711, 154, 614, 11, 262, "Input"],
+Cell[6328, 167, 525, 9, 236, "Input"],
+Cell[6856, 178, 279, 5, 123, "Input"],
+Cell[7138, 185, 298, 7, 94, "Input"],
+Cell[7439, 194, 114, 2, 68, "Input"],
+
+Cell[CellGroupData[{
+Cell[7578, 200, 48, 1, 42, "Input"],
+Cell[7629, 203, 234, 4, 66, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7900, 212, 41, 1, 42, "Input"],
+Cell[7944, 215, 420, 6, 91, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8401, 226, 306, 5, 94, "Input"],
+Cell[8710, 233, 13875, 329, 195, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[22622, 567, 54, 1, 42, "Input"],
+Cell[22679, 570, 320, 5, 66, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[23036, 580, 47, 1, 42, "Input"],
+Cell[23086, 583, 118, 2, 35, "Print",
+  CellTags->"Info3311626020-8066195"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[23241, 590, 49, 1, 42, "Input"],
+Cell[23293, 593, 190, 3, 41, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[23520, 601, 252, 5, 120, "Input"],
+Cell[23775, 608, 102, 2, 41, "Output"],
+Cell[23880, 612, 54, 1, 41, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[23971, 618, 168, 3, 68, "Input"],
+Cell[24142, 623, 101, 2, 41, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24280, 630, 35, 1, 42, "Input"],
+Cell[24318, 633, 7656, 221, 117, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[32011, 859, 37, 1, 42, "Input"],
+Cell[32051, 862, 63, 1, 34, "Print",
+  CellTags->"Info3311626044-4153782"],
+Cell[32117, 865, 7537, 138, 1252, "Print",
+  CellTags->"Info3311626044-4153782"]
+}, Open  ]],
+Cell[39669, 1006, 436, 10, 146, "Input"],
+
+Cell[CellGroupData[{
+Cell[40130, 1020, 308, 5, 120, "Input"],
+Cell[40441, 1027, 8652, 225, 157, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[49130, 1257, 326, 6, 120, "Input"],
+Cell[49459, 1265, 16597, 431, 223, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[66093, 1701, 262, 4, 68, "Input"],
+Cell[66358, 1707, 9144, 236, 170, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[75539, 1948, 76, 1, 42, "Input"],
+Cell[75618, 1951, 64, 1, 41, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

@@ -1,0 +1,560 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     15920,        486]*)
+(*NotebookOutlinePosition[     16557,        509]*)
+(*  CellTagsIndexPosition[     16513,        505]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(<< fc.m\)], "Input"],
+
+Cell[TextData[{
+  StyleBox["FeynCalc",
+    FontWeight->"Bold"],
+  " ",
+  "4.1.0.3b",
+  "    ",
+  " Evaluate ?FeynCalc for help or visit ",
+  ButtonBox["www.feyncalc.org",
+    ButtonData:>{
+      URL[ "http://www.feyncalc.org"], None},
+    ButtonStyle->"Hyperlink",
+    ButtonNote->"http://www.feyncalc.org"]
+}], "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell[BoxData[
+    \(Clear[t, t1, t2, t3, t4, t5, n, q, a, b, n, re1, re2]; \n
+    ScalarProduct[n, n] = 0; \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "The gluon propagator should be the inverse   tensor  of ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(D\^\(-1\)\)[\[Mu], \[Nu]]\)]],
+  " or t[\[Mu],\[Nu]] when n^2=0."
+}], "Subtitle"],
+
+Cell[BoxData[
+    \(t[\[Mu]_, \[Nu]_] := 
+      \((MT[\[Mu], \[Nu]] ScalarProduct[q, q] - \nFV[q, \[Mu]] FV[q, \[Nu]] + 
+            \(1\/\[Lambda]\) FV[n, \[Mu]] FV[n, \[Nu]])\) I\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(t[\[Mu], \[Nu]]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+          RowBox[{
+          \(\(n\^\[Mu]\ n\^\[Nu]\)\/\[Lambda]\), "-", \(q\^\[Mu]\ q\^\[Nu]\), 
+            "+", 
+            RowBox[{\(g\^\(\[Mu]\[NoBreak]\[Nu]\)\), " ", 
+              SuperscriptBox[
+                FormBox["q",
+                  "TraditionalForm"], "2"]}]}], ")"}]}], TraditionalForm]], 
+  "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(t1[\[Mu]_, \[Nu]_] := 
+      GluonPropagator[q, \[Mu], a, \[Nu], b, 
+        Gauge -> {Momentum[n], \[Lambda]}]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(t1[\[Mu], \[Nu]]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{"-", 
+                SuperscriptBox["g", 
+                  RowBox[{
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"], "\[NoBreak]", 
+                    FormBox[
+                      FormBox["\[Nu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"]}]]}], "+", 
+              FractionBox[
+                RowBox[{"\[Lambda]", " ", 
+                  SuperscriptBox[
+                    FormBox["n",
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Mu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"]], " ", 
+                  SuperscriptBox[
+                    FormBox["n",
+                      "TraditionalForm"], 
+                    FormBox[
+                      FormBox["\[Nu]",
+                        "TraditionalForm"],
+                      "TraditionalForm"]], " ", 
+                  SuperscriptBox[
+                    FormBox["q",
+                      "TraditionalForm"], "2"]}], 
+                SuperscriptBox[
+                  RowBox[{"(", 
+                    FormBox[
+                      RowBox[{
+                        FormBox["n",
+                          "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                        "\[NoBreak]", 
+                        FormBox["q",
+                          "TraditionalForm"]}],
+                      "TraditionalForm"], ")"}], "2"]], "+", 
+              FractionBox[
+                RowBox[{
+                  RowBox[{
+                    SuperscriptBox[
+                      FormBox["n",
+                        "TraditionalForm"], 
+                      FormBox[
+                        FormBox["\[Nu]",
+                          "TraditionalForm"],
+                        "TraditionalForm"]], " ", 
+                    SuperscriptBox[
+                      FormBox["q",
+                        "TraditionalForm"], 
+                      FormBox[
+                        FormBox["\[Mu]",
+                          "TraditionalForm"],
+                        "TraditionalForm"]]}], "+", 
+                  RowBox[{
+                    SuperscriptBox[
+                      FormBox["n",
+                        "TraditionalForm"], 
+                      FormBox[
+                        FormBox["\[Mu]",
+                          "TraditionalForm"],
+                        "TraditionalForm"]], " ", 
+                    SuperscriptBox[
+                      FormBox["q",
+                        "TraditionalForm"], 
+                      FormBox[
+                        FormBox["\[Nu]",
+                          "TraditionalForm"],
+                        "TraditionalForm"]]}]}], 
+                RowBox[{
+                  FormBox["n",
+                    "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                  "\[NoBreak]", 
+                  FormBox["q",
+                    "TraditionalForm"]}]]}], ")"}], " ", 
+          SubscriptBox["\[Delta]", 
+            RowBox[{
+              FormBox[
+                FormBox["a",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox[
+                FormBox["b",
+                  "TraditionalForm"],
+                "TraditionalForm"]}]]}], \(q\^2\)], TraditionalForm]], 
+  "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "     The correct definition of gluon propagator t2[\[Mu],\[Nu]] when ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^2\)]],
+  "=0."
+}], "Text"],
+
+Cell[BoxData[
+    \(t2[a_, b_] := 
+      I \((\(-MT[a, b]\) + 
+              \(FV[n, a] FV[q, b] + FV[q, a] FV[n, b]\)\/ScalarProduct[n, 
+                  q] - \((1/ScalarProduct[n, q]^2)\)*
+                \((\[Lambda]*ScalarProduct[q, q] FV[q, a] FV[q, b])\))\)/
+          ScalarProduct[q, q]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(t2[\[Mu], \[Nu]]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+            RowBox[{
+              FractionBox[\(n\^\[Nu]\ q\^\[Mu] + n\^\[Mu]\ q\^\[Nu]\), 
+                RowBox[{
+                  FormBox["n",
+                    "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                  "\[NoBreak]", 
+                  FormBox["q",
+                    "TraditionalForm"]}]], "-", 
+              \(g\^\(\[Mu]\[NoBreak]\[Nu]\)\), "-", 
+              FractionBox[
+                RowBox[{
+                "\[Lambda]", " ", \(q\^\[Mu]\), " ", \(q\^\[Nu]\), " ", 
+                  SuperscriptBox[
+                    FormBox["q",
+                      "TraditionalForm"], "2"]}], 
+                SuperscriptBox[
+                  RowBox[{"(", 
+                    FormBox[
+                      RowBox[{
+                        FormBox["n",
+                          "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                        "\[NoBreak]", 
+                        FormBox["q",
+                          "TraditionalForm"]}],
+                      "TraditionalForm"], ")"}], "2"]]}], ")"}]}], 
+        SuperscriptBox[
+          FormBox["q",
+            "TraditionalForm"], "2"]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "We can compare the difference of  \" ",
+  StyleBox["t1[\[Mu],\[Nu]]",
+    FontColor->RGBColor[1, 0, 0]],
+  " \"'and \"t2[\[Mu],\[Nu]]\""
+}], "Text"],
+
+Cell[BoxData[
+    \(t3[\[Mu]_, \[Nu]_] := t[\[Mu], \[Rho]]*t1[\[Nu], \[Rho]]; \n
+    t4[\[Mu]_, \[Nu]_] := t[\[Mu], \[Rho]]*t2[\[Nu], \[Rho]]; \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(re1 = Calc[Expand[t3[\[Mu], \[Nu]]]]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{"-", 
+          FractionBox[
+            RowBox[{
+              SuperscriptBox[
+                FormBox["q",
+                  "TraditionalForm"], 
+                FormBox[
+                  FormBox["\[Mu]",
+                    "TraditionalForm"],
+                  "TraditionalForm"]], " ", 
+              SuperscriptBox[
+                FormBox["q",
+                  "TraditionalForm"], 
+                FormBox[
+                  FormBox["\[Nu]",
+                    "TraditionalForm"],
+                  "TraditionalForm"]], " ", 
+              SubscriptBox["\[Delta]", 
+                RowBox[{
+                  FormBox[
+                    FormBox["a",
+                      "TraditionalForm"],
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox[
+                    FormBox["b",
+                      "TraditionalForm"],
+                    "TraditionalForm"]}]]}], \(q\^2\)]}], "+", 
+        FractionBox[
+          RowBox[{
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Mu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Nu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SubscriptBox["\[Delta]", 
+              RowBox[{
+                FormBox[
+                  FormBox["a",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[NoBreak]", 
+                FormBox[
+                  FormBox["b",
+                    "TraditionalForm"],
+                  "TraditionalForm"]}]]}], \(q\^2\)], "+", 
+        FractionBox[
+          RowBox[{\(g\^\(\[Mu]\[NoBreak]\[Nu]\)\), " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], "2"], " ", 
+            SubscriptBox["\[Delta]", 
+              RowBox[{
+                FormBox[
+                  FormBox["a",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[NoBreak]", 
+                FormBox[
+                  FormBox["b",
+                    "TraditionalForm"],
+                  "TraditionalForm"]}]]}], \(q\^2\)], "-", 
+        FractionBox[
+          RowBox[{
+            SuperscriptBox[
+              FormBox["n",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Mu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Nu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], "2"], " ", 
+            SubscriptBox["\[Delta]", 
+              RowBox[{
+                FormBox[
+                  FormBox["a",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[NoBreak]", 
+                FormBox[
+                  FormBox["b",
+                    "TraditionalForm"],
+                  "TraditionalForm"]}]]}], 
+          RowBox[{\(q\^2\), " ", 
+            RowBox[{
+              FormBox["n",
+                "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+              "\[NoBreak]", 
+              FormBox["q",
+                "TraditionalForm"]}]}]], "-", 
+        FractionBox[
+          RowBox[{"\[Lambda]", " ", 
+            SuperscriptBox[
+              FormBox["n",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Mu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["n",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Nu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], "2"], " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], "2"], " ", 
+            SubscriptBox["\[Delta]", 
+              RowBox[{
+                FormBox[
+                  FormBox["a",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[NoBreak]", 
+                FormBox[
+                  FormBox["b",
+                    "TraditionalForm"],
+                  "TraditionalForm"]}]]}], 
+          RowBox[{\(q\^2\), " ", 
+            SuperscriptBox[
+              RowBox[{"(", 
+                FormBox[
+                  RowBox[{
+                    FormBox["n",
+                      "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                    "\[NoBreak]", 
+                    FormBox["q",
+                      "TraditionalForm"]}],
+                  "TraditionalForm"], ")"}], "2"]}]], "+", 
+        FractionBox[
+          RowBox[{"\[Lambda]", " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Mu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["n",
+                "TraditionalForm"], 
+              FormBox[
+                FormBox["\[Nu]",
+                  "TraditionalForm"],
+                "TraditionalForm"]], " ", 
+            SuperscriptBox[
+              FormBox["q",
+                "TraditionalForm"], "2"], " ", 
+            SubscriptBox["\[Delta]", 
+              RowBox[{
+                FormBox[
+                  FormBox["a",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[NoBreak]", 
+                FormBox[
+                  FormBox["b",
+                    "TraditionalForm"],
+                  "TraditionalForm"]}]]}], 
+          RowBox[{\(q\^2\), " ", 
+            RowBox[{
+              FormBox["n",
+                "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+              "\[NoBreak]", 
+              FormBox["q",
+                "TraditionalForm"]}]}]]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(re2 = Calc[Expand[t4[\[Mu], \[Nu]]]]\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`g\^\(\[Mu]\[NoBreak]\[Nu]\)\)], "Output"]
+}, Open  ]],
+
+Cell["\<\
+So  t1 is not the correct one, and the gluon propagator in axial \
+gauge should be t2(when n^2=0)\
+\>", "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{520, 600},
+WindowMargins->{{176, Automatic}, {-13, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 40, 1, 32, "Input"],
+Cell[1752, 52, 369, 14, 60, "Text"],
+Cell[2124, 68, 120, 2, 78, "Input"],
+
+Cell[CellGroupData[{
+Cell[2269, 74, 202, 5, 93, "Subtitle"],
+Cell[2474, 81, 193, 3, 135, "Input"],
+
+Cell[CellGroupData[{
+Cell[2692, 88, 48, 1, 32, "Input"],
+Cell[2743, 91, 408, 11, 54, "Output"]
+}, Open  ]],
+Cell[3166, 105, 144, 3, 55, "Input"],
+
+Cell[CellGroupData[{
+Cell[3335, 112, 49, 1, 32, "Input"],
+Cell[3387, 115, 3577, 94, 73, "Output"]
+}, Open  ]],
+Cell[6979, 212, 161, 5, 38, "Text"],
+Cell[7143, 219, 308, 6, 241, "Input"],
+
+Cell[CellGroupData[{
+Cell[7476, 229, 49, 1, 32, "Input"],
+Cell[7528, 232, 1282, 32, 73, "Output"]
+}, Open  ]],
+Cell[8825, 267, 167, 5, 37, "Text"],
+Cell[8995, 274, 156, 2, 55, "Input"],
+
+Cell[CellGroupData[{
+Cell[9176, 280, 69, 1, 32, "Input"],
+Cell[9248, 283, 6333, 185, 123, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[15618, 473, 69, 1, 32, "Input"],
+Cell[15690, 476, 78, 1, 33, "Output"]
+}, Open  ]],
+Cell[15783, 480, 121, 3, 60, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

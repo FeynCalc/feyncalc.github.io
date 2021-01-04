@@ -1,0 +1,356 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12379,        346]
+NotebookOptionsPosition[     11731,        319]
+NotebookOutlinePosition[     12070,        334]
+CellTagsIndexPosition[     12027,        331]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"<<", "FeynCalc`"}]], "Input",
+ CellChangeTimes->{{3.6766511899987507`*^9, 3.6766511949758787`*^9}, 
+   3.676651241762227*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    StyleBox["\<\"FeynCalc \"\>", "Text",
+     StripOnInput->False,
+     FontWeight->Bold], "\[InvisibleSpace]", 
+    StyleBox["\<\"9.0.1. For help, use the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"documentation", " ", "center"}],
+       BaseStyle->"Link",
+       ButtonData:>"paclet:FeynCalc/",
+       ButtonNote->"paclet:FeynCalc/"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\", check out the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox["wiki",
+       BaseStyle->"Hyperlink",
+       ButtonData:>{
+         URL["https://github.com/FeynCalc/feyncalc/wiki"], None},
+       ButtonNote->"https://github.com/FeynCalc/feyncalc/wiki"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" or write to the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"mailing", " ", 
+        RowBox[{"list", "."}]}],
+       BaseStyle->"Hyperlink",
+       ButtonData:>{
+         URL["http://www.feyncalc.org/forum/"], None},
+       ButtonNote->"http://www.feyncalc.org/forum/"],
+      DisplayForm], "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style["FeynCalc ", "Text", Bold], 
+    Style["9.0.1. For help, use the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox[
+      "documentation center", BaseStyle -> "Link", ButtonData :> 
+       "paclet:FeynCalc/", ButtonNote -> "paclet:FeynCalc/"]], "Text"], 
+    Style[", check out the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox["wiki", ButtonData :> {
+         URL["https://github.com/FeynCalc/feyncalc/wiki"], None}, BaseStyle -> 
+       "Hyperlink", ButtonNote -> 
+       "https://github.com/FeynCalc/feyncalc/wiki"]], "Text"], 
+    Style[" or write to the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox["mailing list.", ButtonData :> {
+         URL["http://www.feyncalc.org/forum/"], None}, BaseStyle -> 
+       "Hyperlink", ButtonNote -> "http://www.feyncalc.org/forum/"]], "Text"]],
+   Editable->False], TraditionalForm]], "Print",
+ CellChangeTimes->{
+  3.6766511963638573`*^9, 3.676651940754051*^9, 3.676651996370694*^9, 
+   3.676652036369172*^9, 3.676652185994225*^9, 3.676652506454824*^9, 
+   3.676653394466137*^9, 3.676653437757197*^9, 3.676653556324973*^9, 
+   3.676653624316688*^9, 3.67665367043722*^9, 3.676654159945937*^9, 
+   3.676654190143186*^9, {3.676654319785231*^9, 3.676654344524653*^9}, 
+   3.6766544297002697`*^9, 3.6766544769780188`*^9, 3.6766545896721497`*^9, 
+   3.676654671185823*^9, {3.676655769538916*^9, 3.6766557802459497`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    StyleBox["\<\"See also the supplied \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"examples", "."}],
+       BaseStyle->"Hyperlink",
+       ButtonFunction:>SystemOpen[
+         FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" If you use FeynCalc in your research, please cite\"\>", 
+     "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style["See also the supplied ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox[
+      "examples.", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
+         FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]], Evaluator -> 
+       Automatic, Method -> "Preemptive"]], "Text"], 
+    Style[" If you use FeynCalc in your research, please cite", "Text"]],
+   Editable->False], TraditionalForm]], "Print",
+ CellChangeTimes->{
+  3.6766511963638573`*^9, 3.676651940754051*^9, 3.676651996370694*^9, 
+   3.676652036369172*^9, 3.676652185994225*^9, 3.676652506454824*^9, 
+   3.676653394466137*^9, 3.676653437757197*^9, 3.676653556324973*^9, 
+   3.676653624316688*^9, 3.67665367043722*^9, 3.676654159945937*^9, 
+   3.676654190143186*^9, {3.676654319785231*^9, 3.676654344524653*^9}, 
+   3.6766544297002697`*^9, 3.6766544769780188`*^9, 3.6766545896721497`*^9, 
+   3.676654671185823*^9, {3.676655769538916*^9, 3.676655780248087*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\" \[Bullet] V. Shtabovenko, R. Mertig and F. Orellana, TUM-EFT \
+71/15, arXiv:1601.01167\"\>", "Text",
+   StripOnInput->False], TraditionalForm]], "Print",
+ CellChangeTimes->{
+  3.6766511963638573`*^9, 3.676651940754051*^9, 3.676651996370694*^9, 
+   3.676652036369172*^9, 3.676652185994225*^9, 3.676652506454824*^9, 
+   3.676653394466137*^9, 3.676653437757197*^9, 3.676653556324973*^9, 
+   3.676653624316688*^9, 3.67665367043722*^9, 3.676654159945937*^9, 
+   3.676654190143186*^9, {3.676654319785231*^9, 3.676654344524653*^9}, 
+   3.6766544297002697`*^9, 3.6766544769780188`*^9, 3.6766545896721497`*^9, 
+   3.676654671185823*^9, {3.676655769538916*^9, 3.6766557802490273`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\" \[Bullet] R. Mertig, M. B\[ODoubleDot]hm, and A. Denner, \
+Comput. Phys. Commun., 64, 345-359, 1991.\"\>", "Text",
+   StripOnInput->False], TraditionalForm]], "Print",
+ CellChangeTimes->{
+  3.6766511963638573`*^9, 3.676651940754051*^9, 3.676651996370694*^9, 
+   3.676652036369172*^9, 3.676652185994225*^9, 3.676652506454824*^9, 
+   3.676653394466137*^9, 3.676653437757197*^9, 3.676653556324973*^9, 
+   3.676653624316688*^9, 3.67665367043722*^9, 3.676654159945937*^9, 
+   3.676654190143186*^9, {3.676654319785231*^9, 3.676654344524653*^9}, 
+   3.6766544297002697`*^9, 3.6766544769780188`*^9, 3.6766545896721497`*^9, 
+   3.676654671185823*^9, {3.676655769538916*^9, 3.67665578025001*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ScalarProduct", "[", 
+    RowBox[{"k", ",", "k"}], "]"}], "=", "0"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ScalarProduct", "[", 
+    RowBox[{"p", ",", "p"}], "]"}], "=", 
+   RowBox[{"m", "^", "2"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.676651544726144*^9, 3.6766515506637506`*^9}, {
+  3.6766515870970497`*^9, 3.67665159055471*^9}, {3.67665173304224*^9, 
+  3.676651745938607*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"top", "=", 
+   RowBox[{"FAD", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"q1", ",", "m"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"q1", "-", "p"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"q1", "-", 
+        RowBox[{"2", " ", "p"}]}], ",", "m"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"q1", "-", "k", "-", 
+        RowBox[{"2", " ", "p"}]}], ",", "m"}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6766512452233686`*^9, 3.6766512655133257`*^9}, {
+  3.676651307036134*^9, 3.676651320007326*^9}, {3.676651384823398*^9, 
+  3.676651385502204*^9}, {3.676651509798286*^9, 3.676651511374419*^9}, {
+  3.676655795065482*^9, 3.67665579539882*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ApartFF", "[", 
+  RowBox[{"top", ",", 
+   RowBox[{"{", "q1", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.676651322167779*^9, 3.676651375176058*^9}, {
+   3.676651427767604*^9, 3.676651428368064*^9}, {3.6766515389086733`*^9, 
+   3.676651558719784*^9}, {3.6766517477187757`*^9, 3.676651773623974*^9}, {
+   3.6766523774312553`*^9, 3.676652377578329*^9}, {3.676652565638822*^9, 
+   3.676652576194573*^9}, {3.6766532537062597`*^9, 3.6766532560561857`*^9}, {
+   3.676653399504291*^9, 3.676653399703848*^9}, {3.676653570057404*^9, 
+   3.6766535701219673`*^9}, 3.6766541916385098`*^9, {3.6766543135518093`*^9, 
+   3.676654313772149*^9}, {3.676654480202511*^9, 3.676654486506989*^9}, {
+   3.676654778017441*^9, 3.6766548022529917`*^9}, {3.676654856630617*^9, 
+   3.6766548574771976`*^9}, {3.676655786359988*^9, 3.676655791911322*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox["2", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["q1",
+         TraditionalForm], "2"], "-", 
+       SuperscriptBox["m", "2"]}], ")"}], ".", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          FormBox["k",
+           TraditionalForm], "+", 
+          FormBox["q1",
+           TraditionalForm]}], ")"}], "2"], "-", 
+       SuperscriptBox["m", "2"]}], ")"}], ".", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          FormBox["q1",
+           TraditionalForm], "-", 
+          RowBox[{"2", " ", 
+           FormBox["p",
+            TraditionalForm]}]}], ")"}], "2"], "-", 
+       SuperscriptBox["m", "2"]}], ")"}], ".", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          FormBox["q1",
+           TraditionalForm], "-", 
+          RowBox[{"2", " ", 
+           FormBox["p",
+            TraditionalForm]}]}], ")"}], "2"], "-", 
+       SuperscriptBox["m", "2"]}], ")"}]}]], "-", 
+   FractionBox["1", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["q1",
+         TraditionalForm], "2"], "-", 
+       SuperscriptBox["m", "2"]}], ")"}], ".", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["q1",
+         TraditionalForm], "2"], "-", 
+       SuperscriptBox["m", "2"]}], ")"}], ".", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        FormBox["q1",
+         TraditionalForm], "-", 
+        FormBox["p",
+         TraditionalForm]}], ")"}], "2"], ".", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FormBox["k",
+            TraditionalForm]}], "-", 
+          RowBox[{"2", " ", 
+           FormBox["p",
+            TraditionalForm]}], "+", 
+          FormBox["q1",
+           TraditionalForm]}], ")"}], "2"], "-", 
+       SuperscriptBox["m", "2"]}], ")"}]}]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.6766513228889914`*^9, {3.676651371523033*^9, 3.676651428819303*^9}, {
+   3.676651539353969*^9, 3.676651559541482*^9}, 3.676651594947304*^9, {
+   3.6766517438014593`*^9, 3.67665177450204*^9}, 3.6766519467248793`*^9, 
+   3.676651999071146*^9, 3.676652038777494*^9, 3.676652188747847*^9, 
+   3.676652378432684*^9, 3.6766525098659573`*^9, {3.676652571881071*^9, 
+   3.6766525768778563`*^9}, 3.676653256970209*^9, {3.676653398121581*^9, 
+   3.676653400501974*^9}, 3.676653441082657*^9, {3.676653560789659*^9, 
+   3.676653575159974*^9}, 3.676653627307947*^9, 3.676653672210252*^9, 
+   3.676654162029388*^9, 3.6766541926095877`*^9, {3.676654321403339*^9, 
+   3.67665434623285*^9}, 3.676654432095315*^9, {3.6766544806013517`*^9, 
+   3.676654486843202*^9}, {3.676654778778721*^9, 3.6766548026659307`*^9}, 
+   3.6766548579287*^9, {3.676655792739592*^9, 3.676655797547353*^9}}]
+}, Open  ]]
+},
+WindowSize->{808, 621},
+WindowMargins->{{268, Automatic}, {Automatic, 13}},
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 149, 3, 32, "Input"],
+Cell[CellGroupData[{
+Cell[754, 29, 2804, 71, 26, "Print"],
+Cell[3561, 102, 1587, 37, 26, "Print"],
+Cell[5151, 141, 716, 12, 26, "Print"],
+Cell[5870, 155, 727, 12, 26, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[6624, 171, 462, 13, 55, "Input"],
+Cell[7089, 186, 750, 21, 32, "Input"],
+Cell[CellGroupData[{
+Cell[7864, 211, 852, 13, 32, "Input"],
+Cell[8719, 226, 2996, 90, 119, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

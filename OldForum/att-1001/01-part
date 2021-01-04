@@ -1,0 +1,11 @@
+Reporting-MTA: dns; vm-emlprdimg-07.its.yale.edu
+Received-From-MTA: DNS; vm-emlprdimg-07.its.yale.edu
+Arrival-Date: Tue, 29 Sep 2015 05:14:00 -0400
+
+Final-Recipient: RFC822; yi-zen.chu@yale.edu
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mr5.its.yale.edu
+Diagnostic-Code: SMTP; 550 5.1.1 <yi-zen.chu@yale.edu>... User unknown: To find a person at Yale, please use our on-line directory: http://www.yale.edu/search/find_people.html
+Last-Attempt-Date: Tue, 29 Sep 2015 05:14:00 -0400
+

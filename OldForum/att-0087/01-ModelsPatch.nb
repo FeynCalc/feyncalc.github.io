@@ -1,0 +1,180 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4920,        129]*)
+(*NotebookOutlinePosition[      5587,        152]*)
+(*  CellTagsIndexPosition[      5543,        148]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    \(\($LoadPhi = True;\)\), "\[IndentingNewLine]", 
+    \(\($LoadFeynArts = True;\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(Needs["\<HighEnergyPhysics`FeynCalc`\>"];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["RUN ONLY ONCE - then delete !!!", "Section"],
+
+Cell[BoxData[
+    \(<< HighEnergyPhysics`Phi`Extras`FAPatch`\)], "Input"],
+
+Cell[BoxData[
+    \(\(replacelist = {"\<$Verbose = 2\>" \[Rule] "\<$Verbose := \
+HighEnergyPhysics`FeynCalc`$VeryVerbose\>", "\<InferFormat\>" \[Rule] \
+"\<tmpInfer\>", "\<SetLoop\>" \[Rule] "\<tmpsetloop\>", "\<Loop\>" \[Rule] \
+"\<HighEnergyPhysics`FeynCalc`Loop`Loop\>", "\<Indices\>" \[Rule] \
+"\<FAIndices\>", "\<Global`PolarizationVector\>" \[Rule] \
+"\<Global`FAPolarizationVector\>", "\<FeynAmp\>" \[Rule] "\<FAFeynAmp\>", \
+"\<PropagatorDenominator\>" \[Rule] \
+"\<HighEnergyPhysics`FeynCalc`PropagatorDenominator`PropagatorDenominator\>", \
+"\<FeynAmpDenominator\>" \[Rule] \
+"\<HighEnergyPhysics`FeynCalc`FeynAmpDenominator`FeynAmpDenominator\>", \
+"\<GaugeXi\>" \[Rule] "\<HighEnergyPhysics`FeynCalc`GaugeXi`GaugeXi\>", \
+"\<NonCommutative\>" \[Rule] "\<FANonCommutative\>", "\<Global`DiracSpinor\>" \
+\[Rule] "\<HighEnergyPhysics`FeynCalc`DiracSpinor`DiracSpinor\>", \
+"\<FeynArts`DiracSpinor\>" \[Rule] \
+"\<HighEnergyPhysics`FeynCalc`DiracSpinor`DiracSpinor\>", \
+"\<Global`DiracTrace\>" \[Rule] \
+"\<HighEnergyPhysics`FeynCalc`DiracTrace`DiracTrace\>", "\<tmpInfer\>" \
+\[Rule] "\<InferFormat\>", "\<tmpsetloop\>" \[Rule] "\<SetLoop\>", \
+"\<HighEnergyPhysics`FeynCalc`Loop`LoopNr\>" \[Rule] "\<LoopNr\>", \
+"\<\"HighEnergyPhysics`FeynCalc`Loop`Loop\"\>" \[Rule] "\<\"Loop\"\>", \
+"\<HighEnergyPhysics`FeynCalc`Loop`LoopPD\>" \[Rule] "\<LoopPD\>", \
+"\<KinematicFAIndices\>" \[Rule] "\<KinematicIndices\>", \
+"\<CreateFAFeynAmp\>" \[Rule] "\<CreateFeynAmp\>", "\<FADiracFASpinor\>" \
+\[Rule] "\<FADiracSpinor\>", "\<FAFA\>" \[Rule] "\<FA\>", \
+"\<FAHighEnergyPhysics\>" \[Rule] "\<HighEnergyPhysics\>"};\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(HighEnergyPhysics`Phi`FAPatch`Private`patch[#, 
+          replacelist] &\) /@ \((\(\(("\<Models\>" <> $PathnameSeparator <> \
+#)\) &\) /@ {"\<Lorentz.gen\>", "\<sm.mod\>"})\)\)], "Input"]
+}, Closed]],
+
+Cell[BoxData[
+    \(\(tt = CreateTopologies[0, 2 \[Rule] 2];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(tt // Paint;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(aa = 
+        InsertFields[
+          tt, {F[2, {1}], \(-F[2, {1}]\)} \[Rule] {F[
+                2, {2}], \(-F[2, {2}]\)}, InsertionLevel \[Rule] Classes, 
+          Model \[Rule] "\<sm\>", 
+          GenericModel \[Rule] "\<Lorentz\>"];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(aa // Paint;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ampFA = 
+        CreateFeynAmp[aa] //. 
+          LorentzIndex[fcli[mu_, d___], dd___] \[RuleDelayed] 
+            LorentzIndex[mu, Sequence @@ Union[{d}, {dd}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ampFC = ampFA // FAToFC;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\((\(\(FermionSpinSum[#\ ComplexConjugate[#] /. 
+                        SpaceTimeDimensions \[Rule] Sequence[] // Expand] /. 
+                  DiracTrace \[Rule] Tr // DiracSimplify\) // Contract\) // 
+            Simplify)\) &\) /@ ampFC\)], "Input"]
+},
+FrontEndVersion->"4.1 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 723}},
+CellGrouping->Manual,
+WindowSize->{496, 627},
+WindowMargins->{{18, Automatic}, {Automatic, 23}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 114, 2, 64, "Input"],
+Cell[1822, 54, 78, 1, 44, "Input"],
+
+Cell[CellGroupData[{
+Cell[1925, 59, 50, 0, 59, "Section"],
+Cell[1978, 61, 73, 1, 44, "Input"],
+Cell[2054, 64, 1634, 25, 684, "Input"],
+Cell[3691, 91, 209, 3, 104, "Input"]
+}, Closed]],
+Cell[3915, 97, 75, 1, 41, "Input"],
+Cell[3993, 100, 49, 1, 44, "Input"],
+Cell[4045, 103, 275, 6, 84, "Input"],
+Cell[4323, 111, 49, 1, 44, "Input"],
+Cell[4375, 114, 199, 4, 84, "Input"],
+Cell[4577, 120, 61, 1, 44, "Input"],
+Cell[4641, 123, 275, 4, 104, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
+

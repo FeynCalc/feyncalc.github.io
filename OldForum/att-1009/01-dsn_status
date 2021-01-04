@@ -1,0 +1,12 @@
+Reporting-MTA: dns; fismat.fcfm.buap.mx
+Received-From-MTA: smtp; fismat.fcfm.buap.mx ([127.0.0.1])
+Arrival-Date: Fri, 25 Sep 2015 15:34:24 -0500 (CDT)
+
+Original-Recipient: rfc822;javierh@fcfm.buap.mx
+Final-Recipient: rfc822;javierh@fcfm.buap.mx
+Action: failed
+Status: 5.6.0
+Diagnostic-Code: smtp; 554 5.6.0 Bounce, id=17551-05 - BAD HEADER
+Last-Attempt-Date: Fri, 25 Sep 2015 15:34:24 -0500 (CDT)
+Final-Log-ID: 17551-05/gFtmcGznfwb7
+

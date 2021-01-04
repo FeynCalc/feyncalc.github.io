@@ -1,0 +1,44 @@
+Return-Path: <feyncalc@x3.cabocomm.dk>
+Received: from x3.cabocomm.dk (x3.cabocomm.dk [195.41.32.29])
+	by fismat.fcfm.buap.mx (Postfix) with ESMTP id B5DEE35E024B
+	for <javierh@fcfm.buap.mx>; Wed, 23 Sep 2015 03:56:53 -0500 (CDT)
+Received: from localhost (unknown [127.0.0.1])
+	by x3.cabocomm.dk (Postfix) with ESMTP id 280FD1FF8025;
+	Wed, 23 Sep 2015 10:56:52 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at x3.cabocomm.dk
+Received: from x3.cabocomm.dk ([127.0.0.1])
+	by localhost (x3.cabocomm.dk [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id de+hlKAjfXjR; Wed, 23 Sep 2015 10:56:50 +0200 (CEST)
+Received: by x3.cabocomm.dk (Postfix, from userid 502)
+	id D8D731FF8007; Wed, 23 Sep 2015 10:56:50 +0200 (CEST)
+X-Original-To: feyncalc@x3.cabocomm.dk
+Delivered-To: feyncalc@x3.cabocomm.dk
+Received: from localhost (unknown [127.0.0.1])
+	by x3.cabocomm.dk (Postfix) with ESMTP id B33031FF8025
+	for <feyncalc@x3.cabocomm.dk>; Wed, 23 Sep 2015 10:56:50 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at x3.cabocomm.dk
+Received: from x3.cabocomm.dk ([127.0.0.1])
+	by localhost (x3.cabocomm.dk [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id uQJiQ6SJP39f for <feyncalc@x3.cabocomm.dk>;
+	Wed, 23 Sep 2015 10:56:49 +0200 (CEST)
+Received: from [93.146.42.82] (net-93-146-42-82.cust.vodafonedsl.it [93.146.42.82])
+	by x3.cabocomm.dk (Postfix) with ESMTP id DFE5A1FF8007
+	for <feyncalc@x3.cabocomm.dk>; Wed, 23 Sep 2015 10:56:48 +0200 (CEST)
+Received: from [73.8.22.25] (account sublimatedtsi@bigpond.net.au HELO uzeosudvmikec.ckigqbxvcr.biz)
+	by it (CommuniGate Pro SMTP 5.2.3)
+	with ESMTPA id 185964940 for feyncalc@x3.cabocomm.dk; Wed, 23 Sep 2015 09:56:48 +0100
+Received: from [1.82.34.24] (helo=ydyjzou.fdbfiloggg.org)
+	by it with esmtpa (Exim 4.69)
+	(envelope-from )
+	id 1MM232-0361tu-G6
+	for feyncalc@x3.cabocomm.dk; Wed, 23 Sep 2015 09:56:48 +0100
+Date: Wed, 23 Sep 2015 09:56:48 +0100
+From: blazejcieckiewicz@wp.pl
+To: <feyncalc@x3.cabocomm.dk>
+Subject: PD: Blokada, przeprowadzasz niedozwolone transakcje
+MIME-Version: 1.0
+X-Priority: 3
+Message-ID: <88cede274e7f76.197c24c3.68c4d11c@xmxcwcf.yogvjglpwj.pl>
+Content-Type: multipart/mixed;
+  boundary="----=a__uxuubepb_68_99_25"
+

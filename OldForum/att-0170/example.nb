@@ -1,0 +1,5474 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    157418,       5464]
+NotebookOptionsPosition[    149403,       5326]
+NotebookOutlinePosition[    149905,       5344]
+CellTagsIndexPosition[    149862,       5341]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "M\[OSlash]ller scattering\n",
+ StyleBox["\n",
+  FontSize->9],
+ StyleBox["To leading order in QED",
+  FontSize->20,
+  FontWeight->"Plain"]
+}], "Title",ExpressionUUID->"e3106646-9bef-4993-be50-e897563475b9"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Configuration: ",
+  FontColor->GrayLevel[0.333333]],
+ "\"QED\"",
+ StyleBox["\nLagrangian: ",
+  FontColor->GrayLevel[0.333333]],
+ "QED[1]"
+}], "Subsubtitle",
+ FontSize->13,ExpressionUUID->"98601a06-0c6c-46f7-b1b2-1f4e8bb3895a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$Configuration", "=", "\"\<QED\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"$Lagrangians", "=", 
+   RowBox[{"{", 
+    RowBox[{"\"\<QED\>\"", "[", "1", "]"}], "}"}]}], ";"}]}], "Input",Expressi\
+onUUID->"daeaf8a1-2db8-4e23-b2cc-d48511c77f0f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<HighEnergyPhysics`FeynCalc`\>\"", "]"}], 
+  ";"}]], "Input",ExpressionUUID->"286ce83b-51a4-4cd7-94a4-6977320b4b8c"],
+
+Cell["Loading FeynCalc from /opt/cvs/HighEnergyPhysics", "Text",
+ CellMargins->{{Inherited, Inherited}, {1, 0}},
+ GeneratedCell->True,
+ CellAutoOverwrite->
+  True,ExpressionUUID->"a0aba79e-619f-49d7-b274-a15269f9f577"],
+
+Cell["Loading TARCER /opt/cvs/HighEnergyPhysics/Tarcer/tarcer06.mx", "Text",
+ CellMargins->{{Inherited, Inherited}, {1, 0}},
+ GeneratedCell->True,
+ CellAutoOverwrite->
+  True,ExpressionUUID->"193d7707-4966-4f42-bda5-e8abd05bf34f"],
+
+Cell[TextData[{
+ StyleBox["FeynCalc",
+  FontWeight->"Bold"],
+ " ",
+ "4.9.0.2beta",
+ " For help, type ?FeynCalc, use the built-in ",
+ ButtonBox["help system",
+  BaseStyle->"AddOnsLink",
+  ButtonFunction:>(FrontEndExecute[
+    FrontEnd`HelpBrowserLookup["AddOns", #]]& ),
+  ButtonData:>{"Short Overview", "intro"},
+  ButtonNote->"Open the help browser"],
+ " or visit ",
+ ButtonBox["www.feyncalc.org",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.feyncalc.org"], None},
+  ButtonNote->"http://www.feyncalc.org"]
+}], "Text",
+ CellMargins->{{Inherited, Inherited}, {1, 0}},
+ GeneratedCell->True,
+ CellAutoOverwrite->
+  True,ExpressionUUID->"776e710f-dc8e-4247-8bf8-a8858c1dd117"],
+
+Cell["Loading PHI ", "Text",
+ CellMargins->{{Inherited, Inherited}, {1, 0}},
+ GeneratedCell->True,
+ CellAutoOverwrite->
+  True,ExpressionUUID->"24c765b7-f028-4d42-bdaf-788ea20b264f"],
+
+Cell["Loading FeynArts, see www.feynarts.de for documentation", "Text",
+ CellMargins->{{Inherited, Inherited}, {1, 0}},
+ GeneratedCell->True,
+ CellAutoOverwrite->
+  True,ExpressionUUID->"c1110615-2f18-4228-abab-349517406212"],
+
+Cell["FeynArts 3.2 patched for use with Phi and FeynCalc loaded", "Text",
+ CellMargins->{{Inherited, Inherited}, {1, 0}},
+ GeneratedCell->True,
+ CellAutoOverwrite->
+  True,ExpressionUUID->"f263fa03-bdbc-43b2-8436-7828b977988d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The three-vertex Feynman rule", "Subsection",
+ Evaluatable->False,
+ TextAlignment->Left,
+ TextJustification->0,
+ AspectRatioFixed->
+  True,ExpressionUUID->"72686e4a-722f-49f0-ad2a-e9b1a8f00b0d"],
+
+Cell["The QED lagrangian:", "Text",ExpressionUUID->"cdf9f50b-a36f-4e4b-b72e-259aa06e49f1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lag", "=", 
+  RowBox[{"ArgumentsSupply", "[", 
+   RowBox[{
+    RowBox[{"Lagrangian", "[", 
+     RowBox[{"QED", "[", "1", "]"}], "]"}], ",", "x", ",", 
+    RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}]}]], "Input",Expre\
+ssionUUID->"f8be9499-bb42-4d9a-b280-59e3f30e3014"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["1", "4"]}], " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["\[PartialD]", 
+         FormBox[
+          FormBox["\[Mu]",
+           TraditionalForm],
+          TraditionalForm]], 
+        SubsuperscriptBox[
+         FormBox[
+          SuperscriptBox[
+           StyleBox["\<\"A\"\>",
+            FontSlant->"Italic"], 
+           RowBox[{
+            TagBox[
+             FormBox["0",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True]}]],
+          TraditionalForm], 
+         FormBox[
+          FormBox["\[Nu]",
+           TraditionalForm],
+          TraditionalForm], "\[Null]"]}], "-", 
+       RowBox[{
+        SubscriptBox["\[PartialD]", 
+         FormBox[
+          FormBox["\[Nu]",
+           TraditionalForm],
+          TraditionalForm]], 
+        SubsuperscriptBox[
+         FormBox[
+          SuperscriptBox[
+           StyleBox["\<\"A\"\>",
+            FontSlant->"Italic"], 
+           RowBox[{
+            TagBox[
+             FormBox["0",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True]}]],
+          TraditionalForm], 
+         FormBox[
+          FormBox["\[Mu]",
+           TraditionalForm],
+          TraditionalForm], "\[Null]"]}]}], ")"}], ".", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["\[PartialD]", 
+         FormBox[
+          FormBox["\[Mu]",
+           TraditionalForm],
+          TraditionalForm]], 
+        SubsuperscriptBox[
+         FormBox[
+          SuperscriptBox[
+           StyleBox["\<\"A\"\>",
+            FontSlant->"Italic"], 
+           RowBox[{
+            TagBox[
+             FormBox["0",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True]}]],
+          TraditionalForm], 
+         FormBox[
+          FormBox["\[Nu]",
+           TraditionalForm],
+          TraditionalForm], "\[Null]"]}], "-", 
+       RowBox[{
+        SubscriptBox["\[PartialD]", 
+         FormBox[
+          FormBox["\[Nu]",
+           TraditionalForm],
+          TraditionalForm]], 
+        SubsuperscriptBox[
+         FormBox[
+          SuperscriptBox[
+           StyleBox["\<\"A\"\>",
+            FontSlant->"Italic"], 
+           RowBox[{
+            TagBox[
+             FormBox["0",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True]}]],
+          TraditionalForm], 
+         FormBox[
+          FormBox["\[Mu]",
+           TraditionalForm],
+          TraditionalForm], "\[Null]"]}]}], ")"}]}]}], "+", 
+   RowBox[{
+    FormBox[
+     OverscriptBox[
+      TagBox[
+       FormBox[
+        SuperscriptBox["\<\"\[Psi]\"\>", 
+         RowBox[{
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm],
+       TraditionalForm,
+       Editable->True], "_"],
+     TraditionalForm], ".", 
+    SuperscriptBox["\[Gamma]", 
+     FormBox[
+      FormBox["\[Mu]",
+       TraditionalForm],
+      TraditionalForm]], ".", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        TagBox[
+         StyleBox["\<\"e\"\>",
+          FontSlant->"Italic"],
+         StyleForm[#, FontSlant -> "Italic"]& ], 
+        RowBox[{
+         TagBox[
+          FormBox["0",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         TagBox[
+          FormBox["",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         TagBox[
+          FormBox["",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True]}]], " ", 
+       RowBox[{
+        SubscriptBox[
+         FormBox[
+          SuperscriptBox[
+           StyleBox["\<\"A\"\>",
+            FontSlant->"Italic"], 
+           RowBox[{
+            TagBox[
+             FormBox["0",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True]}]],
+          TraditionalForm], "\[Mu]"], ".", 
+        FormBox[
+         SuperscriptBox["\<\"\[Psi]\"\>", 
+          RowBox[{
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]],
+         TraditionalForm]}]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{
+        SubscriptBox["\[PartialD]", 
+         FormBox[
+          FormBox["\[Mu]",
+           TraditionalForm],
+          TraditionalForm]], 
+        SubsuperscriptBox[
+         FormBox[
+          SuperscriptBox["\<\"\[Psi]\"\>", 
+           RowBox[{
+            TagBox[
+             FormBox["0",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True]}]],
+          TraditionalForm], "\[Null]", "\[Null]"]}]}]}], ")"}]}], "-", 
+   RowBox[{
+    RowBox[{
+     FormBox[
+      OverscriptBox[
+       TagBox[
+        FormBox[
+         SuperscriptBox["\<\"\[Psi]\"\>", 
+          RowBox[{
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]],
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True], "_"],
+      TraditionalForm], ".", 
+     FormBox[
+      SuperscriptBox["\<\"\[Psi]\"\>", 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]],
+      TraditionalForm]}], " ", 
+    SubsuperscriptBox[
+     TagBox[
+      StyleBox["\<\"m\"\>",
+       FontSlant->"Italic"],
+      StyleForm[#, FontSlant -> "Italic"]& ], 
+     TagBox[
+      FormBox["\<\"\[Psi]\"\>",
+       TraditionalForm],
+      TraditionalForm,
+      Editable->True], 
+     RowBox[{"\[Null]", 
+      TagBox[
+       FormBox["0",
+        TraditionalForm],
+       TraditionalForm,
+       Editable->True], 
+      TagBox[
+       FormBox["",
+        TraditionalForm],
+       TraditionalForm,
+       Editable->True], 
+      TagBox[
+       FormBox["",
+        TraditionalForm],
+       TraditionalForm,
+       Editable->True]}]]}]}], TraditionalForm]], "Output",ExpressionUUID->\
+"c6ba1afb-acf9-4e3a-a5a9-eb1fd58cccd5"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Calculation of the Feynman rule with ",
+ StyleBox["FeynCalc",
+  FontSlant->"Italic"],
+ ":"
+}], "Text",ExpressionUUID->"10abd25f-3146-4929-b1c8-941b4ce7b693"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"fields", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"QuantumField", "[", 
+      RowBox[{"Particle", "[", 
+       RowBox[{"Electron", ",", 
+        RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}], "]"}], "[", 
+     "p1", "]"}], ",", 
+    RowBox[{
+     RowBox[{"QuantumField", "[", 
+      RowBox[{"DiracBar", "[", 
+       RowBox[{"Particle", "[", 
+        RowBox[{"Electron", ",", 
+         RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}], "]"}], 
+      "]"}], "[", "p2", "]"}], ",", 
+    RowBox[{
+     RowBox[{"QuantumField", "[", 
+      RowBox[{
+       RowBox[{"Particle", "[", 
+        RowBox[{"Photon", ",", 
+         RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}], ",", 
+       RowBox[{"LorentzIndex", "[", "\[Mu]3", "]"}]}], "]"}], "[", "p3", 
+     "]"}]}], "}"}]}]], "Input",ExpressionUUID->"fb53a955-7914-4f9d-8637-\
+6dbbc77a59c2"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    FormBox[
+     SuperscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{
+       TagBox[
+        FormBox["0",
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True], 
+       TagBox[
+        FormBox["",
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True]}]],
+     TraditionalForm], ",", 
+    FormBox[
+     OverscriptBox[
+      TagBox[
+       FormBox[
+        SuperscriptBox["\<\"\[Psi]\"\>", 
+         RowBox[{
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm],
+       TraditionalForm,
+       Editable->True], "_"],
+     TraditionalForm], ",", 
+    SubscriptBox[
+     FormBox[
+      SuperscriptBox[
+       StyleBox["\<\"A\"\>",
+        FontSlant->"Italic"], 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]],
+      TraditionalForm], 
+     FormBox[
+      SubscriptBox[
+       TagBox[
+        StyleBox["\<\"\[Mu]\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+      TraditionalForm]]}], "}"}], TraditionalForm]], "Output",ExpressionUUID->\
+"bf7f5806-5f79-4263-bc0d-5bbbe6f04540"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"melsimplified", "=", 
+  RowBox[{"Simplify", "[", 
+   RowBox[{"FeynRule", "[", 
+    RowBox[{"lag", ",", "fields"}], "]"}], "]"}]}]], "Input",ExpressionUUID->\
+"98213785-18f2-44ef-b623-b1b59d85a895"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"\[ImaginaryI]", " ", 
+   SuperscriptBox[
+    TagBox[
+     StyleBox["\<\"e\"\>",
+      FontSlant->"Italic"],
+     StyleForm[#, FontSlant -> "Italic"]& ], 
+    RowBox[{
+     TagBox[
+      FormBox["0",
+       TraditionalForm],
+      TraditionalForm,
+      Editable->True], 
+     TagBox[
+      FormBox["",
+       TraditionalForm],
+      TraditionalForm,
+      Editable->True], 
+     TagBox[
+      FormBox["",
+       TraditionalForm],
+      TraditionalForm,
+      Editable->True]}]], " ", 
+   SuperscriptBox["\[Gamma]", 
+    FormBox[
+     FormBox[
+      SubscriptBox[
+       TagBox[
+        StyleBox["\<\"\[Mu]\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+      TraditionalForm],
+     TraditionalForm]]}], TraditionalForm]], "Output",ExpressionUUID->\
+"4a508f04-5610-4529-9154-1ba43436fe81"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Coupling files", "Subsection",
+ Evaluatable->False,
+ TextAlignment->Left,
+ TextJustification->0,
+ AspectRatioFixed->
+  True,ExpressionUUID->"8ba24650-62ee-480c-8bd8-9f492bdccd2e"],
+
+Cell["\<\
+The coupling vectors for the FeynArts model files are generated and saved:\
+\>", "Text",ExpressionUUID->"cdded149-8dd4-4326-a053-2f269588b55f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gencoup", "=", 
+   RowBox[{"GenericCoupling", "[", "melsimplified", "]"}]}], ";", 
+  RowBox[{"gencoup", "//", "InputForm"}]}]], "Input",ExpressionUUID->\
+"afb0ed37-5ead-4f45-a9ad-7acec064dfb9"],
+
+Cell["\<\
+{NonCommutative[CouplingConstant[QED[1], RenormalizationState[0]]*DiracGamma[\
+\[Mu]3]]}\
+\>", "Output",ExpressionUUID->"116d97d0-9155-492d-90be-9bc1818c894e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"classcoup", "=", 
+   RowBox[{
+    RowBox[{"ClassesCoupling", "[", "melsimplified", "]"}], "//", 
+    "Together"}]}], ";", 
+  RowBox[{"classcoup", "//", "InputForm"}]}]], "Input",ExpressionUUID->\
+"7c7440e8-ca1e-4854-abff-31834c395e50"],
+
+Cell["{{I}}", "Output",ExpressionUUID->"3be144d2-a683-449f-8f0a-a892b7e16a02"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$VeryVerbose", "=", "2"}], ";"}]], "Input",ExpressionUUID->"d660d835-152d-4378-ac23-2095d67a5c6b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CheckF", "[", 
+   RowBox[{"gencoup", ",", 
+    RowBox[{
+     RowBox[{"XName", "[", 
+      RowBox[{
+       RowBox[{"VertexFields", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Electron", "[", "0", "]"}], ",", 
+          RowBox[{"Electron", "[", "0", "]"}], ",", 
+          RowBox[{"Photon", "[", "0", "]"}]}], "}"}]}], ",", 
+       RowBox[{"PerturbationOrder", "\[Rule]", "1"}], ",", 
+       RowBox[{"PhiModel", "\[Rule]", "QED"}]}], "]"}], "<>", 
+     "\"\<.Gen\>\""}]}], "]"}], ";"}]], "Input",ExpressionUUID->"3c6b803b-\
+0449-4b60-90c1-e1d8aece22c4"],
+
+Cell[BoxData[
+ FormBox["\<\"Using file name \
+/opt/cvs/HighEnergyPhysics/Phi/CouplingVectors/QEDF70F70V10o1.Gen\"\>", 
+  TraditionalForm]], "Print",ExpressionUUID->"56353c35-f1e0-4e63-b932-\
+b9e1339d4079"],
+
+Cell[BoxData[
+ FormBox["\<\"File exists, loading\"\>", TraditionalForm]], "Print",Expression\
+UUID->"418d9047-3d2c-40b6-bfc0-52ea4c87f06b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CheckF", "[", 
+   RowBox[{"classcoup", ",", 
+    RowBox[{
+     RowBox[{"XName", "[", 
+      RowBox[{
+       RowBox[{"VertexFields", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Electron", "[", "0", "]"}], ",", 
+          RowBox[{"Electron", "[", "0", "]"}], ",", 
+          RowBox[{"Photon", "[", "0", "]"}]}], "}"}]}], ",", 
+       RowBox[{"PerturbationOrder", "\[Rule]", "1"}], ",", 
+       RowBox[{"PhiModel", "\[Rule]", "QED"}]}], "]"}], "<>", 
+     "\"\<.Mod\>\""}]}], "]"}], ";"}]], "Input",ExpressionUUID->"ab3f4943-\
+73ef-49b4-ad97-8b2f30d66b2e"],
+
+Cell[BoxData[
+ FormBox["\<\"Using file name \
+/opt/cvs/HighEnergyPhysics/Phi/CouplingVectors/QEDF70F70V10o1.Mod\"\>", 
+  TraditionalForm]], "Print",ExpressionUUID->"97254088-cb74-472f-a846-\
+691e5f1c6c75"],
+
+Cell[BoxData[
+ FormBox["\<\"File exists, loading\"\>", TraditionalForm]], "Print",Expression\
+UUID->"c532cbcf-7efb-4cf2-850c-e28ec8816229"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$VeryVerbose", "=", "0"}], ";"}]], "Input",ExpressionUUID->"4b09cc2c-f8f1-49bc-99b5-405dadaa1563"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Topologies and fields insertion", "Subsection",ExpressionUUID->"fb481c5b-755f-4a26-a919-e9775958c42c"],
+
+Cell["Construction of topologies:", "Text",ExpressionUUID->"1a686d58-7d5a-40fc-93b9-4a866ab3b895"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tops", "=", 
+   RowBox[{"CreateTopologies", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"2", "\[Rule]", "2"}], ",", 
+     RowBox[{"Adjacencies", "\[Rule]", 
+      RowBox[{"{", "3", "}"}]}], ",", 
+     RowBox[{"ExcludeTopologies", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"SelfEnergies", ",", "WFCorrections"}], "}"}]}], ",", 
+     RowBox[{"CTOrder", "\[Rule]", "0"}]}], "]"}]}], ";"}]], "Input",Expressio\
+nUUID->"6ba51122-b003-443b-882f-c18f47bf6714"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Paint", "[", 
+   RowBox[{"tops", ",", 
+    RowBox[{"ColumnsXRows", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+    RowBox[{"AutoEdit", "\[Rule]", "False"}]}], "]"}], ";"}]], "Input",Express\
+ionUUID->"e0ea7a6c-e88e-4899-bb3a-f43af093a443"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .43333
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10 scalefont setfont
+% Scaling calculations
+-1.38778e-17 0.0151515 -9.37835e-18 0.0151515 [
+[ 0 0 0 0 ]
+[ 1 .43333 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .43333 L
+0 .43333 L
+closepath
+clip
+newpath
+% Start of sub-graphic
+p
+-1.38778e-17 -9.37835e-18 0.333333 0.333333 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10 scalefont setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .72727 m
+.31818 .5 L
+s
+.04545 .27273 m
+.31818 .5 L
+s
+.95455 .72727 m
+.68182 .5 L
+s
+.95455 .27273 m
+.68182 .5 L
+s
+.31818 .5 m
+.68182 .5 L
+s
+.04 w
+.31818 .5 Mdot
+.68182 .5 Mdot
+gsave
+.5 .02273 -68.25 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 17.8125 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 11.250 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 8.750 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T1) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.333333 -9.37835e-18 0.666667 0.333333 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10 scalefont setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .72727 m
+.5 .68182 L
+s
+.04545 .27273 m
+.5 .31818 L
+s
+.95455 .72727 m
+.5 .68182 L
+s
+.95455 .27273 m
+.5 .31818 L
+s
+.5 .68182 m
+.5 .31818 L
+s
+.04 w
+.5 .68182 Mdot
+.5 .31818 Mdot
+gsave
+.5 .02273 -68.25 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 17.8125 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 11.250 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 8.750 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T2) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.666667 -9.37835e-18 1 0.333333 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10 scalefont setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .72727 m
+.5 .68182 L
+s
+.04545 .27273 m
+.5 .31818 L
+s
+.95455 .72727 m
+.5 .31818 L
+s
+.95455 .27273 m
+.5 .68182 L
+s
+.5 .68182 m
+.5 .31818 L
+s
+.04 w
+.5 .68182 Mdot
+.5 .31818 Mdot
+gsave
+.5 .02273 -68.25 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 17.8125 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 11.250 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 8.750 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T3) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+0 g
+gsave
+.43182 .39333 -66.9375 -9.875 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 19.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 13.188 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 13.188 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(2) show
+1.000 setlinewidth
+grestore
+gsave
+.5 .39333 -68.4062 -8.90625 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 17.8125 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+63.000 11.250 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+%%BeginResource: font Times-Roman-MISO
+%%BeginFont: Times-Roman-MISO
+/Times-Roman /Times-Roman-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Times-Roman-MISO
+%%IncludeFont: Times-Roman-MISO
+/Times-Roman-MISO findfont 13.188 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica1
+%%IncludeFont: Mathematica1
+/Mathematica1 findfont 13.188 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 11.250 moveto
+(\\256) show
+73.812 11.250 moveto
+%%IncludeResource: font Times-Roman-MISO
+%%IncludeFont: Times-Roman-MISO
+/Times-Roman-MISO findfont 13.188 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+gsave
+.56818 .39333 -66.9375 -9.875 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 19.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 13.188 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 13.188 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(2) show
+1.000 setlinewidth
+grestore
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{261.625, 113.312},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 
+  1}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWPtPE0EQ3nJXKi0goEjBUM4GQU01iPjABxofKITKD/oPNMQEEl5W/v96
+u3N81zu/u8xBDTGxae4m38zOtzuzO7t77c7Z/o+jztnBXif43O2c7h/s/Qo2
+T7oh5JWMKZWNMT8DY+VeKEaPXvjvDduHRS4uL9uXZ10aT5Do57Cv0A5ZybdS
+O4k56b40vede4q0nXRSjFLarsAN9ys4j2PLl6ZnbttKf8Jol9yonRnD+Zs3E
+fYXa57XbzuHJiY7rXplkeheKOKE7sbGfMI6TPagZ+Ddkn4Rhh2A+hrkJqQJp
+K3OehNHPyksSq9pn1SKrkCYhbWR1yRg3kCGr+AJpBg0bkO5CekKcSTfNNaL6
+SLA7cFYGqQdsHZIPbZN4iXIwQlTvCdaC27ZkMPwFIBAvEsdUw3cEWyXYNzhb
+INqIoAajDUhPs5ylytR8VuKNGSOqlwTLpvITWPi7TUxrohwnqhcEe6ZkOw9E
+ndiPCuV1pfvniljG6yuJ3SSYBNZMoI9rkFh8GRUrElMEk6hS1YoyvYyelZAJ
+gkmEzQ2iekSwV0r64cyRsi5JDlx4W8mVoqCqZM1Y50UGZm4RI7aha0lZzWMl
+KaKfIaolgr1V0jMqFgeZ23SFLRKM1TxGz+olm3DTQj+LbDQhfVBSxZlkC0rS
+SotWg2BaUln+f9TG2T62pgU+Kf2NYxBzfS4c0IB0YWdzxCggGNsei4++DvpF
+SFrPqmQOeq0UnKyDrhQFl+o0UT0g2BslfcFCxTbDFsFeK+lVxXkKwAokLUHB
+jWaSqNipbl1JX3CbZao1grFj1QAOGVd8nLqCA+RockI5Seve5J6Ga0TFagK7
+OBU85he6nrghfoe0QOyiS4n2CvXQPkcsknOF0l4C3Qmgioapqx8rtNGFj11Z
+62g4D0l1ZdVesGtw9hiS6oJd6BOBi6jb/vWfCHrS8L/8j8hHSHQD0rGojqOZ
+mSptJl6+XBc1PyGThG1z7GOBtDWnWFFs8xiDNjLvEiO3/l2RYHvcYXZDticx
+7LAvjhn7AGOu5dj3x99HVfP7RnqZjJvSbzYeaq4=\
+\>", "ImageResolution" -> 96.012],ImageRangeCache->{{{0., 260.625}, {112.312, \
+0.}} -> {-0.183384, 6.18972*^-16, 0.254645, 0.254645}, {{0.6875, 87.0625}, \
+{112.312, 25.875}} -> {-1.17522, -1.00807, 0.254706, 0.254706}, {{87.0625, \
+173.5}, {112.312, 25.875}} -> {-23.1594, -1.00011, 0.254522, 0.254522}, \
+{{173.5, 259.875}, {112.312, 25.875}} -> {-45.1916, -1.00807, 0.254706, \
+0.254706}},ExpressionUUID->"45b522e3-a353-454a-9c79-a0c754d6c6ad"]
+}, Open  ]],
+
+Cell["Field insertion:", "Text",ExpressionUUID->"c6670a93-c74a-4f4a-9755-c4544f24732b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"inserttops", "=", 
+   RowBox[{"InsertFields", "[", 
+    RowBox[{"tops", ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Electron", "[", "0", "]"}], ",", 
+        RowBox[{"Electron", "[", "0", "]"}]}], "}"}], "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Electron", "[", "0", "]"}], ",", 
+        RowBox[{"Electron", "[", "0", "]"}]}], "}"}]}], ",", 
+     RowBox[{"Model", "\[Rule]", "\"\<Automatic\>\""}], ",", 
+     RowBox[{"GenericModel", "\[Rule]", "\"\<Automatic\>\""}], ",", 
+     RowBox[{"InsertionLevel", "\[Rule]", "Classes"}]}], "]"}]}], 
+  ";"}]], "Input",ExpressionUUID->"13a35949-4125-45dd-bb43-4af5f2e0eec0"],
+
+Cell["Graphical representation of the process:", "Text",ExpressionUUID->"c5a9bbcc-6610-4a67-82d6-0f7bf44ac6a2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"treegraphs", "=", 
+   RowBox[{"Paint", "[", 
+    RowBox[{"inserttops", ",", 
+     RowBox[{"PaintLevel", "\[Rule]", 
+      RowBox[{"{", "Classes", "}"}]}], ",", 
+     RowBox[{"AutoEdit", "\[Rule]", "False"}], ",", 
+     RowBox[{"SheetHeader", "\[Rule]", "False"}], ",", 
+     RowBox[{"Numbering", "\[Rule]", "False"}], ",", 
+     RowBox[{"ColumnsXRows", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "1"}], "}"}]}]}], "]"}]}], ";"}]], "Input",Expression\
+UUID->"d8a30ec5-60ab-4e79-b8a9-c86bb62061b8"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .5
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10 scalefont setfont
+% Scaling calculations
+-1.38778e-17 0.0227273 -6.93889e-18 0.0227273 [
+[ 0 0 0 0 ]
+[ 1 .5 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .5 L
+0 .5 L
+closepath
+clip
+newpath
+% Start of sub-graphic
+p
+-1.38778e-17 -6.93889e-18 0.5 0.5 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10 scalefont setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ .03 .03 ] 0 setdash
+.04545 .72727 m
+.5 .68182 L
+s
+.29986 .70183 m
+.24378 .68917 L
+.2474 .72535 L
+F
+gsave
+.26572 .66193 -67.9062 -14.75 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 18.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.188 moveto
+%%IncludeResource: font Courier-Oblique
+%%IncludeFont: Courier-Oblique
+/Courier-Oblique findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(e) show
+1.000 setlinewidth
+grestore
+.04545 .27273 m
+.5 .31818 L
+s
+.29986 .29817 m
+.2474 .27465 L
+.24378 .31083 L
+F
+gsave
+.27974 .25284 -67.9062 -14.75 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 18.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.188 moveto
+%%IncludeResource: font Courier-Oblique
+%%IncludeFont: Courier-Oblique
+/Courier-Oblique findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(e) show
+1.000 setlinewidth
+grestore
+.95455 .72727 m
+.5 .68182 L
+s
+.75441 .70726 m
+.69833 .71992 L
+.70194 .68374 L
+F
+gsave
+.72026 .74716 -67.9062 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 18.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.188 moveto
+%%IncludeResource: font Courier-Oblique
+%%IncludeFont: Courier-Oblique
+/Courier-Oblique findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(e) show
+1.000 setlinewidth
+grestore
+.95455 .27273 m
+.5 .31818 L
+s
+.75441 .29274 m
+.70194 .31626 L
+.69833 .28008 L
+F
+gsave
+.73428 .33807 -67.9062 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 18.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.188 moveto
+%%IncludeResource: font Courier-Oblique
+%%IncludeFont: Courier-Oblique
+/Courier-Oblique findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(e) show
+1.000 setlinewidth
+grestore
+[ ] 0 setdash
+.5 .31818 m
+.50393 .32273 L
+.50738 .32727 L
+.50991 .33182 L
+.51122 .33637 L
+.51114 .34091 L
+.50968 .34546 L
+.50703 .35 L
+.50351 .35455 L
+.49955 .35909 L
+.49564 .36364 L
+.49228 .36818 L
+.48987 .37273 L
+.48871 .37727 L
+.48894 .38182 L
+.49054 .38636 L
+.49331 .39091 L
+.4969 .39545 L
+.50088 .4 L
+.50474 .40455 L
+.50802 .40909 L
+.51031 .41364 L
+.51131 .41818 L
+.51092 .42273 L
+.50918 .42727 L
+.5063 .43182 L
+.50264 .43636 L
+.49865 .44091 L
+.49482 .44545 L
+.49164 .45 L
+.48948 .45454 L
+.48863 .45909 L
+.48918 .46364 L
+.49106 .46818 L
+.49404 .47273 L
+.49777 .47727 L
+.50176 .48182 L
+.50553 .48636 L
+.50862 .49091 L
+.51064 .49545 L
+.51135 .5 L
+.51064 .50455 L
+.50862 .50909 L
+.50553 .51364 L
+.50176 .51818 L
+.49777 .52273 L
+.49404 .52727 L
+.49106 .53182 L
+.48918 .53636 L
+.48863 .54091 L
+Mistroke
+.48948 .54546 L
+.49164 .55 L
+.49482 .55455 L
+.49865 .55909 L
+.50264 .56364 L
+.5063 .56818 L
+.50918 .57273 L
+.51092 .57727 L
+.51131 .58182 L
+.51031 .58636 L
+.50802 .59091 L
+.50474 .59545 L
+.50088 .6 L
+.4969 .60455 L
+.49331 .60909 L
+.49054 .61364 L
+.48894 .61818 L
+.48871 .62273 L
+.48987 .62727 L
+.49228 .63182 L
+.49564 .63636 L
+.49955 .64091 L
+.50351 .64545 L
+.50703 .65 L
+.50968 .65454 L
+.51114 .65909 L
+.51122 .66363 L
+.50991 .66818 L
+.50738 .67273 L
+.50393 .67727 L
+.5 .68182 L
+Mfstroke
+gsave
+.45704 .5 -74.8125 -9.9375 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 19.875 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+63.000 12.500 moveto
+%%IncludeResource: font Mathematica1Mono
+%%IncludeFont: Mathematica1Mono
+/Mathematica1Mono findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(g) show
+1.000 setlinewidth
+grestore
+.04 w
+.5 .68182 Mdot
+.5 .31818 Mdot
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.5 -6.93889e-18 1 0.5 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10 scalefont setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ .03 .03 ] 0 setdash
+.04545 .72727 m
+.5 .68182 L
+s
+.29986 .70183 m
+.24378 .68917 L
+.2474 .72535 L
+F
+gsave
+.26572 .66193 -67.9062 -14.75 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 18.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.188 moveto
+%%IncludeResource: font Courier-Oblique
+%%IncludeFont: Courier-Oblique
+/Courier-Oblique findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(e) show
+1.000 setlinewidth
+grestore
+.04545 .27273 m
+.5 .31818 L
+s
+.29986 .29817 m
+.2474 .27465 L
+.24378 .31083 L
+F
+gsave
+.27974 .25284 -67.9062 -14.75 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 18.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.188 moveto
+%%IncludeResource: font Courier-Oblique
+%%IncludeFont: Courier-Oblique
+/Courier-Oblique findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(e) show
+1.000 setlinewidth
+grestore
+.95455 .72727 m
+.5 .31818 L
+s
+.74754 .54097 m
+.69484 .518 L
+.71916 .49097 L
+F
+gsave
+.81534 .64005 -74.8125 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 18.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.188 moveto
+%%IncludeResource: font Courier-Oblique
+%%IncludeFont: Courier-Oblique
+/Courier-Oblique findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(e) show
+1.000 setlinewidth
+grestore
+.95455 .27273 m
+.5 .68182 L
+s
+.74754 .45903 m
+.71916 .50903 L
+.69484 .482 L
+F
+gsave
+.84375 .41277 -61 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 18.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.188 moveto
+%%IncludeResource: font Courier-Oblique
+%%IncludeFont: Courier-Oblique
+/Courier-Oblique findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(e) show
+1.000 setlinewidth
+grestore
+[ ] 0 setdash
+.5 .31818 m
+.50393 .32273 L
+.50738 .32727 L
+.50991 .33182 L
+.51122 .33637 L
+.51114 .34091 L
+.50968 .34546 L
+.50703 .35 L
+.50351 .35455 L
+.49955 .35909 L
+.49564 .36364 L
+.49228 .36818 L
+.48987 .37273 L
+.48871 .37727 L
+.48894 .38182 L
+.49054 .38636 L
+.49331 .39091 L
+.4969 .39545 L
+.50088 .4 L
+.50474 .40455 L
+.50802 .40909 L
+.51031 .41364 L
+.51131 .41818 L
+.51092 .42273 L
+.50918 .42727 L
+.5063 .43182 L
+.50264 .43636 L
+.49865 .44091 L
+.49482 .44545 L
+.49164 .45 L
+.48948 .45454 L
+.48863 .45909 L
+.48918 .46364 L
+.49106 .46818 L
+.49404 .47273 L
+.49777 .47727 L
+.50176 .48182 L
+.50553 .48636 L
+.50862 .49091 L
+.51064 .49545 L
+.51135 .5 L
+.51064 .50455 L
+.50862 .50909 L
+.50553 .51364 L
+.50176 .51818 L
+.49777 .52273 L
+.49404 .52727 L
+.49106 .53182 L
+.48918 .53636 L
+.48863 .54091 L
+Mistroke
+.48948 .54546 L
+.49164 .55 L
+.49482 .55455 L
+.49865 .55909 L
+.50264 .56364 L
+.5063 .56818 L
+.50918 .57273 L
+.51092 .57727 L
+.51131 .58182 L
+.51031 .58636 L
+.50802 .59091 L
+.50474 .59545 L
+.50088 .6 L
+.4969 .60455 L
+.49331 .60909 L
+.49054 .61364 L
+.48894 .61818 L
+.48871 .62273 L
+.48987 .62727 L
+.49228 .63182 L
+.49564 .63636 L
+.49955 .64091 L
+.50351 .64545 L
+.50703 .65 L
+.50968 .65454 L
+.51114 .65909 L
+.51122 .66363 L
+.50991 .66818 L
+.50738 .67273 L
+.50393 .67727 L
+.5 .68182 L
+Mfstroke
+gsave
+.46158 .5 -74.8125 -9.9375 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 19.875 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+63.000 12.500 moveto
+%%IncludeResource: font Mathematica1Mono
+%%IncludeFont: Mathematica1Mono
+/Mathematica1Mono findfont 16.438 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(g) show
+1.000 setlinewidth
+grestore
+.04 w
+.5 .68182 Mdot
+.5 .31818 Mdot
+MathSubEnd
+P
+% End of sub-graphic
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{288, 144},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 
+  1}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWFtPE0EUHmihlBZaEFFaxJYiVuODCYKKxidLqwnRH+ADtRRaxEuQ6IOC
+vnjXxN/iLfHX1c7MemZ2+Wa6Ezb6oBvSPXznOjPnzJ6Z1fpuq3m/vttu1AvV
+nfqjVrvxuLDycKcLxfoY6yswxj4XGKc7XdL76XT/OkX+w5H/dJT0PH8N8Gl+
+T9SGZJ3ir34OxAUQY3I1hDp7beU2NBMB1keAtTXxIc54Q9R6MJgBoP/Kyr2r
+DVUIxYh6CzDPY5m/4hz4QFQz/MQmyN4+p0REacJegjBl6CxJ4iqkB/4wBXcM
+yD0FZgelWSUeJ3Hl6rZ/NQVWtGqs+THGcv54kpy6wqm0P+4FIHcHxO2ZLfFX
+ijMuUE7UCGtoQmKFhimLs4RlCRsg7KZVoyrNLhNLhS9J9vsRM+CVgPbESHOU
+5qkR0tolMBlpKVbhr0HOeEfGLgLxESm+AlJ4CYiPSvEbIat1AWAZNxOVXuJx
+H9Z9rkuiRtP5yV8TASvnADYuTVQB6wRN5xbgoh3uLMCOaNOOHBi3yw1j3fqx
+MsAmejgNYNsAOw+woz3MikLcBNyapigGPEMU2pybxB0G3Ks9liywdbeAXBJg
+JwE2pSVYgDVD1YOyAzlAM59zKxFkNm/EQpudB9i0m4kRgC1qsxcozywQHzcu
+ClwAFAUyizARrdqKcTIhByjGUZMDY2mnzHWEnJZCOh1zM6u+nWk3xUmAqdZm
+nChU2rKg2WUSSgOhfSsXuRflLqpxgnRjASvSqabInxQJvbByjwOu+OhOkucR
+sxc0jL2QcseAnPBXNvtD1fg8pNwUDchzsEyTgMT3rNwccc8c3tiByOTQD7QF
+KeNshxLtNeGoF+u3lsS+s4Yx3U7Lf5dIErUECHvmrGGvMy+QaPaMeTdjNTdx
+tH/OShNR7/veQS/q71VBM3u4L2kE3/M/2FU49jthp92xOwubJI5d5Rx/iSZE
+ta33AGbpgUskhNqMHMDazho1zRVMS+AghJzlfCFcicYkT9FuASwBTFhOQ2qy
+UGOCht5y1nA8Fc6RA9WsqIVvW7mOJ1xRjWLnRinZDnBNR23Hszy6bJilFEcb
+aMasWLSmLmqdvOYe3ZAUjYuC9sG/dOtTpKTPGEcM77nU1mK/3Vq0Jvi05sB4
+23YNJOmMVMz7Wej2r98fhZKrULRoVbx7QHXUUDeUQ0TdIkrdVZasGmvE9Rwk
+wEJtExWjvEoDuSdkTO5TkV3PN8nZDwmsWwvjqyYUYP3UWGJZvwUNorT4ooUR
+WHhPf5MW73u0Q//XaNb3C91Ogtg=\
+\>", "ImageResolution" -> 96.012],ImageRangeCache->{{{0., 287.}, {143., 0.}} -> \
+{-0.0771438, -0.000110001, 0.153848, 0.153848}, {{0.5, 143.5}, {143., 0.}} -> \
+{-1.07703, -1.00011, 0.153848, 0.153848}, {{143.5, 286.5}, {143., 0.}} -> \
+{-23.0773, -1.00011, 0.153848, \
+0.153848}},ExpressionUUID->"766d137c-a886-424f-8a84-d94cece36d23"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The amplitude", "Subsection",
+ Evaluatable->False,
+ AspectRatioFixed->
+  True,ExpressionUUID->"37215d12-3f0a-41d1-87e4-68d9b5f7986c"],
+
+Cell["We can safely set the photon mass to zero:", "Text",ExpressionUUID->"859e9e09-0804-4db3-8680-756f7b3c9582"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ParticleMass", "[", 
+    RowBox[{"Photon", ",", "___"}], "]"}], ":=", "0"}], ";"}]], "Input",Expres\
+sionUUID->"d72d347f-fa3f-4233-aaaf-13f77e3f2808"],
+
+Cell["Calculation of the amplitude:", "Text",ExpressionUUID->"2bd43c0f-096a-4ccd-8181-9718c585c5b7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ampFC", "=", 
+  RowBox[{
+   RowBox[{"Plus", "@@", 
+    RowBox[{"CreateFCAmp", "[", "inserttops", "]"}]}], "//", 
+   "Contract"}]}]], "Input",ExpressionUUID->"110d426c-77a4-454f-aed9-\
+5829943fb15d"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox[
+       TagBox[
+        StyleBox["\<\"e\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]], ")"}], "2"], " ", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        RowBox[{"-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3"]}],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}], ".", 
+     SuperscriptBox["\[Gamma]", 
+      FormBox[
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"\[Mu]\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm],
+       TraditionalForm]], ".", 
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}]}], " ", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        RowBox[{"-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4"]}],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}], ".", 
+     SuperscriptBox["\[Gamma]", 
+      FormBox[
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"\[Mu]\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm],
+       TraditionalForm]], ".", 
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}]}], " ", 
+    FormBox[
+     FractionBox["1", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SubscriptBox[
+           TagBox[
+            StyleBox["\<\"p\"\>",
+             FontSlant->"Italic"],
+            StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+     TraditionalForm]}], "-", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox[
+       TagBox[
+        StyleBox["\<\"e\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]], ")"}], "2"], " ", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        RowBox[{"-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3"]}],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}], ".", 
+     SuperscriptBox["\[Gamma]", 
+      FormBox[
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"\[Mu]\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm],
+       TraditionalForm]], ".", 
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}]}], " ", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        RowBox[{"-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4"]}],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}], ".", 
+     SuperscriptBox["\[Gamma]", 
+      FormBox[
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"\[Mu]\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm],
+       TraditionalForm]], ".", 
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}]}], " ", 
+    FormBox[
+     FractionBox["1", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SubscriptBox[
+           TagBox[
+            StyleBox["\<\"p\"\>",
+             FontSlant->"Italic"],
+            StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+     TraditionalForm]}]}], TraditionalForm]], "Output",ExpressionUUID->\
+"70a8d6c0-4b14-45da-a630-ca20125a8959"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The differential cross section", "Subsection",ExpressionUUID->"075061ac-b213-4fe9-82c9-1ee6a71e2890"],
+
+Cell["\<\
+Squaring the amplitude, transforming the spin sums into traces and evaluating \
+the traces:\
+\>", "Text",ExpressionUUID->"8769d2ee-1afb-4391-95cd-3c9b696587a4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["ampFC"], "Input",ExpressionUUID->"ad16882b-6c6f-411f-90d5-cd5d02f029c1"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox[
+       TagBox[
+        StyleBox["\<\"e\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]], ")"}], "2"], " ", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        RowBox[{"-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3"]}],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}], ".", 
+     SuperscriptBox["\[Gamma]", 
+      FormBox[
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"\[Mu]\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm],
+       TraditionalForm]], ".", 
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}]}], " ", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        RowBox[{"-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4"]}],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}], ".", 
+     SuperscriptBox["\[Gamma]", 
+      FormBox[
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"\[Mu]\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm],
+       TraditionalForm]], ".", 
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}]}], " ", 
+    FormBox[
+     FractionBox["1", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SubscriptBox[
+           TagBox[
+            StyleBox["\<\"p\"\>",
+             FontSlant->"Italic"],
+            StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+     TraditionalForm]}], "-", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox[
+       TagBox[
+        StyleBox["\<\"e\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]], ")"}], "2"], " ", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        RowBox[{"-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3"]}],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}], ".", 
+     SuperscriptBox["\[Gamma]", 
+      FormBox[
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"\[Mu]\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm],
+       TraditionalForm]], ".", 
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}]}], " ", 
+    RowBox[{
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        RowBox[{"-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4"]}],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}], ".", 
+     SuperscriptBox["\[Gamma]", 
+      FormBox[
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"\[Mu]\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm],
+       TraditionalForm]], ".", 
+     RowBox[{"\[CurlyPhi]", "(", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], ",", 
+       FormBox[
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]],
+        TraditionalForm]}], ")"}]}], " ", 
+    FormBox[
+     FractionBox["1", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SubscriptBox[
+           TagBox[
+            StyleBox["\<\"p\"\>",
+             FontSlant->"Italic"],
+            StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+         SubscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+     TraditionalForm]}]}], TraditionalForm]], "Output",ExpressionUUID->\
+"277b3a5b-4e93-4dd4-8e47-1bdb8c1c8636"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"squaredamp", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"FermionSpinSum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ampFC", " ", 
+         RowBox[{"ComplexConjugate", "[", 
+          RowBox[{"ampFC", "/.", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"\[Mu]1", "\[Rule]", "\[Nu]1"}], ",", 
+             RowBox[{"\[Mu]2", "\[Rule]", "\[Nu]2"}]}], "}"}]}], "]"}]}], "/.", 
+        RowBox[{"D", "\[Rule]", "4"}]}], "//", "Expand"}], "]"}], "/.", 
+     RowBox[{"DiracTrace", "\[Rule]", "Tr"}]}], "//", "DiracSimplify"}], "//",
+    "Simplify"}]}]], "Input",ExpressionUUID->"2d48e31a-83d7-4ade-8549-\
+21df08aced1a"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"8", " ", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     SuperscriptBox[
+      TagBox[
+       StyleBox["\<\"e\"\>",
+        FontSlant->"Italic"],
+       StyleForm[#, FontSlant -> "Italic"]& ], 
+      RowBox[{
+       TagBox[
+        FormBox["0",
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True], 
+       TagBox[
+        FormBox["",
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True], 
+       TagBox[
+        FormBox["",
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True]}]], ")"}], "4"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4", 
+          FormBox[
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+            TraditionalForm],
+           TraditionalForm]], " ", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "1", 
+          FormBox[
+           FormBox["\[Nu]1",
+            TraditionalForm],
+           TraditionalForm]]}], "+", 
+        RowBox[{
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "1", 
+          FormBox[
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+            TraditionalForm],
+           TraditionalForm]], " ", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4", 
+          FormBox[
+           FormBox["\[Nu]1",
+            TraditionalForm],
+           TraditionalForm]]}], "-", 
+        RowBox[{
+         SuperscriptBox["g", 
+          RowBox[{
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+            TraditionalForm], "\[Nu]1"}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             SubsuperscriptBox[
+              TagBox[
+               StyleBox["\<\"m\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], 
+              TagBox[
+               FormBox["\<\"\[Psi]\"\>",
+                TraditionalForm],
+               TraditionalForm,
+               Editable->True], 
+              RowBox[{"\[Null]", 
+               TagBox[
+                FormBox["0",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True]}]], ")"}], "2"], "+", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+             TraditionalForm]}]}], ")"}]}]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3", 
+          FormBox[
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+            TraditionalForm],
+           TraditionalForm]], " ", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "2", 
+          FormBox[
+           FormBox["\[Nu]1",
+            TraditionalForm],
+           TraditionalForm]]}], "+", 
+        RowBox[{
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "2", 
+          FormBox[
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+            TraditionalForm],
+           TraditionalForm]], " ", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3", 
+          FormBox[
+           FormBox["\[Nu]1",
+            TraditionalForm],
+           TraditionalForm]]}], "-", 
+        RowBox[{
+         SuperscriptBox["g", 
+          RowBox[{
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+            TraditionalForm], "\[Nu]1"}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             SubsuperscriptBox[
+              TagBox[
+               StyleBox["\<\"m\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], 
+              TagBox[
+               FormBox["\<\"\[Psi]\"\>",
+                TraditionalForm],
+               TraditionalForm,
+               Editable->True], 
+              RowBox[{"\[Null]", 
+               TagBox[
+                FormBox["0",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True]}]], ")"}], "2"], "+", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+             TraditionalForm]}]}], ")"}]}]}], ")"}], " ", 
+      SuperscriptBox[
+       FormBox[
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+        TraditionalForm], "2"]}], "+", 
+     RowBox[{"4", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              SubsuperscriptBox[
+               TagBox[
+                StyleBox["\<\"m\"\>",
+                 FontSlant->"Italic"],
+                StyleForm[#, FontSlant -> "Italic"]& ], 
+               TagBox[
+                FormBox["\<\"\[Psi]\"\>",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               RowBox[{"\[Null]", 
+                TagBox[
+                 FormBox["0",
+                  TraditionalForm],
+                 TraditionalForm,
+                 Editable->True], 
+                TagBox[
+                 FormBox["",
+                  TraditionalForm],
+                 TraditionalForm,
+                 Editable->True], 
+                TagBox[
+                 FormBox["",
+                  TraditionalForm],
+                 TraditionalForm,
+                 Editable->True]}]], ")"}], "2"]}], "+", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+             TraditionalForm]}], "+", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+             TraditionalForm]}], "+", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+             TraditionalForm]}], "+", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+             TraditionalForm]}], "-", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+             TraditionalForm]}]}], ")"}], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           SubsuperscriptBox[
+            TagBox[
+             StyleBox["\<\"m\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], 
+            TagBox[
+             FormBox["\<\"\[Psi]\"\>",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            RowBox[{"\[Null]", 
+             TagBox[
+              FormBox["0",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True], 
+             TagBox[
+              FormBox["",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True], 
+             TagBox[
+              FormBox["",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True]}]], ")"}], "2"]}], "+", 
+        RowBox[{
+         RowBox[{
+          FormBox[
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+           TraditionalForm], "\[CenterDot]", 
+          FormBox[
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+           TraditionalForm]}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{
+             FormBox[
+              SubscriptBox[
+               TagBox[
+                StyleBox["\<\"p\"\>",
+                 FontSlant->"Italic"],
+                StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+              TraditionalForm], "\[CenterDot]", 
+             FormBox[
+              SubscriptBox[
+               TagBox[
+                StyleBox["\<\"p\"\>",
+                 FontSlant->"Italic"],
+                StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+              TraditionalForm]}]}], "-", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             SubsuperscriptBox[
+              TagBox[
+               StyleBox["\<\"m\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], 
+              TagBox[
+               FormBox["\<\"\[Psi]\"\>",
+                TraditionalForm],
+               TraditionalForm,
+               Editable->True], 
+              RowBox[{"\[Null]", 
+               TagBox[
+                FormBox["0",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True]}]], ")"}], "2"]}], ")"}]}]}], ")"}], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+       TraditionalForm]}], "+", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3", 
+          FormBox[
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+            TraditionalForm],
+           TraditionalForm]], " ", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "1", 
+          FormBox[
+           FormBox["\[Nu]2",
+            TraditionalForm],
+           TraditionalForm]]}], "+", 
+        RowBox[{
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "1", 
+          FormBox[
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+            TraditionalForm],
+           TraditionalForm]], " ", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "3", 
+          FormBox[
+           FormBox["\[Nu]2",
+            TraditionalForm],
+           TraditionalForm]]}], "-", 
+        RowBox[{
+         SuperscriptBox["g", 
+          RowBox[{
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+            TraditionalForm], "\[Nu]2"}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             SubsuperscriptBox[
+              TagBox[
+               StyleBox["\<\"m\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], 
+              TagBox[
+               FormBox["\<\"\[Psi]\"\>",
+                TraditionalForm],
+               TraditionalForm,
+               Editable->True], 
+              RowBox[{"\[Null]", 
+               TagBox[
+                FormBox["0",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True]}]], ")"}], "2"], "+", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+             TraditionalForm]}]}], ")"}]}]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4", 
+          FormBox[
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+            TraditionalForm],
+           TraditionalForm]], " ", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "2", 
+          FormBox[
+           FormBox["\[Nu]2",
+            TraditionalForm],
+           TraditionalForm]]}], "+", 
+        RowBox[{
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "2", 
+          FormBox[
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+            TraditionalForm],
+           TraditionalForm]], " ", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"p\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], "4", 
+          FormBox[
+           FormBox["\[Nu]2",
+            TraditionalForm],
+           TraditionalForm]]}], "-", 
+        RowBox[{
+         SuperscriptBox["g", 
+          RowBox[{
+           FormBox[
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"\[Mu]\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+            TraditionalForm], "\[Nu]2"}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             SubsuperscriptBox[
+              TagBox[
+               StyleBox["\<\"m\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], 
+              TagBox[
+               FormBox["\<\"\[Psi]\"\>",
+                TraditionalForm],
+               TraditionalForm,
+               Editable->True], 
+              RowBox[{"\[Null]", 
+               TagBox[
+                FormBox["0",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True], 
+               TagBox[
+                FormBox["",
+                 TraditionalForm],
+                TraditionalForm,
+                Editable->True]}]], ")"}], "2"], "+", 
+           RowBox[{
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+             TraditionalForm], "\[CenterDot]", 
+            FormBox[
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+             TraditionalForm]}]}], ")"}]}]}], ")"}], " ", 
+      SuperscriptBox[
+       FormBox[
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+        TraditionalForm], "2"]}]}], ")"}]}], TraditionalForm]], "Output",Expre\
+ssionUUID->"a4aa33de-cd01-44cd-9876-20a41c300417"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"squaredampfinal", "=", 
+  RowBox[{
+   RowBox[{"squaredamp", "//", "Contract"}], "//", "Simplify"}]}]], "Input",Ex\
+pressionUUID->"1166fd9e-a9cf-41d4-afb9-e2dd46ae7284"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"32", " ", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     SuperscriptBox[
+      TagBox[
+       StyleBox["\<\"e\"\>",
+        FontSlant->"Italic"],
+       StyleForm[#, FontSlant -> "Italic"]& ], 
+      RowBox[{
+       TagBox[
+        FormBox["0",
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True], 
+       TagBox[
+        FormBox["",
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True], 
+       TagBox[
+        FormBox["",
+         TraditionalForm],
+        TraditionalForm,
+        Editable->True]}]], ")"}], "4"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", " ", 
+      SuperscriptBox[
+       FormBox[
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+        TraditionalForm], "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "4"]}], "+", 
+     RowBox[{"2", " ", 
+      SuperscriptBox[
+       FormBox[
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+        TraditionalForm], "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "4"]}], "+", 
+     RowBox[{"2", " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "4"]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+        TraditionalForm]}], " ", 
+      SuperscriptBox[
+       FormBox[
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+        TraditionalForm], "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "2"]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+        TraditionalForm]}], " ", 
+      SuperscriptBox[
+       FormBox[
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+        TraditionalForm], "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "2"]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+        TraditionalForm]}], " ", 
+      SuperscriptBox[
+       FormBox[
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+        TraditionalForm], "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "2"]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+        TraditionalForm]}], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "2"]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+        TraditionalForm]}], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "2"]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+        TraditionalForm]}], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "2"]}], "-", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+        TraditionalForm]}], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      FormBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+       TraditionalForm], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SubsuperscriptBox[
+         TagBox[
+          StyleBox["\<\"m\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], 
+         TagBox[
+          FormBox["\<\"\[Psi]\"\>",
+           TraditionalForm],
+          TraditionalForm,
+          Editable->True], 
+         RowBox[{"\[Null]", 
+          TagBox[
+           FormBox["0",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          TagBox[
+           FormBox["",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True]}]], ")"}], "2"]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+        TraditionalForm]}], " ", 
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+        TraditionalForm]}], " ", 
+      SuperscriptBox[
+       FormBox[
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             SubscriptBox[
+              TagBox[
+               StyleBox["\<\"p\"\>",
+                FontSlant->"Italic"],
+               StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+            SubscriptBox[
+             TagBox[
+              StyleBox["\<\"p\"\>",
+               FontSlant->"Italic"],
+              StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+        TraditionalForm], "2"]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+        TraditionalForm]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         FormBox[
+          FractionBox["1", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SubscriptBox[
+                TagBox[
+                 StyleBox["\<\"p\"\>",
+                  FontSlant->"Italic"],
+                 StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+              SubscriptBox[
+               TagBox[
+                StyleBox["\<\"p\"\>",
+                 FontSlant->"Italic"],
+                StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+          TraditionalForm], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            FractionBox["1", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", 
+                 SubscriptBox[
+                  TagBox[
+                   StyleBox["\<\"p\"\>",
+                    FontSlant->"Italic"],
+                   StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+                SubscriptBox[
+                 TagBox[
+                  StyleBox["\<\"p\"\>",
+                   FontSlant->"Italic"],
+                  StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+            TraditionalForm], "+", 
+           FormBox[
+            FractionBox["1", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", 
+                 SubscriptBox[
+                  TagBox[
+                   StyleBox["\<\"p\"\>",
+                    FontSlant->"Italic"],
+                   StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+                SubscriptBox[
+                 TagBox[
+                  StyleBox["\<\"p\"\>",
+                   FontSlant->"Italic"],
+                  StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+            TraditionalForm]}], ")"}], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           SubsuperscriptBox[
+            TagBox[
+             StyleBox["\<\"m\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], 
+            TagBox[
+             FormBox["\<\"\[Psi]\"\>",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            RowBox[{"\[Null]", 
+             TagBox[
+              FormBox["0",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True], 
+             TagBox[
+              FormBox["",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True], 
+             TagBox[
+              FormBox["",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True]}]], ")"}], "2"]}], "+", 
+        RowBox[{
+         RowBox[{
+          FormBox[
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+           TraditionalForm], "\[CenterDot]", 
+          FormBox[
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+           TraditionalForm]}], " ", 
+         SuperscriptBox[
+          FormBox[
+           FractionBox["1", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", 
+                SubscriptBox[
+                 TagBox[
+                  StyleBox["\<\"p\"\>",
+                   FontSlant->"Italic"],
+                  StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+               SubscriptBox[
+                TagBox[
+                 StyleBox["\<\"p\"\>",
+                  FontSlant->"Italic"],
+                 StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+           
+           TraditionalForm], "2"]}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "1"],
+        TraditionalForm], "\[CenterDot]", 
+       FormBox[
+        SubscriptBox[
+         TagBox[
+          StyleBox["\<\"p\"\>",
+           FontSlant->"Italic"],
+          StyleForm[#, FontSlant -> "Italic"]& ], "2"],
+        TraditionalForm]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          FormBox[
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "3"],
+           TraditionalForm], "\[CenterDot]", 
+          FormBox[
+           SubscriptBox[
+            TagBox[
+             StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], "4"],
+           TraditionalForm]}], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            FormBox[
+             FractionBox["1", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  SubscriptBox[
+                   TagBox[
+                    StyleBox["\<\"p\"\>",
+                    FontSlant->"Italic"],
+                    StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+                 SubscriptBox[
+                  TagBox[
+                   StyleBox["\<\"p\"\>",
+                    FontSlant->"Italic"],
+                   StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], 
+               "2"]],
+             TraditionalForm], "+", 
+            FormBox[
+             FractionBox["1", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  SubscriptBox[
+                   TagBox[
+                    StyleBox["\<\"p\"\>",
+                    FontSlant->"Italic"],
+                    StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+                 SubscriptBox[
+                  TagBox[
+                   StyleBox["\<\"p\"\>",
+                    FontSlant->"Italic"],
+                   StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], 
+               "2"]],
+             TraditionalForm]}], ")"}], "2"]}], "-", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           SubsuperscriptBox[
+            TagBox[
+             StyleBox["\<\"m\"\>",
+              FontSlant->"Italic"],
+             StyleForm[#, FontSlant -> "Italic"]& ], 
+            TagBox[
+             FormBox["\<\"\[Psi]\"\>",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            RowBox[{"\[Null]", 
+             TagBox[
+              FormBox["0",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True], 
+             TagBox[
+              FormBox["",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True], 
+             TagBox[
+              FormBox["",
+               TraditionalForm],
+              TraditionalForm,
+              Editable->True]}]], ")"}], "2"], " ", 
+         FormBox[
+          FractionBox["1", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SubscriptBox[
+                TagBox[
+                 StyleBox["\<\"p\"\>",
+                  FontSlant->"Italic"],
+                 StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+              SubscriptBox[
+               TagBox[
+                StyleBox["\<\"p\"\>",
+                 FontSlant->"Italic"],
+                StyleForm[#, FontSlant -> "Italic"]& ], "3"]}], ")"}], "2"]],
+          TraditionalForm], " ", 
+         FormBox[
+          FractionBox["1", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SubscriptBox[
+                TagBox[
+                 StyleBox["\<\"p\"\>",
+                  FontSlant->"Italic"],
+                 StyleForm[#, FontSlant -> "Italic"]& ], "2"]}], "-", 
+              SubscriptBox[
+               TagBox[
+                StyleBox["\<\"p\"\>",
+                 FontSlant->"Italic"],
+                StyleForm[#, FontSlant -> "Italic"]& ], "4"]}], ")"}], "2"]],
+          TraditionalForm]}]}], ")"}]}]}], ")"}]}], 
+  TraditionalForm]], "Output",ExpressionUUID->"8be3d155-1def-45a2-9717-\
+c1d1c6c6ca5f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"samp", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"squaredampfinal", "//", "PropagatorDenominatorExplicit"}], "//", 
+    
+    RowBox[{
+     RowBox[{"MandelstamReduce", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"Masses", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"ParticleMass", "[", 
+           RowBox[{"Electron", ",", 
+            RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}], ",", 
+          RowBox[{"ParticleMass", "[", 
+           RowBox[{"Electron", ",", 
+            RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}], ",", 
+          RowBox[{"ParticleMass", "[", 
+           RowBox[{"Electron", ",", 
+            RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}], ",", 
+          RowBox[{"ParticleMass", "[", 
+           RowBox[{"Electron", ",", 
+            RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}]}], 
+         "}"}]}], ",", 
+       RowBox[{"MandelstamCancel", "\[Rule]", "MandelstamU"}]}], "]"}], 
+     "&"}]}], "//", "Simplify"}]}]], "Input",ExpressionUUID->"7c5724cc-8951-\
+4564-b28d-0f51eac9ccd0"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"16", " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox[
+       TagBox[
+        StyleBox["\<\"e\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]], ")"}], "4"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"64", " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "8"]}], "+", 
+      RowBox[{"16", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         StyleBox["\<\"t\"\>",
+          FontSlant->"Italic"], "-", 
+         RowBox[{"6", " ", 
+          StyleBox["\<\"s\"\>",
+           FontSlant->"Italic"]}]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "6"]}], "+", 
+      RowBox[{"4", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"13", " ", 
+          SuperscriptBox[
+           StyleBox["\<\"s\"\>",
+            FontSlant->"Italic"], "2"]}], "+", 
+         RowBox[{"3", " ", 
+          StyleBox["\<\"t\"\>",
+           FontSlant->"Italic"], " ", 
+          StyleBox["\<\"s\"\>",
+           FontSlant->"Italic"]}], "+", 
+         RowBox[{"3", " ", 
+          SuperscriptBox[
+           StyleBox["\<\"t\"\>",
+            FontSlant->"Italic"], "2"]}]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "4"]}], "-", 
+      RowBox[{"4", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", 
+          SuperscriptBox[
+           StyleBox["\<\"s\"\>",
+            FontSlant->"Italic"], "3"]}], "+", 
+         RowBox[{"3", " ", 
+          StyleBox["\<\"t\"\>",
+           FontSlant->"Italic"], " ", 
+          SuperscriptBox[
+           StyleBox["\<\"s\"\>",
+            FontSlant->"Italic"], "2"]}], "+", 
+         RowBox[{"3", " ", 
+          SuperscriptBox[
+           StyleBox["\<\"t\"\>",
+            FontSlant->"Italic"], "2"], " ", 
+          StyleBox["\<\"s\"\>",
+           FontSlant->"Italic"]}], "+", 
+         RowBox[{"2", " ", 
+          SuperscriptBox[
+           StyleBox["\<\"t\"\>",
+            FontSlant->"Italic"], "3"]}]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "2"]}], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          StyleBox["\<\"s\"\>",
+           FontSlant->"Italic"], "2"], "+", 
+         RowBox[{
+          StyleBox["\<\"t\"\>",
+           FontSlant->"Italic"], " ", 
+          StyleBox["\<\"s\"\>",
+           FontSlant->"Italic"]}], "+", 
+         SuperscriptBox[
+          StyleBox["\<\"t\"\>",
+           FontSlant->"Italic"], "2"]}], ")"}], "2"]}], ")"}]}], 
+   RowBox[{
+    SuperscriptBox[
+     StyleBox["\<\"t\"\>",
+      FontSlant->"Italic"], "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "4"}], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          SubsuperscriptBox[
+           TagBox[
+            StyleBox["\<\"m\"\>",
+             FontSlant->"Italic"],
+            StyleForm[#, FontSlant -> "Italic"]& ], 
+           TagBox[
+            FormBox["\<\"\[Psi]\"\>",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           RowBox[{"\[Null]", 
+            TagBox[
+             FormBox["0",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True]}]], ")"}], "2"]}], "+", 
+       StyleBox["\<\"s\"\>",
+        FontSlant->"Italic"], "+", 
+       StyleBox["\<\"t\"\>",
+        FontSlant->"Italic"]}], ")"}], "2"]}]], TraditionalForm]], "Output",Ex\
+pressionUUID->"901065f1-d5e4-4147-811f-d279a00f58fd"]
+}, Open  ]],
+
+Cell["The kinematical factor in the center of mass frame:", "Text",ExpressionUUID->"56a482cb-3585-4dc0-a958-f305711e7993"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kinfac", "=", 
+   FractionBox["1", 
+    RowBox[{"64", " ", 
+     SuperscriptBox["\[Pi]", "2"], "s"}]]}], ";"}]], "Input",ExpressionUUID->\
+"27a6d3c2-21d5-4dc3-affa-cea5b89cc9c9"],
+
+Cell["\<\
+The full differential cross section in the center of mass frame expressed in \
+terms of Mandelstam variables:\
+\>", "Text",ExpressionUUID->"fe1d16b8-8a09-4f78-bde1-9d45e08ffdcc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"dcrosssection", "[", 
+    RowBox[{"s_", ",", "t_", ",", "u_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "4"], "kinfac", "*", "samp"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"MandelstamS", "\[Rule]", "s"}], ",", 
+      RowBox[{"MandelstamU", "\[Rule]", "u"}], ",", 
+      RowBox[{"MandelstamT", "\[Rule]", "t"}]}], "}"}]}]}], ";"}]], "Input",Ex\
+pressionUUID->"e70d1aef-a005-4182-80a1-125ee4f05055"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dcrosssection", "[", 
+  RowBox[{"s", ",", "t", ",", "u"}], "]"}]], "Input",ExpressionUUID->\
+"b753dab0-29f3-4a48-90bf-7a118d2f4b86"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox[
+       TagBox[
+        StyleBox["\<\"e\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]], ")"}], "4"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"64", " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "8"]}], "+", 
+      RowBox[{"16", " ", 
+       RowBox[{"(", 
+        RowBox[{"t", "-", 
+         RowBox[{"6", " ", "s"}]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "6"]}], "+", 
+      RowBox[{"4", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"13", " ", 
+          SuperscriptBox["s", "2"]}], "+", 
+         RowBox[{"3", " ", "t", " ", "s"}], "+", 
+         RowBox[{"3", " ", 
+          SuperscriptBox["t", "2"]}]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "4"]}], "-", 
+      RowBox[{"4", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", 
+          SuperscriptBox["s", "3"]}], "+", 
+         RowBox[{"3", " ", "t", " ", 
+          SuperscriptBox["s", "2"]}], "+", 
+         RowBox[{"3", " ", 
+          SuperscriptBox["t", "2"], " ", "s"}], "+", 
+         RowBox[{"2", " ", 
+          SuperscriptBox["t", "3"]}]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "2"]}], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["s", "2"], "+", 
+         RowBox[{"t", " ", "s"}], "+", 
+         SuperscriptBox["t", "2"]}], ")"}], "2"]}], ")"}]}], 
+   RowBox[{"16", " ", 
+    SuperscriptBox["\[Pi]", "2"], " ", "s", " ", 
+    SuperscriptBox["t", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "4"}], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          SubsuperscriptBox[
+           TagBox[
+            StyleBox["\<\"m\"\>",
+             FontSlant->"Italic"],
+            StyleForm[#, FontSlant -> "Italic"]& ], 
+           TagBox[
+            FormBox["\<\"\[Psi]\"\>",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           RowBox[{"\[Null]", 
+            TagBox[
+             FormBox["0",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True], 
+            TagBox[
+             FormBox["",
+              TraditionalForm],
+             TraditionalForm,
+             Editable->True]}]], ")"}], "2"]}], "+", "s", "+", "t"}], ")"}], 
+     "2"]}]], TraditionalForm]], "Output",ExpressionUUID->"2e4e9699-a7ea-4324-\
+8565-766cd034454b"]
+}, Open  ]],
+
+Cell["The formula usually quoted:", "Text",ExpressionUUID->"6e71ed3c-dc5e-49f7-b97b-02694d8deecb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MoellerFormula", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"dcrosssection", "[", 
+      RowBox[{"s", ",", "t", ",", "u"}], "]"}], "/.", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"s", "\[Rule]", 
+        RowBox[{"4", " ", 
+         SuperscriptBox["\[Omega]", "2"]}]}], ",", 
+       RowBox[{"t", "\[Rule]", 
+        RowBox[{
+         RowBox[{"-", "2"}], " ", "q2", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           SqrtBox[
+            RowBox[{"1", "-", 
+             SuperscriptBox[
+              RowBox[{"sin", "[", "\[Theta]", "]"}], "2"]}]]}], ")"}]}]}]}], 
+      "}"}]}], "/.", 
+    RowBox[{"q2", "\[Rule]", 
+     RowBox[{
+      SuperscriptBox["\[Omega]", "2"], "-", 
+      SuperscriptBox[
+       RowBox[{"ParticleMass", "[", 
+        RowBox[{
+         RowBox[{"Fermion", "[", "7", "]"}], ",", 
+         RowBox[{"RenormalizationState", "[", "0", "]"}]}], "]"}], "2"]}]}]}],
+    "//", "Simplify"}]}]], "Input",ExpressionUUID->"8b278da0-12ea-4ed1-bf1b-\
+6e27eeb93b00"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox[
+       TagBox[
+        StyleBox["\<\"e\"\>",
+         FontSlant->"Italic"],
+        StyleForm[#, FontSlant -> "Italic"]& ], 
+       RowBox[{
+        TagBox[
+         FormBox["0",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True], 
+        TagBox[
+         FormBox["",
+          TraditionalForm],
+         TraditionalForm,
+         Editable->True]}]], ")"}], "4"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"sin", "(", "\[Theta]", ")"}], "2"], "-", "4"}], ")"}], 
+        "2"], " ", 
+       SuperscriptBox["\[Omega]", "4"]}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"sin", "(", "\[Theta]", ")"}], "4"], "-", 
+         RowBox[{"2", " ", 
+          SuperscriptBox[
+           RowBox[{"sin", "(", "\[Theta]", ")"}], "2"]}], "+", "8"}], ")"}], 
+       " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "4"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"sin", "(", "\[Theta]", ")"}], "4"], "+", 
+         SuperscriptBox[
+          RowBox[{"sin", "(", "\[Theta]", ")"}], "2"], "+", "4"}], ")"}]}]}], 
+     ")"}]}], 
+   RowBox[{"64", " ", 
+    SuperscriptBox["\[Pi]", "2"], " ", 
+    SuperscriptBox["\[Omega]", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], "-", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         SubsuperscriptBox[
+          TagBox[
+           StyleBox["\<\"m\"\>",
+            FontSlant->"Italic"],
+           StyleForm[#, FontSlant -> "Italic"]& ], 
+          TagBox[
+           FormBox["\<\"\[Psi]\"\>",
+            TraditionalForm],
+           TraditionalForm,
+           Editable->True], 
+          RowBox[{"\[Null]", 
+           TagBox[
+            FormBox["0",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True], 
+           TagBox[
+            FormBox["",
+             TraditionalForm],
+            TraditionalForm,
+            Editable->True]}]], ")"}], "2"]}], ")"}], "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"sin", "(", "\[Theta]", ")"}], "4"]}]], 
+  TraditionalForm]], "Output",ExpressionUUID->"09a6ed4f-d33c-4215-bde4-\
+f7668ccf0eb2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TimeUsed", "[", "]"}]], "Input",ExpressionUUID->"b539c9c0-0b99-4e02-b98d-e87e3893849b"],
+
+Cell[BoxData[
+ FormBox["11.`", TraditionalForm]], "Output",ExpressionUUID->"f77e5be0-ab12-42f0-a70c-e635ea57ff47"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+CellGrouping->Manual,
+WindowSize->{924, 786},
+WindowMargins->{{Automatic, 231.75}, {Automatic, 111.75}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"12.2 for Linux x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"59c7ffe9-537f-414a-b0fd-82c1f59a84e4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 223, 7, 110, "Title",ExpressionUUID->"e3106646-9bef-4993-be50-e897563475b9"],
+Cell[CellGroupData[{
+Cell[828, 33, 253, 8, 34, "Subsubtitle",ExpressionUUID->"98601a06-0c6c-46f7-b1b2-1f4e8bb3895a"],
+Cell[1084, 43, 295, 8, 39, "Input",ExpressionUUID->"daeaf8a1-2db8-4e23-b2cc-d48511c77f0f"],
+Cell[CellGroupData[{
+Cell[1404, 55, 168, 3, 22, "Input",ExpressionUUID->"286ce83b-51a4-4cd7-94a4-6977320b4b8c"],
+Cell[1575, 60, 218, 4, 16, "Text",ExpressionUUID->"a0aba79e-619f-49d7-b274-a15269f9f577"],
+Cell[1796, 66, 230, 4, 16, "Text",ExpressionUUID->"193d7707-4966-4f42-bda5-e8abd05bf34f"],
+Cell[2029, 72, 690, 22, 16, "Text",ExpressionUUID->"776e710f-dc8e-4247-8bf8-a8858c1dd117"],
+Cell[2722, 96, 182, 4, 16, "Text",ExpressionUUID->"24c765b7-f028-4d42-bdaf-788ea20b264f"],
+Cell[2907, 102, 225, 4, 16, "Text",ExpressionUUID->"c1110615-2f18-4228-abab-349517406212"],
+Cell[3135, 108, 227, 4, 16, "Text",ExpressionUUID->"f263fa03-bdbc-43b2-8436-7828b977988d"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3411, 118, 200, 5, 41, "Subsection",ExpressionUUID->"72686e4a-722f-49f0-ad2a-e9b1a8f00b0d",
+ Evaluatable->False],
+Cell[3614, 125, 90, 0, 27, "Text",ExpressionUUID->"cdf9f50b-a36f-4e4b-b72e-259aa06e49f1"],
+Cell[CellGroupData[{
+Cell[3729, 129, 305, 7, 22, "Input",ExpressionUUID->"f8be9499-bb42-4d9a-b280-59e3f30e3014"],
+Cell[4037, 138, 7517, 285, 39, "Output",ExpressionUUID->"c6ba1afb-acf9-4e3a-a5a9-eb1fd58cccd5"]
+}, Open  ]],
+Cell[11569, 426, 175, 5, 27, "Text",ExpressionUUID->"10abd25f-3146-4929-b1c8-941b4ce7b693"],
+Cell[CellGroupData[{
+Cell[11769, 435, 906, 25, 55, "Input",ExpressionUUID->"fb53a955-7914-4f9d-8637-6dbbc77a59c2"],
+Cell[12678, 462, 1549, 62, 31, "Output",ExpressionUUID->"bf7f5806-5f79-4263-bc0d-5bbbe6f04540"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14264, 529, 221, 5, 22, "Input",ExpressionUUID->"98213785-18f2-44ef-b623-b1b59d85a895"],
+Cell[14488, 536, 867, 34, 24, "Output",ExpressionUUID->"4a508f04-5610-4529-9154-1ba43436fe81"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15404, 576, 185, 5, 41, "Subsection",ExpressionUUID->"8ba24650-62ee-480c-8bd8-9f492bdccd2e",
+ Evaluatable->False],
+Cell[15592, 583, 153, 2, 27, "Text",ExpressionUUID->"cdded149-8dd4-4326-a053-2f269588b55f"],
+Cell[CellGroupData[{
+Cell[15770, 589, 228, 5, 22, "Input",ExpressionUUID->"afb0ed37-5ead-4f45-a9ad-7acec064dfb9"],
+Cell[16001, 596, 169, 3, 25, "Output",ExpressionUUID->"116d97d0-9155-492d-90be-9bc1818c894e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16207, 604, 270, 7, 22, "Input",ExpressionUUID->"7c7440e8-ca1e-4854-abff-31834c395e50"],
+Cell[16480, 613, 78, 0, 25, "Output",ExpressionUUID->"3be144d2-a683-449f-8f0a-a892b7e16a02"]
+}, Open  ]],
+Cell[16573, 616, 133, 2, 22, "Input",ExpressionUUID->"d660d835-152d-4378-ac23-2095d67a5c6b"],
+Cell[CellGroupData[{
+Cell[16731, 622, 613, 16, 22, "Input",ExpressionUUID->"3c6b803b-0449-4b60-90c1-e1d8aece22c4"],
+Cell[17347, 640, 205, 4, 18, "Print",ExpressionUUID->"56353c35-f1e0-4e63-b932-b9e1339d4079"],
+Cell[17555, 646, 139, 2, 18, "Print",ExpressionUUID->"418d9047-3d2c-40b6-bfc0-52ea4c87f06b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17731, 653, 615, 16, 22, "Input",ExpressionUUID->"ab3f4943-73ef-49b4-ad97-8b2f30d66b2e"],
+Cell[18349, 671, 205, 4, 18, "Print",ExpressionUUID->"97254088-cb74-472f-a846-691e5f1c6c75"],
+Cell[18557, 677, 139, 2, 18, "Print",ExpressionUUID->"c532cbcf-7efb-4cf2-850c-e28ec8816229"]
+}, Open  ]],
+Cell[18711, 682, 133, 2, 22, "Input",ExpressionUUID->"4b09cc2c-f8f1-49bc-99b5-405dadaa1563"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18881, 689, 108, 0, 41, "Subsection",ExpressionUUID->"fb481c5b-755f-4a26-a919-e9775958c42c"],
+Cell[18992, 691, 98, 0, 27, "Text",ExpressionUUID->"1a686d58-7d5a-40fc-93b9-4a866ab3b895"],
+Cell[19093, 693, 491, 12, 22, "Input",ExpressionUUID->"6ba51122-b003-443b-882f-c18f47bf6714"],
+Cell[CellGroupData[{
+Cell[19609, 709, 307, 8, 22, "Input",ExpressionUUID->"e0ea7a6c-e88e-4899-bb3a-f43af093a443"],
+Cell[19919, 719, 10574, 445, 90, 8896, 417, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"45b522e3-a353-454a-9c79-a0c754d6c6ad"]
+}, Open  ]],
+Cell[30508, 1167, 87, 0, 27, "Text",ExpressionUUID->"c6670a93-c74a-4f4a-9755-c4544f24732b"],
+Cell[30598, 1169, 700, 17, 39, "Input",ExpressionUUID->"13a35949-4125-45dd-bb43-4af5f2e0eec0"],
+Cell[31301, 1188, 111, 0, 27, "Text",ExpressionUUID->"c5a9bbcc-6610-4a67-82d6-0f7bf44ac6a2"],
+Cell[CellGroupData[{
+Cell[31437, 1192, 545, 13, 22, "Input",ExpressionUUID->"d8a30ec5-60ab-4e79-b8a9-c86bb62061b8"],
+Cell[31985, 1207, 16494, 723, 114, 14703, 692, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"766d137c-a886-424f-8a84-d94cece36d23"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48528, 1936, 139, 3, 41, "Subsection",ExpressionUUID->"37215d12-3f0a-41d1-87e4-68d9b5f7986c",
+ Evaluatable->False],
+Cell[48670, 1941, 113, 0, 27, "Text",ExpressionUUID->"859e9e09-0804-4db3-8680-756f7b3c9582"],
+Cell[48786, 1943, 197, 5, 22, "Input",ExpressionUUID->"d72d347f-fa3f-4233-aaaf-13f77e3f2808"],
+Cell[48986, 1950, 100, 0, 27, "Text",ExpressionUUID->"2bd43c0f-096a-4ccd-8181-9718c585c5b7"],
+Cell[CellGroupData[{
+Cell[49111, 1954, 222, 6, 22, "Input",ExpressionUUID->"110d426c-77a4-454f-aed9-5829943fb15d"],
+Cell[49336, 1962, 11850, 429, 42, "Output",ExpressionUUID->"70a8d6c0-4b14-45da-a630-ca20125a8959"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[61235, 2397, 107, 0, 41, "Subsection",ExpressionUUID->"075061ac-b213-4fe9-82c9-1ee6a71e2890"],
+Cell[61345, 2399, 170, 3, 27, "Text",ExpressionUUID->"8769d2ee-1afb-4391-95cd-3c9b696587a4"],
+Cell[CellGroupData[{
+Cell[61540, 2406, 86, 0, 22, "Input",ExpressionUUID->"ad16882b-6c6f-411f-90d5-cd5d02f029c1"],
+Cell[61629, 2408, 11850, 429, 42, "Output",ExpressionUUID->"277b3a5b-4e93-4dd4-8e47-1bdb8c1c8636"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[73516, 2842, 680, 18, 22, "Input",ExpressionUUID->"2d48e31a-83d7-4ade-8549-21df08aced1a"],
+Cell[74199, 2862, 23136, 720, 96, "Output",ExpressionUUID->"a4aa33de-cd01-44cd-9876-20a41c300417"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[97372, 3587, 192, 4, 22, "Input",ExpressionUUID->"1166fd9e-a9cf-41d4-afb9-e2dd46ae7284"],
+Cell[97567, 3593, 30515, 1004, 113, "Output",ExpressionUUID->"8be3d155-1def-45a2-9717-c1d1c6c6ca5f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[128119, 4602, 1106, 27, 87, "Input",ExpressionUUID->"7c5724cc-8951-4564-b28d-0f51eac9ccd0"],
+Cell[129228, 4631, 7140, 244, 48, "Output",ExpressionUUID->"901065f1-d5e4-4147-811f-d279a00f58fd"]
+}, Open  ]],
+Cell[136383, 4878, 122, 0, 27, "Text",ExpressionUUID->"56a482cb-3585-4dc0-a958-f305711e7993"],
+Cell[136508, 4880, 213, 6, 38, "Input",ExpressionUUID->"27a6d3c2-21d5-4dc3-affa-cea5b89cc9c9"],
+Cell[136724, 4888, 188, 3, 27, "Text",ExpressionUUID->"fe1d16b8-8a09-4f78-bde1-9d45e08ffdcc"],
+Cell[136915, 4893, 481, 13, 36, "Input",ExpressionUUID->"e70d1aef-a005-4182-80a1-125ee4f05055"],
+Cell[CellGroupData[{
+Cell[137421, 4910, 156, 3, 22, "Input",ExpressionUUID->"b753dab0-29f3-4a48-90bf-7a118d2f4b86"],
+Cell[137580, 4915, 6049, 208, 48, "Output",ExpressionUUID->"2e4e9699-a7ea-4324-8565-766cd034454b"]
+}, Open  ]],
+Cell[143644, 5126, 98, 0, 27, "Text",ExpressionUUID->"6e71ed3c-dc5e-49f7-b97b-02694d8deecb"],
+Cell[CellGroupData[{
+Cell[143767, 5130, 1028, 31, 46, "Input",ExpressionUUID->"8b278da0-12ea-4ed1-bf1b-6e27eeb93b00"],
+Cell[144798, 5163, 4300, 149, 48, "Output",ExpressionUUID->"09a6ed4f-d33c-4215-bde4-f7668ccf0eb2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[149135, 5317, 111, 1, 22, "Input",ExpressionUUID->"b539c9c0-0b99-4e02-b98d-e87e3893849b"],
+Cell[149249, 5320, 114, 1, 24, "Output",ExpressionUUID->"f77e5be0-ab12-42f0-a70c-e635ea57ff47"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

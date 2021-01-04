@@ -1,0 +1,385 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      9225,        289]*)
+(*NotebookOutlinePosition[      9955,        314]*)
+(*  CellTagsIndexPosition[      9911,        310]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["QED vacuum polarization to two loops", "Title"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Needs["\<HighEnergyPhysics`FeynCalc`\>"];\)\)], "Input"],
+
+Cell[TextData[{
+  StyleBox["FeynCalc",
+    FontWeight->"Bold"],
+  " ",
+  "4.1.1",
+  "    For help, type ?FeynCalc,  ",
+  ButtonBox["use the built-in help system",
+    ButtonFunction:>(FrontEndExecute[ 
+        FrontEnd`HelpBrowserLookup[ "AddOns", #]]&),
+    ButtonData:>{"Short Overview", "intro"},
+    ButtonStyle->"AddOnsLink",
+    ButtonNote->"Open the help browser"],
+  "  or visit ",
+  ButtonBox["www.feyncalc.org",
+    ButtonData:>{
+      URL[ "http://www.feyncalc.org"], None},
+    ButtonStyle->"Hyperlink",
+    ButtonNote->"http://www.feyncalc.org"]
+}], "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True]
+}, Open  ]],
+
+Cell["\<\
+The expression we wish to consider is the product of the two factors below:\
+\>", "Text"],
+
+Cell[BoxData[
+    \(tra = 
+      DiracTrace[
+          GAD[\[Nu], \ \[Sigma], \ \[Mu], \ \[Lambda], \ \[Alpha], \ \[Rho], \
+\ \[Beta], \ \[Lambda]]] // FCI\)], "Input"],
+
+Cell[BoxData[
+    \(notrace = \(-e^4\)\ FAD[q, p, p + k, p + q + k, p + q] FVD[p, \[Beta]] 
+            FVD[p + k, \[Alpha]] FVD[p + q + k, \[Mu]] 
+            FVD[p + q, \[Nu]] /. {\[Alpha] \[Rule] \[Nu], \[Beta] \[Rule] \
+\[Mu], \[Nu] \[Rule] \[Alpha], \[Mu] \[Rule] \[Beta]} (*\(Seems\ to\ be\ a\ \
+bug\ in\ Itzykson &\) Zuber*)  // FCI\)], "Input"],
+
+Cell["The trace is easily evaluated:", "Text"],
+
+Cell[BoxData[
+    \(trace = 
+      Collect[Simplify\ [
+                Tr[tra]] //. {\((6  a_ - D\ a_)\) \[Rule] \((D - 6)\) 
+                    min\ a, \((D\ a_ - 6  a_)\) \[Rule] \((D - 6)\) 
+                    a, \((2  a_ - D\ a_)\) \[Rule] \((D - 2)\) 
+                    min\ a, \((D\ a_ - 2  a_)\) \[Rule] \((D - 2)\) 
+                    a}, {\((D - 2)\), \((D - 6)\)}] /. min \[Rule] \(-1\) // 
+        Simplify\)], "Input"],
+
+Cell["\<\
+The other factor will be Feynman parameterized. First, the structure of the \
+expression:\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\((\(FeynmanParametrize1[notrace, p, Method \[Rule] Exp, 
+                Integrate \[Rule] False, CompleteSquare \[Rule] False, 
+                FeynmanParameterNames \[Rule] {\[Alpha]1, \[Alpha]2, \
+\[Alpha]3, \[Alpha]4}] // ExpandScalarProduct\) // 
+            Simplify)\) /. {\[Alpha]1 + \[Alpha]2 + \[Alpha]3 + \[Alpha]4 \
+\[Rule] \[CapitalSigma], \(-\[Alpha]1\) - \[Alpha]2 - \[Alpha]3 - \[Alpha]4 \
+\[Rule] \(-\[CapitalSigma]\)} // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(\((\(FeynmanParametrize1[notrace, p, Method \[Rule] Exp, 
+                Integrate \[Rule] False, CompleteSquare \[Rule] True, 
+                FeynmanParameterNames \[Rule] {\[Alpha]1, \[Alpha]2, \
+\[Alpha]3, \[Alpha]4}] // ExpandScalarProduct\) // 
+            Simplify)\) /. {\[Alpha]1 + \[Alpha]2 + \[Alpha]3 + \[Alpha]4 \
+\[Rule] \[CapitalSigma], \(-\[Alpha]1\) - \[Alpha]2 - \[Alpha]3 - \[Alpha]4 \
+\[Rule] \(-\[CapitalSigma]\)} // Simplify\)], "Input"],
+
+Cell[TextData[{
+  "Tell ",
+  StyleBox["FeynmanParametrize1",
+    FontFamily->"Courier"],
+  " to do the ",
+  StyleBox["p",
+    FontSlant->"Italic"],
+  " integral:"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(notrace1 = \[IndentingNewLine]\((\(FeynmanParametrize1[notrace, p, 
+                Method \[Rule] Exp, Integrate \[Rule] True, 
+                FeynmanParameterNames \[Rule] {\[Alpha]1, \[Alpha]2, \
+\[Alpha]3, \[Alpha]4}] // ExpandScalarProduct\) // Simplify)\);\)\)], "Input"],
+
+Cell["Multiply on the trace and contract Lorentz indices:", "Text"],
+
+Cell[BoxData[
+    \(\(qexpr = 
+        notrace1 /. \((a : Dot[Integratedx[__], __])\) \[RuleDelayed] 
+            ReplacePart[a, 
+              Contract[a[\([\(-1\)]\)] trace], \(-1\)];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Simplify a bit:", "Text"],
+
+Cell[BoxData[
+    \(\(qexprcc = 
+        qexpr /. \((aa : Dot[Integratedx[__], __])\) \[RuleDelayed] 
+            MapAt[\((\((\(Collect[# /. \ 
+                            2^\((a_ - D)\) \[Rule] \((2^a)\)\ tD, {tD, 
+                            e, \[ExponentialE]^_, \[Pi]^_, _^\((\(-\(D\/2\)\) \
++ _)\), Pair[__]}] //. p : \((Pair[__]*_)\) \[RuleDelayed] Simplify[p]\) /. 
+                      tD \[Rule] 2^\((\(-D\))\))\) &)\), 
+              Expand[ExpandScalarProduct[aa]], \(-1\)];\)\)], "Input"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(qexprcc\)], "Input"],
+
+Cell[TextData[{
+  "Tell ",
+  StyleBox["FeynmanParametrize1",
+    FontFamily->"Courier"],
+  " to do the ",
+  StyleBox["q",
+    FontSlant->"Italic"],
+  " integral:"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(pexpr = 
+        FeynmanParametrize1[qexprcc, q, Method \[Rule] Exp, 
+          Flatten \[Rule] True, Integrate \[Rule] True, 
+          FeynmanParameterNames \[Rule] {x}];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Simplify a bit:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(pexpr // LeafCount\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`345553\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(tmp = \(pexpr //. {p : \((Pair[a_LorentzIndex, b_] 
+                      Pair[a_LorentzIndex, c_])\) \[RuleDelayed] Contract[p], 
+              p : \((Pair[_LorentzIndex, _]^2)\) \[RuleDelayed] 
+                Contract[p]}\) /. 
+          E^a_ \[RuleDelayed] E^Simplify[a];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(tmp // LeafCount\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`345186\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(pexprcc = 
+        tmp /. \((aa : 
+                Dot[Integratedx[__], ___, _?\((FreeQ[#, 
+                          Integratedx] &)\)])\) \[RuleDelayed] 
+            MapAt[\((\((\(\(Collect[# /. \ 
+                              2^\((a_ - 2  D)\) \[RuleDelayed] \((2^
+                                      a)\)\ t2D, {\[ExponentialE]^_, e, 
+                              t2D, \[Pi]^_, _Pair, _^\((_?\((\(! FreeQ[#, 
+                                        D]\) &)\))\)}] /. 
+                          p : \((_Pair*_)\) \[RuleDelayed] Simplify[p]\) /. 
+                        t2D \[Rule] 2^\((\(-2\) D)\)\) /. 
+                      a : \((\((_?\((\(! FreeQ[#, 
+                                        x]\) &)\))\)^_)\) \[RuleDelayed] 
+                        Simplify[a])\) &)\), aa, \(-1\)];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(pexprcc // LeafCount\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`1485\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(pexps = pexprcc // Simplify;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(pexpss = 
+        pexps /. p : \((a_Pair*b_)\) \[RuleDelayed] 
+            a*FullSimplify[b];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(pexpss // LeafCount\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`966\)], "Output"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+  "Use ",
+  StyleBox["FeynmanReduce",
+    FontFamily->"Courier"],
+  " to get rid of the exponentials and shrink the integration region:"
+}], "Text"],
+
+Cell[BoxData[
+    \(rexp = 
+      FeynmanReduce[
+        pexpss, {\[Alpha]1, \[Alpha]2, \[Alpha]3, \[Alpha]4}]\)], "Input"],
+
+Cell["\<\
+Variable substitutions and integration: ***Takes very long***\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(fdi = 
+        CheckF[FeynmanIntegrate[
+            rexp /. {\[Alpha]3 \[Rule] \[Alpha]4, \[Alpha]4 \[Rule] \
+\[Alpha]3}, {k}, {\[Alpha]1, \[Alpha]2, \[Alpha]3, \[Alpha]4, 
+              x}], "\<TwoLoopVacPolfdi\>"];\)\)], "Input"],
+
+Cell[BoxData[
+    \(sdi = \(Series[fdi /. _Dot \[Rule] 0, {Epsilon, 0, 0}] // Normal\) // 
+        FullSimplify\)], "Input"]
+},
+FrontEndVersion->"4.1 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 723}},
+CellGrouping->Manual,
+WindowSize->{710, 630},
+WindowMargins->{{138, Automatic}, {Automatic, 45}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 53, 0, 115, "Title"],
+
+Cell[CellGroupData[{
+Cell[1783, 54, 78, 1, 30, "Input"],
+Cell[1864, 57, 620, 20, 33, "Text"]
+}, Open  ]],
+Cell[2499, 80, 99, 2, 33, "Text"],
+Cell[2601, 84, 168, 4, 30, "Input"],
+Cell[2772, 90, 352, 5, 70, "Input"],
+Cell[3127, 97, 46, 0, 33, "Text"],
+Cell[3176, 99, 435, 8, 90, "Input"],
+Cell[3614, 109, 113, 3, 33, "Text"],
+Cell[3730, 114, 481, 7, 70, "Input"],
+Cell[4214, 123, 480, 7, 70, "Input"],
+Cell[4697, 132, 174, 8, 33, "Text"],
+Cell[4874, 142, 300, 4, 70, "Input"],
+Cell[5177, 148, 67, 0, 33, "Text"],
+Cell[5247, 150, 200, 4, 50, "Input"],
+
+Cell[CellGroupData[{
+Cell[5472, 158, 31, 0, 33, "Text"],
+Cell[5506, 160, 501, 8, 153, "Input"]
+}, Open  ]],
+Cell[6022, 171, 40, 1, 30, "Input"],
+Cell[6065, 174, 174, 8, 33, "Text"],
+Cell[6242, 184, 209, 4, 50, "Input"],
+
+Cell[CellGroupData[{
+Cell[6476, 192, 31, 0, 33, "Text"],
+
+Cell[CellGroupData[{
+Cell[6532, 196, 51, 1, 30, "Input"],
+Cell[6586, 199, 57, 1, 29, "Output"]
+}, Open  ]],
+Cell[6658, 203, 312, 5, 70, "Input"],
+
+Cell[CellGroupData[{
+Cell[6995, 212, 49, 1, 30, "Input"],
+Cell[7047, 215, 57, 1, 29, "Output"]
+}, Open  ]],
+Cell[7119, 219, 831, 14, 110, "Input"],
+
+Cell[CellGroupData[{
+Cell[7975, 237, 53, 1, 30, "Input"],
+Cell[8031, 240, 55, 1, 29, "Output"]
+}, Open  ]],
+Cell[8101, 244, 65, 1, 30, "Input"],
+Cell[8169, 247, 130, 3, 30, "Input"],
+
+Cell[CellGroupData[{
+Cell[8324, 254, 52, 1, 30, "Input"],
+Cell[8379, 257, 54, 1, 29, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[8460, 262, 164, 5, 33, "Text"],
+Cell[8627, 269, 123, 3, 30, "Input"],
+Cell[8753, 274, 85, 2, 33, "Text"],
+Cell[8841, 278, 253, 5, 50, "Input"],
+Cell[9097, 285, 124, 2, 30, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
+

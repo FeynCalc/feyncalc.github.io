@@ -1,0 +1,517 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16448,        509]
+NotebookOptionsPosition[     15648,        477]
+NotebookOutlinePosition[     15987,        492]
+CellTagsIndexPosition[     15944,        489]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "FeynCalc`"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    StyleBox["\<\"FeynCalc \"\>", "Text",
+     StripOnInput->False,
+     FontWeight->Bold], "\[InvisibleSpace]", 
+    StyleBox["\<\"9.2.0. For help, use the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"documentation", " ", "center"}],
+       BaseStyle->"Link",
+       ButtonData:>"paclet:FeynCalc/",
+       ButtonNote->"paclet:FeynCalc/"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\", check out the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox["wiki",
+       BaseStyle->"Hyperlink",
+       ButtonData:>{
+         URL["https://github.com/FeynCalc/feyncalc/wiki"], None},
+       ButtonNote->"https://github.com/FeynCalc/feyncalc/wiki"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" or write to the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"mailing", " ", 
+        RowBox[{"list", "."}]}],
+       BaseStyle->"Hyperlink",
+       ButtonData:>{
+         URL["http://www.feyncalc.org/forum/"], None},
+       ButtonNote->"http://www.feyncalc.org/forum/"],
+      DisplayForm], "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style["FeynCalc ", "Text", Bold], 
+    Style["9.2.0. For help, use the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox[
+      "documentation center", BaseStyle -> "Link", ButtonData :> 
+       "paclet:FeynCalc/", ButtonNote -> "paclet:FeynCalc/"]], "Text"], 
+    Style[", check out the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox["wiki", ButtonData :> {
+         URL["https://github.com/FeynCalc/feyncalc/wiki"], None}, BaseStyle -> 
+       "Hyperlink", ButtonNote -> 
+       "https://github.com/FeynCalc/feyncalc/wiki"]], "Text"], 
+    Style[" or write to the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox["mailing list.", ButtonData :> {
+         URL["http://www.feyncalc.org/forum/"], None}, BaseStyle -> 
+       "Hyperlink", ButtonNote -> "http://www.feyncalc.org/forum/"]], "Text"]],
+   Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    StyleBox["\<\"See also the supplied \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"examples", "."}],
+       BaseStyle->"Hyperlink",
+       ButtonFunction:>SystemOpen[
+         FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" If you use FeynCalc in your research, please cite\"\>", 
+     "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style["See also the supplied ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox[
+      "examples.", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
+         FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]], Evaluator -> 
+       Automatic, Method -> "Preemptive"]], "Text"], 
+    Style[" If you use FeynCalc in your research, please cite", "Text"]],
+   Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\" \[Bullet] V. Shtabovenko, R. Mertig and F. Orellana, Comput. \
+Phys. Commun., 207C, 432-444, 2016, arXiv:1601.01167\"\>", "Text",
+   StripOnInput->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\" \[Bullet] R. Mertig, M. B\[ODoubleDot]hm, and A. Denner, \
+Comput. Phys. Commun., 64, 345-359, 1991.\"\>", "Text",
+   StripOnInput->False], TraditionalForm]], "Print"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"R", "=", 
+   RowBox[{"GA", "[", "6", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"GA", "[", "7", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"yiPR", "=", 
+   RowBox[{
+    RowBox[{"YiPR", " ", "L"}], "+", 
+    RowBox[{"YiPRCC", " ", "R"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ys1", "=", 
+   RowBox[{
+    RowBox[{"Ys1", " ", "L"}], "+", 
+    RowBox[{"Ys1CC", " ", "R"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ys2", "=", 
+   RowBox[{
+    RowBox[{"Ys2", " ", "L"}], "+", 
+    RowBox[{"Ys2CC", " ", "R"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SetMandelstam", "[", 
+    RowBox[{"s", ",", "t", ",", "u", ",", "p1", ",", "p2", ",", 
+     RowBox[{"-", "q1"}], ",", 
+     RowBox[{"-", "q2"}], ",", "mc1", ",", "mc2", ",", "ms1", ",", "ms2"}], 
+    "]"}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AmpSquare", "=", 
+    RowBox[{
+     RowBox[{"Tr", "[", 
+      RowBox[{"yiPR", ".", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"GS", "[", "p1", "]"}], "-", 
+         RowBox[{"mc1", " ", "ID"}]}], ")"}], ".", "ys1", ".", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"GS", "[", 
+          RowBox[{"p2", "-", "q2"}], "]"}], "+", 
+         RowBox[{"mb", " ", "ID"}]}], ")"}], ".", "ys2", ".", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"GS", "[", "p2", "]"}], "+", 
+         RowBox[{"mc2", " ", "ID"}]}], ")"}]}], "]"}], "//", "Simplify"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ID", "=", "1"}], ";", 
+   RowBox[{"Res1", "=", "AmpSquare"}]}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{"Clear", "[", 
+  RowBox[{"ID", ",", "Res2"}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"ID", "=", 
+   RowBox[{
+    RowBox[{"GA", "[", "6", "]"}], "+", 
+    RowBox[{"GA", "[", "7", "]"}]}]}], ";"}], "\n", 
+ RowBox[{"Res2", "=", "AmpSquare"}]}], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{"mb", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["mc1", "2"], "+", 
+       SuperscriptBox["mc2", "2"], "-", "s"}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"YiPR", " ", "Ys1CC", " ", "Ys2CC"}], "+", 
+       RowBox[{"YiPRCC", " ", "Ys1", " ", "Ys2"}]}], ")"}]}]}], "-", 
+   RowBox[{"2", " ", "mb", " ", "mc1", " ", "mc2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"YiPR", " ", "Ys1", " ", "Ys2"}], "+", 
+      RowBox[{"YiPRCC", " ", "Ys1CC", " ", "Ys2CC"}]}], ")"}]}], "-", 
+   RowBox[{"2", " ", 
+    SuperscriptBox["mc1", "2"], " ", "mc2", " ", "YiPR", " ", "Ys1CC", " ", 
+    "Ys2"}], "-", 
+   RowBox[{"2", " ", 
+    SuperscriptBox["mc1", "2"], " ", "mc2", " ", "YiPRCC", " ", "Ys1", " ", 
+    "Ys2CC"}], "-", 
+   RowBox[{"mc1", " ", 
+    SuperscriptBox["mc2", "2"], " ", "YiPR", " ", "Ys1", " ", "Ys2CC"}], "-", 
+   
+   RowBox[{"mc1", " ", 
+    SuperscriptBox["mc2", "2"], " ", "YiPRCC", " ", "Ys1CC", " ", "Ys2"}], 
+   "+", 
+   RowBox[{"mc1", " ", 
+    SuperscriptBox["ms2", "2"], " ", "YiPR", " ", "Ys1", " ", "Ys2CC"}], "+", 
+   
+   RowBox[{"mc1", " ", 
+    SuperscriptBox["ms2", "2"], " ", "YiPRCC", " ", "Ys1CC", " ", "Ys2"}], 
+   "-", 
+   RowBox[{"mc1", " ", "t", " ", "YiPR", " ", "Ys1", " ", "Ys2CC"}], "-", 
+   RowBox[{"mc1", " ", "t", " ", "YiPRCC", " ", "Ys1CC", " ", "Ys2"}], "+", 
+   RowBox[{
+    SuperscriptBox["mc2", "3"], " ", 
+    RowBox[{"(", 
+     RowBox[{"-", "YiPR"}], ")"}], " ", "Ys1CC", " ", "Ys2"}], "-", 
+   RowBox[{
+    SuperscriptBox["mc2", "3"], " ", "YiPRCC", " ", "Ys1", " ", "Ys2CC"}], 
+   "-", 
+   RowBox[{"mc2", " ", 
+    SuperscriptBox["ms2", "2"], " ", "YiPR", " ", "Ys1CC", " ", "Ys2"}], "-", 
+   
+   RowBox[{"mc2", " ", 
+    SuperscriptBox["ms2", "2"], " ", "YiPRCC", " ", "Ys1", " ", "Ys2CC"}], 
+   "+", 
+   RowBox[{"mc2", " ", "s", " ", "YiPR", " ", "Ys1CC", " ", "Ys2"}], "+", 
+   RowBox[{"mc2", " ", "s", " ", "YiPRCC", " ", "Ys1", " ", "Ys2CC"}], "+", 
+   RowBox[{"mc2", " ", "u", " ", "YiPR", " ", "Ys1CC", " ", "Ys2"}], "+", 
+   RowBox[{"mc2", " ", "u", " ", "YiPRCC", " ", "Ys1", " ", "Ys2CC"}]}], 
+  TraditionalForm]], "Output"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{"(", 
+     RowBox[{
+      FormBox[
+       SuperscriptBox[
+        OverscriptBox["\[Gamma]", "_"], 
+        FormBox["6",
+         TraditionalForm]],
+       TraditionalForm], "+", 
+      FormBox[
+       SuperscriptBox[
+        OverscriptBox["\[Gamma]", "_"], 
+        FormBox["7",
+         TraditionalForm]],
+       TraditionalForm]}], ")"}]}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", " ", "mb", " ", "mc1", " ", "mc2", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          SuperscriptBox[
+           OverscriptBox["\[Gamma]", "_"], 
+           FormBox["6",
+            TraditionalForm]],
+          TraditionalForm], "+", 
+         FormBox[
+          SuperscriptBox[
+           OverscriptBox["\[Gamma]", "_"], 
+           FormBox["7",
+            TraditionalForm]],
+          TraditionalForm]}], ")"}], "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"YiPR", " ", "Ys1", " ", "Ys2"}], "+", 
+        RowBox[{"YiPRCC", " ", "Ys1CC", " ", "Ys2CC"}]}], ")"}]}], "+", 
+     RowBox[{"mb", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["mc1", "2"], "+", 
+        SuperscriptBox["mc2", "2"], "-", "s"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"YiPR", " ", "Ys1CC", " ", "Ys2CC"}], "+", 
+        RowBox[{"YiPRCC", " ", "Ys1", " ", "Ys2"}]}], ")"}]}], "+", 
+     RowBox[{"2", " ", 
+      SuperscriptBox["mc1", "2"], " ", "mc2", " ", "YiPR", " ", "Ys1CC", " ", 
+      "Ys2"}], "+", 
+     RowBox[{"2", " ", 
+      SuperscriptBox["mc1", "2"], " ", "mc2", " ", "YiPRCC", " ", "Ys1", " ", 
+      "Ys2CC"}], "+", 
+     RowBox[{"mc1", " ", 
+      SuperscriptBox["mc2", "2"], " ", "YiPR", " ", "Ys1", " ", "Ys2CC"}], 
+     "+", 
+     RowBox[{"mc1", " ", 
+      SuperscriptBox["mc2", "2"], " ", "YiPRCC", " ", "Ys1CC", " ", "Ys2"}], 
+     "-", 
+     RowBox[{"mc1", " ", 
+      SuperscriptBox["ms2", "2"], " ", "YiPR", " ", "Ys1", " ", "Ys2CC"}], 
+     "-", 
+     RowBox[{"mc1", " ", 
+      SuperscriptBox["ms2", "2"], " ", "YiPRCC", " ", "Ys1CC", " ", "Ys2"}], 
+     "+", 
+     RowBox[{"mc1", " ", "t", " ", "YiPR", " ", "Ys1", " ", "Ys2CC"}], "+", 
+     RowBox[{"mc1", " ", "t", " ", "YiPRCC", " ", "Ys1CC", " ", "Ys2"}], "+", 
+     
+     RowBox[{
+      SuperscriptBox["mc2", "3"], " ", "YiPR", " ", "Ys1CC", " ", "Ys2"}], 
+     "+", 
+     RowBox[{
+      SuperscriptBox["mc2", "3"], " ", "YiPRCC", " ", "Ys1", " ", "Ys2CC"}], 
+     "+", 
+     RowBox[{"mc2", " ", 
+      SuperscriptBox["ms2", "2"], " ", "YiPR", " ", "Ys1CC", " ", "Ys2"}], 
+     "+", 
+     RowBox[{"mc2", " ", 
+      SuperscriptBox["ms2", "2"], " ", "YiPRCC", " ", "Ys1", " ", "Ys2CC"}], 
+     "-", 
+     RowBox[{"mc2", " ", "s", " ", "YiPR", " ", "Ys1CC", " ", "Ys2"}], "-", 
+     RowBox[{"mc2", " ", "s", " ", "YiPRCC", " ", "Ys1", " ", "Ys2CC"}], "-", 
+     
+     RowBox[{"mc2", " ", "u", " ", "YiPR", " ", "Ys1CC", " ", "Ys2"}], "-", 
+     RowBox[{"mc2", " ", "u", " ", "YiPRCC", " ", "Ys1", " ", "Ys2CC"}]}], 
+    ")"}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"Res1", "-", "Res2"}], ")"}], "//", "Simplify"}], "\n", 
+ RowBox[{"%", "//", 
+  RowBox[{
+   RowBox[{"DiracSimplify", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{"DiracSubstitute67", "\[Rule]", "True"}]}], "]"}], 
+   "&"}]}]}], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     FormBox[
+      SuperscriptBox[
+       OverscriptBox["\[Gamma]", "_"], 
+       FormBox["6",
+        TraditionalForm]],
+      TraditionalForm], "+", 
+     FormBox[
+      SuperscriptBox[
+       OverscriptBox["\[Gamma]", "_"], 
+       FormBox["7",
+        TraditionalForm]],
+      TraditionalForm], "-", "1"}], ")"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"mb", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "mc1", " ", "mc2", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox[
+            FormBox[
+             SuperscriptBox[
+              OverscriptBox["\[Gamma]", "_"], 
+              FormBox["6",
+               TraditionalForm]],
+             TraditionalForm], "2"], "+", 
+           RowBox[{"2", " ", 
+            FormBox[
+             SuperscriptBox[
+              OverscriptBox["\[Gamma]", "_"], 
+              FormBox["7",
+               TraditionalForm]],
+             TraditionalForm], " ", 
+            FormBox[
+             SuperscriptBox[
+              OverscriptBox["\[Gamma]", "_"], 
+              FormBox["6",
+               TraditionalForm]],
+             TraditionalForm]}], "+", 
+           FormBox[
+            SuperscriptBox[
+             OverscriptBox["\[Gamma]", "_"], 
+             FormBox["6",
+              TraditionalForm]],
+            TraditionalForm], "+", 
+           SuperscriptBox[
+            FormBox[
+             SuperscriptBox[
+              OverscriptBox["\[Gamma]", "_"], 
+              FormBox["7",
+               TraditionalForm]],
+             TraditionalForm], "2"], "+", 
+           FormBox[
+            SuperscriptBox[
+             OverscriptBox["\[Gamma]", "_"], 
+             FormBox["7",
+              TraditionalForm]],
+            TraditionalForm], "+", "1"}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"YiPR", " ", "Ys1", " ", "Ys2"}], "+", 
+           RowBox[{"YiPRCC", " ", "Ys1CC", " ", "Ys2CC"}]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["mc1", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"YiPR", " ", "Ys1CC", " ", "Ys2CC"}], "+", 
+           RowBox[{"YiPRCC", " ", "Ys1", " ", "Ys2"}]}], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["mc2", "2"], "-", "s"}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"YiPR", " ", "Ys1CC", " ", "Ys2CC"}], "+", 
+           RowBox[{"YiPRCC", " ", "Ys1", " ", "Ys2"}]}], ")"}]}]}], ")"}]}], 
+     "+", 
+     RowBox[{"2", " ", 
+      SuperscriptBox["mc1", "2"], " ", "mc2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"YiPR", " ", "Ys1CC", " ", "Ys2"}], "+", 
+        RowBox[{"YiPRCC", " ", "Ys1", " ", "Ys2CC"}]}], ")"}]}], "+", 
+     RowBox[{"mc1", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["mc2", "2"], "-", 
+        SuperscriptBox["ms2", "2"], "+", "t"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"YiPR", " ", "Ys1", " ", "Ys2CC"}], "+", 
+        RowBox[{"YiPRCC", " ", "Ys1CC", " ", "Ys2"}]}], ")"}]}], "+", 
+     RowBox[{"mc2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["mc2", "2"], "+", 
+        SuperscriptBox["ms2", "2"], "-", "s", "-", "u"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"YiPR", " ", "Ys1CC", " ", "Ys2"}], "+", 
+        RowBox[{"YiPRCC", " ", "Ys1", " ", "Ys2CC"}]}], ")"}]}]}], ")"}]}], 
+  TraditionalForm]], "Output"],
+
+Cell[BoxData[
+ FormBox["0", TraditionalForm]], "Output"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{345, Automatic}, {3, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 52, 1, 33, "Input"],
+Cell[CellGroupData[{
+Cell[635, 25, 53, 1, 33, "Input"],
+Cell[CellGroupData[{
+Cell[713, 30, 2282, 63, 26, "Print"],
+Cell[2998, 95, 1067, 29, 26, "Print"],
+Cell[4068, 126, 223, 4, 46, "Print"],
+Cell[4294, 132, 208, 4, 26, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4551, 142, 1892, 60, 389, "Input"],
+Cell[6446, 204, 2191, 55, 167, "Output"],
+Cell[8640, 261, 3081, 87, 171, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11758, 353, 285, 9, 58, "Input"],
+Cell[12046, 364, 3527, 107, 176, "Output"],
+Cell[15576, 473, 56, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+

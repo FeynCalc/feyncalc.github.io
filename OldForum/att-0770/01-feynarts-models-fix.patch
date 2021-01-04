@@ -1,0 +1,82 @@
+diff --git HighEnergyPhysics/FeynArts-3.7/Models/Dirac.gen HighEnergyPhysics/FeynArts-3.7/Models/Dirac.gen
+index 1c19b77..963af3f 100644
+--- HighEnergyPhysics/FeynArts-3.7/Models/Dirac.gen
++++ HighEnergyPhysics/FeynArts-3.7/Models/Dirac.gen
+@@ -23,11 +23,11 @@ P$NonCommuting = U
+ 
+ Attributes[ MetricTensor ] = Attributes[ ScalarProduct ] = {Orderless}
+ 
+-
++(*
+ FourVector/: -FourVector[ mom_, mu___ ] := FourVector[Expand[-mom], mu]
+ 
+ FourVector[ 0, ___ ] = 0
+-
++*)
+ 
+ SpinorType[j_Integer, ___] := MajoranaSpinor /; SelfConjugate[F[j]]
+ 
+diff --git HighEnergyPhysics/FeynArts-3.7/Models/DiracU.gen HighEnergyPhysics/FeynArts-3.7/Models/DiracU.gen
+index a37397b..4c38cf1 100644
+--- HighEnergyPhysics/FeynArts-3.7/Models/DiracU.gen
++++ HighEnergyPhysics/FeynArts-3.7/Models/DiracU.gen
+@@ -21,11 +21,11 @@ $FermionLines = False
+ 
+ Attributes[ MetricTensor ] = Attributes[ ScalarProduct ] = {Orderless}
+ 
+-
++(*
+ FourVector/: -FourVector[ mom_, mu___ ] := FourVector[Expand[-mom], mu]
+ 
+ FourVector[ 0, ___ ] = 0
+-
++*)
+ 
+ SpinorType[j_Integer, ___] := MajoranaSpinor /; SelfConjugate[F[j]]
+ 
+diff --git HighEnergyPhysics/FeynArts-3.7/Models/Lorentz.gen HighEnergyPhysics/FeynArts-3.7/Models/Lorentz.gen
+index a34f6a8..c49ccf4 100644
+--- HighEnergyPhysics/FeynArts-3.7/Models/Lorentz.gen
++++ HighEnergyPhysics/FeynArts-3.7/Models/Lorentz.gen
+@@ -23,8 +23,10 @@ KinematicIndices[ U ] = {}
+ $FermionLines = True
+ P$NonCommuting = F | U
+ Attributes[ MetricTensor ] = Attributes[ ScalarProduct ] = {Orderless}
++(*
+ FourVector/: -FourVector[ mom_, mu___ ] := FourVector[Expand[-mom], mu]
+ FourVector[ 0, ___ ] = 0
++*)
+ SpinorType[j_Integer, ___] := MajoranaSpinor /; SelfConjugate[F[j]]
+ SpinorType[_Integer, __] = DiracSpinor
+ M$GenericPropagators = {
+diff --git HighEnergyPhysics/FeynArts-3.7/Models/Lorentzbgf.gen HighEnergyPhysics/FeynArts-3.7/Models/Lorentzbgf.gen
+index a75da27..14d19e5 100644
+--- HighEnergyPhysics/FeynArts-3.7/Models/Lorentzbgf.gen
++++ HighEnergyPhysics/FeynArts-3.7/Models/Lorentzbgf.gen
+@@ -23,8 +23,10 @@ KinematicIndices[ SV ] = {Lorentz};
+ KinematicIndices[ U ] = {}
+ $FermionLines = True
+ Attributes[ MetricTensor ] = Attributes[ ScalarProduct ] = {Orderless}
++(*
+ FourVector/: -FourVector[ mom_, mu___ ] := FourVector[Expand[-mom], mu]
+ FourVector[ 0, ___ ] = 0
++*)
+ SpinorType[j_Integer, ___] := MajoranaSpinor /; SelfConjugate[F[j]]
+ SpinorType[_Integer, __] = DiracSpinor
+ M$GenericPropagators = {
+diff --git HighEnergyPhysics/FeynArts-3.7/Models/QED.gen HighEnergyPhysics/FeynArts-3.7/Models/QED.gen
+index 941b58c..31ec73e 100644
+--- HighEnergyPhysics/FeynArts-3.7/Models/QED.gen
++++ HighEnergyPhysics/FeynArts-3.7/Models/QED.gen
+@@ -13,8 +13,10 @@ KinematicIndices[ F ] = {};
+ KinematicIndices[ V ] = {Lorentz}
+ IndexStyle[ Index[Lorentz, i_Integer] ] := Greek[i + 11]
+ Attributes[ MetricTensor ] = Attributes[ ScalarProduct ] = {Orderless}
++(*
+ FourVector/: -FourVector[ mom_, mu___ ] := FourVector[Expand[-mom], mu]
+ FourVector[ 0, ___ ] = 0
++*)
+ M$GenericPropagators = {
+ 	(* general fermion propagator: *)
+   AnalyticalPropagator[External][ s F[i, mom] ] == 
+

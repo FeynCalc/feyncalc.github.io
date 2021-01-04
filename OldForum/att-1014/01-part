@@ -1,0 +1,10 @@
+Reporting-MTA: dns; bonnie.concordia.ca
+Arrival-Date: Tue, 29 Sep 2015 09:13:19 -0400
+
+Final-Recipient: RFC822; ituran@physics.concordia.ca
+Action: delayed
+Status: 4.4.2
+Remote-MTA: DNS; physics.concordia.ca
+Last-Attempt-Date: Tue, 29 Sep 2015 13:31:36 -0400
+Will-Retry-Until: Sun, 4 Oct 2015 09:13:19 -0400
+

@@ -1,0 +1,13 @@
+Reporting-MTA: dns; fismat.fcfm.buap.mx
+Received-From-MTA: smtp; fismat.fcfm.buap.mx ([127.0.0.1])
+Arrival-Date: Fri, 25 Sep 2015 03:53:04 -0500 (CDT)
+
+Original-Recipient: rfc822;javierh@fcfm.buap.mx
+Final-Recipient: rfc822;javierh@fcfm.buap.mx
+Action: failed
+Status: 5.7.0
+Diagnostic-Code: smtp; 554-5.7.0 Bounce, id=48645-14 - BANNED: .exe,.exe-ms,-
+ 554 5.7.0 odpowiedz na pozew wrzesien 2015.doc.exe
+Last-Attempt-Date: Fri, 25 Sep 2015 03:53:04 -0500 (CDT)
+Final-Log-ID: 48645-14/jiPsRAhc5wfq
+

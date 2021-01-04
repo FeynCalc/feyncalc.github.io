@@ -1,0 +1,13 @@
+Reporting-MTA: dns; fismat.fcfm.buap.mx
+Received-From-MTA: smtp; fismat.fcfm.buap.mx ([127.0.0.1])
+Arrival-Date: Wed, 23 Sep 2015 03:56:55 -0500 (CDT)
+
+Original-Recipient: rfc822;javierh@fcfm.buap.mx
+Final-Recipient: rfc822;javierh@fcfm.buap.mx
+Action: failed
+Status: 5.7.0
+Diagnostic-Code: smtp; 554-5.7.0 Bounce, id=31482-20 - BANNED:
+ 554 5.7.0 .exe,.exe-ms,Regulamin-blokada karty.PDF..exe
+Last-Attempt-Date: Wed, 23 Sep 2015 03:56:55 -0500 (CDT)
+Final-Log-ID: 31482-20/33lEXxSNbAhW
+

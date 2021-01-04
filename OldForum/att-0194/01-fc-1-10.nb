@@ -1,0 +1,2325 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     72919,       2172]*)
+(*NotebookOutlinePosition[     73816,       2203]*)
+(*  CellTagsIndexPosition[     73772,       2199]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(<< HighEnergyPhysics`FeynCalc`\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(A[m_] = QuantumField[A, {m}]\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`A\_m\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(t[m_, n_] = ExpandPartialD[A[n] . LeftPartialD[m]]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        SubscriptBox["\[PartialD]", 
+          FormBox[
+            FormBox["m",
+              "TraditionalForm"],
+            "TraditionalForm"]], 
+        SubsuperscriptBox["A", 
+          FormBox[
+            FormBox["n",
+              "TraditionalForm"],
+            "TraditionalForm"], "\[Null]"]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(F[m_, n_] = 2*AntiSymmetrize[t[m, n], {m, n}]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          SubscriptBox["\[PartialD]", 
+            FormBox[
+              FormBox["m",
+                "TraditionalForm"],
+              "TraditionalForm"]], 
+          SubsuperscriptBox["A", 
+            FormBox[
+              FormBox["n",
+                "TraditionalForm"],
+              "TraditionalForm"], "\[Null]"]}], "-", 
+        RowBox[{
+          SubscriptBox["\[PartialD]", 
+            FormBox[
+              FormBox["n",
+                "TraditionalForm"],
+              "TraditionalForm"]], 
+          SubsuperscriptBox["A", 
+            FormBox[
+              FormBox["m",
+                "TraditionalForm"],
+              "TraditionalForm"], "\[Null]"]}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(L = 1/4*F[m, n]*F[m, n]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{\(1\/4\), " ", 
+        SuperscriptBox[
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                SubscriptBox["\[PartialD]", 
+                  FormBox[
+                    FormBox["m",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                SubsuperscriptBox["A", 
+                  FormBox[
+                    FormBox["n",
+                      "TraditionalForm"],
+                    "TraditionalForm"], "\[Null]"]}], "-", 
+              RowBox[{
+                SubscriptBox["\[PartialD]", 
+                  FormBox[
+                    FormBox["n",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                SubsuperscriptBox["A", 
+                  FormBox[
+                    FormBox["m",
+                      "TraditionalForm"],
+                    "TraditionalForm"], "\[Null]"]}]}], ")"}], "2"]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(MetricTensor[l__] := 
+      MetricTensor[Sequence @@ Sort[{l}]] /; Not[OrderedQ[{l}]]\)], "Input"],
+
+Cell[BoxData[""], "Input"],
+
+Cell["\<\
+(* ----------------------- Building Energy-Momentum Tensor \
+------------------------ *)\
+\>", "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(q[m_, n_] = \ QuantumField[B, {m, n}]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"QuantumField", "(", 
+        RowBox[{"B", ",", 
+          FormBox["m",
+            "TraditionalForm"], ",", 
+          FormBox["n",
+            "TraditionalForm"]}], ")"}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(t0001 = Expand[L] /. t[m_, n_] \[Rule] q[m, n];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(t0002 = \((\(-FunctionalD[t0001, q[k, l]]\) /. 
+          q[k_, l_] \[Rule] t[k, l])\)\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          SubscriptBox["\[PartialD]", 
+            FormBox[
+              FormBox["l",
+                "TraditionalForm"],
+              "TraditionalForm"]], 
+          SubsuperscriptBox["A", 
+            FormBox[
+              FormBox["k",
+                "TraditionalForm"],
+              "TraditionalForm"], "\[Null]"]}], "-", 
+        RowBox[{
+          SubscriptBox["\[PartialD]", 
+            FormBox[
+              FormBox["k",
+                "TraditionalForm"],
+              "TraditionalForm"]], 
+          SubsuperscriptBox["A", 
+            FormBox[
+              FormBox["l",
+                "TraditionalForm"],
+              "TraditionalForm"], "\[Null]"]}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(T[l_, r_] = t0002*t[r, k] - MetricTensor[l, r]*L;\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+(* *** Checking property of T ! *** *)
+t01=ExpandPartialD[RightPartialD[l].T[l,r]] /.Dot->Times\
+\>", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          RowBox[{"-", 
+            RowBox[{
+              SubscriptBox["\[PartialD]", 
+                FormBox[
+                  FormBox["r",
+                    "TraditionalForm"],
+                  "TraditionalForm"]], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["n",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["n",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["m",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["m",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["r",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["r",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell["\<\
+(* ----------------- Calculate `equation of a motion' \
+-------------------- *) \
+\>", "Input"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+s02=QuantumField[Q___,PartialD[LorentzIndex[m_]],PartialD[\
+LorentzIndex[m_]],A,{n_}]:>QuantumField[Q,PartialD[LorentzIndex[m]],PartialD[\
+LorentzIndex[n]],A,{m}]\
+\>", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{"QuantumField", "(", 
+          RowBox[{"Q___", ",", 
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m_",
+                  "TraditionalForm"],
+                "TraditionalForm"]], ",", 
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m_",
+                  "TraditionalForm"],
+                "TraditionalForm"]], ",", "A", ",", 
+            FormBox["n_",
+              "TraditionalForm"]}], ")"}], "\[RuleDelayed]", 
+        RowBox[{"QuantumField", "(", 
+          RowBox[{"Q", ",", 
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], ",", 
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], ",", "A", ",", \({m}\)}], ")"}]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["t001=Evaluate[t01/.s02]", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          RowBox[{"-", 
+            RowBox[{
+              SubscriptBox["\[PartialD]", 
+                FormBox[
+                  FormBox["r",
+                    "TraditionalForm"],
+                  "TraditionalForm"]], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["n",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["n",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["m",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["m",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["r",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["r",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["<<\"/mnt/win_e/My/progs/fc-m-2.m\"", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"Simplify001Q", "Simplify001"},
+            {"Rule2Q", "Contract"},
+            {"Rule3Q", "SortingPartials"}
+            }], "\[NoBreak]", ")"}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SortingPartials[Simplify001[t001,Contract]]", "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Search[t001,#==0&]", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]1\),
+        SequenceForm[ "Searching level ", 1],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]2\),
+        SequenceForm[ "Searching level ", 2],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]3\),
+        SequenceForm[ "Searching level ", 3],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]4\),
+        SequenceForm[ "Searching level ", 4],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]6\),
+        SequenceForm[ "Searching level ", 6],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]7\),
+        SequenceForm[ "Searching level ", 7],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]8\),
+        SequenceForm[ "Searching level ", 8],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("*** Get answer? ("\[InvisibleSpace]True\
+\[InvisibleSpace]") ***"\),
+        SequenceForm[ "*** Get answer? (", True, ") ***"],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0\)], "Output"]
+}, Open  ]],
+
+Cell["\<\
+(* -------------------- Symmetrize T[l,r] ------------------------- \
+*)\
+\>", "Input"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+T1[l_,r_]=T[l,r] + \
+ExpandPartialD[RightPartialD[k].(F[k,l].A[r])]/.Dot->Times\
+\>", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{\(-\(1\/4\)\), " ", \(g\^\(l  r\)\), " ", 
+          SuperscriptBox[
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]], 
+                  SubsuperscriptBox["A", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"], "\[Null]"]}], "-", 
+                RowBox[{
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]], 
+                  SubsuperscriptBox["A", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"], "\[Null]"]}]}], ")"}], "2"]}], "+", 
+        
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}]}], "+", 
+        RowBox[{
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                SubscriptBox["\[PartialD]", 
+                  FormBox[
+                    FormBox["l",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                SubsuperscriptBox["A", 
+                  FormBox[
+                    FormBox["k",
+                      "TraditionalForm"],
+                    "TraditionalForm"], "\[Null]"]}], "-", 
+              RowBox[{
+                SubscriptBox["\[PartialD]", 
+                  FormBox[
+                    FormBox["k",
+                      "TraditionalForm"],
+                    "TraditionalForm"]], 
+                SubsuperscriptBox["A", 
+                  FormBox[
+                    FormBox["l",
+                      "TraditionalForm"],
+                    "TraditionalForm"], "\[Null]"]}]}], ")"}], " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}]}], "+", 
+        RowBox[{\(A\_r\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(A\_r\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell["(* *** Checking property of T1 ! *** *)", "Input"],
+
+Cell[CellGroupData[{
+
+Cell["t02=ExpandPartialD[RightPartialD[l].T1[l,r]] /.Dot->Times", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["r",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["r",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["n",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["n",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["m",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["m",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["r",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["r",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(A\_r\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(A\_r\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["t002=Evaluate[t02/.s02]", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["r",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["r",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["r",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["n",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["m",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["n",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["m",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(1\/2\), " ", \(g\^\(l  r\)\), " ", 
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["n",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["m",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["n",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["m",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["r",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{
+          RowBox[{
+            SubscriptBox["\[PartialD]", 
+              FormBox[
+                FormBox["l",
+                  "TraditionalForm"],
+                "TraditionalForm"]], 
+            SubsuperscriptBox["A", 
+              FormBox[
+                FormBox["k",
+                  "TraditionalForm"],
+                "TraditionalForm"], "\[Null]"]}], " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["r",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["k",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "+", 
+        RowBox[{\(A\_r\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}], "-", 
+        RowBox[{\(A\_r\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["l",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"], 
+                FormBox[
+                  SubscriptBox["\[PartialD]", 
+                    FormBox[
+                      FormBox["k",
+                        "TraditionalForm"],
+                      "TraditionalForm"]],
+                  "TraditionalForm"]}], 
+              SubsuperscriptBox["A", 
+                FormBox[
+                  FormBox["l",
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[Null]"]}], ")"}]}]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SortingPartials[Simplify001[t002,Contract]]", "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Search[t002,#==0&]", "Input"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]1\),
+        SequenceForm[ "Searching level ", 1],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]2\),
+        SequenceForm[ "Searching level ", 2],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]3\),
+        SequenceForm[ "Searching level ", 3],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]4\),
+        SequenceForm[ "Searching level ", 4],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]6\),
+        SequenceForm[ "Searching level ", 6],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]7\),
+        SequenceForm[ "Searching level ", 7],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("Searching level "\[InvisibleSpace]8\),
+        SequenceForm[ "Searching level ", 8],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("*** Get answer? ("\[InvisibleSpace]True\
+\[InvisibleSpace]") ***"\),
+        SequenceForm[ "*** Get answer? (", True, ") ***"],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+AutoGeneratedPackage->Automatic,
+WindowSize->{943, 689},
+WindowMargins->{{36, Automatic}, {Automatic, 0}},
+FontWeight->"Normal",
+FontSlant->"Plain",
+FontProperties->{"FontSerifed"->True,
+"FontMonospaced"->True},
+PrivateFontOptions->{"FontPostScriptName"->"Times-Roman",
+"FontType"->"Bitmap"},
+CharacterEncoding->"koi8-r",
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 63, 1, 36, "Input"],
+
+Cell[CellGroupData[{
+Cell[1842, 56, 61, 1, 36, "Input"],
+Cell[1906, 59, 55, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[1998, 65, 83, 1, 36, "Input"],
+Cell[2084, 68, 375, 12, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2496, 85, 78, 1, 36, "Input"],
+Cell[2577, 88, 762, 24, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3376, 117, 56, 1, 36, "Input"],
+Cell[3435, 120, 1000, 28, 54, "Output"]
+}, Open  ]],
+Cell[4450, 151, 118, 2, 36, "Input"],
+Cell[4571, 155, 26, 0, 36, "Input"],
+Cell[4600, 157, 113, 3, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[4738, 164, 70, 1, 36, "Input"],
+Cell[4811, 167, 243, 7, 36, "Output"]
+}, Open  ]],
+Cell[5069, 177, 84, 1, 36, "Input"],
+
+Cell[CellGroupData[{
+Cell[5178, 182, 119, 2, 36, "Input"],
+Cell[5300, 186, 762, 24, 36, "Output"]
+}, Open  ]],
+Cell[6077, 213, 86, 1, 36, "Input"],
+
+Cell[CellGroupData[{
+Cell[6188, 218, 120, 3, 55, "Input"],
+Cell[6311, 223, 9725, 276, 97, "Output"]
+}, Open  ]],
+Cell[16051, 502, 105, 3, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[16181, 509, 187, 4, 55, "Input"],
+Cell[16371, 515, 1039, 29, 37, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[17447, 549, 40, 0, 35, "Input"],
+Cell[17490, 551, 9725, 276, 97, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27252, 832, 51, 0, 35, "Input"],
+Cell[27306, 834, 258, 6, 77, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27601, 845, 60, 0, 35, "Input"],
+Cell[27664, 847, 52, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27753, 853, 35, 0, 35, "Input"],
+Cell[27791, 855, 192, 4, 31, "Print"],
+Cell[27986, 861, 192, 4, 31, "Print"],
+Cell[28181, 867, 192, 4, 31, "Print"],
+Cell[28376, 873, 192, 4, 31, "Print"],
+Cell[28571, 879, 192, 4, 31, "Print"],
+Cell[28766, 885, 192, 4, 31, "Print"],
+Cell[28961, 891, 192, 4, 31, "Print"],
+Cell[29156, 897, 235, 5, 31, "Print"],
+Cell[29394, 904, 52, 1, 36, "Output"]
+}, Open  ]],
+Cell[29461, 908, 97, 3, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[29583, 915, 104, 3, 35, "Input"],
+Cell[29690, 920, 5548, 158, 54, "Output"]
+}, Open  ]],
+Cell[35253, 1081, 56, 0, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[35334, 1085, 74, 0, 35, "Input"],
+Cell[35411, 1087, 18947, 539, 121, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[54395, 1631, 40, 0, 35, "Input"],
+Cell[54438, 1633, 16583, 471, 121, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[71058, 2109, 60, 0, 35, "Input"],
+Cell[71121, 2111, 52, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[71210, 2117, 35, 0, 35, "Input"],
+Cell[71248, 2119, 192, 4, 31, "Print"],
+Cell[71443, 2125, 192, 4, 31, "Print"],
+Cell[71638, 2131, 192, 4, 31, "Print"],
+Cell[71833, 2137, 192, 4, 31, "Print"],
+Cell[72028, 2143, 192, 4, 31, "Print"],
+Cell[72223, 2149, 192, 4, 31, "Print"],
+Cell[72418, 2155, 192, 4, 31, "Print"],
+Cell[72613, 2161, 235, 5, 31, "Print"],
+Cell[72851, 2168, 52, 1, 36, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
+

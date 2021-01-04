@@ -1,0 +1,1123 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     37659,       1035]*)
+(*NotebookOutlinePosition[     38393,       1060]*)
+(*  CellTagsIndexPosition[     38349,       1056]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    RowBox[{"\n", 
+      StyleBox[\(Photon\ self - energy\ in\ QED\),
+        "Subtitle"]}]], "Input"],
+
+Cell[BoxData[
+    \(<< HighEnergyPhysics`fc`\)], "Input"],
+
+Cell[TextData[{
+  StyleBox["FeynCalc",
+    FontWeight->"Bold"],
+  " ",
+  "4.1.1",
+  "    For help, type ?FeynCalc,  ",
+  ButtonBox["use the built-in help system",
+    ButtonFunction:>(FrontEndExecute[ 
+        FrontEnd`HelpBrowserLookup[ "AddOns", #]]&),
+    ButtonData:>{"Short Overview", "intro"},
+    ButtonStyle->"AddOnsLink",
+    ButtonNote->"Open the help browser"],
+  "  or visit ",
+  ButtonBox["www.feyncalc.org",
+    ButtonData:>{
+      URL[ "http://www.feyncalc.org"], None},
+    ButtonStyle->"Hyperlink",
+    ButtonNote->"http://www.feyncalc.org"]
+}], "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell["Loading PHI ", "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell["Loading FeynArts ", "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell[BoxData[
+    \(TraditionalForm\`""\)], "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"FeynArts 3"\)], "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"by Hagen Eck, Sepp Kueblbeck, and Thomas Hahn"\)], 
+  "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"last revised 19 Oct 01"\)], "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm
+    \`"patched for use with FeynCalc by Frederik Orellana"\)], "Print"],
+
+Cell[BoxData[
+    RowBox[{"ME", 
+      StyleBox["/:",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[" ",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[\(MakeBoxes[ME, \ fmt_]\),
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[" ",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[":=",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[" ",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[\(InterpretationBox[SubscriptBox[m, \ e], \ ME]\),
+        FontFamily->"Courier New",
+        FontWeight->"Bold"]}]], "Input"],
+
+Cell[BoxData[
+    RowBox[{"EL", 
+      StyleBox["/:",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[" ",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[\(MakeBoxes[EL, \ fmt_]\),
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[" ",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[":=",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[" ",
+        FontFamily->"Courier New",
+        FontWeight->"Bold"], 
+      StyleBox[\(InterpretationBox[e, \ ME]\),
+        FontFamily->"Courier New",
+        FontWeight->"Bold"]}]], "Input"],
+
+Cell[BoxData[
+    \(\(t11 = CreateTopologies[1, 1 -> 1, Adjacencies -> {3}]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(graf = 
+      InsertFields[t11, V[1] -> V[1], 
+        Restrictions -> {QEDOnly, NoGeneration2, NoGeneration3}, 
+        ExcludeParticles -> {F[3 | 4]}, InsertionLevel -> Classes\ ]; \)\)], 
+  "Input"],
+
+Cell[BoxData[
+    \( (*\ Need\ to\ work\ including\ classes\ level\ to\ use\ CreateFCAmp, \ 
+      here\ we\ include\ down\ to\ classes\ level\ *) \)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Alternative\ is\ to\ use\ the\ QED\ model\ file, \ 
+      \(i . e . \n\tgraf = InsertFields[t11, V[1] -> V[1], Model -> QED\ ]; 
+      \)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \( (*\ And\ now\ we\ paint\ exclusively\ at\ the\ classes\ level\ *) \)], 
+  "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Paint[graf, PaintLevel -> {Classes}, SheetHeader -> False, 
+      Numbering -> False, ColumnsXRows -> {1, 1}]; \)\)], "Input"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0 0.0454545 0 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+% Start of sub-graphic
+p
+0 0 1 1 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+.31818 .5 m
+.31364 .50407 L
+.30909 .5076 L
+.30454 .51012 L
+.3 .5113 L
+.29545 .51097 L
+.29091 .50919 L
+.28636 .50618 L
+.28182 .50236 L
+.27727 .49822 L
+.27273 .49431 L
+.26818 .49116 L
+.26364 .48919 L
+.25909 .48864 L
+.25455 .48961 L
+.25 .49196 L
+.24545 .49537 L
+.24091 .4994 L
+.23636 .5035 L
+.23182 .50714 L
+.22727 .50983 L
+.22273 .51121 L
+.21818 .51111 L
+.21364 .50952 L
+.20909 .50667 L
+.20455 .50293 L
+.2 .4988 L
+.19545 .49483 L
+.19091 .49154 L
+.18636 .48938 L
+.18182 .48863 L
+.17727 .48938 L
+.17273 .49154 L
+.16818 .49483 L
+.16364 .4988 L
+.15909 .50293 L
+.15455 .50667 L
+.15 .50952 L
+.14545 .51111 L
+.14091 .51121 L
+.13636 .50983 L
+.13182 .50714 L
+.12727 .5035 L
+.12273 .4994 L
+.11818 .49537 L
+.11364 .49196 L
+.10909 .48961 L
+.10454 .48864 L
+.1 .48919 L
+.09545 .49116 L
+Mistroke
+.09091 .49431 L
+.08636 .49822 L
+.08182 .50236 L
+.07727 .50618 L
+.07273 .50919 L
+.06818 .51097 L
+.06364 .5113 L
+.05909 .51012 L
+.05455 .5076 L
+.05 .50407 L
+.04545 .5 L
+Mfstroke
+gsave
+.18182 .45704 -66 -16.5625 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+gsave
+0.000000 0.000000 0.000000 setrgbcolor
+1.000000 setlinewidth
+gsave
+newpath
+ 61.000000 16.562500 moveto
+ 461.000000 16.562500 lineto
+ 461.000000 4.000000 lineto
+ 61.000000 4.000000 lineto
+ 61.000000 16.562500 lineto
+closepath
+clip newpath
+63.000000 12.812500 moveto
+%%IncludeResource: font Math1Mono
+%%IncludeFont: Math1Mono
+/Math1Mono findfont 10.000000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000000 0.000000 0.000000 setrgbcolor
+(g) show
+1.000000 setlinewidth
+grestore
+grestore
+%%DocumentNeededResources: font Math1Mono
+%%DocumentSuppliedResources:
+%%DocumentNeededFonts: Math1Mono
+%%DocumentSuppliedFonts:
+%%DocumentFonts: font Math1Mono
+grestore
+.68182 .5 m
+.68636 .49593 L
+.69091 .4924 L
+.69546 .48988 L
+.7 .4887 L
+.70455 .48903 L
+.70909 .49081 L
+.71364 .49382 L
+.71818 .49764 L
+.72273 .50178 L
+.72727 .50569 L
+.73182 .50884 L
+.73636 .51081 L
+.74091 .51136 L
+.74545 .51039 L
+.75 .50804 L
+.75455 .50463 L
+.75909 .5006 L
+.76364 .4965 L
+.76818 .49286 L
+.77273 .49017 L
+.77727 .48879 L
+.78182 .48889 L
+.78636 .49048 L
+.79091 .49333 L
+.79545 .49707 L
+.8 .5012 L
+.80455 .50517 L
+.80909 .50846 L
+.81364 .51062 L
+.81818 .51137 L
+.82273 .51062 L
+.82727 .50846 L
+.83182 .50517 L
+.83636 .5012 L
+.84091 .49707 L
+.84545 .49333 L
+.85 .49048 L
+.85455 .48889 L
+.85909 .48879 L
+.86364 .49017 L
+.86818 .49286 L
+.87273 .4965 L
+.87727 .5006 L
+.88182 .50463 L
+.88636 .50804 L
+.89091 .51039 L
+.89546 .51136 L
+.9 .51081 L
+.90455 .50884 L
+Mistroke
+.90909 .50569 L
+.91364 .50178 L
+.91818 .49764 L
+.92273 .49382 L
+.92727 .49081 L
+.93182 .48903 L
+.93636 .4887 L
+.94091 .48988 L
+.94545 .4924 L
+.95 .49593 L
+.95455 .5 L
+Mfstroke
+gsave
+.81818 .54296 -66 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+gsave
+0.000000 0.000000 0.000000 setrgbcolor
+1.000000 setlinewidth
+gsave
+newpath
+ 61.000000 16.562500 moveto
+ 461.000000 16.562500 lineto
+ 461.000000 4.000000 lineto
+ 61.000000 4.000000 lineto
+ 61.000000 16.562500 lineto
+closepath
+clip newpath
+63.000000 12.812500 moveto
+%%IncludeResource: font Math1Mono
+%%IncludeFont: Math1Mono
+/Math1Mono findfont 10.000000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000000 0.000000 0.000000 setrgbcolor
+(g) show
+1.000000 setlinewidth
+grestore
+grestore
+%%DocumentNeededResources: font Math1Mono
+%%DocumentSuppliedResources:
+%%DocumentNeededFonts: Math1Mono
+%%DocumentSuppliedFonts:
+%%DocumentFonts: font Math1Mono
+grestore
+newpath
+.5 .54091 .18636 192.68 347.32 arc
+s
+.47273 .35455 m
+.52727 .33636 L
+.52727 .37273 L
+F
+gsave
+.5 .31158 -68.3438 -16.5625 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+gsave
+0.000000 0.000000 0.000000 setrgbcolor
+1.000000 setlinewidth
+gsave
+newpath
+ 61.000000 16.562500 moveto
+ 461.000000 16.562500 lineto
+ 461.000000 4.000000 lineto
+ 61.000000 4.000000 lineto
+ 61.000000 16.562500 lineto
+closepath
+clip newpath
+63.000000 12.812500 moveto
+%%IncludeResource: font Courier-Italic
+%%IncludeFont: Courier-Italic
+/Courier-Italic findfont 10.000000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000000 0.000000 0.000000 setrgbcolor
+(e) show
+69.000000 14.312500 moveto
+%%IncludeResource: font Courier-Italic
+%%IncludeFont: Courier-Italic
+/Courier-Italic findfont 7.125000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000000 0.000000 0.000000 setrgbcolor
+(i) show
+1.000000 setlinewidth
+grestore
+grestore
+%%DocumentNeededResources: font Courier-Italic
+%%DocumentSuppliedResources:
+%%DocumentNeededFonts: Courier-Italic
+%%DocumentSuppliedFonts:
+%%DocumentFonts: font Courier-Italic
+grestore
+newpath
+.5 .45909 .18636 12.6804 167.32 arc
+s
+.52727 .64545 m
+.47273 .66364 L
+.47273 .62727 L
+F
+gsave
+.5 .68842 -68.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+gsave
+0.000000 0.000000 0.000000 setrgbcolor
+1.000000 setlinewidth
+gsave
+newpath
+ 61.000000 16.562500 moveto
+ 461.000000 16.562500 lineto
+ 461.000000 4.000000 lineto
+ 61.000000 4.000000 lineto
+ 61.000000 16.562500 lineto
+closepath
+clip newpath
+63.000000 12.812500 moveto
+%%IncludeResource: font Courier-Italic
+%%IncludeFont: Courier-Italic
+/Courier-Italic findfont 10.000000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000000 0.000000 0.000000 setrgbcolor
+(e) show
+69.000000 14.312500 moveto
+%%IncludeResource: font Courier-Italic
+%%IncludeFont: Courier-Italic
+/Courier-Italic findfont 7.125000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000000 0.000000 0.000000 setrgbcolor
+(i) show
+1.000000 setlinewidth
+grestore
+grestore
+%%DocumentNeededResources: font Courier-Italic
+%%DocumentSuppliedResources:
+%%DocumentNeededFonts: Courier-Italic
+%%DocumentSuppliedFonts:
+%%DocumentFonts: font Courier-Italic
+grestore
+.04 w
+.31818 .5 Mdot
+.68182 .5 Mdot
+MathSubEnd
+P
+% End of sub-graphic
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{300, 300},
+  ImageMargins->{{62, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004/0001;2000`400?l00000o`00003oo`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00U`3oool00`3QhN40_Kfm0>7Q
+h@2B0?ooo`00V03oool00`3IfMT0oooo0?ooo`2A0?ooo`00T@3oool4000000<0oooo00<0hN7Q0?3`
+l03oool0T@3oool00940oooo00<000000?ooo`3oool0103oool00`2m_Kd0l?3`0?ooo`2A0?ooo`00
+T@3oool4000000@0oooo00<0d=3@0?ooo`3oool0T03oool00980oooo0`00002G0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]
+0?ooo`00o`3oool]0?ooo`00V`3oool2000008l0oooo002H0?ooo`D00000S`3oool009D0oooo2000
+002?0?ooo`00T`3oool:000008l0oooo002@0?ooo`d00000S`3oool008/0oooo5@00002<0?ooo`00
+Q`3oool4000000H0oooo300000030?ooo`@00000R03oool008D0oooo0P00000=0?ooo`T000001`3o
+ool2000008H0oooo00200?ooo`D000004P3oool6000000T0oooo1@0000210?ooo`00OP3oool20000
+01X0oooo0`00000>0?ooo`800000O`3oool007`0oooo0P00000_0?ooo`800000O@3oool007X0oooo
+0P00000c0?ooo`800000N`3oool007T0oooo00<000000?ooo`3oool0=@3oool00`000000oooo0?oo
+o`1h0?ooo`00N03oool00`000000oooo0?ooo`0g0?ooo`030000003oool0oooo07L0oooo001f0?oo
+o`800000>`3oool2000007L0oooo001d0?ooo`800000?`3oool2000007D0oooo001c0?ooo`030000
+003oool0oooo0440oooo00<000000?ooo`3oool0LP3oool00780oooo00<000000?ooo`3oool0@`3o
+ool00`000000oooo0?ooo`1a0?ooo`00L03oool2000004L0oooo0P00001a0?ooo`00K`3oool00`00
+0000oooo0?ooo`180?ooo`030000003oool0oooo06l0oooo001_0?ooo`030000003oool0oooo04T0
+oooo00<000000?ooo`3oool0KP3oool006d0oooo0P00001=0?ooo`800000KP3oool006`0oooo00<0
+00000?ooo`3oool0C`3oool00`000000oooo0?ooo`1[0?ooo`00J`3oool00`000000oooo0?ooo`1A
+0?ooo`030000003oool0oooo06X0oooo001Z0?ooo`030000003oool0oooo0580oooo00<000000?oo
+o`3oool0JP3oool006X0oooo00<000000?ooo`3oool0D`3oool00`000000oooo0?ooo`1Y0?ooo`00
+=03oool2000003<0oooo00<000000?ooo`3oool0E@3oool00`000000oooo0?ooo`1X0?ooo`00=03o
+ool00`000000oooo0000000a0?ooo`030000003oool0oooo05L0oooo00<000000?ooo`3oool0I`3o
+ool003D0oooo0P00000`0?ooo`030000003oool0oooo05P0oooo00<000000?ooo`3oool0I`3oool0
+03D0oooo0P00000`0?ooo`030000003oool0oooo05T0oooo00<000000?ooo`3oool0IP3oool003@0
+oooo0P0000000`3oool000000?ooo`0]0?ooo`030000003oool0oooo05X0oooo00<000000?ooo`3o
+ool0IP3oool00380oooo0P0000040?ooo`030000003oool0oooo02/0oooo00<000000?ooo`3oool0
+F`3oool00`000000oooo0?ooo`1U0?ooo`00I@3oool00`000000oooo0?ooo`1L0?ooo`030000003o
+ool0oooo06D0oooo001U0?ooo`030000003oool0oooo05d0oooo00<000000?ooo`3oool0I03oool0
+06@0oooo00<000000?ooo`3oool0G`3oool00`000000oooo0?ooo`1S0?ooo`00H`3oool00`000000
+oooo0?ooo`1Q0?ooo`030000003oool0oooo0680oooo001R0?ooo`030000003oool0oooo0680oooo
+00<000000?ooo`3oool0HP3oool00680oooo00<000000?ooo`3oool0H`3oool00`000000oooo0?oo
+o`1Q0?ooo`00H@3oool00`000000oooo0?ooo`1T0?ooo`030000003oool0oooo0640oooo001Q0?oo
+o`030000003oool0oooo06D0oooo00<000000?ooo`3oool0H03oool00640oooo00<000000?ooo`3o
+ool0I@3oool00`000000oooo0?ooo`1P0?ooo`00H@3oool00`000000oooo0?ooo`1U0?ooo`030000
+003oool0oooo0600oooo001P0?ooo`030000003oool0oooo06H0oooo00<000000?ooo`3oool0H03o
+ool005d0oooo1000001Y0?ooo`<00000G`3oool005/0oooo1`00001V0?ooo`L00000G@3oool001`0
+oooo1@00000B0?ooo`L000004P3oool5000000T0oooo2@00001T0?ooo`h000004P3oool500000180
+oooo1@00000B0?ooo`D000004P3oool001/0oooo00<000000?ooo`3oool00`3oool00`000000oooo
+0?ooo`0>0?ooo`030000003oool0oooo00D0oooo00<000000?ooo`3oool03@3oool2000000D0oooo
+00<000000?ooo`3oool01P3oool9000006@0oooo2@0000050?ooo`030000003oool0oooo00d0oooo
+0P0000050?ooo`030000003oool0oooo00d0oooo0P0000050?ooo`030000003oool0oooo00d0oooo
+0P0000050?ooo`030000003oool0oooo00l0oooo000I0?ooo`8000001`3oool2000000d0oooo00<0
+00000?ooo`3oool01P3oool00`000000oooo0?ooo`0<0?ooo`030000003oool0oooo00H0oooo00<0
+00000?ooo`3oool0103oool;00000680oooo2`0000050?ooo`030000003oool0oooo00/0oooo00<0
+00000?ooo`3oool01P3oool00`000000oooo0?ooo`0;0?ooo`030000003oool0oooo00H0oooo00<0
+00000?ooo`3oool02`3oool00`000000oooo0?ooo`060?ooo`8000003`3oool000d0oooo00<00000
+0?ooo`3oool0203oool00`000000oooo0?ooo`090?ooo`030000003oool0oooo00T0oooo00<00000
+0?ooo`3oool0203oool00`000000oooo0?ooo`0:0?ooo`030000003oool0oooo00P0oooo00<00000
+0?ooo`3oool00`3oool;00000680oooo2`0000060?ooo`030000003oool0oooo00P0oooo0P00000:
+0?ooo`8000002P3oool00`000000oooo0?ooo`080?ooo`8000002P3oool00`000000oooo0?ooo`09
+0?ooo`030000003oool0oooo00`0oooo000>0?ooo`030000003oool0oooo00L0oooo00<000000?oo
+o`3oool02P3oool2000000P0oooo00<000000?ooo`3oool02P3oool2000000P0oooo0P00000<0?oo
+o`030000003oool0oooo0080oooo2`00001R0?ooo`/000001`3oool00`000000oooo0?ooo`060?oo
+o`030000003oool0oooo00/0oooo00<000000?ooo`3oool01`3oool00`000000oooo0?ooo`0;0?oo
+o`030000003oool0oooo00L0oooo00<000000?ooo`3oool0603oool000l0oooo0P0000060?ooo`03
+0000003oool0oooo00d0oooo00<000000?ooo`3oool0103oool00`000000oooo0?ooo`0=0?ooo`03
+0000003oool0oooo00@0oooo00<000000?ooo`3oool03@3oool00`000000oooo0?ooo`020?ooo`T0
+0000I03oool9000000T0oooo00<000000?ooo`3oool0103oool00`000000oooo0?ooo`0=0?ooo`03
+0000003oool0oooo00D0oooo00<000000?ooo`3oool03@3oool2000000D0oooo0P00000K0?ooo`00
+4@3oool600000140oooo1P00000A0?ooo`H000004@3oool=000006@0oooo2@00000:0?ooo`H00000
+4@3oool700000180oooo1@00000M0?ooo`00F`3oool7000006H0oooo1`00001M0?ooo`00G@3oool4
+000006T0oooo0`00001O0?ooo`00H03oool00`000000oooo0?ooo`1V0?ooo`030000003oool0oooo
+0600oooo001Q0?ooo`030000003oool0oooo06D0oooo00<000000?ooo`3oool0H03oool00640oooo
+00<000000?ooo`3oool0I@3oool00`000000oooo0?ooo`1P0?ooo`00H@3oool00`000000oooo0?oo
+o`1U0?ooo`030000003oool0oooo0600oooo001Q0?ooo`030000003oool0oooo06@0oooo00<00000
+0?ooo`3oool0H@3oool00680oooo00<000000?ooo`3oool0H`3oool00`000000oooo0?ooo`1Q0?oo
+o`00HP3oool00`000000oooo0?ooo`1R0?ooo`030000003oool0oooo0680oooo001S0?ooo`030000
+003oool0oooo0640oooo00<000000?ooo`3oool0HP3oool006@0oooo00<000000?ooo`3oool0G`3o
+ool00`000000oooo0?ooo`1S0?ooo`00I@3oool00`000000oooo0?ooo`1M0?ooo`030000003oool0
+oooo06@0oooo001U0?ooo`030000003oool0oooo05`0oooo00<000000?ooo`3oool0I@3oool006H0
+oooo00<000000?ooo`3oool0F`3oool00`000000oooo0?ooo`0[0?ooo`800000>03oool006H0oooo
+00<000000?ooo`3oool0FP3oool00`000000oooo0?ooo`0/0?ooo`030000003oool0000003L0oooo
+001W0?ooo`030000003oool0oooo05T0oooo00<000000?ooo`3oool0;@3oool2000003L0oooo001W
+0?ooo`030000003oool0oooo05P0oooo00<000000?ooo`3oool0;P3oool2000003L0oooo001X0?oo
+o`030000003oool0oooo05L0oooo00<000000?ooo`3oool0;@3oool2000000030?ooo`000000oooo
+03D0oooo001Y0?ooo`030000003oool0oooo05D0oooo00<000000?ooo`3oool0;03oool2000000@0
+oooo00<000000?ooo`3oool0<`3oool006X0oooo00<000000?ooo`3oool0D`3oool00`000000oooo
+0?ooo`1Y0?ooo`00JP3oool00`000000oooo0?ooo`1B0?ooo`030000003oool0oooo06X0oooo001[
+0?ooo`030000003oool0oooo0540oooo00<000000?ooo`3oool0JP3oool006`0oooo00<000000?oo
+o`3oool0C`3oool00`000000oooo0?ooo`1[0?ooo`00K@3oool00`000000oooo0?ooo`1=0?ooo`03
+0000003oool0oooo06`0oooo001^0?ooo`800000B`3oool2000006l0oooo001_0?ooo`030000003o
+ool0oooo04P0oooo00<000000?ooo`3oool0K`3oool00700oooo00<000000?ooo`3oool0A`3oool0
+0`000000oooo0?ooo`1_0?ooo`00L@3oool2000004D0oooo0P00001b0?ooo`00L`3oool00`000000
+oooo0?ooo`110?ooo`030000003oool0oooo0780oooo001d0?ooo`030000003oool0oooo03l0oooo
+00<000000?ooo`3oool0L`3oool007D0oooo0P00000m0?ooo`800000MP3oool007L0oooo0P00000i
+0?ooo`800000N03oool007T0oooo00<000000?ooo`3oool0=@3oool00`000000oooo0?ooo`1h0?oo
+o`00NP3oool00`000000oooo0?ooo`0c0?ooo`030000003oool0oooo07T0oooo001k0?ooo`800000
+<@3oool2000007`0oooo001m0?ooo`8000003P3oool4000001/0oooo0P00001n0?ooo`00O`3oool5
+000000T0oooo1`00000C0?ooo`D00000P03oool008@0oooo0P0000070?ooo`X000003P3oool20000
+08D0oooo00260?ooo`D000000P3oool=000000H0oooo1@0000270?ooo`00R`3ooolE000008`0oooo
+002=0?ooo`h00000T@3oool008d0oooo2`00002D0?ooo`00S@3oool8000009L0oooo002=0?ooo`H0
+0000V@3oool008d0oooo0`00002L0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?oo
+o`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?oo
+o`00o`3oool]0?ooo`00o`3oool]0?ooo`00o`3oool]0?ooo`00U`3oool00`3QhN40_Kfm0>7Qh@2B
+0?ooo`00T@3oool4000000<0oooo00<0fMWI0?ooo`3oool0T@3oool00940oooo00<000000?ooo`3o
+ool0103oool00`3QhN40l?3`0?ooo`2A0?ooo`00T@3oool4000000<0oooo00<0_Kfm0?3`l03oool0
+T@3oool00980oooo0`0000040?ooo`030=3@d03oool0oooo0900oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?oo
+obd0oooo003o0?ooobd0oooo003o0?ooobd0oooo003o0?ooobd0oooo0000\
+\>"],
+  ImageRangeCache->{{{0, 299}, {299, 0}} -> {-0.000110001, -0.000110001, 
+  0.0735794, 0.0735794}, {{0, 299}, {299, 0}} -> {-1.00011, -1.00011, 
+  0.0735794, 0.0735794}}]
+}, Open  ]],
+
+Cell["\<\
+Now generate the amplitude and divide out the polarization vectors and \
+replace the class mass by the electron mass (use InputForm to help identify \
+exactly what to type to remove them).\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(amp1\  = 
+      \(CreateFCAmp[graf, Sum -> False]/
+              Pair[LorentzIndex[
+                  Momentum[p1, \ \n\ \ \ \ \ \ \ \ SpaceTimeDimensions], \ 
+                  SpaceTimeDimensions], \ \n\ \ \ \ \ \ 
+                Momentum[
+                  Polarization[V[1], \ I, \ \n\ \ \ \ \ \ \ \ 
+                    SUNIndex[
+                      LorentzIndex[\[Mu]1, \ \n\ \ \ \ \ \ \ \ \ \ 
+                        SpaceTimeDimensions]]], \ \n\ \ \ \ \ \ \ 
+                  SpaceTimeDimensions]]\)/\n\ \ \ \ \ 
+            Pair[LorentzIndex[
+                Momentum[p3, \ \n\ \ \ \ \ \ \ \ SpaceTimeDimensions], \ 
+                SpaceTimeDimensions], \ \n\ \ \ \ \ \ 
+              Momentum[
+                Polarization[V[1], \ I, \ \n\ \ \ \ \ \ \ \ 
+                  SUNIndex[
+                    LorentzIndex[\[Mu]2, \ \n\ \ \ \ \ \ \ \ \ \ 
+                      SpaceTimeDimensions]]], \ \n\ \ \ \ \ \ \ 
+                SpaceTimeDimensions]] /. \ 
+          MLE[Index[Generation, \ 1]] -> ME // Simplify\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"{", 
+        RowBox[{"-", 
+          FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+              RowBox[{"tr", "(", 
+                FormBox[
+                  RowBox[{
+                    RowBox[{"(", 
+                      RowBox[{
+                        InterpretationBox[\(m\_e\),
+                          ME], "-", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                          "\[NoBreak]", 
+                          FormBox[
+                            SubscriptBox[
+                              StyleBox["\<\"q\"\>",
+                                FontSlant->"Italic"], "1"],
+                            "TraditionalForm"]}]}], ")"}], ".", 
+                    RowBox[{"(", 
+                      RowBox[{"\[ImaginaryI]", " ", 
+                        InterpretationBox["e",
+                          ME], " ", 
+                        RowBox[{"(", 
+                          RowBox[{
+                            RowBox[{
+                              SuperscriptBox["\[Gamma]", 
+                                FormBox[
+                                  FormBox[
+                                    SubscriptBox[
+                                      StyleBox["\<\"\[Mu]\"\>",
+                                        FontSlant->"Italic"], "2"],
+                                    "TraditionalForm"],
+                                  "TraditionalForm"]], ".", 
+                              \(\[Gamma]\^6\)}], "+", 
+                            RowBox[{
+                              SuperscriptBox["\[Gamma]", 
+                                FormBox[
+                                  FormBox[
+                                    SubscriptBox[
+                                      StyleBox["\<\"\[Mu]\"\>",
+                                        FontSlant->"Italic"], "2"],
+                                    "TraditionalForm"],
+                                  "TraditionalForm"]], ".", 
+                              \(\[Gamma]\^7\)}]}], ")"}]}], ")"}], ".", 
+                    RowBox[{"(", 
+                      RowBox[{
+                        InterpretationBox[\(m\_e\),
+                          ME], "-", 
+                        RowBox[{
+                          FormBox["\<\"\[Gamma]\"\>",
+                            "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                          "\[NoBreak]", "(", "\[NoBreak]", 
+                          FormBox[
+                            RowBox[{
+                              SubscriptBox[
+                                StyleBox["\<\"p\"\>",
+                                  FontSlant->"Italic"], "3"], "+", 
+                              SubscriptBox[
+                                StyleBox["\<\"q\"\>",
+                                  FontSlant->"Italic"], "1"]}],
+                            "TraditionalForm"], "\[NoBreak]", ")"}]}], ")"}], 
+                    ".", 
+                    RowBox[{"(", 
+                      RowBox[{"\[ImaginaryI]", " ", 
+                        InterpretationBox["e",
+                          ME], " ", 
+                        RowBox[{"(", 
+                          RowBox[{
+                            RowBox[{
+                              SuperscriptBox["\[Gamma]", 
+                                FormBox[
+                                  FormBox[
+                                    SubscriptBox[
+                                      StyleBox["\<\"\[Mu]\"\>",
+                                        FontSlant->"Italic"], "1"],
+                                    "TraditionalForm"],
+                                  "TraditionalForm"]], ".", 
+                              \(\[Gamma]\^6\)}], "+", 
+                            RowBox[{
+                              SuperscriptBox["\[Gamma]", 
+                                FormBox[
+                                  FormBox[
+                                    SubscriptBox[
+                                      StyleBox["\<\"\[Mu]\"\>",
+                                        FontSlant->"Italic"], "1"],
+                                    "TraditionalForm"],
+                                  "TraditionalForm"]], ".", 
+                              \(\[Gamma]\^7\)}]}], ")"}]}], ")"}]}],
+                  "TraditionalForm"], ")"}]}], 
+            RowBox[{"16", " ", \(\[Pi]\^4\), " ", 
+              RowBox[{
+                RowBox[{"(", 
+                  RowBox[{
+                    SubsuperscriptBox[
+                      StyleBox["\<\"q\"\>",
+                        FontSlant->"Italic"], "1", "2"], "-", 
+                    SuperscriptBox[
+                      InterpretationBox[\(m\_e\),
+                        ME], "2"]}], ")"}], ".", 
+                RowBox[{"(", 
+                  RowBox[{
+                    SuperscriptBox[
+                      RowBox[{"(", 
+                        RowBox[{
+                          SubscriptBox[
+                            StyleBox["\<\"p\"\>",
+                              FontSlant->"Italic"], "3"], "+", 
+                          SubscriptBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"], "1"]}], ")"}], "2"], 
+                    "-", 
+                    SuperscriptBox[
+                      InterpretationBox[\(m\_e\),
+                        ME], "2"]}], ")"}]}]}]]}], "}"}], TraditionalForm]], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(amp2 = 
+      amp1 /. \((DiracTraceEvaluate -> False)\) -> 
+            \((DiracTraceEvaluate -> True)\) // Simplify\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"{", 
+        FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+            SuperscriptBox[
+              InterpretationBox["e",
+                ME], "2"], " ", 
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  SubsuperscriptBox[
+                    StyleBox["\<\"p\"\>",
+                      FontSlant->"Italic"], "3", 
+                    FormBox[
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "1"],
+                        "TraditionalForm"],
+                      "TraditionalForm"]], " ", 
+                  SubsuperscriptBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"], "1", 
+                    FormBox[
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "2"],
+                        "TraditionalForm"],
+                      "TraditionalForm"]]}], "+", 
+                RowBox[{
+                  SubsuperscriptBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"], "1", 
+                    FormBox[
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "1"],
+                        "TraditionalForm"],
+                      "TraditionalForm"]], " ", 
+                  SubsuperscriptBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"], "1", 
+                    FormBox[
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "2"],
+                        "TraditionalForm"],
+                      "TraditionalForm"]]}], "+", 
+                RowBox[{
+                  SubsuperscriptBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"], "1", 
+                    FormBox[
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "1"],
+                        "TraditionalForm"],
+                      "TraditionalForm"]], " ", 
+                  SubsuperscriptBox[
+                    StyleBox["\<\"p\"\>",
+                      FontSlant->"Italic"], "3", 
+                    FormBox[
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "2"],
+                        "TraditionalForm"],
+                      "TraditionalForm"]]}], "+", 
+                RowBox[{
+                  SubsuperscriptBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"], "1", 
+                    FormBox[
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "1"],
+                        "TraditionalForm"],
+                      "TraditionalForm"]], " ", 
+                  SubsuperscriptBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"], "1", 
+                    FormBox[
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "2"],
+                        "TraditionalForm"],
+                      "TraditionalForm"]]}], "+", 
+                RowBox[{
+                  SuperscriptBox["g", 
+                    RowBox[{
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "1"],
+                        "TraditionalForm"], "\[NoBreak]", 
+                      FormBox[
+                        SubscriptBox[
+                          StyleBox["\<\"\[Mu]\"\>",
+                            FontSlant->"Italic"], "2"],
+                        "TraditionalForm"]}]], " ", 
+                  RowBox[{"(", 
+                    RowBox[{
+                      SuperscriptBox[
+                        InterpretationBox[\(m\_e\),
+                          ME], "2"], "-", 
+                      RowBox[{
+                        FormBox[
+                          SubscriptBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"], "1"],
+                          "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                        "\[NoBreak]", 
+                        FormBox[
+                          SubscriptBox[
+                            StyleBox["\<\"p\"\>",
+                              FontSlant->"Italic"], "3"],
+                          "TraditionalForm"]}], "-", 
+                      RowBox[{
+                        FormBox[
+                          SubscriptBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"], "1"],
+                          "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                        "\[NoBreak]", 
+                        FormBox[
+                          SubscriptBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"], "1"],
+                          "TraditionalForm"]}]}], ")"}]}]}], ")"}]}], 
+          RowBox[{"4", " ", \(\[Pi]\^4\), " ", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  SubsuperscriptBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"], "1", "2"], "-", 
+                  SuperscriptBox[
+                    InterpretationBox[\(m\_e\),
+                      ME], "2"]}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      RowBox[{
+                        SubscriptBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"], "3"], "+", 
+                        SubscriptBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"], "1"]}], ")"}], "2"], "-", 
+                  SuperscriptBox[
+                    InterpretationBox[\(m\_e\),
+                      ME], "2"]}], ")"}]}]}]], "}"}], TraditionalForm]], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(OneLoop[q1, amp2]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+      \(Drop::"normal"\), \( : \ \), 
+        "\<\"Nonatomic expression expected at position \
+\\!\\(TraditionalForm\\`1\\) in \\!\\(TraditionalForm\\`\\(Drop(\\(0, \
+1\\))\\)\\).\"\>"}], TraditionalForm]], "Message"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(test = \(-I\)/Pi^2\ FAD[{q, m}] // FCI\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm
+    \`\(-\(\[ImaginaryI]\/\(\[Pi]\^2\ \((q\^2 - m\^2)\)\)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(OneLoop[q, test]\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\(\(B\_0\)(0, m\^2, m\^2)\)\ m\^2 + m\^2\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"Microsoft Windows 3.0",
+ScreenRectangle->{{0, 1024}, {0, 703}},
+ScreenStyleEnvironment->"Presentation",
+WindowSize->{995, 628},
+WindowMargins->{{2, Automatic}, {Automatic, 2}},
+PrivateFontOptions->{"FontType"->"Outline"}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 116, 3, 77, "Input"],
+Cell[1828, 54, 57, 1, 38, "Input"],
+Cell[1888, 57, 620, 20, 44, "Text"],
+Cell[2511, 79, 78, 2, 44, "Text"],
+Cell[2592, 83, 83, 2, 44, "Text"],
+Cell[2678, 87, 52, 1, 29, "Print"],
+Cell[2733, 90, 62, 1, 29, "Print"],
+Cell[2798, 93, 100, 2, 29, "Print"],
+Cell[2901, 97, 74, 1, 29, "Print"],
+Cell[2978, 100, 107, 2, 29, "Print"],
+Cell[3088, 104, 708, 22, 38, "Input"],
+Cell[3799, 128, 689, 22, 38, "Input"],
+Cell[4491, 152, 92, 1, 38, "Input"],
+Cell[4586, 155, 223, 5, 83, "Input"],
+Cell[4812, 162, 160, 2, 60, "Input"],
+Cell[4975, 166, 180, 3, 60, "Input"],
+Cell[5158, 171, 103, 2, 38, "Input"],
+
+Cell[CellGroupData[{
+Cell[5286, 177, 148, 2, 60, "Input"],
+Cell[5437, 181, 17672, 493, 308, 6687, 353, "GraphicsData", 
+"PostScript", "Graphics"]
+}, Open  ]],
+Cell[23124, 677, 212, 4, 68, "Text"],
+
+Cell[CellGroupData[{
+Cell[23361, 685, 1062, 21, 285, "Input"],
+Cell[24426, 708, 5515, 118, 65, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[29978, 831, 149, 3, 38, "Input"],
+Cell[30130, 836, 6706, 160, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[36873, 1001, 50, 1, 38, "Input"],
+Cell[36926, 1004, 259, 6, 29, "Message"],
+Cell[37188, 1012, 53, 1, 39, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[37278, 1018, 71, 1, 38, "Input"],
+Cell[37352, 1021, 111, 2, 58, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[37500, 1028, 49, 1, 38, "Input"],
+Cell[37552, 1031, 91, 1, 39, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+
+

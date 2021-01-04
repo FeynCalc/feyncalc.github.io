@@ -1,0 +1,10 @@
+Reporting-MTA: dns;BY1PR0401MB1142.namprd04.prod.outlook.com
+Received-From-MTA: dns;x3.cabocomm.dk
+Arrival-Date: Tue, 29 Sep 2015 09:16:16 +0000
+
+Final-Recipient: rfc822;rer50@pitt.edu
+Action: failed
+Status: 5.7.1
+Diagnostic-Code: smtp;550 5.7.1 TRANSPORT.RULES.RejectMessage; the message was rejected by organization policy
+
+

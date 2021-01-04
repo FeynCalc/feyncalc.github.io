@@ -1,0 +1,829 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23390,        821]
+NotebookOptionsPosition[     21392,        749]
+NotebookOutlinePosition[     21728,        764]
+CellTagsIndexPosition[     21685,        761]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$LoadAddOns", "=", 
+   RowBox[{"{", "\"\<FeynHelpers\>\"", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "FeynCalc`"}]}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    StyleBox["\<\"FeynCalc \"\>", "Text",
+     StripOnInput->False,
+     FontWeight->Bold], "\[InvisibleSpace]", 
+    StyleBox["\<\"9.2.0. For help, use the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"documentation", " ", "center"}],
+       BaseStyle->"Link",
+       ButtonData:>"paclet:FeynCalc/",
+       ButtonNote->"paclet:FeynCalc/"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\", check out the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox["wiki",
+       BaseStyle->"Hyperlink",
+       ButtonData:>{
+         URL["https://github.com/FeynCalc/feyncalc/wiki"], None},
+       ButtonNote->"https://github.com/FeynCalc/feyncalc/wiki"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" or write to the \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"mailing", " ", 
+        RowBox[{"list", "."}]}],
+       BaseStyle->"Hyperlink",
+       ButtonData:>{
+         URL["http://www.feyncalc.org/forum/"], None},
+       ButtonNote->"http://www.feyncalc.org/forum/"],
+      DisplayForm], "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style["FeynCalc ", "Text", Bold], 
+    Style["9.2.0. For help, use the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox[
+      "documentation center", BaseStyle -> "Link", ButtonData :> 
+       "paclet:FeynCalc/", ButtonNote -> "paclet:FeynCalc/"]], "Text"], 
+    Style[", check out the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox["wiki", ButtonData :> {
+         URL["https://github.com/FeynCalc/feyncalc/wiki"], None}, BaseStyle -> 
+       "Hyperlink", ButtonNote -> 
+       "https://github.com/FeynCalc/feyncalc/wiki"]], "Text"], 
+    Style[" or write to the ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox["mailing list.", ButtonData :> {
+         URL["http://www.feyncalc.org/forum/"], None}, BaseStyle -> 
+       "Hyperlink", ButtonNote -> "http://www.feyncalc.org/forum/"]], "Text"]],
+   Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    StyleBox["\<\"See also the supplied \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"examples", "."}],
+       BaseStyle->"Hyperlink",
+       ButtonFunction:>SystemOpen[
+         FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" If you use FeynCalc in your research, please cite\"\>", 
+     "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style["See also the supplied ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox[
+      "examples.", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
+         FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]], Evaluator -> 
+       Automatic, Method -> "Preemptive"]], "Text"], 
+    Style[" If you use FeynCalc in your research, please cite", "Text"]],
+   Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\" \[Bullet] V. Shtabovenko, R. Mertig and F. Orellana, Comput. \
+Phys. Commun., 207C, 432-444, 2016, arXiv:1601.01167\"\>", "Text",
+   StripOnInput->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\" \[Bullet] R. Mertig, M. B\[ODoubleDot]hm, and A. Denner, \
+Comput. Phys. Commun., 64, 345-359, 1991.\"\>", "Text",
+   StripOnInput->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    StyleBox["\<\"FeynHelpers \"\>", "Text",
+     StripOnInput->False,
+     FontWeight->Bold], "\[InvisibleSpace]", 
+    StyleBox["\<\"1.0.0 loaded.\"\>", "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style["FeynHelpers ", "Text", Bold], 
+    Style["1.0.0 loaded.", "Text"]],
+   Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    StyleBox["\<\"Have a look at the supplied \"\>", "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"examples", "."}],
+       BaseStyle->"Hyperlink",
+       ButtonFunction:>SystemOpen[
+         FileNameJoin[{FeynCalc`$FeynHelpersDirectory, "Examples"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" If you use FeynHelpers in your research, please cite\"\>", 
+     "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style["Have a look at the supplied ", "Text"], 
+    Style[
+     DisplayForm[
+      ButtonBox[
+      "examples.", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
+         FileNameJoin[{FeynCalc`$FeynHelpersDirectory, "Examples"}]], 
+       Evaluator -> Automatic, Method -> "Preemptive"]], "Text"], 
+    Style[" If you use FeynHelpers in your research, please cite", "Text"]],
+   Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\" \[Bullet] V. Shtabovenko, \\\"FeynHelpers: Connecting \
+FeynCalc to FIRE and Package-X\\\", TUM-EFT 75/15, arXiv:1611.06793\"\>", 
+   "Text",
+   StripOnInput->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\"Furthermore, remember to cite the authors of the tools that \
+you are calling from FeynHelpers, which are\"\>", "Text",
+   StripOnInput->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"\<\" \[Bullet] \"\>", "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox["FIRE",
+       BaseStyle->"Hyperlink",
+       ButtonData:>{
+         URL["http://science.sander.su/FIRE.htm"], None},
+       ButtonNote->"http://science.sander.su/FIRE.htm"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" by A. Smirnov, if you are using the function \
+FIREBurn.\"\>", "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style[" \[Bullet] "], 
+    Style[
+     DisplayForm[
+      ButtonBox["FIRE", ButtonData :> {
+         URL["http://science.sander.su/FIRE.htm"], None}, BaseStyle -> 
+       "Hyperlink", ButtonNote -> "http://science.sander.su/FIRE.htm"]], 
+     "Text"], 
+    Style[" by A. Smirnov, if you are using the function FIREBurn.", "Text"]],
+   
+   Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"\<\" \[Bullet] \"\>", "\[InvisibleSpace]", 
+    StyleBox[
+     TagBox[
+      ButtonBox[
+       RowBox[{"Package", "-", "X"}],
+       BaseStyle->"Hyperlink",
+       ButtonData:>{
+         URL["https://packagex.hepforge.org"], None},
+       ButtonNote->"https://packagex.hepforge.org"],
+      DisplayForm], "Text",
+     StripOnInput->False], "\[InvisibleSpace]", 
+    StyleBox["\<\" by H. Patel, if you are using the function \
+PaXEvaluate.\"\>", "Text",
+     StripOnInput->False]}],
+   SequenceForm[
+    Style[" \[Bullet] "], 
+    Style[
+     DisplayForm[
+      ButtonBox["Package-X", ButtonData :> {
+         URL["https://packagex.hepforge.org"], None}, BaseStyle -> 
+       "Hyperlink", ButtonNote -> "https://packagex.hepforge.org"]], "Text"], 
+    
+    Style[" by H. Patel, if you are using the function PaXEvaluate.", "Text"]],
+   Editable->False], TraditionalForm]], "Print"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Do(0,p^2,0,p^2,p^2,p^2,0,0,0,0)", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"int1", "=", 
+  RowBox[{"FAD", "[", 
+   RowBox[{"q", ",", "q", ",", 
+    RowBox[{"q", "-", "p"}], ",", 
+    RowBox[{"q", "-", "p"}]}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox["1", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      InterpretationBox[
+       RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+        SuperscriptBox["q", "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+       SequenceForm["[", $CellContext`q^2, "]"],
+       Editable->False], ")"}], "2"], ".", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      InterpretationBox[
+       RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"q", "-", "p"}], ")"}], "2"], 
+        "\[InvisibleSpace]", "\<\"]\"\>"}],
+       SequenceForm["[", (-$CellContext`p + $CellContext`q)^2, "]"],
+       Editable->False], ")"}], "2"]}]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"a1", "=", 
+  RowBox[{"ToPaVe", "[", 
+   RowBox[{"int1", ",", "q"}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"\[ImaginaryI]", " ", 
+   SuperscriptBox["\[Pi]", "2"], " ", 
+   FormBox[
+    TagBox[
+     FormBox[
+      RowBox[{
+       SubscriptBox["\<\"D\"\>", "\<\"0\"\>"], "(", 
+       RowBox[{"0", ",", 
+        SuperscriptBox[
+         FormBox[
+          FormBox["p",
+           TraditionalForm],
+          TraditionalForm], "2"], ",", "0", ",", 
+        SuperscriptBox[
+         FormBox[
+          FormBox["p",
+           TraditionalForm],
+          TraditionalForm], "2"], ",", 
+        SuperscriptBox[
+         FormBox[
+          FormBox["p",
+           TraditionalForm],
+          TraditionalForm], "2"], ",", 
+        SuperscriptBox[
+         FormBox[
+          FormBox["p",
+           TraditionalForm],
+          TraditionalForm], "2"], ",", "0", ",", "0", ",", "0", ",", "0"}], 
+       ")"}],
+      TraditionalForm],
+     HoldForm],
+    TraditionalForm]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tmp1", "=", 
+  RowBox[{"FIREBurn", "[", 
+   RowBox[{"int1", ",", 
+    RowBox[{"{", "q", "}"}], ",", 
+    RowBox[{"{", "p", "}"}]}], "]"}]}]], "Input"],
+
+Cell["\<\
+FIREBurn: Processing integral 1 of 1; IBP-reduction done, timing: 1.886\
+\>", "Print"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"D", "-", "6"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{"D", "-", "3"}], ")"}]}], 
+   RowBox[{
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "4"], " ", 
+    RowBox[{
+     SuperscriptBox[
+      FormBox["q",
+       TraditionalForm], "2"], ".", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        FormBox["q",
+         TraditionalForm], "-", 
+        FormBox["p",
+         TraditionalForm]}], ")"}], "2"]}]}]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"b1", "=", 
+  RowBox[{"tmp1", "//", 
+   RowBox[{
+    RowBox[{"ToPaVe", "[", 
+     RowBox[{"#", ",", "q"}], "]"}], "&"}]}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    SuperscriptBox["\[Pi]", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"D", "-", "6"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{"D", "-", "3"}], ")"}], " ", 
+    FormBox[
+     TagBox[
+      FormBox[
+       RowBox[{
+        SubscriptBox["\<\"B\"\>", "\<\"0\"\>"], "(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox[
+           FormBox["p",
+            TraditionalForm],
+           TraditionalForm], "2"], ",", "0", ",", "0"}], ")"}],
+       TraditionalForm],
+      HoldForm],
+     TraditionalForm]}], 
+   SuperscriptBox[
+    FormBox[
+     FormBox["p",
+      TraditionalForm],
+     TraditionalForm], "4"]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"a1", "\[Equal]", "b1"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"D0", "[", 
+     RowBox[{"0", ",", 
+      RowBox[{"Pair", "[", 
+       RowBox[{
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}], ",", 
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}]}], "]"}], ",", "0", ",", 
+      RowBox[{"Pair", "[", 
+       RowBox[{
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}], ",", 
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}]}], "]"}], ",", 
+      RowBox[{"Pair", "[", 
+       RowBox[{
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}], ",", 
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}]}], "]"}], ",", 
+      RowBox[{"Pair", "[", 
+       RowBox[{
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}], ",", 
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}]}], "]"}], ",", "0", ",", "0", ",", 
+      "0", ",", "0"}], "]"}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{
+     FormBox[
+      TagBox[
+       FormBox[
+        RowBox[{
+         SubscriptBox["\<\"D\"\>", "\<\"0\"\>"], "(", 
+         RowBox[{"0", ",", 
+          SuperscriptBox[
+           FormBox[
+            FormBox["p",
+             TraditionalForm],
+            TraditionalForm], "2"], ",", "0", ",", 
+          SuperscriptBox[
+           FormBox[
+            FormBox["p",
+             TraditionalForm],
+            TraditionalForm], "2"], ",", 
+          SuperscriptBox[
+           FormBox[
+            FormBox["p",
+             TraditionalForm],
+            TraditionalForm], "2"], ",", 
+          SuperscriptBox[
+           FormBox[
+            FormBox["p",
+             TraditionalForm],
+            TraditionalForm], "2"], ",", "0", ",", "0", ",", "0", ",", "0"}], 
+         ")"}],
+        TraditionalForm],
+       HoldForm],
+      TraditionalForm], "\[Rule]", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"D", "-", "6"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{"D", "-", "3"}], ")"}], " ", 
+       FormBox[
+        TagBox[
+         FormBox[
+          RowBox[{
+           SubscriptBox["\<\"B\"\>", "\<\"0\"\>"], "(", 
+           RowBox[{
+            SuperscriptBox[
+             FormBox[
+              FormBox["p",
+               TraditionalForm],
+              TraditionalForm], "2"], ",", "0", ",", "0"}], ")"}],
+          TraditionalForm],
+         HoldForm],
+        TraditionalForm]}], 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "4"]]}], "}"}], "}"}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell["Do(0,0,p^2,p^2,0,p^2,0,0,0,0)", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"int2", "=", 
+  RowBox[{"FAD", "[", 
+   RowBox[{"q", ",", "q", ",", "q", ",", 
+    RowBox[{"q", "-", "p"}]}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox["1", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      InterpretationBox[
+       RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+        SuperscriptBox["q", "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+       SequenceForm["[", $CellContext`q^2, "]"],
+       Editable->False], ")"}], "3"], ".", 
+    RowBox[{"(", 
+     InterpretationBox[
+      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"q", "-", "p"}], ")"}], "2"], 
+       "\[InvisibleSpace]", "\<\"]\"\>"}],
+      SequenceForm["[", (-$CellContext`p + $CellContext`q)^2, "]"],
+      Editable->False], ")"}]}]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"a2", "=", 
+  RowBox[{"ToPaVe", "[", 
+   RowBox[{"int2", ",", "q"}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"\[ImaginaryI]", " ", 
+   SuperscriptBox["\[Pi]", "2"], " ", 
+   FormBox[
+    TagBox[
+     FormBox[
+      RowBox[{
+       SubscriptBox["\<\"D\"\>", "\<\"0\"\>"], "(", 
+       RowBox[{"0", ",", "0", ",", 
+        SuperscriptBox[
+         FormBox[
+          FormBox["p",
+           TraditionalForm],
+          TraditionalForm], "2"], ",", 
+        SuperscriptBox[
+         FormBox[
+          FormBox["p",
+           TraditionalForm],
+          TraditionalForm], "2"], ",", "0", ",", 
+        SuperscriptBox[
+         FormBox[
+          FormBox["p",
+           TraditionalForm],
+          TraditionalForm], "2"], ",", "0", ",", "0", ",", "0", ",", "0"}], 
+       ")"}],
+      TraditionalForm],
+     HoldForm],
+    TraditionalForm]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tmp2", "=", 
+  RowBox[{"FIREBurn", "[", 
+   RowBox[{"int2", ",", 
+    RowBox[{"{", "q", "}"}], ",", 
+    RowBox[{"{", "p", "}"}]}], "]"}]}]], "Input"],
+
+Cell["\<\
+FIREBurn: Processing integral 1 of 1; IBP-reduction done, timing: 1.386\
+\>", "Print"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"D", "-", "4"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{"D", "-", "3"}], ")"}]}], 
+   RowBox[{"2", " ", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "4"], " ", 
+    RowBox[{
+     SuperscriptBox[
+      FormBox["q",
+       TraditionalForm], "2"], ".", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        FormBox["q",
+         TraditionalForm], "-", 
+        FormBox["p",
+         TraditionalForm]}], ")"}], "2"]}]}]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"b2", "=", 
+  RowBox[{"tmp2", "//", 
+   RowBox[{
+    RowBox[{"ToPaVe", "[", 
+     RowBox[{"#", ",", "q"}], "]"}], "&"}]}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    SuperscriptBox["\[Pi]", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"D", "-", "4"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{"D", "-", "3"}], ")"}], " ", 
+    FormBox[
+     TagBox[
+      FormBox[
+       RowBox[{
+        SubscriptBox["\<\"B\"\>", "\<\"0\"\>"], "(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox[
+           FormBox["p",
+            TraditionalForm],
+           TraditionalForm], "2"], ",", "0", ",", "0"}], ")"}],
+       TraditionalForm],
+      HoldForm],
+     TraditionalForm]}], 
+   RowBox[{"2", " ", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "4"]}]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"a2", "\[Equal]", "b2"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"D0", "[", 
+     RowBox[{"0", ",", "0", ",", 
+      RowBox[{"Pair", "[", 
+       RowBox[{
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}], ",", 
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}]}], "]"}], ",", 
+      RowBox[{"Pair", "[", 
+       RowBox[{
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}], ",", 
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}]}], "]"}], ",", "0", ",", 
+      RowBox[{"Pair", "[", 
+       RowBox[{
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}], ",", 
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p", ",", "D"}], "]"}]}], "]"}], ",", "0", ",", "0", ",", 
+      "0", ",", "0"}], "]"}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{
+     FormBox[
+      TagBox[
+       FormBox[
+        RowBox[{
+         SubscriptBox["\<\"D\"\>", "\<\"0\"\>"], "(", 
+         RowBox[{"0", ",", "0", ",", 
+          SuperscriptBox[
+           FormBox[
+            FormBox["p",
+             TraditionalForm],
+            TraditionalForm], "2"], ",", 
+          SuperscriptBox[
+           FormBox[
+            FormBox["p",
+             TraditionalForm],
+            TraditionalForm], "2"], ",", "0", ",", 
+          SuperscriptBox[
+           FormBox[
+            FormBox["p",
+             TraditionalForm],
+            TraditionalForm], "2"], ",", "0", ",", "0", ",", "0", ",", "0"}], 
+         ")"}],
+        TraditionalForm],
+       HoldForm],
+      TraditionalForm], "\[Rule]", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"D", "-", "4"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{"D", "-", "3"}], ")"}], " ", 
+       FormBox[
+        TagBox[
+         FormBox[
+          RowBox[{
+           SubscriptBox["\<\"B\"\>", "\<\"0\"\>"], "(", 
+           RowBox[{
+            SuperscriptBox[
+             FormBox[
+              FormBox["p",
+               TraditionalForm],
+              TraditionalForm], "2"], ",", "0", ",", "0"}], ")"}],
+          TraditionalForm],
+         HoldForm],
+        TraditionalForm]}], 
+      RowBox[{"2", " ", 
+       SuperscriptBox[
+        FormBox[
+         FormBox["p",
+          TraditionalForm],
+         TraditionalForm], "4"]}]]}], "}"}], "}"}], 
+  TraditionalForm]], "Output"]
+}, Open  ]]
+},
+WindowSize->{800, 911},
+WindowMargins->{{Automatic, 713}, {233, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 52, 1, 32, "Input"],
+Cell[CellGroupData[{
+Cell[635, 25, 178, 5, 52, "Input"],
+Cell[CellGroupData[{
+Cell[838, 34, 2282, 63, 26, "Print"],
+Cell[3123, 99, 1067, 29, 26, "Print"],
+Cell[4193, 130, 223, 4, 46, "Print"],
+Cell[4419, 136, 208, 4, 26, "Print"],
+Cell[4630, 142, 393, 12, 23, "Print"],
+Cell[5026, 156, 1091, 29, 26, "Print"],
+Cell[6120, 187, 235, 5, 46, "Print"],
+Cell[6358, 194, 212, 4, 46, "Print"],
+Cell[6573, 200, 920, 26, 26, "Print"],
+Cell[7496, 228, 937, 26, 26, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[8460, 258, 47, 0, 31, "Text"],
+Cell[CellGroupData[{
+Cell[8532, 262, 176, 5, 32, "Input"],
+Cell[8711, 269, 725, 20, 65, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9473, 294, 110, 3, 32, "Input"],
+Cell[9586, 299, 917, 33, 36, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10540, 337, 174, 5, 32, "Input"],
+Cell[10717, 344, 96, 2, 23, "Print"],
+Cell[10816, 348, 593, 24, 64, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11446, 377, 157, 5, 32, "Input"],
+Cell[11606, 384, 725, 27, 68, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12368, 416, 1102, 31, 92, "Input"],
+Cell[13473, 449, 1663, 59, 68, "Output"]
+}, Open  ]],
+Cell[15151, 511, 45, 0, 31, "Text"],
+Cell[CellGroupData[{
+Cell[15221, 515, 151, 4, 32, "Input"],
+Cell[15375, 521, 690, 19, 65, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16102, 545, 110, 3, 32, "Input"],
+Cell[16215, 550, 793, 28, 36, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17045, 583, 174, 5, 32, "Input"],
+Cell[17222, 590, 96, 2, 23, "Print"],
+Cell[17321, 594, 603, 24, 64, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17961, 623, 157, 5, 32, "Input"],
+Cell[18121, 630, 754, 28, 68, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18912, 663, 897, 25, 72, "Input"],
+Cell[19812, 690, 1564, 56, 68, "Output"]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,854 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     29036,        788]*)
+(*NotebookOutlinePosition[     29693,        811]*)
+(*  CellTagsIndexPosition[     29649,        807]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(<< HighEnergyPhysics`fc`\)], "Input"],
+
+Cell[TextData[{
+  StyleBox["FeynCalc",
+    FontWeight->"Bold"],
+  " ",
+  "4.1.0.3b",
+  "    ",
+  " Evaluate ?FeynCalc for help or visit ",
+  ButtonBox["www.feyncalc.org",
+    ButtonData:>{
+      URL[ "http://www.feyncalc.org"], None},
+    ButtonStyle->"Hyperlink",
+    ButtonNote->"http://www.feyncalc.org"]
+}], "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\n\)\(x = GA[5] . GS[t] . GS[z]\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[Gamma]\^5 . \((\[Gamma]\[NoBreak]\[CenterDot]\
+\[NoBreak]t)\) . \((\[Gamma]\[NoBreak]\[CenterDot]\[NoBreak]z)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(A = Tr[DiracSlash[p, k, d, c] . x]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"4", " ", 
+        RowBox[{"(", 
+          RowBox[{
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["d",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["k",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["p",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["t",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["d",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["k",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["d",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["p",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["d",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["t",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["d",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["k",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["p",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["k",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["t",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["k",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["p",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["t",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["p",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["t",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}]}], ")"}]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(B\)\(=\)\(Tr[x . DiracSlash[p, k, d, c]]\)\(\n\)\)\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"4", " ", 
+        RowBox[{"(", 
+          RowBox[{
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["d",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["k",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["p",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["t",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["c",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["d",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["k",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["d",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["p",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["d",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["t",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["d",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["k",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["p",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["k",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["t",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["k",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}], "+", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["z",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["p",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["t",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["t",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["p",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}], "-", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              SuperscriptBox["\[Epsilon]", 
+                RowBox[{
+                  FormBox["c",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["d",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["k",
+                    "TraditionalForm"], "\[NoBreak]", 
+                  FormBox["p",
+                    "TraditionalForm"]}]], " ", 
+              RowBox[{
+                FormBox["t",
+                  "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                "\[NoBreak]", 
+                FormBox["z",
+                  "TraditionalForm"]}]}]}], ")"}]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(R = Simplify[\((A - B)\)/\((8  I)\)]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+            RowBox[{
+              FormBox["d",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["k",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["p",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["z",
+                "TraditionalForm"]}]], " ", 
+          RowBox[{
+            FormBox["c",
+              "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", "\[NoBreak]", 
+            
+            FormBox["t",
+              "TraditionalForm"]}]}], "-", 
+        RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+            RowBox[{
+              FormBox["d",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["k",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["p",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["t",
+                "TraditionalForm"]}]], " ", 
+          RowBox[{
+            FormBox["c",
+              "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", "\[NoBreak]", 
+            
+            FormBox["z",
+              "TraditionalForm"]}]}], "-", 
+        RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+            RowBox[{
+              FormBox["c",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["k",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["p",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["z",
+                "TraditionalForm"]}]], " ", 
+          RowBox[{
+            FormBox["d",
+              "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", "\[NoBreak]", 
+            
+            FormBox["t",
+              "TraditionalForm"]}]}], "+", 
+        RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+            RowBox[{
+              FormBox["c",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["k",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["p",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["t",
+                "TraditionalForm"]}]], " ", 
+          RowBox[{
+            FormBox["d",
+              "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", "\[NoBreak]", 
+            
+            FormBox["z",
+              "TraditionalForm"]}]}], "+", 
+        RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+            RowBox[{
+              FormBox["c",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["d",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["p",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["z",
+                "TraditionalForm"]}]], " ", 
+          RowBox[{
+            FormBox["k",
+              "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", "\[NoBreak]", 
+            
+            FormBox["t",
+              "TraditionalForm"]}]}], "-", 
+        RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+            RowBox[{
+              FormBox["c",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["d",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["p",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["t",
+                "TraditionalForm"]}]], " ", 
+          RowBox[{
+            FormBox["k",
+              "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", "\[NoBreak]", 
+            
+            FormBox["z",
+              "TraditionalForm"]}]}], "-", 
+        RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+            RowBox[{
+              FormBox["c",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["d",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["k",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["z",
+                "TraditionalForm"]}]], " ", 
+          RowBox[{
+            FormBox["p",
+              "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", "\[NoBreak]", 
+            
+            FormBox["t",
+              "TraditionalForm"]}]}], "+", 
+        RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+            RowBox[{
+              FormBox["c",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["d",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["k",
+                "TraditionalForm"], "\[NoBreak]", 
+              FormBox["t",
+                "TraditionalForm"]}]], " ", 
+          RowBox[{
+            FormBox["p",
+              "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", "\[NoBreak]", 
+            
+            FormBox["z",
+              "TraditionalForm"]}]}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \( (*\ R\ is\ identically\ 0\ *) \[IndentingNewLine] (*\ assume\ p, \ 
+      k, \ c, \ d, \ 
+      are\ lin . \ 
+          indep . \ *) \[IndentingNewLine]\[IndentingNewLine]EpsEvaluate[\(R /. 
+          t \[Rule] p\) /. z \[Rule] k]\), "\[IndentingNewLine]", 
+    \(EpsEvaluate[\(R /. t \[Rule] p\) /. 
+        z \[Rule] p]\), "\[IndentingNewLine]", 
+    \(EpsEvaluate[\(R /. t \[Rule] c\) /. 
+        z \[Rule] d]\), "\[IndentingNewLine]", 
+    \(EpsEvaluate[\(R /. t \[Rule] p\) /. z \[Rule] c]\[IndentingNewLine] (*\ 
+      and\ so\ on\ *) \[IndentingNewLine]\)}], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0\)], "Output"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0\)], "Output"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0\)], "Output"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 723}},
+WindowSize->{980, 630},
+WindowMargins->{{Automatic, 15}, {-268, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 57, 1, 42, "Input"],
+Cell[1777, 52, 369, 14, 47, "Text"],
+
+Cell[CellGroupData[{
+Cell[2171, 70, 72, 1, 68, "Input"],
+Cell[2246, 73, 164, 2, 43, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2447, 80, 67, 1, 42, "Input"],
+Cell[2517, 83, 10318, 260, 69, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[12872, 348, 87, 1, 68, "Input"],
+Cell[12962, 351, 10318, 260, 69, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[23317, 616, 69, 1, 42, "Input"],
+Cell[23389, 619, 4778, 138, 43, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[28204, 762, 596, 11, 250, "Input"],
+Cell[28803, 775, 52, 1, 41, "Output"],
+Cell[28858, 778, 52, 1, 41, "Output"],
+Cell[28913, 781, 52, 1, 41, "Output"],
+Cell[28968, 784, 52, 1, 41, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+
+

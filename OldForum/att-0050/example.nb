@@ -1,0 +1,476 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14807,        466]
+NotebookOptionsPosition[     13619,        438]
+NotebookOutlinePosition[     14098,        455]
+CellTagsIndexPosition[     14055,        452]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "HighEnergyPhysics/fc.m"}]], "Input",ExpressionUUID->"04ec48d5-9c9a-492f-a7ac-d4873dac46df"],
+
+Cell[TextData[{
+ StyleBox["FeynCalc",
+  FontWeight->"Bold"],
+ " ",
+ "4.1.0.3b",
+ " ",
+ " Evaluate ?FeynCalc for help or visit ",
+ ButtonBox["www.feyncalc.org",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.feyncalc.org"], None},
+  ButtonNote->"http://www.feyncalc.org"]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->
+  True,ExpressionUUID->"74fb1806-6fde-4a1c-86a6-f3c08cec6b4a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"IntegerDigits", "[", 
+      RowBox[{"n", ",", " ", "2", ",", " ", "4"}], "]"}], "/.", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"0", "->", "LorentzIndex"}], ",", 
+       RowBox[{"1", "->", "Momentum"}]}], "}"}]}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", " ", "0", ",", " ", "15"}], "}"}]}], "]"}], 
+  " "}]], "Input",ExpressionUUID->"a4dd9afd-730e-42da-ba5d-4ea5a05287c5"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"LorentzIndex", "LorentzIndex", "LorentzIndex", "LorentzIndex"},
+     {"LorentzIndex", "LorentzIndex", "LorentzIndex", "Momentum"},
+     {"LorentzIndex", "LorentzIndex", "Momentum", "LorentzIndex"},
+     {"LorentzIndex", "LorentzIndex", "Momentum", "Momentum"},
+     {"LorentzIndex", "Momentum", "LorentzIndex", "LorentzIndex"},
+     {"LorentzIndex", "Momentum", "LorentzIndex", "Momentum"},
+     {"LorentzIndex", "Momentum", "Momentum", "LorentzIndex"},
+     {"LorentzIndex", "Momentum", "Momentum", "Momentum"},
+     {"Momentum", "LorentzIndex", "LorentzIndex", "LorentzIndex"},
+     {"Momentum", "LorentzIndex", "LorentzIndex", "Momentum"},
+     {"Momentum", "LorentzIndex", "Momentum", "LorentzIndex"},
+     {"Momentum", "LorentzIndex", "Momentum", "Momentum"},
+     {"Momentum", "Momentum", "LorentzIndex", "LorentzIndex"},
+     {"Momentum", "Momentum", "LorentzIndex", "Momentum"},
+     {"Momentum", "Momentum", "Momentum", "LorentzIndex"},
+     {"Momentum", "Momentum", "Momentum", "Momentum"}
+    }], "\[NoBreak]", ")"}], TraditionalForm]], "Output",ExpressionUUID->\
+"7c14f5e2-094e-4ea4-8a59-124e977a519f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Eps", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "[", 
+        RowBox[{"\[Mu]", ",", " ", "D"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "[", 
+        RowBox[{"\[Nu]", ",", "D"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], "[", 
+        RowBox[{"\[Alpha]", ",", " ", "D"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "4", "]"}], "]"}], "[", 
+        RowBox[{"\[Beta]", ",", "D"}], "]"}]}], "]"}], "&"}], ")"}], "/@", 
+   "%"}], " "}]], "Input",ExpressionUUID->"074fd1b9-2a10-4790-b0fd-\
+0e301e5e47bc"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox[
+       FormBox["\[Mu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Nu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Alpha]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Beta]",
+        TraditionalForm],
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox[
+       FormBox["\[Mu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Nu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Alpha]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Beta]",
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox[
+       FormBox["\[Mu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Nu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Alpha]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Beta]",
+        TraditionalForm],
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox[
+       FormBox["\[Mu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Nu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Alpha]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Beta]",
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox[
+       FormBox["\[Mu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Nu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Alpha]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Beta]",
+        TraditionalForm],
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox[
+       FormBox["\[Mu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Nu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Alpha]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Beta]",
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox[
+       FormBox["\[Mu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Nu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Alpha]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Beta]",
+        TraditionalForm],
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox[
+       FormBox["\[Mu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Nu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Alpha]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Beta]",
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Nu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Alpha]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Beta]",
+        TraditionalForm],
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Nu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Alpha]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Beta]",
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Nu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Alpha]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Beta]",
+        TraditionalForm],
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Nu]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Alpha]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Beta]",
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Nu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Alpha]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Beta]",
+        TraditionalForm],
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Nu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Alpha]",
+        TraditionalForm],
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Beta]",
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Nu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Alpha]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox[
+       FormBox["\[Beta]",
+        TraditionalForm],
+       TraditionalForm]}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Nu]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Alpha]",
+       TraditionalForm], "\[NoBreak]", 
+      FormBox["\[Beta]",
+       TraditionalForm]}]]}], "}"}], TraditionalForm]], "Output",ExpressionUUI\
+D->"a8e807e3-3e70-4311-9c13-f67868074314"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FCE", "/@", " ", "%"}]], "Input",ExpressionUUID->"f6160122-c816-4108-82d3-c4ae69169167"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+     "\[Mu]", "\[NoBreak]", "\[Nu]", "\[NoBreak]", "\[Alpha]", "\[NoBreak]", 
+      "\[Beta]"}]], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+     "\[Mu]", "\[NoBreak]", "\[Nu]", "\[NoBreak]", "\[Alpha]", "\[NoBreak]", 
+      "\[Beta]"}]], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], ",", 
+      FormBox["\[Nu]",
+       TraditionalForm], ",", "\[Alpha]", ",", 
+      FormBox["\[Beta]",
+       TraditionalForm]}], ")"}], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+     "\[Mu]", "\[NoBreak]", "\[Nu]", "\[NoBreak]", "\[Alpha]", "\[NoBreak]", 
+      "\[Beta]"}]], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], ",", "\[Nu]", ",", 
+      FormBox["\[Alpha]",
+       TraditionalForm], ",", 
+      FormBox["\[Beta]",
+       TraditionalForm]}], ")"}], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], ",", "\[Nu]", ",", 
+      FormBox["\[Alpha]",
+       TraditionalForm], ",", "\[Beta]"}], ")"}], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{
+      FormBox["\[Mu]",
+       TraditionalForm], ",", "\[Nu]", ",", "\[Alpha]", ",", 
+      FormBox["\[Beta]",
+       TraditionalForm]}], ")"}], ",", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{
+     "\[Mu]", "\[NoBreak]", "\[Nu]", "\[NoBreak]", "\[Alpha]", "\[NoBreak]", 
+      "\[Beta]"}]], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{"\[Mu]", ",", 
+      FormBox["\[Nu]",
+       TraditionalForm], ",", 
+      FormBox["\[Alpha]",
+       TraditionalForm], ",", 
+      FormBox["\[Beta]",
+       TraditionalForm]}], ")"}], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{"\[Mu]", ",", 
+      FormBox["\[Nu]",
+       TraditionalForm], ",", 
+      FormBox["\[Alpha]",
+       TraditionalForm], ",", "\[Beta]"}], ")"}], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{"\[Mu]", ",", 
+      FormBox["\[Nu]",
+       TraditionalForm], ",", "\[Alpha]", ",", 
+      FormBox["\[Beta]",
+       TraditionalForm]}], ")"}], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{"\[Mu]", ",", 
+      FormBox["\[Nu]",
+       TraditionalForm], ",", "\[Alpha]", ",", "\[Beta]"}], ")"}], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{"\[Mu]", ",", "\[Nu]", ",", 
+      FormBox["\[Alpha]",
+       TraditionalForm], ",", 
+      FormBox["\[Beta]",
+       TraditionalForm]}], ")"}], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{"\[Mu]", ",", "\[Nu]", ",", 
+      FormBox["\[Alpha]",
+       TraditionalForm], ",", "\[Beta]"}], ")"}], ",", 
+    RowBox[{"HighEnergyPhysics`fctools`FeynCalcExternal`Private`eps", "(", 
+     RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Alpha]", ",", 
+      FormBox["\[Beta]",
+       TraditionalForm]}], ")"}], ",", 
+    RowBox[{
+     RowBox[{"LC", "(", ")"}], "\[InvisibleApplication]", 
+     RowBox[{"(", 
+      RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Alpha]", ",", "\[Beta]"}], 
+      ")"}]}]}], "}"}], TraditionalForm]], "Output",ExpressionUUID->"b2da5950-\
+a3eb-4fc1-8366-c3419c6fb1e7"]
+}, Open  ]]
+},
+WindowSize->{963.75, 730.5},
+WindowMargins->{{436.5, Automatic}, {71.25, Automatic}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"99c0ee71-c437-42b6-b891-0dc0c7e3af70"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 121, 1, 22, "Input",ExpressionUUID->"04ec48d5-9c9a-492f-a7ac-d4873dac46df"],
+Cell[682, 23, 403, 15, 27, "Text",ExpressionUUID->"74fb1806-6fde-4a1c-86a6-f3c08cec6b4a"],
+Cell[CellGroupData[{
+Cell[1110, 42, 485, 13, 22, "Input",ExpressionUUID->"a4dd9afd-730e-42da-ba5d-4ea5a05287c5"],
+Cell[1598, 57, 1184, 20, 233, "Output",ExpressionUUID->"7c14f5e2-094e-4ea4-8a59-124e977a519f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2819, 82, 788, 24, 22, "Input",ExpressionUUID->"074fd1b9-2a10-4790-b0fd-0e301e5e47bc"],
+Cell[3610, 108, 6268, 228, 26, "Output",ExpressionUUID->"a8e807e3-3e70-4311-9c13-f67868074314"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9915, 341, 112, 1, 22, "Input",ExpressionUUID->"f6160122-c816-4108-82d3-c4ae69169167"],
+Cell[10030, 344, 3573, 91, 83, "Output",ExpressionUUID->"b2da5950-a3eb-4fc1-8366-c3419c6fb1e7"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

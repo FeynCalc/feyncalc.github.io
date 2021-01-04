@@ -1,0 +1,1134 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     44931,       1048]*)
+(*NotebookOutlinePosition[     45629,       1072]*)
+(*  CellTagsIndexPosition[     45585,       1068]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["DSM Diagrams ", "Title"],
+
+Cell[BoxData[{
+    \(\($LoadPhi = True;\)\), "\n", 
+    \(\($LoadFeynArts = True;\)\), "\n", 
+    \(<< \ HighEnergyPhysics`FeynCalc`\)}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(SetOptions[{B0, B1, B00, B11}, \ 
+      BReduce\  \[Rule] \ True]\), "\[IndentingNewLine]", 
+    \(SetOptions[OneLoop, Dimension\  \[Rule] \ D]\)}], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{{BReduce \[Rule] True, B0Unique \[Rule] False, 
+        B0Real \[Rule] False}, {BReduce \[Rule] True}, {BReduce \[Rule] 
+          True}, {BReduce \[Rule] True}}\)], "Output"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{Apart2 \[Rule] True, CancelQP \[Rule] True, 
+      DenominatorOrder \[Rule] False, Dimension \[Rule] D, 
+      FinalSubstitutions \[Rule] {}, Factoring \[Rule] False, 
+      FormatType \[Rule] InputForm, InitialSubstitutions \[Rule] {}, 
+      IntermediateSubstitutions \[Rule] {}, IsolateNames \[Rule] False, 
+      Mandelstam \[Rule] {}, OneLoopSimplify \[Rule] False, 
+      Prefactor \[Rule] 1, ReduceGamma \[Rule] False, 
+      ReduceToScalars \[Rule] False, SmallVariables \[Rule] {}, 
+      WriteOut \[Rule] False, WriteOutPaVe \[Rule] False, 
+      Sum \[Rule] True}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(t11\  = \ 
+        CreateTopologies[1, 1\  \[Rule] \ 1, \ 
+          ExcludeTopologies\  \[Rule] \ {Internal}];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Paint[t11]\)], "Input"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1.1 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-1.38778e-017 0.0151515 2.41777e-017 0.0151515 [
+[ 0 0 0 0 ]
+[ 1 1.1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1.1 L
+0 1.1 L
+closepath
+clip
+newpath
+% Start of sub-graphic
+p
+-1.38778e-017 0.666667 0.333333 1 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.5 .5 L
+s
+.95455 .5 m
+.5 .5 L
+s
+newpath
+.5 .625 .125 270 630 arc
+s
+.04 w
+.5 .5 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T1) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.333333 0.666667 0.666667 1 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.31818 .5 L
+s
+.95455 .5 m
+.68182 .5 L
+s
+newpath
+.5 .54091 .18636 192.68 347.32 arc
+s
+newpath
+.5 .45909 .18636 12.6804 167.32 arc
+s
+.04 w
+.31818 .5 Mdot
+.68182 .5 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T2) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+0 g
+gsave
+.43182 1.06 -66 -10.375 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+gsave
+.5 1.06 -67.8438 -10.2813 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding WindowsANSIEncoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+%%BeginResource: font Times-Roman-MISO
+%%BeginFont: Times-Roman-MISO
+/Times-Roman /Times-Roman-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Times-Roman-MISO
+%%IncludeFont: Times-Roman-MISO
+/Times-Roman-MISO findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica1
+%%IncludeFont: Mathematica1
+/Mathematica1 findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 12.813 moveto
+(\\256) show
+72.688 12.813 moveto
+%%IncludeResource: font Times-Roman-MISO
+%%IncludeFont: Times-Roman-MISO
+/Times-Roman-MISO findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+gsave
+.56818 1.06 -66 -10.375 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{261.813, 287.938},
+  ImageMargins->{{35, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40008;0002?b000`400?l00000o`00003oo`3IfMWo
+0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI
+003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0
+fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT0
+0?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3I
+fMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00
+o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WI
+f@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o
+0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI
+3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0
+fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=
+0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3I
+fMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWI
+o`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WI
+f@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo
+0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI
+003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0
+fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT0
+0?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3I
+fMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00
+o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WI
+f@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o
+0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI
+3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0
+fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=
+0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3I
+fMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWI
+o`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WI
+f@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo
+0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI
+003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0
+fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT0
+0?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3I
+fMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00
+o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WI
+f@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o
+0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI
+3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0
+fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=
+0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3I
+fMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWI
+o`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WI
+f@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo
+0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI
+003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0
+fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT0
+0?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3I
+fMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00
+o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WI
+f@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o
+0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI
+3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0
+fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=
+0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3I
+fMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWI
+o`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WI
+f@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo
+0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI
+003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0
+fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT0
+0?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3I
+fMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00
+o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WI
+f@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o
+0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI
+3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0
+fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=
+0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3I
+fMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWI
+o`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WI
+f@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo
+0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI
+003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0
+fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT0
+0?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3I
+fMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00
+o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WI
+f@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o
+0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI
+3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0
+fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=
+0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3I
+fMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWI
+o`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WI
+f@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo
+0=WIf@d0fMWI001@0=WIf@D000001@3IfMT300000:40fMWI1@0000030=WIf@H00000o`3IfMT00580
+fMWI00<000000=WIf@3IfMT01P3IfMT00`000000fMWI0=WIf@2R0=WIf@030000003IfMT0fMWI00<0
+fMWI00<000000=WIf@3IfMT00P3IfMT00`000000fMWI0=WIf@3m0=WIf@00DP3IfMT00`000000fMWI
+0=WIf@060=WIf@030000003IfMT0fMWI0:80fMWI00<000000=WIf@3IfMT0103IfMT00`000000fMWI
+0=WIf@3o0=WIf@80fMWI001B0=WIf@030000003IfMT0fMWI00H0fMWI00<000000=WIf@3IfMT0XP3I
+fMT00`000000fMWI0=WIf@050=WIf@030000003IfMT0fMWI0?l0fMWI0@3IfMT00580fMWI00<00000
+0=WIf@3IfMT01P3IfMT00`000000fMWI0=WIf@2R0=WIf@030000003IfMT0fMWI00H0fMWI00<00000
+0=WIf@3IfMT0o`3IfMT00580fMWI00<000000=WIf@3IfMT01P3IfMT00`000000fMWI0=WIf@2R0=WI
+f@030000003IfMT0fMWI00L0fMWI00<000000=WIf@3IfMT0oP3IfMT00580fMWI00<000000=WIf@3I
+fMT01P3IfMT00`000000fMWI0=WIf@2R0=WIf@030000003IfMT0fMWI00P0fMWI00<000000=WIf@3I
+fMT0o@3IfMT00580fMWI00<000000=WIf@3IfMT01P3IfMT00`000000fMWI0=WIf@2R0=WIf@030000
+003IfMT0fMWI00P0fMWI00<000000=WIf@3IfMT0o@3IfMT004h0fMWI00D000000=WIf@3IfMT0fMWI
+000000030=WIf@030000003IfMT0fMWI0080fMWI00<000000=WIf@3IfMT0WP3IfMT01@000000fMWI
+0=WIf@3IfMT0000000<0fMWI00<000000=WIf@000000103IfMT00`000000fMWI0=WIf@3m0=WIf@00
+CP3IfMT01@000000fMWI0=WIf@3IfMT0000000<0fMWI00<000000=WIf@3IfMT00`00002P0=WIf@05
+0000003IfMT0fMWI0=WIf@0000000`3IfMT00`000000fMWI000000030=WIf@030000003IfMT0fMWI
+0?h0fMWI001>0=WIf@T00000103IfMT00`000000fMWI0=WIf@2N0=WIf@T000000P3IfMT300000?l0
+fMWI0P3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT0
+0?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3I
+fMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00
+o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WI
+f@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o
+0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI
+3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0
+fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=
+0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+f@d00000o`3IfMT00?`0fMWI0`00000=0=WIf@<00000o03IfMT00?T0fMWI0`00000C0=WIf@800000
+nP3IfMT00?L0fMWI0P00000H0=WIf@<00000m`3IfMT00?D0fMWI0P00000M0=WIf@800000m@3IfMT0
+0?<0fMWI0P00000Q0=WIf@800000l`3IfMT00?80fMWI00<000000=WIf@3IfMT08`3IfMT00`000000
+fMWI0=WIf@3`0=WIf@00l@3IfMT00`000000fMWI0=WIf@0U0=WIf@030000003IfMT0fMWI0>l0fMWI
+003_0=WIf@800000:@3IfMT00`000000fMWI0=WIf@3^0=WIf@00kP3IfMT00`000000fMWI0=WIf@0Z
+0=WIf@030000003IfMT0fMWI0>d0fMWI003]0=WIf@030000003IfMT0fMWI02`0fMWI00<000000=WI
+f@3IfMT0k03IfMT00>d0fMWI00<000000=WIf@3IfMT0;@3IfMT00`000000fMWI0=WIf@3[0=WIf@00
+k03IfMT00`000000fMWI0=WIf@0_0=WIf@030000003IfMT0fMWI0>X0fMWI003[0=WIf@030000003I
+fMT0fMWI0340fMWI00<000000=WIf@3IfMT0j@3IfMT00>X0fMWI00<000000=WIf@3IfMT0<P3IfMT0
+0`000000fMWI0=WIf@3Y0=WIf@00j@3IfMT00`000000fMWI0=WIf@0d0=WIf@030000003IfMT0fMWI
+0>P0fMWI003X0=WIf@030000003IfMT0fMWI03H0fMWI00<000000=WIf@3IfMT0i`3IfMT00>P0fMWI
+00<000000=WIf@3IfMT0=`3IfMT00`000000fMWI0=WIf@3V0=WIf@00j03IfMT00`000000fMWI0=WI
+f@0g0=WIf@030000003IfMT0fMWI0>H0fMWI003W0=WIf@030000003IfMT0fMWI03T0fMWI00<00000
+0=WIf@3IfMT0i@3IfMT00>L0fMWI00<000000=WIf@3IfMT0>@3IfMT00`000000fMWI0=WIf@3U0=WI
+f@00i`3IfMT00`000000fMWI0=WIf@0i0=WIf@030000003IfMT0fMWI0>D0fMWI003V0=WIf@030000
+003IfMT0fMWI03/0fMWI00<000000=WIf@3IfMT0i03IfMT005H0fMWI0P00002<0=WIf@<00000?@3I
+fMT200000>D0fMWI001E0=WIf@@00000RP3IfMT4000003`0fMWI1000003T0=WIf@001`3IfMVP0000
+00l0fMWI<P00000j0=WIfC<00000]P3IfMT00500fMWI3P0000240=WIf@H00000>P3IfMT600000><0
+fMWI001>0=WIf@8000001@3IfMT4000000D0fMWI0P0000230=WIf@@00000?03IfMT400000>@0fMWI
+001<0=WIf@800000203IfMT2000000P0fMWI0P0000220=WIf@<00000?@3IfMT200000>D0fMWI001:
+0=WIf@8000005P3IfMT200000880fMWI00<000000=WIf@3IfMT0>P3IfMT00`000000fMWI0=WIf@3U
+0=WIf@00B@3IfMT00`000000fMWI0=WIf@0H0=WIf@030000003IfMT0fMWI0800fMWI00<000000=WI
+f@3IfMT0>@3IfMT00`000000fMWI0=WIf@3U0=WIf@00B03IfMT00`000000fMWI0=WIf@0J0=WIf@03
+0000003IfMT0fMWI07l0fMWI00<000000=WIf@3IfMT0>@3IfMT00`000000fMWI0=WIf@3U0=WIf@00
+A`3IfMT00`000000fMWI0=WIf@0L0=WIf@030000003IfMT0fMWI07l0fMWI00<000000=WIf@3IfMT0
+=`3IfMT00`000000fMWI0=WIf@3V0=WIf@00AP3IfMT00`000000fMWI0=WIf@0N0=WIf@030000003I
+fMT0fMWI07h0fMWI00<000000=WIf@3IfMT0=`3IfMT00`000000fMWI0=WIf@3V0=WIf@00A@3IfMT0
+0`000000fMWI0=WIf@0P0=WIf@030000003IfMT0fMWI07d0fMWI00<000000=WIf@3IfMT0=P3IfMT0
+0`000000fMWI0=WIf@3W0=WIf@00A03IfMT00`000000fMWI0=WIf@0R0=WIf@030000003IfMT0fMWI
+07d0fMWI00<000000=WIf@3IfMT0=03IfMT00`000000fMWI0=WIf@3X0=WIf@00@`3IfMT00`000000
+fMWI0=WIf@0S0=WIf@030000003IfMT0fMWI07h0fMWI00<000000=WIf@3IfMT0<P3IfMT00`000000
+fMWI0=WIf@3Y0=WIf@00@`3IfMT00`000000fMWI0=WIf@0T0=WIf@030000003IfMT0fMWI07h0fMWI
+00<000000=WIf@3IfMT0<@3IfMT00`000000fMWI0=WIf@3Y0=WIf@00@P3IfMT00`000000fMWI0=WI
+f@0U0=WIf@030000003IfMT0fMWI07l0fMWI00<000000=WIf@3IfMT0;`3IfMT00`000000fMWI0=WI
+f@3Z0=WIf@00@P3IfMT00`000000fMWI0=WIf@0V0=WIf@030000003IfMT0fMWI07h0fMWI00<00000
+0=WIf@3IfMT0;`3IfMT00`000000fMWI0=WIf@3Z0=WIf@00@P3IfMT00`000000fMWI0=WIf@0V0=WI
+f@030000003IfMT0fMWI07l0fMWI00<000000=WIf@3IfMT0;@3IfMT00`000000fMWI0=WIf@3[0=WI
+f@00@P3IfMT00`000000fMWI0=WIf@0V0=WIf@030000003IfMT0fMWI07l0fMWI00<000000=WIf@3I
+fMT0;03IfMT00`000000fMWI0=WIf@3/0=WIf@00@@3IfMT00`000000fMWI0=WIf@0W0=WIf@030000
+003IfMT0fMWI0800fMWI0P00000[0=WIf@030000003IfMT0fMWI0>d0fMWI00110=WIf@030000003I
+fMT0fMWI02P0fMWI00<000000=WIf@3IfMT0P@3IfMT2000002L0fMWI0P00003`0=WIf@00@@3IfMT0
+0`000000fMWI0=WIf@0X0=WIf@030000003IfMT0fMWI08<0fMWI00<000000=WIf@3IfMT08`3IfMT0
+0`000000fMWI0=WIf@3`0=WIf@00@@3IfMT00`000000fMWI0=WIf@0X0=WIf@030000003IfMT0fMWI
+08@0fMWI00<000000=WIf@3IfMT08@3IfMT00`000000fMWI0=WIf@3a0=WIf@00@@3IfMT00`000000
+fMWI0=WIf@0X0=WIf@030000003IfMT0fMWI08D0fMWI0P00000O0=WIf@800000m03IfMT00440fMWI
+00<000000=WIf@3IfMT0:03IfMT00`000000fMWI0=WIf@270=WIf@030000003IfMT0fMWI01X0fMWI
+0P00003f0=WIf@00@@3IfMT00`000000fMWI0=WIf@0X0=WIf@030000003IfMT0fMWI08P0fMWI0P00
+000I0=WIf@030000003IfMT0fMWI0?H0fMWI00110=WIf@030000003IfMT0fMWI02P0fMWI00<00000
+0=WIf@3IfMT0RP3IfMT5000000h0fMWI1P00003i0=WIf@00@@3IfMT00`000000fMWI0=WIf@0X0=WI
+f@030000003IfMT0fMWI08l0fMWI3P00003o0=WIf@00@@3IfMT00`000000fMWI0=WIf@0X0=WIf@03
+0000003IfMT0fMWI0?l0fMWIW@3IfMT00440fMWI00<000000=WIf@3IfMT09`3IfMT00`000000fMWI
+0=WIf@3o0=WIfIh0fMWI00120=WIf@030000003IfMT0fMWI02H0fMWI00<000000=WIf@3IfMT0o`3I
+fMVN0=WIf@00@P3IfMT00`000000fMWI0=WIf@0V0=WIf@030000003IfMT0fMWI0?l0fMWIWP3IfMT0
+0480fMWI00<000000=WIf@3IfMT09P3IfMT00`000000fMWI0=WIf@3o0=WIfIh0fMWI00120=WIf@03
+0000003IfMT0fMWI02D0fMWI00<000000=WIf@3IfMT0o`3IfMVO0=WIf@00@`3IfMT00`000000fMWI
+0=WIf@0T0=WIf@030000003IfMT0fMWI0?l0fMWIW`3IfMT004<0fMWI00<000000=WIf@3IfMT08`3I
+fMT00`000000fMWI0=WIf@3o0=WIfJ00fMWI00140=WIf@030000003IfMT0fMWI0280fMWI00<00000
+0=WIf@3IfMT0o`3IfMVP0=WIf@00A@3IfMT00`000000fMWI0=WIf@0P0=WIf@030000003IfMT0fMWI
+0?l0fMWIX@3IfMT004H0fMWI00<000000=WIf@3IfMT07P3IfMT00`000000fMWI0=WIf@3o0=WIfJ80
+fMWI00170=WIf@030000003IfMT0fMWI01`0fMWI00<000000=WIf@3IfMT0o`3IfMVS0=WIf@00B03I
+fMT00`000000fMWI0=WIf@0J0=WIf@030000003IfMT0fMWI0?l0fMWIY03IfMT004T0fMWI00<00000
+0=WIf@3IfMT0603IfMT00`000000fMWI0=WIf@3o0=WIfJD0fMWI001:0=WIf@030000003IfMT0fMWI
+01H0fMWI00<000000=WIf@3IfMT0o`3IfMVV0=WIf@00B`3IfMT2000001@0fMWI0P00003o0=WIfJT0
+fMWI001=0=WIf@800000403IfMT200000?l0fMWIZ`3IfMT004l0fMWI100000080=WIf@@00000o`3I
+fMV]0=WIf@00D`3IfMT800000?l0fMWI/@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3I
+fMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWI
+o`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WI
+f@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo
+0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI
+003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0
+fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT0
+0?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3I
+fMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00
+o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WI
+f@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o
+0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI
+3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0
+fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=
+0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3I
+fMT00=h0fMWI1P0000110=WIf@H00000h03IfMT00=l0fMWI00@0_kno000000000000_kno@`3IfMT0
+102o_kl000000000002o_koQ0=WIf@00h03IfMT2000004D0fMWI0P00003R0=WIf@00h03IfMT20000
+02L0fMWI00<0V9RH0<K6aP3IfMT06`3IfMT200000>80fMWI003P0=WIf@8000009`3IfMT00`2a/K40
+@T920<K6aP0K0=WIf@800000hP3IfMT00>00fMWI0P00000X0=WIf@0308j>SP12@T80a/K601X0fMWI
+0P00003R0=WIf@00h03IfMT2000002T0fMWI00<0MgMg0492@P36a/H06@3IfMT200000>80fMWI003P
+0=WIf@8000006`3IfMT@0000000307MgM`3IfMT0fMWI01L0fMWI0P00003R0=WIf@00h03IfMT20000
+02T0fMWI00<0MgMg0492@P3IfMT06@3IfMT200000>80fMWI003P0=WIf@800000:03IfMT00`2>SXh0
+@T920<K6aP0J0=WIf@800000hP3IfMT00>00fMWI0P00000W0=WIf@030;6a/@12@T80a/K601/0fMWI
+0P00003R0=WIf@00h03IfMT2000002L0fMWI00<0V9RH0<K6aP3IfMT06`3IfMT200000>80fMWI003P
+0=WIf@800000A@3IfMT200000>80fMWI003P0=WIf@800000A@3IfMT200000>80fMWI003N0=WIf@80
+JFUY0P0000130=WIf@80JFUY0P00003R0=WIf@00gP3IfMT0103<c<`0ZJVY08>3P`12@T930=WIf@04
+0<c<c02YZJT0Ph>30492@^80fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3I
+fMWo0=WIf@d0fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0
+fMWI003o0=WIfOl0fMWI3@3IfMT00?l0fMWIo`3IfMT=0=WIf@00o`3IfMWo0=WIf@d0fMWI003o0=WI
+fOl0fMWI3@3IfMT00001\
+\>"],
+  ImageRangeCache->{{{0, 522.625}, {574.875, 0}} -> {-0.00104756, \
+-0.000363004, 0.252579, 0.252579}, {{0, 174.188}, {226.438, 52.25}} -> \
+{-1.00011, -45.0085, 0.252604, 0.252604}, {{174.188, 348.375}, {226.438, \
+52.25}} -> {-23.0004, -45.0085, 0.252604, 0.252604}}],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{\(FeynArtsGraphics(1 \[Rule] 1)\), "\[InvisibleApplication]", 
+        RowBox[{"(", 
+          TagBox[
+            RowBox[{"(", "\[NoBreak]", GridBox[{
+                  {
+                    FormBox[
+                      
+                      InterpretationBox[\("["\[InvisibleSpace]"T1"\
+\[InvisibleSpace]"]"\),
+                        SequenceForm[ "[", "T1", "]"],
+                        Editable->False],
+                      "TraditionalForm"], 
+                    FormBox[
+                      
+                      InterpretationBox[\("["\[InvisibleSpace]"T2"\
+\[InvisibleSpace]"]"\),
+                        SequenceForm[ "[", "T2", "]"],
+                        Editable->False],
+                      "TraditionalForm"], "Null"},
+                  {"Null", "Null", "Null"},
+                  {"Null", "Null", "Null"}
+                  }], "\[NoBreak]", ")"}],
+            Function[ BoxForm`e$, 
+              MatrixForm[ BoxForm`e$]]], ")"}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(t11\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`TopologyList(\(Topology(
+          2)\)\[InvisibleApplication] \((\(Propagator(
+              Incoming)\)\[InvisibleApplication] \((\(Vertex(
+                  1)\)\[InvisibleApplication] \((1)\), \(Vertex(
+                  4)\)\[InvisibleApplication] \((3)\))\), \(Propagator(
+              Outgoing)\)\[InvisibleApplication] \((\(Vertex(
+                  1)\)\[InvisibleApplication] \((2)\), \(Vertex(
+                  4)\)\[InvisibleApplication] \((3)\))\), \(Propagator(
+              Loop(1))\)\[InvisibleApplication] \((\(Vertex(
+                  4)\)\[InvisibleApplication] \((3)\), \(Vertex(
+                  4)\)\[InvisibleApplication] \((3)\))\))\), \(Topology(
+          2)\)\[InvisibleApplication] \((\(Propagator(
+              Incoming)\)\[InvisibleApplication] \((\(Vertex(
+                  1)\)\[InvisibleApplication] \((1)\), \(Vertex(
+                  3)\)\[InvisibleApplication] \((3)\))\), \(Propagator(
+              Outgoing)\)\[InvisibleApplication] \((\(Vertex(
+                  1)\)\[InvisibleApplication] \((2)\), \(Vertex(
+                  3)\)\[InvisibleApplication] \((4)\))\), \(Propagator(
+              Loop(1))\)\[InvisibleApplication] \((\(Vertex(
+                  3)\)\[InvisibleApplication] \((3)\), \(Vertex(
+                  3)\)\[InvisibleApplication] \((4)\))\), \(Propagator(
+              Loop(1))\)\[InvisibleApplication] \((\(Vertex(
+                  3)\)\[InvisibleApplication] \((3)\), \(Vertex(
+                  3)\)\[InvisibleApplication] \((4)\))\))\))\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(\(FF\  = \ 
+        InsertFields[t11[\([2]\)], \ F[1, {1}]\  \[Rule] \ F[1, {1}], \ 
+          Model\  \[Rule] \ QED, \ ExcludeParticles\  \[Rule] \ {}, \ 
+          InsertionLevel\  \[Rule] \ {Particles}]\ ;\)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(ampFC0\  = \ CreateFeynAmp[FF] // ToFA1Conventions\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{"FeynAmpList", "(", 
+          
+          RowBox[{\(Model \[Rule] QED\), 
+            ",", \(GenericModel \[Rule] "Lorentz"\), 
+            ",", \(AmplitudeLevel \[Rule] {Particles}\), 
+            ",", \(ExcludeParticles \[Rule] {}\), 
+            ",", \(LastSelections \[Rule] {}\), 
+            ",", \(ExcludeFieldPoints \[Rule] {}\), 
+            ",", \(Restrictions \[Rule] {}\), ",", 
+            RowBox[{"Process", "\[Rule]", 
+              RowBox[{
+                RowBox[{"(", "\[NoBreak]", GridBox[{
+                      {\(F(1, {1})\), "p1", "ME"}
+                      }], "\[NoBreak]", ")"}], "\[Rule]", 
+                RowBox[{"(", "\[NoBreak]", GridBox[{
+                      {\(F(1, {1})\), "k1", "ME"}
+                      }], "\[NoBreak]", ")"}]}]}]}], ")"}], 
+        "\[InvisibleApplication]", 
+        RowBox[{"(", 
+          RowBox[{"\[Integral]", 
+            StyleBox[\(\[DifferentialD]\^D q1\),
+              ZeroWidthTimes->True], "(", 
+            FormBox[
+              RowBox[{"-", 
+                RowBox[{
+                  RowBox[{"(", 
+                    RowBox[{"\[ImaginaryI]", " ", 
+                      RowBox[{
+                        RowBox[{"\[CurlyPhi]", "(", 
+                          FormBox["k1",
+                            "TraditionalForm"], ",", "ME", ")"}], ".", 
+                        RowBox[{"(", 
+                          RowBox[{
+                            RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                              RowBox[{
+                                SuperscriptBox["\[Gamma]", 
+                                  FormBox[
+                                    FormBox["li2",
+                                      "TraditionalForm"],
+                                    "TraditionalForm"]], 
+                                ".", \(\[Gamma]\^6\)}]}], "+", 
+                            RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                              RowBox[{
+                                SuperscriptBox["\[Gamma]", 
+                                  FormBox[
+                                    FormBox["li2",
+                                      "TraditionalForm"],
+                                    "TraditionalForm"]], 
+                                ".", \(\[Gamma]\^7\)}]}]}], ")"}], ".", 
+                        RowBox[{"(", 
+                          RowBox[{"ME", "+", 
+                            RowBox[{
+                              FormBox["\<\"\[Gamma]\"\>",
+                                "TraditionalForm"], "\[CenterDot]", 
+                              FormBox["q1",
+                                "TraditionalForm"]}]}], ")"}], ".", 
+                        RowBox[{"(", 
+                          RowBox[{
+                            RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                              RowBox[{
+                                SuperscriptBox["\[Gamma]", 
+                                  FormBox[
+                                    FormBox["li1",
+                                      "TraditionalForm"],
+                                    "TraditionalForm"]], 
+                                ".", \(\[Gamma]\^6\)}]}], "+", 
+                            RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                              RowBox[{
+                                SuperscriptBox["\[Gamma]", 
+                                  FormBox[
+                                    FormBox["li1",
+                                      "TraditionalForm"],
+                                    "TraditionalForm"]], 
+                                ".", \(\[Gamma]\^7\)}]}]}], ")"}], ".", 
+                        RowBox[{"\[CurlyPhi]", "(", 
+                          FormBox["p1",
+                            "TraditionalForm"], ",", "ME", ")"}]}], 
+                      " ", \(g\^\(li1  li2\)\)}], ")"}], 
+                  "/", \((16\ \[Pi]\^4\ \((q1\^2 - 
+                            ME\^2)\) . \((q1 - k1)\)\^2)\)}]}],
+              "TraditionalForm"], ")"}], ")"}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(ampFC = \(ampFC0 // Last\) // Last\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"-", 
+        RowBox[{
+          RowBox[{"(", 
+            RowBox[{"\[ImaginaryI]", " ", 
+              RowBox[{
+                RowBox[{"\[CurlyPhi]", "(", 
+                  FormBox["k1",
+                    "TraditionalForm"], ",", "ME", ")"}], ".", 
+                RowBox[{"(", 
+                  RowBox[{
+                    RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                      RowBox[{
+                        SuperscriptBox["\[Gamma]", 
+                          FormBox[
+                            FormBox["li2",
+                              "TraditionalForm"],
+                            "TraditionalForm"]], ".", \(\[Gamma]\^6\)}]}], 
+                    "+", 
+                    RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                      RowBox[{
+                        SuperscriptBox["\[Gamma]", 
+                          FormBox[
+                            FormBox["li2",
+                              "TraditionalForm"],
+                            "TraditionalForm"]], ".", \(\[Gamma]\^7\)}]}]}], 
+                  ")"}], ".", 
+                RowBox[{"(", 
+                  RowBox[{"ME", "+", 
+                    RowBox[{
+                      FormBox["\<\"\[Gamma]\"\>",
+                        "TraditionalForm"], "\[CenterDot]", 
+                      FormBox["q1",
+                        "TraditionalForm"]}]}], ")"}], ".", 
+                RowBox[{"(", 
+                  RowBox[{
+                    RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                      RowBox[{
+                        SuperscriptBox["\[Gamma]", 
+                          FormBox[
+                            FormBox["li1",
+                              "TraditionalForm"],
+                            "TraditionalForm"]], ".", \(\[Gamma]\^6\)}]}], 
+                    "+", 
+                    RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                      RowBox[{
+                        SuperscriptBox["\[Gamma]", 
+                          FormBox[
+                            FormBox["li1",
+                              "TraditionalForm"],
+                            "TraditionalForm"]], ".", \(\[Gamma]\^7\)}]}]}], 
+                  ")"}], ".", 
+                RowBox[{"\[CurlyPhi]", "(", 
+                  FormBox["p1",
+                    "TraditionalForm"], ",", "ME", ")"}]}], 
+              " ", \(g\^\(li1  li2\)\)}], ")"}], 
+          "/", \((16\ \[Pi]\^4\ \((q1\^2 - ME\^2)\) . \((q1 - k1)\)\^2)\)}]}],
+       TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(aff\  = \ 
+      Factor2[\(DiracSimplify[
+              OneLoopSimplify[ampFC /. \ Spinor[__] \[Rule] \ 1, q1, 
+                Dimension \[Rule] D], \ 
+              DiracSubstitute67\  \[Rule] \ True]\  /. \ 
+            k1 \[Rule] \ p\)\  /. \ ME\  \[Rule] \ m]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", \(EL\^2\), " ", 
+          RowBox[{"(", 
+            RowBox[{\(D\ m\), "-", 
+              RowBox[{"D", " ", 
+                RowBox[{
+                  FormBox["\<\"\[Gamma]\"\>",
+                    "TraditionalForm"], "\[CenterDot]", 
+                  FormBox["q1",
+                    "TraditionalForm"]}]}], "+", 
+              RowBox[{"2", " ", 
+                RowBox[{
+                  FormBox["\<\"\[Gamma]\"\>",
+                    "TraditionalForm"], "\[CenterDot]", 
+                  FormBox["q1",
+                    "TraditionalForm"]}]}]}], 
+            ")"}]}], \(16\ \[Pi]\^4\ \((q1\^2 - m\^2)\) . \((q1 - p)\)\^2\)], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(ampreduced = \(\(FullSimplify /@ Collect2[FCE@OneLoop[q1, aff], B0] /. 
+            p1\  \[Rule] \ p\)\  /. \ ME \[Rule] \ m\)\  /. \ 
+        EL\  \[Rule] \ e\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        FractionBox[
+          RowBox[{\(e\^2\), " ", 
+            RowBox[{\(B\_0\), "(", 
+              FormBox[
+                SuperscriptBox[
+                  FormBox["p",
+                    "TraditionalForm"], "2"],
+                "TraditionalForm"], ",", "0", ",", \(m\^2\), ")"}], " ", 
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{\(\[Gamma]\[CenterDot]p\), " ", 
+                  RowBox[{"(", 
+                    RowBox[{\(m\^2\), "+", 
+                      FormBox[
+                        SuperscriptBox[
+                          FormBox["p",
+                            "TraditionalForm"], "2"],
+                        "TraditionalForm"]}], ")"}]}], "-", 
+                RowBox[{"4", " ", "m", " ", 
+                  FormBox[
+                    SuperscriptBox[
+                      FormBox["p",
+                        "TraditionalForm"], "2"],
+                    "TraditionalForm"]}]}], ")"}]}], 
+          RowBox[{"16", " ", \(\[Pi]\^2\), " ", 
+            FormBox[
+              SuperscriptBox[
+                FormBox["p",
+                  "TraditionalForm"], "2"],
+              "TraditionalForm"]}]], "-", 
+        FractionBox[
+          RowBox[{\(e\^2\), " ", 
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  RowBox[{
+                    FormBox[\("A"\_"0"\),
+                      "TraditionalForm"], "(", 
+                    FormBox[\(m\^2\),
+                      "TraditionalForm"], ")"}], 
+                  " ", \(\[Gamma]\[CenterDot]p\)}], "+", 
+                RowBox[{\((\[Gamma]\[CenterDot]p - 2\ m)\), " ", 
+                  FormBox[
+                    SuperscriptBox[
+                      FormBox["p",
+                        "TraditionalForm"], "2"],
+                    "TraditionalForm"]}]}], ")"}]}], 
+          RowBox[{"16", " ", \(\[Pi]\^2\), " ", 
+            FormBox[
+              SuperscriptBox[
+                FormBox["p",
+                  "TraditionalForm"], "2"],
+              "TraditionalForm"]}]]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(A2 = \ 
+      Coefficient[ampreduced, GS[p], 0] // 
+        Simplify\), "\[IndentingNewLine]", 
+    \(B2 = \ Coefficient[ampreduced, GS[p], 1] // Simplify\)}], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      FractionBox[
+        RowBox[{\(e\^2\), " ", "m", " ", 
+          RowBox[{"(", 
+            RowBox[{"1", "-", 
+              RowBox[{"2", " ", 
+                RowBox[{\(B\_0\), "(", 
+                  FormBox[
+                    SuperscriptBox[
+                      FormBox["p",
+                        "TraditionalForm"], "2"],
+                    "TraditionalForm"], ",", "0", ",", \(m\^2\), ")"}]}]}], 
+            ")"}]}], \(8\ \[Pi]\^2\)], TraditionalForm]], "Output"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"-", 
+        FractionBox[
+          RowBox[{\(e\^2\), " ", 
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  FormBox[\("A"\_"0"\),
+                    "TraditionalForm"], "(", 
+                  FormBox[\(m\^2\),
+                    "TraditionalForm"], ")"}], "+", 
+                FormBox[
+                  SuperscriptBox[
+                    FormBox["p",
+                      "TraditionalForm"], "2"],
+                  "TraditionalForm"], "-", 
+                RowBox[{
+                  RowBox[{\(B\_0\), "(", 
+                    FormBox[
+                      SuperscriptBox[
+                        FormBox["p",
+                          "TraditionalForm"], "2"],
+                      "TraditionalForm"], ",", "0", ",", \(m\^2\), ")"}], " ",
+                   
+                  RowBox[{"(", 
+                    RowBox[{\(m\^2\), "+", 
+                      FormBox[
+                        SuperscriptBox[
+                          FormBox["p",
+                            "TraditionalForm"], "2"],
+                        "TraditionalForm"]}], ")"}]}]}], ")"}]}], 
+          RowBox[{"16", " ", \(\[Pi]\^2\), " ", 
+            FormBox[
+              SuperscriptBox[
+                FormBox["p",
+                  "TraditionalForm"], "2"],
+              "TraditionalForm"]}]]}], TraditionalForm]], "Output"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1400}, {0, 967}},
+WindowSize->{1158, 661},
+WindowMargins->{{75, Automatic}, {Automatic, 126}},
+Magnification->2,
+StyleDefinitions -> "REPORT.NB"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 30, 0, 158, "Title"],
+Cell[1809, 55, 146, 3, 133, "Input"],
+
+Cell[CellGroupData[{
+Cell[1980, 62, 178, 3, 99, "Input"],
+Cell[2161, 67, 213, 3, 129, "Output"],
+Cell[2377, 72, 626, 10, 231, "Output"]
+}, Open  ]],
+Cell[3018, 85, 148, 3, 65, "Input"],
+
+Cell[CellGroupData[{
+Cell[3191, 92, 43, 1, 93, "Input"],
+Cell[3237, 95, 26284, 566, 608, 7294, 327, "GraphicsData", "PostScript", \
+"Graphics"],
+Cell[29524, 663, 1032, 25, 185, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[30593, 693, 36, 1, 93, "Input"],
+Cell[30632, 696, 1565, 24, 293, "Output"]
+}, Open  ]],
+Cell[32212, 723, 275, 5, 161, "Input"],
+
+Cell[CellGroupData[{
+Cell[32512, 732, 83, 1, 93, "Input"],
+Cell[32598, 735, 4089, 83, 306, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[36724, 823, 67, 1, 93, "Input"],
+Cell[36794, 826, 2530, 58, 161, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[39361, 889, 297, 6, 195, "Input"],
+Cell[39661, 897, 757, 19, 154, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[40455, 921, 192, 3, 161, "Input"],
+Cell[40650, 926, 2109, 55, 154, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[42796, 986, 189, 4, 127, "Input"],
+Cell[42988, 992, 508, 13, 150, "Output"],
+Cell[43499, 1007, 1404, 37, 154, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

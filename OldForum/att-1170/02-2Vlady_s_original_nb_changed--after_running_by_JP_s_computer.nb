@@ -1,0 +1,334 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9470,        326]
+NotebookOptionsPosition[      8514,        287]
+NotebookOutlinePosition[      8874,        303]
+CellTagsIndexPosition[      8831,        300]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$LoadAddOns", "=", 
+   RowBox[{"{", "\"\<FeynHelpers\>\"", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "FeynCalc`"}]}], "Input"],
+
+Cell[BoxData[
+ FormBox["\<\"FeynCalc is already loaded! To reload it, please restart the \
+kernel.\"\>", TraditionalForm]], "Print",
+ CellChangeTimes->{3.6917758357302427`*^9}],
+
+Cell[BoxData[
+ FormBox["$Aborted", TraditionalForm]], "Output",
+ CellChangeTimes->{3.691775835736423*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"int10", "=", 
+  RowBox[{
+   RowBox[{"FAD", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"q", ",", "0", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"q", "+", "p"}], ",", "0", ",", "3"}], "}"}]}], "]"}], "/", 
+   RowBox[{"(", 
+    RowBox[{"I", " ", 
+     RowBox[{"Pi", "^", "2"}]}], ")"}]}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"\[ImaginaryI]", " ", 
+     FormBox[
+      FractionBox["1", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          InterpretationBox[
+           RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+            SuperscriptBox["q", "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+           SequenceForm["[", $CellContext`q^2, "]"],
+           Editable->False], ")"}], "3"], ".", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          InterpretationBox[
+           RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"p", "+", "q"}], ")"}], "2"], 
+            "\[InvisibleSpace]", "\<\"]\"\>"}],
+           SequenceForm["[", ($CellContext`p + $CellContext`q)^2, "]"],
+           Editable->False], ")"}], "3"]}]],
+      TraditionalForm]}], 
+    SuperscriptBox["\[Pi]", "2"]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.6917758357734118`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"int11", "=", 
+  RowBox[{"ToPaVe", "[", 
+   RowBox[{"int10", ",", "q"}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["\<\"F\"\>", "\<\"0\"\>"], "(", 
+   RowBox[{"0", ",", "0", ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", "0", ",", "0", ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", "0", ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", "0", ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", 
+    SuperscriptBox[
+     FormBox[
+      FormBox["p",
+       TraditionalForm],
+      TraditionalForm], "2"], ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+    "0", ",", "0"}], ")"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.691775835800899*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"int12", "=", 
+  RowBox[{"FIREBurn", "[", 
+   RowBox[{"int10", ",", 
+    RowBox[{"{", "q", "}"}], ",", 
+    RowBox[{"{", "p", "}"}]}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"FIREBurn", "(", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{"\[ImaginaryI]", " ", 
+       FormBox[
+        FractionBox["1", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            InterpretationBox[
+             RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+              SuperscriptBox["q", "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+             SequenceForm["[", $CellContext`q^2, "]"],
+             Editable->False], ")"}], "3"], ".", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            InterpretationBox[
+             RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"p", "+", "q"}], ")"}], "2"], 
+              "\[InvisibleSpace]", "\<\"]\"\>"}],
+             SequenceForm["[", ($CellContext`p + $CellContext`q)^2, "]"],
+             Editable->False], ")"}], "3"]}]],
+        TraditionalForm]}], 
+      SuperscriptBox["\[Pi]", "2"]]}], ",", 
+    RowBox[{"{", "q", "}"}], ",", 
+    RowBox[{"{", "p", "}"}]}], ")"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.691775835819931*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"int13", "=", 
+  RowBox[{"ToPaVe", "[", 
+   RowBox[{"int12", ",", "q"}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  TemplateBox[{
+   "FCLoopSplit","fail",
+    "\"Splitting the expression \\!\\(\\*FormBox[RowBox[{\\\"FIREBurn\\\", \\\
+\"(\\\", RowBox[{RowBox[{\\\"-\\\", FractionBox[\\\"\[ImaginaryI]\\\", \
+RowBox[{SuperscriptBox[\\\"\[Pi]\\\", \\\"2\\\"], \\\" \\\", \
+RowBox[{SuperscriptBox[FormBox[\\\"q\\\", TraditionalForm], \\\"2\\\"], \\\".\
+\\\", SuperscriptBox[FormBox[\\\"q\\\", TraditionalForm], \\\"2\\\"], \\\".\\\
+\", SuperscriptBox[FormBox[\\\"q\\\", TraditionalForm], \\\"2\\\"], \
+\\\".\\\", SuperscriptBox[RowBox[{\\\"(\\\", RowBox[{FormBox[\\\"p\\\", \
+TraditionalForm], \\\"+\\\", FormBox[\\\"q\\\", TraditionalForm]}], \
+\\\")\\\"}], \\\"2\\\"], \\\".\\\", SuperscriptBox[RowBox[{\\\"(\\\", \
+RowBox[{FormBox[\\\"p\\\", TraditionalForm], \\\"+\\\", FormBox[\\\"q\\\", \
+TraditionalForm]}], \\\")\\\"}], \\\"2\\\"], \\\".\\\", \
+SuperscriptBox[RowBox[{\\\"(\\\", RowBox[{FormBox[\\\"p\\\", \
+TraditionalForm], \\\"+\\\", FormBox[\\\"q\\\", TraditionalForm]}], \
+\\\")\\\"}], \\\"2\\\"]}]}]]}], \\\",\\\", RowBox[{\\\"{\\\", \\\"q\\\", \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \\\"p\\\", \\\"}\\\"}]}], \
+\\\")\\\"}], TraditionalForm]\\) into loop and non-loop pieces failed!\"",2,
+    968,26,16273730367978567171,"Local"},
+   "MessageTemplate"], TraditionalForm]], "Message", "MSG",
+ CellChangeTimes->{3.6917758358520184`*^9}],
+
+Cell[BoxData[
+ FormBox["$Aborted", TraditionalForm]], "Output",
+ CellChangeTimes->{3.691775835857689*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"int11", "\[Equal]", "int13"}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FormBox[
+    RowBox[{
+     SubscriptBox["\<\"F\"\>", "\<\"0\"\>"], "(", 
+     RowBox[{"0", ",", "0", ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", "0", ",", "0", ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", "0", ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", "0", ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", 
+      SuperscriptBox[
+       FormBox[
+        FormBox["p",
+         TraditionalForm],
+        TraditionalForm], "2"], ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+      "0", ",", "0"}], ")"}],
+    TraditionalForm], "\[LongEqual]", "int13"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.691775835900669*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 621},
+WindowMargins->{{202, Automatic}, {Automatic, 14}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 178, 5, 54, "Input"],
+Cell[761, 29, 176, 3, 20, "Print"],
+Cell[940, 34, 105, 2, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1082, 41, 362, 12, 32, "Input"],
+Cell[1447, 55, 989, 27, 62, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2473, 87, 114, 3, 32, "Input"],
+Cell[2590, 92, 1320, 51, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3947, 148, 176, 5, 32, "Input"],
+Cell[4126, 155, 1156, 31, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5319, 191, 114, 3, 32, "Input"],
+Cell[5436, 196, 1360, 22, 45, "Message"],
+Cell[6799, 220, 105, 2, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6941, 227, 64, 1, 32, "Input"],
+Cell[7008, 230, 1490, 54, 38, "Output"]
+}, Open  ]]
+}
+]
+*)
+

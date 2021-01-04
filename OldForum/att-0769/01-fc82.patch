@@ -1,0 +1,31 @@
+diff --git Models/FCQCDLorentz.gen Models/FCQCDLorentz.gen
+index 1eebd9d..cd6be3d 100644
+--- Models/FCQCDLorentz.gen
++++ Models/FCQCDLorentz.gen
+@@ -10,6 +10,8 @@ KinematicIndices[ V ] = {Lorentz, Gluon};
+ KinematicIndices[ U ] = {Gluon}
+ PropagatorType[ V ] = Cycles;
+ 
++$FermionLines = True
++
+ TheLabel[ Index[Lorentz, i_Integer] ] := Greek[i + 11]
+ 
+ (*
+diff --git general/Collect3.m general/Collect3.m
+index ce2ef6e..5f11155 100644
+--- general/Collect3.m
++++ general/Collect3.m
+@@ -47,7 +47,11 @@ Collect3[expr_, vars_List, opts___?OptionQ] := Block[{fac, hva, mli},
+ *)
+      hva = (Hold[HoldPattern][#[___]]& /@ ( Hold/@vars ) ) /. Hold[a_] :> a;
+      hva = Alternatives @@ hva;
+-     mli = MonomialList[expr, Union@Cases[expr,hva,-1], CoefficientDomain -> RationalFunctions ]; If[fac =!= False, mli = Map[fac, mli]];
++     If[$VersionNumber>=6,
++       mli = MonomialList[expr, vars],
++       mli = MonomialList[expr, Union@Cases[expr,hva,-1], CoefficientDomain -> RationalFunctions ];
++     ];
++     If[fac =!= False, mli = Map[fac, mli]];
+      Apply[Head/.{opts}/.Options[Collect3], mli]
+ ];
+ 
+

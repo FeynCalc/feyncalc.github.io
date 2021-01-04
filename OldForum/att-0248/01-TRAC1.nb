@@ -1,0 +1,267 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8303,        207]*)
+(*NotebookOutlinePosition[      9025,        232]*)
+(*  CellTagsIndexPosition[      8981,        228]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(<< HighEnergyPhysics`FeynCalc`\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(tr = TR[Calc[#]] &;\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\({ScalarProduct[p, p] = mw^2, ScalarProduct[q, q] = 0, 
+        ScalarProduct[l, l] = \ \((x + y)\)^2\ \ mw^2, 
+        ScalarProduct[l3, l3] = \ x^2\ \ mw^2, 
+        ScalarProduct[l4, l4] = \ x^2\ \ mw^2, 
+        ScalarProduct[p, l] = \ \((x + y)\)\ \ mw^2, 
+        ScalarProduct[p, l3] = \ x\ \ mw^2, 
+        ScalarProduct[p, l4] = \ x\ \ mw^2, ScalarProduct[l, q] = 0, 
+        ScalarProduct[l3, q] = 0, ScalarProduct[l4, q] = 0, 
+        ScalarProduct[p, q] = 0, 
+        Pair[Momentum[q, ___], LorentzIndex[\[Mu], ___]] = 0, 
+        Pair[Momentum[p, d___], LorentzIndex[\[Alpha], ___]] = \ \ Pair[
+            Momentum[q, d], LorentzIndex[\[Alpha], d]], 
+        Pair[Momentum[p, d___], 
+            LorentzIndex[\[Beta], ___]] = \(-Pair[Momentum[q, d], 
+              LorentzIndex[\[Beta], d]]\), \ 
+        Pair[Momentum[l, d___], 
+            LorentzIndex[\[Alpha], ___]] = \ \ 2\ \ y\ \ Pair[Momentum[q, d], 
+              LorentzIndex[\[Alpha], d]], 
+        Pair[Momentum[l, d___], 
+            LorentzIndex[\[Beta], ___]] = \(-2\)\ \ x\ \ Pair[Momentum[q, d], 
+              LorentzIndex[\[Beta], d]], \ 
+        Pair[Momentum[l, d___], 
+            LorentzIndex[\[Mu], ___]] = \((x + y)\)\ \ Pair[Momentum[p, d], 
+              LorentzIndex[\[Mu], d]], \ 
+        Pair[Momentum[l3, d___], LorentzIndex[\[Alpha], ___]] = 
+          2  x\ Pair[Momentum[q, d], LorentzIndex[\[Alpha], d]], 
+        Pair[Momentum[l3, d___], LorentzIndex[\[Beta], ___]] = 0, \ 
+        Pair[Momentum[l3, d___], LorentzIndex[\[Mu], ___]] = 
+          x\ \ Pair[Momentum[p, d], LorentzIndex[\[Mu], d]], 
+        Pair[Momentum[l4, d___], LorentzIndex[\[Alpha], ___]] = 0, 
+        Pair[Momentum[l4, d___], LorentzIndex[\[Beta], ___]] = \(-2\) 
+            x\ Pair[Momentum[q, d], LorentzIndex[\[Beta], d]], \ 
+        Pair[Momentum[l4, d___], LorentzIndex[\[Mu], ___]] = 
+          x\ Pair[Momentum[p, d], LorentzIndex[\[Mu], d]]};\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(PL = \((1 - GAD[5])\)/2;\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(PR = \((1 + GAD[5])\)/2;\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(s[a_, b_] := 
+      I/2 \((GAD[a] . GAD[b] - GAD[b] . GAD[a])\)\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]a[c_, d_] := 
+      FullSimplify[
+          Calc[GAD[\[Alpha]] . \((AL\ PL\  + AR\ \ PR\ )\)\  + \ 
+              1\/\[CapitalLambda]\ \((\ \(-\((\ 
+                          CL\ PL\  + CR\ \ PR)\)\)\ \((FVD[c, \[Alpha]] + 
+                          FVD[d, \[Alpha]])\)\  - 
+                    4\ I\ \((DL\ PL\  + \ DR\ \ PR)\) . \ 
+                        Contract[
+                          s[\[Alpha], \[Rho]]\ \ \((FVD[p, \[Rho]] - \ 
+                                FVD[q, \[Rho]])\)]\ )\)]]\  // 
+        FCE\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]\[Alpha]\[Mu] = 
+        FullSimplify[
+            Calc[\ 1\/\[CapitalLambda]\ \((\ \ \ \((\ \((\ Qb\ CL\  + BL\ )\) 
+                            PL\  + \((\ Qb\ CR\  + BR\ )\) 
+                            PR\ )\)\ MTD[\[Alpha], \[Mu]] + 
+                    4\ I\ \((DL\ PL\  + \ DR\ \ PR)\) . \ 
+                        s[\[Alpha], \[Mu]]\ )\)]] // 
+          FCE;\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]b[e_, f_] := 
+      FullSimplify[
+          Calc[GAD[\[Beta]] . \((\(AL\^*\)\ PL\  + \(AR\^*\)\ \ PR\ )\)\  + \ 
+              1\/\[CapitalLambda]\ \((\ \(-\((\ \(CL\^*\)\ PR\  + \(CR\^*\)\ \
+PL)\)\)\ \((FVD[e, \[Beta]] + FVD[f, \[Beta]])\)\  + 
+                    4\ I\ \((\(DL\^*\)\ \ PR\  + \ \(DR\^*\)\ PL)\) . \ 
+                        Contract[
+                          s[\[Beta], \[Lambda]]\ \ \((FVD[p, \[Lambda]] + \ 
+                                FVD[q, \[Lambda]])\)]\ )\)]]\  // 
+        FCE\)\(\[IndentingNewLine]\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]\[Beta]\[Mu] = 
+        FullSimplify[
+            Calc[\ 1\/\[CapitalLambda]\ \((\ \ \ \((\ \((\ 
+                              Qb\ \ \(CL\^*\)\  + \ \(BL\^*\)\ )\) 
+                            PR\  + \((\ Qb\ \ \(CR\^*\)\  + \(BR\^*\)\ )\) 
+                            PL\ )\)\ MTD[\[Beta], \[Mu]] - 
+                    4\ I\ \((\(DL\^*\)\ PR\  + \ \(DR\^*\)\ \ PL)\) . \ 
+                        s[\ \[Beta], \[Mu]]\ )\)]] // 
+          FCE;\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(\[CapitalGamma]\[Alpha]\[Beta] = 
+        Calc[\ 2\/\[CapitalLambda]\ \((\ \ \ \((Co\  + \ 
+                      I\ C5\ \ GAD[5])\) . \ s[\ \[Alpha], \[Beta]]\ )\)]\  // 
+          FCE;\)\(\[IndentingNewLine]\)
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[CapitalGamma]t\[Mu] = \ 
+        DiracReduce[
+            Qt\ \ GAD[\[Mu]]\  - \ 
+              4\/\[CapitalLambda]\ \((I\ abo\  - ab5)\)\ Contract[
+                  s[\[Mu], \[Lambda]]\ \ FVD[q, \[Lambda]]]]\  // 
+          FCE;\)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\[CapitalGamma]b\[Mu] = 
+        Qb\ GAD[\[Mu]]\ ;\)\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(t3 = 
+        tr[\[CapitalGamma]\[Alpha]\[Mu] . \((GSD[k] - 
+                  x\ \((GSD[p] + GSD[q])\) + mb)\) . \[CapitalGamma]b[
+                k, \(-l3\)] . \((GSD[k] + \((1 - x)\) \((GSD[p] + GSD[q])\) + 
+                  mt)\)] // \ FCE;\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`$Aborted\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(t4 = 
+        tr[\[CapitalGamma]a[
+                k, \(-l4\)] . \((GSD[k] - x\ \((GSD[p] - GSD[q])\) + 
+                  mb)\) . \[CapitalGamma]\[Beta]\[Mu] . \((GSD[
+                    k] + \((1 - x)\) \((GSD[p] - GSD[q])\) + mt)\)] // \ 
+          FCE;\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`$Aborted\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(t5 = 
+        tr[\[CapitalGamma]t\[Mu] . \((GSD[k] - x\ GSD[q] + 
+                  mt)\) . \[CapitalGamma]\[Alpha]\[Beta] . \((GSD[
+                    k] + \((2\  - x)\) GSD[q] + mt)\)] // \ 
+          FCE;\)\)\)], "Input"]
+},
+FrontEndVersion->"5.0 for Macintosh",
+ScreenRectangle->{{0, 1280}, {0, 936}},
+CellGrouping->Manual,
+WindowSize->{1016, 673},
+WindowMargins->{{92, Automatic}, {Automatic, 85}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 63, 1, 39, "Input"],
+Cell[1820, 54, 83, 1, 70, "Input"],
+Cell[1906, 57, 1960, 34, 907, "Input"],
+Cell[3869, 93, 88, 1, 70, "Input"],
+Cell[3960, 96, 88, 1, 70, "Input"],
+Cell[4051, 99, 127, 2, 70, "Input"],
+Cell[4181, 103, 626, 12, 312, "Input"],
+Cell[4810, 117, 477, 9, 281, "Input"],
+Cell[5290, 128, 642, 11, 343, "Input"],
+Cell[5935, 141, 555, 10, 281, "Input"],
+Cell[6493, 153, 282, 5, 133, "Input"],
+Cell[6778, 160, 301, 7, 172, "Input"],
+Cell[7082, 169, 114, 2, 70, "Input"],
+
+Cell[CellGroupData[{
+Cell[7221, 175, 309, 5, 132, "Input"],
+Cell[7533, 182, 59, 1, 41, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7629, 188, 321, 6, 132, "Input"],
+Cell[7953, 196, 59, 1, 41, "Output"]
+}, Open  ]],
+Cell[8027, 200, 272, 5, 132, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

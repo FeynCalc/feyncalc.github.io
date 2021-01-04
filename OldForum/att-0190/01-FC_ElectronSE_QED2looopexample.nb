@@ -1,0 +1,3375 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[    139646,       3314]*)
+(*NotebookOutlinePosition[    140323,       3337]*)
+(*  CellTagsIndexPosition[    140279,       3333]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["DSM Diagrams ", "Title"],
+
+Cell[BoxData[{
+    \(\($LoadPhi = True;\)\), "\n", 
+    \(\ \($LoadTARCER\  = \ True;\)\), "\[IndentingNewLine]", 
+    \(<< \ HighEnergyPhysics`FeynCalc`\)}], "Input"],
+
+Cell["\<\
+Loading FeynCalc from C:\\Program Files\\Wolfram \
+Research\\Mathematica\\5.0\\AddOns\\Applications\\HighEnergyPhysics\
+\>", "Text",
+  CellMargins->{{Inherited, Inherited}, {1, 0}},
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell["\<\
+Loading TARCER C:\\Program Files\\Wolfram \
+Research\\Mathematica\\5.0\\AddOns\\Applications\\HighEnergyPhysics\\Tarcer\\\
+tarcer25.mx\
+\>", "Text",
+  CellMargins->{{Inherited, Inherited}, {1, 0}},
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell[TextData[{
+  StyleBox["FeynCalc",
+    FontWeight->"Bold"],
+  " ",
+  "5.0.0beta1",
+  " For help, type ?FeynCalc, use the built-in ",
+  ButtonBox["help system",
+    ButtonFunction:>(FrontEndExecute[ 
+        FrontEnd`HelpBrowserLookup[ "AddOns", #]]&),
+    ButtonData:>{"Short Overview", "intro"},
+    ButtonStyle->"AddOnsLink",
+    ButtonNote->"Open the help browser"],
+  " or visit ",
+  ButtonBox["www.feyncalc.org",
+    ButtonData:>{
+      URL[ "http://www.feyncalc.org/"], None},
+    ButtonStyle->"Hyperlink",
+    ButtonNote->"http://www.feyncalc.org/"]
+}], "Text",
+  CellMargins->{{Inherited, Inherited}, {1, 0}},
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell["Loading PHI ", "Text",
+  CellMargins->{{Inherited, Inherited}, {1, 0}},
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell[TextData[{
+  "Loading FeynArts, see ",
+  ButtonBox["www.feynarts.de",
+    ButtonData:>{
+      URL[ "http://www.feynarts.de/"], None},
+    ButtonStyle->"Hyperlink",
+    ButtonNote->"http://www.feynarts.de/"],
+  " for documentation"
+}], "Text",
+  CellMargins->{{Inherited, Inherited}, {1, 0}},
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell["FeynArts 3.2 patched for use with FeynCalc", "Text",
+  CellMargins->{{Inherited, Inherited}, {1, 0}},
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell[BoxData[""], "Input"],
+
+Cell[BoxData[
+    \(\(t11\  = \ 
+        CreateTopologies[2, 1\  \[Rule] \ 1, \ 
+          ExcludeTopologies\  \[Rule] \ {Internal}];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Paint[t11];\)\)], "Input"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1.1 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-1.38778e-017 0.0151515 2.41777e-017 0.0151515 [
+[ 0 0 0 0 ]
+[ 1 1.1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1.1 L
+0 1.1 L
+closepath
+clip
+newpath
+% Start of sub-graphic
+p
+-1.38778e-017 0.666667 0.333333 1 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .45455 m
+.31818 .45455 L
+s
+.95455 .45455 m
+.68182 .45455 L
+s
+newpath
+.5 .45455 .18182 180 360 arc
+s
+newpath
+.49222 .46233 .17421 87.44 182.56 arc
+s
+newpath
+.50349 .45804 .17836 358.878 451.122 arc
+s
+newpath
+.5 .72727 .09091 270 630 arc
+s
+.04 w
+.31818 .45455 Mdot
+.68182 .45455 Mdot
+.5 .63636 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T1) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.333333 0.666667 0.666667 1 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.29545 .5 L
+s
+.95455 .5 m
+.70455 .5 L
+s
+newpath
+.49103 .51203 .19594 100.73 183.52 arc
+s
+newpath
+.66573 .70761 .21121 180.831 280.59 arc
+s
+newpath
+.51063 .51804 .19475 -5.3153 106.736 arc
+s
+newpath
+.5 .5 .20455 180 360 arc
+s
+.04 w
+.45455 .70455 Mdot
+.29545 .5 Mdot
+.70455 .5 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T2) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.666667 0.666667 1 1 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.29545 .5 L
+s
+.95455 .5 m
+.70455 .5 L
+s
+newpath
+.50897 .51203 .19594 -3.51984 79.2698 arc
+s
+newpath
+.49716 .50852 .20188 76.1593 182.42 arc
+s
+newpath
+.3214 .72333 .22484 263.372 355.206 arc
+s
+newpath
+.5 .5 .20455 -180 0 arc
+s
+.04 w
+.54545 .70455 Mdot
+.70455 .5 Mdot
+.29545 .5 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T3) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+-1.38778e-017 0.333333 0.333333 0.666667 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.31818 .5 L
+s
+.95455 .5 m
+.68182 .5 L
+s
+newpath
+.49384 .49384 .17577 177.993 272.007 arc
+s
+newpath
+.49953 .50047 .18229 270.149 359.851 arc
+s
+.5 .68182 m
+.5 .31818 L
+s
+newpath
+.49651 .50349 .17836 88.8777 181.122 arc
+s
+newpath
+.49953 .49953 .18229 .14916 89.8508 arc
+s
+.04 w
+.5 .68182 Mdot
+.5 .31818 Mdot
+.31818 .5 Mdot
+.68182 .5 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T4) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.333333 0.333333 0.666667 0.666667 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.31818 .5 L
+s
+.95455 .5 m
+.68182 .5 L
+s
+newpath
+.5 .5 .18182 180 360 arc
+s
+newpath
+.477 .51477 .1595 115.198 185.312 arc
+s
+newpath
+.5 .63864 .09318 12.6804 167.32 arc
+s
+newpath
+.5 .67955 .09318 192.68 347.32 arc
+s
+newpath
+.52045 .51331 .16192 -4.71441 64.2042 arc
+s
+.04 w
+.59091 .65909 Mdot
+.40909 .65909 Mdot
+.31818 .5 Mdot
+.68182 .5 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T5) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.666667 0.333333 1 0.666667 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .36364 m
+.5 .36364 L
+s
+.95455 .36364 m
+.5 .36364 L
+s
+newpath
+.5 .47727 .11364 90 270 arc
+s
+newpath
+.5 .47727 .11364 270 450 arc
+s
+newpath
+.5 .70455 .11364 270 630 arc
+s
+.04 w
+.5 .36364 Mdot
+.5 .59091 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T6) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+-1.38778e-017 2.41777e-017 0.333333 0.333333 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.22727 .5 L
+s
+.95455 .5 m
+.77273 .5 L
+s
+newpath
+.36364 .5 .13636 180 360 arc
+s
+newpath
+.36364 .5 .13636 0 180 arc
+s
+newpath
+.63636 .5 .13636 0 180 arc
+s
+newpath
+.63636 .5 .13636 -180 0 arc
+s
+.04 w
+.22727 .5 Mdot
+.77273 .5 Mdot
+.5 .5 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T7) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.333333 2.41777e-017 0.666667 0.333333 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .40909 m
+.5 .40909 L
+s
+.95455 .40909 m
+.5 .40909 L
+s
+newpath
+.5 .59091 .18182 0 180 arc
+s
+.31818 .59091 m
+.68182 .59091 L
+s
+newpath
+.49475 .58566 .17664 178.296 271.704 arc
+s
+newpath
+.51054 .58037 .1716 -93.5216 3.5216 arc
+s
+.04 w
+.31818 .59091 Mdot
+.68182 .59091 Mdot
+.5 .40909 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T8) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.666667 2.41777e-017 1 0.333333 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.31818 .5 L
+s
+.95455 .5 m
+.68182 .5 L
+s
+newpath
+.5 .5 .18182 -180 0 arc
+s
+.68182 .5 m
+.31818 .5 L
+s
+newpath
+.5 .5 .18182 360 540 arc
+s
+.04 w
+.68182 .5 Mdot
+.31818 .5 Mdot
+gsave
+.5 .02273 -67.3438 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T9) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+0 g
+gsave
+.43182 1.06 -66 -10.375 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+gsave
+.5 1.06 -67.8438 -10.2813 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.5625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding WindowsANSIEncoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+%%BeginResource: font Times-Roman-MISO
+%%BeginFont: Times-Roman-MISO
+/Times-Roman /Times-Roman-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Times-Roman-MISO
+%%IncludeFont: Times-Roman-MISO
+/Times-Roman-MISO findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica1
+%%IncludeFont: Mathematica1
+/Mathematica1 findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 12.813 moveto
+(\\256) show
+72.688 12.813 moveto
+%%IncludeResource: font Times-Roman-MISO
+%%IncludeFont: Times-Roman-MISO
+/Times-Roman-MISO findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+gsave
+.56818 1.06 -66 -10.375 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.75 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{261.813, 287.938},
+  ImageMargins->{{35, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004500017b000`400?l00000o`00003oo`3IfMT6
+0=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT6
+0=WIf@00:03IfMT300000080fMWI00<000000=WIf@3IfMT0C`3IfMT300000080fMWI0P00001@0=WI
+f@<0000000<0fMWI000000000000:@3IfMT002T0fMWI00<000000=WIf@3IfMT00P3IfMT00`000000
+fMWI0=WIf@1?0=WIf@040000003IfMT0fMWI00000080fMWI00<000000=WIf@3IfMT0CP3IfMT00`00
+0000fMWI0=WIf@020=WIf@030000003IfMT0fMWI02H0fMWI000Y0=WIf@030000003IfMT0fMWI0080
+fMWI00<000000=WIf@3IfMT0C`3IfMT01@000000fMWI0=WIf@000000fMWI00800000D03IfMT01000
+0000fMWI0=WIf@3IfMT3000002L0fMWI000Y0=WIf@030000003IfMT0fMWI0080fMWI00<000000=WI
+f@3IfMT0C`3IfMT010000000fMWI0=WIf@3IfMT200000540fMWI00@000000=WIf@3IfMT000000P3I
+fMT00`000000fMWI0=WIf@0U0=WIf@00:03IfMT3000000@0fMWI00<000000=WIf@3IfMT0C@3IfMT3
+000000050=WIf@000000fMWI0=WIf@000000C`3IfMT3000000050=WIf@000000fMWI0=WIf@000000
+9`3IfMT002P0fMWI0`0000000`3IfMT0000000000002000004l0fMWI0`0000020=WIf@800000D03I
+fMT300000080fMWI0P00000X0=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00
+o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00
+o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00
+o`3IfMT60=WIf@00o`3IfMT60=WIf@00e`3IfMT4000002X0fMWI003C0=WIf@@00000103IfMT50000
+02D0fMWI003A0=WIf@8000003@3IfMT2000002<0fMWI003@0=WIf@030000003IfMT0fMWI00l0fMWI
+00<000000=WIf@3IfMT0803IfMT001d0fMWI1P00000A0=WIf@H00000U@3IfMT00`000000fMWI0=WI
+f@0A0=WIf@030000003IfMT0fMWI01l0fMWI000K0=WIf@8000001P3IfMT2000000d0fMWI0P000006
+0=WIf@800000TP3IfMT00`000000fMWI0=WIf@0C0=WIf@030000003IfMT0fMWI01h0fMWI000I0=WI
+f@8000002P3IfMT2000000T0fMWI0P00000:0=WIf@800000S`3IfMT00`000000fMWI0=WIf@0E0=WI
+f@030000003IfMT0fMWI01d0fMWI000H0=WIf@030000003IfMT0fMWI00/0fMWI00<000000=WIf@3I
+fMT01P3IfMT00`000000fMWI0=WIf@0<0=WIf@030000003IfMT0fMWI0440fMWI00<000000=WIf@3I
+fMT0A`3IfMT00`000000fMWI0=WIf@0G0=WIf@030000003IfMT0fMWI01`0fMWI000G0=WIf@030000
+003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT0103IfMT00`000000fMWI0=WIf@0>0=WIf@030000
+003IfMT0fMWI01P0fMWID000000Q0=WIf@030000003IfMT0fMWI01P0fMWI00<000000=WIf@3IfMT0
+703IfMT001H0fMWI00<000000=WIf@3IfMT03`3IfMT00`000000fMWI0=WIf@020=WIf@030000003I
+fMT0fMWI0100fMWI00<000000=WIf@3IfMT0>@3IfMT2000000@0fMWI00@000000=WIf@3IfMT0fMWI
+0`0000120=WIf@030000003IfMT0fMWI01T0fMWI00<000000=WIf@3IfMT06`3IfMT001D0fMWI00<0
+00000=WIf@3IfMT04@3IfMT01@000000fMWI0=WIf@3IfMT0000001<0fMWI00<000000=WIf@3IfMT0
+=P3IfMT2000000d0fMWI0P00000o0=WIf@030000003IfMT0fMWI01X0fMWI00<000000=WIf@3IfMT0
+6`3IfMT001@0fMWI00<000000=WIf@3IfMT04P3IfMT010000000fMWI0=WIf@00000D0=WIf@030000
+003IfMT0fMWI03D0fMWI00<000000=WIf@3IfMT03`3IfMT00`000000fMWI0=WIf@0l0=WIf@030000
+003IfMT0fMWI01X0fMWI00<000000=WIf@3IfMT06`3IfMT001@0fMWI00<000000=WIf@3IfMT04`3I
+fMT00`000000fMWI0000000E0=WIf@030000003IfMT0fMWI03<0fMWI00<000000=WIf@3IfMT04@3I
+fMT00`000000fMWI0=WIf@0j0=WIf@030000003IfMT0fMWI01`0fMWI00<000000=WIf@3IfMT06P3I
+fMT001<0fMWI00<000000=WIf@3IfMT0503IfMT2000001H0fMWI00<000000=WIf@3IfMT0<P3IfMT0
+0`000000fMWI0=WIf@0C0=WIf@030000003IfMT0fMWI03T0fMWI00<000000=WIf@3IfMT0703IfMT0
+0`000000fMWI0=WIf@0J0=WIf@004`3IfMT00`000000fMWI0=WIf@0E0=WIf@030000003IfMT0fMWI
+01@0fMWI00<000000=WIf@3IfMT0<@3IfMT00`000000fMWI0=WIf@0E0=WIf@030000003IfMT0fMWI
+03P0fMWI00<000000=WIf@3IfMT0703IfMT00`000000fMWI0=WIf@0J0=WIf@004`3IfMT00`000000
+fMWI0=WIf@0E0=WIf@030000003IfMT0fMWI01@0fMWI00<000000=WIf@3IfMT0<03IfMT00`000000
+fMWI0=WIf@0G0=WIf@030000003IfMT0fMWI03L0fMWI00<000000=WIf@3IfMT0703IfMT2000001/0
+fMWI00030=WIfA8000005@3IfMT3000001@0fMWI4P00000Q0=WIf@030000003IfMT0fMWI01T0fMWI
+00<000000=WIf@3IfMT07P3IfMU@000000@0fMWI000C0=WIf@030000003IfMT0fMWI01D0fMWI00<0
+00000=WIf@3IfMT0503IfMT00`000000fMWI0=WIf@0_0=WIf@030000003IfMT0fMWI01T0fMWI00<0
+00000=WIf@3IfMT0=P3IfMT00`000000fMWI0=WIf@0L0=WIf@8000006`3IfMT001<0fMWI00<00000
+0=WIf@3IfMT05@3IfMT00`000000fMWI0=WIf@0D0=WIf@030000003IfMT0fMWI02h0fMWI00<00000
+0=WIf@3IfMT06`3IfMT00`000000fMWI0=WIf@0e0=WIf@030000003IfMT0fMWI01d0fMWI00<00000
+0=WIf@3IfMT06@3IfMT001<0fMWI00<000000=WIf@3IfMT05@3IfMT00`000000fMWI0=WIf@0D0=WI
+f@030000003IfMT0fMWI02h0fMWI00<000000=WIf@3IfMT06`3IfMT00`000000fMWI0=WIf@0e0=WI
+f@030000003IfMT0fMWI01`0fMWI00<000000=WIf@3IfMT06P3IfMT001@0fMWI00<000000=WIf@3I
+fMT04`3IfMT00`000000fMWI0000000E0=WIf@030000003IfMT0fMWI02d0fMWI00<000000=WIf@3I
+fMT0703IfMT00`000000fMWI0=WIf@0e0=WIf@030000003IfMT0fMWI01`0fMWI00<000000=WIf@3I
+fMT06P3IfMT001@0fMWI00<000000=WIf@3IfMT04`3IfMT00`000000fMWI0000000E0=WIf@030000
+003IfMT0fMWI02d0fMWI00<000000=WIf@3IfMT07@3IfMT00`000000fMWI0=WIf@0e0=WIf@030000
+003IfMT0fMWI01X0fMWI00<000000=WIf@3IfMT06`3IfMT001@0fMWI00<000000=WIf@3IfMT04P3I
+fMT010000000fMWI0=WIf@00000D0=WIf@030000003IfMT0fMWI02h0fMWI00<000000=WIf@3IfMT0
+7@3IfMT00`000000fMWI0=WIf@0e0=WIf@030000003IfMT0fMWI01X0fMWI00<000000=WIf@3IfMT0
+6`3IfMT001D0fMWI00<000000=WIf@3IfMT04@3IfMT01@000000fMWI0=WIf@3IfMT0000001<0fMWI
+00<000000=WIf@3IfMT0;P3IfMT00`000000fMWI0=WIf@0M0=WIf@030000003IfMT0fMWI03H0fMWI
+00<000000=WIf@3IfMT06@3IfMT00`000000fMWI0=WIf@0K0=WIf@005P3IfMT2000000l0fMWI0P00
+00050=WIf@030000003IfMT0fMWI00h0fMWI0P00000`0=WIfB<00000=`3IfMT00`000000fMWI0=WI
+f@0H0=WIf@030000003IfMT0fMWI01`0fMWI000H0=WIf@030000003IfMT0fMWI00/0fMWI00<00000
+0=WIf@3IfMT01P3IfMT00`000000fMWI0=WIf@0<0=WIf@030000003IfMT0fMWI0340fMWI00<00000
+0=WIf@3IfMT07@3IfMT00`000000fMWI0=WIf@0g0=WIf@030000003IfMT0fMWI01L0fMWI00<00000
+0=WIf@3IfMT0703IfMT001T0fMWI00<000000=WIf@3IfMT02P3IfMT00`000000fMWI0=WIf@070=WI
+f@030000003IfMT0fMWI00X0fMWI00<000000=WIf@3IfMT0<P3IfMT00`000000fMWI0=WIf@0M0=WI
+f@030000003IfMT0fMWI03P0fMWI00<000000=WIf@3IfMT05@3IfMT00`000000fMWI0=WIf@0M0=WI
+f@006P3IfMT2000000L0fMWI0`00000;0=WIf@<000001`3IfMT2000003D0fMWI00<000000=WIf@3I
+fMT0703IfMT00`000000fMWI0=WIf@0j0=WIf@030000003IfMT0fMWI01<0fMWI00<000000=WIf@3I
+fMT07P3IfMT001`0fMWI1`00000A0=WIf@L00000=`3IfMT00`000000fMWI0=WIf@0L0=WIf@030000
+003IfMT0fMWI03/0fMWI00<000000=WIf@3IfMT04@3IfMT00`000000fMWI0=WIf@0O0=WIf@00L`3I
+fMT00`000000fMWI0=WIf@0K0=WIf@030000003IfMT0fMWI03`0fMWI00<000000=WIf@3IfMT03`3I
+fMT00`000000fMWI0=WIf@0P0=WIf@00L`3IfMT00`000000fMWI0=WIf@0K0=WIf@030000003IfMT0
+fMWI03d0fMWI0P00000=0=WIf@8000008`3IfMT007@0fMWI00<000000=WIf@3IfMT06@3IfMT00`00
+0000fMWI0=WIf@100=WIf@8000002@3IfMT2000002D0fMWI001d0=WIf@030000003IfMT0fMWI01T0
+fMWI00<000000=WIf@3IfMT0@P3IfMT9000002L0fMWI001e0=WIf@030000003IfMT0fMWI01L0fMWI
+00<000000=WIf@3IfMT0L`3IfMT007H0fMWI00<000000=WIf@3IfMT05@3IfMT00`000000fMWI0=WI
+f@1d0=WIf@00M`3IfMT00`000000fMWI0=WIf@0C0=WIf@030000003IfMT0fMWI07D0fMWI001h0=WI
+f@030000003IfMT0fMWI0140fMWI00<000000=WIf@3IfMT0MP3IfMT007T0fMWI00<000000=WIf@3I
+fMT03`3IfMT00`000000fMWI0=WIf@1g0=WIf@00NP3IfMT2000000d0fMWI0P00001j0=WIf@00O03I
+fMT4000000D0fMWI1000001l0=WIf@00P03IfMT500000800fMWI003o0=WIf@H0fMWI003o0=WIf@H0
+fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0
+fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0
+fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0
+fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0
+fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI000X0=WIf@<000000P3IfMT00`00
+0000fMWI0=WIf@1?0=WIf@<0000000<0fMWI000000000000D@3IfMT3000002`0fMWI000Y0=WIf@05
+0000003IfMT0fMWI0=WIf@000000DP3IfMT00`000000fMWI0=WIf@020=WIf@030000003IfMT0fMWI
+04l0fMWI00@000000=WIf@3IfMT0fMWI0P00000X0=WIf@00:@3IfMT00`000000fMWI0=WIf@030000
+0540fMWI00<000000=WIf@3IfMT00P3IfMT00`000000fMWI0=WIf@1?0=WIf@040000003IfMT0fMWI
+0=WIf@800000:03IfMT002T0fMWI00<000000=WIf@3IfMT00P00001B0=WIf@030000003IfMT0fMWI
+0080fMWI00<000000=WIf@3IfMT0C`3IfMT01@000000fMWI0=WIf@3IfMT0000002T0fMWI000X0=WI
+f@<000000P3IfMT00`000000fMWI0=WIf@1?0=WIf@<000000P3IfMT00`000000fMWI0=WIf@1?0=WI
+f@<000000P3IfMT00`000000fMWI0=WIf@0W0=WIf@00:03IfMT300000080fMWI00<000000=WIf@3I
+fMT0C`3IfMT300000080fMWI0P00001@0=WIf@<000000`3IfMT00`000000fMWI0=WIf@0V0=WIf@00
+o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00
+o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00
+o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00o`3IfMT60=WIf@00:`3IfMT00`000000
+fMWI0=WIf@3G0=WIf@009`3IfMT700000580fMWI100000210=WIf@009@3IfMT2000000@0fMWI00<0
+00000=WIf@3IfMT01000001:0=WIf@@00000103IfMT5000007`0fMWI000S0=WIf@8000001P3IfMT0
+0`000000fMWI0=WIf@040=WIf@800000AP3IfMT2000000d0fMWI0P00001j0=WIf@008P3IfMT00`00
+0000fMWI0=WIf@060=WIf@030000003IfMT0fMWI00H0fMWI00<000000=WIf@3IfMT0@P3IfMT00`00
+0000fMWI0=WIf@0?0=WIf@030000003IfMT0fMWI04/0fMWI00<000000=WIf@3IfMT0:@3IfMT00240
+fMWI00<000000=WIf@3IfMT01`3IfMT00`000000fMWI0=WIf@070=WIf@030000003IfMT0fMWI0400
+fMWI00<000000=WIf@3IfMT04@3IfMT00`000000fMWI0=WIf@0R0=WIfE000000103IfMT00200fMWI
+00<000000=WIf@3IfMT0203IfMT00`000000fMWI0=WIf@080=WIf@030000003IfMT0fMWI03h0fMWI
+00<000000=WIf@3IfMT04`3IfMT00`000000fMWI0=WIf@150=WIf@8000000P3IfMT00`000000fMWI
+0=WIf@02000002L0fMWI000O0=WIf@030000003IfMT0fMWI00T0fMWI00<000000=WIf@3IfMT02@3I
+fMT00`000000fMWI0=WIf@0l0=WIf@030000003IfMT0fMWI01D0fMWI00<000000=WIf@3IfMT0@P3I
+fMT2000000T0fMWI00<000000=WIf@3IfMT0903IfMT001h0fMWI00<000000=WIf@3IfMT02P3IfMT0
+0`000000fMWI0=WIf@0:0=WIf@030000003IfMT0fMWI03X0fMWI00<000000=WIf@3IfMT05`3IfMT0
+0`000000fMWI0=WIf@100=WIf@030000003IfMT0fMWI00X0fMWI0P00000T0=WIf@007@3IfMT00`00
+0000fMWI0=WIf@0;0=WIf@030000003IfMT0fMWI00/0fMWI00<000000=WIf@3IfMT0>03IfMT00`00
+0000fMWI0=WIf@0I0=WIf@030000003IfMT0fMWI03h0fMWI00<000000=WIf@3IfMT0303IfMT00`00
+0000fMWI0=WIf@0R0=WIf@007@3IfMT00`000000fMWI0=WIf@0;0=WIf@030000003IfMT0fMWI00/0
+fMWI00<000000=WIf@3IfMT0>03IfMT00`000000fMWI0=WIf@0I0=WIf@030000003IfMT0fMWI03h0
+fMWI00<000000=WIf@3IfMT03@3IfMT00`000000fMWI0=WIf@0Q0=WIf@00703IfMT00`000000fMWI
+0=WIf@0<0=WIf@030000003IfMT0fMWI00`0fMWI00<000000=WIf@3IfMT0=P3IfMT00`000000fMWI
+0=WIf@0K0=WIf@030000003IfMT0fMWI03`0fMWI00<000000=WIf@3IfMT03`3IfMT00`000000fMWI
+0=WIf@0P0=WIf@00703IfMT00`000000fMWI0=WIf@0<0=WIf@030000003IfMT0fMWI00`0fMWI00<0
+00000=WIf@3IfMT0=P3IfMT00`000000fMWI0=WIf@0K0=WIf@030000003IfMT0fMWI03/0fMWI00<0
+00000=WIf@3IfMT0403IfMT00`000000fMWI0=WIf@0P0=WIf@006`3IfMT00`000000fMWI0=WIf@0=
+0=WIf@030000003IfMT0fMWI00`0fMWI00<000000=WIf@3IfMT0=@3IfMT00`000000fMWI0=WIf@0L
+0=WIf@030000003IfMT0fMWI03/0fMWI00<000000=WIf@3IfMT04@3IfMT00`000000fMWI0=WIf@0O
+0=WIf@006`3IfMT00`000000fMWI0=WIf@0=0=WIf@030000003IfMT0fMWI00`0fMWI00<000000=WI
+f@3IfMT0=@3IfMT00`000000fMWI0=WIf@0L0=WIf@030000003IfMT0fMWI03/0fMWI00<000000=WI
+f@3IfMT04@3IfMT00`000000fMWI0=WIf@0O0=WIf@006`3IfMT00`000000fMWI0=WIf@0=0=WIf@03
+0000003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT0=03IfMT00`000000fMWI0=WIf@0M0=WIf@03
+0000003IfMT0fMWI03X0fMWI00<000000=WIf@3IfMT04@3IfMT00`000000fMWI0=WIf@0O0=WIf@00
+6`3IfMT00`000000fMWI0=WIf@0=0=WIf@030000003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT0
+=03IfMT00`000000fMWI0=WIf@0M0=WIf@030000003IfMT0fMWI03X0fMWI00<000000=WIf@3IfMT0
+4@3IfMT00`000000fMWI0=WIf@0O0=WIf@000`3IfMTJ000000h0fMWI00<000000=WIf@3IfMT0303I
+fMTI000000L0fMWI6P00000M0=WIfAT000009@3IfMT00`000000fMWI0=WIf@0A0=WIf@030000003I
+fMT0fMWI01l0fMWI000K0=WIf@030000003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT03@3IfMT0
+0`000000fMWI0=WIf@0d0=WIf@030000003IfMT0fMWI01d0fMWI00<000000=WIf@3IfMT0>P3IfMT0
+0`000000fMWI0=WIf@0@0=WIf@030000003IfMT0fMWI0200fMWI000K0=WIf@030000003IfMT0fMWI
+00d0fMWI00<000000=WIf@3IfMT03@3IfMT00`000000fMWI0=WIf@0d0=WIf@030000003IfMT0fMWI
+01d0fMWI00<000000=WIf@3IfMT0>`3IfMT00`000000fMWI0=WIf@0?0=WIf@030000003IfMT0fMWI
+0200fMWI000K0=WIf@030000003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT0303IfMT00`000000
+fMWI0=WIf@0e0=WIf@030000003IfMT0fMWI01`0fMWI00<000000=WIf@3IfMT0?03IfMT00`000000
+fMWI0=WIf@0>0=WIf@030000003IfMT0fMWI0240fMWI000K0=WIf@030000003IfMT0fMWI00d0fMWI
+00<000000=WIf@3IfMT0303IfMT00`000000fMWI0=WIf@0e0=WIf@030000003IfMT0fMWI01`0fMWI
+00<000000=WIf@3IfMT0?@3IfMT00`000000fMWI0=WIf@0=0=WIf@030000003IfMT0fMWI0240fMWI
+000L0=WIf@030000003IfMT0fMWI00`0fMWI00<000000=WIf@3IfMT0303IfMT00`000000fMWI0=WI
+f@0e0=WIf@030000003IfMT0fMWI01`0fMWI00<000000=WIf@3IfMT0?P3IfMT00`000000fMWI0=WI
+f@0;0=WIf@030000003IfMT0fMWI0280fMWI000L0=WIf@030000003IfMT0fMWI00`0fMWI00<00000
+0=WIf@3IfMT0303IfMT00`000000fMWI0=WIf@0f0=WIf@030000003IfMT0fMWI01/0fMWI00<00000
+0=WIf@3IfMT0?`3IfMT00`000000fMWI0=WIf@080=WIf@8000009@3IfMT001d0fMWI00<000000=WI
+f@3IfMT02`3IfMT00`000000fMWI0=WIf@0;0=WIf@030000003IfMT0fMWI03L0fMWI00<000000=WI
+f@3IfMT06P3IfMT00`000000fMWI0=WIf@110=WIf@8000000`3IfMT01@000000fMWI0=WIf@3IfMT0
+000002L0fMWI000M0=WIf@030000003IfMT0fMWI00/0fMWI00<000000=WIf@3IfMT02`3IfMT00`00
+0000fMWI0=WIf@0h0=WIf@030000003IfMT0fMWI00P0fMWI1`00000:0=WIf@030000003IfMT0fMWI
+04<0fMWI1`00000X0=WIf@007P3IfMT00`000000fMWI0=WIf@0:0=WIf@030000003IfMT0fMWI00X0
+fMWI00<000000=WIf@3IfMT0>@3IfMT00`000000fMWI0=WIf@060=WIf@8000001`3IfMT2000000L0
+fMWI00<000000=WIf@3IfMT0@`3IfMT200000080fMWI00<000000=WIf@3IfMT00P00000W0=WIf@00
+7`3IfMT00`000000fMWI0=WIf@090=WIf@030000003IfMT0fMWI00T0fMWI00<000000=WIf@3IfMT0
+>`3IfMT00`000000fMWI0=WIf@040=WIf@030000003IfMT0fMWI00T0fMWI00<000000=WIf@3IfMT0
+103IfMT00`000000fMWI0=WIf@110=WIf@8000002@3IfMT00`000000fMWI0=WIf@0T0=WIf@00803I
+fMT00`000000fMWI0=WIf@080=WIf@030000003IfMT0fMWI00P0fMWI00<000000=WIf@3IfMT0?@3I
+fMT2000000<0fMWI00<000000=WIf@3IfMT02`3IfMT010000000fMWI0=WIf@3IfMT2000004<0fMWI
+00<000000=WIf@3IfMT02P3IfMT2000002@0fMWI000Q0=WIf@030000003IfMT0fMWI00L0fMWI00<0
+00000=WIf@3IfMT01`3IfMT00`000000fMWI0=WIf@0o0=WIf@050000003IfMT0fMWI0=WIf@000000
+3@3IfMT010000000fMWI0=WIf@0000140=WIf@030000003IfMT0fMWI00d0fMWI00<000000=WIf@3I
+fMT08@3IfMT00280fMWI00<000000=WIf@3IfMT01P3IfMT00`000000fMWI0=WIf@060=WIf@030000
+003IfMT0fMWI0440fMWI00<000000=WIf@0000003`3IfMT00`000000fMWI000000130=WIf@030000
+003IfMT0fMWI00h0fMWI00<000000=WIf@3IfMT08@3IfMT002<0fMWI0P0000060=WIf@030000003I
+fMT0fMWI00@0fMWI0P0000150=WIf@<000003@3IfMT3000004@0fMWI00<000000=WIf@3IfMT03`3I
+fMT00`000000fMWI0=WIf@0P0=WIf@009@3IfMT2000000@0fMWI00<000000=WIf@3IfMT00P3IfMT2
+000004P0fMWI00<000000=WIf@3IfMT0303IfMT2000004@0fMWI00<000000=WIf@3IfMT0403IfMT0
+0`000000fMWI0=WIf@0P0=WIf@009`3IfMT9000004/0fMWI00<000000=WIf@3IfMT02`3IfMT00`00
+0000fMWI0=WIf@130=WIf@030000003IfMT0fMWI0140fMWI00<000000=WIf@3IfMT07`3IfMT002/0
+fMWI00<000000=WIf@3IfMT0CP3IfMT00`000000fMWI0=WIf@090=WIf@030000003IfMT0fMWI04@0
+fMWI00<000000=WIf@3IfMT04@3IfMT00`000000fMWI0=WIf@0O0=WIf@00O@3IfMT00`000000fMWI
+0=WIf@070=WIf@030000003IfMT0fMWI04D0fMWI00<000000=WIf@3IfMT04@3IfMT00`000000fMWI
+0=WIf@0O0=WIf@00OP3IfMT00`000000fMWI0=WIf@050=WIf@030000003IfMT0fMWI04H0fMWI00<0
+00000=WIf@3IfMT04@3IfMT00`000000fMWI0=WIf@0O0=WIf@00O`3IfMT7000004T0fMWI00<00000
+0=WIf@3IfMT04@3IfMT00`000000fMWI0=WIf@0O0=WIf@00c`3IfMT00`000000fMWI0=WIf@0@0=WI
+f@030000003IfMT0fMWI0200fMWI003@0=WIf@030000003IfMT0fMWI00l0fMWI00<000000=WIf@3I
+fMT0803IfMT00=40fMWI00<000000=WIf@3IfMT03@3IfMT00`000000fMWI0=WIf@0Q0=WIf@00d@3I
+fMT00`000000fMWI0=WIf@0<0=WIf@030000003IfMT0fMWI0280fMWI003B0=WIf@030000003IfMT0
+fMWI00/0fMWI00<000000=WIf@3IfMT08P3IfMT00=<0fMWI00<000000=WIf@3IfMT0203IfMT20000
+02D0fMWI003D0=WIf@8000001`3IfMT00`000000fMWI0=WIf@0U0=WIf@00eP3IfMT7000002P0fMWI
+003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI
+003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI
+003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI
+003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI003o0=WIf@H0fMWI
+003o0=WIf@H0fMWI000X0=WIf@<0000000@0fMWI0000000000000000D03IfMT3000000040=WIf@00
+0000000000000500fMWI0`0000000`3IfMT000000000000Y0=WIf@00:@3IfMT01@000000fMWI0=WI
+f@3IfMT000000580fMWI00D000000=WIf@3IfMT0fMWI0000001B0=WIf@030000003IfMT0fMWI0080
+fMWI00<000000=WIf@3IfMT09P3IfMT002T0fMWI00D000000=WIf@3IfMT0fMWI0000001B0=WIf@05
+0000003IfMT0fMWI0=WIf@000000DP3IfMT00`000000fMWI0=WIf@020=WIf@030000003IfMT0fMWI
+02H0fMWI000Y0=WIf@050000003IfMT0fMWI0=WIf@000000DP3IfMT00`000000fMWI0=WIf@020=WI
+f@030000003IfMT0fMWI04l0fMWI00D000000=WIf@3IfMT0fMWI0000000Y0=WIf@00:03IfMT30000
+0080fMWI00<000000=WIf@3IfMT0C`3IfMT3000000040=WIf@000000fMWI00000500fMWI0`000003
+0=WIf@030000003IfMT0fMWI02H0fMWI000X0=WIf@<0000000<0fMWI000000000000D@3IfMT30000
+0080fMWI0P00001@0=WIf@<0000000<0fMWI000000000000:@3IfMT00?l0fMWI1P3IfMT00?l0fMWI
+1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI
+1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT002T0fMWI
+1@00003G0=WIf@009@3IfMT4000000D0fMWI1000003C0=WIf@008`3IfMT2000000d0fMWI0P00001<
+0=WIf@D00000DP3IfMT5000002T0fMWI000R0=WIf@030000003IfMT0fMWI00l0fMWI00<000000=WI
+f@3IfMT0AP3IfMT3000000D0fMWI0`00001<0=WIf@<000001@3IfMT3000002H0fMWI000Q0=WIf@03
+0000003IfMT0fMWI0140fMWI00<000000=WIf@3IfMT0@P3IfMT3000000/0fMWI0`0000150=WIf@@0
+00002`3IfMT3000002<0fMWI000P0=WIf@030000003IfMT0fMWI01<0fMWI00<000000=WIf@3IfMT0
+?`3IfMT200000140fMWI0P0000120=WIf@030000003IfMT0fMWI0100fMWI0P00000Q0=WIf@007`3I
+fMT00`000000fMWI0=WIf@0E0=WIf@030000003IfMT0fMWI03`0fMWI0P00000E0=WIf@030000003I
+fMT0fMWI03d0fMWI0P00000E0=WIf@030000003IfMT0fMWI01h0fMWI000N0=WIf@030000003IfMT0
+fMWI01L0fMWI00<000000=WIf@3IfMT0>P3IfMT00`000000fMWI0=WIf@0F0=WIf@030000003IfMT0
+fMWI03/0fMWI00<000000=WIf@3IfMT05P3IfMT00`000000fMWI0=WIf@0M0=WIf@007@3IfMT00`00
+0000fMWI0=WIf@0I0=WIf@030000003IfMT0fMWI03P0fMWI00<000000=WIf@3IfMT0603IfMT00`00
+0000fMWI0=WIf@0i0=WIf@030000003IfMT0fMWI01P0fMWI00<000000=WIf@3IfMT0703IfMT001d0
+fMWI00<000000=WIf@3IfMT06@3IfMT00`000000fMWI0=WIf@0h0=WIf@030000003IfMT0fMWI01T0
+fMWI00<000000=WIf@3IfMT0>03IfMT00`000000fMWI0=WIf@0I0=WIf@030000003IfMT0fMWI01/0
+fMWI000L0=WIf@030000003IfMT0fMWI01/0fMWI00<000000=WIf@3IfMT0=P3IfMT00`000000fMWI
+0=WIf@0K0=WIf@030000003IfMT0fMWI03H0fMWI00<000000=WIf@3IfMT06`3IfMT00`000000fMWI
+0=WIf@0J0=WIf@00703IfMT00`000000fMWI0=WIf@0K0=WIf@030000003IfMT0fMWI03D0fMWI00<0
+00000=WIf@3IfMT0703IfMT00`000000fMWI0=WIf@0e0=WIf@030000003IfMT0fMWI01`0fMWI00<0
+00000=WIf@3IfMT06P3IfMT001/0fMWI00<000000=WIf@3IfMT0703IfMT00`000000fMWI0=WIf@0e
+0=WIf@030000003IfMT0fMWI01d0fMWI00<000000=WIf@3IfMT0=03IfMT00`000000fMWI0=WIf@0M
+0=WIf@030000003IfMT0fMWI01T0fMWI000K0=WIf@030000003IfMT0fMWI01`0fMWI00<000000=WI
+f@3IfMT0=03IfMT00`000000fMWI0=WIf@0N0=WIf@030000003IfMT0fMWI03<0fMWI00<000000=WI
+f@3IfMT07P3IfMT00`000000fMWI0=WIf@0I0=WIf@006`3IfMT00`000000fMWI0=WIf@0M0=WIf@03
+0000003IfMT0fMWI03<0fMWI00<000000=WIf@3IfMT07P3IfMT00`000000fMWI0=WIf@0c0=WIf@03
+0000003IfMT0fMWI01h0fMWI00<000000=WIf@3IfMT06@3IfMT001/0fMWI00<000000=WIf@3IfMT0
+7@3IfMT00`000000fMWI0=WIf@0c0=WIf@030000003IfMT0fMWI01l0fMWI00<000000=WIf@3IfMT0
+<P3IfMT00`000000fMWI0=WIf@0O0=WIf@030000003IfMT0fMWI01P0fMWI00030=WIfAX000007@3I
+fMTI000001d0fMWI00<000000=WIf@3IfMT0803IfMT00`000000fMWI0=WIf@0a0=WIf@030000003I
+fMT0fMWI0200fMWI00<000000=WIf@3IfMT0603IfMT001/0fMWI00<000000=WIf@3IfMT07@3IfMT0
+0`000000fMWI0=WIf@0b0=WIf@030000003IfMT0fMWI0200fMWI00<000000=WIf@3IfMT0<@3IfMT0
+0`000000fMWI0=WIf@0P0=WIf@030000003IfMT0fMWI01P0fMWI000K0=WIf@030000003IfMT0fMWI
+01d0fMWI00<000000=WIf@3IfMT0<P3IfMT00`000000fMWI0=WIf@0Q0=WIf@030000003IfMT0fMWI
+0300fMWI00<000000=WIf@3IfMT08@3IfMT00`000000fMWI0=WIf@0G0=WIf@006`3IfMT00`000000
+fMWI0=WIf@0M0=WIf@030000003IfMT0fMWI0380fMWI00<000000=WIf@3IfMT08@3IfMT00`000000
+fMWI0=WIf@0`0=WIf@030000003IfMT0fMWI0200fMWI0P00000I0=WIf@006`3IfMT00`000000fMWI
+0=WIf@0M0=WIf@030000003IfMT0fMWI01`0fMWI6000000J0=WIfAh000001`3IfMTM000001/0fMWI
+600000040=WIf@00703IfMT00`000000fMWI0=WIf@0K0=WIf@030000003IfMT0fMWI03<0fMWI00<0
+00000=WIf@3IfMT05`3IfMT2000000P0fMWI00<000000=WIf@3IfMT0<03IfMT00`000000fMWI0=WI
+f@040=WIf@@00000603IfMT2000001T0fMWI000L0=WIf@030000003IfMT0fMWI01/0fMWI00<00000
+0=WIf@3IfMT0<`3IfMT00`000000fMWI0=WIf@0E0=WIf@8000002P3IfMT00`000000fMWI0=WIf@0`
+0=WIf@030000003IfMT0fMWI00P0fMWI00<000000=WIf@3IfMT05P3IfMT00`000000fMWI0=WIf@0G
+0=WIf@007@3IfMT00`000000fMWI0=WIf@0I0=WIf@030000003IfMT0fMWI03@0fMWI00<000000=WI
+f@3IfMT04`3IfMT2000000`0fMWI00<000000=WIf@3IfMT0<03IfMT00`000000fMWI0=WIf@090=WI
+f@8000005P3IfMT00`000000fMWI0=WIf@0G0=WIf@007@3IfMT00`000000fMWI0=WIf@0I0=WIf@03
+0000003IfMT0fMWI03@0fMWI00<000000=WIf@3IfMT04P3IfMT00`000000fMWI0=WIf@0<0=WIf@03
+0000003IfMT0fMWI0300fMWI00<000000=WIf@3IfMT02`3IfMT2000001@0fMWI00<000000=WIf@3I
+fMT05`3IfMT001h0fMWI00<000000=WIf@3IfMT05`3IfMT00`000000fMWI0=WIf@0f0=WIf@030000
+003IfMT0fMWI0100fMWI00<000000=WIf@3IfMT0303IfMT00`000000fMWI0=WIf@0a0=WIf@030000
+003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT0403IfMT00`000000fMWI0=WIf@0H0=WIf@007`3I
+fMT00`000000fMWI0=WIf@0E0=WIf@030000003IfMT0fMWI03L0fMWI00<000000=WIf@3IfMT03`3I
+fMT00`000000fMWI0=WIf@0=0=WIf@030000003IfMT0fMWI0380fMWI00<000000=WIf@3IfMT0303I
+fMT00`000000fMWI0=WIf@0@0=WIf@030000003IfMT0fMWI01P0fMWI000P0=WIf@030000003IfMT0
+fMWI01<0fMWI00<000000=WIf@3IfMT0>03IfMT00`000000fMWI0=WIf@0>0=WIf@030000003IfMT0
+fMWI00d0fMWI00<000000=WIf@3IfMT0<`3IfMT00`000000fMWI0=WIf@0=0=WIf@030000003IfMT0
+fMWI00l0fMWI00<000000=WIf@3IfMT0603IfMT00240fMWI00<000000=WIf@3IfMT04@3IfMT00`00
+0000fMWI0=WIf@0j0=WIf@030000003IfMT0fMWI00`0fMWI00<000000=WIf@3IfMT03P3IfMT00`00
+0000fMWI0=WIf@0d0=WIf@030000003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT03@3IfMT00`00
+0000fMWI0=WIf@0I0=WIf@008P3IfMT00`000000fMWI0=WIf@0?0=WIf@030000003IfMT0fMWI03/0
+fMWI00<000000=WIf@3IfMT02`3IfMT00`000000fMWI0=WIf@0?0=WIf@030000003IfMT0fMWI03@0
+fMWI00<000000=WIf@3IfMT03P3IfMT00`000000fMWI0=WIf@0<0=WIf@030000003IfMT0fMWI01T0
+fMWI000S0=WIf@8000003@3IfMT2000003l0fMWI00<000000=WIf@3IfMT02P3IfMT00`000000fMWI
+0=WIf@0?0=WIf@030000003IfMT0fMWI03D0fMWI00<000000=WIf@3IfMT03P3IfMT00`000000fMWI
+0=WIf@0:0=WIf@030000003IfMT0fMWI01X0fMWI000U0=WIf@800000103IfMT00`000000fMWI0=WI
+f@020=WIf@800000@P3IfMT00`000000fMWI0=WIf@080=WIf@030000003IfMT0fMWI00l0fMWI00<0
+00000=WIf@3IfMT0=`3IfMT00`000000fMWI0=WIf@0=0=WIf@030000003IfMT0fMWI00T0fMWI00<0
+00000=WIf@3IfMT06`3IfMT002L0fMWI2@0000150=WIf@030000003IfMT0fMWI00L0fMWI00<00000
+0=WIf@3IfMT03P3IfMT00`000000fMWI0=WIf@0i0=WIf@030000003IfMT0fMWI00`0fMWI00<00000
+0=WIf@3IfMT0203IfMT00`000000fMWI0=WIf@0L0=WIf@009P3IfMT2000000<0fMWI00@000000=WI
+f@3IfMT0fMWI0P0000140=WIf@030000003IfMT0fMWI00H0fMWI00<000000=WIf@3IfMT03P3IfMT0
+0`000000fMWI0=WIf@0j0=WIf@030000003IfMT0fMWI00`0fMWI00<000000=WIf@3IfMT0203IfMT0
+0`000000fMWI0=WIf@0L0=WIf@009@3IfMT00`000000fMWI0=WIf@090=WIf@030000003IfMT0fMWI
+0480fMWI00<000000=WIf@3IfMT01@3IfMT00`000000fMWI0=WIf@0>0=WIf@030000003IfMT0fMWI
+03/0fMWI00<000000=WIf@3IfMT0303IfMT00`000000fMWI0=WIf@060=WIf@030000003IfMT0fMWI
+01d0fMWI000U0=WIf@030000003IfMT0fMWI00T0fMWI00<000000=WIf@3IfMT0@`3IfMT00`000000
+fMWI0=WIf@040=WIf@030000003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT0?@3IfMT2000000`0
+fMWI00<000000=WIf@3IfMT01@3IfMT00`000000fMWI0=WIf@0N0=WIf@00903IfMT00`000000fMWI
+0=WIf@0;0=WIf@030000003IfMT0fMWI04<0fMWI0P0000040=WIf@030000003IfMT0fMWI00/0fMWI
+0P0000120=WIf@8000002`3IfMT00`000000fMWI0=WIf@020=WIf@8000008@3IfMT002@0fMWI00<0
+00000=WIf@3IfMT02`3IfMT00`000000fMWI0=WIf@150=WIf@<0000000<0fMWI0000003IfMT02P3I
+fMT2000004H0fMWI0P0000090=WIf@030000003IfMT00000008000008`3IfMT002@0fMWI00<00000
+0=WIf@3IfMT02`3IfMT00`000000fMWI0=WIf@180=WIf@d00000BP3IfMT;000002H0fMWI000S0=WI
+f@030000003IfMT0fMWI00d0fMWI00<000000=WIf@3IfMT0B03IfMT00`000000fMWI0=WIf@1L0=WI
+f@030000003IfMT0fMWI02D0fMWI000S0=WIf@030000003IfMT0fMWI00d0fMWI00<000000=WIf@3I
+fMT0c`3IfMT002<0fMWI00<000000=WIf@3IfMT03@3IfMT00`000000fMWI0=WIf@3?0=WIf@008`3I
+fMT00`000000fMWI0=WIf@0<0=WIf@030000003IfMT0fMWI0=00fMWI000T0=WIf@030000003IfMT0
+fMWI00/0fMWI00<000000=WIf@3IfMT0d03IfMT002@0fMWI00<000000=WIf@3IfMT02P3IfMT00`00
+0000fMWI0=WIf@3A0=WIf@009@3IfMT00`000000fMWI0=WIf@090=WIf@030000003IfMT0fMWI0=40
+fMWI000V0=WIf@8000001`3IfMT200000=@0fMWI000X0=WIf@8000000`3IfMT200000=H0fMWI000Z
+0=WIf@<00000f03IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3I
+fMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3I
+fMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3I
+fMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3I
+fMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3I
+fMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT006h0fMWI00@0
+`Xe7000000000000Ahg2803IfMT01032SDL0000000000017SL9_0=WIf@00K`3IfMT00`32SDL0Ahg2
+0=WIf@0Q0=WIf@030<:=A`17SL80fMWI06l0fMWI001_0=WIf@030<:=A`17SL80fMWI0140fMWI00<0
+`Xe706jXf@3IfMT03@3IfMT00`32SDL0Ahg20=WIf@1_0=WIf@00K`3IfMT00`32SDL0Ahg20=WIf@0B
+0=WIf@030:Q^A`2=`]T0fMWI00`0fMWI00<0`Xe704N=`P3IfMT0K`3IfMT006l0fMWI00<0`Xe704N=
+`P3IfMT02`3IfMT00`3I`Xd0A`0000000005000000030000KP2XfMT0fMWI00/0fMWI00<0`Xe704N=
+`P3IfMT0K`3IfMT006l0fMWI00<0`Xe704N=`P3IfMT04@3IfMT00`3IfL80SDM708g2f@0=0=WIf@03
+0<:=A`17SL80fMWI06l0fMWI001_0=WIf@030<:=A`17SL80fMWI0140fMWI00<0`Xe^08g2f@3IfMT0
+3@3IfMT00`32SDL0Ahg20=WIf@1_0=WIf@00KP3IfMT00`32SDL0000004N=`P0Q0=WIf@030<:=A`00
+0000Ahg20700fMWI001_0=WIf@030:Q^0017SL80fMWI0240fMWI00<0Z6h004N=`P3IfMT0K`3IfMT0
+0?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00?l0fMWI1P3IfMT00001\
+\>"],
+  ImageRangeCache->{{{0, 260.813}, {286.938, 0}} -> {-0.000330004, \
+-0.00589865, 0.253058, 0.253058}, {{0, 86.9375}, {113, 26.0625}} -> \
+{-1.00011, -45.0164, 0.253058, 0.253058}, {{86.9375, 173.875}, {113, \
+26.0625}} -> {-23.0004, -45.0164, 0.253058, 0.253058}, {{173.875, 260.813}, \
+{113, 26.0625}} -> {-45.0006, -45.0164, 0.253058, 0.253058}, {{0, 86.9375}, \
+{199.938, 113}} -> {-1.00011, -23.0162, 0.253058, 0.253058}, {{86.9375, \
+173.875}, {199.938, 113}} -> {-23.0004, -23.0162, 0.253058, 0.253058}, \
+{{173.875, 260.813}, {199.938, 113}} -> {-45.0006, -23.0162, 0.253058, \
+0.253058}, {{0, 86.9375}, {286.875, 199.938}} -> {-1.00011, -1.01593, \
+0.253058, 0.253058}, {{86.9375, 173.875}, {286.875, 199.938}} -> {-23.0004, \
+-1.01593, 0.253058, 0.253058}, {{173.875, 260.813}, {286.875, 199.938}} -> \
+{-45.0006, -1.01593, 0.253058, 0.253058}}]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(\(FF\  = \ 
+        InsertFields[t11[\([5]\)], \ F[1, \ {1}]\  \[Rule] \ F[1, \ {1}], \ 
+          Model\  \[Rule] \ QED, \ ExcludeParticles\  \[Rule] \ {}, \ 
+          InsertionLevel\  \[Rule] \ Particles]\ ;\)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ampFC\  = \ 
+        CreateFCAmp[FF, \ DiracTraceEvaluate\  \[Rule] \ True, \ 
+              Truncated\  \[Rule] \ True] /. p3 \[Rule] \(-p1\)\  // 
+          DoSumOver;\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(ToTFI[
+      DiracSimplify[ampFC[\([2]\)], DiracTraceEvaluate\  \[Rule] \ True, \ 
+          DiracSubstitute67\  \[Rule] \ True]\  /. \ 
+        q2\  \[Rule] \ q2 - p1, \ \ q1, q2, p1]\)\(\ \)\)\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{"-", 
+          FractionBox[
+            RowBox[{"ME", " ", 
+              RowBox[{
+                RowBox[{"(", 
+                  RowBox[{"\[Gamma]", "\[CenterDot]", 
+                    FormBox[
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                      "TraditionalForm"]}], ")"}], ".", 
+                RowBox[{"(", 
+                  RowBox[{"\[Gamma]", "\[CenterDot]", 
+                    FormBox[
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                      "TraditionalForm"]}], ")"}]}], " ", 
+              FormBox[
+                FractionBox["1", 
+                  RowBox[{
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SubsuperscriptBox[
+                            TagBox[
+                              StyleBox["\<\"q\"\>",
+                                FontSlant->"Italic"],
+                              (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                            "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ q1, 2], "]"],
+                        Editable->False], ")"}], " ", 
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "2"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, q1], q2], 2], "]"],
+                        Editable->False], ")"}], " ", 
+                    SuperscriptBox[
+                      RowBox[{"(", 
+                        InterpretationBox[
+                          RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                            SuperscriptBox[
+                              RowBox[{"(", 
+                                RowBox[{
+                                  SubscriptBox[
+                                    TagBox[
+                                      StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                      (
+                                      StyleForm[ #, FontSlant -> "Italic"]&)],
+                                     "1"], "-", 
+                                  SubscriptBox[
+                                    TagBox[
+                                      StyleBox["\<\"p\"\>",
+                                        FontSlant->"Italic"],
+                                      (
+                                      StyleForm[ #, FontSlant -> "Italic"]&)],
+                                     "1"]}], ")"}], "2"], 
+                            "\[InvisibleSpace]", "\<\"-\"\>", 
+                            "\[InvisibleSpace]", \(ME\^2\), 
+                            "\[InvisibleSpace]", "\<\"]\"\>"}],
+                          SequenceForm[ "[", 
+                            Power[ 
+                              Plus[ 
+                                Times[ -1, p1], q1], 2], "-", 
+                            Power[ ME, 2], "]"],
+                          Editable->False], ")"}], "2"], " ", 
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "2"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q2], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}]}]],
+                "TraditionalForm"], " ", \(EL\^4\)}], \(16\ \[Pi]\^8\)]}], 
+        "+", 
+        FractionBox[
+          RowBox[{"ME", " ", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"p\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+                  FormBox[
+                    RowBox[{
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-",
+                       
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                    "TraditionalForm"], ")"}], ")"}]}], " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(32\ \[Pi]\^8\)], "-", 
+        FractionBox[
+          RowBox[{"ME", " ", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"q\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"p\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}]}], " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(16\ \[Pi]\^8\)], "-", 
+        FractionBox[
+          RowBox[{"ME", " ", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"q\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+                  FormBox[
+                    RowBox[{
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-",
+                       
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                    "TraditionalForm"], ")"}], ")"}]}], " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(32\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{"ME", " ", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+                  FormBox[
+                    RowBox[{
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-",
+                       
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                    "TraditionalForm"], ")"}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"p\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}]}], " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(32\ \[Pi]\^8\)], "-", 
+        FractionBox[
+          RowBox[{"ME", " ", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+                  FormBox[
+                    RowBox[{
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-",
+                       
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                    "TraditionalForm"], ")"}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"q\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}]}], " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(32\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"p\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+                  FormBox[
+                    RowBox[{
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-",
+                       
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                    "TraditionalForm"], ")"}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"q\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}]}], " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(64\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"q\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+                  FormBox[
+                    RowBox[{
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-",
+                       
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                    "TraditionalForm"], ")"}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"\[Gamma]", "\[CenterDot]", 
+                  FormBox[
+                    SubscriptBox[
+                      TagBox[
+                        StyleBox["\<\"p\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                    "TraditionalForm"]}], ")"}]}], " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(64\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{\(ME\^2\), " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", 
+            RowBox[{"\[Gamma]", "\[CenterDot]", 
+              FormBox[
+                SubscriptBox[
+                  TagBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"],
+                    (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                "TraditionalForm"]}], " ", \(EL\^4\)}], \(16\ \[Pi]\^8\)], 
+        "-", 
+        FractionBox[
+          RowBox[{\(ME\^2\), " ", 
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", 
+            RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+              FormBox[
+                RowBox[{
+                  SubscriptBox[
+                    TagBox[
+                      StyleBox["\<\"q\"\>",
+                        FontSlant->"Italic"],
+                      (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-", 
+                  SubscriptBox[
+                    TagBox[
+                      StyleBox["\<\"p\"\>",
+                        FontSlant->"Italic"],
+                      (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                "TraditionalForm"], ")"}], 
+            " ", \(EL\^4\)}], \(64\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", 
+            RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+              FormBox[
+                RowBox[{
+                  SubscriptBox[
+                    TagBox[
+                      StyleBox["\<\"q\"\>",
+                        FontSlant->"Italic"],
+                      (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-", 
+                  SubscriptBox[
+                    TagBox[
+                      StyleBox["\<\"p\"\>",
+                        FontSlant->"Italic"],
+                      (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                "TraditionalForm"], ")"}], " ", 
+            FormBox[
+              SubsuperscriptBox[
+                TagBox[
+                  StyleBox["\<\"p\"\>",
+                    FontSlant->"Italic"],
+                  (StyleForm[ #, FontSlant -> "Italic"]&)], "1", "2"],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(64\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{
+            FormBox[
+              FractionBox["1", 
+                RowBox[{
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SubsuperscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1", 
+                          "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ q1, 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, q1], q2], 2], "]"],
+                      Editable->False], ")"}], " ", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      InterpretationBox[
+                        RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"q\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"], "-", 
+                                SubscriptBox[
+                                  TagBox[
+                                    StyleBox["\<\"p\"\>",
+                                      FontSlant->"Italic"],
+                                    (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                  "1"]}], ")"}], "2"], 
+                          "\[InvisibleSpace]", "\<\"-\"\>", 
+                          "\[InvisibleSpace]", \(ME\^2\), 
+                          "\[InvisibleSpace]", "\<\"]\"\>"}],
+                        SequenceForm[ "[", 
+                          Power[ 
+                            Plus[ 
+                              Times[ -1, p1], q1], 2], "-", 
+                          Power[ ME, 2], "]"],
+                        Editable->False], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                    InterpretationBox[
+                      RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "2"], "-", 
+                              SubscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"p\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1"]}], ")"}], "2"], 
+                        "\[InvisibleSpace]", "\<\"-\"\>", 
+                        "\[InvisibleSpace]", \(ME\^2\), 
+                        "\[InvisibleSpace]", "\<\"]\"\>"}],
+                      SequenceForm[ "[", 
+                        Power[ 
+                          Plus[ 
+                            Times[ -1, p1], q2], 2], "-", 
+                        Power[ ME, 2], "]"],
+                      Editable->False], ")"}]}]],
+              "TraditionalForm"], " ", 
+            RowBox[{"\[Gamma]", "\[CenterDot]", "(", 
+              FormBox[
+                RowBox[{
+                  SubscriptBox[
+                    TagBox[
+                      StyleBox["\<\"q\"\>",
+                        FontSlant->"Italic"],
+                      (StyleForm[ #, FontSlant -> "Italic"]&)], "2"], "-", 
+                  SubscriptBox[
+                    TagBox[
+                      StyleBox["\<\"p\"\>",
+                        FontSlant->"Italic"],
+                      (StyleForm[ #, FontSlant -> "Italic"]&)], "1"]}],
+                "TraditionalForm"], ")"}], " ", 
+            FormBox[
+              SubsuperscriptBox[
+                TagBox[
+                  StyleBox["\<\"q\"\>",
+                    FontSlant->"Italic"],
+                  (StyleForm[ #, FontSlant -> "Italic"]&)], "1", "2"],
+              "TraditionalForm"], " ", \(EL\^4\)}], \(64\ \[Pi]\^8\)], "-", 
+        FractionBox[
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  FormBox[
+                    FractionBox["1", 
+                      RowBox[{
+                        RowBox[{"(", 
+                          InterpretationBox[
+                            RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                              SubsuperscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1", "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                            
+                            SequenceForm[ "[", 
+                              Power[ q1, 2], "]"],
+                            Editable->False], ")"}], " ", 
+                        RowBox[{"(", 
+                          InterpretationBox[
+                            RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                              SuperscriptBox[
+                                RowBox[{"(", 
+                                  RowBox[{
+                                    SubscriptBox[
+                                      TagBox[
+                                        StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "2"], "-", 
+                                    SubscriptBox[
+                                      TagBox[
+                                        StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "1"]}], ")"}], "2"], 
+                              "\[InvisibleSpace]", "\<\"]\"\>"}],
+                            SequenceForm[ "[", 
+                              Power[ 
+                                Plus[ 
+                                  Times[ -1, q1], q2], 2], "]"],
+                            Editable->False], ")"}], " ", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            InterpretationBox[
+                              RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                                SuperscriptBox[
+                                  RowBox[{"(", 
+                                    RowBox[{
+                                      SubscriptBox[
+                                        TagBox[
+                                        StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "1"], "-", 
+                                      SubscriptBox[
+                                        TagBox[
+                                        StyleBox["\<\"p\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "1"]}], ")"}], "2"], 
+                                "\[InvisibleSpace]", "\<\"-\"\>", 
+                                "\[InvisibleSpace]", \(ME\^2\), 
+                                "\[InvisibleSpace]", "\<\"]\"\>"}],
+                              SequenceForm[ "[", 
+                                Power[ 
+                                  Plus[ 
+                                    Times[ -1, p1], q1], 2], "-", 
+                                Power[ ME, 2], "]"],
+                              Editable->False], ")"}], "2"], " ", 
+                        RowBox[{"(", 
+                          InterpretationBox[
+                            RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                              SuperscriptBox[
+                                RowBox[{"(", 
+                                  RowBox[{
+                                    SubscriptBox[
+                                      TagBox[
+                                        StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "2"], "-", 
+                                    SubscriptBox[
+                                      TagBox[
+                                        StyleBox["\<\"p\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "1"]}], ")"}], "2"], 
+                              "\[InvisibleSpace]", "\<\"-\"\>", 
+                              "\[InvisibleSpace]", \(ME\^2\), 
+                              "\[InvisibleSpace]", "\<\"]\"\>"}],
+                            SequenceForm[ "[", 
+                              Power[ 
+                                Plus[ 
+                                  Times[ -1, p1], q2], 2], "-", 
+                              Power[ ME, 2], "]"],
+                            Editable->False], ")"}]}]],
+                    "TraditionalForm"], " ", 
+                  RowBox[{"\[Gamma]", "\[CenterDot]", 
+                    FormBox[
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                      "TraditionalForm"]}], " ", 
+                  FormBox[
+                    RowBox[{
+                      FormBox[
+                        SubscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                        "TraditionalForm"], "\[CenterDot]", 
+                      FormBox[
+                        SubscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "2"],
+                        "TraditionalForm"]}],
+                    "TraditionalForm"]}], "-", 
+                RowBox[{
+                  FormBox[
+                    FractionBox["1", 
+                      RowBox[{
+                        RowBox[{"(", 
+                          InterpretationBox[
+                            RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                              SubsuperscriptBox[
+                                TagBox[
+                                  StyleBox["\<\"q\"\>",
+                                    FontSlant->"Italic"],
+                                  (StyleForm[ #, FontSlant -> "Italic"]&)], 
+                                "1", "2"], "\[InvisibleSpace]", "\<\"]\"\>"}],
+                            
+                            SequenceForm[ "[", 
+                              Power[ q1, 2], "]"],
+                            Editable->False], ")"}], " ", 
+                        RowBox[{"(", 
+                          InterpretationBox[
+                            RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                              SuperscriptBox[
+                                RowBox[{"(", 
+                                  RowBox[{
+                                    SubscriptBox[
+                                      TagBox[
+                                        StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "2"], "-", 
+                                    SubscriptBox[
+                                      TagBox[
+                                        StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "1"]}], ")"}], "2"], 
+                              "\[InvisibleSpace]", "\<\"]\"\>"}],
+                            SequenceForm[ "[", 
+                              Power[ 
+                                Plus[ 
+                                  Times[ -1, q1], q2], 2], "]"],
+                            Editable->False], ")"}], " ", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            InterpretationBox[
+                              RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                                SuperscriptBox[
+                                  RowBox[{"(", 
+                                    RowBox[{
+                                      SubscriptBox[
+                                        TagBox[
+                                        StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "1"], "-", 
+                                      SubscriptBox[
+                                        TagBox[
+                                        StyleBox["\<\"p\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "1"]}], ")"}], "2"], 
+                                "\[InvisibleSpace]", "\<\"-\"\>", 
+                                "\[InvisibleSpace]", \(ME\^2\), 
+                                "\[InvisibleSpace]", "\<\"]\"\>"}],
+                              SequenceForm[ "[", 
+                                Power[ 
+                                  Plus[ 
+                                    Times[ -1, p1], q1], 2], "-", 
+                                Power[ ME, 2], "]"],
+                              Editable->False], ")"}], "2"], " ", 
+                        RowBox[{"(", 
+                          InterpretationBox[
+                            RowBox[{"\<\"[\"\>", "\[InvisibleSpace]", 
+                              SuperscriptBox[
+                                RowBox[{"(", 
+                                  RowBox[{
+                                    SubscriptBox[
+                                      TagBox[
+                                        StyleBox["\<\"q\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "2"], "-", 
+                                    SubscriptBox[
+                                      TagBox[
+                                        StyleBox["\<\"p\"\>",
+                                        FontSlant->"Italic"],
+                                        (
+                                        StyleForm[ #, FontSlant -> 
+                                        "Italic"]&)], "1"]}], ")"}], "2"], 
+                              "\[InvisibleSpace]", "\<\"-\"\>", 
+                              "\[InvisibleSpace]", \(ME\^2\), 
+                              "\[InvisibleSpace]", "\<\"]\"\>"}],
+                            SequenceForm[ "[", 
+                              Power[ 
+                                Plus[ 
+                                  Times[ -1, p1], q2], 2], "-", 
+                              Power[ ME, 2], "]"],
+                            Editable->False], ")"}]}]],
+                    "TraditionalForm"], " ", 
+                  RowBox[{"\[Gamma]", "\[CenterDot]", 
+                    FormBox[
+                      SubscriptBox[
+                        TagBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"],
+                          (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                      "TraditionalForm"]}], " ", 
+                  FormBox[
+                    RowBox[{
+                      FormBox[
+                        SubscriptBox[
+                          TagBox[
+                            StyleBox["\<\"p\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                        "TraditionalForm"], "\[CenterDot]", 
+                      FormBox[
+                        SubscriptBox[
+                          TagBox[
+                            StyleBox["\<\"q\"\>",
+                              FontSlant->"Italic"],
+                            (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                        "TraditionalForm"]}],
+                    "TraditionalForm"]}]}], ")"}], 
+            " ", \(EL\^4\)}], \(32\ \[Pi]\^8\)], "-", 
+        FractionBox[
+          RowBox[{\(ME\^2\), " ", 
+            RowBox[{"\[Gamma]", "\[CenterDot]", 
+              FormBox[
+                SubscriptBox[
+                  TagBox[
+                    StyleBox["\<\"p\"\>",
+                      FontSlant->"Italic"],
+                    (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                "TraditionalForm"]}], " ", 
+            InterpretationBox[
+              SubsuperscriptBox[
+                StyleBox["F",
+                  SingleLetterItalics->False,
+                  FontWeight->"Bold"], 
+                RowBox[{
+                  FormBox[\({1, 0}\),
+                    "TraditionalForm"], 
+                  FormBox[\({0, 0}\),
+                    "TraditionalForm"], 
+                  FormBox[\({2, ME}\),
+                    "TraditionalForm"], 
+                  FormBox[\({1, ME}\),
+                    "TraditionalForm"], 
+                  FormBox[\({1, 0}\),
+                    "TraditionalForm"]}], 
+                RowBox[{"(", 
+                  FormBox["D",
+                    "TraditionalForm"], ")"}]],
+              TFI[ D, 
+                SPD[ p1, p1], {{1, 0}, {0, 0}, {2, ME}, {1, ME}, {1, 0}}],
+              Editable->True], " ", \(EL\^4\)}], \(16\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{"ME", " ", 
+            FormBox[
+              SubsuperscriptBox[
+                TagBox[
+                  StyleBox["\<\"p\"\>",
+                    FontSlant->"Italic"],
+                  (StyleForm[ #, FontSlant -> "Italic"]&)], "1", "2"],
+              "TraditionalForm"], " ", 
+            InterpretationBox[
+              SubsuperscriptBox[
+                StyleBox["F",
+                  SingleLetterItalics->False,
+                  FontWeight->"Bold"], 
+                RowBox[{
+                  FormBox[\({1, 0}\),
+                    "TraditionalForm"], 
+                  FormBox[\({0, 0}\),
+                    "TraditionalForm"], 
+                  FormBox[\({2, ME}\),
+                    "TraditionalForm"], 
+                  FormBox[\({1, ME}\),
+                    "TraditionalForm"], 
+                  FormBox[\({1, 0}\),
+                    "TraditionalForm"]}], 
+                RowBox[{"(", 
+                  FormBox["D",
+                    "TraditionalForm"], ")"}]],
+              TFI[ D, 
+                SPD[ p1, p1], {{1, 0}, {0, 0}, {2, ME}, {1, ME}, {1, 0}}],
+              Editable->True], " ", \(EL\^4\)}], \(16\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{\(ME\^3\), " ", 
+            InterpretationBox[
+              SubsuperscriptBox[
+                StyleBox["F",
+                  SingleLetterItalics->False,
+                  FontWeight->"Bold"], 
+                RowBox[{
+                  FormBox[\({1, 0}\),
+                    "TraditionalForm"], 
+                  FormBox[\({0, 0}\),
+                    "TraditionalForm"], 
+                  FormBox[\({2, ME}\),
+                    "TraditionalForm"], 
+                  FormBox[\({1, ME}\),
+                    "TraditionalForm"], 
+                  FormBox[\({1, 0}\),
+                    "TraditionalForm"]}], 
+                RowBox[{"(", 
+                  FormBox["D",
+                    "TraditionalForm"], ")"}]],
+              TFI[ D, 
+                SPD[ p1, p1], {{1, 0}, {0, 0}, {2, ME}, {1, ME}, {1, 0}}],
+              Editable->True], " ", \(EL\^4\)}], \(16\ \[Pi]\^8\)], "-", 
+        FractionBox[
+          RowBox[{
+            RowBox[{"\[Gamma]", "\[CenterDot]", 
+              FormBox[
+                SubscriptBox[
+                  TagBox[
+                    StyleBox["\<\"p\"\>",
+                      FontSlant->"Italic"],
+                    (StyleForm[ #, FontSlant -> "Italic"]&)], "1"],
+                "TraditionalForm"]}], " ", 
+            RowBox[{"(", 
+              RowBox[{
+                InterpretationBox[
+                  SubsuperscriptBox[
+                    StyleBox["F",
+                      SingleLetterItalics->False,
+                      FontWeight->"Bold"], 
+                    RowBox[{
+                      FormBox[\({1, 0}\),
+                        "TraditionalForm"], 
+                      FormBox[\({0, 0}\),
+                        "TraditionalForm"], 
+                      FormBox[\({2, ME}\),
+                        "TraditionalForm"], 
+                      FormBox[\({1, ME}\),
+                        "TraditionalForm"], 
+                      FormBox[\({1, 0}\),
+                        "TraditionalForm"]}], 
+                    RowBox[{"(", 
+                      FormBox["D",
+                        "TraditionalForm"], ")", " ", "0", "0", "0", "1", 
+                      "0"}]],
+                  TFI[ D, 
+                    SPD[ p1, p1], {0, 0, 0, 1, 0}, {{1, 0}, {0, 0}, {2, ME}, {
+                    1, ME}, {1, 0}}],
+                  Editable->True], "-", 
+                RowBox[{
+                  FormBox[
+                    SubsuperscriptBox[
+                      TagBox[
+                        StyleBox["\<\"p\"\>",
+                          FontSlant->"Italic"],
+                        (StyleForm[ #, FontSlant -> "Italic"]&)], "1", "2"],
+                    "TraditionalForm"], " ", 
+                  InterpretationBox[
+                    SubsuperscriptBox[
+                      StyleBox["F",
+                        SingleLetterItalics->False,
+                        FontWeight->"Bold"], 
+                      RowBox[{
+                        FormBox[\({1, 0}\),
+                          "TraditionalForm"], 
+                        FormBox[\({0, 0}\),
+                          "TraditionalForm"], 
+                        FormBox[\({2, ME}\),
+                          "TraditionalForm"], 
+                        FormBox[\({1, ME}\),
+                          "TraditionalForm"], 
+                        FormBox[\({1, 0}\),
+                          "TraditionalForm"]}], 
+                      RowBox[{"(", 
+                        FormBox["D",
+                          "TraditionalForm"], ")"}]],
+                    TFI[ D, 
+                      SPD[ p1, p1], {{1, 0}, {0, 0}, {2, ME}, {1, ME}, {1, 
+                      0}}],
+                    Editable->True]}]}], ")"}], 
+            " ", \(EL\^4\)}], \(32\ \[Pi]\^8\)], "+", 
+        FractionBox[
+          RowBox[{"ME", " ", 
+            InterpretationBox[
+              SubsuperscriptBox[
+                StyleBox["F",
+                  SingleLetterItalics->False,
+                  FontWeight->"Bold"], 
+                RowBox[{
+                  FormBox[\({1, 0}\),
+                    "TraditionalForm"], 
+                  FormBox[\({0, 0}\),
+                    "TraditionalForm"], 
+                  FormBox[\({2, ME}\),
+                    "TraditionalForm"], 
+                  FormBox[\({1, ME}\),
+                    "TraditionalForm"], 
+                  FormBox[\({1, 0}\),
+                    "TraditionalForm"]}], 
+                RowBox[{"(", 
+                  FormBox["D",
+                    "TraditionalForm"], ")", " ", "1", "0", "0", "0", "0"}]],
+              TFI[ D, 
+                SPD[ p1, p1], {1, 0, 0, 0, 0}, {{1, 0}, {0, 0}, {2, ME}, {1, 
+                ME}, {1, 0}}],
+              Editable->True], " ", \(EL\^4\)}], \(16\ \[Pi]\^8\)]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1280}, {0, 941}},
+WindowSize->{1016, 651},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+StyleDefinitions -> "REPORT.NB"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 30, 0, 81, "Title"],
+Cell[1809, 55, 167, 3, 75, "Input"],
+Cell[1979, 60, 241, 6, 18, "Text"],
+Cell[2223, 68, 257, 7, 18, "Text"],
+Cell[2483, 77, 671, 21, 18, "Text"],
+Cell[3157, 100, 127, 3, 18, "Text"],
+Cell[3287, 105, 346, 11, 18, "Text"],
+Cell[3636, 118, 157, 3, 18, "Text"],
+Cell[3796, 123, 26, 0, 35, "Input"],
+Cell[3825, 125, 148, 3, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[3998, 132, 48, 1, 35, "Input"],
+Cell[4049, 135, 44717, 1261, 304, 19099, 940, "GraphicsData", "PostScript", \
+"Graphics"]
+}, Open  ]],
+Cell[48781, 1399, 277, 5, 55, "Input"],
+Cell[49061, 1406, 206, 4, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[49292, 1414, 231, 4, 55, "Input"],
+Cell[49526, 1420, 90092, 1890, 526, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
+

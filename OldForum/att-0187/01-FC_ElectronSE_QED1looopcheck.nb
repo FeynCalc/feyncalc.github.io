@@ -1,0 +1,1002 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     32021,        914]*)
+(*NotebookOutlinePosition[     32698,        937]*)
+(*  CellTagsIndexPosition[     32654,        933]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["DSM Diagrams ", "Title"],
+
+Cell[BoxData[{
+    \(\($LoadPhi = True;\)\), "\n", 
+    \(\($LoadFeynArts = True;\)\), "\n", 
+    \(<< \ HighEnergyPhysics`FeynCalc`\)}], "Input"],
+
+Cell[TextData[{
+  StyleBox["FeynCalc",
+    FontWeight->"Bold"],
+  " ",
+  "4.1.1",
+  "    For help, type ?FeynCalc,  ",
+  ButtonBox["use the built-in help system",
+    ButtonFunction:>(FrontEndExecute[ 
+        FrontEnd`HelpBrowserLookup[ "AddOns", #]]&),
+    ButtonData:>{"Short Overview", "intro"},
+    ButtonStyle->"AddOnsLink",
+    ButtonNote->"Open the help browser"],
+  "  or visit ",
+  ButtonBox["www.feyncalc.org",
+    ButtonData:>{
+      URL[ "http://www.feyncalc.org"], None},
+    ButtonStyle->"Hyperlink",
+    ButtonNote->"http://www.feyncalc.org"]
+}], "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell["Loading PHI ", "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell["Loading FeynArts ", "Text",
+  GeneratedCell->True,
+  CellAutoOverwrite->True],
+
+Cell[BoxData[
+    \(TraditionalForm\`\*"\<\"\"\>"\)], "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"FeynArts 3.2"\)], "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"by Hagen Eck, Sepp Kueblbeck, and Thomas Hahn"\)], \
+"Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"last revised 12 Sep 03"\)], "Print"],
+
+Cell[BoxData[
+    \(TraditionalForm\`"patched for use with FeynCalc by Frederik \
+Orellana"\)], "Print"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(SetOptions[{B0, B1, B00, B11}, \ 
+      BReduce\  \[Rule] \ True]\), "\[IndentingNewLine]", 
+    \(SetOptions[OneLoop, Dimension\  \[Rule] \ D]\)}], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{{BReduce \[Rule] True, B0Unique \[Rule] True, 
+        B0Real \[Rule] False}, {BReduce \[Rule] True}, {BReduce \[Rule] 
+          True}, {BReduce \[Rule] True}}\)], "Output"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{Apart2 \[Rule] True, CancelQP \[Rule] True, 
+      DenominatorOrder \[Rule] False, Dimension \[Rule] D, 
+      FinalSubstitutions \[Rule] {}, Factoring \[Rule] False, 
+      FormatType \[Rule] InputForm, InitialSubstitutions \[Rule] {}, 
+      IntermediateSubstitutions \[Rule] {}, IsolateHead \[Rule] False, 
+      Mandelstam \[Rule] {}, OneLoopSimplify \[Rule] False, 
+      Prefactor \[Rule] 1, ReduceGamma \[Rule] False, 
+      ReduceToScalars \[Rule] False, SmallVariables \[Rule] {}, 
+      WriteOut \[Rule] False, 
+      WriteOutPaVe \[Rule] 
+        "C:\\User\\Jon\\Mathematica4\\AddOns\\Applications\\HighEnergyPhysics\
+\\Phi\\Storage\\", Sum \[Rule] True}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(t11\  = \ 
+        CreateTopologies[1, 1\  \[Rule] \ 1, \ 
+          ExcludeTopologies\  \[Rule] \ {Internal}];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Paint[t11]\)], "Input"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1.1 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0 0.0151515 0 0.0151515 [
+[ 0 0 0 0 ]
+[ 1 1.1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1.1 L
+0 1.1 L
+closepath
+clip
+newpath
+% Start of sub-graphic
+p
+0 0.666667 0.333333 1 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.5 .5 L
+s
+.95455 .5 m
+.5 .5 L
+s
+newpath
+.5 .625 .125 270 630 arc
+s
+.04 w
+.5 .5 Mdot
+gsave
+.5 .02273 -67.75 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20.5625 translate 1 -1 scale
+63.000 12.813 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T1) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+% Start of sub-graphic
+p
+0.333333 0.666667 0.666667 1 MathSubStart
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.0454545 0.0454545 0.0454545 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.005 w
+[ ] 0 setdash
+.04545 .5 m
+.31818 .5 L
+s
+.95455 .5 m
+.68182 .5 L
+s
+newpath
+.5 .54091 .18636 192.68 347.32 arc
+s
+newpath
+.5 .45909 .18636 12.6804 167.32 arc
+s
+.04 w
+.31818 .5 Mdot
+.68182 .5 Mdot
+gsave
+.5 .02273 -67.75 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20.5625 translate 1 -1 scale
+63.000 12.813 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 7.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(T2) show
+1.000 setlinewidth
+grestore
+MathSubEnd
+P
+% End of sub-graphic
+0 g
+gsave
+.43182 1.06 -66.5313 -10.2813 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20.5625 translate 1 -1 scale
+63.000 12.813 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+gsave
+.5 1.06 -67.8438 -10.2813 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20.5625 translate 1 -1 scale
+63.000 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 12.813 moveto
+(\\256) show
+72.688 12.813 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+gsave
+.56818 1.06 -66.5313 -10.2813 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20.5625 translate 1 -1 scale
+63.000 12.813 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 11.938 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{261.813, 287.938},
+  ImageMargins->{{35, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004500017a000`40O003h00Oofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00
+ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`009fmk0`000Vmk0`00
+Cfmk0`000Vmk0`00Ofmk000XKg/00`00Kg]_N`02Kg/00`00Kg]_N`1?Kg/01000Kg]_Nfmk0P00P6mk
+000XKg/00`00Kg]_N`02Kg/00`00Kg]_N`1?Kg/00`00Kg]_N`03Kg/00`00Kg]_N`1mKg/002M_N`<0
+00=_N`03001_Nfmk04i_N`<000A_N`03001_Nfmk07e_N`009fmk0`000Vmk0P00D6mk0`000Vmk0`00
+Ofmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/0
+0?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk
+1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/0085_N`<0085_N`00O6mk1@000fmk1@00
+O6mk001jKg/2000=Kg/2001jKg/007U_N`03001_Nfmk00m_N`03001_Nfmk07M_N`00N6mk00<006mk
+Kg/04Fmk00<006mkKg/0MVmk001gKg/00`00Kg]_N`0CKg/00`00Kg]_N`1eKg/007I_N`03001_Nfmk
+01E_N`03001_Nfmk07A_N`00MFmk00<006mkKg/05fmk00<006mkKg/0Lfmk001dKg/00`00Kg]_N`0I
+Kg/00`00Kg]_N`1bKg/007=_N`03001_Nfmk01Y_N`03001_Nfmk079_N`00Lfmk00<006mkKg/06fmk
+00<006mkKg/0LFmk001cKg/00`00Kg]_N`0KKg/00`00Kg]_N`1aKg/002]_N`03001_Nfmk04A_N`03
+001_Nfmk01e_N`03001_Nfmk071_N`000fmkD0001fmk6P007Fmk6@00Ffmk000WKg/20002Kg/00`00
+Kg]_N`020012Kg/00`00Kg]_N`0MKg/00`00Kg]_N`1`Kg/002E_N`8000U_N`80045_N`03001_Nfmk
+01]_N`03001_Nfmk075_N`008fmk0P003Fmk0P00?fmk00<006mkKg/06fmk00<006mkKg/0LFmk000R
+Kg/00`00Kg]_N`0>Kg/00`00Kg]_N`0mKg/00`00Kg]_N`0JKg/00`00Kg]_N`1bKg/0029_N`03001_
+Nfmk00m_N`03001_Nfmk03e_N`03001_Nfmk01U_N`03001_Nfmk079_N`008Fmk00<006mkKg/046mk
+00<006mkKg/0?Vmk00<006mkKg/05fmk00<006mkKg/0Lfmk000QKg/00`00Kg]_N`0AKg/00`00Kg]_
+N`0nKg/00`00Kg]_N`0EKg/00`00Kg]_N`1dKg/0021_N`03001_Nfmk019_N`03001_Nfmk03m_N`03
+001_Nfmk01=_N`03001_Nfmk07E_N`0086mk00<006mkKg/04fmk00<006mkKg/0?fmk00<006mkKg/0
+4Fmk00<006mkKg/0MVmk000PKg/00`00Kg]_N`0CKg/00`00Kg]_N`10Kg/00`00Kg]_N`0?Kg/00`00
+Kg]_N`1gKg/0021_N`03001_Nfmk01=_N`03001_Nfmk045_N`8000e_N`8007Y_N`0086mk00<006mk
+Kg/04fmk00<006mkKg/0@fmk1@000fmk1@00O6mk000PKg/00`00Kg]_N`0CKg/00`00Kg]_N`18Kg/3
+0021Kg/0021_N`03001_Nfmk019_N`03001_Nfmk0<e_N`008Fmk00<006mkKg/04Fmk00<006mkKg/0
+cFmk000QKg/00`00Kg]_N`0@Kg/00`00Kg]_N`3>Kg/0029_N`03001_Nfmk00m_N`03001_Nfmk0<i_
+N`008Vmk00<006mkKg/03Vmk00<006mkKg/0cfmk000SKg/00`00Kg]_N`0=Kg/00`00Kg]_N`3?Kg/0
+02A_N`8000]_N`800=9_N`009Vmk10000fmk1000e6mk000ZKg/3003HKg/00?m_N`I_N`00ofmk1Vmk
+003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_
+N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk
+003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_
+N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk
+003oKg/6Kg/00?m_N`I_N`00ofmk1Vmk001^Kg/5000NKg/5001_Kg/0071_N`03001_Nfmk011_N`03
+001_Nfmk00e_N`03001_Nfmk06m_N`00L6mk00<006mkKg/04Fmk00<006mkKg/036mk00<006mkKg/0
+Kfmk001`Kg/00`00Kg]_N`0;Kg/8000=Kg/00`00Kg]_N`1_Kg/0071_N`03001_Nfmk015_N`03001_
+Nfmk00a_N`03001_Nfmk06m_N`00L6mk00<006mkKg/046mk00<006mkKg/03Fmk00<006mkKg/0Kfmk
+001`Kg/00`00Kg]_N`0PKg/00`00Kg]_N`1_Kg/006m_N`80025_N`80075_N`00ofmk1Vmk003oKg/6
+Kg/00?m_N`I_N`00ofmk1Vmk0000\
+\>"],
+  ImageRangeCache->{{{0, 260.813}, {286.938, 0}} -> {-0.000330004, \
+-0.00589865, 0.253058, 0.253058}, {{0, 86.9375}, {113, 26.0625}} -> \
+{-1.00011, -45.0164, 0.253058, 0.253058}, {{86.9375, 173.875}, {113, \
+26.0625}} -> {-23.0004, -45.0164, 0.253058, 0.253058}}],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{\(FeynArtsGraphics(1 \[Rule] 1)\), "\[InvisibleApplication]", 
+        RowBox[{"(", 
+          TagBox[
+            RowBox[{"(", "\[NoBreak]", GridBox[{
+                  {
+                    FormBox[
+                      
+                      InterpretationBox[\("["\[InvisibleSpace]"T1"\
+\[InvisibleSpace]"]"\),
+                        SequenceForm[ "[", "T1", "]"],
+                        Editable->False],
+                      "TraditionalForm"], 
+                    FormBox[
+                      
+                      InterpretationBox[\("["\[InvisibleSpace]"T2"\
+\[InvisibleSpace]"]"\),
+                        SequenceForm[ "[", "T2", "]"],
+                        Editable->False],
+                      "TraditionalForm"], "Null"},
+                  {"Null", "Null", "Null"},
+                  {"Null", "Null", "Null"}
+                  }], "\[NoBreak]", ")"}],
+            (MatrixForm[ #]&)], ")"}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(FF\  = \ 
+      InsertFields[t11[\([2]\)], \ F[1, \ {1}]\  \[Rule] \ F[1, \ {1}], \ 
+        Model\  \[Rule] \ QED, \ ExcludeParticles\  \[Rule] \ {}, \ 
+        InsertionLevel\  \[Rule] \ Particles]\)\(\ \)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\(TopologyList(Model \[Rule] QED, 
+        GenericModel \[Rule] "Lorentz", InsertionLevel \[Rule] Particles, 
+        ExcludeParticles \[Rule] {}, LastSelections \[Rule] {}, 
+        ExcludeFieldPoints \[Rule] {}, Restrictions \[Rule] {}, 
+        Process \[Rule] \({F(1, {1})} \[Rule] {F(
+                1, {1})}\))\)\[InvisibleApplication] \((\(Topology(
+              2)\)\[InvisibleApplication] \((\(Propagator(
+                  Incoming)\)\[InvisibleApplication] \((\(Vertex(
+                      1)\)\[InvisibleApplication] \((1)\), \(Vertex(
+                      3)\)\[InvisibleApplication] \((3)\), 
+                  Field(1))\), \(Propagator(
+                  Outgoing)\)\[InvisibleApplication] \((\(Vertex(
+                      1)\)\[InvisibleApplication] \((2)\), \(Vertex(
+                      3)\)\[InvisibleApplication] \((4)\), 
+                  Field(2))\), \(Propagator(
+                  Loop(1))\)\[InvisibleApplication] \((\(Vertex(
+                      3)\)\[InvisibleApplication] \((3)\), \(Vertex(
+                      3)\)\[InvisibleApplication] \((4)\), 
+                  Field(3))\), \(Propagator(
+                  Loop(1))\)\[InvisibleApplication] \((\(Vertex(
+                      3)\)\[InvisibleApplication] \((3)\), \(Vertex(
+                      3)\)\[InvisibleApplication] \((4)\), 
+                  Field(4))\))\) \[Rule] \(Insertions(
+              Generic)\)\[InvisibleApplication] \((\(Graph(1, 
+                    Generic == 
+                      1)\)\[InvisibleApplication] \((Field(1) \[Rule] 
+                      F(1, {1}), Field(2) \[Rule] \(-\(F(1, {1})\)\), 
+                    Field(3) \[Rule] F, 
+                    Field(4) \[Rule] V)\) \[Rule] \(Insertions(
+                    Classes)\)\[InvisibleApplication] \((\(Graph(1, 
+                          Classes == 
+                            1)\)\[InvisibleApplication] \((Field(1) \[Rule] 
+                            F(1, {1}), Field(2) \[Rule] \(-\(F(1, {1})\)\), 
+                          Field(3) \[Rule] F(1, {1}), 
+                          Field(4) \[Rule] V(1))\) \[Rule] \(Insertions(
+                          Particles)\)\[InvisibleApplication] \((\(Graph(1, 
+                              Particles == 
+                                1)\)\[InvisibleApplication] \((Field(
+                                  1) \[Rule] F(1, {1}), 
+                              Field(2) \[Rule] \(-\(F(1, {1})\)\), 
+                              Field(3) \[Rule] F(1, {1}), 
+                              Field(4) \[Rule] 
+                                V(1))\))\))\))\))\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(ampFC\  = \ \(\(CreateFCAmp[FF, \ 
+              DiracTraceEvaluate\  \[Rule] \ True]\)[\([1]\)] /. 
+          ParticleMass[Photon, __] \[Rule] \ 0\) /. 
+        p3 \[Rule] \(-p1\)\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"-", 
+        FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+            RowBox[{
+              RowBox[{"\[CurlyPhi]", "\[NoBreak]", "(", "\[NoBreak]", 
+                FormBox[
+                  SubscriptBox[
+                    StyleBox["\<\"p\"\>",
+                      FontSlant->"Italic"], "1"],
+                  "TraditionalForm"], "\[NoBreak]", ",", "\[NoBreak]", "ME", 
+                "\[NoBreak]", ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                    RowBox[{
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox[
+                            SubscriptBox[
+                              StyleBox["\<\"\[Mu]\"\>",
+                                FontSlant->"Italic"], "2"],
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", \(\[Gamma]\^6\)}]}], "+", 
+                  
+                  RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                    RowBox[{
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox[
+                            SubscriptBox[
+                              StyleBox["\<\"\[Mu]\"\>",
+                                FontSlant->"Italic"], "2"],
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", \(\[Gamma]\^7\)}]}]}], 
+                ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{"ME", "+", 
+                  RowBox[{
+                    FormBox["\<\"\[Gamma]\"\>",
+                      "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                    "\[NoBreak]", 
+                    FormBox[
+                      SubscriptBox[
+                        StyleBox["\<\"q\"\>",
+                          FontSlant->"Italic"], "1"],
+                      "TraditionalForm"]}]}], ")"}], ".", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                    RowBox[{
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox[
+                            SubscriptBox[
+                              StyleBox["\<\"\[Mu]\"\>",
+                                FontSlant->"Italic"], "1"],
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", \(\[Gamma]\^6\)}]}], "+", 
+                  
+                  RowBox[{"\[ImaginaryI]", " ", "EL", " ", 
+                    RowBox[{
+                      SuperscriptBox["\[Gamma]", 
+                        FormBox[
+                          FormBox[
+                            SubscriptBox[
+                              StyleBox["\<\"\[Mu]\"\>",
+                                FontSlant->"Italic"], "1"],
+                            "TraditionalForm"],
+                          "TraditionalForm"]], ".", \(\[Gamma]\^7\)}]}]}], 
+                ")"}], ".", 
+              RowBox[{"\[CurlyPhi]", "\[NoBreak]", "(", "\[NoBreak]", 
+                FormBox[
+                  SubscriptBox[
+                    StyleBox["\<\"p\"\>",
+                      FontSlant->"Italic"], "1"],
+                  "TraditionalForm"], "\[NoBreak]", ",", "\[NoBreak]", "ME", 
+                "\[NoBreak]", ")"}]}], " ", 
+            SuperscriptBox["g", 
+              RowBox[{
+                FormBox[
+                  FormBox[
+                    SubscriptBox[
+                      StyleBox["\<\"\[Mu]\"\>",
+                        FontSlant->"Italic"], "1"],
+                    "TraditionalForm"],
+                  "TraditionalForm"], "\[NoBreak]", 
+                FormBox[
+                  FormBox[
+                    SubscriptBox[
+                      StyleBox["\<\"\[Mu]\"\>",
+                        FontSlant->"Italic"], "2"],
+                    "TraditionalForm"],
+                  "TraditionalForm"]}]]}], 
+          RowBox[{"16", " ", \(\[Pi]\^4\), " ", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  SubsuperscriptBox[
+                    StyleBox["\<\"q\"\>",
+                      FontSlant->"Italic"], "1", "2"], "-", \(ME\^2\)}], 
+                ")"}], ".", 
+              SuperscriptBox[
+                RowBox[{"(", 
+                  RowBox[{
+                    SubscriptBox[
+                      StyleBox["\<\"q\"\>",
+                        FontSlant->"Italic"], "1"], "-", 
+                    SubscriptBox[
+                      StyleBox["\<\"p\"\>",
+                        FontSlant->"Italic"], "1"]}], ")"}], "2"]}]}]]}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(aff\  = \ 
+      DiracSimplify[
+          OneLoopSimplify[ampFC /. \ Spinor[__] \[Rule] \ 1, q1, 
+            Dimension \[Rule] D], \ 
+          DiracSubstitute67\  \[Rule] \ True] // \(Simplify\  /. \ 
+            p1 \[Rule] \ p\)\  /. \ ME\  \[Rule] \ m\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", \(EL\^2\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              FractionBox[
+                RowBox[{"2", " ", "D", " ", "ME", " ", 
+                  SubsuperscriptBox[
+                    StyleBox["\<\"p\"\>",
+                      FontSlant->"Italic"], "1", "2"]}], 
+                RowBox[{
+                  RowBox[{"(", 
+                    RowBox[{
+                      SubsuperscriptBox[
+                        StyleBox["\<\"q\"\>",
+                          FontSlant->"Italic"], "1", "2"], "-", \(ME\^2\)}], 
+                    ")"}], ".", 
+                  SuperscriptBox[
+                    RowBox[{"(", 
+                      RowBox[{
+                        SubscriptBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"], "1"], "-", 
+                        SubscriptBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"], "1"]}], ")"}], "2"]}]], "+",
+               
+              RowBox[{\((D - 2)\), " ", 
+                RowBox[{
+                  FormBox["\<\"\[Gamma]\"\>",
+                    "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                  "\[NoBreak]", 
+                  FormBox[
+                    SubscriptBox[
+                      StyleBox["\<\"p\"\>",
+                        FontSlant->"Italic"], "1"],
+                    "TraditionalForm"]}], " ", 
+                RowBox[{"(", 
+                  RowBox[{
+                    FractionBox["1", 
+                      RowBox[{
+                        SubsuperscriptBox[
+                          StyleBox["\<\"q\"\>",
+                            FontSlant->"Italic"], "1", "2"], 
+                        "-", \(ME\^2\)}]], "-", 
+                    FractionBox[
+                      RowBox[{\(ME\^2\), "+", 
+                        SubsuperscriptBox[
+                          StyleBox["\<\"p\"\>",
+                            FontSlant->"Italic"], "1", "2"]}], 
+                      RowBox[{
+                        RowBox[{"(", 
+                          RowBox[{
+                            SubsuperscriptBox[
+                              StyleBox["\<\"q\"\>",
+                                FontSlant->"Italic"], "1", "2"], 
+                            "-", \(ME\^2\)}], ")"}], ".", 
+                        SuperscriptBox[
+                          RowBox[{"(", 
+                            RowBox[{
+                              SubscriptBox[
+                                StyleBox["\<\"q\"\>",
+                                  FontSlant->"Italic"], "1"], "-", 
+                              SubscriptBox[
+                                StyleBox["\<\"p\"\>",
+                                  FontSlant->"Italic"], "1"]}], ")"}], 
+                          "2"]}]]}], ")"}]}]}], ")"}]}], 
+        RowBox[{"32", " ", \(\[Pi]\^4\), " ", 
+          SubsuperscriptBox[
+            StyleBox["\<\"p\"\>",
+              FontSlant->"Italic"], "1", "2"]}]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(ampreduced = \(\(FullSimplify /@ Collect[OneLoop[q1, aff], _B0] /. 
+            p1\  \[Rule] \ p\)\  /. \ ME \[Rule] \ m\)\  /. \ 
+        EL\  \[Rule] \ e\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        FractionBox[
+          RowBox[{\(e\^2\), " ", 
+            RowBox[{\(B\_0\), "(", 
+              SuperscriptBox[
+                FormBox["p",
+                  "TraditionalForm"], "2"], ",", "0", ",", \(m\^2\), ")"}], 
+            " ", 
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  RowBox[{
+                    FormBox["\<\"\[Gamma]\"\>",
+                      "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                    "\[NoBreak]", 
+                    FormBox["p",
+                      "TraditionalForm"]}], " ", 
+                  RowBox[{"(", 
+                    RowBox[{\(m\^2\), "+", 
+                      SuperscriptBox[
+                        FormBox["p",
+                          "TraditionalForm"], "2"]}], ")"}]}], "-", 
+                RowBox[{"4", " ", "m", " ", 
+                  SuperscriptBox[
+                    FormBox["p",
+                      "TraditionalForm"], "2"]}]}], ")"}]}], 
+          RowBox[{"16", " ", \(\[Pi]\^2\), " ", 
+            SuperscriptBox[
+              FormBox["p",
+                "TraditionalForm"], "2"]}]], "-", 
+        FractionBox[
+          RowBox[{\(e\^2\), " ", 
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  RowBox[{
+                    FormBox[\("A"\_"0"\),
+                      "TraditionalForm"], "\[NoBreak]", "(", "\[NoBreak]", 
+                    FormBox[\(m\^2\),
+                      "TraditionalForm"], "\[NoBreak]", ")"}], " ", 
+                  RowBox[{
+                    FormBox["\<\"\[Gamma]\"\>",
+                      "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                    "\[NoBreak]", 
+                    FormBox["p",
+                      "TraditionalForm"]}]}], "+", 
+                RowBox[{
+                  RowBox[{"(", 
+                    RowBox[{
+                      RowBox[{
+                        FormBox["\<\"\[Gamma]\"\>",
+                          "TraditionalForm"], "\[NoBreak]", "\[CenterDot]", 
+                        "\[NoBreak]", 
+                        FormBox["p",
+                          "TraditionalForm"]}], "-", \(2\ m\)}], ")"}], " ", 
+                  SuperscriptBox[
+                    FormBox["p",
+                      "TraditionalForm"], "2"]}]}], ")"}]}], 
+          RowBox[{"16", " ", \(\[Pi]\^2\), " ", 
+            SuperscriptBox[
+              FormBox["p",
+                "TraditionalForm"], "2"]}]]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(A2 = \ 
+      Coefficient[ampreduced, DiracSlash[p], 0] // 
+        Simplify\), "\[IndentingNewLine]", 
+    \(B2 = \ 
+      Coefficient[ampreduced, DiracSlash[p], 1] // Simplify\)}], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      FractionBox[
+        RowBox[{\(e\^2\), " ", "m", " ", 
+          RowBox[{"(", 
+            RowBox[{"1", "-", 
+              RowBox[{"2", " ", 
+                RowBox[{\(B\_0\), "(", 
+                  SuperscriptBox[
+                    FormBox["p",
+                      "TraditionalForm"], "2"], ",", "0", ",", \(m\^2\), 
+                  ")"}]}]}], ")"}]}], \(8\ \[Pi]\^2\)], 
+      TraditionalForm]], "Output"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"-", 
+        FractionBox[
+          RowBox[{\(e\^2\), " ", 
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  FormBox[\("A"\_"0"\),
+                    "TraditionalForm"], "\[NoBreak]", "(", "\[NoBreak]", 
+                  FormBox[\(m\^2\),
+                    "TraditionalForm"], "\[NoBreak]", ")"}], "+", 
+                SuperscriptBox[
+                  FormBox["p",
+                    "TraditionalForm"], "2"], "-", 
+                RowBox[{
+                  RowBox[{\(B\_0\), "(", 
+                    SuperscriptBox[
+                      FormBox["p",
+                        "TraditionalForm"], "2"], ",", "0", ",", \(m\^2\), 
+                    ")"}], " ", 
+                  RowBox[{"(", 
+                    RowBox[{\(m\^2\), "+", 
+                      SuperscriptBox[
+                        FormBox["p",
+                          "TraditionalForm"], "2"]}], ")"}]}]}], ")"}]}], 
+          RowBox[{"16", " ", \(\[Pi]\^2\), " ", 
+            SuperscriptBox[
+              FormBox["p",
+                "TraditionalForm"], "2"]}]]}], TraditionalForm]], "Output"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1280}, {0, 941}},
+WindowSize->{1016, 651},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+StyleDefinitions -> "REPORT.NB"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 30, 0, 81, "Title"],
+Cell[1809, 55, 146, 3, 75, "Input"],
+Cell[1958, 60, 620, 20, 29, "Text"],
+Cell[2581, 82, 78, 2, 29, "Text"],
+Cell[2662, 86, 83, 2, 29, "Text"],
+Cell[2748, 90, 62, 1, 40, "Print"],
+Cell[2813, 93, 64, 1, 40, "Print"],
+Cell[2880, 96, 99, 2, 40, "Print"],
+Cell[2982, 100, 74, 1, 40, "Print"],
+Cell[3059, 103, 104, 2, 40, "Print"],
+
+Cell[CellGroupData[{
+Cell[3188, 109, 178, 3, 55, "Input"],
+Cell[3369, 114, 212, 3, 49, "Output"],
+Cell[3584, 119, 717, 12, 87, "Output"]
+}, Open  ]],
+Cell[4316, 134, 148, 3, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[4489, 141, 43, 1, 35, "Input"],
+Cell[4535, 144, 10449, 350, 304, 5144, 280, "GraphicsData", "PostScript", \
+"Graphics"],
+Cell[14987, 496, 988, 24, 83, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16012, 525, 274, 5, 55, "Input"],
+Cell[16289, 532, 2641, 43, 144, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[18967, 580, 213, 4, 35, "Input"],
+Cell[19183, 586, 4769, 112, 73, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[23989, 703, 288, 6, 55, "Input"],
+Cell[24280, 711, 3089, 71, 92, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27406, 787, 188, 3, 35, "Input"],
+Cell[27597, 792, 2533, 63, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[30167, 860, 212, 5, 55, "Input"],
+Cell[30382, 867, 448, 12, 68, "Output"],
+Cell[30833, 881, 1160, 29, 70, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
+
