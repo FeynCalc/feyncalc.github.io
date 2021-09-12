@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="fcloopsingularitystructure">FCLoopSingularityStructure</h2>
+<p><code>FCLoopSingularityStructure[int, {q1, q2, ...}]</code> returns a list of expressions <code>{pref,U,F,gbF}</code> that are useful to analyze the singular behavior of the loop integral <code>int</code>.</p>
+<ul>
+<li><code>pref</code> is the <span class="math inline">\varepsilon</span>-dependent prefactor of the Feynman parameter integral that can reveal an overall UV-singularity</li>
+<li><code>U</code> and <code>F</code> denote the first and second Symanzik polynomials respectively</li>
+<li><code>gbF</code> is the Groebner basis of <span class="math inline">{F, \partial F / \partial x_i}</span> with respect to the Feynman parameters</li>
+</ul>
+<p>The idea to search for solutions of Landau equations for the <span class="math inline">F</span>-polynomial using Groebner bases was adopted from <a href="https://arxiv.org/abs/1810.06270">1810.06270</a> and <a href="https://arxiv.org/abs/2003.02451">2003.02451</a> by B. Ananthanarayan, Abhishek Pal, S. Ramanan Ratan Sarkar and Abhijit B. Das.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFeynmanPrepare.html">FCFeynmanPrepare</a>, <a href="FCFeynmanParametrize.html">FCFeynmanParametrize</a></p>
+<h3 id="examples">Examples</h3>
+<h4 id="loop-tadpole">1-loop tadpole</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">out</span> = FCLoopSingularityStructure[FAD[{<span class="fu">q</span>, <span class="fu">m</span>}], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{\Gamma (\varepsilon -1) \left(-\left(m^2\right)^{1-\varepsilon }\right),x(1),m^2 x(1)^2,\left\{m^2 x(1)\right\}\right\}</span></p>
+<p>The integral has an apparent UV-singularity from the prefactor</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">Normal</span>[<span class="fu">Series</span>[<span class="fu">out</span>[[<span class="dv">1</span>]], {Epsilon, <span class="dv">0</span>, <span class="dv">-1</span>}]]</span></code></pre></div>
+<p><span class="math display">\frac{m^2}{\varepsilon }</span></p>
+<h4 id="massless-1-loop-2-point-function">Massless 1-loop 2-point function</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">out</span> = FCLoopSingularityStructure[FAD[<span class="fu">q</span>, <span class="fu">q</span> - <span class="fu">p</span>], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{\Gamma (\varepsilon ),x(1)+x(2),-p^2 x(1) x(2),\left\{p^2 x(2),p^2 x(1)\right\}\right\}</span></p>
+<p>The integral has an apparent UV-singularity from the prefactor</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">Normal</span>[<span class="fu">Series</span>[<span class="fu">out</span>[[<span class="dv">1</span>]], {Epsilon, <span class="dv">0</span>, <span class="dv">-1</span>}]]</span></code></pre></div>
+<p><span class="math display">\frac{1}{\varepsilon }</span></p>
+<p>but there is also an IR-divergence for <span class="math inline">p^2 = 0</span> (the trivial solution with all <span class="math inline">x_i</span> being 0 is not relevant here)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">Reduce</span>[<span class="fu">Equal</span>[#, <span class="dv">0</span>] &amp; /@ <span class="fu">out</span>[[<span class="dv">4</span>]]]</span></code></pre></div>
+<p><span class="math display">(x(2)=0\land x(1)=0)\lor p^2=0</span></p>
+<h4 id="loop-massless-box">1-loop massless box</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="fu">out</span> = FCLoopSingularityStructure[FAD[<span class="fu">p</span>, <span class="fu">p</span> + q1, <span class="fu">p</span> + q1 + q2, <span class="fu">p</span> + q1 + q2 + q3], {<span class="fu">p</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FinalSubstitutions -&gt; {SPD[q1] -&gt; <span class="dv">0</span>, SPD[q2] -&gt; <span class="dv">0</span>, SPD[q3] -&gt; <span class="dv">0</span>}]</span></code></pre></div>
+<p><span class="math display">\left\{2^{-\varepsilon -2} \Gamma (\varepsilon +2),x(1)+x(2)+x(3)+x(4),-2 (x(1) x(3) (\text{q1}\cdot \;\text{q2})+x(1) x(4) (\text{q1}\cdot \;\text{q2})+x(1) x(4) (\text{q1}\cdot \;\text{q3})+x(1) x(4) (\text{q2}\cdot \;\text{q3})+x(2) x(4) (\text{q2}\cdot \;\text{q3})),\{x(4) (\text{q2}\cdot \;\text{q3}),x(3) (\text{q1}\cdot \;\text{q2})+x(4) (\text{q1}\cdot \;\text{q2})+x(4) (\text{q1}\cdot \;\text{q3}),x(2) (\text{q1}\cdot \;\text{q2}) (\text{q2}\cdot \;\text{q3}),x(1) (\text{q1}\cdot \;\text{q3})+x(1) (\text{q2}\cdot \;\text{q3})+x(2) (\text{q2}\cdot \;\text{q3}),x(1) (\text{q1}\cdot \;\text{q2})\}\right\}</span></p>
+<p>As expected a 1-loop box has no overall UV-divergence</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="fu">Normal</span>[<span class="fu">Series</span>[<span class="fu">out</span>[[<span class="dv">1</span>]], {Epsilon, <span class="dv">0</span>, <span class="dv">-1</span>}]]</span></code></pre></div>
+<p><span class="math display">0</span></p>
+<p>The form of the U-polynomial readily suggests that there is no UV-subdivergence (again as expected)</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">Reduce</span>[<span class="fu">out</span>[[<span class="dv">2</span>]] == <span class="dv">0</span>, {<span class="fu">x</span>[<span class="dv">1</span>], <span class="fu">x</span>[<span class="dv">2</span>], <span class="fu">x</span>[<span class="dv">3</span>], <span class="fu">x</span>[<span class="dv">4</span>]}]</span></code></pre></div>
+<p><span class="math display">x(4)=-x(1)-x(2)-x(3)</span></p>
+<p>As far as the IR-divergences are concerned, we find a rather nontrivial set of solutions satisfying Landau equations</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">Reduce</span>[<span class="fu">Equal</span>[#, <span class="dv">0</span>] &amp; /@ <span class="fu">out</span>[[<span class="dv">4</span>]]]</span></code></pre></div>
+<p><span class="math display">(\text{q2}\cdot \;\text{q3}=0\land x(1)\neq 0\land \;\text{q1}\cdot \;\text{q3}=0\land \;\text{q1}\cdot \;\text{q2}=0)\lor \left(x(1)=0\land \;\text{q2}\cdot \;\text{q3}=0\land x(3)+x(4)\neq 0\land \;\text{q1}\cdot \;\text{q2}=-\frac{x(4) (\text{q1}\cdot \;\text{q3})}{x(3)+x(4)}\right)\lor (x(4)=0\land x(1)=0\land \;\text{q2}\cdot \;\text{q3}=0\land \;\text{q1}\cdot \;\text{q2}=0)\lor (x(4)=0\land x(2)=0\land x(1)=0\land \;\text{q1}\cdot \;\text{q2}=0)\lor (x(4)=0\land x(3)=0\land x(1)=0\land \;\text{q2}\cdot \;\text{q3}=0)\lor (x(4)=0\land x(3)=0\land x(2)=0\land x(1)=0)\lor \left(x(4)=0\land x(1)\neq 0\land \;\text{q1}\cdot \;\text{q3}=\frac{x(1) (-(\text{q2}\cdot \;\text{q3}))-x(2) (\text{q2}\cdot \;\text{q3})}{x(1)}\land \;\text{q1}\cdot \;\text{q2}=0\right)\lor (x(1)=0\land \;\text{q2}\cdot \;\text{q3}=0\land x(4)\neq 0\land \;\text{q1}\cdot \;\text{q3}=0\land \;\text{q1}\cdot \;\text{q2}=0)\lor (x(3)=-x(4)\land x(1)=0\land \;\text{q2}\cdot \;\text{q3}=0\land x(4)\neq 0\land \;\text{q1}\cdot \;\text{q3}=0)\lor (x(4)=0\land x(1)=0\land x(2)\neq 0\land \;\text{q2}\cdot \;\text{q3}=0\land \;\text{q1}\cdot \;\text{q2}=0)\lor (x(4)=0\land x(2)=0\land x(1)=0\land x(3)\neq 0\land \;\text{q1}\cdot \;\text{q2}=0)</span></p>
+<h4 id="a-2-loop-eikonal-integral-with-massive-and-massless-lines">A 2-loop eikonal integral with massive and massless lines</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="fu">out</span> = FCLoopSingularityStructure[SFAD[{ p1, <span class="fu">m</span>^<span class="dv">2</span>}] SFAD[{ p3, <span class="fu">m</span>^<span class="dv">2</span>}] SFAD[{{<span class="dv">0</span>, <span class="dv">2</span> p1 . <span class="fu">n</span>}}] SFAD[{{<span class="dv">0</span>, <span class="dv">2</span> (p1 + p3) . <span class="fu">n</span>}}], {p1, p3}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FinalSubstitutions -&gt; {SPD[<span class="fu">n</span>] -&gt; <span class="dv">1</span>, <span class="fu">m</span> -&gt; <span class="dv">1</span>}]</span></code></pre></div>
+<p><span class="math display">\left\{\Gamma (2 \varepsilon ),x(3) x(4),x(4) x(1)^2+2 x(2) x(4) x(1)+x(3) x(4)^2+x(2)^2 x(3)+x(2)^2 x(4)+x(3)^2 x(4),\left\{x(3) x(4)^2,x(3)^2 x(4),x(2) x(3),x(2)^2+x(4)^2+2 x(3) x(4),x(1) x(4)+x(2) x(4),x(1)^2+2 x(2) x(1)+x(3)^2-x(4)^2\right\}\right\}</span></p>
+<p>The integral has no IR-divergence, the only solution to the Landau equations is a trivial one</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="fu">Reduce</span>[<span class="fu">Equal</span>[#, <span class="dv">0</span>] &amp; /@ <span class="fu">out</span>[[<span class="dv">4</span>]], <span class="fu">Reals</span>]</span></code></pre></div>
+<p><span class="math display">x(4)=0\land x(3)=0\land x(2)=0\land x(1)=0</span></p>
+<p>Notice that the mass is acting as an IR regulator here. Setting it to 0 makes the IR pole resurface</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="fu">out</span> = FCLoopSingularityStructure[SFAD[{ p1, <span class="fu">m</span>^<span class="dv">2</span>}] SFAD[{ p3, <span class="fu">m</span>^<span class="dv">2</span>}] SFAD[{{<span class="dv">0</span>, <span class="dv">2</span> p1 . <span class="fu">n</span>}}] SFAD[{{<span class="dv">0</span>, <span class="dv">2</span> (p1 + p3) . <span class="fu">n</span>}}], {p1, p3}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FinalSubstitutions -&gt; {SPD[<span class="fu">n</span>] -&gt; <span class="dv">1</span>, <span class="fu">m</span> -&gt; <span class="dv">0</span>}]</span></code></pre></div>
+<p><span class="math display">\left\{0,x(3) x(4),x(4) x(1)^2+2 x(2) x(4) x(1)+x(2)^2 x(3)+x(2)^2 x(4),\left\{x(2) x(3),x(2)^2,x(1) x(4)+x(2) x(4),x(1)^2+2 x(2) x(1)\right\}\right\}</span></p>
+<p>and here is our nontrivial solution</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="fu">Reduce</span>[<span class="fu">Equal</span>[#, <span class="dv">0</span>] &amp; /@ <span class="fu">out</span>[[<span class="dv">4</span>]], <span class="fu">Reals</span>]</span></code></pre></div>
+<p><span class="math display">x(1)=0\land x(2)=0</span></p>
+</body>
+</html>

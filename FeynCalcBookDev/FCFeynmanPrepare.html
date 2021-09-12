@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<p><code>FCFeynmanPrepare[int, {q1, q2, ...}]</code> is an auxiliary function that returns all necessary building for writing down a Feynman parametrization of the given tensor or scalar multi-loop integral. The integral int can be Lorentzian or Cartesian.</p>
+<p>The output of the function is a list given by <code>{U,F, pows, M, Q, J, N, r}</code>, where <code>U</code> and <code>F</code> are the Symanzik polynomials, with <span class="math inline">U = det M</span>, while <code>pows</code> contains the powers of the occurring propagators. The vector <code>Q</code> and the function <code>J</code> are the usual quantities appearing in the definition of the F`` polynomial.</p>
+<p>If the integral has free indices, then <code>N</code> encodes its tensor structure, while <code>r</code> gives its tensor rank. For scalar integrals <code>N</code> is always <code>1</code> and r is <code>0</code>. In <code>N</code> the <code>F</code>-polynomial is not substituted but left as <code>FCGV["F"]</code>.</p>
+<p>To ensure a certain correspondence between propagators and Feynman parameters, it is also possible to enter the integral as a list of propagators, e.g. <code>FCFeynmanPrepare[{FAD[{q,m1}],FAD[{q-p,m2}],SPD[p,q]},{q}]</code>. In this case the tensor part of the integral should be the very last element of the list.</p>
+<p>It is also possible to invoke the function as <code>FCFeynmanPrepare[GLI[...], FCTopology[...]]</code> or <code>FCFeynmanPrepare[FCTopology[...]]</code>. Notice that in this case the value of the option <code>FinalSubstitutions</code> is ignored, as replacement rules will be extracted directly from the definition of the topology.</p>
+<p>The definitions of <code>M</code>, <code>Q</code>, <code>J</code> and <code>N</code> follow from Eq. 4.17 in the <a href="http://mediatum.ub.tum.de/?id=1524691">PhD Thesis of Stefan Jahn</a> and <a href="https://arxiv.org/abs/1010.1667">arXiv:1010.1667</a>.The algorithm for deriving the UF-parametrization of a loop integral was adopted from the UF generator available in multiple codes of Alexander Smirnov, such as FIESTA (<a href="https://arxiv.org/abs/1511.03614">arXiv:1511.03614</a>) and FIRE (<a href="https://arxiv.org/abs/1901.07808">arXiv:1901.07808</a>). The code UF.m is also mentioned in the book “Analytic Tools for Feynman Integrals” by Vladimir Smirnov, Chapter 2.3.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFeynmanParametrize.html">FCFeynmanParametrize</a>, <a href="FCFeynmanProjectivize.html">FCFeynmanProjectivize</a>, <a href="FCLoopValidTopologyQ.html">FCLoopValidTopologyQ</a>.</p>
+<h3 id="examples">Examples</h3>
+<p>One of the simplest examples is the 1-loop tadpole</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FCFeynmanPrepare[FAD[{<span class="fu">q</span>, m1}], {<span class="fu">q</span>}]</span></code></pre></div>
+<p><span class="math display">\left\{\text{FCGV}(\text{x})(1),\text{m1}^2 (\text{FCGV}(\text{x})(1))^2,\left(
+\begin{array}{ccc}
+ \;\text{FCGV}(\text{x})(1) &amp; \frac{1}{q^2-\text{m1}^2} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{c}
+ \;\text{FCGV}(\text{x})(1) \\
+\end{array}
+\right),\{0\},-\text{m1}^2 \;\text{FCGV}(\text{x})(1),1,0\right\}</span></p>
+<p>Use the option <code>Names</code> to have specific symbols denoting Feynman parameters</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCFeynmanPrepare[FAD[{<span class="fu">q</span>, m1}], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{x(1),\text{m1}^2 x(1)^2,\left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{q^2-\text{m1}^2} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{c}
+ x(1) \\
+\end{array}
+\right),\{0\},-\text{m1}^2 x(1),1,0\right\}</span></p>
+<p>It is also possible to obtain e.g. <code>x1, x2, x3, ...</code> instead of <code>x[1], x[2], x[3], ...</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FCFeynmanPrepare[FAD[{<span class="fu">q</span>, m1}], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, Indexed -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<p><span class="math display">\left\{\text{x1},\text{m1}^2 \;\text{x1}^2,\left(
+\begin{array}{ccc}
+ \;\text{x1} &amp; \frac{1}{q^2-\text{m1}^2} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{c}
+ \;\text{x1} \\
+\end{array}
+\right),\{0\},-\text{m1}^2 \;\text{x1},1,0\right\}</span></p>
+<p>To fix the correspondence between Feynman parameters and propagators, the latter should be entered as a list</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FCFeynmanPrepare[{FAD[{<span class="fu">q</span>, <span class="fu">m</span>}], FAD[{<span class="fu">q</span> - <span class="fu">p</span>, m2}], FVD[<span class="fu">q</span>, \[Mu]] FVD[<span class="fu">q</span>, \[Nu]] FVD[<span class="fu">q</span>, \[Rho]]}, {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{x(1)+x(2),m^2 x(1)^2+m^2 x(1) x(2)+\text{m2}^2 x(2)^2+\text{m2}^2 x(1) x(2)-p^2 x(1) x(2),\left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{q^2-m^2} &amp; 1 \\
+ x(2) &amp; \frac{1}{(q-p)^2-\text{m2}^2} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{c}
+ x(1)+x(2) \\
+\end{array}
+\right),\left\{x(2) p^{\text{FCGV}(\text{mu})}\right\},m^2 (-x(1))-\text{m2}^2 x(2)+p^2 x(2),-\frac{1}{2} x(2) \Gamma \left(1-\frac{D}{2}\right) \;\text{FCGV}(\text{F}) p^{\mu } g^{\nu \rho }-\frac{1}{2} x(2) \Gamma \left(1-\frac{D}{2}\right) \;\text{FCGV}(\text{F}) p^{\nu } g^{\mu \rho }-\frac{1}{2} x(2) \Gamma \left(1-\frac{D}{2}\right) \;\text{FCGV}(\text{F}) p^{\rho } g^{\mu \nu }+x(2)^3 \Gamma \left(2-\frac{D}{2}\right) p^{\mu } p^{\nu } p^{\rho },3\right\}</span></p>
+<p>Massless 2-loop self-energy</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>FCFeynmanPrepare[FAD[p1, p2, <span class="fu">Q</span> - p1 - p2, <span class="fu">Q</span> - p1, <span class="fu">Q</span> - p2], {p1, p2}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{x(1) x(2)+x(3) x(2)+x(5) x(2)+x(1) x(4)+x(3) x(4)+x(1) x(5)+x(3) x(5)+x(4) x(5),-Q^2 (x(1) x(2) x(3)+x(1) x(4) x(3)+x(2) x(4) x(3)+x(1) x(5) x(3)+x(4) x(5) x(3)+x(1) x(2) x(4)+x(1) x(2) x(5)+x(2) x(4) x(5)),\left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{\text{p1}^2} &amp; 1 \\
+ x(2) &amp; \frac{1}{\text{p2}^2} &amp; 1 \\
+ x(3) &amp; \frac{1}{(Q-\text{p1})^2} &amp; 1 \\
+ x(4) &amp; \frac{1}{(Q-\text{p2})^2} &amp; 1 \\
+ x(5) &amp; \frac{1}{(-\text{p1}-\text{p2}+Q)^2} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{cc}
+ x(1)+x(3)+x(5) &amp; x(5) \\
+ x(5) &amp; x(2)+x(4)+x(5) \\
+\end{array}
+\right),\left\{(x(3)+x(5)) Q^{\text{FCGV}(\text{mu})},(x(4)+x(5)) Q^{\text{FCGV}(\text{mu})}\right\},Q^2 (x(3)+x(4)+x(5)),1,0\right\}</span></p>
+<p>Factorizing integrals also work</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>FCFeynmanPrepare[FAD[{p1, m1}, {p2, m2}, <span class="fu">Q</span> - p1, <span class="fu">Q</span> - p2], {p1, p2}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{(x(1)+x(3)) (x(2)+x(4)),\text{m1}^2 x(1)^2 x(2)+\text{m1}^2 x(1) x(2) x(3)+\text{m1}^2 x(1)^2 x(4)+\text{m1}^2 x(1) x(3) x(4)+\text{m2}^2 x(1) x(2)^2+\text{m2}^2 x(2)^2 x(3)+\text{m2}^2 x(1) x(2) x(4)+\text{m2}^2 x(2) x(3) x(4)-Q^2 x(1) x(2) x(3)-Q^2 x(1) x(2) x(4)-Q^2 x(1) x(3) x(4)-Q^2 x(2) x(3) x(4),\left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{\text{p1}^2-\text{m1}^2} &amp; 1 \\
+ x(2) &amp; \frac{1}{\text{p2}^2-\text{m2}^2} &amp; 1 \\
+ x(3) &amp; \frac{1}{(Q-\text{p1})^2} &amp; 1 \\
+ x(4) &amp; \frac{1}{(Q-\text{p2})^2} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{cc}
+ x(1)+x(3) &amp; 0 \\
+ 0 &amp; x(2)+x(4) \\
+\end{array}
+\right),\left\{x(3) Q^{\text{FCGV}(\text{mu})},x(4) Q^{\text{FCGV}(\text{mu})}\right\},\text{m1}^2 (-x(1))-\text{m2}^2 x(2)+Q^2 x(3)+Q^2 x(4),1,0\right\}</span></p>
+<p>Cartesian propagators are equally supported</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>FCFeynmanPrepare[CSPD[<span class="fu">q</span>, <span class="fu">p</span>] CFAD[{<span class="fu">q</span>, <span class="fu">m</span>}, {<span class="fu">q</span> - <span class="fu">p</span>, m2}], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{x(1)+x(2),\frac{1}{4} \left(4 m x(1)^2+4 m x(2) x(1)+4 \;\text{m2} x(2) x(1)+4 \;\text{m2} x(2)^2+4 p^2 x(2) x(1)-p^2 x(3)^2+4 p^2 x(2) x(3)\right),\left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{(q^2+m-i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{((q-p)^2+\text{m2}-i \eta )} &amp; 1 \\
+ x(3) &amp; p\cdot q &amp; -1 \\
+\end{array}
+\right),\left(
+\begin{array}{c}
+ x(1)+x(2) \\
+\end{array}
+\right),\left\{\frac{1}{2} (2 x(2)-x(3)) p^{\text{FCGV}(\text{i})}\right\},m x(1)+\text{m2} x(2)+p^2 x(2),1,0\right\}</span></p>
+<p><code>FCFeynmanPrepare</code> also works with <code>FCTopology</code> and <code>GLI</code> objects</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>topo1 = FCTopology[&quot;prop2Lv1&quot;, {SFAD[{p1, m1^<span class="dv">2</span>}], SFAD[{p2, m2^<span class="dv">2</span>}], SFAD[p1 - <span class="fu">q</span>], SFAD[p2 - <span class="fu">q</span>], SFAD[{p1 - p2, m3^<span class="dv">2</span>}]}, {p1, p2}, {<span class="fu">Q</span>}, {}, {}]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>topo2 = FCTopology[&quot;prop2Lv2&quot;, {SFAD[{p1, m1^<span class="dv">2</span>}], SFAD[{p2, m2^<span class="dv">2</span>}], SFAD[{p1 - <span class="fu">q</span>, <span class="fu">M</span>^<span class="dv">2</span>}], SFAD[{p2 - <span class="fu">q</span>, <span class="fu">M</span>^<span class="dv">2</span>}], SFAD[p1 - p2]}, {p1, p2}, {<span class="fu">Q</span>}, {}, {}]</span></code></pre></div>
+<p><span class="math display">\text{FCTopology}\left(\text{prop2Lv1},\left\{\frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )},\frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )},\frac{1}{((\text{p1}-q)^2+i \eta )},\frac{1}{((\text{p2}-q)^2+i \eta )},\frac{1}{((\text{p1}-\text{p2})^2-\text{m3}^2+i \eta )}\right\},\{\text{p1},\text{p2}\},\{Q\},\{\},\{\}\right)</span></p>
+<p><span class="math display">\text{FCTopology}\left(\text{prop2Lv2},\left\{\frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )},\frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )},\frac{1}{((\text{p1}-q)^2-M^2+i \eta )},\frac{1}{((\text{p2}-q)^2-M^2+i \eta )},\frac{1}{((\text{p1}-\text{p2})^2+i \eta )}\right\},\{\text{p1},\text{p2}\},\{Q\},\{\},\{\}\right)</span></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>FCFeynmanPrepare[topo1, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{x(1) x(2)+x(3) x(2)+x(5) x(2)+x(1) x(4)+x(3) x(4)+x(1) x(5)+x(3) x(5)+x(4) x(5),\text{m1}^2 x(1)^2 x(2)+\text{m1}^2 x(1) x(2) x(3)+\text{m1}^2 x(1)^2 x(4)+\text{m1}^2 x(1) x(3) x(4)+\text{m1}^2 x(1)^2 x(5)+\text{m1}^2 x(1) x(2) x(5)+\text{m1}^2 x(1) x(3) x(5)+\text{m1}^2 x(1) x(4) x(5)+\text{m2}^2 x(1) x(2)^2+\text{m2}^2 x(2)^2 x(3)+\text{m2}^2 x(1) x(2) x(4)+\text{m2}^2 x(2) x(3) x(4)+\text{m2}^2 x(2)^2 x(5)+\text{m2}^2 x(1) x(2) x(5)+\text{m2}^2 x(2) x(3) x(5)+\text{m2}^2 x(2) x(4) x(5)+\text{m3}^2 x(1) x(5)^2+\text{m3}^2 x(2) x(5)^2+\text{m3}^2 x(3) x(5)^2+\text{m3}^2 x(4) x(5)^2+\text{m3}^2 x(1) x(2) x(5)+\text{m3}^2 x(2) x(3) x(5)+\text{m3}^2 x(1) x(4) x(5)+\text{m3}^2 x(3) x(4) x(5)-q^2 x(1) x(2) x(3)-q^2 x(1) x(2) x(4)-q^2 x(1) x(3) x(4)-q^2 x(2) x(3) x(4)-q^2 x(1) x(3) x(5)-q^2 x(2) x(3) x(5)-q^2 x(1) x(4) x(5)-q^2 x(2) x(4) x(5),\left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )} &amp; 1 \\
+ x(3) &amp; \frac{1}{((\text{p1}-q)^2+i \eta )} &amp; 1 \\
+ x(4) &amp; \frac{1}{((\text{p2}-q)^2+i \eta )} &amp; 1 \\
+ x(5) &amp; \frac{1}{((\text{p1}-\text{p2})^2-\text{m3}^2+i \eta )} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{cc}
+ x(1)+x(3)+x(5) &amp; -x(5) \\
+ -x(5) &amp; x(2)+x(4)+x(5) \\
+\end{array}
+\right),\left\{x(3) q^{\text{FCGV}(\text{mu})},x(4) q^{\text{FCGV}(\text{mu})}\right\},\text{m1}^2 (-x(1))-\text{m2}^2 x(2)-\text{m3}^2 x(5)+q^2 x(3)+q^2 x(4),1,0\right\}</span></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>FCFeynmanPrepare[{topo1, topo2}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{cccccccc}
+ x(1) x(2)+x(3) x(2)+x(5) x(2)+x(1) x(4)+x(3) x(4)+x(1) x(5)+x(3) x(5)+x(4) x(5) &amp; \;\text{m1}^2 x(1)^2 x(2)+\text{m1}^2 x(1) x(2) x(3)+\text{m1}^2 x(1)^2 x(4)+\text{m1}^2 x(1) x(3) x(4)+\text{m1}^2 x(1)^2 x(5)+\text{m1}^2 x(1) x(2) x(5)+\text{m1}^2 x(1) x(3) x(5)+\text{m1}^2 x(1) x(4) x(5)+\text{m2}^2 x(1) x(2)^2+\text{m2}^2 x(2)^2 x(3)+\text{m2}^2 x(1) x(2) x(4)+\text{m2}^2 x(2) x(3) x(4)+\text{m2}^2 x(2)^2 x(5)+\text{m2}^2 x(1) x(2) x(5)+\text{m2}^2 x(2) x(3) x(5)+\text{m2}^2 x(2) x(4) x(5)+\text{m3}^2 x(1) x(5)^2+\text{m3}^2 x(2) x(5)^2+\text{m3}^2 x(3) x(5)^2+\text{m3}^2 x(4) x(5)^2+\text{m3}^2 x(1) x(2) x(5)+\text{m3}^2 x(2) x(3) x(5)+\text{m3}^2 x(1) x(4) x(5)+\text{m3}^2 x(3) x(4) x(5)-q^2 x(1) x(2) x(3)-q^2 x(1) x(2) x(4)-q^2 x(1) x(3) x(4)-q^2 x(2) x(3) x(4)-q^2 x(1) x(3) x(5)-q^2 x(2) x(3) x(5)-q^2 x(1) x(4) x(5)-q^2 x(2) x(4) x(5) &amp; \left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )} &amp; 1 \\
+ x(3) &amp; \frac{1}{((\text{p1}-q)^2+i \eta )} &amp; 1 \\
+ x(4) &amp; \frac{1}{((\text{p2}-q)^2+i \eta )} &amp; 1 \\
+ x(5) &amp; \frac{1}{((\text{p1}-\text{p2})^2-\text{m3}^2+i \eta )} &amp; 1 \\
+\end{array}
+\right) &amp; \left(
+\begin{array}{cc}
+ x(1)+x(3)+x(5) &amp; -x(5) \\
+ -x(5) &amp; x(2)+x(4)+x(5) \\
+\end{array}
+\right) &amp; \left\{x(3) q^{\text{FCGV}(\text{mu})},x(4) q^{\text{FCGV}(\text{mu})}\right\} &amp; \;\text{m1}^2 (-x(1))-\text{m2}^2 x(2)-\text{m3}^2 x(5)+q^2 x(3)+q^2 x(4) &amp; 1 &amp; 0 \\
+ x(1) x(2)+x(3) x(2)+x(5) x(2)+x(1) x(4)+x(3) x(4)+x(1) x(5)+x(3) x(5)+x(4) x(5) &amp; M^2 x(2) x(3)^2+M^2 x(1) x(4)^2+M^2 x(3) x(4)^2+M^2 x(1) x(2) x(3)+M^2 x(3)^2 x(4)+M^2 x(1) x(2) x(4)+M^2 x(1) x(3) x(4)+M^2 x(2) x(3) x(4)+M^2 x(3)^2 x(5)+M^2 x(4)^2 x(5)+M^2 x(1) x(3) x(5)+M^2 x(2) x(3) x(5)+M^2 x(1) x(4) x(5)+M^2 x(2) x(4) x(5)+2 M^2 x(3) x(4) x(5)+\text{m1}^2 x(1)^2 x(2)+\text{m1}^2 x(1) x(2) x(3)+\text{m1}^2 x(1)^2 x(4)+\text{m1}^2 x(1) x(3) x(4)+\text{m1}^2 x(1)^2 x(5)+\text{m1}^2 x(1) x(2) x(5)+\text{m1}^2 x(1) x(3) x(5)+\text{m1}^2 x(1) x(4) x(5)+\text{m2}^2 x(1) x(2)^2+\text{m2}^2 x(2)^2 x(3)+\text{m2}^2 x(1) x(2) x(4)+\text{m2}^2 x(2) x(3) x(4)+\text{m2}^2 x(2)^2 x(5)+\text{m2}^2 x(1) x(2) x(5)+\text{m2}^2 x(2) x(3) x(5)+\text{m2}^2 x(2) x(4) x(5)-q^2 x(1) x(2) x(3)-q^2 x(1) x(2) x(4)-q^2 x(1) x(3) x(4)-q^2 x(2) x(3) x(4)-q^2 x(1) x(3) x(5)-q^2 x(2) x(3) x(5)-q^2 x(1) x(4) x(5)-q^2 x(2) x(4) x(5) &amp; \left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )} &amp; 1 \\
+ x(3) &amp; \frac{1}{((\text{p1}-q)^2-M^2+i \eta )} &amp; 1 \\
+ x(4) &amp; \frac{1}{((\text{p2}-q)^2-M^2+i \eta )} &amp; 1 \\
+ x(5) &amp; \frac{1}{((\text{p1}-\text{p2})^2+i \eta )} &amp; 1 \\
+\end{array}
+\right) &amp; \left(
+\begin{array}{cc}
+ x(1)+x(3)+x(5) &amp; -x(5) \\
+ -x(5) &amp; x(2)+x(4)+x(5) \\
+\end{array}
+\right) &amp; \left\{x(3) q^{\text{FCGV}(\text{mu})},x(4) q^{\text{FCGV}(\text{mu})}\right\} &amp; M^2 (-x(3))-M^2 x(4)-\text{m1}^2 x(1)-\text{m2}^2 x(2)+q^2 x(3)+q^2 x(4) &amp; 1 &amp; 0 \\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>FCFeynmanPrepare[{GLI[&quot;prop2Lv1&quot;, {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>}], GLI[&quot;prop2Lv2&quot;, {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>}]}, {topo1, topo2}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{cccccccc}
+ (x(1)+x(3)) (x(2)+x(4)) &amp; \;\text{m1}^2 x(1)^2 x(2)+\text{m1}^2 x(1) x(2) x(3)+\text{m1}^2 x(1)^2 x(4)+\text{m1}^2 x(1) x(3) x(4)+\text{m2}^2 x(1) x(2)^2+\text{m2}^2 x(2)^2 x(3)+\text{m2}^2 x(1) x(2) x(4)+\text{m2}^2 x(2) x(3) x(4)-q^2 x(1) x(2) x(3)-q^2 x(1) x(2) x(4)-q^2 x(1) x(3) x(4)-q^2 x(2) x(3) x(4) &amp; \left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )} &amp; 1 \\
+ x(3) &amp; \frac{1}{((\text{p1}-q)^2+i \eta )} &amp; 1 \\
+ x(4) &amp; \frac{1}{((\text{p2}-q)^2+i \eta )} &amp; 1 \\
+\end{array}
+\right) &amp; \left(
+\begin{array}{cc}
+ x(1)+x(3) &amp; 0 \\
+ 0 &amp; x(2)+x(4) \\
+\end{array}
+\right) &amp; \left\{x(3) q^{\text{FCGV}(\text{mu})},x(4) q^{\text{FCGV}(\text{mu})}\right\} &amp; \;\text{m1}^2 (-x(1))-\text{m2}^2 x(2)+q^2 x(3)+q^2 x(4) &amp; 1 &amp; 0 \\
+ x(1) x(2)+x(3) x(2)+x(1) x(3) &amp; (x(1) x(2)+x(3) x(2)+x(1) x(3)) \left(\text{m1}^2 x(1)+\text{m2}^2 x(3)\right) &amp; \left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{((\text{p1}-\text{p2})^2+i \eta )} &amp; 1 \\
+ x(3) &amp; \frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )} &amp; 1 \\
+\end{array}
+\right) &amp; \left(
+\begin{array}{cc}
+ x(1)+x(2) &amp; -x(2) \\
+ -x(2) &amp; x(2)+x(3) \\
+\end{array}
+\right) &amp; \{0,0\} &amp; \;\text{m1}^2 (-x(1))-\text{m2}^2 x(3) &amp; 1 &amp; 0 \\
+\end{array}
+\right)</span></p>
+</body>
+</html>

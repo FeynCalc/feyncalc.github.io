@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="usepavebasis">UsePaVeBasis</h2>
+<p><code>UsePaVeBasis</code> is an option of <code>TID</code>. When set to True, tensor reduction is always performed in terms of the Passarino-Veltman coefficient functions (e.g. <span class="math inline">B_1</span>, <span class="math inline">B_{11}</span>, <span class="math inline">C_{001}</span> etc.) even if those can be reduced to the scalar functions <span class="math inline">A_0</span>, <span class="math inline">B_0</span>, <span class="math inline">C_0</span>, <span class="math inline">D_0</span>. By default this is done automatically only for tensor integrals with vanishing Gram determinants.</p>
+<p>This option may be useful, if you are doing computations where the kinematics may later lead to vanishing Gram determinants or if you plan to evaluate all the Passarino-Veltman coefficient functions numerically (e.g. with LoopTools or Collier)</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="TID.html">TID</a>.</p>
+<h3 id="examples">Examples</h3>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="fcfeynmanparametrize">FCFeynmanParametrize</h2>
+<p><code>FCFeynmanParametrize[int, {q1, q2, ...}]</code> introduces Feynman parameters for the multi-loop integral int.</p>
+<p>The function returns <code>{fpInt,pref,vars}</code>, where <code>fpInt</code> is the integrand in Feynman parameters, <code>pref</code> is the prefactor free of Feynman parameters and <code>vars</code> is the list of integration variables.</p>
+<p>If the chosen parametrization contains a Dirac delta multiplying the integrand, it will be omitted unless the option <code>DiracDelta</code> is set to True.</p>
+<p>By default <code>FCFeynmanParametrize</code> uses normalization that is common in multi-loop calculations, i.e. <span class="math inline">\frac{1}{i \pi^{D/2}}</span> or <span class="math inline">\frac{1}{\pi^{D/2}}</span> per loop for Minkowski or Euclidean/Cartesian integrals respectively.</p>
+<p>If you want to have the standard <span class="math inline">\frac{1}{(2 \pi)^D}</span> normalization or yet another value, please set the option <code>FeynmanIntegralPrefactor</code> accordingly. Following values are available</p>
+<ul>
+<li>“MultiLoop1” - default value explained above</li>
+<li>“MultiLoop2” - like the default value but with an extra <span class="math inline">e^{\gamma_E \frac{4-D}{2}}</span> per loop</li>
+<li>“Textbook” - <span class="math inline">\frac{1}{(2 \pi)^D}</span> per loop</li>
+<li>“Unity” - no extra prefactor multiplying the integral measure</li>
+</ul>
+<p>The calculation of <span class="math inline">D</span>-dimensional Minkowski integrals and <span class="math inline">D-1</span>-dimensional Cartesian integrals is straightforward.</p>
+<p>To calculate a <span class="math inline">D</span>-dimensional Euclidean integral (i.e. an integral defined with the Euclidean metric signature <span class="math inline">(1,1,1,1)</span> you need to write it in terms of <code>FVD</code>, <code>SPD</code>, <code>FAD</code>, <code>SFAD</code> etc. and set the option <code>"Euclidean"</code> to <code>True</code>.</p>
+<p>The function can derive different representations of a loop integral. The choice of the representation is controlled by the option <code>Method</code>. Following representations are available</p>
+<ul>
+<li>“Feynman” - the standard Feynman representation (default value). Both tensor integrals and integrals with scalar products in the numerator are supported.</li>
+<li>“Lee-Pomeransky” - this representation was first introduced in <a href="https://arxiv.org/abs/1308.6676">1308.6676</a> by Roman Lee and Andrei Pomeransky. Currently, only scalar integrals without numerators are supported.</li>
+</ul>
+<p><code>FCFeynmanParametrize</code> can also be employed in conjunction with <code>FCFeynmanParameterJoin</code>, where one first joins suitable propagators using auxiliary Feynman parameters and then finally integrates out loop momenta.</p>
+<p>For a proper analysis of a loop integral one usually needs the <code>U</code> and <code>F</code> polynomials separately. Since internally <code>FCFeynmanParametrize</code> uses <code>FCFeynmanPrepare</code>, the information available from the latter is also accessible to <code>FCFeynmanParametrize</code>.</p>
+<p>By setting the option <code>FCFeynmanPrepare</code> to <code>True</code>, the output of <code>FCFeynmanPrepare</code> will be added the the output of <code>FCFeynmanParametrize</code> as the 4th list element.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFeynmanPrepare.html">FCFeynmanPrepare</a>, <a href="FCFeynmanProjectivize.html">FCFeynmanProjectivize</a>, <a href="FCFeynmanParameterJoin.html">FCFeynmanParameterJoin</a></p>
+<h3 id="examples">Examples</h3>
+<h4 id="feynman-representation">Feynman representation</h4>
+<p>1-loop tadpole</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FCFeynmanParametrize[FAD[{<span class="fu">q</span>, <span class="fu">m</span>}], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{1,-\left(m^2\right)^{\frac{D}{2}-1} \Gamma \left(1-\frac{D}{2}\right),\{\}\right\}</span></p>
+<p>Massless 1-loop 2-point function</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCFeynmanParametrize[FAD[<span class="fu">q</span>, <span class="fu">q</span> - <span class="fu">p</span>], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>]</span></code></pre></div>
+<p><span class="math display">\left\{(x(1)+x(2))^{2-D} \left(-p^2 x(1) x(2)\right)^{\frac{D}{2}-2},\Gamma \left(2-\frac{D}{2}\right),\{x(1),x(2)\}\right\}</span></p>
+<p>With <span class="math inline">p^2</span> replaced by <code>pp</code> and <code>D</code> set to <code>4 - 2 Epsilon</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FCFeynmanParametrize[FAD[<span class="fu">q</span>, <span class="fu">q</span> - <span class="fu">p</span>], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FinalSubstitutions -&gt; SPD[<span class="fu">p</span>] -&gt; pp, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> Epsilon}]</span></code></pre></div>
+<p><span class="math display">\left\{(x(1)+x(2))^{2 \varepsilon -2} (-\text{pp} x(1) x(2))^{-\varepsilon },\Gamma (\varepsilon ),\{x(1),x(2)\}\right\}</span></p>
+<p>Standard text-book prefactor of the loop integral measure</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FCFeynmanParametrize[FAD[<span class="fu">q</span>, <span class="fu">q</span> - <span class="fu">p</span>], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FinalSubstitutions -&gt; SPD[<span class="fu">p</span>] -&gt; pp, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> Epsilon}, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  FeynmanIntegralPrefactor -&gt; &quot;Textbook&quot;]</span></code></pre></div>
+<p><span class="math display">\left\{(x(1)+x(2))^{2 \varepsilon -2} (-\text{pp} x(1) x(2))^{-\varepsilon },i 2^{2 \varepsilon -4} \pi ^{\varepsilon -2} \Gamma (\varepsilon ),\{x(1),x(2)\}\right\}</span></p>
+<p>Same integral but with the Euclidean metric signature</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>FCFeynmanParametrize[FAD[<span class="fu">q</span>, <span class="fu">q</span> - <span class="fu">p</span>], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FinalSubstitutions -&gt; SPD[<span class="fu">p</span>] -&gt; pp, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> Epsilon}, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  FeynmanIntegralPrefactor -&gt; &quot;Textbook&quot;, &quot;Euclidean&quot; -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<p><span class="math display">\left\{(x(1)+x(2))^{2 \varepsilon -2} (\text{pp} x(1) x(2))^{-\varepsilon },2^{2 \varepsilon -4} \pi ^{\varepsilon -2} \Gamma (\varepsilon ),\{x(1),x(2)\}\right\}</span></p>
+<p>A tensor integral</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>FCFeynmanParametrize[FAD[{<span class="fu">q</span>, <span class="fu">m</span>}] FAD[{<span class="fu">q</span> - <span class="fu">p</span>, m2}] FVD[<span class="fu">q</span>, mu] FVD[<span class="fu">q</span>, nu], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCE -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<p><span class="math display">\left\{(x(1)+x(2))^{-D} \left(m^2 x(1)^2+m^2 x(1) x(2)+\text{m2}^2 x(2)^2+\text{m2}^2 x(1) x(2)-p^2 x(1) x(2)\right)^{\frac{D}{2}-2} \left(x(2)^2 \Gamma \left(2-\frac{D}{2}\right) p^{\text{mu}} p^{\text{nu}}-\frac{1}{2} \Gamma \left(1-\frac{D}{2}\right) g^{\text{mu}\;\text{nu}} \left(m^2 x(1)^2+m^2 x(1) x(2)+\text{m2}^2 x(2)^2+\text{m2}^2 x(1) x(2)-p^2 x(1) x(2)\right)\right),1,\{x(1),x(2)\}\right\}</span></p>
+<p>1-loop master formulas for Minkowski integrals (cf. Eq. 9.49b in Sterman’s An introduction to QFT)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>SFAD[{{<span class="fu">k</span>, <span class="dv">2</span> <span class="fu">p</span> . <span class="fu">k</span>}, <span class="fu">M</span>^<span class="dv">2</span>, <span class="fu">s</span>}]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>FCFeynmanParametrize[%, {<span class="fu">k</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCE -&gt; <span class="fu">True</span>, FeynmanIntegralPrefactor -&gt; <span class="dv">1</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="fu">n</span>}]</span></code></pre></div>
+<p><span class="math display">(k^2+2 (k\cdot p)-M^2+i \eta )^{-s}</span></p>
+<p><span class="math display">\left\{1,\frac{i \pi ^{n/2} (-1)^s \Gamma \left(s-\frac{n}{2}\right) \left(M^2+p^2\right)^{\frac{n}{2}-s}}{\Gamma (s)},\{\}\right\}</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>FVD[<span class="fu">k</span>, \[Mu]] SFAD[{{<span class="fu">k</span>, <span class="dv">2</span> <span class="fu">p</span> . <span class="fu">k</span>}, <span class="fu">M</span>^<span class="dv">2</span>, <span class="fu">s</span>}]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>FCFeynmanParametrize[%, {<span class="fu">k</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCE -&gt; <span class="fu">True</span>, FeynmanIntegralPrefactor -&gt; <span class="dv">1</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="fu">n</span>}]</span></code></pre></div>
+<p><span class="math display">k^{\mu } (k^2+2 (k\cdot p)-M^2+i \eta )^{-s}</span></p>
+<p><span class="math display">\left\{1,-\frac{i \pi ^{n/2} (-1)^s p^{\mu } \Gamma \left(s-\frac{n}{2}\right) \left(M^2+p^2\right)^{\frac{n}{2}-s}}{\Gamma (s)},\{\}\right\}</span></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>FVD[<span class="fu">k</span>, \[Mu]] FVD[<span class="fu">k</span>, \[Nu]] SFAD[{{<span class="fu">k</span>, <span class="dv">2</span> <span class="fu">p</span> . <span class="fu">k</span>}, <span class="fu">M</span>^<span class="dv">2</span>, <span class="fu">s</span>}]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>FCFeynmanParametrize[%, {<span class="fu">k</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCE -&gt; <span class="fu">True</span>, FeynmanIntegralPrefactor -&gt; <span class="dv">1</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="fu">n</span>}]</span></code></pre></div>
+<p><span class="math display">k^{\mu } k^{\nu } (k^2+2 (k\cdot p)-M^2+i \eta )^{-s}</span></p>
+<p><span class="math display">\left\{1,\frac{i \pi ^{n/2} (-1)^s \left(M^2+p^2\right)^{\frac{n}{2}-s} \left(p^{\mu } p^{\nu } \Gamma \left(s-\frac{n}{2}\right)-\frac{1}{2} \left(M^2+p^2\right) g^{\mu \nu } \Gamma \left(-\frac{n}{2}+s-1\right)\right)}{\Gamma (s)},\{\}\right\}</span></p>
+<p>1-loop master formulas for Euclidean integrals (cf. Eq. 9.49a in Sterman’s An introduction to QFT)</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>SFAD[{{<span class="fu">k</span>, <span class="dv">2</span> <span class="fu">p</span> . <span class="fu">k</span>}, -M^<span class="dv">2</span>, <span class="fu">s</span>}]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>FCFeynmanParametrize[%, {<span class="fu">k</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCE -&gt; <span class="fu">True</span>, &quot;Euclidean&quot; -&gt; <span class="fu">True</span>, FeynmanIntegralPrefactor -&gt; <span class="fu">I</span>]</span></code></pre></div>
+<p><span class="math display">(k^2+2 (k\cdot p)+M^2+i \eta )^{-s}</span></p>
+<p><span class="math display">\left\{1,\frac{i \pi ^{D/2} \Gamma \left(s-\frac{D}{2}\right) \left(M^2-p^2\right)^{\frac{D}{2}-s}}{\Gamma (s)},\{\}\right\}</span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>FVD[<span class="fu">k</span>, \[Mu]] SFAD[{{<span class="fu">k</span>, <span class="dv">2</span> <span class="fu">p</span> . <span class="fu">k</span>}, -M^<span class="dv">2</span>, <span class="fu">s</span>}]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>FCFeynmanParametrize[%, {<span class="fu">k</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCE -&gt; <span class="fu">True</span>, FeynmanIntegralPrefactor -&gt; <span class="fu">I</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="fu">n</span>}, &quot;Euclidean&quot; -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<p><span class="math display">k^{\mu } (k^2+2 (k\cdot p)+M^2+i \eta )^{-s}</span></p>
+<p><span class="math display">\left\{1,-\frac{i \pi ^{n/2} p^{\mu } \Gamma \left(s-\frac{n}{2}\right) \left(M^2-p^2\right)^{\frac{n}{2}-s}}{\Gamma (s)},\{\}\right\}</span></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>FVD[<span class="fu">k</span>, \[Mu]] FVD[<span class="fu">k</span>, \[Nu]] SFAD[{{<span class="fu">k</span>, <span class="dv">2</span> <span class="fu">p</span> . <span class="fu">k</span>}, -M^<span class="dv">2</span>, <span class="fu">s</span>}]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>FCFeynmanParametrize[%, {<span class="fu">k</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCE -&gt; <span class="fu">True</span>, FeynmanIntegralPrefactor -&gt; <span class="fu">I</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="fu">n</span>}, &quot;Euclidean&quot; -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<p><span class="math display">k^{\mu } k^{\nu } (k^2+2 (k\cdot p)+M^2+i \eta )^{-s}</span></p>
+<p><span class="math display">\left\{1,\frac{i \pi ^{n/2} \left(M^2-p^2\right)^{\frac{n}{2}-s} \left(\frac{1}{2} \left(M^2-p^2\right) g^{\mu \nu } \Gamma \left(-\frac{n}{2}+s-1\right)+p^{\mu } p^{\nu } \Gamma \left(s-\frac{n}{2}\right)\right)}{\Gamma (s)},\{\}\right\}</span></p>
+<p>1-loop massless box</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>FAD[<span class="fu">p</span>, <span class="fu">p</span> + q1, <span class="fu">p</span> + q1 + q2, <span class="fu">p</span> + q1 + q2 + q3]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>FCFeynmanParametrize[%, {<span class="fu">p</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> Epsilon}]</span></code></pre></div>
+<p><span class="math display">\frac{1}{p^2.(p+\text{q1})^2.(p+\text{q1}+\text{q2})^2.(p+\text{q1}+\text{q2}+\text{q3})^2}</span></p>
+<p><span class="math display">\left\{(x(1)+x(2)+x(3)+x(4))^{2 \varepsilon } \left(-2 x(1) x(3) (\text{q1}\cdot \;\text{q2})-2 x(1) x(4) (\text{q1}\cdot \;\text{q2})-2 x(1) x(4) (\text{q1}\cdot \;\text{q3})-\text{q1}^2 x(1) x(2)-\text{q1}^2 x(1) x(3)-\text{q1}^2 x(1) x(4)-2 x(4) x(2) (\text{q2}\cdot \;\text{q3})-2 x(1) x(4) (\text{q2}\cdot \;\text{q3})-\text{q2}^2 x(3) x(2)-\text{q2}^2 x(4) x(2)-\text{q2}^2 x(1) x(3)-\text{q2}^2 x(1) x(4)-\text{q3}^2 x(4) x(2)-\text{q3}^2 x(1) x(4)-\text{q3}^2 x(3) x(4)\right)^{-\varepsilon -2},\Gamma (\varepsilon +2),\{x(1),x(2),x(3),x(4)\}\right\}</span></p>
+<p>3-loop self-energy with two massive lines</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>SFAD[{{p1, <span class="dv">0</span>}, {<span class="fu">m</span>^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">1</span>}, {{p2, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}, {{p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}, </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>  {{p2 + p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}, {{p1 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="fu">m</span>^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">1</span>}, {{p2 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>  {{p2 + p3 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}, {{p1 + p2 + p3 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}]</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>FCFeynmanParametrize[%, {p1, p2, p3}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> Epsilon}]</span></code></pre></div>
+<p><span class="math display">\frac{1}{(\text{p1}^2-m^2+i \eta ).(\text{p2}^2+i \eta ).(\text{p3}^2+i \eta ).((\text{p2}+\text{p3})^2+i \eta ).((\text{p1}-Q)^2-m^2+i \eta ).((\text{p2}-Q)^2+i \eta ).((\text{p2}+\text{p3}-Q)^2+i \eta ).((\text{p1}+\text{p2}+\text{p3}-Q)^2+i \eta )}</span></p>
+<p><span class="math display">\left\{(x(1) x(2) x(3)+x(1) x(4) x(3)+x(2) x(5) x(3)+x(4) x(5) x(3)+x(1) x(6) x(3)+x(5) x(6) x(3)+x(1) x(7) x(3)+x(5) x(7) x(3)+x(1) x(8) x(3)+x(2) x(8) x(3)+x(4) x(8) x(3)+x(5) x(8) x(3)+x(6) x(8) x(3)+x(7) x(8) x(3)+x(1) x(2) x(4)+x(2) x(4) x(5)+x(1) x(4) x(6)+x(4) x(5) x(6)+x(1) x(2) x(7)+x(2) x(5) x(7)+x(1) x(6) x(7)+x(5) x(6) x(7)+x(1) x(2) x(8)+x(2) x(4) x(8)+x(2) x(5) x(8)+x(1) x(6) x(8)+x(4) x(6) x(8)+x(5) x(6) x(8)+x(2) x(7) x(8)+x(6) x(7) x(8))^{4 \varepsilon } \left(x(2) x(3) x(5)^2 m^2+x(2) x(4) x(5)^2 m^2+x(3) x(4) x(5)^2 m^2+x(1)^2 x(2) x(3) m^2+x(1)^2 x(2) x(4) m^2+x(1)^2 x(3) x(4) m^2+2 x(1) x(2) x(3) x(5) m^2+2 x(1) x(2) x(4) x(5) m^2+2 x(1) x(3) x(4) x(5) m^2+x(3) x(5)^2 x(6) m^2+x(4) x(5)^2 x(6) m^2+x(1)^2 x(3) x(6) m^2+x(1)^2 x(4) x(6) m^2+2 x(1) x(3) x(5) x(6) m^2+2 x(1) x(4) x(5) x(6) m^2+x(2) x(5)^2 x(7) m^2+x(3) x(5)^2 x(7) m^2+x(1)^2 x(2) x(7) m^2+x(1)^2 x(3) x(7) m^2+2 x(1) x(2) x(5) x(7) m^2+2 x(1) x(3) x(5) x(7) m^2+x(1)^2 x(6) x(7) m^2+x(5)^2 x(6) x(7) m^2+2 x(1) x(5) x(6) x(7) m^2+x(2) x(5)^2 x(8) m^2+x(3) x(5)^2 x(8) m^2+x(1)^2 x(2) x(8) m^2+x(1)^2 x(3) x(8) m^2+x(1) x(2) x(3) x(8) m^2+x(1) x(2) x(4) x(8) m^2+x(1) x(3) x(4) x(8) m^2+2 x(1) x(2) x(5) x(8) m^2+2 x(1) x(3) x(5) x(8) m^2+x(2) x(3) x(5) x(8) m^2+x(2) x(4) x(5) x(8) m^2+x(3) x(4) x(5) x(8) m^2+x(1)^2 x(6) x(8) m^2+x(5)^2 x(6) x(8) m^2+x(1) x(3) x(6) x(8) m^2+x(1) x(4) x(6) x(8) m^2+2 x(1) x(5) x(6) x(8) m^2+x(3) x(5) x(6) x(8) m^2+x(4) x(5) x(6) x(8) m^2+x(1) x(2) x(7) x(8) m^2+x(1) x(3) x(7) x(8) m^2+x(2) x(5) x(7) x(8) m^2+x(3) x(5) x(7) x(8) m^2+x(1) x(6) x(7) x(8) m^2+x(5) x(6) x(7) x(8) m^2-Q^2 x(1) x(2) x(3) x(5)-Q^2 x(1) x(2) x(4) x(5)-Q^2 x(1) x(3) x(4) x(5)-Q^2 x(1) x(2) x(3) x(6)-Q^2 x(1) x(2) x(4) x(6)-Q^2 x(1) x(3) x(4) x(6)-Q^2 x(1) x(3) x(5) x(6)-Q^2 x(2) x(3) x(5) x(6)-Q^2 x(1) x(4) x(5) x(6)-Q^2 x(2) x(4) x(5) x(6)-Q^2 x(3) x(4) x(5) x(6)-Q^2 x(1) x(2) x(3) x(7)-Q^2 x(1) x(2) x(4) x(7)-Q^2 x(1) x(3) x(4) x(7)-Q^2 x(1) x(2) x(5) x(7)-Q^2 x(1) x(3) x(5) x(7)-Q^2 x(2) x(3) x(5) x(7)-Q^2 x(2) x(4) x(5) x(7)-Q^2 x(3) x(4) x(5) x(7)-Q^2 x(1) x(2) x(6) x(7)-Q^2 x(1) x(4) x(6) x(7)-Q^2 x(1) x(5) x(6) x(7)-Q^2 x(2) x(5) x(6) x(7)-Q^2 x(4) x(5) x(6) x(7)-Q^2 x(1) x(2) x(3) x(8)-Q^2 x(1) x(2) x(4) x(8)-Q^2 x(1) x(3) x(4) x(8)-Q^2 x(1) x(2) x(5) x(8)-Q^2 x(1) x(3) x(5) x(8)-Q^2 x(1) x(2) x(6) x(8)-Q^2 x(2) x(3) x(6) x(8)-Q^2 x(1) x(4) x(6) x(8)-Q^2 x(2) x(4) x(6) x(8)-Q^2 x(3) x(4) x(6) x(8)-Q^2 x(1) x(5) x(6) x(8)-Q^2 x(2) x(5) x(6) x(8)-Q^2 x(3) x(5) x(6) x(8)-Q^2 x(2) x(3) x(7) x(8)-Q^2 x(2) x(4) x(7) x(8)-Q^2 x(3) x(4) x(7) x(8)-Q^2 x(2) x(5) x(7) x(8)-Q^2 x(3) x(5) x(7) x(8)-Q^2 x(2) x(6) x(7) x(8)-Q^2 x(4) x(6) x(7) x(8)-Q^2 x(5) x(6) x(7) x(8)\right)^{-3 \varepsilon -2},\Gamma (3 \varepsilon +2),\{x(1),x(2),x(3),x(4),x(5),x(6),x(7),x(8)\}\right\}</span></p>
+<p>An example of using <code>FCFeynmanParametrize</code> together with <code>FCFeynmanParameterJoin</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>props = {SFAD[{p1, <span class="fu">m</span>^<span class="dv">2</span>}], SFAD[{p3, <span class="fu">m</span>^<span class="dv">2</span>}], SFAD[{{<span class="dv">0</span>, <span class="dv">2</span> p1 . <span class="fu">n</span>}}], SFAD[{{<span class="dv">0</span>, <span class="dv">2</span> (p1 + p3) . <span class="fu">n</span>}}]}</span></code></pre></div>
+<p><span class="math display">\left\{\frac{1}{(\text{p1}^2-m^2+i \eta )},\frac{1}{(\text{p3}^2-m^2+i \eta )},\frac{1}{(2 (n\cdot \;\text{p1})+i \eta )},\frac{1}{(2 (n\cdot (\text{p1}+\text{p3}))+i \eta )}\right\}</span></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>intT = FCFeynmanParameterJoin[{{props[[<span class="dv">1</span>]] props[[<span class="dv">2</span>]], <span class="dv">1</span>, <span class="fu">x</span>}, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>    props[[<span class="dv">3</span>]] props[[<span class="dv">4</span>]], <span class="fu">y</span>}, {p1, p3}]</span></code></pre></div>
+<p><span class="math display">\left\{\frac{1}{(\left(-x(1) m^2-x(2) m^2+\text{p1}^2 x(1)+\text{p3}^2 x(2)\right) y(1)+2 (n\cdot \;\text{p1}) y(2)+(2 (n\cdot \;\text{p1})+2 (n\cdot \;\text{p3})) y(3)+i \eta )^4},6 y(1),\{x(1),x(2),y(1),y(2),y(3)\}\right\}</span></p>
+<p>Here the Feynman parameter variables <span class="math inline">x_i</span> and <span class="math inline">y_i</span> are independent from each other, i.e. we have <span class="math inline">\delta(1-x_1-x_2-x_3) \times \delta(1-y_1-y_2-y_3)</span>. This gives us much more freedom when exploiting the Cheng-Wu theorem.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>FCFeynmanParametrize[intT[[<span class="dv">1</span>]], intT[[<span class="dv">2</span>]], {p1, p3}, Indexed -&gt; <span class="fu">True</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> ep}, </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>  FinalSubstitutions -&gt; {SPD[<span class="fu">n</span>] -&gt; <span class="dv">1</span>, <span class="fu">m</span> -&gt; <span class="dv">1</span>}, <span class="fu">Variables</span> -&gt; intT[[<span class="dv">3</span>]]]</span></code></pre></div>
+<p><span class="math display">\left\{y(1) \left(x(1) x(2) y(1)^2\right)^{3 \;\text{ep}-2} \left(y(1) \left(x(1) x(2)^2 y(1)^2+x(1)^2 x(2) y(1)^2+x(2) y(2)^2+x(1) y(3)^2+x(2) y(3)^2+2 x(2) y(2) y(3)\right)\right)^{-2 \;\text{ep}},\Gamma (2 \;\text{ep}),\{x(1),x(2),y(1),y(2),y(3)\}\right\}</span></p>
+<p>In the case that we need <code>U</code> and <code>F</code> polynomials in addition to the normal output (e.g. for HyperInt)</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a>(SFAD[{{<span class="dv">0</span>, <span class="dv">2</span>*k1 . <span class="fu">n</span>}}]*SFAD[{{<span class="dv">0</span>, <span class="dv">2</span>*k2 . <span class="fu">n</span>}}]*SFAD[{k1, <span class="fu">m</span>^<span class="dv">2</span>}]*</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>   SFAD[{k2, <span class="fu">m</span>^<span class="dv">2</span>}]*SFAD[{k1 - k2, <span class="fu">m</span>^<span class="dv">2</span>}])</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a><span class="fu">out</span> = FCFeynmanParametrize[%, {k1, k2}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> Epsilon}, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>   FCFeynmanPrepare -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<p><span class="math display">\frac{1}{(\text{k1}^2-m^2+i \eta ) (\text{k2}^2-m^2+i \eta ) ((\text{k1}-\text{k2})^2-m^2+i \eta ) (2 (\text{k1}\cdot n)+i \eta ) (2 (\text{k2}\cdot n)+i \eta )}</span></p>
+<p><span class="math display">\left\{(x(3) x(4)+x(5) x(4)+x(3) x(5))^{3 \varepsilon -1} \left(m^2 x(3) x(4)^2+m^2 x(3) x(5)^2+m^2 x(4) x(5)^2+m^2 x(3)^2 x(4)+m^2 x(3)^2 x(5)+m^2 x(4)^2 x(5)+3 m^2 x(3) x(4) x(5)+n^2 x(2)^2 x(3)+n^2 x(1)^2 x(4)+n^2 x(2)^2 x(4)+2 n^2 x(1) x(2) x(4)+n^2 x(1)^2 x(5)\right)^{-2 \varepsilon -1},-\Gamma (2 \varepsilon +1),\{x(1),x(2),x(3),x(4),x(5)\},\left\{x(3) x(4)+x(5) x(4)+x(3) x(5),m^2 x(3) x(4)^2+m^2 x(3) x(5)^2+m^2 x(4) x(5)^2+m^2 x(3)^2 x(4)+m^2 x(3)^2 x(5)+m^2 x(4)^2 x(5)+3 m^2 x(3) x(4) x(5)+n^2 x(2)^2 x(3)+n^2 x(1)^2 x(4)+n^2 x(2)^2 x(4)+2 n^2 x(1) x(2) x(4)+n^2 x(1)^2 x(5),\left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{(2 (\text{k1}\cdot n)+i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{(2 (\text{k2}\cdot n)+i \eta )} &amp; 1 \\
+ x(3) &amp; \frac{1}{(\text{k1}^2-m^2+i \eta )} &amp; 1 \\
+ x(4) &amp; \frac{1}{((\text{k1}-\text{k2})^2-m^2+i \eta )} &amp; 1 \\
+ x(5) &amp; \frac{1}{(\text{k2}^2-m^2+i \eta )} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{cc}
+ x(3)+x(4) &amp; -x(4) \\
+ -x(4) &amp; x(4)+x(5) \\
+\end{array}
+\right),\left\{x(1) \left(-n^{\text{FCGV}(\text{mu})}\right),x(2) \left(-n^{\text{FCGV}(\text{mu})}\right)\right\},-m^2 (x(3)+x(4)+x(5)),1,0\right\}\right\}</span></p>
+<p>From this output we can easily extract the integrand, its <span class="math inline">x_i</span>-independent prefactor and the two Symanzik polynomials</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>{integrand, pref} = <span class="fu">out</span>[[<span class="dv">1</span> ;; <span class="dv">2</span>]]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>{uPoly, fPoly} = <span class="fu">out</span>[[<span class="dv">4</span>]][[<span class="dv">1</span> ;; <span class="dv">2</span>]]</span></code></pre></div>
+<p><span class="math display">\left\{(x(3) x(4)+x(5) x(4)+x(3) x(5))^{3 \varepsilon -1} \left(m^2 x(3) x(4)^2+m^2 x(3) x(5)^2+m^2 x(4) x(5)^2+m^2 x(3)^2 x(4)+m^2 x(3)^2 x(5)+m^2 x(4)^2 x(5)+3 m^2 x(3) x(4) x(5)+n^2 x(2)^2 x(3)+n^2 x(1)^2 x(4)+n^2 x(2)^2 x(4)+2 n^2 x(1) x(2) x(4)+n^2 x(1)^2 x(5)\right)^{-2 \varepsilon -1},-\Gamma (2 \varepsilon +1)\right\}</span></p>
+<p><span class="math display">\left\{x(3) x(4)+x(5) x(4)+x(3) x(5),m^2 x(3) x(4)^2+m^2 x(3) x(5)^2+m^2 x(4) x(5)^2+m^2 x(3)^2 x(4)+m^2 x(3)^2 x(5)+m^2 x(4)^2 x(5)+3 m^2 x(3) x(4) x(5)+n^2 x(2)^2 x(3)+n^2 x(1)^2 x(4)+n^2 x(2)^2 x(4)+2 n^2 x(1) x(2) x(4)+n^2 x(1)^2 x(5)\right\}</span></p>
+<h4 id="lee-pomeransky-representation">Lee-Pomeransky representation</h4>
+<p>1-loop tadpole</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a>FCFeynmanParametrize[FAD[{<span class="fu">q</span>, <span class="fu">m</span>}], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, <span class="fu">Method</span> -&gt; &quot;Lee-Pomeransky&quot;]</span></code></pre></div>
+<p><span class="math display">\left\{\left(m^2 x(1)^2+x(1)\right)^{-D/2},-\frac{\Gamma \left(\frac{D}{2}\right)}{\Gamma (D-1)},\{x(1)\}\right\}</span></p>
+<p>Massless 1-loop 2-point function</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a>FCFeynmanParametrize[FAD[<span class="fu">q</span>, <span class="fu">q</span> - <span class="fu">p</span>], {<span class="fu">q</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, <span class="fu">Method</span> -&gt; &quot;Lee-Pomeransky&quot;]</span></code></pre></div>
+<p><span class="math display">\left\{\left(-p^2 x(2) x(1)+x(1)+x(2)\right)^{-D/2},\frac{\Gamma \left(\frac{D}{2}\right)}{\Gamma (D-2)},\{x(1),x(2)\}\right\}</span></p>
+<p>2-loop self-energy with 3 massive lines and two eikonal propagators</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a>FCFeynmanParametrize[{SFAD[{ p1, <span class="fu">m</span>^<span class="dv">2</span>}], SFAD[{ p3, <span class="fu">m</span>^<span class="dv">2</span>}], </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>   SFAD[{(p3 - p1), <span class="fu">m</span>^<span class="dv">2</span>}], SFAD[{{<span class="dv">0</span>, <span class="dv">2</span> p1 . <span class="fu">n</span>}}], SFAD[{{<span class="dv">0</span>, <span class="dv">2</span> p3 . <span class="fu">n</span>}}]}, {p1, p3}, </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>  <span class="fu">Names</span> -&gt; <span class="fu">x</span>, <span class="fu">Method</span> -&gt; &quot;Lee-Pomeransky&quot;, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> ep}, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a>  FinalSubstitutions -&gt; {SPD[<span class="fu">n</span>] -&gt; <span class="dv">1</span>, <span class="fu">m</span> -&gt; <span class="dv">1</span>}]</span></code></pre></div>
+<p><span class="math display">\left\{\left(x(4) x(1)^2+x(5) x(1)^2+2 x(2) x(5) x(1)+x(3) x(4)^2+x(3) x(5)^2+x(4) x(5)^2+x(2)^2 x(3)+x(3)^2 x(4)+x(3) x(4)+x(2)^2 x(5)+x(3)^2 x(5)+x(4)^2 x(5)+x(3) x(5)+3 x(3) x(4) x(5)+x(4) x(5)\right)^{\text{ep}-2},-\frac{\Gamma (2-\text{ep})}{\Gamma (1-3 \;\text{ep})},\{x(1),x(2),x(3),x(4),x(5)\}\right\}</span></p>
+</body>
+</html>

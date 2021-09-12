@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<p><code>FCLoopGraphPlot[{edges, labels}]</code> visualizes the graph of the given loop integral using the provided list of edges, styles and labels using the built-in function <code>Graph</code>. The Option <code>Graph</code> can be used to pass options to the <code>Graph</code> objects.</p>
+<p>By default, <code>FCLoopGraphPlot</code> returns a <code>Graph</code>. When using Mathematica 12.2 or newer, it is also possible to return a <code>Graphics</code> object created by <code>GraphPlot</code>. For this the option <code>GraphPlot</code> must be set to a list of options that will be passed to <code>GraphPlot</code>. An empty list is also admissible. For example, <code>FCLoopGraphPlot[int, GraphPlot -&gt; {MultiedgeStyle -&gt; 0.35, Frame -&gt; True}]</code>.</p>
+<p>Given a list of <code>Graph</code> or <code>Graphics</code> objects created by <code>FCLoopGraphPlot</code>, a nice way to get a better overview is to employ <code>Magnify[Grid[(Partition[out, UpTo[4]])], 0.9]</code>.</p>
+<p>Notice that older Mathematica versions have numerous shortcomings in the graph drawing capabilities that cannot be reliably worked around. This why to use <code>FCLoopGraphPlot</code> you need to have at least Mathematica 11.0 or newer. For best results we recommend using Mathematica 12.2 or newer.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCLoopIntegralToGraph.html">FCLoopIntegralToGraph</a>.</p>
+<h3 id="examples">Examples</h3>
+<h4 id="showcases">Showcases</h4>
+<p>1-loop tadpole</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{<span class="fu">p</span>, <span class="fu">m</span>}], {<span class="fu">p</span>}]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{1\to 1\},\left(
+\begin{array}{ccc}
+ p &amp; 1 &amp; -m^2 \\
+\end{array}
+\right),\left\{\frac{1}{(p^2-m^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0yvbg69o85nqi.svg" alt="0yvbg69o85nqi" /></p>
+<p>1-loop massless bubble</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[<span class="fu">p</span>, <span class="fu">p</span> - <span class="fu">q</span>], {<span class="fu">p</span>}]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to 2\},\{q,q,\{p,1,0\},\{p-q,1,0\}\},\left\{0,0,\frac{1}{(p^2+i \eta )},\frac{1}{((p-q)^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/18zlvfvc5dy6q.svg" alt="18zlvfvc5dy6q" /></p>
+<p>1-loop massive bubble</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{<span class="fu">p</span>, m1}, {<span class="fu">p</span> - <span class="fu">q</span>, m2}], {<span class="fu">p</span>}]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to 2\},\left\{q,q,\left\{p,1,-\text{m1}^2\right\},\left\{p-q,1,-\text{m2}^2\right\}\right\},\left\{0,0,\frac{1}{(p^2-\text{m1}^2+i \eta )},\frac{1}{((p-q)^2-\text{m2}^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0mx2npuji2kki.svg" alt="0mx2npuji2kki" /></p>
+<p>1-loop massless triangle</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[<span class="fu">p</span>, <span class="fu">p</span> + q1, <span class="fu">p</span> + q1 + q2], {<span class="fu">p</span>}]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 3,-2\to 1,-1\to 2,1\to 2,1\to 3,2\to 3\},\{\text{q1}-\text{q2},\text{q1},\text{q2},\{p+\text{q1},1,0\},\{p+\text{q1}+\text{q2},1,0\},\{p,1,0\}\},\left\{0,0,0,\frac{1}{(p^2+i \eta )},\frac{1}{((p+\text{q1})^2+i \eta )},\frac{1}{((p+\text{q1}+\text{q2})^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/1veisicnoyp27.svg" alt="1veisicnoyp27" /></p>
+<p>1-loop massless box</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[<span class="fu">p</span>, <span class="fu">p</span> + q1, <span class="fu">p</span> + q1 + q2, <span class="fu">p</span> + q1 + q2 + q3], {<span class="fu">p</span>}]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-4\to 4,-3\to 1,-2\to 2,-1\to 3,1\to 2,1\to 4,2\to 3,3\to 4\},\{\text{q1}-\text{q2}-\text{q3},\text{q1},\text{q2},\text{q3},\{p+\text{q1}+\text{q2},1,0\},\{p+\text{q1}+\text{q2}+\text{q3},1,0\},\{p+\text{q1},1,0\},\{p,1,0\}\},\left\{0,0,0,0,\frac{1}{(p^2+i \eta )},\frac{1}{((p+\text{q1})^2+i \eta )},\frac{1}{((p+\text{q1}+\text{q2})^2+i \eta )},\frac{1}{((p+\text{q1}+\text{q2}+\text{q3})^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0gnj7wff0851c.svg" alt="0gnj7wff0851c" /></p>
+<p>1-loop massless pentagon</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[<span class="fu">p</span>, <span class="fu">p</span> + q1, <span class="fu">p</span> + q1 + q2, <span class="fu">p</span> + q1 + q2 + q3, <span class="fu">p</span> + q1 + q2 + q3 + q4], {<span class="fu">p</span>}]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-5\to 5,-4\to 1,-3\to 2,-2\to 3,-1\to 4,1\to 2,1\to 5,2\to 3,3\to 4,4\to 5\},\{\text{q1}-\text{q2}-\text{q3}-\text{q4},\text{q1},\text{q2},\text{q3},\text{q4},\{p+\text{q1}+\text{q2}+\text{q3},1,0\},\{p+\text{q1}+\text{q2}+\text{q3}+\text{q4},1,0\},\{p+\text{q1}+\text{q2},1,0\},\{p+\text{q1},1,0\},\{p,1,0\}\},\left\{0,0,0,0,0,\frac{1}{(p^2+i \eta )},\frac{1}{((p+\text{q1})^2+i \eta )},\frac{1}{((p+\text{q1}+\text{q2})^2+i \eta )},\frac{1}{((p+\text{q1}+\text{q2}+\text{q3})^2+i \eta )},\frac{1}{((p+\text{q1}+\text{q2}+\text{q3}+\text{q4})^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0w423j5lcoh4g.svg" alt="0w423j5lcoh4g" /></p>
+<p>2-loop massless self-energy</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[p1, p2, <span class="fu">Q</span> - p1 - p2, <span class="fu">Q</span> - p1, <span class="fu">Q</span> - p2], {p1, p2}]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 3,1\to 4,2\to 3,2\to 4,3\to 4\},\{Q,Q,\{\text{p2},1,0\},\{Q-\text{p2},1,0\},\{Q-\text{p1},1,0\},\{\text{p1},1,0\},\{-\text{p1}-\text{p2}+Q,1,0\}\},\left\{0,0,\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{((Q-\text{p2})^2+i \eta )},\frac{1}{((Q-\text{p1})^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}+Q)^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0m09banu3jlo2.svg" alt="0m09banu3jlo2" /></p>
+<p>Same topology as before but now fully massive and with some dots</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{p1, <span class="fu">m</span>}, {p2, m2}, {<span class="fu">Q</span> - p1 - p2, <span class="fu">m</span>}, {<span class="fu">Q</span> - p1, <span class="fu">m</span>, <span class="dv">2</span>}, {<span class="fu">Q</span> - p2, <span class="fu">m</span>, <span class="dv">2</span>}], {p1, p2}]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 3,1\to 4,2\to 3,2\to 4,3\to 4\},\left\{Q,Q,\left\{\text{p2},1,-\text{m2}^2\right\},\left\{Q-\text{p2},2,-m^2\right\},\left\{Q-\text{p1},2,-m^2\right\},\left\{\text{p1},1,-m^2\right\},\left\{-\text{p1}-\text{p2}+Q,1,-m^2\right\}\right\},\left\{0,0,\frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )},\frac{1}{(\text{p1}^2-m^2+i \eta )},\frac{1}{((Q-\text{p2})^2-m^2+i \eta )},\frac{1}{((Q-\text{p1})^2-m^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}+Q)^2-m^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0p4vf5g6fykzy.svg" alt="0p4vf5g6fykzy" /></p>
+<p>3-loop massless self-energy</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[p1, p2, p3, <span class="fu">Q</span> - p1 - p2 - p3, <span class="fu">Q</span> - p1 - p2, <span class="fu">Q</span> - p1, <span class="fu">Q</span> - p2, p1 + p3], {p1, p2, p3}]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 5,1\to 6,2\to 3,2\to 5,3\to 4,3\to 6,4\to 5,4\to 6\},\{Q,Q,\{\text{p2},1,0\},\{Q-\text{p2},1,0\},\{\text{p1},1,0\},\{Q-\text{p1},1,0\},\{\text{p3},1,0\},\{\text{p1}+\text{p3},1,0\},\{-\text{p1}-\text{p2}+Q,1,0\},\{-\text{p1}-\text{p2}-\text{p3}+Q,1,0\}\},\left\{0,0,\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{((\text{p1}+\text{p3})^2+i \eta )},\frac{1}{((Q-\text{p2})^2+i \eta )},\frac{1}{((Q-\text{p1})^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}+Q)^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}-\text{p3}+Q)^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/177i8h9zggmck.svg" alt="177i8h9zggmck" /></p>
+<p>3-loop self-energy with two massive lines</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>FCLoopIntegralToGraph[<span class="fu">Times</span> @@ {SFAD[{{p1, <span class="dv">0</span>}, {<span class="fu">m</span>^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p2, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>    SFAD[{{p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p1 + p2 + p3 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p2 + p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    SFAD[{{p2 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p1 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="fu">m</span>^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p2 + p3 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}]}, {p1, p2, p3}]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 3,1\to 4,2\to 5,2\to 6,3\to 4,3\to 5,4\to 6,5\to 6\},\left\{Q,Q,\{\text{p2},1,0\},\{\text{p2}-Q,1,0\},\left\{\text{p1}-Q,1,-m^2\right\},\left\{\text{p1},1,-m^2\right\},\{\text{p3},1,0\},\{\text{p2}+\text{p3},1,0\},\{\text{p2}+\text{p3}-Q,1,0\},\{\text{p1}+\text{p2}+\text{p3}-Q,1,0\}\right\},\left\{0,0,\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{((\text{p2}+\text{p3})^2+i \eta )},\frac{1}{(\text{p1}^2-m^2+i \eta )},\frac{1}{((\text{p2}-Q)^2+i \eta )},\frac{1}{((\text{p2}+\text{p3}-Q)^2+i \eta )},\frac{1}{((\text{p1}-Q)^2-m^2+i \eta )},\frac{1}{((\text{p1}+\text{p2}+\text{p3}-Q)^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0epatn35bxucj.svg" alt="0epatn35bxucj" /></p>
+<p>2-loop triangle</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[p1, p2, Q1 + p1, Q2 - p1, Q1 + p1 + p2, Q2 - p1 - p2], {p1, p2}]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 3,-2\to 1,-1\to 2,1\to 2,1\to 5,2\to 4,3\to 4,3\to 5,4\to 5\},\{\text{Q1}-\text{Q2},\text{Q1},\text{Q2},\{\text{p1},1,0\},\{\text{Q2}-\text{p1},1,0\},\{\text{p1}+\text{Q1},1,0\},\{\text{p1}+\text{p2}+\text{Q1},1,0\},\{-\text{p1}-\text{p2}+\text{Q2},1,0\},\{\text{p2},1,0\}\},\left\{0,0,0,\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{((\text{p1}+\text{Q1})^2+i \eta )},\frac{1}{((\text{Q2}-\text{p1})^2+i \eta )},\frac{1}{((\text{p1}+\text{p2}+\text{Q1})^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}+\text{Q2})^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0s3ekcbrughjs.svg" alt="0s3ekcbrughjs" /></p>
+<h4 id="special-cases">Special cases</h4>
+<p>Not all loop integrals admit a graph representation. Furthermore, an integral may have a weird momentum routing that cannot be automatically recognized by the employed algorithm. Consider e.g.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>topo = FCTopology[TRIX1, {SFAD[{{p2, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p1 + Q1, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    SFAD[{{p1 + p2 + Q1, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{-p1 + Q2, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{-p1 - p2 + Q2, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}]}, {p1, p2}, {Q1, Q2}, {}, {}]</span></code></pre></div>
+<p><span class="math display">\text{FCTopology}\left(\text{TRIX1},\left\{\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{((\text{p1}+\text{Q1})^2+i \eta )},\frac{1}{((\text{p1}+\text{p2}+\text{Q1})^2+i \eta )},\frac{1}{((\text{Q2}-\text{p1})^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}+\text{Q2})^2+i \eta )}\right\},\{\text{p1},\text{p2}\},\{\text{Q1},\text{Q2}\},\{\},\{\}\right)</span></p>
+<p>Here <code>FCLoopIntegralToGraph</code> has no way to know that the actual momentum is Q1+Q2, i.e. it is a 2- and not 3-point function</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>FCLoopIntegralToGraph[topo]</span></code></pre></div>
+<p><img src="img/1f51tljs4rv5c.svg" alt="1f51tljs4rv5c" /></p>
+<p><span class="math display">\text{False}</span></p>
+<p>However, if we explicitly provide this information, in many cases the function can still perform the proper reconstruction</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>FCLoopIntegralToGraph[topo, Momentum -&gt; {Q1 + Q2}]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 3,1\to 4,2\to 3,2\to 4,3\to 4\},\{\text{Q1}+\text{Q2},\text{Q1}+\text{Q2},\{\text{p1}+\text{Q1},1,0\},\{\text{Q2}-\text{p1},1,0\},\{\text{p1}+\text{p2}+\text{Q1},1,0\},\{-\text{p1}-\text{p2}+\text{Q2},1,0\},\{\text{p2},1,0\}\},\left\{0,0,\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{((\text{p1}+\text{Q1})^2+i \eta )},\frac{1}{((\text{Q2}-\text{p1})^2+i \eta )},\frac{1}{((\text{p1}+\text{p2}+\text{Q1})^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}+\text{Q2})^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/1divxubmo2kg0.svg" alt="1divxubmo2kg0" /></p>
+<p>And here is another example. This NRQCD integral from <a href="https://arxiv.org/abs/1907.08227">arXiv:1907.08227</a> looks like as if it has only one external momentum flowing in</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{<span class="fu">k</span>, <span class="fu">m</span>}, <span class="fu">l</span> + <span class="fu">p</span>, <span class="fu">l</span> - <span class="fu">p</span>, <span class="fu">k</span> + <span class="fu">l</span>], {<span class="fu">k</span>, <span class="fu">l</span>}]</span></code></pre></div>
+<p><img src="img/0n5i5tvxn9tzb.svg" alt="0n5i5tvxn9tzb" /></p>
+<p><span class="math display">\text{False}</span></p>
+<p>while in reality there are two of them: <code>p</code> and <code>2p</code></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{<span class="fu">k</span>, <span class="fu">m</span>}, <span class="fu">l</span> + <span class="fu">p</span>, <span class="fu">l</span> - <span class="fu">p</span>, <span class="fu">k</span> + <span class="fu">l</span>], {<span class="fu">k</span>, <span class="fu">l</span>}, Momentum -&gt; {<span class="dv">2</span> <span class="fu">p</span>, <span class="fu">p</span>}, FCE -&gt; <span class="fu">True</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-4\to 3,-2\to 2,-1\to 1,1\to 2,1\to 3,2\to 3,2\to 3\},\left\{3 p,2 p,p,\{l+p,1,0\},\{l-p,1,0\},\{k+l,1,0\},\left\{k,1,-m^2\right\}\right\},\left\{0,0,0,\frac{1}{((l+p)^2+i \eta )},\frac{1}{((k+l)^2+i \eta )},\frac{1}{(k^2-m^2+i \eta )},\frac{1}{((l-p)^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/00vlxernf5uq8.svg" alt="00vlxernf5uq8" /></p>
+<p>In this case the correct form of the external momentum can be deduced upon performing some elementary shifts. The direct application of the function fails</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>ex = FCTopology[topo1X12679, {SFAD[{{p1, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p2 + p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p2 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p1 + p3 - <span class="fu">Q</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}]}, {p1, p2, p3}, {<span class="fu">Q</span>}, {}, {}]</span></code></pre></div>
+<p><span class="math display">\text{FCTopology}\left(\text{topo1X12679},\left\{\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{((\text{p2}+\text{p3})^2+i \eta )},\frac{1}{((\text{p2}-Q)^2+i \eta )},\frac{1}{((\text{p1}+\text{p3}-Q)^2+i \eta )}\right\},\{\text{p1},\text{p2},\text{p3}\},\{Q\},\{\},\{\}\right)</span></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a>FCLoopIntegralToGraph[ex]</span></code></pre></div>
+<p><img src="img/112s7t3w9k2l3.svg" alt="112s7t3w9k2l3" /></p>
+<p><span class="math display">\text{False}</span></p>
+<p>Yet let us consider</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>exShifted = FCReplaceMomenta[ex, {p2 -&gt; p2 - p3 + p1 - <span class="fu">Q</span>, p3 -&gt; p3 - p1 + <span class="fu">Q</span>}]</span></code></pre></div>
+<p><span class="math display">\text{FCTopology}\left(\text{topo1X12679},\left\{\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{((\text{p1}+\text{p2}-\text{p3}-2 Q)^2+i \eta )},\frac{1}{(\text{p3}^2+i \eta )}\right\},\{\text{p1},\text{p2},\text{p3}\},\{Q\},\{\},\{\}\right)</span></p>
+<p>Now we immediately see that the proper external momentum to consider is <code>2Q</code> instead of just <code>Q</code></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a>FCLoopIntegralToGraph[exShifted, Momentum -&gt; {<span class="dv">2</span> <span class="fu">Q</span>}]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to 2,1\to 2,1\to 2\},\{2 Q,2 Q,\{\text{p1},1,0\},\{\text{p2},1,0\},\{\text{p3},1,0\},\{\text{p1}+\text{p2}-\text{p3}-2 Q,1,0\}\},\left\{0,0,\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((\text{p1}+\text{p2}-\text{p3}-2 Q)^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0epvj32a3mspb.svg" alt="0epvj32a3mspb" /></p>
+<p>When dealing with products of tadpole integrals, the function may not always recognize that the appearing external momenta are spurious. For example, here there is no <code>q</code> momentum flowing through any of the lines</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a>int = SFAD[{{ p1, <span class="dv">0</span>}, {mg^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">1</span>}] SFAD[{{ p3, <span class="dv">-2</span> p3 . <span class="fu">q</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>FCLoopIntegralToGraph[int, {p1, p3}]</span></code></pre></div>
+<p><span class="math display">\frac{1}{(\text{p1}^2-\text{mg}^2+i \eta ) (\text{p3}^2-2 (\text{p3}\cdot q)+i \eta )}</span></p>
+<p><img src="img/04u9cv0rn5xej.svg" alt="04u9cv0rn5xej" /></p>
+<p><span class="math display">\text{False}</span></p>
+<p>In this case we may explicitly tell the function that this integral doesn’t depend on any external momenta</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a>FCLoopIntegralToGraph[int, {p1, p3}, Momentum -&gt; {}]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{1\to 1,1\to 1\},\left(
+\begin{array}{ccc}
+ \;\text{p1} &amp; 1 &amp; -\text{mg}^2 \\
+ \;\text{p3}-q &amp; 1 &amp; 0 \\
+\end{array}
+\right),\left\{\frac{1}{(\text{p1}^2-\text{mg}^2+i \eta )},\frac{1}{(\text{p3}^2-2 (\text{p3}\cdot q)+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0x74zmssj7d9o.svg" alt="0x74zmssj7d9o" /></p>
+<h4 id="eyecandy">Eyecandy</h4>
+<p>The <code>Style</code> option can be used to label lines carrying different masses in a particular way</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="fu">OptionValue</span>[FCLoopGraphPlot, <span class="fu">Style</span>]</span></code></pre></div>
+<p><span class="math display">\{\{\text{InternalLine},\_,\_,0\}:\to \{\text{Dashed},\text{Thick},\text{Black}\},\{\text{InternalLine},\_,\_,\text{FeynCalc$\grave{ }$FCLoopGraphPlot$\grave{ }$Private$\grave{ }$mm$\_$}\;\text{/;}\;\text{FeynCalc$\grave{ }$FCLoopGraphPlot$\grave{ }$Private$\grave{ }$mm}\;\text{=!=}0\}:\to \{\text{Thick},\text{Black}\},\{\text{ExternalLine},\_\}:\to \{\text{Thick},\text{Black}\}\}</span></p>
+<p>When dealing with factorizing integral it might be necessary to increase <code>VertexDegree</code> to <code>7</code> or <code>8</code> (or even a higher value, depending on the integrals)</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{p1, m1}] FAD[{p2, m2}], {p1, p2}]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{1\to 1,1\to 1\},\left(
+\begin{array}{ccc}
+ \;\text{p2} &amp; 1 &amp; -\text{m2}^2 \\
+ \;\text{p1} &amp; 1 &amp; -\text{m1}^2 \\
+\end{array}
+\right),\left\{\frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )},\frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0mz3vndnoqr9r.svg" alt="0mz3vndnoqr9r" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{p1, m1}] FAD[{p2, m2}] FAD[p3, p3 + <span class="fu">q</span>], {p1, p2, p3}, <span class="fu">VertexDegree</span> -&gt; <span class="dv">7</span>]</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to 2,2\to 2,2\to 2\},\left\{q,q,\{\text{p3},1,0\},\{\text{p3}+q,1,0\},\left\{\text{p2},1,-\text{m2}^2\right\},\left\{\text{p1},1,-\text{m1}^2\right\}\right\},\left\{0,0,\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((\text{p3}+q)^2+i \eta )},\frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )},\frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/17a2ldq41hi7m.svg" alt="17a2ldq41hi7m" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{p1, m1}] FAD[{p2, m2}] FAD[p3, p3 + <span class="fu">q</span>] FAD[{p4, m4}], {p1, p2, p3, p4}, <span class="fu">VertexDegree</span> -&gt; <span class="dv">9</span>]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a>FCLoopGraphPlot[%]</span></code></pre></div>
+<p><img src="img/107q3o8gddkqf.svg" alt="107q3o8gddkqf" /></p>
+<p><img src="img/127lzijvfshrm.svg" alt="127lzijvfshrm" /></p>
+<p><span class="math display">\text{False}</span></p>
+<p><span class="math display">\text{FCLoopGraphPlot}(\text{False})</span></p>
+<p>Here we choose to use thick dashed blue and red lines for massive lines containing <code>mc</code> and <code>mg</code> respectively. The massless lines are black an dashed.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a>FCLoopIntegralToGraph[ FAD[{k2, mb}, {k3}, {k1 - <span class="fu">q</span>, mc}, {k1 - k2, mc}, {k2 - k3}], {k1, k2,k3}]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a><span class="fu">Magnify</span>[FCLoopGraphPlot[%, <span class="fu">GraphPlot</span> -&gt; {<span class="fu">MultiedgeStyle</span> -&gt; <span class="dv">0</span><span class="fl">.35</span>, <span class="fu">Frame</span> -&gt; <span class="fu">True</span>}, <span class="fu">Style</span> -&gt; {{&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, mg]} -&gt; {<span class="fu">Red</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>}, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a>     {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, mc]} -&gt; {<span class="fu">Blue</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>}}], <span class="dv">1</span><span class="fl">.5</span>]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to 2,1\to 3,2\to 3,2\to 3\},\left\{q,q,\left\{\text{k1}-q,1,-\text{mc}^2\right\},\left\{\text{k1}-\text{k2},1,-\text{mc}^2\right\},\left\{\text{k2},1,-\text{mb}^2\right\},\{\text{k3},1,0\},\{\text{k2}-\text{k3},1,0\}\right\},\left\{0,0,\frac{1}{(\text{k3}^2+i \eta )},\frac{1}{(\text{k2}^2-\text{mb}^2+i \eta )},\frac{1}{((\text{k2}-\text{k3})^2+i \eta )},\frac{1}{((\text{k1}-q)^2-\text{mc}^2+i \eta )},\frac{1}{((\text{k1}-\text{k2})^2-\text{mc}^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0dmivk9ohasqm.svg" alt="0dmivk9ohasqm" /></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a>FCLoopIntegralToGraph[ FAD[{k2, mg}, {k3, mc}, {k1, <span class="fu">q</span>}, {k1 - k2}, {k2 - k3, mc}], {k1, k2, k3}]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a><span class="fu">Magnify</span>[FCLoopGraphPlot[%, <span class="fu">GraphPlot</span> -&gt; {<span class="fu">MultiedgeStyle</span> -&gt; <span class="dv">0</span><span class="fl">.35</span>, <span class="fu">Frame</span> -&gt; <span class="fu">True</span>}, <span class="fu">Style</span> -&gt; {{&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, mg]} -&gt; {<span class="fu">Red</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>}, </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a>     {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, mc]} -&gt; {<span class="fu">Blue</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>}}], <span class="dv">1</span><span class="fl">.5</span>]</span></code></pre></div>
+<p><span class="math display">\left\{\{1\to 2,1\to 3,1\to 3,2\to 3,2\to 3\},\left(
+\begin{array}{ccc}
+ \;\text{k2} &amp; 1 &amp; -\text{mg}^2 \\
+ \;\text{k3} &amp; 1 &amp; -\text{mc}^2 \\
+ \;\text{k2}-\text{k3} &amp; 1 &amp; -\text{mc}^2 \\
+ \;\text{k1} &amp; 1 &amp; -q^2 \\
+ \;\text{k1}-\text{k2} &amp; 1 &amp; 0 \\
+\end{array}
+\right),\left\{\frac{1}{(\text{k3}^2-\text{mc}^2+i \eta )},\frac{1}{(\text{k2}^2-\text{mg}^2+i \eta )},\frac{1}{(\text{k1}^2-q^2+i \eta )},\frac{1}{((\text{k1}-\text{k2})^2+i \eta )},\frac{1}{((\text{k2}-\text{k3})^2-\text{mc}^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/15wb7c8yiu3a3.svg" alt="15wb7c8yiu3a3" /></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a>FCLoopIntegralToGraph[ FAD[{k2, mg}, {k3, mc}, {k1 - <span class="fu">q</span>}, {k2 - <span class="fu">q</span>, mb}, {k1 - k2}, {k2 - k3, mc}], {k1, k2, k3}]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a><span class="fu">Magnify</span>[FCLoopGraphPlot[%, <span class="fu">GraphPlot</span> -&gt; {<span class="fu">MultiedgeStyle</span> -&gt; <span class="dv">0</span><span class="fl">.35</span>, <span class="fu">Frame</span> -&gt; <span class="fu">True</span>}, <span class="fu">Style</span> -&gt; {{&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, mg]} -&gt; {<span class="fu">Red</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>}, </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a>     {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, mc]} -&gt; {<span class="fu">Blue</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>}}], <span class="dv">1</span><span class="fl">.5</span>]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 3,1\to 4,2\to 3,2\to 3,2\to 4,2\to 4\},\left\{q,q,\left\{\text{k2},1,-\text{mg}^2\right\},\left\{\text{k2}-q,1,-\text{mb}^2\right\},\left\{\text{k3},1,-\text{mc}^2\right\},\left\{\text{k2}-\text{k3},1,-\text{mc}^2\right\},\{\text{k1}-q,1,0\},\{\text{k1}-\text{k2},1,0\}\right\},\left\{0,0,\frac{1}{(\text{k3}^2-\text{mc}^2+i \eta )},\frac{1}{(\text{k2}^2-\text{mg}^2+i \eta )},\frac{1}{((\text{k1}-q)^2+i \eta )},\frac{1}{((\text{k1}-\text{k2})^2+i \eta )},\frac{1}{((\text{k2}-q)^2-\text{mb}^2+i \eta )},\frac{1}{((\text{k2}-\text{k3})^2-\text{mc}^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/0vtpuq5p5lr8k.svg" alt="0vtpuq5p5lr8k" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a>FCLoopIntegralToGraph[ FAD[{k2, <span class="dv">0</span>, <span class="dv">2</span>}, {k1 - <span class="fu">q</span>}, {k1 - k3, mc}, {k2 - k3, mc}], {k1, k2, k3}]</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a><span class="fu">Magnify</span>[FCLoopGraphPlot[%, <span class="fu">GraphPlot</span> -&gt; {<span class="fu">MultiedgeStyle</span> -&gt; <span class="dv">0</span><span class="fl">.35</span>, <span class="fu">Frame</span> -&gt; <span class="fu">True</span>}, <span class="fu">Style</span> -&gt; {{&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, mg]} -&gt; {<span class="fu">Red</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>}, </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true"></a>     {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, mc]} -&gt; {<span class="fu">Blue</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>}}], <span class="dv">1</span><span class="fl">.5</span>]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to 2,1\to 2,1\to 2\},\left\{q,q,\{\text{k2},2,0\},\{\text{k1}-q,1,0\},\left\{\text{k2}-\text{k3},1,-\text{mc}^2\right\},\left\{\text{k1}-\text{k3},1,-\text{mc}^2\right\}\right\},\left\{0,0,\frac{1}{(\text{k2}^2+i \eta )},\frac{1}{((\text{k1}-q)^2+i \eta )},\frac{1}{((\text{k2}-\text{k3})^2-\text{mc}^2+i \eta )},\frac{1}{((\text{k1}-\text{k3})^2-\text{mc}^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/1ma9r62jq7ebq.svg" alt="1ma9r62jq7ebq" /></p>
+<p>We can style a fully massive 1-loop box in a very creative way</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{<span class="fu">p</span>, m1}, {<span class="fu">p</span> + q1, m2}, {<span class="fu">p</span> + q1 + q2, m3}, {<span class="fu">p</span> + q1 + q2 + q3, m4}], {<span class="fu">p</span>}]</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a>FCLoopGraphPlot[%, <span class="fu">GraphPlot</span> -&gt; {<span class="fu">MultiedgeStyle</span> -&gt; <span class="dv">0</span><span class="fl">.35</span>, <span class="fu">Frame</span> -&gt; <span class="fu">True</span>}, <span class="fu">Style</span> -&gt; {</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a>    {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, m1]} -&gt; {<span class="fu">Red</span>, <span class="fu">Thick</span>}, </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a>    {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, m2]} -&gt; {<span class="fu">Blue</span>, <span class="fu">Thick</span>}, </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a>    {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, m3]} -&gt; {<span class="fu">Green</span>, <span class="fu">Thick</span>}, </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a>    {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, m4]} -&gt; {<span class="fu">Purple</span>, <span class="fu">Thick</span>},</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a>    {&quot;ExternalLine&quot;, q1} -&gt; {<span class="fu">Brown</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>} </span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a>   }]</span></code></pre></div>
+<p><span class="math display">\left\{\{-4\to 4,-3\to 1,-2\to 2,-1\to 3,1\to 2,1\to 4,2\to 3,3\to 4\},\left\{\text{q1}-\text{q2}-\text{q3},\text{q1},\text{q2},\text{q3},\left\{p+\text{q1}+\text{q2},1,-\text{m3}^2\right\},\left\{p+\text{q1}+\text{q2}+\text{q3},1,-\text{m4}^2\right\},\left\{p+\text{q1},1,-\text{m2}^2\right\},\left\{p,1,-\text{m1}^2\right\}\right\},\left\{0,0,0,0,\frac{1}{(p^2-\text{m1}^2+i \eta )},\frac{1}{((p+\text{q1})^2-\text{m2}^2+i \eta )},\frac{1}{((p+\text{q1}+\text{q2})^2-\text{m3}^2+i \eta )},\frac{1}{((p+\text{q1}+\text{q2}+\text{q3})^2-\text{m4}^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/02dm2nagbs2f8.svg" alt="02dm2nagbs2f8" /></p>
+<p>The same goes for a 2-loop box with 3 massive lines</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FAD[{p1, m1}, {p2, m2}, {Q1 + p1, m3}, Q2 - p1, Q1 + p1 + p2, Q2 - p1 - p2, Q2 + Q3 - p1 - p2], {p1, p2}]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a>FCLoopGraphPlot[%, <span class="fu">GraphPlot</span> -&gt; {<span class="fu">MultiedgeStyle</span> -&gt; <span class="dv">0</span><span class="fl">.35</span>, <span class="fu">Frame</span> -&gt; <span class="fu">True</span>}, <span class="fu">Style</span> -&gt; {</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true"></a>    {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, m1]} -&gt; {<span class="fu">Red</span>, <span class="fu">Thick</span>}, </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true"></a>    {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, m2]} -&gt; {<span class="fu">Blue</span>, <span class="fu">Thick</span>}, </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true"></a>    {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, m3]} -&gt; {<span class="fu">Green</span>, <span class="fu">Thick</span>}, </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true"></a>    {&quot;InternalLine&quot;, _, _, <span class="dt">mm_</span> /; ! <span class="fu">FreeQ</span>[mm, m4]} -&gt; {<span class="fu">Purple</span>, <span class="fu">Thick</span>},</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true"></a>    {&quot;ExternalLine&quot;, q1} -&gt; {<span class="fu">Brown</span>, <span class="fu">Thick</span>, <span class="fu">Dashed</span>} </span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true"></a>   }]</span></code></pre></div>
+<p><span class="math display">\left\{\{-4\to 4,-3\to 1,-2\to 2,-1\to 3,1\to 4,1\to 5,2\to 3,2\to 5,3\to 6,4\to 6,5\to 6\},\left\{\text{Q1}-\text{Q2}-\text{Q3},\text{Q1},\text{Q2},\text{Q3},\{-\text{p1}-\text{p2}+\text{Q2}+\text{Q3},1,0\},\{-\text{p1}-\text{p2}+\text{Q2},1,0\},\left\{\text{p1},1,-\text{m1}^2\right\},\{\text{Q2}-\text{p1},1,0\},\left\{\text{p1}+\text{Q1},1,-\text{m3}^2\right\},\{\text{p1}+\text{p2}+\text{Q1},1,0\},\left\{\text{p2},1,-\text{m2}^2\right\}\right\},\left\{0,0,0,0,\frac{1}{(\text{p2}^2-\text{m2}^2+i \eta )},\frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )},\frac{1}{((\text{Q2}-\text{p1})^2+i \eta )},\frac{1}{((\text{p1}+\text{p2}+\text{Q1})^2+i \eta )},\frac{1}{((\text{p1}+\text{Q1})^2-\text{m3}^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}+\text{Q2})^2+i \eta )},\frac{1}{((-\text{p1}-\text{p2}+\text{Q2}+\text{Q3})^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/08mmgiizwltpy.svg" alt="08mmgiizwltpy" /></p>
+<p>One can also (sort of) visualize the momentum flow, where we use powers to denote the dots</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a>FCLoopIntegralToGraph[FCTopology[topo1X1, {SFAD[{{p2, <span class="dv">0</span>}, {m1^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">2</span>}], SFAD[{{p1, <span class="dv">0</span>}, {m1^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">2</span>}], </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a>    SFAD[{{p2 + p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p2 + p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a>    SFAD[{{p1 + p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p1 + p2 + p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}]}, {p1, p2, p3}, {}, {}, {}]]</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a>FCLoopGraphPlot[%, <span class="fu">GraphPlot</span> -&gt; {<span class="fu">MultiedgeStyle</span> -&gt; <span class="dv">0</span><span class="fl">.35</span>, <span class="fu">Frame</span> -&gt; <span class="fu">True</span>}, <span class="fu">Labeled</span> -&gt; {</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a>    {&quot;InternalLine&quot;, <span class="dt">x_</span>, <span class="dt">pow_</span>, _} :&gt; <span class="fu">x</span>^pow, </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true"></a>    {&quot;ExternalLine&quot;, _} :&gt; {}}]</span></code></pre></div>
+<p><span class="math display">\left\{\{1\to 2,1\to 3,1\to 3,2\to 3,2\to 3\},\left(
+\begin{array}{ccc}
+ \;\text{p1}+\text{p2}+\text{p3} &amp; 1 &amp; 0 \\
+ \;\text{p1}+\text{p3} &amp; 1 &amp; 0 \\
+ \;\text{p2} &amp; 2 &amp; -\text{m1}^2 \\
+ \;\text{p2}+\text{p3} &amp; 2 &amp; 0 \\
+ \;\text{p1} &amp; 2 &amp; -\text{m1}^2 \\
+\end{array}
+\right),\left\{\frac{1}{((\text{p1}+\text{p3})^2+i \eta )},\frac{1}{((\text{p2}+\text{p3})^2+i \eta )},\frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )},\frac{1}{(\text{p2}^2-\text{m1}^2+i \eta )},\frac{1}{((\text{p1}+\text{p2}+\text{p3})^2+i \eta )}\right\},1\right\}</span></p>
+<p><img src="img/12ux83if2wffb.svg" alt="12ux83if2wffb" /></p>
+</body>
+</html>

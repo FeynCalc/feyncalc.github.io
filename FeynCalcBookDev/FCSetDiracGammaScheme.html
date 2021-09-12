@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="fcsetdiracgammascheme">FCSetDiracGammaScheme</h2>
+<p><code>FCSetDiracGammaScheme[scheme]</code> allows you to specify how Dirac matrices will be handled in <code>D</code> dimensions. This is mainly relevant to the treatment of the 5th Dirac matrix <span class="math inline">\gamma^5</span>, which is not well-defined in dimensional regularization.</p>
+<p>Following schemes are supported:</p>
+<p>“NDR” - This is the default value. In the naive dimensional regularization (also known as conventional dimensional regularization or CDR) <span class="math inline">\gamma^5</span> is assumed to anticommute with all Dirac matrices in <span class="math inline">D</span> dimensions. Hence, every Dirac trace can be rewritten in such a way, that it contains either just one or not a single <span class="math inline">\gamma^5</span> matrix. The latter traces are obviously unambiguous. The traces with one <span class="math inline">\gamma^5</span> are not well-defined in this scheme. It usually depends on the physics of the process, whether and how they can contribute to the final result. Therefore, FeynCalc will keep such traces unevaluated, leaving it to the user to decide how to treat them. Notice that traces with an odd number of the usual Dirac matrices and one <span class="math inline">\gamma^5</span>, that vanish in <span class="math inline">4</span> dimensions, will be also put to zero in this scheme.</p>
+<p>“NDR-Discard” - This is a special version of the NDR scheme. The Dirac algebra is evaluated in the same way as with “NDR”, but the remaining traces with one <span class="math inline">\gamma^5</span> are put to zero. This assumes that such traces do not contribute to the final result, which is obviously true only for specific calculations.</p>
+<p>“BMHV” - The Breitenlohner-Maison extension of the t’Hooft-Veltman scheme. This scheme introduces Dirac and Lorentz tensors living in <span class="math inline">4</span>, <span class="math inline">D</span> or <span class="math inline">D-4</span> dimensions, while <span class="math inline">\gamma^5</span> is a purely <span class="math inline">4</span>-dimensional object. BMHV is algebraically consistent but often suffers from nonconservation of currents in the final results. The conservation must be then enforced by introducing finite counter-terms. The counter-terms are to be supplied by the user, since FeynCalc does not do this automatically.</p>
+<p>“Larin” - Special prescription developed by S. Larin, also known as the Larin-Gorishny-Atkyampo-DelBurgo scheme. Essentially, it is a shortcut (mostly used in QCD) for obtaining the same results as in BMHV but without the necessity to deal with tensors from different dimensions. That is, before evaluating traces (but after moving <span class="math inline">\gamma^5</span> anticommuting in <span class="math inline">D</span>-dimensions to the right of the Dirac string inside a trace) a product <span class="math inline">\gamma^\mu \gamma^5</span> is substituted to <span class="math inline">-I/6 \varepsilon^{\mu \alpha \beta \sigma} \gamma^\alpha \gamma^\beta \gamma^\sigma</span>, where all indices live in <span class="math inline">D</span>-dimensions now. The Levi-Civita tensor is taken to be <span class="math inline">D</span>-dimensional, i.e., contraction of two Eps’s results in <span class="math inline">D</span>’s. This scheme is often used for performance reasons and is assumed to give the same results as the BMHV scheme. However, <span class="math inline">\gamma^5</span> is not anticommuting inside closed fermion loops and it is not so clear if this scheme works for more than one fermion line involving <span class="math inline">\gamma^5</span>. When in doubt, it might be better to use BMHV instead.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCGetDiracGammaScheme.html">FCGetDiracGammaScheme</a>, <a href="DiracTrace.html">DiracTrace</a>.</p>
+<h3 id="examples">Examples</h3>
+<p>In NDR chiral traces remain unevaluated. You decide how to treat them.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;NDR&quot;]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>DiracTrace[GAD[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa], <span class="dv">5</span>]]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>DiracSimplify[%]</span></code></pre></div>
+<p><span class="math display">\text{NDR}</span></p>
+<p><span class="math display">\text{tr}\left(\gamma ^{\mu }.\gamma ^{\nu }.\gamma ^{\rho }.\gamma ^{\sigma }.\gamma ^{\tau }.\gamma ^{\kappa }.\bar{\gamma }^5\right)</span></p>
+<p><span class="math display">\text{tr}\left(\gamma ^{\mu }.\gamma ^{\nu }.\gamma ^{\rho }.\gamma ^{\sigma }.\gamma ^{\tau }.\gamma ^{\kappa }.\bar{\gamma }^5\right)</span></p>
+<p>If you know that such traces do not contribute, use NDR-Discard scheme to put them to zero</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;NDR-Discard&quot;]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>DiracSimplify[DiracTrace[GAD[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa], <span class="dv">5</span>]]]</span></code></pre></div>
+<p><span class="math display">\text{NDR-Discard}</span></p>
+<p><span class="math display">0</span></p>
+<p>In BMHV chiral traces are algebraically well-defined</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;BMHV&quot;]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>res1 = DiracSimplify[DiracTrace[GAD[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa], <span class="dv">5</span>]]]</span></code></pre></div>
+<p><span class="math display">\text{BMHV}</span></p>
+<p><span class="math display">-4 i g^{\kappa \mu } \bar{\epsilon }^{\nu \rho \sigma \tau }+4 i g^{\kappa \nu } \bar{\epsilon }^{\mu \rho \sigma \tau }-4 i g^{\kappa \rho } \bar{\epsilon }^{\mu \nu \sigma \tau }+4 i g^{\kappa \sigma } \bar{\epsilon }^{\mu \nu \rho \tau }-4 i g^{\kappa \tau } \bar{\epsilon }^{\mu \nu \rho \sigma }+4 i g^{\mu \nu } \bar{\epsilon }^{\kappa \rho \sigma \tau }-4 i g^{\mu \rho } \bar{\epsilon }^{\kappa \nu \sigma \tau }+4 i g^{\mu \sigma } \bar{\epsilon }^{\kappa \nu \rho \tau }-4 i g^{\mu \tau } \bar{\epsilon }^{\kappa \nu \rho \sigma }+4 i g^{\nu \rho } \bar{\epsilon }^{\kappa \mu \sigma \tau }-4 i g^{\nu \sigma } \bar{\epsilon }^{\kappa \mu \rho \tau }+4 i g^{\nu \tau } \bar{\epsilon }^{\kappa \mu \rho \sigma }+4 i g^{\rho \sigma } \bar{\epsilon }^{\kappa \mu \nu \tau }-4 i g^{\rho \tau } \bar{\epsilon }^{\kappa \mu \nu \sigma }+4 i g^{\sigma \tau } \bar{\epsilon }^{\kappa \mu \nu \rho }</span></p>
+<p>Larin’s scheme reproduces the results of the BMHV scheme, but this may not be immediately obvious</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;Larin&quot;]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>res2 = DiracSimplify[DiracTrace[GAD[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa], <span class="dv">5</span>]]]</span></code></pre></div>
+<p><span class="math display">\text{Larin}</span></p>
+<p><span class="math display">4 i g^{\mu \nu } \overset{\text{}}{\epsilon }^{\kappa \rho \sigma \tau }-4 i g^{\mu \rho } \overset{\text{}}{\epsilon }^{\kappa \nu \sigma \tau }+4 i g^{\mu \sigma } \overset{\text{}}{\epsilon }^{\kappa \nu \rho \tau }-4 i g^{\mu \tau } \overset{\text{}}{\epsilon }^{\kappa \nu \rho \sigma }+4 i g^{\nu \rho } \overset{\text{}}{\epsilon }^{\kappa \mu \sigma \tau }-4 i g^{\nu \sigma } \overset{\text{}}{\epsilon }^{\kappa \mu \rho \tau }+4 i g^{\nu \tau } \overset{\text{}}{\epsilon }^{\kappa \mu \rho \sigma }+4 i g^{\rho \sigma } \overset{\text{}}{\epsilon }^{\kappa \mu \nu \tau }-4 i g^{\rho \tau } \overset{\text{}}{\epsilon }^{\kappa \mu \nu \sigma }+4 i g^{\sigma \tau } \overset{\text{}}{\epsilon }^{\kappa \mu \nu \rho }</span></p>
+<p>Owing to Schouten identities, proving the equivalence of chiral traces is not so simple, especially for many terms. <code>FCSchoutenBruteForce</code> can be helpful here</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>diff = ChangeDimension[res1 - res2, <span class="fu">D</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>Contract[FV[p1, \[Mu]] FV[p2, \[Nu]] FV[p3, \[Rho]] FV[p4, \[Sigma]] FV[p5, \[Tau]] FV[p6, \[Kappa]] diff]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>FCSchoutenBruteForce[%, {}, {}]</span></code></pre></div>
+<p><span class="math display">-4 i g^{\kappa \mu } \overset{\text{}}{\epsilon }^{\nu \rho \sigma \tau }+4 i g^{\kappa \nu } \overset{\text{}}{\epsilon }^{\mu \rho \sigma \tau }-4 i g^{\kappa \rho } \overset{\text{}}{\epsilon }^{\mu \nu \sigma \tau }+4 i g^{\kappa \sigma } \overset{\text{}}{\epsilon }^{\mu \nu \rho \tau }-4 i g^{\kappa \tau } \overset{\text{}}{\epsilon }^{\mu \nu \rho \sigma }</span></p>
+<p><span class="math display">-4 i \left(\overline{\text{p1}}\cdot \overline{\text{p6}}\right) \bar{\epsilon }^{\overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p4}}\;\overline{\text{p5}}}+4 i \left(\overline{\text{p2}}\cdot \overline{\text{p6}}\right) \bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p3}}\;\overline{\text{p4}}\;\overline{\text{p5}}}-4 i \left(\overline{\text{p3}}\cdot \overline{\text{p6}}\right) \bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p2}}\;\overline{\text{p4}}\;\overline{\text{p5}}}+4 i \left(\overline{\text{p4}}\cdot \overline{\text{p6}}\right) \bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p5}}}-4 i \left(\overline{\text{p5}}\cdot \overline{\text{p6}}\right) \bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p4}}}</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The following rule was applied: }\bar{\epsilon }^{\overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p4}}\;\overline{\text{p5}}} \left(\overline{\text{p1}}\cdot \overline{\text{p6}}\right):\to \bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p3}}\;\overline{\text{p4}}\;\overline{\text{p5}}} \left(\overline{\text{p2}}\cdot \overline{\text{p6}}\right)-\bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p2}}\;\overline{\text{p4}}\;\overline{\text{p5}}} \left(\overline{\text{p3}}\cdot \overline{\text{p6}}\right)+\bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p5}}} \left(\overline{\text{p4}}\cdot \overline{\text{p6}}\right)-\bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p4}}} \left(\overline{\text{p5}}\cdot \overline{\text{p6}}\right)</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The numbers of terms in the expression decreased by: }5</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: Current length of the expression: }0</span></p>
+<p><span class="math display">0</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;NDR&quot;]</span></code></pre></div>
+<p><span class="math display">\text{NDR}</span></p>
+</body>
+</html>
