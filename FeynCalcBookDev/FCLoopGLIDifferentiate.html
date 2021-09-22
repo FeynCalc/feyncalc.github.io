@@ -98,8 +98,9 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fcloopglidifferentiate">FCLoopGLIDifferentiate</h2>
-<p><code>FCLoopGLIDifferentiate[exp , topos, inv]</code> calculates the partial derivative of GLIs present in <code>exp</code> with respect to the scalar quantity <code>inv</code>. Here <code>inv</code> can be a constant (e.g. mass) or a scalar product of some momenta. The list topos must contain the topologies describing all of the occurring GLIs.</p>
-<p>To calculate multiple derivatives, use the notation <code>FCLoopGLIDifferentiate[exp , topos, {inv,n}]</code></p>
+<p><code>FCLoopGLIDifferentiate[exp , topos, inv]</code> calculates the partial derivative of GLIs present in <code>exp</code> with respect to the scalar quantity <code>inv</code>. Here <code>inv</code> can be a constant (e.g. mass), a scalar product of some momenta or a 4-vector.</p>
+<p>The list topos must contain the topologies describing all of the occurring GLIs.</p>
+<p>To calculate multiple derivatives, use the notation <code>FCLoopGLIDifferentiate[exp , topos, {inv,n}]</code> for scalars and <code>FCLoopGLIDifferentiate[exp , topos, {vec1, vec2, ...}]</code> for vectors.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCTopology.html">FCTopology</a>, <a href="GLI.html">GLI</a>, <a href="FCLoopGLIExpand.html">FCLoopGLIExpand</a>.</p>
 <h3 id="examples">Examples</h3>
@@ -108,12 +109,20 @@
 <p><span class="math display">2 \;\text{m1} x G^{\text{tad2l}}(2,1,1)</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCLoopGLIDifferentiate[<span class="fu">x</span> GLI[tad2l, {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>}], </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  {FCTopology[tad2l, {FAD[{p1, m1}], FAD[{p2, m2}], FAD[{p1 - p2, m3}]}, {p1, p2}, {}, {}, {}]}, {m1, <span class="dv">5</span>}]</span></code></pre></div>
-<p><span class="math display">288 x \left(8 \;\text{m1}^3 G^{\text{tad2l}}(5,1,1)+2 \;\text{m1} G^{\text{tad2l}}(4,1,1)\right)+384 x \left(10 \;\text{m1}^5 G^{\text{tad2l}}(6,1,1)+4 \;\text{m1}^3 G^{\text{tad2l}}(5,1,1)\right)+144 \;\text{m1} x G^{\text{tad2l}}(4,1,1)</span></p>
+<p><span class="math display">3840 \;\text{m1}^5 x G^{\text{tad2l}}(6,1,1)+3840 \;\text{m1}^3 x G^{\text{tad2l}}(5,1,1)+720 \;\text{m1} x G^{\text{tad2l}}(4,1,1)</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FCLoopGLIDifferentiate[m2^<span class="dv">2</span> GLI[tad2l, {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>}], </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  {FCTopology[tad2l, {FAD[{p1, m1}], FAD[{p2, m2}], FAD[{p1 - p2, m3}]}, {p1, p2}, {}, {}, {}]}, m2]</span></code></pre></div>
 <p><span class="math display">2 \;\text{m2}^3 G^{\text{tad2l}}(1,2,1)+2 \;\text{m2} G^{\text{tad2l}}(1,1,1)</span></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FCLoopGLIDifferentiate[ GLI[prop1l, {<span class="dv">1</span>, <span class="dv">1</span>}] + SPD[<span class="fu">q</span>] GLI[prop1l, {<span class="dv">1</span>, <span class="dv">0</span>}], </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  {FCTopology[prop1l, {FAD[{p1, m1}], FAD[{p1 + <span class="fu">q</span>, m2}]}, {p1}, {<span class="fu">q</span>}, {}, {}]}, SPD[<span class="fu">q</span>]]</span></code></pre></div>
 <p><span class="math display">G^{\text{prop1l}}(1,0)-G^{\text{prop1l}}(1,2)</span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>FCLoopGLIDifferentiate[SPD[p1, p2] GLI[topo1, {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>}], </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  {FCTopology[topo1, {SFAD[{p1, m1^<span class="dv">2</span>}], SFAD[{p2, m2^<span class="dv">2</span>}], SFAD[p1 - p2]}, {p1, p2}, {}, {}, {}]}, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>  FVD[p1, mu], FCE -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<p><span class="math display">-2 G^{\text{topo1}}(1,1,2) \left(\text{p1}^{\text{mu}}-\text{p2}^{\text{mu}}\right) (\text{p1}\cdot \;\text{p2})-2 \;\text{p1}^{\text{mu}} G^{\text{topo1}}(2,1,1) (\text{p1}\cdot \;\text{p2})+\text{p2}^{\text{mu}} G^{\text{topo1}}(1,1,1)</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>FCLoopGLIDifferentiate[SPD[p1, p2] GLI[topo1, {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>}], {FCTopology[topo1, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    {SFAD[{p1, m1^<span class="dv">2</span>}], SFAD[{p2, m2^<span class="dv">2</span>}], SFAD[p1 - p2]}, {p1, p2}, {}, {}, {}]} </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a> , {FVD[p1, mu], FVD[p2, nu]}, FCE -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<p><span class="math display">-2 G^{\text{topo1}}(1,1,2) \left(-g^{\text{mu}\;\text{nu}} (\text{p1}\cdot \;\text{p2})-2 \;\text{p2}^{\text{mu}} \;\text{p1}^{\text{nu}}+\text{p1}^{\text{mu}} \;\text{p1}^{\text{nu}}+\text{p2}^{\text{mu}} \;\text{p2}^{\text{nu}}\right)+G^{\text{topo1}}(1,1,1) g^{\text{mu}\;\text{nu}}-8 G^{\text{topo1}}(1,1,3) \left(\text{p1}^{\text{mu}}-\text{p2}^{\text{mu}}\right) \left(\text{p1}^{\text{nu}}-\text{p2}^{\text{nu}}\right) (\text{p1}\cdot \;\text{p2})+4 \;\text{p2}^{\text{nu}} G^{\text{topo1}}(1,2,2) \left(\text{p1}^{\text{mu}}-\text{p2}^{\text{mu}}\right) (\text{p1}\cdot \;\text{p2})-4 \;\text{p1}^{\text{mu}} G^{\text{topo1}}(2,1,2) \left(\text{p1}^{\text{nu}}-\text{p2}^{\text{nu}}\right) (\text{p1}\cdot \;\text{p2})+4 \;\text{p1}^{\text{mu}} \;\text{p2}^{\text{nu}} G^{\text{topo1}}(2,2,1) (\text{p1}\cdot \;\text{p2})-2 \;\text{p1}^{\text{mu}} \;\text{p1}^{\text{nu}} G^{\text{topo1}}(2,1,1)-2 \;\text{p2}^{\text{mu}} \;\text{p2}^{\text{nu}} G^{\text{topo1}}(1,2,1)</span></p>
 </body>
 </html>

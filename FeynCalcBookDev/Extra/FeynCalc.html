@@ -36,6 +36,11 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <p>FeynCalc is a Mathematica package for algebraic calculations in Quantum Field Theory and semi-automatic evaluation of Feynman Diagrams.</p>
+<h2 id="useful-information">Useful information</h2>
+<ul>
+<li><a href="Indices.html">Upper and lower indices</a></li>
+<li><a href="MasterIntegrals.html">Master integrals</a></li>
+</ul>
 <h2 id="basic-objects">Basic objects</h2>
 <ul>
 <li><a href="../Abbreviation.html">Abbreviation</a> - gives a shortname for name (in <code>HoldForm</code>)</li>
@@ -125,7 +130,7 @@
 <li><a href="../FC.html">FC</a> - changes the output format to <a href="../FeynCalcForm.html">FeynCalcForm</a></li>
 <li><a href="../FCAbbreviate.html">FCAbbreviate</a> - introduces abbreviations</li>
 <li><a href="../FCAntiSymmetrize.html">FCAntiSymmetrize</a> - antisymmetrizes with respect to the given variables</li>
-<li><a href="../FCDeclareHeader.html">FCDeclareHeader</a>, <a href="../FCPrint.html">FCPrint</a>, <a href="../FCReloadFunctionFromFile.html">FCReloadFunctionFromFile</a> - for writing or debugging new FeynCalc functions or add-ons</li>
+<li><a href="../FCDeclareHeader.html">FCDeclareHeader</a>, <a href="../FCPrint.html">FCPrint</a>, <a href="../FCReloadAddOns.html">FCReloadAddOns</a>, <a href="../FCReloadFunctionFromFile.html">FCReloadFunctionFromFile</a> - for writing or debugging new FeynCalc functions or add-ons</li>
 <li><a href="../FCDuplicateFreeQ.html">FCDuplicateFreeQ</a> - alternative to Mathematica’s <code>DuplicateFreeQ</code></li>
 <li><a href="../FCClearCache.html">FCClearCache</a>, <a href="../FCMemoryAvailable.html">FCMemoryAvailable</a>, <a href="../FCShowCache.html">FCShowCache</a>, <a href="../FCUseCache.html">FCUseCache</a> - cache management</li>
 <li><a href="../FCCheckSyntax.html">FCCheckSyntax</a> - checks for syntax errors in the input expressions</li>
@@ -325,6 +330,7 @@
 <li><a href="../FCLoopEikonalPropagatorFreeQ.html">FCLoopEikonalPropagatorFreeQ</a> - checks if the integral contains eikonal propagators</li>
 <li><a href="../FCLoopExtract.html">FCLoopExtract</a> - extracts loop integrals</li>
 <li><a href="../FCLoopFromGLI.html">FCLoopFromGLI</a> - converts <a href="../GLI.html">GLI</a>s into explicit integrals with <a href="../FeynAmpDenominator.html">FeynAmpDenominator</a>s</li>
+<li><a href="../FCLoopGetEtaSigns.html">FCLoopGetEtaSigns</a> - extracts the signs of <span class="math inline">i \eta</span> from all propagators</li>
 <li><a href="../FCLoopGLIDifferentiate.html">FCLoopGLIDifferentiate</a> - differentiates <a href="../GLI.html">GLI</a>s with respect to a scalar variable.</li>
 <li><a href="../FCLoopGLIExpand.html">FCLoopGLIExpand</a> - series expansion of expressions with <a href="../GLI.html">GLI</a>s with respect to a scalar variable</li>
 <li><a href="../FCLoopIBPReducableQ.html">FCLoopIBPReducableQ</a> - checks if the integral contains propagators raised to integer powers</li>
@@ -337,6 +343,8 @@
 <li><a href="../FCLoopPropagatorPowersExpand.html">FCLoopPropagatorPowersExpand</a> - rewrites propagators raised to integer powers as products of propagators</li>
 <li><a href="../FCLoopSamePropagatorHeadsQ.html">FCLoopSamePropagatorHeadsQ</a> - checks if the integral contains different types of propagators</li>
 <li><a href="../FCLoopRemoveNegativePropagatorPowers.html">FCLoopRemoveNegativePropagatorPowers</a> - rewrites propagators rasied to negative integer powers as numerators</li>
+<li><a href="../FCLoopSelectTopology.html">FCLoopSelectTopology</a> - selects topologies belonging for the given <code>GLI</code>s</li>
+<li><a href="../FCLoopSwitchEtaSign.html">FCLoopSwitchEtaSign</a> - changes the sign of <span class="math inline">i \eta</span> in all propagators to <span class="math inline">1</span> or <span class="math inline">-1</span></li>
 <li><a href="../FCLoopSingularityStructure.html">FCLoopSingularityStructure</a> - useful information on possible UV and IR singularities of the integral</li>
 <li><a href="../FCLoopSolutionList.html">FCLoopSolutionList</a> - auxiliary function that processes the output of <a href="../FCLoopCanonicalize.html">FCLoopCanonicalize</a></li>
 <li><a href="../FCLoopSplit.html">FCLoopSplit</a> - splits the expressions into pieces that contain different types of loop integrals</li>
@@ -384,6 +392,8 @@
 </ul>
 <h2 id="export-and-import">Export and import</h2>
 <ul>
+<li><a href="../FCGVToSymbol.html">FCGVToSymbol</a> - converts <a href="../FCGV.html">FCGV</a>s to symbols</li>
+<li><a href="../FCLoopGLIToSymbol.html">FCLoopGLIToSymbol</a> - converts <a href="../GLI.html">GLI</a>s to symbols</li>
 <li><a href="../FeynCalc2FORM.html">FeynCalc2FORM</a> - displays expression in FORM syntax</li>
 <li><a href="../FeynCalcToLaTeX.html">FeynCalcToLaTeX</a> - generates LaTeX</li>
 <li><a href="../FORM2FeynCalc.html">FORM2FeynCalc</a> - translates the FORM expression in file into FeynCalc notation</li>

@@ -121,7 +121,7 @@
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>FCLoopBasisFindCompletion[%, {q1, q2}]</span></code></pre></div>
 <p><span class="math display">\frac{1}{(\text{q1}^2-i \eta ).(\text{q2}^2-i \eta ).((\text{q1}-\text{l1})^2+\text{m1}-i \eta ).((\text{q2}-\text{l2})^2+\text{m2}-i \eta )}</span></p>
 <p><span class="math display">\left\{\frac{1}{(\text{q1}^2-i \eta ).(\text{q2}^2-i \eta ).((\text{q1}-\text{l1})^2+\text{m1}-i \eta ).((\text{q2}-\text{l2})^2+\text{m2}-i \eta )},\{\text{l1}\cdot \;\text{q2},\text{l2}\cdot \;\text{q1},\text{q1}\cdot \;\text{q2}\}\right\}</span></p>
-<p>Extending FCTopology objects</p>
+<p>Extending <code>FCTopology</code> objects</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>FCLoopBasisFindCompletion[FCTopology[topo, {FAD[p1], FAD[p2], FAD[p1 - <span class="fu">q</span>], FAD[p2 - <span class="fu">q</span>]}, {p1, p2}, {<span class="fu">q</span>}, {}, {}]]</span></code></pre></div>
 <p><span class="math display">\text{FCTopology}\left(\text{topo},\left\{\frac{1}{\text{p1}^2},\frac{1}{\text{p2}^2},\frac{1}{(\text{p1}-q)^2},\frac{1}{(\text{p2}-q)^2},\frac{1}{(\text{p1}\cdot \;\text{p2}+i \eta )}\right\},\{\text{p1},\text{p2}\},\{q\},\{\},\{\}\right)</span></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>FCLoopBasisFindCompletion[{</span>
@@ -129,5 +129,13 @@
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>   FCTopology[topo2, {FAD[p1], FAD[p2], FAD[p1 - <span class="fu">q</span>], FAD[p2 - p1]}, {p1, p2}, {<span class="fu">q</span>}, {}, {}] </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>  }]</span></code></pre></div>
 <p><span class="math display">\left\{\text{FCTopology}\left(\text{topo1},\left\{\frac{1}{\text{p1}^2},\frac{1}{\text{p2}^2},\frac{1}{(\text{p1}-q)^2},\frac{1}{(\text{p2}-q)^2},\frac{1}{(\text{p1}\cdot \;\text{p2}+i \eta )}\right\},\{\text{p1},\text{p2}\},\{q\},\{\},\{\}\right),\text{FCTopology}\left(\text{topo2},\left\{\frac{1}{\text{p1}^2},\frac{1}{\text{p2}^2},\frac{1}{(\text{p1}-q)^2},\frac{1}{(\text{p2}-\text{p1})^2},\frac{1}{(\text{p2}\cdot q+i \eta )}\right\},\{\text{p1},\text{p2}\},\{q\},\{\},\{\}\right)\right\}</span></p>
+<p>The function pays attention to the <span class="math inline">i \eta</span> signs in the propagators</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>FCLoopBasisFindCompletion[{FCTopology[</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    asyR1prop2Ltopo13011X11011NAux1, {SFAD[{{<span class="fu">I</span>*p1, <span class="dv">0</span>}, {<span class="dv">0</span>, {-<span class="dv">1</span>}}, <span class="dv">1</span>}],</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>        SFAD[{{(-I)*p3, <span class="dv">0</span>}, {-mb^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>        SFAD[{{<span class="fu">I</span>*(p1 + p3), <span class="dv">0</span>}, {-mb^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>        SFAD[{{<span class="fu">I</span>*(p1 - <span class="fu">q</span>), <span class="dv">0</span>}, {-mb^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}]}, {p1, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>        p3}, {<span class="fu">q</span>}, {SPD[<span class="fu">q</span>, <span class="fu">q</span>] -&gt; mb^<span class="dv">2</span>}, {}]}, FCE -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<p><span class="math display">\left\{\text{FCTopology}\left(\text{asyR1prop2Ltopo13011X11011NAux1},\left\{\frac{1}{(-\text{p1}^2-i \eta )},\frac{1}{(-\text{p3}^2+\text{mb}^2-i \eta )},\frac{1}{(-(\text{p1}+\text{p3})^2+\text{mb}^2-i \eta )},\frac{1}{(-(\text{p1}-q)^2+\text{mb}^2-i \eta )},\frac{1}{(\text{p3}\cdot q-i \eta )}\right\},\{\text{p1},\text{p3}\},\{q\},\left\{q^2\to \;\text{mb}^2\right\},\{\}\right)\right\}</span></p>
 </body>
 </html>

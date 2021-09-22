@@ -21,13 +21,12 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h1 id="upper-and-lower-indices">Upper and lower indices</h1>
-<p>Here we list a set of rules that allows to reconstruct the positions of indices (upstairs or downstairs) appearing in FeynCalc expressions</p>
-<ul>
-<li><p>Every expression must satisfy Einsteins’s summation convention, both for Lorentz and Cartesian indices. Single terms containing more than two identical Lorentz or Cartesian indices are illegal and will lead to inconsistent results.</p></li>
-<li><p>In a contraction of two Lorentz indices it is understood that one of them is upstairs and the other is downstairs.</p></li>
-<li><p>In a contraction of two Cartesian indices, both indices are understood to be upper indices.</p></li>
-<li><p>A free Lorentz or Cartesian index is always understood to be an upper index</p></li>
-</ul>
+<h2 id="fcreloadaddons">FCReloadAddOns</h2>
+<p><code>FCReloadAddOns[{addons}]</code> is an auxiliary function that attempts to reload FeynCalc addons without restarting the kernel.</p>
+<p>It is intended to be a helper tool for FeynCalc developers, which allows one to debug/improve add-ons and test the results on the fly. Depending on the complexity of the given add-on, there might also be severe side effects.</p>
+<p>The function is not meant to be invoked by the normal users.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCReloadFunctionFromFile.html">FCReloadFunctionFromFile</a></p>
+<h3 id="examples">Examples</h3>
 </body>
 </html>
