@@ -123,5 +123,12 @@
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>  FCTopology[topo1, {FAD[<span class="fu">q</span> - k1], FAD[k1], FAD[<span class="fu">q</span> - k2], FAD[k2], </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    FAD[{k2 - k3, mb}], FAD[{k1 - k3, mb}]}, {k1, k2, k3}, {<span class="fu">q</span>}, {}, {}]]</span></code></pre></div>
 <p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 3,1\to 4,2\to 3,2\to 4,3\to 4,3\to 4\},\left\{q,q,\{\text{k2},1,0\},\{q-\text{k2},1,0\},\{\text{k1},1,0\},\{q-\text{k1},1,0\},\left\{\text{k2}-\text{k3},1,-\text{mb}^2\right\},\left\{\text{k1}-\text{k3},1,-\text{mb}^2\right\}\right\},\left\{0,0,\frac{1}{(\text{k2}^2+i \eta )},\frac{1}{(\text{k1}^2+i \eta )},\frac{1}{((q-\text{k2})^2+i \eta )},\frac{1}{((q-\text{k1})^2+i \eta )},\frac{1}{((\text{k2}-\text{k3})^2-\text{mb}^2+i \eta )},\frac{1}{((\text{k1}-\text{k3})^2-\text{mb}^2+i \eta )}\right\},1\right\}</span></p>
+<p>If the second argument contains multiple topologies, the function will automatically select the relevant ones.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>FCLoopIntegralToGraph[GLI[topo1, {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>}], {FCTopology[topo1, {FAD[<span class="fu">q</span> - k1], FAD[k1], FAD[<span class="fu">q</span> - k2], FAD[k2], </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>     FAD[{k2 - k3, mb}], FAD[{k1 - k3, mb}]}, {k1, k2, k3}, {<span class="fu">q</span>}, {}, {}], </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>   FCTopology[topo2, {FAD[<span class="fu">q</span> - k1], FAD[k1], FAD[<span class="fu">q</span> - k2], FAD[k2], </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>     FAD[{k2 - k3, mg}], FAD[{k1 - k3, mg}]}, {k1, k2, k3}, {<span class="fu">q</span>}, {}, {}] </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>  }]</span></code></pre></div>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to 2,2\to 2\},\{q,q,\{\text{k1},1,0\},\{q-\text{k1},1,0\},\{q-\text{k2},1,0\}\},\left\{0,0,\frac{1}{(\text{k1}^2+i \eta )},\frac{1}{((q-\text{k2})^2+i \eta )},\frac{1}{((q-\text{k1})^2+i \eta )}\right\},1\right\}</span></p>
 </body>
 </html>

@@ -121,10 +121,11 @@
 \end{array}
 \right)</span></p>
 <p>If the input is a list of <code>GLI</code>-integrals, <code>FCLoopFindIntegralMappings</code> will return a list containing two sublists. The former will be a list of replacement rules while the latter will contain all unique master integrals</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>topos = {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>   FCTopology[topo1, {SFAD[{p1, <span class="fu">m</span>^<span class="dv">2</span>}], SFAD[{p2, <span class="fu">m</span>^<span class="dv">2</span>}]}, {p1, p2}, {}, {}, {}], </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>   FCTopology[topo2, {SFAD[{p3, <span class="fu">m</span>^<span class="dv">2</span>}], SFAD[{p4, <span class="fu">m</span>^<span class="dv">2</span>}]}, {p3, p4}, {}, {}, {}] </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">ClearAll</span>[topo1, topo2];</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>topos = {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>   FCTopology[topo1, {SFAD[{p1, <span class="fu">m</span>^<span class="dv">2</span>}], SFAD[{p2, <span class="fu">m</span>^<span class="dv">2</span>}]}, {p1, p2}, {}, {}, {}], </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>   FCTopology[topo2, {SFAD[{p3, <span class="fu">m</span>^<span class="dv">2</span>}], SFAD[{p4, <span class="fu">m</span>^<span class="dv">2</span>}]}, {p3, p4}, {}, {}, {}] </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>  }</span></code></pre></div>
 <p><span class="math display">\left\{\text{FCTopology}\left(\text{topo1},\left\{\frac{1}{(\text{p1}^2-m^2+i \eta )},\frac{1}{(\text{p2}^2-m^2+i \eta )}\right\},\{\text{p1},\text{p2}\},\{\},\{\},\{\}\right),\text{FCTopology}\left(\text{topo2},\left\{\frac{1}{(\text{p3}^2-m^2+i \eta )},\frac{1}{(\text{p4}^2-m^2+i \eta )}\right\},\{\text{p3},\text{p4}\},\{\},\{\},\{\}\right)\right\}</span></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>glis = {GLI[topo1, {<span class="dv">1</span>, <span class="dv">1</span>}], GLI[topo1, {<span class="dv">1</span>, <span class="dv">2</span>}], GLI[topo1, {<span class="dv">2</span>, <span class="dv">1</span>}], GLI[topo2, {<span class="dv">1</span>, <span class="dv">1</span>}], GLI[topo2, {<span class="dv">2</span>, <span class="dv">2</span>}]}</span></code></pre></div>
 <p><span class="math display">\left\{G^{\text{topo1}}(1,1),G^{\text{topo1}}(1,2),G^{\text{topo1}}(2,1),G^{\text{topo2}}(1,1),G^{\text{topo2}}(2,2)\right\}</span></p>
@@ -139,6 +140,43 @@
 \begin{array}{ccc}
  G^{\text{topo1}}(1,1)\to G^{\text{topo2}}(1,1) &amp; G^{\text{topo1}}(1,2)\to G^{\text{topo2}}(2,1) &amp; G^{\text{topo1}}(2,1)\to G^{\text{topo2}}(2,1) \\
  G^{\text{topo2}}(1,1) &amp; G^{\text{topo2}}(2,1) &amp; G^{\text{topo2}}(2,2) \\
+\end{array}
+\right)</span></p>
+<p>The indices of <code>GLI</code>s do not have to be integers</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>topos = {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>   FCTopology[prop2LtopoG20, {SFAD[{{p1, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>     SFAD[{{p1 + q1, <span class="dv">0</span>}, {m3^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>     SFAD[{{p3 + q1, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p1 - p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}]}, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    {p1, p3}, {q1}, {}, {}], </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>   FCTopology[prop2LtopoG21, {SFAD[{{p1, <span class="dv">0</span>}, {m1^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>     SFAD[{{p1 + q1, <span class="dv">0</span>}, {m3^<span class="dv">2</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>     SFAD[{{p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], SFAD[{{p3 + q1, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}], </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>     SFAD[{{p1 - p3, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">1</span>}, <span class="dv">1</span>}]}, {p1, p3}, {q1}, {}, {}] </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>  }</span></code></pre></div>
+<p><span class="math display">\left\{\text{FCTopology}\left(\text{prop2LtopoG20},\left\{\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{((\text{p1}+\text{q1})^2-\text{m3}^2+i \eta )},\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((\text{p3}+\text{q1})^2+i \eta )},\frac{1}{((\text{p1}-\text{p3})^2+i \eta )}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\{\},\{\}\right),\text{FCTopology}\left(\text{prop2LtopoG21},\left\{\frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )},\frac{1}{((\text{p1}+\text{q1})^2-\text{m3}^2+i \eta )},\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((\text{p3}+\text{q1})^2+i \eta )},\frac{1}{((\text{p1}-\text{p3})^2+i \eta )}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\{\},\{\}\right)\right\}</span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>FCLoopFindIntegralMappings[{GLI[prop2LtopoG21, {<span class="dv">0</span>, n1, n2, n3, n4}], </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>   GLI[prop2LtopoG20, {<span class="dv">0</span>, n1, n2, n3, n4}]}, topos]</span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+ G^{\text{prop2LtopoG21}}(0,\text{n1},\text{n2},\text{n3},\text{n4})\to G^{\text{prop2LtopoG20}}(0,\text{n1},\text{n2},\text{n3},\text{n4}) \\
+ G^{\text{prop2LtopoG20}}(0,\text{n1},\text{n2},\text{n3},\text{n4}) \\
+\end{array}
+\right)</span></p>
+<p>It is also possible to find mappings for factorizing integrals, provided that suitable products of integrals are given as preferred integrals</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>topos = {FCTopology[prop2Ltopo31313, {SFAD[{{</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>        <span class="fu">I</span> p1, <span class="dv">0</span>}, {-m3^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], SFAD[{{<span class="fu">I</span> (p1 + q1), <span class="dv">0</span>}, {-m1^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], SFAD[{{</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>        <span class="fu">I</span> p3, <span class="dv">0</span>}, {-m3^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], SFAD[{{<span class="fu">I</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>         (p3 + q1), <span class="dv">0</span>}, {-m1^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], SFAD[{{</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>        <span class="fu">I</span> (p1 - p3), <span class="dv">0</span>}, {-m3^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}]}, {p1, p3}, {q1}, {SPD[q1, q1] -&gt; m1^<span class="dv">2</span>}, {}], </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>   FCTopology[tad1Ltopo2, {SFAD[{{<span class="fu">I</span> p1, <span class="dv">0</span>}, {-m3^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}]}, {p1}, {}, {SPD[q1,q1] -&gt; m1^<span class="dv">2</span>}, {}]}</span></code></pre></div>
+<p><span class="math display">\left\{\text{FCTopology}\left(\text{prop2Ltopo31313},\left\{\frac{1}{(-\text{p1}^2+\text{m3}^2-i \eta )},\frac{1}{(-(\text{p1}+\text{q1})^2+\text{m1}^2-i \eta )},\frac{1}{(-\text{p3}^2+\text{m3}^2-i \eta )},\frac{1}{(-(\text{p3}+\text{q1})^2+\text{m1}^2-i \eta )},\frac{1}{(-(\text{p1}-\text{p3})^2+\text{m3}^2-i \eta )}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\left\{\text{q1}^2\to \;\text{m1}^2\right\},\{\}\right),\text{FCTopology}\left(\text{tad1Ltopo2},\left\{\frac{1}{(-\text{p1}^2+\text{m3}^2-i \eta )}\right\},\{\text{p1}\},\{\},\left\{\text{q1}^2\to \;\text{m1}^2\right\},\{\}\right)\right\}</span></p>
+<p>Here we ask the function to map all products of two 1-loop tadpoles to <code>GLI[tad1Ltopo2,{1}]^2</code></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>FCLoopFindIntegralMappings[{GLI[tad1Ltopo2, {<span class="dv">1</span>}]^<span class="dv">2</span>, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>   GLI[prop2Ltopo31313, {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>}]}, topos, PreferredIntegrals -&gt; {GLI[tad1Ltopo2, {<span class="dv">1</span>}]^<span class="dv">2</span>}]</span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+ G^{\text{prop2Ltopo31313}}(0,0,1,0,1)\to G^{\text{tad1Ltopo2}}(1)^2 \\
+ G^{\text{tad1Ltopo2}}(1)^2 \\
 \end{array}
 \right)</span></p>
 </body>

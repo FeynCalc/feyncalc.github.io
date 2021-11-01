@@ -98,25 +98,31 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="polarization">Polarization</h2>
-<p><code>Polarization[k]</code> is the head of a polarization momentum with (incoming) momentum <code>k</code>.</p>
+<p><code>Polarization[k]</code> is the head of a polarization momentum with momentum <code>k</code>.</p>
 <p>A slashed polarization vector (<span class="math inline">\varepsilon_{\mu}(k) \gamma^\mu)</span> has to be entered as <code>GS[Polarization[k]]</code>.</p>
-<p>The internal representation for a polarization vector corresponding to a boson with four momentum k is: <code>Momentum[Polarization[k, I ]]</code>.</p>
 <p>Unless the option <code>Transversality</code> is set to <code>True</code>, all polarization vectors are not transverse by default.</p>
+<p>The internal representation for a polarization vector corresponding to a boson with four momentum <span class="math inline">k</span> is: <code>Momentum[Polarization[k, I ]]</code>.</p>
 <p><code>Polarization[k,-I]</code> denotes the complex conjugate polarization.</p>
 <p>Polarization is also an option of various functions related to the operator product expansion. The setting <code>0</code> denotes the unpolarized and <code>1</code> the polarized case.</p>
+<p><code>Polarization</code> may appear only inside <code>Momentum</code>. Outside of <code>Momentum</code> it is meaningless in FeynCalc.</p>
+<p>The imaginary unit in the second argument of <code>Polarization</code> is used to distinguish between incoming and outgoing polarization vectors.</p>
+<ul>
+<li><p><code>Pair[Momentum[k], Momentum[Polarization[k, I]]]</code> corresponds to <span class="math inline">\varepsilon^{\mu}(k)</span>, i.e. an ingoing polarization vector</p></li>
+<li><p><code>Pair[Momentum[k], Momentum[Polarization[k, -I]]]</code> corresponds to <span class="math inline">\varepsilon^{\ast \mu}(k)</span>, i.e. an outgoing polarization vector</p></li>
+</ul>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="PolarizationVector.html">PolarizationVector</a>, <a href="PolarizationSum.html">PolarizationSum</a>, <a href="DoPolarizationSums.html">DoPolarizationSums</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Polarization[<span class="fu">k</span>]</span></code></pre></div>
-<p><span class="math display">\text{Polarization}(k,i)</span></p>
+<p><span class="math display">\text{Polarization}(k)</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Polarization[<span class="fu">k</span>] // ComplexConjugate</span></code></pre></div>
-<p><span class="math display">\text{Polarization}(k,-i)</span></p>
+<p><span class="math display">\text{ComplexConjugate}(\text{Polarization}(k))</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>GS[Polarization[<span class="fu">k</span>]]</span></code></pre></div>
-<p><span class="math display">\bar{\gamma }\cdot \bar{\varepsilon }(k)</span></p>
+<p><span class="math display">\text{GS}(\text{Polarization}(k))</span></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>GS[Polarization[<span class="fu">k</span>]] // <span class="fu">StandardForm</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>(*GS[Polarization[<span class="fu">k</span>, <span class="fu">I</span>]]*)</span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>(*GS[Polarization[<span class="fu">k</span>]]*)</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>Pair[Momentum[<span class="fu">k</span>], Momentum[Polarization[<span class="fu">k</span>, <span class="fu">I</span>]]]</span></code></pre></div>
-<p><span class="math display">\overline{k}\cdot \bar{\varepsilon }(k)</span></p>
+<p><span class="math display">\text{Pair}(\text{Momentum}(k),\text{Momentum}(\text{Polarization}(k,i)))</span></p>
 </body>
 </html>

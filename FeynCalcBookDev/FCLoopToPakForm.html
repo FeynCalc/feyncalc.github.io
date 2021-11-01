@@ -143,5 +143,18 @@
 \right)\right) \\
 \end{array}
 \right)</span></p>
+<p>Products of <code>GLI</code>s are also supported.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>FCLoopToPakForm[{GLI[&quot;prop2Lv1&quot;, {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>}]^<span class="dv">2</span>}, {topo1, topo2}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, <span class="fu">Head</span> -&gt; ph, <span class="fu">Power</span> -&gt; pow]</span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{cc}
+ G^{\text{prop2Lv1}}(1,1,0,0,0)^2 &amp; \;\text{ph}\left(\text{m1}^2 x(2) x(3) x(4) x(1)^2+\text{m1}^2 x(2)^2 x(3) x(4) x(1)+\text{m2}^2 x(2) x(3) x(4)^2 x(1)+\text{m2}^2 x(2) x(3)^2 x(4) x(1)+x(2) x(3) x(4) x(1),\left(
+\begin{array}{cccc}
+ x(1) &amp; x(3) &amp; x(2) &amp; x(4) \\
+ \frac{1}{(\text{FCGV}(\text{lmom})(1,1)^2-\text{m1}^2+i \eta )} &amp; \frac{1}{(\text{FCGV}(\text{lmom})(2,1)^2-\text{m1}^2+i \eta )} &amp; \frac{1}{(\text{FCGV}(\text{lmom})(1,2)^2-\text{m2}^2+i \eta )} &amp; \frac{1}{(\text{FCGV}(\text{lmom})(2,2)^2-\text{m2}^2+i \eta )} \\
+ 1 &amp; 1 &amp; 1 &amp; 1 \\
+\end{array}
+\right)\right) \\
+\end{array}
+\right)</span></p>
 </body>
 </html>

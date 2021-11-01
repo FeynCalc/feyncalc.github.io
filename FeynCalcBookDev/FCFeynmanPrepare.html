@@ -144,7 +144,7 @@
 <p><span class="math display">\left\{x(1)+x(2),m^2 x(1)^2+m^2 x(1) x(2)+\text{m2}^2 x(2)^2+\text{m2}^2 x(1) x(2)-p^2 x(1) x(2),\left(
 \begin{array}{ccc}
  x(1) &amp; \frac{1}{q^2-m^2} &amp; 1 \\
- x(2) &amp; \frac{1}{(q-p)^2-\text{m2}^2} &amp; 1 \\
+ x(2) &amp; \frac{1}{(p-q)^2-\text{m2}^2} &amp; 1 \\
 \end{array}
 \right),\left(
 \begin{array}{c}
@@ -157,9 +157,9 @@
 \begin{array}{ccc}
  x(1) &amp; \frac{1}{\text{p1}^2} &amp; 1 \\
  x(2) &amp; \frac{1}{\text{p2}^2} &amp; 1 \\
- x(3) &amp; \frac{1}{(Q-\text{p1})^2} &amp; 1 \\
- x(4) &amp; \frac{1}{(Q-\text{p2})^2} &amp; 1 \\
- x(5) &amp; \frac{1}{(-\text{p1}-\text{p2}+Q)^2} &amp; 1 \\
+ x(3) &amp; \frac{1}{(\text{p1}-Q)^2} &amp; 1 \\
+ x(4) &amp; \frac{1}{(\text{p2}-Q)^2} &amp; 1 \\
+ x(5) &amp; \frac{1}{(\text{p1}+\text{p2}-Q)^2} &amp; 1 \\
 \end{array}
 \right),\left(
 \begin{array}{cc}
@@ -173,8 +173,8 @@
 \begin{array}{ccc}
  x(1) &amp; \frac{1}{\text{p1}^2-\text{m1}^2} &amp; 1 \\
  x(2) &amp; \frac{1}{\text{p2}^2-\text{m2}^2} &amp; 1 \\
- x(3) &amp; \frac{1}{(Q-\text{p1})^2} &amp; 1 \\
- x(4) &amp; \frac{1}{(Q-\text{p2})^2} &amp; 1 \\
+ x(3) &amp; \frac{1}{(\text{p1}-Q)^2} &amp; 1 \\
+ x(4) &amp; \frac{1}{(\text{p2}-Q)^2} &amp; 1 \\
 \end{array}
 \right),\left(
 \begin{array}{cc}
@@ -187,7 +187,7 @@
 <p><span class="math display">\left\{x(1)+x(2),\frac{1}{4} \left(4 m x(1)^2+4 m x(2) x(1)+4 \;\text{m2} x(2) x(1)+4 \;\text{m2} x(2)^2+4 p^2 x(2) x(1)-p^2 x(3)^2+4 p^2 x(2) x(3)\right),\left(
 \begin{array}{ccc}
  x(1) &amp; \frac{1}{(q^2+m-i \eta )} &amp; 1 \\
- x(2) &amp; \frac{1}{((q-p)^2+\text{m2}-i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{((p-q)^2+\text{m2}-i \eta )} &amp; 1 \\
  x(3) &amp; p\cdot q &amp; -1 \\
 \end{array}
 \right),\left(
@@ -278,5 +278,24 @@
 \right) &amp; \{0,0\} &amp; \;\text{m1}^2 (-x(1))-\text{m2}^2 x(3) &amp; 1 &amp; 0 \\
 \end{array}
 \right)</span></p>
+<p><code>FCFeynmanPrepare</code> can also handle products of <code>GLI</code>s. In this case it will automatically introduce dummy names for the loop momenta (the name generation is controlled by the <code>LoopMomentum</code> option).</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>topo = FCTopology[</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>   prop2Ltopo13311, {SFAD[{{<span class="fu">I</span>*p1, <span class="dv">0</span>}, {-m1^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], SFAD[{{<span class="fu">I</span>*(p1 + q1), <span class="dv">0</span>}, {-</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>        m3^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], SFAD[{{<span class="fu">I</span>*p3, <span class="dv">0</span>}, {-m3^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}], SFAD[{{<span class="fu">I</span>*(p3 + q1), <span class="dv">0</span>}, {-m1^<span class="dv">2</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>       <span class="dv">-1</span>}, <span class="dv">1</span>}], SFAD[{{<span class="fu">I</span>*(p1 - p3), <span class="dv">0</span>}, {-m1^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}]}, {p1, p3}, {q1}, {SPD[q1, q1] -&gt; m1^<span class="dv">2</span>}, {}]</span></code></pre></div>
+<p><span class="math display">\text{FCTopology}\left(\text{prop2Ltopo13311},\left\{\frac{1}{(-\text{p1}^2+\text{m1}^2-i \eta )},\frac{1}{(-(\text{p1}+\text{q1})^2+\text{m3}^2-i \eta )},\frac{1}{(-\text{p3}^2+\text{m3}^2-i \eta )},\frac{1}{(-(\text{p3}+\text{q1})^2+\text{m1}^2-i \eta )},\frac{1}{(-(\text{p1}-\text{p3})^2+\text{m1}^2-i \eta )}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\left\{\text{q1}^2\to \;\text{m1}^2\right\},\{\}\right)</span></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>FCFeynmanPrepare[GLI[prop2Ltopo13311, {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>}]^<span class="dv">2</span>, topo, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCE -&gt; <span class="fu">True</span>, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>  LoopMomenta -&gt; <span class="fu">Function</span>[{<span class="fu">x</span>, <span class="fu">y</span>}, lmom[<span class="fu">x</span>, <span class="fu">y</span>]]]</span></code></pre></div>
+<p><span class="math display">\left\{x(1) x(2),-\text{m1}^2 x(1) x(2) (x(1)+x(2)),\left(
+\begin{array}{ccc}
+ x(1) &amp; \frac{1}{(-\text{lmom}(1,1)^2+\text{m1}^2-i \eta )} &amp; 1 \\
+ x(2) &amp; \frac{1}{(-\text{lmom}(2,1)^2+\text{m1}^2-i \eta )} &amp; 1 \\
+\end{array}
+\right),\left(
+\begin{array}{cc}
+ -x(1) &amp; 0 \\
+ 0 &amp; -x(2) \\
+\end{array}
+\right),\{0,0\},\text{m1}^2 (x(1)+x(2)),1,0\right\}</span></p>
 </body>
 </html>

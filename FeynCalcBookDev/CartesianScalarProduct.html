@@ -102,6 +102,7 @@
 <p><code>CartesianScalarProduct[p]</code> is equivalent to <code>CartesianScalarProduct[p, p]</code>.</p>
 <p>Expansion of sums of momenta in <code>CartesianScalarProduct</code> is done with <code>ExpandScalarProduct</code>.</p>
 <p>Scalar products may be set, e.g. via <code>ScalarProduct[a, b] = m^2;</code> but <code>a</code> and <code>b</code> may not contain sums.</p>
+<p><code>CartesianScalarProduct[a]</code> corresponds to <code>CartesianScalarProduct[a,a]</code></p>
 <p>Note that <code>ScalarProduct[a, b] = m^2</code> actually sets Cartesian scalar products in different dimensions specified by the value of the <code>SetDimensions</code> option.</p>
 <p>It is highly recommended to set <code>ScalarProduct</code>s before any calculation. This improves the performance of FeynCalc.</p>
 <h3 id="see-also">See also</h3>
@@ -127,6 +128,9 @@
 <p><span class="math display">-\overline{k}\cdot \overline{p}_1+\overline{k}\cdot \overline{q}-\overline{q}\cdot \overline{p}_2+\frac{s}{2}</span></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>Calc[ CartesianScalarProduct[<span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">1</span>] - <span class="fu">q</span>, <span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">2</span>] - <span class="fu">k</span>]]</span></code></pre></div>
 <p><span class="math display">-\overline{k}\cdot \overline{p}_1+\overline{k}\cdot \overline{q}-\overline{q}\cdot \overline{p}_2+\frac{s}{2}</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>FCClearScalarProducts[]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>CartesianScalarProduct[q1] = qq;</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>CSP[q1]</span></code></pre></div>
+<p><span class="math display">\text{qq}</span></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>FCClearScalarProducts[]</span></code></pre></div>
 </body>
 </html>

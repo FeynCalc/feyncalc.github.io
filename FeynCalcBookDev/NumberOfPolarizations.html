@@ -97,12 +97,31 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h2 id="fcgetnotebookdirectory">FCGetNotebookDirectory</h2>
-<p><code>FCGetNotebookDirectory[]</code> is a convenience function that returns the directory in which the current notebook or .m file is located. It also works when the FrontEnd is not available.</p>
+<h2 id="numberofpolarizations">NumberOfPolarizations</h2>
+<p><code>NumberOfPolarizations</code> is an option for <code>DoPolarizationSums</code>. It specifies the number of polarizations to sum over in the expression. This is relevant only for expressions that contain terms free of polarization vectors. This may occur e.g. if the scalar products involving polarization vectors have already been assigned some particular values. In this case the corresponding terms will be multiplied by the corresponding number of polarizations.</p>
+<p>The default value is <code>Automatic</code> which means that the function will attempt to recognize the correct value automatically by extracting the dimension <code>dim</code> of the polarization vectors and putting <code>(dim-2)</code> for massless and <code>(dim-1)</code> for massive vector bosons. Notice that if the input expression is free of polarization vectors, the setting <code>Automatic</code> will fail, and the user must specify the correct dimension by hand.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a></p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DoPolarizationSums.html">DoPolarizationSums</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FCGetNotebookDirectory[]</span></code></pre></div>
-<p><span class="math display">\text{/media/Data/Projects/VS/FeynCalc/FeynCalc/Documentation/Mathematica/Shared/Tools/}</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>PolarizationVector[<span class="fu">p</span>, mu] ComplexConjugate[PolarizationVector[<span class="fu">p</span>, mu]]</span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)</span></p>
+<p>Here the setting Automatic is sufficient.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCClearScalarProducts[];</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>ScalarProduct[<span class="fu">p</span>, <span class="fu">p</span>] = <span class="dv">0</span>;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>PolarizationVector[<span class="fu">p</span>, mu] ComplexConjugate[PolarizationVector[<span class="fu">p</span>, mu]] + xyz</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>DoPolarizationSums[%, <span class="fu">p</span>, <span class="fu">n</span>]</span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)+\text{xyz}</span></p>
+<p><span class="math display">\text{DoPolarizationSums: The input expression contains terms free of polarization vectors. Those will be multiplied with the number of polarizations given by }2.</span></p>
+<p><span class="math display">2 \;\text{xyz}-2</span></p>
+<p>Here it is not</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>DoPolarizationSums[xyz, <span class="fu">p</span>, <span class="fu">n</span>]</span></code></pre></div>
+<p><img src="img/0emyzef54vvcu.svg" alt="0emyzef54vvcu" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<p>Setting the number of polarizations by hand fixes the issue</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>DoPolarizationSums[xyz, <span class="fu">p</span>, <span class="fu">n</span>, NumberOfPolarizations -&gt; <span class="dv">2</span>] </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a> </span></code></pre></div>
+<p><span class="math display">\text{DoPolarizationSums: The input expression contains terms free of polarization vectors. Those will be multiplied with the number of polarizations given by }2.</span></p>
+<p><span class="math display">2 \;\text{xyz}</span></p>
 </body>
 </html>

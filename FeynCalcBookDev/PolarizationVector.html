@@ -98,8 +98,15 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="polarizationvector">PolarizationVector</h2>
-<p><code>PolarizationVector[p, mu]</code> denotes a 4-dimensional polarization vector <span class="math inline">\varepsilon^\mu(p)</span>.</p>
+<p><code>PolarizationVector[p, mu]</code> denotes a 4-dimensional ingoing polarization vector <span class="math inline">\varepsilon^\mu(p)</span>.</p>
+<p>For the outgoing polarization vector <span class="math inline">\varepsilon^{\ast \mu}(p)</span> use <code>ComplexConjugate[PolarizationVector[p, mu]]</code></p>
 <p>To obtain a <span class="math inline">D</span>-dimensional polarization vector, just use <code>ChangeDimension[vec, D]</code></p>
+<p>In the internal representation following conventions are used</p>
+<ul>
+<li><p><code>Pair[Momentum[k], Momentum[Polarization[k, I]]]</code> corresponds to <span class="math inline">\varepsilon^{\mu}(k)</span>, i.e. an ingoing polarization vector</p></li>
+<li><p><code>Pair[Momentum[k], Momentum[Polarization[k, -I]]]</code> corresponds to <span class="math inline">\varepsilon^{\ast \mu}(k)</span>, i.e. an outgoing polarization vector</p></li>
+</ul>
+<p>Warning: The first argument of <code>PolarizationVector</code> should always be a standalone symbol denoting a momentum (e.g. <code>p</code>, <code>k1</code>, <code>q2</code> etc.). Never use symbols multiplied by <span class="math inline">-1</span> or other numbers as well as products of symbols (e.g. <code>-p</code>, <code>2*k</code>, <code>x*p</code> etc.). Doing so will inevitably lead to wrong results.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FV.html">FV</a>, <a href="Pair.html">Pair</a>, <a href="Polarization.html">Polarization</a>, <a href="PolariazationSum.html">PolariazationSum</a>, <a href="DoPolariazationSums.html">DoPolariazationSums</a>.</p>
 <h3 id="examples">Examples</h3>
