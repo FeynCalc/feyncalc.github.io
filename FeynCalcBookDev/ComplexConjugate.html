@@ -134,11 +134,11 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>PolarizationVector[p1, \[Mu]] PolarizationVector[p2, \[Nu]] MT[\[Mu], \[Nu]]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>ComplexConjugate[%]</span></code></pre></div>
 <p><span class="math display">\bar{g}^{\mu \nu } \bar{\varepsilon }^{\mu }(\text{p1}) \bar{\varepsilon }^{\nu }(\text{p2})</span></p>
-<p><span class="math display">\bar{g}^{\text{\$AL}(\text{\$24})\text{\$AL}(\text{\$25})} \bar{\varepsilon }^{*\text{\$AL}(\text{\$24})}(\text{p1}) \bar{\varepsilon }^{*\text{\$AL}(\text{\$25})}(\text{p2})</span></p>
+<p><span class="math display">\bar{g}^{\text{\$AL}(\text{\$19})\text{\$AL}(\text{\$20})} \bar{\varepsilon }^{*\text{\$AL}(\text{\$19})}(\text{p1}) \bar{\varepsilon }^{*\text{\$AL}(\text{\$20})}(\text{p2})</span></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>GA[\[Mu], \[Nu]] LC[\[Mu], \[Nu]][p1, p2]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>ComplexConjugate[%]</span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu } \bar{\epsilon }^{\mu \nu \overline{\text{p1}}\;\overline{\text{p2}}}</span></p>
-<p><span class="math display">\bar{\gamma }^{\text{\$AL}(\text{\$26})}.\bar{\gamma }^{\text{\$AL}(\text{\$27})} \bar{\epsilon }^{\text{\$AL}(\text{\$27})\text{\$AL}(\text{\$26})\overline{\text{p1}}\;\overline{\text{p2}}}</span></p>
+<p><span class="math display">\bar{\gamma }^{\text{\$AL}(\text{\$21})}.\bar{\gamma }^{\text{\$AL}(\text{\$22})} \bar{\epsilon }^{\text{\$AL}(\text{\$22})\text{\$AL}(\text{\$21})\overline{\text{p1}}\;\overline{\text{p2}}}</span></p>
 <p>This behavior can be disabled by setting the option <code>FCRenameDummyIndices</code> to <code>False</code>.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>ComplexConjugate[GA[\[Mu], \[Nu]] LC[\[Mu], \[Nu]][p1, p2], FCRenameDummyIndices -&gt; <span class="fu">False</span>]</span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\nu }.\bar{\gamma }^{\mu } \bar{\epsilon }^{\mu \nu \overline{\text{p1}}\;\overline{\text{p2}}}</span></p>
@@ -160,12 +160,21 @@
 <div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>DCHN[GA[\[Mu], \[Nu], \[Rho], <span class="dv">5</span>], <span class="fu">i</span>, <span class="fu">j</span>] DCHN[GA[\[Mu], \[Nu], \[Rho], <span class="dv">5</span>], <span class="fu">k</span>, <span class="fu">l</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>ComplexConjugate[%]</span></code></pre></div>
 <p><span class="math display">\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^5\right){}_{ij} \left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^5\right){}_{kl}</span></p>
-<p><span class="math display">\left(\bar{\gamma }^5.\bar{\gamma }^{\text{\$AL}(\text{\$28})}.\bar{\gamma }^{\text{\$AL}(\text{\$29})}.\bar{\gamma }^{\text{\$AL}(\text{\$30})}\right){}_{ji} \left(\bar{\gamma }^5.\bar{\gamma }^{\text{\$AL}(\text{\$28})}.\bar{\gamma }^{\text{\$AL}(\text{\$29})}.\bar{\gamma }^{\text{\$AL}(\text{\$30})}\right){}_{lk}</span></p>
+<p><span class="math display">\left(\bar{\gamma }^5.\bar{\gamma }^{\text{\$AL}(\text{\$23})}.\bar{\gamma }^{\text{\$AL}(\text{\$24})}.\bar{\gamma }^{\text{\$AL}(\text{\$25})}\right){}_{ji} \left(\bar{\gamma }^5.\bar{\gamma }^{\text{\$AL}(\text{\$23})}.\bar{\gamma }^{\text{\$AL}(\text{\$24})}.\bar{\gamma }^{\text{\$AL}(\text{\$25})}\right){}_{lk}</span></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>PCHN[CSI[<span class="fu">i</span>, <span class="fu">j</span>, <span class="fu">k</span>], <span class="fu">a</span>, <span class="fu">b</span>] PCHN[CSI[<span class="fu">i</span>, <span class="fu">j</span>, <span class="fu">k</span>], <span class="fu">c</span>, <span class="fu">d</span>]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>ComplexConjugate[%] </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>  </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a> </span></code></pre></div>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>ComplexConjugate[%]</span></code></pre></div>
 <p><span class="math display">\left(\overline{\sigma }^i.\overline{\sigma }^j.\overline{\sigma }^k\right){}_{ab} \left(\overline{\sigma }^i.\overline{\sigma }^j.\overline{\sigma }^k\right){}_{cd}</span></p>
-<p><span class="math display">\left(\overline{\sigma }^{\text{\$AL}(\text{\$31})}.\overline{\sigma }^{\text{\$AL}(\text{\$32})}.\overline{\sigma }^{\text{\$AL}(\text{\$33})}\right){}_{ba} \left(\overline{\sigma }^{\text{\$AL}(\text{\$31})}.\overline{\sigma }^{\text{\$AL}(\text{\$32})}.\overline{\sigma }^{\text{\$AL}(\text{\$33})}\right){}_{dc}</span></p>
+<p><span class="math display">\left(\overline{\sigma }^{\text{\$AL}(\text{\$26})}.\overline{\sigma }^{\text{\$AL}(\text{\$27})}.\overline{\sigma }^{\text{\$AL}(\text{\$28})}\right){}_{ba} \left(\overline{\sigma }^{\text{\$AL}(\text{\$26})}.\overline{\sigma }^{\text{\$AL}(\text{\$27})}.\overline{\sigma }^{\text{\$AL}(\text{\$28})}\right){}_{dc}</span></p>
+<p>The function does not apply <code>Conjugate</code> to symbols that do not depend on <code>I</code> and are unrelated to Dirac/Pauli/Color matrices. One can specify symbols that need to be explicitly conjugated using the <code>Conjugate</code> option</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>cc SpinorU[p1] . GA[mu] . SpinorV[p2]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>ComplexConjugate[%]</span></code></pre></div>
+<p><span class="math display">\text{cc} u(\text{p1}).\bar{\gamma }^{\text{mu}}.v(\text{p2})</span></p>
+<p><span class="math display">\text{cc} \left(\varphi (-\overline{\text{p2}})\right).\bar{\gamma }^{\text{mu}}.\left(\varphi (\overline{\text{p1}})\right)</span></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>cc SpinorU[p1] . GA[mu] . SpinorV[p2]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>ComplexConjugate[%, <span class="fu">Conjugate</span> -&gt; {cc}] </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>  </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a> </span></code></pre></div>
+<p><span class="math display">\text{cc} u(\text{p1}).\bar{\gamma }^{\text{mu}}.v(\text{p2})</span></p>
+<p><span class="math display">\text{cc}^* \left(\varphi (-\overline{\text{p2}})\right).\bar{\gamma }^{\text{mu}}.\left(\varphi (\overline{\text{p1}})\right)</span></p>
 </body>
 </html>
