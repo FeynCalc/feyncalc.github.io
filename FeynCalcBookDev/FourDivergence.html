@@ -119,10 +119,15 @@
 <p><span class="math display">\frac{l^{\mu }}{l^2.(l-p)^2}</span></p>
 <p><span class="math display">\frac{D}{l^2.(l-p)^2}-\frac{2 l^2}{\left(l^2\right)^2.(l-p)^2}+\frac{2 (l\cdot p)-2 l^2}{l^2.(l-p)^4}</span></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>SP[<span class="fu">p</span>, <span class="fu">w</span>]*SpinorUBar[p2, <span class="fu">m</span>] . GS[<span class="fu">w</span>] . SpinorU[p1, <span class="fu">m</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>FourDivergence[%, FV[<span class="fu">w</span>, <span class="fu">a</span>]] </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>  </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a> </span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>FourDivergence[%, FV[<span class="fu">w</span>, <span class="fu">a</span>]]</span></code></pre></div>
 <p><span class="math display">\left(\overline{p}\cdot \overline{w}\right) \bar{u}(\text{p2},m).\left(\bar{\gamma }\cdot \overline{w}\right).u(\text{p1},m)</span></p>
 <p><span class="math display">\left(\overline{p}\cdot \overline{w}\right) \left(\varphi (\overline{\text{p2}},m)\right).\bar{\gamma }^a.\left(\varphi (\overline{\text{p1}},m)\right)+\overline{p}^a \left(\varphi (\overline{\text{p2}},m)\right).\left(\bar{\gamma }\cdot \overline{w}\right).\left(\varphi (\overline{\text{p1}},m)\right)</span></p>
+<p>Differentiation of <span class="math inline">4</span>-vectors living in different dimensions (<span class="math inline">4</span>, <span class="math inline">D</span>, <span class="math inline">D-4</span>) works only in the t’Hooft-Veltman scheme</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>FourDivergence[FVD[<span class="fu">p</span>, mu], FV[<span class="fu">p</span>, nu]]</span></code></pre></div>
+<p><img src="img/0n13hj2mmcy3r.svg" alt="0n13hj2mmcy3r" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;BMHV&quot;];</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>FourDivergence[FVD[<span class="fu">p</span>, mu], FV[<span class="fu">p</span>, nu]]</span></code></pre></div>
+<p><span class="math display">\bar{g}^{\text{mu}\;\text{nu}}</span></p>
 </body>
 </html>

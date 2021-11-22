@@ -108,10 +108,11 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FunctionalD[QuantumField[\[Phi]]^<span class="dv">2</span>, QuantumField[\[Phi]]]</span></code></pre></div>
 <p><span class="math display">2 \phi</span></p>
 <p>Instead of the usual <span class="math inline">(\delta \partial _{\mu} \phi (x) )/ \delta \phi (y)= \partial _{\mu} \delta^{(D)}(x-y)</span> the arguments are omitted, and the <span class="math inline">\partial_\mu</span> operator is specified by default to be an integration by parts operator, i.e. the right hand side will be just <code>Null</code> or, more precisely, (by default) <span class="math inline">-\partial _{mu }</span>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FunctionalD[QuantumField[FCPartialD[\[Mu]], \[Phi]], QuantumField[\[Phi]]]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FunctionalD[QuantumField[FCPartialD[LorentzIndex[\[Mu]]], \[Phi]], QuantumField[\[Phi]]]</span></code></pre></div>
 <p><span class="math display">-\vec{\partial }_{\mu }</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>(QuantumField[FCPartialD[\[Mu]], \[Phi]] . QuantumField[FCPartialD[\[Mu]], \[Phi]] - <span class="fu">m</span>^<span class="dv">2</span> QuantumField[\[Phi]] . QuantumField[\[Phi]])/<span class="dv">2</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>FunctionalD[%, QuantumField[\[Phi]]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>(QuantumField[FCPartialD[LorentzIndex[\[Mu]]], \[Phi]] . QuantumField[FCPartialD[LorentzIndex[\[Mu]]] </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>      , \[Phi]] - <span class="fu">m</span>^<span class="dv">2</span> QuantumField[\[Phi]] . QuantumField[\[Phi]])/<span class="dv">2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>FunctionalD[%, QuantumField[\[Phi]]]</span></code></pre></div>
 <p><span class="math display">\frac{1}{2} \left(\left(\left.(\partial _{\mu }\phi \right)\right).\left(\left.(\partial _{\mu }\phi \right)\right)-m^2 \phi .\phi \right)</span></p>
 <p><span class="math display">m^2 (-\phi )-\left(\partial _{\mu }\partial _{\mu }\phi \right)</span></p>
 <p><span class="math inline">S[A] = -\int d^Dx \frac{1}{4} F_a^{\mu \n u }(x) F_{\text{$\mu \nu $a}}(x)</span></p>

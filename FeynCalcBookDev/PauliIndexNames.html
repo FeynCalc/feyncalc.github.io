@@ -97,28 +97,20 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h2 id="fcpartiald">FCPartialD</h2>
-<p><code>FCPartialD[ind]</code> denotes a partial derivative of a field. It is an internal object that may appear only inside a <code>QuantumField</code>.</p>
-<p><code>FCPartialD[LorentzIndex[μ]]</code> denotes <span class="math inline">\partial _{\mu }</span>.</p>
-<p><code>FCPartialD[LorentzIndex[μ ,D]]</code> denotes the <span class="math inline">D</span>-dimensional <span class="math inline">\partial _{\mu }</span>.</p>
-<p><code>FCPartialD[CartesianIndex[i]]</code> denotes <span class="math inline">\partial^{i} = - \nabla^i</span>.</p>
-<p>If you need to specify a derivative with respect to a particular variable it also possible to use <code>FCPartialD[{LorentzIndex[μ],y}]</code> or <code>FCPartialD[{CartesianIndex[i],x}]</code>although this notation is still somewhat experimental</p>
+<h2 id="pauliindexnames">PauliIndexNames</h2>
+<p><code>PauliIndexNames</code> is an option for <code>FCFAConvert</code>, <code>FCCanonicalizeDummyIndices</code> and other functions. It renames the generic dummy Pauli indices to the indices in the supplied list.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExpandPartialD.html">ExpandPartialD</a>, <a href="LeftPartialD.html">LeftPartialD</a>, <a href="LeftRightPartialD.html">LeftRightPartialD</a>, <a href="RightPartialD.html">RightPartialD</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFAConvert.html">FCFAConvert</a>, <a href="FCCanonicalizeDummyIndices.html">FCCanonicalizeDummyIndices</a>, <a href="DiracIndexNames.html">DiracIndexNames</a>, <a href="LorentzIndexNames.html">LorentzIndexNames</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>QuantumField[<span class="fu">A</span>, {\[Mu]}] . LeftPartialD[\[Nu]]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>ExpandPartialD[%]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="fu">StandardForm</span>[%]</span></code></pre></div>
-<p><span class="math display">A_{\mu }.\overleftarrow{\partial }_{\nu }</span></p>
-<p><span class="math display">\left.(\partial _{\nu }A_{\mu }\right)</span></p>
-<pre><code>(*QuantumField[FCPartialD[LorentzIndex[\[Nu]]], A, LorentzIndex[\[Mu]]]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>RightPartialD[{CartesianIndex[<span class="fu">i</span>], <span class="fu">x</span>}] . QuantumField[<span class="fu">S</span>, <span class="fu">x</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>ExpandPartialD[%]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="fu">StandardForm</span>[%] </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a> </span></code></pre></div>
-<p><span class="math display">\vec{\partial }_{\{i,x\}}.S^x</span></p>
-<p><span class="math display">\left.(\partial _{\{i,x\}}S^x\right)</span></p>
-<pre><code>(*QuantumField[FCPartialD[{CartesianIndex[i], x}], S, x]*)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>PCHN[CSI[<span class="fu">a</span>], <span class="fu">i</span>, <span class="fu">j</span>] PCHN[CSI[<span class="fu">b</span>], <span class="fu">j</span>, <span class="fu">k</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%]</span></code></pre></div>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{ij} \left(\overline{\sigma }^b\right){}_{jk}</span></p>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{i\text{FCGV}(\text{pi251})} \left(\overline{\sigma }^b\right){}_{\text{FCGV}(\text{pi251})k}</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>PCHN[CSI[<span class="fu">a</span>], <span class="fu">i</span>, <span class="fu">j</span>] PCHN[CSI[<span class="fu">b</span>], <span class="fu">j</span>, <span class="fu">k</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, PauliIndexNames -&gt; {<span class="fu">l</span>}] </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a> </span></code></pre></div>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{ij} \left(\overline{\sigma }^b\right){}_{jk}</span></p>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{il} \left(\overline{\sigma }^b\right){}_{lk}</span></p>
 </body>
 </html>

@@ -105,7 +105,7 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FourDivergence.html">FourDivergence</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>CSP[<span class="fu">p</span>, <span class="fu">q</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>ThreeDivergence[%, CV[<span class="fu">q</span>, <span class="fu">i</span>]]</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>ThreeDivergence[%, CV[<span class="fu">q</span>, <span class="fu">i</span>]] </span></code></pre></div>
 <p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
 <p><span class="math display">\overline{p}^i</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>CSP[<span class="fu">p</span> - <span class="fu">k</span>, <span class="fu">q</span>]</span>
@@ -113,10 +113,15 @@
 <p><span class="math display">(\overline{p}-\overline{k})\cdot \overline{q}</span></p>
 <p><span class="math display">-\overline{q}^i</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>CFAD[{<span class="fu">p</span>, <span class="fu">m</span>^<span class="dv">2</span>}, <span class="fu">p</span> - <span class="fu">q</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>ThreeDivergence[%, CVD[<span class="fu">p</span>, <span class="fu">i</span>]] </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a> </span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>ThreeDivergence[%, CVD[<span class="fu">p</span>, <span class="fu">i</span>]]</span></code></pre></div>
 <p><span class="math display">\frac{1}{(p^2+m^2-i \eta ).((p-q)^2-i \eta )}</span></p>
 <p><span class="math display">\frac{2 q^i-2 p^i}{(p^2+m^2-i \eta ).((p-q)^2-i \eta )^2}-\frac{2 p^i}{(p^2+m^2-i \eta )^2.((p-q)^2-i \eta )}</span></p>
+<p>Differentiation of <span class="math inline">3</span>-vectors living in different dimensions (<span class="math inline">3</span>, <span class="math inline">D-1</span>, <span class="math inline">D-4</span>) works only in the t’Hooft-Veltman scheme</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>ThreeDivergence[CVD[<span class="fu">p</span>, <span class="fu">i</span>], CV[<span class="fu">p</span>, <span class="fu">j</span>]]</span></code></pre></div>
+<p><img src="img/1h9o7vmxcyb17.svg" alt="1h9o7vmxcyb17" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;BMHV&quot;];</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>ThreeDivergence[CVD[<span class="fu">p</span>, <span class="fu">i</span>], CV[<span class="fu">p</span>, <span class="fu">j</span>]]</span></code></pre></div>
+<p><span class="math display">\bar{\delta }^{ij}</span></p>
 </body>
 </html>

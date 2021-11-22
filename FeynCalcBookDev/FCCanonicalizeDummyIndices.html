@@ -98,20 +98,65 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fccanonicalizedummyindices">FCCanonicalizeDummyIndices</h2>
-<p><code>FCCanonicalizeDummyIndices[expr]</code> canonicalizes all dummy Lorentz indices in the expression. The option <code>Momentum</code> provides a possibility to limit the canonicalization only to particular <code>Momenta</code>.</p>
-<p>With the option <code>LorentzIndexNames</code> one can provide a list of names to be used for the canonicalized indices, to have say <span class="math inline">\mu</span>, <span class="math inline">\nu</span>, <span class="math inline">\rho</span> etc. instead of some random names.</p>
+<p><code>FCCanonicalizeDummyIndices[expr]</code> canonicalizes dummy indices in the expression.</p>
+<p>Following index types are supported: <code>LorentzIndex</code>, <code>CartesianIndex</code>, <code>SUNIndex</code>, <code>SUNFIndex</code>, <code>DiracIndex</code>, <code>PauliIndex</code></p>
+<p>In the case of Lorentz indices the option <code>Momentum</code> provides a possibility to limit the canonicalization only to particular <code>Momenta</code>. The option <code>LorentzIndexNames</code> can be used to assign specific names to the canonicalized indices, to have say <span class="math inline">\mu</span>, <span class="math inline">\nu</span>, <span class="math inline">\rho</span> etc. instead of some random names.</p>
+<p>For other index types the corresponding options are called <code>CartesianIndexNames</code>, <code>SUNIndexNames</code>, <code>SUNFIndexNames</code>, <code>DiracIndexNames</code> and <code>PauliIndexNames</code>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCRenameDummyIndices.html">FCRenameDummyIndices</a>.</p>
 <h3 id="examples">Examples</h3>
+<p>Canonicalization of Lorentz indices</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FVD[<span class="fu">q</span>, mu] FVD[<span class="fu">p</span>, mu] + FVD[<span class="fu">q</span>, nu] FVD[<span class="fu">p</span>, nu] + FVD[<span class="fu">q</span>, si] FVD[<span class="fu">r</span>, si]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%] // Factor2</span></code></pre></div>
 <p><span class="math display">p^{\text{mu}} q^{\text{mu}}+p^{\text{nu}} q^{\text{nu}}+q^{\text{si}} r^{\text{si}}</span></p>
-<p><span class="math display">q^{\text{FCGV}(\text{li241})} \left(2 p^{\text{FCGV}(\text{li241})}+r^{\text{FCGV}(\text{li241})}\right)</span></p>
+<p><span class="math display">q^{\text{FCGV}(\text{li191})} \left(2 p^{\text{FCGV}(\text{li191})}+r^{\text{FCGV}(\text{li191})}\right)</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Uncontract[SPD[<span class="fu">q</span>, <span class="fu">p</span>]^<span class="dv">2</span>, <span class="fu">q</span>, <span class="fu">p</span>, Pair -&gt; <span class="fu">All</span>]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, LorentzIndexNames -&gt; {\[Mu], \[Nu]}] </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a> </span></code></pre></div>
-<p><span class="math display">p^{\text{\$AL}(\text{\$32})} p^{\text{\$AL}(\text{\$33})} q^{\text{\$AL}(\text{\$32})} q^{\text{\$AL}(\text{\$33})}</span></p>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, LorentzIndexNames -&gt; {\[Mu], \[Nu]}]</span></code></pre></div>
+<p><span class="math display">p^{\text{\$AL}(\text{\$28})} p^{\text{\$AL}(\text{\$29})} q^{\text{\$AL}(\text{\$28})} q^{\text{\$AL}(\text{\$29})}</span></p>
 <p><span class="math display">p^{\mu } p^{\nu } q^{\mu } q^{\nu }</span></p>
+<p>Canonicalization of Cartesian indices</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>CVD[<span class="fu">p</span>, <span class="fu">i</span>] CVD[<span class="fu">q</span>, <span class="fu">i</span>] + CVD[<span class="fu">p</span>, <span class="fu">j</span>] CVD[<span class="fu">r</span>, <span class="fu">j</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%] // Factor2</span></code></pre></div>
+<p><span class="math display">p^i q^i+p^j r^j</span></p>
+<p><span class="math display">p^{\text{FCGV}(\text{ci391})} \left(q^{\text{FCGV}(\text{ci391})}+r^{\text{FCGV}(\text{ci391})}\right)</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>CVD[<span class="fu">p</span>, <span class="fu">i</span>] CVD[<span class="fu">q</span>, <span class="fu">i</span>] + CVD[<span class="fu">p</span>, <span class="fu">j</span>] CVD[<span class="fu">r</span>, <span class="fu">j</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, CartesianIndexNames -&gt; {<span class="fu">a</span>}] // Factor2</span></code></pre></div>
+<p><span class="math display">p^i q^i+p^j r^j</span></p>
+<p><span class="math display">p^a \left(q^a+r^a\right)</span></p>
+<p>Canonicalization of color indices</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>SUNT[<span class="fu">a</span>, <span class="fu">b</span>, <span class="fu">a</span>] + SUNT[<span class="fu">c</span>, <span class="fu">b</span>, <span class="fu">c</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%]</span></code></pre></div>
+<p><span class="math display">T^a.T^b.T^a+T^c.T^b.T^c</span></p>
+<p><span class="math display">2 T^{\text{FCGV}(\text{sun601})}.T^b.T^{\text{FCGV}(\text{sun601})}</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>SUNT[<span class="fu">a</span>, <span class="fu">b</span>, <span class="fu">a</span>] + SUNT[<span class="fu">c</span>, <span class="fu">b</span>, <span class="fu">c</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, SUNIndexNames -&gt; {<span class="fu">u</span>}]</span></code></pre></div>
+<p><span class="math display">T^a.T^b.T^a+T^c.T^b.T^c</span></p>
+<p><span class="math display">2 T^u.T^b.T^u</span></p>
+<p>Canonicalization of Dirac indices</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>DCHN[GA[mu], <span class="fu">i</span>, <span class="fu">j</span>] DCHN[GA[nu], <span class="fu">j</span>, <span class="fu">k</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%]</span></code></pre></div>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{ij} \left(\bar{\gamma }^{\text{nu}}\right){}_{jk}</span></p>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{i\text{FCGV}(\text{di771})} \left(\bar{\gamma }^{\text{nu}}\right){}_{\text{FCGV}(\text{di771})k}</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>DCHN[GA[mu], <span class="fu">i</span>, <span class="fu">j</span>] DCHN[GA[nu], <span class="fu">j</span>, <span class="fu">k</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, DiracIndexNames -&gt; {<span class="fu">a</span>}]</span></code></pre></div>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{ij} \left(\bar{\gamma }^{\text{nu}}\right){}_{jk}</span></p>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{ia} \left(\bar{\gamma }^{\text{nu}}\right){}_{ak}</span></p>
+<p>Canonicalization of Pauli indices</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>PCHN[CSI[<span class="fu">a</span>], <span class="fu">i</span>, <span class="fu">j</span>] PCHN[CSI[<span class="fu">b</span>], <span class="fu">j</span>, <span class="fu">k</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%]</span></code></pre></div>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{ij} \left(\overline{\sigma }^b\right){}_{jk}</span></p>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{i\text{FCGV}(\text{pi921})} \left(\overline{\sigma }^b\right){}_{\text{FCGV}(\text{pi921})k}</span></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>PCHN[CSI[<span class="fu">a</span>], <span class="fu">i</span>, <span class="fu">j</span>] PCHN[CSI[<span class="fu">b</span>], <span class="fu">j</span>, <span class="fu">k</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, PauliIndexNames -&gt; {<span class="fu">l</span>}]</span></code></pre></div>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{ij} \left(\overline{\sigma }^b\right){}_{jk}</span></p>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{il} \left(\overline{\sigma }^b\right){}_{lk}</span></p>
+<p>Using the option <code>Head</code> one can specify which index heads should be canonicalized, while the rest will be ignored.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>(QuantumField[<span class="fu">SuperPlus</span>[\[Phi]], PauliIndex[k1], PauliIndex[k2], <span class="fu">R</span>, <span class="fu">r</span>] . QuantumField[FCPartialD[{CartesianIndex[<span class="fu">i</span>], <span class="fu">r</span>}], </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    FCPartialD[{CartesianIndex[<span class="fu">i</span>], <span class="fu">r</span>}], \[Phi], PauliIndex[k2], PauliIndex[k1], <span class="fu">R</span>, <span class="fu">r</span>])</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, CartesianIndexNames -&gt; {<span class="fu">j</span>}, <span class="fu">Head</span> -&gt; {CartesianIndex}] </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>  </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a> </span></code></pre></div>
+<p><span class="math display">\phi ^+^{\text{k1}\;\text{k2}Rr}.\left(\partial _{\{i,r\}}\partial _{\{i,r\}}\phi ^{\text{k2}\;\text{k1}Rr}\right)</span></p>
+<p><span class="math display">\phi ^+^{\text{k1}\;\text{k2}Rr}.\left(\partial _{\{j,r\}}\partial _{\{j,r\}}\phi ^{\text{k2}\;\text{k1}Rr}\right)</span></p>
 </body>
 </html>

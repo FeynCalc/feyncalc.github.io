@@ -100,12 +100,12 @@
 <h2 id="diracindexnames">DiracIndexNames</h2>
 <p><code>DiracIndexNames</code> is an option for <code>FCFAConvert</code>, <code>FCCanonicalizeDummyIndices</code> and other functions. It renames the generic dummy Dirac indices to the indices in the supplied list.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFAConvert.html">FCFAConvert</a>, <a href="FCCanonicalizeDummyIndices.html">FCCanonicalizeDummyIndices</a>, <a href="LorentzIndexNames.html">LorentzIndexNames</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFAConvert.html">FCFAConvert</a>, <a href="FCCanonicalizeDummyIndices.html">FCCanonicalizeDummyIndices</a>, <a href="PauliIndexNames.html">PauliIndexNames</a>, <a href="LorentzIndexNames.html">LorentzIndexNames</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DCHN[GA[mu], <span class="fu">i</span>, <span class="fu">j</span>] DCHN[GA[nu], <span class="fu">j</span>, <span class="fu">k</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%]</span></code></pre></div>
 <p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{ij} \left(\bar{\gamma }^{\text{nu}}\right){}_{jk}</span></p>
-<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{i\text{FCGV}(\text{di291})} \left(\bar{\gamma }^{\text{nu}}\right){}_{\text{FCGV}(\text{di291})k}</span></p>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{i\text{FCGV}(\text{di241})} \left(\bar{\gamma }^{\text{nu}}\right){}_{\text{FCGV}(\text{di241})k}</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>DCHN[GA[mu], <span class="fu">i</span>, <span class="fu">j</span>] DCHN[GA[nu], <span class="fu">j</span>, <span class="fu">k</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>FCCanonicalizeDummyIndices[%, DiracIndexNames -&gt; {<span class="fu">a</span>}] </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  </span>
