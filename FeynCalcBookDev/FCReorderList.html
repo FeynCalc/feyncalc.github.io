@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,9 +106,9 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a></p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>myList = <span class="fu">Table</span>[mat[<span class="fu">i</span>], {<span class="fu">i</span>, <span class="dv">1</span>, <span class="dv">23</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myList <span class="ex">=</span> <span class="fu">Table</span><span class="op">[</span>mat<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="op">{</span><span class="fu">i</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">23</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\{\text{mat}(1),\text{mat}(2),\text{mat}(3),\text{mat}(4),\text{mat}(5),\text{mat}(6),\text{mat}(7),\text{mat}(8),\text{mat}(9),\text{mat}(10),\text{mat}(11),\text{mat}(12),\text{mat}(13),\text{mat}(14),\text{mat}(15),\text{mat}(16),\text{mat}(17),\text{mat}(18),\text{mat}(19),\text{mat}(20),\text{mat}(21),\text{mat}(22),\text{mat}(23)\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCReorderList[myList, {{<span class="dv">1</span>, <span class="dv">10</span>}, <span class="dv">23</span>, {<span class="dv">11</span>, <span class="dv">20</span>}, <span class="dv">22</span>, <span class="dv">21</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCReorderList<span class="op">[</span>myList<span class="op">,</span> <span class="op">{{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">},</span> <span class="dv">23</span><span class="op">,</span> <span class="op">{</span><span class="dv">11</span><span class="op">,</span> <span class="dv">20</span><span class="op">},</span> <span class="dv">22</span><span class="op">,</span> <span class="dv">21</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\{\text{mat}(1),\text{mat}(2),\text{mat}(3),\text{mat}(4),\text{mat}(5),\text{mat}(6),\text{mat}(7),\text{mat}(8),\text{mat}(9),\text{mat}(10),\text{mat}(23),\text{mat}(11),\text{mat}(12),\text{mat}(13),\text{mat}(14),\text{mat}(15),\text{mat}(16),\text{mat}(17),\text{mat}(18),\text{mat}(19),\text{mat}(20),\text{mat}(22),\text{mat}(21)\}</span></p>
 </body>
 </html>

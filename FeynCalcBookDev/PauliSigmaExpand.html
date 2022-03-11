@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,13 +106,13 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="PauliSigmaCombine.html">PauliSigmaCombine</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SIS[<span class="fu">q</span>] . SIS[<span class="fu">p</span> - <span class="fu">q</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>PauliSigmaExpand[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SIS<span class="op">[</span><span class="fu">q</span><span class="op">]</span> . SIS<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>PauliSigmaExpand<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{\sigma }\cdot \overline{q}\right).\left(\bar{\sigma }\cdot \left(\overline{p}-\overline{q}\right)\right)</span></p>
 <p><span class="math display">\left(\bar{\sigma }\cdot \overline{q}\right).\left(\bar{\sigma }\cdot \overline{p}-\bar{\sigma }\cdot \overline{q}\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SIS[<span class="fu">a</span> + <span class="fu">b</span>] . SIS[<span class="fu">c</span> + <span class="fu">d</span>]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>PauliSigmaExpand[%, Momentum -&gt; {<span class="fu">a</span>}]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>PauliSigmaExpand[%%, Momentum -&gt; <span class="fu">All</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SIS<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">]</span> . SIS<span class="op">[</span><span class="fu">c</span> <span class="sc">+</span> <span class="fu">d</span><span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PauliSigmaExpand<span class="op">[</span><span class="sc">%</span><span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>PauliSigmaExpand<span class="op">[</span><span class="sc">%%</span><span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{\sigma }\cdot \left(\overline{a}+\overline{b}\right)\right).\left(\bar{\sigma }\cdot \left(\overline{c}+\overline{d}\right)\right)</span></p>
 <p><span class="math display">\left(\bar{\sigma }\cdot \overline{a}+\bar{\sigma }\cdot \overline{b}\right).\left(\bar{\sigma }\cdot \left(\overline{c}+\overline{d}\right)\right)</span></p>
 <p><span class="math display">\left(\bar{\sigma }\cdot \overline{a}+\bar{\sigma }\cdot \overline{b}\right).\left(\bar{\sigma }\cdot \overline{c}+\bar{\sigma }\cdot \overline{d}\right)</span></p>

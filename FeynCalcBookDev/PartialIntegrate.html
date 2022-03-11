@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,16 +106,16 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="IntegrateByParts.html">IntegrateByParts</a>, <a href="Integrate2.html">Integrate2</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>PartialIntegrate[<span class="fu">f</span>[<span class="fu">x</span>] <span class="fu">g</span>[<span class="fu">x</span>], <span class="fu">g</span>[<span class="fu">x</span>], {<span class="fu">x</span>, <span class="dv">0</span>, <span class="dv">1</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PartialIntegrate<span class="op">[</span><span class="fu">f</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="fu">g</span><span class="op">[</span><span class="fu">x</span><span class="op">],</span> <span class="fu">g</span><span class="op">[</span><span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">-(f(x) \int g(x) \, dx\text{/.}\, x\to 0)+(f(x) \int g(x) \, dx\text{/.}\, x\to 1)-\int_0^1 f&#39;(x) (\int g(x) \, dx) \, dx</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">f</span>[<span class="dt">x_</span>] = <span class="fu">Integrate</span>[<span class="fu">Log</span>[<span class="dv">3</span> <span class="fu">x</span> + <span class="dv">2</span>], <span class="fu">x</span>]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="fu">g</span>[<span class="dt">x_</span>] = <span class="fu">D</span>[<span class="dv">1</span>/<span class="fu">Log</span>[<span class="dv">3</span> <span class="fu">x</span> + <span class="dv">2</span>], <span class="fu">x</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span><span class="op">[</span><span class="at">x_</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">Integrate</span><span class="op">[</span><span class="fu">Log</span><span class="op">[</span><span class="dv">3</span> <span class="fu">x</span> <span class="sc">+</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">x</span><span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">g</span><span class="op">[</span><span class="at">x_</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">D</span><span class="op">[</span><span class="dv">1</span><span class="sc">/</span><span class="fu">Log</span><span class="op">[</span><span class="dv">3</span> <span class="fu">x</span> <span class="sc">+</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">x</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(x+\frac{2}{3}\right) \log (3 x+2)-x</span></p>
 <p><span class="math display">-\frac{3}{(3 x+2) \log ^2(3 x+2)}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">Integrate</span>[PartialIntegrate[<span class="fu">f</span>[<span class="fu">x</span>] <span class="fu">g</span>[<span class="fu">x</span>], <span class="fu">f</span>[<span class="fu">x</span>], <span class="fu">x</span>], {<span class="fu">x</span>, <span class="dv">0</span>, <span class="dv">1</span>}] // <span class="fu">FullSimplify</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Integrate</span><span class="op">[</span>PartialIntegrate<span class="op">[</span><span class="fu">f</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="fu">g</span><span class="op">[</span><span class="fu">x</span><span class="op">],</span> <span class="fu">f</span><span class="op">[</span><span class="fu">x</span><span class="op">],</span> <span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">FullSimplify</span></span></code></pre></div>
 <p><span class="math display">-\frac{1}{\log (5)}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">Integrate</span>[<span class="fu">f</span>[<span class="fu">x</span>] <span class="fu">g</span>[<span class="fu">x</span>], {<span class="fu">x</span>, <span class="dv">0</span>, <span class="dv">1</span>}] // <span class="fu">Simplify</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Integrate</span><span class="op">[</span><span class="fu">f</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="fu">g</span><span class="op">[</span><span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Simplify</span></span></code></pre></div>
 <p><span class="math display">-\frac{1}{\log (5)}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">Clear</span>[<span class="fu">f</span>, <span class="fu">g</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Clear</span><span class="op">[</span><span class="fu">f</span><span class="op">,</span> <span class="fu">g</span><span class="op">]</span></span></code></pre></div>
 </body>
 </html>

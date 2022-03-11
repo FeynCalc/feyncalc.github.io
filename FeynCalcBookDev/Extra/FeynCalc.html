@@ -13,15 +13,18 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -439,7 +442,7 @@
 <li><a href="../Convolute.html">Convolute</a>, <a href="../ConvoluteTable.html">ConvoluteTable</a> - convolution of functions</li>
 <li><a href="../CounterTerm.html">CounterTerm</a> - database of counter terms</li>
 <li><a href="../Gamma1.html">Gamma1</a>, <a href="../Gamma2.html">Gamma2</a>, <a href="../Gamma3.html">Gamma3</a>, <a href="../GammaEpsilon.html">GammaEpsilon</a> - special products and expansions of <span class="math inline">\Gamma</span> functions</li>
-<li><a href="../Integrate2.html">Integrate2</a>, <a href="../Integrate3.html">Integrate3</a>, <a href="../Integrate4.html">Integrate4</a>, <a href="../Integrate5.html">Integrate5</a> - some integrals</li>
+<li><a href="../Integrate2.html">Integrate2</a>, <a href="../Integrate3.html">Integrate3</a>, <a href="../Integrate5.html">Integrate5</a> - some integrals</li>
 <li><a href="../InverseMellin.html">InverseMellin</a> - inverse Mellin transform for some polynomials</li>
 <li><a href="../Kummer.html">Kummer</a> - applies <a href="../Kummer.html">Kummer</a> relations</li>
 <li><a href="../Lagrangian.html">Lagrangian</a> - database of <a href="../Lagrangian.html">Lagrangian</a>s</li>

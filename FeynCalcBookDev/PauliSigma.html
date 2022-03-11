@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,23 +107,23 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SI.html">SI</a>, <a href="CSI.html">CSI</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>PauliSigma[LorentzIndex[\[Alpha]]]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\sigma }^{\alpha }</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>PauliSigma[CartesianIndex[<span class="fu">i</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{\sigma }^i</span></p>
 <p>A Pauli matrix contracted with a Lorentz or Cartesian vector is displayed as <span class="math inline">\sigma \cdot p</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>PauliSigma[Momentum[<span class="fu">p</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\sigma }\cdot \overline{p}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>PauliSigma[CartesianMomentum[<span class="fu">p</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{\sigma }\cdot \overline{p}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>PauliSigma[Momentum[<span class="fu">q</span>]] . PauliSigma[Momentum[<span class="fu">p</span> - <span class="fu">q</span>]]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>% // PauliSigmaExpand</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> . PauliSigma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> PauliSigmaExpand</span></code></pre></div>
 <p><span class="math display">\left(\bar{\sigma }\cdot \overline{q}\right).\left(\bar{\sigma }\cdot \left(\overline{p}-\overline{q}\right)\right)</span></p>
 <p><span class="math display">\left(\bar{\sigma }\cdot \overline{q}\right).\left(\bar{\sigma }\cdot \overline{p}-\bar{\sigma }\cdot \overline{q}\right)</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>PauliSigma[CartesianMomentum[<span class="fu">q</span>]] . PauliSigma[CartesianMomentum[<span class="fu">p</span> - <span class="fu">q</span>]]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>% // PauliSigmaExpand </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>  </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> . PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> PauliSigmaExpand </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\left(\overline{\sigma }\cdot \overline{q}\right).\left(\overline{\sigma }\cdot \left(\overline{p}-\overline{q}\right)\right)</span></p>
 <p><span class="math display">\left(\overline{\sigma }\cdot \overline{q}\right).\left(\overline{\sigma }\cdot \overline{p}-\overline{\sigma }\cdot \overline{q}\right)</span></p>
 </body>

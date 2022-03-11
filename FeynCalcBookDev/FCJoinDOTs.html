@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,14 +107,14 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DotSimplify.html">DotSimplify</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DeclareNonCommutative[<span class="fu">A</span>, <span class="fu">B</span>, <span class="fu">X</span>, <span class="fu">Y</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>DotSimplify[<span class="fu">A</span> . <span class="fu">X</span> . <span class="fu">B</span> + <span class="fu">A</span> . <span class="fu">Y</span> . <span class="fu">B</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DeclareNonCommutative<span class="op">[</span><span class="fu">A</span><span class="op">,</span> <span class="fu">B</span><span class="op">,</span> <span class="fu">X</span><span class="op">,</span> <span class="fu">Y</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span><span class="fu">A</span> . <span class="fu">X</span> . <span class="fu">B</span> <span class="sc">+</span> <span class="fu">A</span> . <span class="fu">Y</span> . <span class="fu">B</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">A.X.B+A.Y.B</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>DotSimplify[<span class="fu">A</span> . <span class="fu">X</span> . <span class="fu">B</span> + <span class="fu">A</span> . <span class="fu">Y</span> . <span class="fu">B</span>, FCJoinDOTs -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span><span class="fu">A</span> . <span class="fu">X</span> . <span class="fu">B</span> <span class="sc">+</span> <span class="fu">A</span> . <span class="fu">Y</span> . <span class="fu">B</span><span class="op">,</span> FCJoinDOTs <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">A.X.B+A.Y.B</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>DotSimplify[<span class="fu">A</span> . <span class="fu">X</span> . <span class="fu">B</span> + <span class="fu">A</span> . <span class="fu">Y</span> . <span class="fu">B</span>, FCJoinDOTs -&gt; <span class="fu">True</span>, Expanding -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span><span class="fu">A</span> . <span class="fu">X</span> . <span class="fu">B</span> <span class="sc">+</span> <span class="fu">A</span> . <span class="fu">Y</span> . <span class="fu">B</span><span class="op">,</span> FCJoinDOTs <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> Expanding <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">A.(X+Y).B</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>DotSimplify[GA[mu, <span class="dv">6</span>, nu] + GA[mu, <span class="dv">7</span>, nu], FCJoinDOTs -&gt; <span class="fu">True</span>, Expanding -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span>GA<span class="op">[</span>mu<span class="op">,</span> <span class="dv">6</span><span class="op">,</span> nu<span class="op">]</span> <span class="sc">+</span> GA<span class="op">[</span>mu<span class="op">,</span> <span class="dv">7</span><span class="op">,</span> nu<span class="op">],</span> FCJoinDOTs <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> Expanding <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\text{mu}}.\left(\bar{\gamma }^6+\bar{\gamma }^7\right).\bar{\gamma }^{\text{nu}}</span></p>
 </body>
 </html>

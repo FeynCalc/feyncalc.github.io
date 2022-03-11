@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,43 +106,43 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DiracGamma.html">DiracGamma</a>, <a href="Spinor.html">Spinor</a>, <a href="SpinorChainTrick.html">SpinorChainTrick</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SpinorUBar[p1, m1] . GA[\[Mu]] . SpinorU[p2, m2]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>GordonSimplify[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SpinorUBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . SpinorU<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(\text{p1},\text{m1}).\bar{\gamma }^{\mu }.u(\text{p2},\text{m2})</span></p>
 <p><span class="math display">\frac{\left(\overline{\text{p1}}+\overline{\text{p2}}\right)^{\mu } \left(\varphi (\overline{\text{p1}},\text{m1})\right).\left(\varphi (\overline{\text{p2}},\text{m2})\right)}{\text{m1}+\text{m2}}+\frac{i \left(\varphi (\overline{\text{p1}},\text{m1})\right).\sigma ^{\mu \overline{\text{p1}}-\overline{\text{p2}}}.\left(\varphi (\overline{\text{p2}},\text{m2})\right)}{\text{m1}+\text{m2}}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SpinorUBar[p1, m1] . GA[\[Mu], <span class="dv">5</span>] . SpinorV[p2, m2]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>GordonSimplify[%]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SpinorUBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="dv">5</span><span class="op">]</span> . SpinorV<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(\text{p1},\text{m1}).\bar{\gamma }^{\mu }.\bar{\gamma }^5.v(\text{p2},\text{m2})</span></p>
 <p><span class="math display">\frac{\left(\overline{\text{p1}}+\overline{\text{p2}}\right)^{\mu } \left(\varphi (\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^5.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}+\text{m2}}+\frac{i \left(\varphi (\overline{\text{p1}},\text{m1})\right).\sigma ^{\mu \overline{\text{p1}}-\overline{\text{p2}}}.\bar{\gamma }^5.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}+\text{m2}}</span></p>
 <p>Relations involving projectors can be used to trade the right projector for a left one</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>SpinorVBar[p1, m1] . GA[\[Mu], <span class="dv">6</span>] . SpinorV[p2, m2]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>GordonSimplify[%]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SpinorVBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorV<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{v}(\text{p1},\text{m1}).\bar{\gamma }^{\mu }.\bar{\gamma }^6.v(\text{p2},\text{m2})</span></p>
 <p><span class="math display">-\frac{i \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\sigma ^{\mu \overline{\text{p1}}-\overline{\text{p2}}}.\bar{\gamma }^6.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}-\frac{\text{m2} \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^{\mu }.\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}-\frac{\left(\overline{\text{p1}}+\overline{\text{p2}}\right)^{\mu } \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^6.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}</span></p>
 <p>Use the <code>Select</code> option to achieve the opposite</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>ex = SpinorVBar[p1, m1] . GA[\[Mu], <span class="dv">7</span>] . SpinorV[p2, m2]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>GordonSimplify[ex]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> SpinorVBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="dv">7</span><span class="op">]</span> . SpinorV<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{v}(\text{p1},\text{m1}).\bar{\gamma }^{\mu }.\bar{\gamma }^7.v(\text{p2},\text{m2})</span></p>
 <p><span class="math display">\left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^{\mu }.\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>GordonSimplify[ex, <span class="fu">Select</span> -&gt; {{Spinor[<span class="dt">__</span>], DiracGamma[<span class="dt">__</span>], GA[<span class="dv">7</span>], Spinor[<span class="dt">__</span>]}}]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span>ex<span class="op">,</span> <span class="fu">Select</span> <span class="ot">-&gt;</span> <span class="op">{{</span>Spinor<span class="op">[</span><span class="at">__</span><span class="op">],</span> DiracGamma<span class="op">[</span><span class="at">__</span><span class="op">],</span> GA<span class="op">[</span><span class="dv">7</span><span class="op">],</span> Spinor<span class="op">[</span><span class="at">__</span><span class="op">]}}]</span></span></code></pre></div>
 <p><span class="math display">-\frac{i \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\sigma ^{\mu \overline{\text{p1}}-\overline{\text{p2}}}.\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}-\frac{\text{m2} \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^{\mu }.\bar{\gamma }^6.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}-\frac{\left(\overline{\text{p1}}+\overline{\text{p2}}\right)^{\mu } \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}</span></p>
 <p>We can choose between having expressions proportional to <span class="math inline">1/m_1</span> (mass of the first spinor) or <span class="math inline">1/m_2</span> (mass of the second spinor)</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>GordonSimplify[SpinorVBar[p1, m1] . GA[\[Mu], <span class="dv">6</span>] . SpinorV[p2, m2], <span class="fu">Inverse</span> -&gt; <span class="fu">First</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span>SpinorVBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorV<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">],</span> <span class="fu">Inverse</span> <span class="ot">-&gt;</span> <span class="fu">First</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\frac{i \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\sigma ^{\mu \overline{\text{p1}}-\overline{\text{p2}}}.\bar{\gamma }^6.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}-\frac{\text{m2} \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^{\mu }.\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}-\frac{\left(\overline{\text{p1}}+\overline{\text{p2}}\right)^{\mu } \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^6.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m1}}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>GordonSimplify[SpinorVBar[p1, m1] . GA[\[Mu], <span class="dv">6</span>] . SpinorV[p2, m2], <span class="fu">Inverse</span> -&gt; <span class="fu">Last</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span>SpinorVBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorV<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">],</span> <span class="fu">Inverse</span> <span class="ot">-&gt;</span> <span class="fu">Last</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\frac{i \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\sigma ^{\mu \overline{\text{p1}}-\overline{\text{p2}}}.\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m2}}-\frac{\text{m1} \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^{\mu }.\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m2}}-\frac{\left(\overline{\text{p1}}+\overline{\text{p2}}\right)^{\mu } \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)}{\text{m2}}</span></p>
 <p>In <span class="math inline">D</span>-dimensions chiral Gordon identities are scheme dependent!</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>ex = SpinorVBarD[p1, m1] . GAD[\[Mu], <span class="dv">5</span>] . SpinorVD[p2, m2]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> SpinorVBarD<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="dv">5</span><span class="op">]</span> . SpinorVD<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{v}(\text{p1},\text{m1}).\gamma ^{\mu }.\bar{\gamma }^5.v(\text{p2},\text{m2})</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>FCGetDiracGammaScheme[]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>GordonSimplify[ex]</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCGetDiracGammaScheme<span class="op">[]</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{NDR}</span></p>
 <p><span class="math display">-\frac{(\text{p1}+\text{p2})^{\mu } (\varphi (-\text{p1},\text{m1})).\bar{\gamma }^5.(\varphi (-\text{p2},\text{m2}))}{\text{m1}-\text{m2}}-\frac{i (\varphi (-\text{p1},\text{m1})).\sigma ^{\mu \;\text{p1}-\text{p2}}.\bar{\gamma }^5.(\varphi (-\text{p2},\text{m2}))}{\text{m1}-\text{m2}}</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;BMHV&quot;]</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>GordonSimplify[ex]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>GordonSimplify<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{BMHV}</span></p>
 <p><span class="math display">-\frac{i (\varphi (-\text{p1},\text{m1})).\sigma ^{\mu \;\text{p1}-\text{p2}}.\bar{\gamma }^5.(\varphi (-\text{p2},\text{m2}))}{\text{m1}-\text{m2}}-\frac{(\text{p1}+\text{p2})^{\mu } (\varphi (-\text{p1},\text{m1})).\bar{\gamma }^5.(\varphi (-\text{p2},\text{m2}))}{\text{m1}-\text{m2}}+\frac{2 (\varphi (-\text{p1},\text{m1})).\gamma ^{\mu }.\left(\hat{\gamma }\cdot \hat{\text{p2}}\right).\bar{\gamma }^5.(\varphi (-\text{p2},\text{m2}))}{\text{m1}-\text{m2}}</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>FCSetDiracGammaScheme[&quot;NDR&quot;]</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{NDR}</span></p>
 </body>
 </html>

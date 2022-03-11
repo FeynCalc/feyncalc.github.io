@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -106,13 +110,13 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>Reroute momenta according to the momentum conservation relation <span class="math inline">l_1+l_2=p_1+p_2+k_p</span>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">exp</span> = (-I)*Spinor[-Momentum[l2], ME, <span class="dv">1</span>] . GA[\[Mu]] . Spinor[Momentum[l1], ME, </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>     <span class="dv">1</span>]*Spinor[Momentum[p1], SMP[&quot;<span class="dt">m_</span>Q&quot;], <span class="dv">1</span>] . GS[Polarization[kp, -I, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>      Transversality -&gt; <span class="fu">True</span>]] . (GS[kp + p1] + SMP[&quot;<span class="dt">m_</span>Q&quot;]) . GA[\[Mu]] . Spinor[-Momentum[p2], </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>     SMP[&quot;<span class="dt">m_</span>Q&quot;], <span class="dv">1</span>]*FAD[kp + p1 + p2, Dimension -&gt; <span class="dv">4</span>]*FAD[{-l1 - l2 - p2, SMP[&quot;<span class="dt">m_</span>Q&quot;]}, </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    Dimension -&gt; <span class="dv">4</span>]*SDF[cq, cqbar]*SMP[&quot;e&quot;]^<span class="dv">3</span>*SMP[&quot;<span class="dt">Q_</span>u&quot;]^<span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="ex">=</span> (<span class="sc">-</span><span class="fu">I</span>)<span class="sc">*</span>Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>l2<span class="op">],</span> ME<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . Spinor<span class="op">[</span>Momentum<span class="op">[</span>l1<span class="op">],</span> ME<span class="op">,</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="dv">1</span><span class="op">]</span><span class="sc">*</span>Spinor<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;m_Q&quot;</span><span class="op">],</span> <span class="dv">1</span><span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>kp<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . (GS<span class="op">[</span>kp <span class="sc">+</span> p1<span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_Q&quot;</span><span class="op">]</span>) . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>p2<span class="op">],</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     SMP<span class="op">[</span><span class="st">&quot;m_Q&quot;</span><span class="op">],</span> <span class="dv">1</span><span class="op">]</span><span class="sc">*</span>FAD<span class="op">[</span>kp <span class="sc">+</span> p1 <span class="sc">+</span> p2<span class="op">,</span> Dimension <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">]</span><span class="sc">*</span>FAD<span class="op">[{</span><span class="sc">-</span>l1 <span class="sc">-</span> l2 <span class="sc">-</span> p2<span class="op">,</span> SMP<span class="op">[</span><span class="st">&quot;m_Q&quot;</span><span class="op">]},</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    Dimension <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">]</span><span class="sc">*</span>SDF<span class="op">[</span>cq<span class="op">,</span> cqbar<span class="op">]</span><span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">3</span><span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;Q_u&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <p><span class="math display">-\frac{i \;\text{e}^3 Q_u^2 \delta _{\text{cq}\;\text{cqbar}} \left(\varphi (-\overline{\text{l2}},\text{ME})\right).\bar{\gamma }^{\mu }.\left(\varphi (\overline{\text{l1}},\text{ME})\right) \left(\varphi (\overline{\text{p1}},m_Q)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }^*(\text{kp})\right).\left(\bar{\gamma }\cdot \left(\overline{\text{kp}}+\overline{\text{p1}}\right)+m_Q\right).\bar{\gamma }^{\mu }.\left(\varphi (-\overline{\text{p2}},m_Q)\right)}{(\overline{\text{kp}}+\overline{\text{p1}}+\overline{\text{p2}})^2 \left((-\overline{\text{l1}}-\overline{\text{l2}}-\overline{\text{p2}})^2-m_Q^2\right)}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCRerouteMomenta[<span class="fu">exp</span>, {l1, l2}, {p1, p2, kp}]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCRerouteMomenta<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> <span class="op">{</span>l1<span class="op">,</span> l2<span class="op">},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">,</span> kp<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">-\frac{i \;\text{e}^3 Q_u^2 \delta _{\text{cq}\;\text{cqbar}} \left(\varphi (-\overline{\text{l2}},\text{ME})\right).\bar{\gamma }^{\mu }.\left(\varphi (\overline{\text{l1}},\text{ME})\right) \left(\varphi (\overline{\text{p1}},m_Q)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }^*(\text{kp})\right).\left(\bar{\gamma }\cdot \left(\overline{\text{kp}}+\overline{\text{p1}}\right)+m_Q\right).\bar{\gamma }^{\mu }.\left(\varphi (-\overline{\text{p2}},m_Q)\right)}{(\overline{\text{l1}}+\overline{\text{l2}})^2 \left((-\overline{\text{l1}}-\overline{\text{l2}}-\overline{\text{p2}})^2-m_Q^2\right)}</span></p>
 </body>
 </html>

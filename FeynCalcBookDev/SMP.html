@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -105,13 +109,13 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SMVertex.html">SMVertex</a>, <a href="SMPToSymbol.html">SMPToSymbol</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>Electron mass <span class="math inline">m_e</span></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SMP[&quot;<span class="dt">m_</span>e&quot;]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">m_e</span></p>
 <p>Weak coupling constant <span class="math inline">g_W</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SMP[&quot;<span class="dt">g_</span>W&quot;]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SMP<span class="op">[</span><span class="st">&quot;g_W&quot;</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">g_W</span></p>
 <p>List all available SMP’s</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>SMP[]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SMP<span class="op">[]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
  N_F &amp; \;\text{N$\_$F} \\
@@ -272,7 +276,7 @@
  c_{23} &amp; \;\text{c$\_$23} \\
 \end{array}
 \right)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>SMP /@ <span class="fu">Last</span> /@ SMP[]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SMP <span class="sc">/</span>@ <span class="fu">Last</span> <span class="sc">/</span>@ SMP<span class="op">[]</span></span></code></pre></div>
 <p><span class="math display">\left\{N_F,m_e,m_{\mu },m_{\tau },m_u,m_d,m_c,m_s,m_t,m_b,m_H,m_W,m_Z,m_q,m_Q,m_{q_u},m_{q_d},m_l,m_{\pi },\text{g},g_s,\text{e},e_Q,Q_u,Q_d,G_F,g_W,g&#39;_W,\left.\cos (\theta _W\right),\left.\sin (\theta _W\right),\theta _W,\left.\cos (\theta _C\right),\left.\sin (\theta _C\right),\theta _C,\alpha ,\alpha _s,\delta _{\psi },\delta _{\phi },\delta _A,\delta _m,\delta _u,\delta _{\xi },\delta _e,\delta _g,Z_{\psi },Z_{\phi },Z_A,Z_m,Z_u,Z_{\xi },Z_e,Z_g,\text{$\delta $Z}_{\psi },\text{$\delta $Z}_{\phi },\text{$\delta $Z}_A,\text{$\delta $Z}_m,\text{$\delta $Z}_u,\text{$\delta $Z}_{\xi },\text{$\delta $Z}_e,\text{$\delta $Z}_g,\delta _{\psi }^{\text{MS}},\delta _{\phi }^{\text{MS}},\delta _A^{\text{MS}},\delta _m^{\text{MS}},\delta _u^{\text{MS}},\delta _{\xi }^{\text{MS}},\delta _e^{\text{MS}},\delta _g^{\text{MS}},Z_{\psi }^{\text{MS}},Z_{\phi }^{\text{MS}},Z_A^{\text{MS}},Z_m^{\text{MS}},Z_u^{\text{MS}},Z_{\xi }^{\text{MS}},Z_e^{\text{MS}},Z_g^{\text{MS}},\text{$\delta $Z}_{\psi }^{\text{MS}},\text{$\delta $Z}_{\phi }^{\text{MS}},\text{$\delta $Z}_A^{\text{MS}},\text{$\delta $Z}_m^{\text{MS}},\text{$\delta $Z}_u^{\text{MS}},\text{$\delta $Z}_{\xi }^{\text{MS}},\text{$\delta $Z}_e^{\text{MS}},\text{$\delta $Z}_g^{\text{MS}},\delta _{\psi }^{\overset{---}{\text{MS}}},\delta _{\phi }^{\overset{---}{\text{MS}}},\delta _A^{\overset{---}{\text{MS}}},\delta _m^{\overset{---}{\text{MS}}},\delta _u^{\overset{---}{\text{MS}}},\delta _{\xi }^{\overset{---}{\text{MS}}},\delta _e^{\overset{---}{\text{MS}}},\delta _g^{\overset{---}{\text{MS}}},\text{$\delta $Z}_{\psi }^{\overset{---}{\text{MS}}},Z_{\phi }^{\overset{---}{\text{MS}}},Z_A^{\overset{---}{\text{MS}}},Z_m^{\overset{---}{\text{MS}}},Z_u^{\overset{---}{\text{MS}}},Z_{\xi }^{\overset{---}{\text{MS}}},Z_e^{\overset{---}{\text{MS}}},Z_g^{\overset{---}{\text{MS}}},Z_{\psi }^{\overset{---}{\text{MS}}},\text{$\delta $Z}_{\phi }^{\overset{---}{\text{MS}}},\text{$\delta $Z}_A^{\overset{---}{\text{MS}}},\text{$\delta $Z}_m^{\overset{---}{\text{MS}}},\text{$\delta $Z}_u^{\overset{---}{\text{MS}}},\text{$\delta $Z}_{\xi }^{\overset{---}{\text{MS}}},\text{$\delta $Z}_e^{\overset{---}{\text{MS}}},\text{$\delta $Z}_g^{\overset{---}{\text{MS}}},\delta _{\psi }^{\text{OS}},\delta _{\phi }^{\text{OS}},\delta _A^{\text{OS}},\delta _m^{\text{OS}},\delta _u^{\text{OS}},\delta _{\xi }^{\text{OS}},\delta _e^{\text{OS}},\delta _g^{\text{OS}},Z_{\psi }^{\text{OS}},Z_{\phi }^{\text{OS}},Z_A^{\text{OS}},Z_m^{\text{OS}},Z_u^{\text{OS}},Z_{\xi }^{\text{OS}},Z_e^{\text{OS}},Z_g^{\text{OS}},\text{$\delta $Z}_{\psi }^{\text{OS}},\text{$\delta $Z}_{\phi }^{\text{OS}},\text{$\delta $Z}_A^{\text{OS}},\text{$\delta $Z}_m^{\text{OS}},\text{$\delta $Z}_u^{\text{OS}},\text{$\delta $Z}_{\xi }^{\text{OS}},\text{$\delta $Z}_e^{\text{OS}},\text{$\delta $Z}_g^{\text{OS}},V_{\text{ud}},V_{\text{ud}}^*,V_{\text{us}},V_{\text{us}}^*,V_{\text{ub}},V_{\text{ub}}^*,V_{\text{cd}},V_{\text{cd}}^*,V_{\text{cs}},V_{\text{cs}}^*,V_{\text{cb}},V_{\text{cb}}^*,V_{\text{td}},V_{\text{td}}^*,V_{\text{ts}},V_{\text{ts}}^*,V_{\text{tb}},V_{\text{tb}}^*,s_{12},s_{13},s_{23},c_{12},c_{13},c_{23}\right\}</span></p>
 </body>
 </html>

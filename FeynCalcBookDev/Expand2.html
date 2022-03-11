@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,11 +107,11 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExpandAll2.html">ExpandAll2</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Expand2[(x1 + x2 + x3) (<span class="dv">2</span> x1 + <span class="dv">3</span> x2) + (y1 + y2 + y3) (<span class="dv">2</span> y1 + <span class="dv">3</span> y2)]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Expand2<span class="op">[</span>(x1 <span class="sc">+</span> x2 <span class="sc">+</span> x3) (<span class="dv">2</span> x1 <span class="sc">+</span> <span class="dv">3</span> x2) <span class="sc">+</span> (y1 <span class="sc">+</span> y2 <span class="sc">+</span> y3) (<span class="dv">2</span> y1 <span class="sc">+</span> <span class="dv">3</span> y2)<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">2 \;\text{x1}^2+5 \;\text{x1} \;\text{x2}+2 \;\text{x1} \;\text{x3}+3 \;\text{x2}^2+3 \;\text{x2} \;\text{x3}+2 \;\text{y1}^2+5 \;\text{y1} \;\text{y2}+2 \;\text{y1} \;\text{y3}+3 \;\text{y2}^2+3 \;\text{y2} \;\text{y3}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Expand2[(x1 + x2 + x3) (<span class="dv">2</span> x1 + <span class="dv">3</span> x2) + (y1 + y2 + y3) (<span class="dv">2</span> y1 + <span class="dv">3</span> y2), {y1, y2}]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Expand2<span class="op">[</span>(x1 <span class="sc">+</span> x2 <span class="sc">+</span> x3) (<span class="dv">2</span> x1 <span class="sc">+</span> <span class="dv">3</span> x2) <span class="sc">+</span> (y1 <span class="sc">+</span> y2 <span class="sc">+</span> y3) (<span class="dv">2</span> y1 <span class="sc">+</span> <span class="dv">3</span> y2)<span class="op">,</span> <span class="op">{</span>y1<span class="op">,</span> y2<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">(2 \;\text{x1}+3 \;\text{x2}) (\text{x1}+\text{x2}+\text{x3})+2 \;\text{y1}^2+5 \;\text{y1} \;\text{y2}+2 \;\text{y1} \;\text{y3}+3 \;\text{y2}^2+3 \;\text{y2} \;\text{y3}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>Expand2[(x1 + x2 + x3) (<span class="dv">2</span> x1 + <span class="dv">3</span> x2) + (y1 + y2 + y3) (<span class="dv">2</span> y1 + <span class="dv">3</span> y2), {x1, x2}]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Expand2<span class="op">[</span>(x1 <span class="sc">+</span> x2 <span class="sc">+</span> x3) (<span class="dv">2</span> x1 <span class="sc">+</span> <span class="dv">3</span> x2) <span class="sc">+</span> (y1 <span class="sc">+</span> y2 <span class="sc">+</span> y3) (<span class="dv">2</span> y1 <span class="sc">+</span> <span class="dv">3</span> y2)<span class="op">,</span> <span class="op">{</span>x1<span class="op">,</span> x2<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">2 \;\text{x1}^2+5 \;\text{x1} \;\text{x2}+2 \;\text{x1} \;\text{x3}+3 \;\text{x2}^2+3 \;\text{x2} \;\text{x3}+(2 \;\text{y1}+3 \;\text{y2}) (\text{y1}+\text{y2}+\text{y3})</span></p>
 </body>
 </html>

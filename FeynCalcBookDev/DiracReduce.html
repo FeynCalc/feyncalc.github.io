@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -111,30 +115,30 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Chisholm.html">Chisholm</a>, <a href="DiracSimplify.html">DiracSimplify</a>, <a href="EpsChisholm.html">EpsChisholm</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>GA[\[Mu], \[Nu]]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>DiracReduce[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>DiracReduce<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }</span></p>
 <p><span class="math display">\bar{g}^{\mu \nu }-i \sigma ^{\mu \nu }</span></p>
 <p><code>DiracReduce</code> only works with Dirac matrices in <span class="math inline">4</span> dimensions, <span class="math inline">D</span>-dimensional matrices are ignored.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>GAD[\[Mu], \[Nu]]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>DiracReduce[%]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>DiracReduce<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\gamma ^{\mu }.\gamma ^{\nu }</span></p>
 <p><span class="math display">\gamma ^{\mu }.\gamma ^{\nu }</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>SpinorUBar[<span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">1</span>], <span class="fu">Subscript</span>[<span class="fu">m</span>, <span class="dv">1</span>]] . GA[\[Mu], \[Nu], \[Rho]] . SpinorV[<span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">2</span>], <span class="fu">Subscript</span>[<span class="fu">m</span>, <span class="dv">2</span>]]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>DiracReduce[%]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]</span> . SpinorV<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>DiracReduce<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}\left(p_1,m_1\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.v\left(p_2,m_2\right)</span></p>
 <p><span class="math display">i \bar{\epsilon }^{\mu \nu \rho \;\text{\$MU}(\text{\$36})} \left(\varphi (\overline{p}_1,m_1)\right).\bar{\gamma }^{\text{\$MU}(\text{\$36})}.\bar{\gamma }^5.\left(\varphi (-\overline{p}_2,m_2)\right)+\bar{g}^{\mu \nu } \left(\varphi (\overline{p}_1,m_1)\right).\bar{\gamma }^{\rho }.\left(\varphi (-\overline{p}_2,m_2)\right)-\bar{g}^{\mu \rho } \left(\varphi (\overline{p}_1,m_1)\right).\bar{\gamma }^{\nu }.\left(\varphi (-\overline{p}_2,m_2)\right)+\bar{g}^{\nu \rho } \left(\varphi (\overline{p}_1,m_1)\right).\bar{\gamma }^{\mu }.\left(\varphi (-\overline{p}_2,m_2)\right)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>GA[\[Mu], \[Nu], \[Rho], \[Sigma]]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>DiracReduce[%]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>DiracReduce<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\sigma }</span></p>
 <p><span class="math display">-i \bar{\gamma }^5 \bar{\epsilon }^{\mu \nu \rho \sigma }-i \sigma ^{\rho \sigma } \bar{g}^{\mu \nu }+i \sigma ^{\nu \sigma } \bar{g}^{\mu \rho }-i \sigma ^{\nu \rho } \bar{g}^{\mu \sigma }-i \sigma ^{\mu \sigma } \bar{g}^{\nu \rho }+i \sigma ^{\mu \rho } \bar{g}^{\nu \sigma }-i \sigma ^{\mu \nu } \bar{g}^{\rho \sigma }+\bar{g}^{\mu \sigma } \bar{g}^{\nu \rho }-\bar{g}^{\mu \rho } \bar{g}^{\nu \sigma }+\bar{g}^{\mu \nu } \bar{g}^{\rho \sigma }</span></p>
 <p>Do some checks of the results</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>DiracSimplify[GA[\[Mu], \[Nu], \[Rho], \[Sigma]] . GA[\[Mu], \[Nu], \[Rho], \[Sigma]]]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">-128</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>DiracSimplify[DiracReduce[GA[\[Mu], \[Nu], \[Rho], \[Sigma]]] . DiracReduce[GA[\[Mu], \[Nu], \[Rho], \[Sigma]]]]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracReduce<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]]</span> . DiracReduce<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]]]</span></span></code></pre></div>
 <p><span class="math display">-128</span></p>
 <p>We may also keep the head <code>DiracBasis</code> in the final result</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>DiracReduce[GA[\[Mu], \[Nu], \[Rho], \[Sigma]], FinalSubstitutions -&gt; {}]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DiracReduce<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]],</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{}]</span></span></code></pre></div>
 <p><span class="math display">-i \bar{g}^{\mu \nu } \;\text{DiracBasis}\left(\text{DiracSigma}\left(\text{DiracBasis}\left(\bar{\gamma }^{\rho }\right),\text{DiracBasis}\left(\bar{\gamma }^{\sigma }\right)\right)\right)+i \bar{g}^{\mu \rho } \;\text{DiracBasis}\left(\text{DiracSigma}\left(\text{DiracBasis}\left(\bar{\gamma }^{\nu }\right),\text{DiracBasis}\left(\bar{\gamma }^{\sigma }\right)\right)\right)-i \bar{g}^{\mu \sigma } \;\text{DiracBasis}\left(\text{DiracSigma}\left(\text{DiracBasis}\left(\bar{\gamma }^{\nu }\right),\text{DiracBasis}\left(\bar{\gamma }^{\rho }\right)\right)\right)-i \bar{g}^{\nu \rho } \;\text{DiracBasis}\left(\text{DiracSigma}\left(\text{DiracBasis}\left(\bar{\gamma }^{\mu }\right),\text{DiracBasis}\left(\bar{\gamma }^{\sigma }\right)\right)\right)+i \bar{g}^{\nu \sigma } \;\text{DiracBasis}\left(\text{DiracSigma}\left(\text{DiracBasis}\left(\bar{\gamma }^{\mu }\right),\text{DiracBasis}\left(\bar{\gamma }^{\rho }\right)\right)\right)-i \bar{g}^{\rho \sigma } \;\text{DiracBasis}\left(\text{DiracSigma}\left(\text{DiracBasis}\left(\bar{\gamma }^{\mu }\right),\text{DiracBasis}\left(\bar{\gamma }^{\nu }\right)\right)\right)-i \;\text{DiracBasis}\left(\bar{\gamma }^5\right) \bar{\epsilon }^{\mu \nu \rho \sigma }+\text{DiracBasis}(1) \bar{g}^{\mu \sigma } \bar{g}^{\nu \rho }-\text{DiracBasis}(1) \bar{g}^{\mu \rho } \bar{g}^{\nu \sigma }+\text{DiracBasis}(1) \bar{g}^{\mu \nu } \bar{g}^{\rho \sigma }</span></p>
 </body>
 </html>

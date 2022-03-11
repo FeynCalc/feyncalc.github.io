@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,21 +106,21 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="B0.html">B0</a>, <a href="B00.html">B00</a>, <a href="B11.html">B11</a>, <a href="PaVe.html">PaVe</a>, <a href="PaVeReduce.html">PaVeReduce</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>B1[SPD[<span class="fu">p</span>], <span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">M</span>^<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>B1<span class="op">[</span>SPD<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\frac{\left(m^2-M^2+p^2\right) \;\text{B}_0\left(p^2,m^2,M^2\right)}{2 p^2}+\frac{\text{A}_0\left(m^2\right)}{2 p^2}-\frac{\text{A}_0\left(M^2\right)}{2 p^2}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>B1[SPD[<span class="fu">p</span>], <span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">M</span>^<span class="dv">2</span>, BReduce -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>B1<span class="op">[</span>SPD<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> BReduce <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{B}_1\left(p^2,m^2,M^2\right)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>B1[SP[<span class="fu">p</span>], <span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">m</span>^<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>B1<span class="op">[</span>SP<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\frac{1}{2} \;\text{B}_0\left(\overline{p}^2,m^2,m^2\right)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>B1[SPD[<span class="fu">p</span>], <span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">m</span>^<span class="dv">2</span>, BReduce -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>B1<span class="op">[</span>SPD<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> BReduce <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{B}_1\left(p^2,m^2,m^2\right)</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>B1[<span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">m</span>^<span class="dv">2</span>, <span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>B1<span class="op">[</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{\text{A}_0\left(m^2\right)}{2 m^2}-\text{B}_0\left(m^2,0,m^2\right)</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>B1[<span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">m</span>^<span class="dv">2</span>, <span class="dv">0</span>, BReduce -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>B1<span class="op">[</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> BReduce <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{B}_1\left(m^2,m^2,0\right)</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>B1[<span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">m</span>^<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>B1<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{B}_1\left(0,0,m^2\right)</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>B1[pp, SmallVariable[SMP[&quot;<span class="dt">m_</span>e&quot;]^<span class="dv">2</span>], <span class="fu">Subsuperscript</span>[<span class="fu">m</span>, <span class="dv">2</span>, <span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>B1<span class="op">[</span>pp<span class="op">,</span> SmallVariable<span class="op">[</span>SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">],</span> <span class="fu">Subsuperscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">-\frac{(\text{pp}-m_2^2) \;\text{B}_0\left(\text{pp},m_e^2,m_2^2\right)}{2 \;\text{pp}}-\frac{\text{A}_0(m_2^2)}{2 \;\text{pp}}</span></p>
 </body>
 </html>

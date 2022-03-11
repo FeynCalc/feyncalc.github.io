@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,19 +106,19 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFeynmanParametrize.html">FCFeynmanParametrize</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SFAD[{<span class="fu">p</span>, <span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">r</span> + <span class="dv">2</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">r</span> <span class="sc">+</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">(p^2-m^2+i \eta )^{-r-2}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>v1 = FCFeynmanParametrize[SFAD[{<span class="fu">p</span>, <span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">r</span> - <span class="dv">1</span>}], {<span class="fu">p</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> Epsilon}]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ex">=</span> FCFeynmanParametrize<span class="op">[</span>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">r</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">}],</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="fu">Names</span> <span class="ot">-&gt;</span> <span class="fu">x</span><span class="op">,</span> FCReplaceD <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\left\{1,\frac{m^6 (-1)^{r-1} \left(m^2\right)^{-\varepsilon -r} \Gamma (\varepsilon +r-3)}{\Gamma (r-1)},\{\}\right\}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>v2 = FCFeynmanParametrize[SFAD[{<span class="fu">p</span>, <span class="fu">m</span>^<span class="dv">2</span>, <span class="fu">r</span> - <span class="dv">1</span>}], {<span class="fu">p</span>}, <span class="fu">Names</span> -&gt; <span class="fu">x</span>, FCReplaceD -&gt; {<span class="fu">D</span> -&gt; <span class="dv">4</span> - <span class="dv">2</span> Epsilon}, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>   SplitSymbolicPowers -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="ex">=</span> FCFeynmanParametrize<span class="op">[</span>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">r</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">}],</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="fu">Names</span> <span class="ot">-&gt;</span> <span class="fu">x</span><span class="op">,</span> FCReplaceD <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon<span class="op">},</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>   SplitSymbolicPowers <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left\{1,\frac{m^6 (-1)^{r-1} (r-1) \left(m^2\right)^{-\varepsilon -r} \Gamma (\varepsilon +r-3)}{\Gamma (r)},\{\}\right\}</span></p>
 <p>Both parametrizations lead to the same results (as expected)</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">Series</span>[v1[[<span class="dv">2</span>]], {Epsilon, <span class="dv">0</span>, <span class="dv">1</span>}] // <span class="fu">Normal</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="fu">Series</span>[v2[[<span class="dv">2</span>]], {Epsilon, <span class="dv">0</span>, <span class="dv">1</span>}] // <span class="fu">Normal</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>% - %% // <span class="fu">Simplify</span> // <span class="fu">FunctionExpand</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>  </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Series</span><span class="op">[</span>v1<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> <span class="op">{</span>Epsilon<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Normal</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Series</span><span class="op">[</span>v2<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> <span class="op">{</span>Epsilon<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Normal</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">-</span> <span class="sc">%%</span> <span class="sc">//</span> <span class="fu">Simplify</span> <span class="sc">//</span> <span class="fu">FunctionExpand</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\frac{\varepsilon  m^6 (-1)^r \left(m^2\right)^{-r} \Gamma (r-3) \left(\log \left(m^2\right)-\psi ^{(0)}(r-3)\right)}{\Gamma (r-1)}+\frac{m^6 (-1)^{r-1} \left(m^2\right)^{-r} \Gamma (r-3)}{\Gamma (r-1)}</span></p>
 <p><span class="math display">\frac{\varepsilon  m^6 (-1)^r (r-1) \left(m^2\right)^{-r} \Gamma (r-3) \left(\log \left(m^2\right)-\psi ^{(0)}(r-3)\right)}{\Gamma (r)}+\frac{m^6 (-1)^{r-1} (r-1) \left(m^2\right)^{-r} \Gamma (r-3)}{\Gamma (r)}</span></p>
 <p><span class="math display">0</span></p>

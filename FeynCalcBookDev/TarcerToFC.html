@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -105,8 +109,8 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ToFI.html">ToFI</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Tarcer`TFI[<span class="fu">D</span>, Pair[Momentum[<span class="fu">p</span>, <span class="fu">D</span>], Momentum[<span class="fu">p</span>, <span class="fu">D</span>]], {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">0</span>}, </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  {{<span class="dv">4</span>, <span class="dv">0</span>}, {<span class="dv">2</span>, <span class="dv">0</span>}, {<span class="dv">1</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">0</span>}, {<span class="dv">1</span>, <span class="dv">0</span>}}]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Tarcer`TFI<span class="op">[</span><span class="fu">D</span><span class="op">,</span> Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">]],</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">{{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">}}]</span></span></code></pre></div>
 <p><span class="math display">\text{Tarcer$\grave{ }$TFI}\left(D,p^2,\{0,0,3,2,0\},\left(
 \begin{array}{cc}
  4 &amp; 0 \\
@@ -116,9 +120,9 @@
  1 &amp; 0 \\
 \end{array}
 \right)\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>TarcerToFC[%, {q1, q2}]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>TarcerToFC<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\frac{(p\cdot \;\text{q1})^3 (p\cdot \;\text{q2})^2}{\left(\text{q1}^2\right)^4.\left(\text{q2}^2\right)^2.(\text{q1}-p)^2.(\text{q1}-\text{q2})^2}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>a1 Tarcer`TBI[<span class="fu">D</span>, pp^<span class="dv">2</span>, {{<span class="dv">1</span>, <span class="dv">0</span>}, {<span class="dv">1</span>, <span class="dv">0</span>}}] + b1 Tarcer`TBI[<span class="fu">D</span>, mm1, {{<span class="dv">1</span>, <span class="dv">0</span>}, {<span class="dv">1</span>, <span class="dv">0</span>}}]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a1 Tarcer`TBI<span class="op">[</span><span class="fu">D</span><span class="op">,</span> pp<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="op">{{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">}}]</span> <span class="sc">+</span> b1 Tarcer`TBI<span class="op">[</span><span class="fu">D</span><span class="op">,</span> mm1<span class="op">,</span> <span class="op">{{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">}}]</span></span></code></pre></div>
 <p><span class="math display">\text{a1} \;\text{Tarcer$\grave{ }$TBI}\left(D,\text{pp}^2,\left(
 \begin{array}{cc}
  1 &amp; 0 \\
@@ -130,7 +134,7 @@
  1 &amp; 0 \\
 \end{array}
 \right)\right)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>TarcerToFC[%, {q1, q2}, ScalarProduct -&gt; {{pp^<span class="dv">2</span>, p1}, {mm1, p1}}, FCE -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>TarcerToFC<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">},</span> ScalarProduct <span class="ot">-&gt;</span> <span class="op">{{</span>pp<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> p1<span class="op">},</span> <span class="op">{</span>mm1<span class="op">,</span> p1<span class="op">}},</span> FCE <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{\text{a1}}{\text{q1}^2.(\text{q1}-\text{p1})^2}+\frac{\text{b1}}{\text{q1}^2.(\text{q1}-\text{p1})^2}</span></p>
 </body>
 </html>

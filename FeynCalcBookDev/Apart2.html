@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,15 +106,15 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FAD.html">FAD</a>, <a href="FeynAmpDenominator.html">FeynAmpDenominator</a>, <a href="ApartFF.html">ApartFF</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FAD[{<span class="fu">q</span>, <span class="fu">m</span>}, {<span class="fu">q</span>, <span class="fu">M</span>}, <span class="fu">q</span> - <span class="fu">p</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>Apart2[%]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="fu">StandardForm</span>[FCE[%]]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">M</span><span class="op">},</span> <span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Apart2<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span>FCE<span class="op">[</span><span class="sc">%</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{\left(q^2-m^2\right).\left(q^2-M^2\right).(q-p)^2}</span></p>
 <p><span class="math display">\frac{\frac{1}{\left(q^2-m^2\right).(q-p)^2}-\frac{1}{\left(q^2-M^2\right).(q-p)^2}}{m^2-M^2}</span></p>
 <p><span class="math display">\frac{\text{FAD}[\{q,m\},-p+q]-\text{FAD}[\{q,M\},-p+q]}{m^2-M^2}</span></p>
 <p>Apart2 can also handle Cartesian propagators with square roots. To disable this mode use <span class="math inline">text{Sqrt}to text{False}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>int = CFAD[{{<span class="fu">k</span>, <span class="dv">0</span>}, {+<span class="fu">m</span>^<span class="dv">2</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}, {{<span class="fu">k</span> - <span class="fu">p</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">-1</span>}, <span class="dv">1</span>}] GFAD[{{DE - <span class="fu">Sqrt</span>[CSPD[<span class="fu">k</span>, <span class="fu">k</span>]], <span class="dv">1</span>}, <span class="dv">1</span>}]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>int // FeynAmpDenominatorCombine // Apart2</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> CFAD<span class="op">[{{</span><span class="fu">k</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">+</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">},</span> <span class="op">{{</span><span class="fu">k</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span> GFAD<span class="op">[{{</span>DE <span class="sc">-</span> <span class="fu">Sqrt</span><span class="op">[</span>CSPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">k</span><span class="op">]],</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>int <span class="sc">//</span> FeynAmpDenominatorCombine <span class="sc">//</span> Apart2</span></code></pre></div>
 <p><span class="math display">\frac{1}{(\text{DE}-\sqrt{k^2}+i \eta ) (k^2+m^2-i \eta ).((k-p)^2-i \eta )}</span></p>
 <p><span class="math display">\frac{\frac{\text{DE}}{(k^2+m^2-i \eta ).((k-p)^2-i \eta )}+\frac{1}{(\text{DE}-\sqrt{k^2}+i \eta ).((k-p)^2-i \eta )}+\frac{\sqrt{k^2}}{(k^2+m^2-i \eta ).((k-p)^2-i \eta )}}{\text{DE}^2+m^2}</span></p>
 </body>

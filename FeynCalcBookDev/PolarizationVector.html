@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -111,43 +115,43 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FV.html">FV</a>, <a href="Pair.html">Pair</a>, <a href="Polarization.html">Polarization</a>, <a href="PolariazationSum.html">PolariazationSum</a>, <a href="DoPolariazationSums.html">DoPolariazationSums</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>A polarization vector <span class="math inline">\varepsilon^{\mu }(k)</span> is a special <span class="math inline">4</span>-vector.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>PolarizationVector[<span class="fu">k</span>, \[Mu]]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>% // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\bar{\varepsilon }^{\mu }(k)</span></p>
 <pre><code>(*Pair[LorentzIndex[\[Mu]], Momentum[Polarization[k, I]]]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">Conjugate</span>[PolarizationVector[<span class="fu">k</span>, \[Mu]]]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>% // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Conjugate</span><span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\bar{\varepsilon }^{*\mu }(k)</span></p>
 <pre><code>(*Pair[LorentzIndex[\[Mu]], Momentum[Polarization[k, -I]]]*)</code></pre>
 <p>The transversality property is not automatic and must be explicitly activated using the option <code>Transversality</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a> PolarizationVector[<span class="fu">k</span>, \[Mu]] FV[<span class="fu">k</span>, \[Mu]] </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  Contract[%]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> PolarizationVector<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{k}^{\mu } \bar{\varepsilon }^{\mu }(k)</span></p>
 <p><span class="math display">\overline{k}\cdot \bar{\varepsilon }(k)</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a> PolarizationVector[<span class="fu">k</span>, \[Mu], Transversality -&gt; <span class="fu">True</span>] FV[<span class="fu">k</span>, \[Mu]] </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>  Contract[%]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> PolarizationVector<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> FV<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{k}^{\mu } \bar{\varepsilon }^{\mu }(k)</span></p>
 <p><span class="math display">0</span></p>
 <p>Suppose that you are using unphysical polarization vectors for massless gauge bosons and intend to remove the unphysical degrees of freedom at a later stage using ghosts. In this case you must not use <code>Transversality-&gt;True</code>, since your polarization vectors are not transverse. Otherwise the result will be inconsistent.</p>
 <p>Here everything is correct, we can use the gauge trick with unphysical polarization vectors.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>FCClearScalarProducts[];</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>SP[k1] = <span class="dv">0</span>;</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>SP[k2] = <span class="dv">0</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>ех1 = SP[k1, Polarization[k1, <span class="fu">I</span>]] SP[k2, Polarization[k1, -I]] SP[k1, Polarization[k2, <span class="fu">I</span>]] SP[k2, Polarization[k2, -I]]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>k1<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>k2<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ех1 <span class="ex">=</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="fu">I</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">]]</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="fu">I</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\left(\overline{\text{k1}}\cdot \bar{\varepsilon }(\text{k1})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }^*(\text{k2})\right) \left(\overline{\text{k1}}\cdot \bar{\varepsilon }(\text{k2})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }^*(\text{k1})\right)</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>ех1 // DoPolarizationSums[#, k1, <span class="dv">0</span>] &amp; // DoPolarizationSums[#, k2, <span class="dv">0</span>] &amp;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ех1 <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> k1<span class="op">,</span> <span class="dv">0</span><span class="op">]</span> &amp; <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> k2<span class="op">,</span> <span class="dv">0</span><span class="op">]</span> &amp;</span></code></pre></div>
 <p><span class="math display">(\overline{\text{k1}}\cdot \overline{\text{k2}})^2</span></p>
 <p>Here we erroneously set <code>Transversality-&gt;True</code> and consequently obtain a wrong result. In pure QED the full result (physical amplitude squared) would still come out right owing to the Ward identities, but e.g. in QCD this would not be the case.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>ех2 = SP[k1, Polarization[k1, <span class="fu">I</span>, Transversality -&gt; <span class="fu">True</span>]] SP[k2, Polarization[k1, -I, Transversality -&gt; <span class="fu">True</span>]] SP[k1, Polarization[k2, <span class="fu">I</span>, Transversality -&gt; <span class="fu">True</span>]] SP[k2, Polarization[k2, -I, Transversality -&gt; <span class="fu">True</span>]] // FCI</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ех2 <span class="ex">=</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">//</span> FCI</span></code></pre></div>
 <p><span class="math display">0</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>ех2 // DoPolarizationSums[#, k1, <span class="dv">0</span>] &amp; // DoPolarizationSums[#, k2, <span class="dv">0</span>] &amp;</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ех2 <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> k1<span class="op">,</span> <span class="dv">0</span><span class="op">]</span> &amp; <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> k2<span class="op">,</span> <span class="dv">0</span><span class="op">]</span> &amp;</span></code></pre></div>
 <p><span class="math display">0</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>FCClearScalarProducts[];</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span></code></pre></div>
 <p><code>PolarizationVector</code> is a shortcut for <span class="math inline">4</span>-dimensional polarization vectors. Although <span class="math inline">D</span>-dimensional polarization vectors are fully supported by FeynCalc, as of now there is no shortcut for entering such quantities. You can either use <code>ChangeDimension</code></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>ChangeDimension[PolarizationVector[<span class="fu">q</span>, \[Mu]], <span class="fu">D</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\varepsilon ^{\mu }(q)</span></p>
 <p>or enter such quantities directly using the <code>FeynCalcInternal</code>-notation</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>Pair[Momentum[Polarization[<span class="fu">q</span>, <span class="fu">I</span>], <span class="fu">D</span>], LorentzIndex[\[Mu], <span class="fu">D</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span>Polarization<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">I</span><span class="op">],</span> <span class="fu">D</span><span class="op">],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">D</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\varepsilon ^{\mu }(q)</span></p>
 </body>
 </html>

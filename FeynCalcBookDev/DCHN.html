@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,34 +107,34 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DiracChain.html">DiracChain</a>, <a href="DCHN.html">DCHN</a>, <a href="DiracIndex.html">DiracIndex</a>, <a href="DiracIndexDelta.html">DiracIndexDelta</a>, <a href="DiracChainJoin.html">DiracChainJoin</a>, <a href="DiracChainExpand.html">DiracChainExpand</a>, <a href="DiracChainFactor.html">DiracChainFactor</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>A standalone Dirac matrix with open Dirac indices</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DCHN[GAD[\[Mu]], <span class="fu">i</span>, <span class="fu">j</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> <span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\gamma ^{\mu }\right){}_{ij}</span></p>
 <p>A chain of Dirac matrices with open Dirac indices</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>DCHN[GAD[\[Mu]] . GAD[\[Nu]], <span class="fu">i</span>, <span class="fu">j</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> <span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\gamma ^{\mu }.\gamma ^{\nu }\right){}_{ij}</span></p>
 <p>A single <span class="math inline">\bar{u}</span> spinor with an open Dirac index</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>DCHN[SpinorUBar[<span class="fu">p</span>, <span class="fu">m</span>], <span class="fu">i</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>SpinorUBar<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">],</span> <span class="fu">i</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{u}(p,m)\right)_i</span></p>
 <p>A single <span class="math inline">\bar{v}</span> spinor with an open Dirac index</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>DCHN[SpinorVBar[<span class="fu">p</span>, <span class="fu">m</span>], <span class="fu">i</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>SpinorVBar<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">],</span> <span class="fu">i</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{v}(p,m)\right)_i</span></p>
 <p>A single <span class="math inline">u</span> spinor with an open Dirac index</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>DCHN[<span class="fu">i</span>, SpinorU[<span class="fu">p</span>, <span class="fu">m</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span><span class="fu">i</span><span class="op">,</span> SpinorU<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">(u(p,m))_i</span></p>
 <p>A single <span class="math inline">v</span> spinor with an open Dirac index</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>DCHN[<span class="fu">i</span>, SpinorV[<span class="fu">p</span>, <span class="fu">m</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span><span class="fu">i</span><span class="op">,</span> SpinorV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">(v(p,m))_i</span></p>
 <p><span class="math inline">\bar{u}</span> spinor contracted with a chain of Dirac matrices</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>DCHN[GAD[\[Mu]] . GAD[\[Nu]], SpinorUBar[<span class="fu">p</span>, <span class="fu">m</span>], <span class="fu">j</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> SpinorUBar<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">],</span> <span class="fu">j</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{u}(p,m).\gamma ^{\mu }.\gamma ^{\nu }\right){}_j</span></p>
 <p><span class="math inline">\bar{v}</span> spinor contracted with a chain of Dirac matrices</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>DCHN[GAD[\[Mu]] . GAD[\[Nu]], SpinorVBar[<span class="fu">p</span>, <span class="fu">m</span>], <span class="fu">j</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> SpinorVBar<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">],</span> <span class="fu">j</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{v}(p,m).\gamma ^{\mu }.\gamma ^{\nu }\right){}_j</span></p>
 <p><span class="math inline">u</span> spinor contracted with a chain of Dirac matrices</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>DCHN[GAD[\[Mu]] . GAD[\[Nu]], <span class="fu">i</span>, SpinorU[<span class="fu">p</span>, <span class="fu">m</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> <span class="fu">i</span><span class="op">,</span> SpinorU<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\left(\gamma ^{\mu }.\gamma ^{\nu }.u(p,m)\right){}_i</span></p>
 <p><span class="math inline">v</span> spinor contracted with a chain of Dirac matrices</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>DCHN[GAD[\[Mu]] . GAD[\[Nu]], <span class="fu">i</span>, SpinorV[<span class="fu">p</span>, <span class="fu">m</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> <span class="fu">i</span><span class="op">,</span> SpinorV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\left(\gamma ^{\mu }.\gamma ^{\nu }.v(p,m)\right){}_i</span></p>
 </body>
 </html>

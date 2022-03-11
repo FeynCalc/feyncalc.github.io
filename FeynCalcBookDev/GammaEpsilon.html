@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,14 +107,14 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="GammaExpand.html">GammaExpand</a>, <a href="Series2.html">Series2</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>If the argument is of the form <code>(1+a Epsilon)</code> the result is not calculated but tabulated.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>GammaEpsilon[<span class="dv">1</span> + <span class="fu">a</span> Epsilon]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GammaEpsilon<span class="op">[</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">a</span> Epsilon<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\varepsilon ^5 \left(-\frac{a^5 \zeta (5)}{5}-\frac{1}{36} \pi ^2 a^5 \zeta (3)\right)+\frac{1}{160} \pi ^4 a^4 \varepsilon ^4-\frac{1}{3} a^3 \varepsilon ^3 \zeta (3)+\frac{1}{12} \pi ^2 a^2 \varepsilon ^2+\text{C\$15868} \varepsilon ^6+1</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>GammaEpsilon[<span class="dv">1</span> - Epsilon/<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GammaEpsilon<span class="op">[</span><span class="dv">1</span> <span class="sc">-</span> Epsilon<span class="sc">/</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{C\$15906} \varepsilon ^6+\frac{\pi ^4 \varepsilon ^4}{2560}+\frac{\pi ^2 \varepsilon ^2}{48}+\varepsilon ^5 \left(\frac{\pi ^2 \zeta (3)}{1152}+\frac{\zeta (5)}{160}\right)+\frac{\varepsilon ^3 \zeta (3)}{24}+1</span></p>
 <p>For other arguments the expansion is calculated.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>GammaEpsilon[Epsilon]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GammaEpsilon<span class="op">[</span>Epsilon<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{C\$17051} \varepsilon ^6+\frac{\pi ^4 \varepsilon ^3}{160}+\frac{\pi ^2 \varepsilon }{12}+\frac{1}{\varepsilon }+\frac{1}{720} \varepsilon ^5 \left(\frac{61 \pi ^6}{168}+10 \psi ^{(2)}(1)^2\right)+\frac{\varepsilon ^2 \psi ^{(2)}(1)}{6}+\frac{\varepsilon ^6 \left(-84 \pi ^2 \zeta (5)+\frac{21 \pi ^4 \psi ^{(2)}(1)}{4}+\psi ^{(6)}(1)\right)}{5040}+\frac{1}{120} \varepsilon ^4 \left(\frac{5 \pi ^2 \psi ^{(2)}(1)}{3}-24 \zeta (5)\right)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>GammaEpsilon[<span class="fu">x</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>GammaEpsilon<span class="op">[</span><span class="fu">x</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\Gamma (x)</span></p>
 </body>
 </html>

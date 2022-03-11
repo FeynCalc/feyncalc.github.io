@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,25 +106,25 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Isolate.html">Isolate</a>, <a href="PaVeReduce.html">PaVeReduce</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">FullForm</span>[$FortranContinuationCharacter]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FullForm</span><span class="op">[</span>$FortranContinuationCharacter<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\&amp;</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">t</span> = <span class="fu">Collect</span>[((<span class="fu">a</span> - <span class="fu">c</span>)^<span class="dv">2</span> + (<span class="fu">a</span> - <span class="fu">b</span>)^<span class="dv">2</span>)^<span class="dv">2</span>, <span class="fu">a</span>, <span class="fu">Factor</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span> <span class="ex">=</span> <span class="fu">Collect</span><span class="op">[</span>((<span class="fu">a</span> <span class="sc">-</span> <span class="fu">c</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span>)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">Factor</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">4 a^4-8 a^3 (b+c)+8 a^2 \left(b^2+b c+c^2\right)-4 a (b+c) \left(b^2+c^2\right)+\left(b^2+c^2\right)^2</span></p>
 <p>This writes the assignment r=t to a file.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>tempfilename = <span class="fu">ToString</span>[<span class="fu">$SessionID</span>] &lt;&gt; &quot;.s&quot;;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>Write2[tempfilename, <span class="fu">r</span> = <span class="fu">t</span>];</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tempfilename <span class="ex">=</span> <span class="fu">ToString</span><span class="op">[</span><span class="va">$SessionID</span><span class="op">]</span> &lt;&gt; <span class="st">&quot;.s&quot;</span>;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Write2<span class="op">[</span>tempfilename<span class="op">,</span> <span class="fu">r</span> <span class="ex">=</span> <span class="fu">t</span><span class="op">]</span>;</span></code></pre></div>
 <p>This shows the contents of the file.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">TableForm</span>[<span class="fu">ReadList</span>[<span class="fu">If</span>[<span class="fu">$OperatingSystem</span> === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename, <span class="fu">String</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TableForm</span><span class="op">[</span><span class="fu">ReadList</span><span class="op">[</span><span class="fu">If</span><span class="op">[</span><span class="va">$OperatingSystem</span> <span class="ex">===</span> <span class="st">&quot;MacOS&quot;</span><span class="op">,</span> <span class="st">&quot;:&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">]</span> &lt;&gt; tempfilename<span class="op">,</span> <span class="fu">String</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\begin{array}{l}
  \;\text{r = ( 4*a${}^{\wedge}$4 - 8*a${}^{\wedge}$3*(b + c) - 4*a*(b + c)*(b${}^{\wedge}$2 + c${}^{\wedge}$2) + } \\
  \;\text{ (b${}^{\wedge}$2 + c${}^{\wedge}$2)${}^{\wedge}$2 + 8*a${}^{\wedge}$2*(b${}^{\wedge}$2 + b*c + c${}^{\wedge}$2)} \\
  \;\text{       );} \\
 \end{array}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">DeleteFile</span>[<span class="fu">If</span>[<span class="fu">$OperatingSystem</span> === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename]</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>t2 = <span class="fu">x</span> + Isolate[<span class="fu">t</span>, <span class="fu">a</span>, IsolateNames -&gt; <span class="fu">w</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DeleteFile</span><span class="op">[</span><span class="fu">If</span><span class="op">[</span><span class="va">$OperatingSystem</span> <span class="ex">===</span> <span class="st">&quot;MacOS&quot;</span><span class="op">,</span> <span class="st">&quot;:&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">]</span> &lt;&gt; tempfilename<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>t2 <span class="ex">=</span> <span class="fu">x</span> <span class="sc">+</span> Isolate<span class="op">[</span><span class="fu">t</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> <span class="fu">w</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">4 a^4-8 a^3 w(24)+8 a^2 w(26)-4 a w(24) w(25)+w(25)^2+x</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>Write2[tempfilename, <span class="fu">r</span> = t2];</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">TableForm</span>[<span class="fu">ReadList</span>[<span class="fu">If</span>[<span class="fu">$OperatingSystem</span> === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename, <span class="fu">String</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Write2<span class="op">[</span>tempfilename<span class="op">,</span> <span class="fu">r</span> <span class="ex">=</span> t2<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TableForm</span><span class="op">[</span><span class="fu">ReadList</span><span class="op">[</span><span class="fu">If</span><span class="op">[</span><span class="va">$OperatingSystem</span> <span class="ex">===</span> <span class="st">&quot;MacOS&quot;</span><span class="op">,</span> <span class="st">&quot;:&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">]</span> &lt;&gt; tempfilename<span class="op">,</span> <span class="fu">String</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\begin{array}{l}
  \;\text{w[24] = (b + c} \\
  \;\text{       );} \\
@@ -132,10 +136,10 @@
  \;\text{  HoldForm[w[25]] + HoldForm[w[25]]${}^{\wedge}$2 + 8*a${}^{\wedge}$2*HoldForm[w[26]]} \\
  \;\text{       );} \\
 \end{array}</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">DeleteFile</span>[<span class="fu">If</span>[<span class="fu">$OperatingSystem</span> === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename]</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DeleteFile</span><span class="op">[</span><span class="fu">If</span><span class="op">[</span><span class="va">$OperatingSystem</span> <span class="ex">===</span> <span class="st">&quot;MacOS&quot;</span><span class="op">,</span> <span class="st">&quot;:&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">]</span> &lt;&gt; tempfilename<span class="op">]</span></span></code></pre></div>
 <p>This is how to write out the expression <code>t2</code> in Fortran format.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>Write2[tempfilename, <span class="fu">r</span> = t2, <span class="fu">FormatType</span> -&gt; <span class="fu">FortranForm</span>];</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="fu">TableForm</span>[<span class="fu">ReadList</span>[<span class="fu">If</span>[<span class="fu">$OperatingSystem</span> === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename, <span class="fu">String</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Write2<span class="op">[</span>tempfilename<span class="op">,</span> <span class="fu">r</span> <span class="ex">=</span> t2<span class="op">,</span> <span class="fu">FormatType</span> <span class="ot">-&gt;</span> <span class="fu">FortranForm</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TableForm</span><span class="op">[</span><span class="fu">ReadList</span><span class="op">[</span><span class="fu">If</span><span class="op">[</span><span class="va">$OperatingSystem</span> <span class="ex">===</span> <span class="st">&quot;MacOS&quot;</span><span class="op">,</span> <span class="st">&quot;:&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">]</span> &lt;&gt; tempfilename<span class="op">,</span> <span class="fu">String</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\begin{array}{l}
  \;\text{        w(24)= b + c} \\
  \;\text{        w(25)= b**2 + c**2} \\
@@ -144,7 +148,7 @@
  \;\text{     $\&amp;$  w(25)**2 + a**2*8D0*w(26)} \\
  \;\text{                  } \\
 \end{array}</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="fu">DeleteFile</span>[<span class="fu">If</span>[<span class="fu">$OperatingSystem</span> === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename];</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="fu">Clear</span>[<span class="fu">w</span>, <span class="fu">t</span>, t2, <span class="fu">r</span>, tempfilename];</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DeleteFile</span><span class="op">[</span><span class="fu">If</span><span class="op">[</span><span class="va">$OperatingSystem</span> <span class="ex">===</span> <span class="st">&quot;MacOS&quot;</span><span class="op">,</span> <span class="st">&quot;:&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">]</span> &lt;&gt; tempfilename<span class="op">]</span>;</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Clear</span><span class="op">[</span><span class="fu">w</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> t2<span class="op">,</span> <span class="fu">r</span><span class="op">,</span> tempfilename<span class="op">]</span>;</span></code></pre></div>
 </body>
 </html>

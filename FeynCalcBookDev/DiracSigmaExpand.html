@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,23 +106,23 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DiracGamma.html">DiracGamma</a>, <a href="DiracSigma.html">DiracSigma</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DiracSigma[GSD[<span class="fu">p</span>] + GSD[<span class="fu">q</span>], GSD[<span class="fu">r</span>]]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>% // DiracSigmaExpand</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>% // FCE // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DiracSigma<span class="op">[</span>GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> GSD<span class="op">[</span><span class="fu">q</span><span class="op">],</span> GSD<span class="op">[</span><span class="fu">r</span><span class="op">]]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> DiracSigmaExpand</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCE <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\text{DiracSigma}(\gamma \cdot p+\gamma \cdot q,\gamma \cdot r)</span></p>
 <p><span class="math display">\sigma ^{pr}+\sigma ^{qr}</span></p>
 <pre><code>(*DiracSigma[GSD[p], GSD[r]] + DiracSigma[GSD[q], GSD[r]]*)</code></pre>
 <p>Notice that DiracSigmaExpand does not expand Dirac matrices contracted to linear combinations of <span class="math inline">4</span>-vectors by default.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>DiracSigma[GSD[<span class="fu">p</span> + <span class="fu">q</span>], GSD[<span class="fu">r</span>]]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>DiracSigmaExpand[%]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DiracSigma<span class="op">[</span>GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">],</span> GSD<span class="op">[</span><span class="fu">r</span><span class="op">]]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>DiracSigmaExpand<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\sigma ^{p+qr}</span></p>
 <p><span class="math display">\sigma ^{p+qr}</span></p>
 <p>If such expansions are required, use the option <code>DiracGammaExpand</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>DiracSigmaExpand[DiracSigma[GSD[<span class="fu">p</span> + <span class="fu">q</span>], GSD[<span class="fu">r</span>]], DiracGammaExpand -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DiracSigmaExpand<span class="op">[</span>DiracSigma<span class="op">[</span>GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">],</span> GSD<span class="op">[</span><span class="fu">r</span><span class="op">]],</span> DiracGammaExpand <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\sigma ^{pr}+\sigma ^{qr}</span></p>
 <p>The option Momentum allows us to perform more fine-grained expansions of <code>DiracSigma</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>DiracSigma[GSD[<span class="fu">p</span>], GSD[<span class="fu">r</span>] + GSD[<span class="fu">t</span>]] + DiracSigma[GSD[<span class="fu">l</span>] + GSD[<span class="fu">n</span>], GSD[<span class="fu">p</span>]]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>DiracSigmaExpand[%, Momentum -&gt; {<span class="fu">r</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DiracSigma<span class="op">[</span>GSD<span class="op">[</span><span class="fu">p</span><span class="op">],</span> GSD<span class="op">[</span><span class="fu">r</span><span class="op">]</span> <span class="sc">+</span> GSD<span class="op">[</span><span class="fu">t</span><span class="op">]]</span> <span class="sc">+</span> DiracSigma<span class="op">[</span>GSD<span class="op">[</span><span class="fu">l</span><span class="op">]</span> <span class="sc">+</span> GSD<span class="op">[</span><span class="fu">n</span><span class="op">],</span> GSD<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DiracSigmaExpand<span class="op">[</span><span class="sc">%</span><span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">r</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\text{DiracSigma}(\gamma \cdot l+\gamma \cdot n,\gamma \cdot p)+\text{DiracSigma}(\gamma \cdot p,\gamma \cdot r+\gamma \cdot t)</span></p>
 <p><span class="math display">\text{DiracSigma}(\gamma \cdot l+\gamma \cdot n,\gamma \cdot p)+\sigma ^{pr}+\sigma ^{pt}</span></p>
 </body>

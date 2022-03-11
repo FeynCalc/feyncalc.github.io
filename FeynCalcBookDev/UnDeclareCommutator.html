@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,16 +106,16 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Commutator.html">Commutator</a>, <a href="CommutatorExplicit.html">CommutatorExplicit</a>, <a href="DeclareNonCommutative.html">DeclareNonCommutative</a>, <a href="DotSimplify.html">DotSimplify</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Commutator[QuantumField[FCPartialD[LorentzIndex[<span class="dt">xxx_</span>]], <span class="fu">A</span>], QuantumField[<span class="fu">A</span>]] = <span class="dv">0</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>QuantumField[<span class="fu">A</span>] . QuantumField[<span class="fu">A</span>] . LeftPartialD[\[Nu]] . QuantumField[<span class="fu">A</span>] . QuantumField[<span class="fu">A</span>] . LeftPartialD[\[Nu]]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>ExpandPartialD[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Commutator<span class="op">[</span>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="at">xxx_</span><span class="op">]],</span> <span class="fu">A</span><span class="op">],</span> QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span> . LeftPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span> . LeftPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">A.A.\overleftarrow{\partial }_{\nu }.A.A.\overleftarrow{\partial }_{\nu }</span></p>
 <p><span class="math display">6 A.A.\left(\left.(\partial _{\nu }A\right)\right).\left(\left.(\partial _{\nu }A\right)\right)+A.\left(\partial _{\nu }\partial _{\nu }A\right).A.A+\left(\partial _{\nu }\partial _{\nu }A\right).A.A.A</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>UnDeclareCommutator[QuantumField[FCPartialD[LorentzIndex[<span class="dt">xxx_</span>]], <span class="fu">A</span>], QuantumField[<span class="fu">A</span>]];</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>QuantumField[<span class="fu">A</span>] . QuantumField[<span class="fu">A</span>] . LeftPartialD[\[Nu]] . QuantumField[<span class="fu">A</span>] . QuantumField[<span class="fu">A</span>] . LeftPartialD[\[Nu]]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>ExpandPartialD[%] </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>  </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>UnDeclareCommutator<span class="op">[</span>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="at">xxx_</span><span class="op">]],</span> <span class="fu">A</span><span class="op">],</span> QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span> . LeftPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span> . LeftPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">A.A.\overleftarrow{\partial }_{\nu }.A.A.\overleftarrow{\partial }_{\nu }</span></p>
 <p><span class="math display">A.\left(\left.(\partial _{\nu }A\right)\right).A.\left(\left.(\partial _{\nu }A\right)\right)+A.\left(\left.(\partial _{\nu }A\right)\right).\left(\left.(\partial _{\nu }A\right)\right).A+\left(\left.(\partial _{\nu }A\right)\right).A.A.\left(\left.(\partial _{\nu }A\right)\right)+\left(\left.(\partial _{\nu }A\right)\right).A.\left(\left.(\partial _{\nu }A\right)\right).A+2 \left(\left.(\partial _{\nu }A\right)\right).\left(\left.(\partial _{\nu }A\right)\right).A.A+A.\left(\partial _{\nu }\partial _{\nu }A\right).A.A+\left(\partial _{\nu }\partial _{\nu }A\right).A.A.A</span></p>
 </body>

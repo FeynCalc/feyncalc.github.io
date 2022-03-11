@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,51 +107,51 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Calc.html">Calc</a>, <a href="MomentumExpand.html">MomentumExpand</a>, <a href="MomentumCombine.html">MomentumCombine</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SP[p1 + p2 + p3, p4 + p5 + p6]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>% // ExpandScalarProduct</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3<span class="op">,</span> p4 <span class="sc">+</span> p5 <span class="sc">+</span> p6<span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ExpandScalarProduct</span></code></pre></div>
 <p><span class="math display">(\overline{\text{p1}}+\overline{\text{p2}}+\overline{\text{p3}})\cdot (\overline{\text{p4}}+\overline{\text{p5}}+\overline{\text{p6}})</span></p>
 <p><span class="math display">\overline{\text{p1}}\cdot \overline{\text{p4}}+\overline{\text{p1}}\cdot \overline{\text{p5}}+\overline{\text{p1}}\cdot \overline{\text{p6}}+\overline{\text{p2}}\cdot \overline{\text{p4}}+\overline{\text{p2}}\cdot \overline{\text{p5}}+\overline{\text{p2}}\cdot \overline{\text{p6}}+\overline{\text{p3}}\cdot \overline{\text{p4}}+\overline{\text{p3}}\cdot \overline{\text{p5}}+\overline{\text{p3}}\cdot \overline{\text{p6}}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SP[<span class="fu">p</span>, <span class="fu">p</span> - <span class="fu">q</span>]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>ExpandScalarProduct[%]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}\cdot (\overline{p}-\overline{q})</span></p>
 <p><span class="math display">\overline{p}^2-\overline{p}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FV[<span class="fu">p</span> - <span class="fu">q</span>, \[Mu]]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>ExpandScalarProduct[%]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\overline{p}-\overline{q}\right)^{\mu }</span></p>
 <p><span class="math display">\overline{p}^{\mu }-\overline{q}^{\mu }</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>SPD[<span class="fu">p</span> - <span class="fu">q</span>, <span class="fu">q</span> - <span class="fu">r</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>ExpandScalarProduct[%]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> <span class="fu">r</span><span class="op">]</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(p-q)\cdot (q-r)</span></p>
 <p><span class="math display">p\cdot q-p\cdot r+q\cdot r-q^2</span></p>
 <p>Using the option <code>Momentum</code> one can limit the expansion to particular momenta</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>SP[p1 + p2 + p3, p4 + p5 + p6]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>ExpandScalarProduct[%, Momentum -&gt; {p1}]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3<span class="op">,</span> p4 <span class="sc">+</span> p5 <span class="sc">+</span> p6<span class="op">]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">(\overline{\text{p1}}+\overline{\text{p2}}+\overline{\text{p3}})\cdot (\overline{\text{p4}}+\overline{\text{p5}}+\overline{\text{p6}})</span></p>
 <p><span class="math display">\overline{\text{p1}}\cdot (\overline{\text{p4}}+\overline{\text{p5}}+\overline{\text{p6}})+(\overline{\text{p2}}+\overline{\text{p3}})\cdot (\overline{\text{p4}}+\overline{\text{p5}}+\overline{\text{p6}})</span></p>
 <p>By default <code>ExpandScalarProduct</code> does not apply linearity to Levi-Civita tensors</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>LC[\[Mu]][p1 + p2, p3 + p4, p5 + p6]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>ExpandScalarProduct[%]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]][</span>p1 <span class="sc">+</span> p2<span class="op">,</span> p3 <span class="sc">+</span> p4<span class="op">,</span> p5 <span class="sc">+</span> p6<span class="op">]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\mu \overline{\text{p1}}+\overline{\text{p2}}\;\overline{\text{p3}}+\overline{\text{p4}}\;\overline{\text{p5}}+\overline{\text{p6}}}</span></p>
 <p><span class="math display">\bar{\epsilon }^{\mu \overline{\text{p1}}+\overline{\text{p2}}\;\overline{\text{p3}}+\overline{\text{p4}}\;\overline{\text{p5}}+\overline{\text{p6}}}</span></p>
 <p>Using the option <code>EpsEvaluate</code> takes care of that</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>LC[\[Mu]][p1 + p2, p3 + p4, p5 + p6]</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>ExpandScalarProduct[%, EpsEvaluate -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]][</span>p1 <span class="sc">+</span> p2<span class="op">,</span> p3 <span class="sc">+</span> p4<span class="op">,</span> p5 <span class="sc">+</span> p6<span class="op">]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">,</span> EpsEvaluate <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\mu \overline{\text{p1}}+\overline{\text{p2}}\;\overline{\text{p3}}+\overline{\text{p4}}\;\overline{\text{p5}}+\overline{\text{p6}}}</span></p>
 <p><span class="math display">\bar{\epsilon }^{\mu \overline{\text{p1}}\;\overline{\text{p3}}\;\overline{\text{p5}}}+\bar{\epsilon }^{\mu \overline{\text{p1}}\;\overline{\text{p3}}\;\overline{\text{p6}}}+\bar{\epsilon }^{\mu \overline{\text{p1}}\;\overline{\text{p4}}\;\overline{\text{p5}}}+\bar{\epsilon }^{\mu \overline{\text{p1}}\;\overline{\text{p4}}\;\overline{\text{p6}}}+\bar{\epsilon }^{\mu \overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p5}}}+\bar{\epsilon }^{\mu \overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p6}}}+\bar{\epsilon }^{\mu \overline{\text{p2}}\;\overline{\text{p4}}\;\overline{\text{p5}}}+\bar{\epsilon }^{\mu \overline{\text{p2}}\;\overline{\text{p4}}\;\overline{\text{p6}}}</span></p>
 <p>One can use the options <code>EpsEvaluate</code> and <code>Momentum</code> together</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>LC[\[Mu]][p1 + p2, p3 + p4, p5 + p6]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>ExpandScalarProduct[%, EpsEvaluate -&gt; <span class="fu">True</span>, Momentum -&gt; {p1}]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]][</span>p1 <span class="sc">+</span> p2<span class="op">,</span> p3 <span class="sc">+</span> p4<span class="op">,</span> p5 <span class="sc">+</span> p6<span class="op">]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">,</span> EpsEvaluate <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\mu \overline{\text{p1}}+\overline{\text{p2}}\;\overline{\text{p3}}+\overline{\text{p4}}\;\overline{\text{p5}}+\overline{\text{p6}}}</span></p>
 <p><span class="math display">\bar{\epsilon }^{\mu \overline{\text{p1}}\;\overline{\text{p3}}+\overline{\text{p4}}\;\overline{\text{p5}}+\overline{\text{p6}}}+\bar{\epsilon }^{\mu \overline{\text{p2}}\;\overline{\text{p3}}+\overline{\text{p4}}\;\overline{\text{p5}}+\overline{\text{p6}}}</span></p>
 <p>Of course, the function is also applicable to Cartesian quantities</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>CSP[p1 + p2, p3 + p4]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>ExpandScalarProduct[%]</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>CSP<span class="op">[</span>p1 <span class="sc">+</span> p2<span class="op">,</span> p3 <span class="sc">+</span> p4<span class="op">]</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(\overline{\text{p1}}+\overline{\text{p2}})\cdot (\overline{\text{p3}}+\overline{\text{p4}})</span></p>
 <p><span class="math display">\overline{\text{p1}}\cdot \overline{\text{p3}}+\overline{\text{p1}}\cdot \overline{\text{p4}}+\overline{\text{p2}}\cdot \overline{\text{p3}}+\overline{\text{p2}}\cdot \overline{\text{p4}}</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>CLC[][p1 + p2, p3 + p4, p5 + p6]</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>ExpandScalarProduct[%, EpsEvaluate -&gt; <span class="fu">True</span>] </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>  </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>CLC<span class="op">[][</span>p1 <span class="sc">+</span> p2<span class="op">,</span> p3 <span class="sc">+</span> p4<span class="op">,</span> p5 <span class="sc">+</span> p6<span class="op">]</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">,</span> EpsEvaluate <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\overline{\text{p1}}+\overline{\text{p2}}\;\overline{\text{p3}}+\overline{\text{p4}}\;\overline{\text{p5}}+\overline{\text{p6}}}</span></p>
 <p><span class="math display">\bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p3}}\;\overline{\text{p5}}}+\bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p3}}\;\overline{\text{p6}}}+\bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p4}}\;\overline{\text{p5}}}+\bar{\epsilon }^{\overline{\text{p1}}\;\overline{\text{p4}}\;\overline{\text{p6}}}+\bar{\epsilon }^{\overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p5}}}+\bar{\epsilon }^{\overline{\text{p2}}\;\overline{\text{p3}}\;\overline{\text{p6}}}+\bar{\epsilon }^{\overline{\text{p2}}\;\overline{\text{p4}}\;\overline{\text{p5}}}+\bar{\epsilon }^{\overline{\text{p2}}\;\overline{\text{p4}}\;\overline{\text{p6}}}</span></p>
 </body>

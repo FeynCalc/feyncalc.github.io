@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,25 +107,25 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Contract.html">Contract</a>, <a href="DiracEquation.html">DiracEquation</a>, <a href="DiracGamma.html">DiracGamma</a>, <a href="DiracGammaExpand.html">DiracGammaExpand</a>, <a href="DiracTrick.html">DiracTrick</a>, <a href="SirlinSimplify.html">SirlinSimplify</a>, <a href="SpinorChainTrick.html">SpinorChainTrick</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>When applied to chains of Dirac matrices that do not require noncommutative expansions, contractions with other tensors, simplifications of spinor chains or evaluations of Dirac traces, <code>DiracTrick</code> will produce results similar to those of <code>DiracSimplify</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>GA[\[Mu], \[Nu], \[Mu]]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>DiracTrick[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>DiracTrick<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\mu }</span></p>
 <p><span class="math display">-2 \bar{\gamma }^{\nu }</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>GS[<span class="fu">p</span>] . GS[<span class="fu">p</span>]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>DiracTrick[%]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>DiracTrick<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{\gamma }\cdot \overline{p}\right).\left(\bar{\gamma }\cdot \overline{p}\right)</span></p>
 <p><span class="math display">\overline{p}^2</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>GA[<span class="dv">5</span>, \[Mu], \[Nu]]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>DiracTrick[%]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="dv">5</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>DiracTrick<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^5.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }</span></p>
 <p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^5</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>(<span class="dv">1</span>/<span class="dv">2</span> - GA[<span class="dv">5</span>]/<span class="dv">2</span>) . (-((<span class="fu">a</span> + GS[<span class="fu">p</span> + <span class="fu">q</span>])/<span class="fu">b</span>)) . (<span class="dv">1</span>/<span class="dv">2</span> + GA[<span class="dv">5</span>]/<span class="dv">2</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>DiracTrick[%]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) . (<span class="sc">-</span>((<span class="fu">a</span> <span class="sc">+</span> GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span>)<span class="sc">/</span><span class="fu">b</span>)) . (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>DiracTrick<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\frac{1}{2}-\frac{\bar{\gamma }^5}{2}\right).\left(-\frac{\bar{\gamma }\cdot \left(\overline{p}+\overline{q}\right)+a}{b}\right).\left(\frac{\bar{\gamma }^5}{2}+\frac{1}{2}\right)</span></p>
 <p><span class="math display">-\frac{\left(\bar{\gamma }\cdot \left(\overline{p}+\overline{q}\right)\right).\bar{\gamma }^6}{b}</span></p>
 <p>Dirac traces are not evaluated by <code>DiracTrick</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>DiracTrace[GAD[\[Mu], \[Nu]]]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>DiracTrick[%]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DiracTrick<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{tr}\left(\gamma ^{\mu }.\gamma ^{\nu }\right)</span></p>
 <p><span class="math display">\text{tr}\left(\gamma ^{\mu }.\gamma ^{\nu }\right)</span></p>
 </body>

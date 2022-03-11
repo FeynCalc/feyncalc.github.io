@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,26 +107,26 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Commutator.html">Commutator</a>, <a href="CommutatorExplicit.html">CommutatorExplicit</a>, <a href="DeclareNonCommutative.html">DeclareNonCommutative</a>, <a href="DotSimplify.html">DotSimplify</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>This declares <code>a</code> and <code>b</code> as noncommutative variables.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DeclareNonCommutative[<span class="fu">a</span>, <span class="fu">b</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>AntiCommutator[<span class="fu">a</span>, <span class="fu">b</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>CommutatorExplicit[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DeclareNonCommutative<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>AntiCommutator<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>CommutatorExplicit<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{a,\medspace b\}</span></p>
 <p><span class="math display">a.b+b.a</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>CommutatorExplicit[AntiCommutator[<span class="fu">a</span> + <span class="fu">b</span>, <span class="fu">a</span> - <span class="dv">2</span> <span class="fu">b</span> ]]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>CommutatorExplicit<span class="op">[</span>AntiCommutator<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">a</span> <span class="sc">-</span> <span class="dv">2</span> <span class="fu">b</span> <span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">(a-2 b).(a+b)+(a+b).(a-2 b)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>DotSimplify[AntiCommutator[<span class="fu">a</span> + <span class="fu">b</span>, <span class="fu">a</span> - <span class="dv">2</span> <span class="fu">b</span> ]]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span>AntiCommutator<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">a</span> <span class="sc">-</span> <span class="dv">2</span> <span class="fu">b</span> <span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">-a.b-b.a+2 a.a-4 b.b</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>DeclareNonCommutative[<span class="fu">c</span>, <span class="fu">d</span>, ct, <span class="fu">dt</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DeclareNonCommutative<span class="op">[</span><span class="fu">c</span><span class="op">,</span> <span class="fu">d</span><span class="op">,</span> ct<span class="op">,</span> <span class="fu">dt</span><span class="op">]</span></span></code></pre></div>
 <p>Defining <code>{c,d} = z</code> results in replacements of <code>c.d</code> by <code>z-d.c.</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>AntiCommutator[<span class="fu">c</span>, <span class="fu">d</span>] = <span class="fu">z</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>DotSimplify[ <span class="fu">d</span> . <span class="fu">c</span> . <span class="fu">d</span> ]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>AntiCommutator<span class="op">[</span><span class="fu">c</span><span class="op">,</span> <span class="fu">d</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">z</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span> <span class="fu">d</span> . <span class="fu">c</span> . <span class="fu">d</span> <span class="op">]</span></span></code></pre></div>
 <p><span class="math display">z</span></p>
 <p><span class="math display">d z-d.d.c</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>AntiCommutator[<span class="fu">dt</span>, ct] = zt</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>AntiCommutator<span class="op">[</span><span class="fu">dt</span><span class="op">,</span> ct<span class="op">]</span> <span class="ex">=</span> zt</span></code></pre></div>
 <p><span class="math display">\text{zt}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>DotSimplify[<span class="fu">dt</span> . ct . <span class="fu">dt</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span><span class="fu">dt</span> . ct . <span class="fu">dt</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{dt} \;\text{zt}-\text{ct}.\text{dt}.\text{dt}</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>UnDeclareNonCommutative[<span class="fu">a</span>, <span class="fu">b</span>, <span class="fu">c</span>, <span class="fu">d</span>, ct, <span class="fu">dt</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>UnDeclareAllAntiCommutators[]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>UnDeclareNonCommutative<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> <span class="fu">d</span><span class="op">,</span> ct<span class="op">,</span> <span class="fu">dt</span><span class="op">]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>UnDeclareAllAntiCommutators<span class="op">[]</span></span></code></pre></div>
 </body>
 </html>

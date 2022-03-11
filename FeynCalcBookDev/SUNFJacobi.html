@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,9 +106,9 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SUNF.html">SUNF</a>, <a href="SUNSimplify.html">SUNSimplify</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SUNF[<span class="fu">a</span>, <span class="fu">b</span>, <span class="fu">c</span>] SUNF[<span class="fu">e</span>, <span class="fu">f</span>, <span class="fu">c</span>] // SUNSimplify[#, SUNFJacobi -&gt; <span class="fu">False</span>] &amp;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> SUNF<span class="op">[</span><span class="fu">e</span><span class="op">,</span> <span class="fu">f</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> <span class="sc">//</span> SUNSimplify<span class="op">[</span>#<span class="op">,</span> SUNFJacobi <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span> &amp;</span></code></pre></div>
 <p><span class="math display">f^{cef} f^{abc}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SUNF[<span class="fu">a</span>, <span class="fu">b</span>, <span class="fu">c</span>] SUNF[<span class="fu">e</span>, <span class="fu">f</span>, <span class="fu">c</span>] // SUNSimplify[#, SUNFJacobi -&gt; <span class="fu">True</span>] &amp;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> SUNF<span class="op">[</span><span class="fu">e</span><span class="op">,</span> <span class="fu">f</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> <span class="sc">//</span> SUNSimplify<span class="op">[</span>#<span class="op">,</span> SUNFJacobi <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp;</span></code></pre></div>
 <p><span class="math display">f^{bcf} f^{ace}-f^{acf} f^{bce}</span></p>
 </body>
 </html>

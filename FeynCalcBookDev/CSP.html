@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,22 +107,22 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SP.html">SP</a>, <a href="ScalarProduct.html">ScalarProduct</a>, <a href="CartesianScalarProduct.html">CartesianScalarProduct</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>CSP[<span class="fu">p</span>, <span class="fu">q</span>] + CSP[<span class="fu">q</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>CSP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> CSP<span class="op">[</span><span class="fu">q</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}\cdot \overline{q}+\overline{q}^2</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>CSP[<span class="fu">p</span> - <span class="fu">q</span>, <span class="fu">q</span> + <span class="dv">2</span> <span class="fu">p</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>CSP<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">+</span> <span class="dv">2</span> <span class="fu">p</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(\overline{p}-\overline{q})\cdot (2 \overline{p}+\overline{q})</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>Calc[ CSP[<span class="fu">p</span> - <span class="fu">q</span>, <span class="fu">q</span> + <span class="dv">2</span> <span class="fu">p</span>] ]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Calc<span class="op">[</span> CSP<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">+</span> <span class="dv">2</span> <span class="fu">p</span><span class="op">]</span> <span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\overline{p}\cdot \overline{q}+2 \overline{p}^2-\overline{q}^2</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>ExpandScalarProduct[CSP[<span class="fu">p</span> - <span class="fu">q</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span>CSP<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">-2 \left(\overline{p}\cdot \overline{q}\right)+\overline{p}^2+\overline{q}^2</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>CSP[<span class="fu">a</span>, <span class="fu">b</span>] // <span class="fu">StandardForm</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>(*CSP[<span class="fu">a</span>, <span class="fu">b</span>]*)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>CSP[<span class="fu">a</span>, <span class="fu">b</span>] // FCI // <span class="fu">StandardForm</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>(*CartesianPair[CartesianMomentum[<span class="fu">a</span>], CartesianMomentum[<span class="fu">b</span>]]*)</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>CSP[<span class="fu">a</span>, <span class="fu">b</span>] // FCI // FCE // <span class="fu">StandardForm</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>(*CSP[<span class="fu">a</span>, <span class="fu">b</span>]*)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>CSP<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*CSP[a, b]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>CSP<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*CartesianPair[CartesianMomentum[a], CartesianMomentum[b]]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>CSP<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> FCE <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*CSP[a, b]*)</span></span></code></pre></div>
 </body>
 </html>

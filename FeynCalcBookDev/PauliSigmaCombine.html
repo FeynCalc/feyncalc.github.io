@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,12 +106,12 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="PauliSigmaExpand.html">PauliSigmaExpand</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SIS[<span class="fu">p</span>] + SIS[<span class="fu">q</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>PauliSigmaCombine[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SIS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> SIS<span class="op">[</span><span class="fu">q</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>PauliSigmaCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\sigma }\cdot \overline{p}+\bar{\sigma }\cdot \overline{q}</span></p>
 <p><span class="math display">\bar{\sigma }\cdot \left(\overline{p}+\overline{q}\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>PauliXi[-I] . (SIS[p1 + p2] + SIS[<span class="fu">q</span>]) . PauliEta[<span class="fu">I</span>]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>PauliSigmaCombine[%]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PauliXi<span class="op">[</span><span class="sc">-</span><span class="fu">I</span><span class="op">]</span> . (SIS<span class="op">[</span>p1 <span class="sc">+</span> p2<span class="op">]</span> <span class="sc">+</span> SIS<span class="op">[</span><span class="fu">q</span><span class="op">]</span>) . PauliEta<span class="op">[</span><span class="fu">I</span><span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PauliSigmaCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\xi ^{\dagger }.\left(\bar{\sigma }\cdot \left(\overline{\text{p1}}+\overline{\text{p2}}\right)+\bar{\sigma }\cdot \overline{q}\right).\eta</span></p>
 <p><span class="math display">\xi ^{\dagger }.\left(\bar{\sigma }\cdot \left(\overline{\text{p1}}+\overline{\text{p2}}+\overline{q}\right)\right).\eta</span></p>
 </body>

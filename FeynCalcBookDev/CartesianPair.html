@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,38 +107,38 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Pair.html">Pair</a>, <a href="TemporalPair.html">TemporalPair</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>This represents a three-dimensional Kronecker delta</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>CartesianPair[CartesianIndex[<span class="fu">i</span>], CartesianIndex[<span class="fu">j</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\delta }^{ij}</span></p>
 <p>This is a <span class="math inline">D-1</span>-dimensional Kronecker delta</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>CartesianPair[CartesianIndex[<span class="fu">i</span>, <span class="fu">D</span> - <span class="dv">1</span>], CartesianIndex[<span class="fu">j</span>, <span class="fu">D</span> - <span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">],</span> CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\delta ^{ij}</span></p>
 <p>If the Cartesian indices live in different dimensions, this gets resolved according to the t’Hoft-Veltman-Breitenlohner-Maison prescription</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>CartesianPair[CartesianIndex[<span class="fu">i</span>, <span class="fu">D</span> - <span class="dv">1</span>], CartesianIndex[<span class="fu">j</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">],</span> CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\delta }^{ij}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>CartesianPair[CartesianIndex[<span class="fu">i</span>, <span class="fu">D</span> - <span class="dv">1</span>], CartesianIndex[<span class="fu">j</span>, <span class="fu">D</span> - <span class="dv">4</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">],</span> CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">4</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\hat{\delta }^{ij}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>CartesianPair[CartesianIndex[<span class="fu">i</span>], CartesianIndex[<span class="fu">j</span>, <span class="fu">D</span> - <span class="dv">4</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">4</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">0</span></p>
 <p>A <span class="math inline">3</span>-dimensional Cartesian vector</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>CartesianPair[CartesianIndex[<span class="fu">i</span>], CartesianMomentum[<span class="fu">p</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^i</span></p>
 <p>A <span class="math inline">D-1</span>-dimensional Cartesian vector</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>CartesianPair[CartesianIndex[<span class="fu">i</span>, <span class="fu">D</span> - <span class="dv">1</span>], CartesianMomentum[<span class="fu">p</span>, <span class="fu">D</span> - <span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">p^i</span></p>
 <p><span class="math inline">3</span>-dimensional scalar products of Cartesian vectors</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>CartesianPair[CartesianMomentum[<span class="fu">q</span>], CartesianMomentum[<span class="fu">p</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">q</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>CartesianPair[CartesianMomentum[<span class="fu">p</span>], CartesianMomentum[<span class="fu">p</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^2</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>CartesianPair[CartesianMomentum[<span class="fu">p</span> - <span class="fu">q</span>], CartesianMomentum[<span class="fu">p</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}\cdot (\overline{p}-\overline{q})</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>CartesianPair[CartesianMomentum[<span class="fu">p</span>], CartesianMomentum[<span class="fu">p</span>]]^<span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^4</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>CartesianPair[CartesianMomentum[<span class="fu">p</span>], CartesianMomentum[<span class="fu">p</span>]]^<span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^6</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>ExpandScalarProduct[CartesianPair[CartesianMomentum[<span class="fu">p</span> - <span class="fu">q</span>], CartesianMomentum[<span class="fu">p</span>]]]</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span>CartesianPair<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^2-\overline{p}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>CartesianPair[CartesianMomentum[-q], CartesianMomentum[<span class="fu">p</span>]] + CartesianPair[CartesianMomentum[<span class="fu">q</span>], CartesianMomentum[<span class="fu">p</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="sc">-</span><span class="fu">q</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> <span class="sc">+</span> CartesianPair<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">q</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">0</span></p>
 </body>
 </html>

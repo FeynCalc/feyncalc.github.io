@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,13 +106,13 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a></p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FCClearScalarProducts[]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>FeynArts`FAFeynAmpDenominator[FeynArts`FAPropagatorDenominator[Momentum[<span class="fu">P</span>, <span class="fu">D</span>], MW <span class="fu">Sqrt</span>[FeynArts`FAGaugeXi[<span class="fu">W</span>]]], FeynArts`FAPropagatorDenominator[Momentum[<span class="fu">k</span>, <span class="fu">D</span>], <span class="fu">m</span>]]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>FCPrepareFAAmp[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FeynArts`FAFeynAmpDenominator<span class="op">[</span>FeynArts`FAPropagatorDenominator<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">P</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> MW <span class="fu">Sqrt</span><span class="op">[</span>FeynArts`FAGaugeXi<span class="op">[</span><span class="fu">W</span><span class="op">]]],</span> FeynArts`FAPropagatorDenominator<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> <span class="fu">m</span><span class="op">]]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FCPrepareFAAmp<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{FeynArts$\grave{ }$FAFeynAmpDenominator}\left(\text{FeynArts$\grave{ }$FAPropagatorDenominator}\left(P,\text{MW} \sqrt{\text{FeynArts$\grave{ }$FAGaugeXi}(W)}\right),\text{FeynArts$\grave{ }$FAPropagatorDenominator}(k,m)\right)</span></p>
 <p><span class="math display">\frac{1}{\left(\overline{P}^2-\text{MW}^2 \xi _W\right).\left(\overline{k}^2-m^2\right)}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FeynArts`IndexDelta[FeynArts`Index[Global`Gluon, <span class="dv">1</span>], FeynArts`Index[Global`Gluon, <span class="dv">2</span>]]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>FCPrepareFAAmp[%]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FeynArts`IndexDelta<span class="op">[</span>FeynArts`Index<span class="op">[</span>Global`Gluon<span class="op">,</span> <span class="dv">1</span><span class="op">],</span> FeynArts`Index<span class="op">[</span>Global`Gluon<span class="op">,</span> <span class="dv">2</span><span class="op">]]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCPrepareFAAmp<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{FeynArts$\grave{ }$IndexDelta}(\text{FeynArts$\grave{ }$Index}(\text{Gluon},1),\text{FeynArts$\grave{ }$Index}(\text{Gluon},2))</span></p>
 <p><span class="math display">\delta ^{\text{Glu1}\;\text{Glu2}}</span></p>
 </body>

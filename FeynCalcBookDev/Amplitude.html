@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -104,13 +108,13 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FeynAmp.html">FeynAmp</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Amplitude[] // <span class="fu">Length</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Amplitude<span class="op">[]</span> <span class="sc">//</span> <span class="fu">Length</span></span></code></pre></div>
 <p><span class="math display">98</span></p>
 <p>This is the amplitude of a gluon self-energy diagram:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Amplitude[&quot;se1g1&quot;]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>Explicit[%] </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Amplitude<span class="op">[</span><span class="st">&quot;se1g1&quot;</span><span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Explicit<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\text{SUNDeltaContract}\left(f^{\text{FCGV}(\text{a})\text{FCGV}(\text{c})\text{FCGV}(\text{e})} f^{\text{FCGV}(\text{b})\text{FCGV}(\text{d})\text{FCGV}(\text{f})} \Pi _{\text{FCGV}(\text{e})\text{FCGV}(\text{f})}^{\text{FCGV}(\beta )\text{FCGV}(\sigma )}(\text{FCGV}(\text{q})) V^{\text{FCGV}(\mu )\text{FCGV}(\alpha )\text{FCGV}(\beta )}(\text{FCGV}(\text{p})\text{, }\;\text{FCGV}(\text{q})-\text{FCGV}(\text{p})\text{, }-\text{FCGV}(\text{q})) V^{\text{FCGV}(\nu )\text{FCGV}(\rho )\text{FCGV}(\sigma )}(-\text{FCGV}(\text{p})\text{, }\;\text{FCGV}(\text{p})-\text{FCGV}(\text{q})\text{, }\;\text{FCGV}(\text{q})) \Pi _{\text{FCGV}(\text{c})\text{FCGV}(\text{d})}^{\text{FCGV}(\alpha )\text{FCGV}(\rho )}(\text{FCGV}(\text{p})-\text{FCGV}(\text{q}))\right)</span></p>
 <p><span class="math display">-\left(\left(g_s^2 g^{\text{FCGV}(\alpha )\text{FCGV}(\rho )} g^{\text{FCGV}(\beta )\text{FCGV}(\sigma )} f^{\text{FCGV}(\text{a})\text{FCGV}(\text{d})\text{FCGV}(\text{f})} f^{\text{FCGV}(\text{b})\text{FCGV}(\text{d})\text{FCGV}(\text{f})} \left(g^{\text{FCGV}(\beta )\text{FCGV}(\mu )} \left(-\text{FCGV}(\text{p})^{\text{FCGV}(\alpha )}-\text{FCGV}(\text{q})^{\text{FCGV}(\alpha )}\right)+g^{\text{FCGV}(\alpha )\text{FCGV}(\mu )} \left(2 \;\text{FCGV}(\text{p})^{\text{FCGV}(\beta )}-\text{FCGV}(\text{q})^{\text{FCGV}(\beta )}\right)+g^{\text{FCGV}(\alpha )\text{FCGV}(\beta )} \left(2 \;\text{FCGV}(\text{q})^{\text{FCGV}(\mu )}-\text{FCGV}(\text{p})^{\text{FCGV}(\mu )}\right)\right) \left(g^{\text{FCGV}(\rho )\text{FCGV}(\sigma )} \left(\text{FCGV}(\text{p})^{\text{FCGV}(\nu )}-2 \;\text{FCGV}(\text{q})^{\text{FCGV}(\nu )}\right)+g^{\text{FCGV}(\nu )\text{FCGV}(\sigma )} \left(\text{FCGV}(\text{p})^{\text{FCGV}(\rho )}+\text{FCGV}(\text{q})^{\text{FCGV}(\rho )}\right)+g^{\text{FCGV}(\nu )\text{FCGV}(\rho )} \left(\text{FCGV}(\text{q})^{\text{FCGV}(\sigma )}-2 \;\text{FCGV}(\text{p})^{\text{FCGV}(\sigma )}\right)\right)\right)/\left(\text{FCGV}(\text{q})^2 (\text{FCGV}(\text{p})-\text{FCGV}(\text{q}))^2\right)\right)</span></p>
 </body>

@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,27 +106,27 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="PauliChain.html">PauliChain</a>, <a href="PCHN.html">PCHN</a>, <a href="PauliIndex.html">PauliIndex</a>, <a href="DIDelta.html">DIDelta</a>, <a href="PauliChainJoin.html">PauliChainJoin</a>, <a href="PauliChainCombine.html">PauliChainCombine</a>, <a href="PauliChainExpand.html">PauliChainExpand</a>, <a href="PauliChainFactor.html">PauliChainFactor</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>PauliIndexDelta[PauliIndex[<span class="fu">i</span>], PauliIndex[<span class="fu">j</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PauliIndexDelta<span class="op">[</span>PauliIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> PauliIndex<span class="op">[</span><span class="fu">j</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\delta _{ij}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>PauliIndexDelta[PauliIndex[<span class="fu">i</span>], PauliIndex[<span class="fu">j</span>]]^<span class="dv">2</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>PauliChainJoin[%]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>PauliChainJoin[%%, TraceOfOne -&gt; <span class="fu">D</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PauliIndexDelta<span class="op">[</span>PauliIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> PauliIndex<span class="op">[</span><span class="fu">j</span><span class="op">]]</span><span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PauliChainJoin<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>PauliChainJoin<span class="op">[</span><span class="sc">%%</span><span class="op">,</span> TraceOfOne <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\delta _{ij}^2</span></p>
 <p><span class="math display">4</span></p>
 <p><span class="math display">D</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>PauliIndexDelta[PauliIndex[<span class="fu">i</span>], PauliIndex[<span class="fu">j</span>]] PauliIndexDelta[PauliIndex[<span class="fu">j</span>], PauliIndex[<span class="fu">k</span>]]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>PauliChainJoin[%]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PauliIndexDelta<span class="op">[</span>PauliIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> PauliIndex<span class="op">[</span><span class="fu">j</span><span class="op">]]</span> PauliIndexDelta<span class="op">[</span>PauliIndex<span class="op">[</span><span class="fu">j</span><span class="op">],</span> PauliIndex<span class="op">[</span><span class="fu">k</span><span class="op">]]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PauliChainJoin<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\delta _{ij} \delta _{jk}</span></p>
 <p><span class="math display">\delta _{ik}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>PauliChain[PauliEta[-I], PauliIndex[i0]] PIDelta[i0, i1] // FCI // PauliChainJoin</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PauliChain<span class="op">[</span>PauliEta<span class="op">[</span><span class="sc">-</span><span class="fu">I</span><span class="op">],</span> PauliIndex<span class="op">[</span>i0<span class="op">]]</span> PIDelta<span class="op">[</span>i0<span class="op">,</span> i1<span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> PauliChainJoin</span></code></pre></div>
 <p><span class="math display">\left(\eta ^{\dagger }\right){}_{\text{i1}}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>PauliIndexDelta[PauliIndex[i2], PauliIndex[i3]] PauliIndexDelta[PauliIndex[i4], PauliIndex[i5]] PauliChain[PauliIndex[i7], PauliXi[<span class="fu">I</span>]] PauliChain[PauliEta[-I], PauliIndex[i0]] PauliChain[PauliSigma[CartesianIndex[<span class="fu">a</span>]], PauliIndex[i1], PauliIndex[i2]] PauliChain[PauliSigma[CartesianIndex[<span class="fu">b</span>]], PauliIndex[i5], PauliIndex[i6]] PauliChain[<span class="fu">m</span> + PauliSigma[CartesianMomentum[<span class="fu">p</span>]], PauliIndex[i3], PauliIndex[i4]]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>PauliChainJoin[%]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PauliIndexDelta<span class="op">[</span>PauliIndex<span class="op">[</span>i2<span class="op">],</span> PauliIndex<span class="op">[</span>i3<span class="op">]]</span> PauliIndexDelta<span class="op">[</span>PauliIndex<span class="op">[</span>i4<span class="op">],</span> PauliIndex<span class="op">[</span>i5<span class="op">]]</span> PauliChain<span class="op">[</span>PauliIndex<span class="op">[</span>i7<span class="op">],</span> PauliXi<span class="op">[</span><span class="fu">I</span><span class="op">]]</span> PauliChain<span class="op">[</span>PauliEta<span class="op">[</span><span class="sc">-</span><span class="fu">I</span><span class="op">],</span> PauliIndex<span class="op">[</span>i0<span class="op">]]</span> PauliChain<span class="op">[</span>PauliSigma<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">a</span><span class="op">]],</span> PauliIndex<span class="op">[</span>i1<span class="op">],</span> PauliIndex<span class="op">[</span>i2<span class="op">]]</span> PauliChain<span class="op">[</span>PauliSigma<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">b</span><span class="op">]],</span> PauliIndex<span class="op">[</span>i5<span class="op">],</span> PauliIndex<span class="op">[</span>i6<span class="op">]]</span> PauliChain<span class="op">[</span><span class="fu">m</span> <span class="sc">+</span> PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]],</span> PauliIndex<span class="op">[</span>i3<span class="op">],</span> PauliIndex<span class="op">[</span>i4<span class="op">]]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>PauliChainJoin<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(\xi )_{\text{i7}} \left(\eta ^{\dagger }\right){}_{\text{i0}} \delta _{\text{i2}\;\text{i3}} \delta _{\text{i4}\;\text{i5}} \left(\overline{\sigma }^a\right){}_{\text{i1}\;\text{i2}} \left(\overline{\sigma }^b\right){}_{\text{i5}\;\text{i6}} \left(\overline{\sigma }\cdot \overline{p}+m\right)_{\text{i3}\;\text{i4}}</span></p>
 <p><span class="math display">(\xi )_{\text{i7}} \left(\eta ^{\dagger }\right){}_{\text{i0}} \left(\overline{\sigma }^a.\left(\overline{\sigma }\cdot \overline{p}+m\right).\overline{\sigma }^b\right){}_{\text{i1}\;\text{i6}}</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>PauliChainJoin[% PIDelta[i0, i1]]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PauliChainJoin<span class="op">[</span><span class="sc">%</span> PIDelta<span class="op">[</span>i0<span class="op">,</span> i1<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">(\xi )_{\text{i7}} \left(\eta ^{\dagger }.\overline{\sigma }^a.\left(\overline{\sigma }\cdot \overline{p}+m\right).\overline{\sigma }^b\right){}_{\text{i6}}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>PauliChainJoin[% PIDelta[i7, i6]]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>PauliChainJoin<span class="op">[</span><span class="sc">%</span> PIDelta<span class="op">[</span>i7<span class="op">,</span> i6<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\eta ^{\dagger }.\overline{\sigma }^a.\left(\overline{\sigma }\cdot \overline{p}+m\right).\overline{\sigma }^b.\xi</span></p>
 </body>
 </html>

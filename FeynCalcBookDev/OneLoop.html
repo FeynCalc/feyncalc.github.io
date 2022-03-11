@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,12 +106,12 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ToPaVe.html">ToPaVe</a>, <a href="ToPaVe2.html">ToPaVe2</a>, <a href="A0.html">A0</a>, <a href="A00.html">A00</a>, <a href="B0.html">B0</a>, <a href="B1.html">B1</a>, <a href="B00.html">B00</a>, <a href="B11.html">B11</a>, <a href="C0.html">C0</a>, <a href="D0.html">D0</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>-I/<span class="fu">Pi</span>^<span class="dv">2</span> FAD[{<span class="fu">q</span>, <span class="fu">m</span>}]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>OneLoop[<span class="fu">q</span>, %]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fu">I</span><span class="sc">/</span><span class="fu">Pi</span><span class="sc">^</span><span class="dv">2</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">}]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>OneLoop<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\frac{i}{\pi ^2 \left(q^2-m^2\right)}</span></p>
 <p><span class="math display">\text{A}_0\left(m^2\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">I</span> ((el^<span class="dv">2</span>)/(<span class="dv">16</span> <span class="fu">Pi</span>^<span class="dv">4</span> (<span class="dv">1</span> - <span class="fu">D</span>))) FAD[{<span class="fu">q</span>, mf}, {<span class="fu">q</span> - <span class="fu">k</span>, mf}] DiracTrace[(mf + GSD[<span class="fu">q</span> - <span class="fu">k</span>]) . GAD[\[Mu]] . (mf + GSD[<span class="fu">q</span>]) . GAD[\[Mu]]] </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>OneLoop[<span class="fu">q</span>, %]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">I</span> ((el<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">16</span> <span class="fu">Pi</span><span class="sc">^</span><span class="dv">4</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">D</span>))) FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> mf<span class="op">},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">-</span> <span class="fu">k</span><span class="op">,</span> mf<span class="op">}]</span> DiracTrace<span class="op">[</span>(mf <span class="sc">+</span> GSD<span class="op">[</span><span class="fu">q</span> <span class="sc">-</span> <span class="fu">k</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (mf <span class="sc">+</span> GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>OneLoop<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{i \;\text{el}^2 \;\text{tr}\left((\gamma \cdot (q-k)+\text{mf}).\gamma ^{\mu }.(\text{mf}+\gamma \cdot q).\gamma ^{\mu }\right)}{16 \pi ^4 (1-D) \left(q^2-\text{mf}^2\right).\left((q-k)^2-\text{mf}^2\right)}</span></p>
 <p><span class="math display">\frac{\text{el}^2 \left(-\frac{8 \;\text{mf}^2 \;\text{B}_0\left(\overline{k}^2,\text{mf}^2,\text{mf}^2\right)}{1-D}+\frac{2 (2-D) \overline{k}^2 \;\text{B}_0\left(\overline{k}^2,\text{mf}^2,\text{mf}^2\right)}{1-D}+\frac{4 D \;\text{A}_0\left(\text{mf}^2\right)}{1-D}-\frac{8 \;\text{A}_0\left(\text{mf}^2\right)}{1-D}\right)}{16 \pi ^2}</span></p>
 </body>

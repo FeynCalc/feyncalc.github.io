@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -115,38 +119,38 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DeclareNonCommutative.html">DeclareNonCommutative</a>.</p>
 <h3 id="examples">Examples</h3>
 <p><code>NonCommutative</code> is just a data-type.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DataType[<span class="fu">f</span>, <span class="fu">g</span>, NonCommutative] = <span class="fu">True</span>;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="fu">t</span> = <span class="fu">f</span> . <span class="fu">g</span> - <span class="fu">g</span> . (<span class="dv">2</span> <span class="fu">a</span>) . <span class="fu">f</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">f</span><span class="op">,</span> <span class="fu">g</span><span class="op">,</span> NonCommutative<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span> <span class="ex">=</span> <span class="fu">f</span> . <span class="fu">g</span> <span class="sc">-</span> <span class="fu">g</span> . (<span class="dv">2</span> <span class="fu">a</span>) . <span class="fu">f</span></span></code></pre></div>
 <p><span class="math display">f.g-g.(2 a).f</span></p>
-<p>Since <code>f</code>"and <code>g</code> have <code>DataType</code> <code>NonCommutative</code>, the function <code>DotSimplify</code> extracts only <code>a</code> out of the noncommutative product.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>DotSimplify[<span class="fu">t</span>]</span></code></pre></div>
+<p>Since <code>f</code>“and <code>g</code> have <code>DataType</code> <code>NonCommutative</code>, the function <code>DotSimplify</code> extracts only <code>a</code> out of the noncommutative product.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span><span class="fu">t</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">f.g-2 a g.f</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>DataType[<span class="fu">m</span>, odd] = DataType[<span class="fu">a</span>, even] = <span class="fu">True</span>;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>ptest1[<span class="dt">x_</span>] := <span class="fu">x</span> /. (-<span class="dv">1</span>)^<span class="dt">n_</span> /; DataType[<span class="fu">n</span>, odd] :&gt; <span class="dv">-1</span>;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>ptest2[<span class="dt">x_</span>] := <span class="fu">x</span> /. (-<span class="dv">1</span>)^<span class="dt">n_</span> /; DataType[<span class="fu">n</span>, even] :&gt; <span class="dv">1</span>;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="fu">t</span> = (-<span class="dv">1</span>)^<span class="fu">m</span> + (-<span class="dv">1</span>)^<span class="fu">a</span> + (-<span class="dv">1</span>)^<span class="fu">z</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">m</span><span class="op">,</span> odd<span class="op">]</span> <span class="ex">=</span> DataType<span class="op">[</span><span class="fu">a</span><span class="op">,</span> even<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ptest1<span class="op">[</span><span class="at">x_</span><span class="op">]</span> <span class="ex">:=</span> <span class="fu">x</span> <span class="ot">/.</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span><span class="at">n_</span> <span class="sc">/</span>; DataType<span class="op">[</span><span class="fu">n</span><span class="op">,</span> odd<span class="op">]</span> :&gt; <span class="sc">-</span><span class="dv">1</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ptest2<span class="op">[</span><span class="at">x_</span><span class="op">]</span> <span class="ex">:=</span> <span class="fu">x</span> <span class="ot">/.</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span><span class="at">n_</span> <span class="sc">/</span>; DataType<span class="op">[</span><span class="fu">n</span><span class="op">,</span> even<span class="op">]</span> :&gt; <span class="dv">1</span>;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span> <span class="ex">=</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span><span class="fu">m</span> <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span><span class="fu">a</span> <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span><span class="fu">z</span></span></code></pre></div>
 <p><span class="math display">(-1)^a+(-1)^m+(-1)^z</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>ptest1[<span class="fu">t</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>ptest2[%]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ptest1<span class="op">[</span><span class="fu">t</span><span class="op">]</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ptest2<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(-1)^a+(-1)^z-1</span></p>
 <p><span class="math display">(-1)^z</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">Clear</span>[ptest1, ptest2, <span class="fu">t</span>, <span class="fu">a</span>, <span class="fu">m</span>];</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>DataType[<span class="fu">m</span>, <span class="fu">integer</span>] = <span class="fu">True</span>;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="fu">f</span>[<span class="dt">x_</span>] := <span class="fu">x</span> /. {(-<span class="dv">1</span>)^<span class="dt">p_</span> /; DataType[<span class="fu">p</span>, <span class="fu">integer</span>] :&gt; <span class="dv">1</span>};</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>test = (-<span class="dv">1</span>)^<span class="fu">m</span> + (-<span class="dv">1</span>)^<span class="fu">n</span> <span class="fu">x</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Clear</span><span class="op">[</span>ptest1<span class="op">,</span> ptest2<span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="fu">integer</span><span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span><span class="op">[</span><span class="at">x_</span><span class="op">]</span> <span class="ex">:=</span> <span class="fu">x</span> <span class="ot">/.</span> <span class="op">{</span>(<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span><span class="at">p_</span> <span class="sc">/</span>; DataType<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">integer</span><span class="op">]</span> :&gt; <span class="dv">1</span><span class="op">}</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>test <span class="ex">=</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span><span class="fu">m</span> <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span><span class="fu">n</span> <span class="fu">x</span></span></code></pre></div>
 <p><span class="math display">(-1)^m+(-1)^n x</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">f</span>[test]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span><span class="op">[</span>test<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(-1)^n x+1</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">Clear</span>[<span class="fu">f</span>, test];</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>DataType[<span class="fu">f</span>, <span class="fu">g</span>, NonCommutative] = <span class="fu">False</span>;</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>DataType[<span class="fu">m</span>, odd] = DataType[<span class="fu">a</span>, even] = <span class="fu">False</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Clear</span><span class="op">[</span><span class="fu">f</span><span class="op">,</span> test<span class="op">]</span>;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">f</span><span class="op">,</span> <span class="fu">g</span><span class="op">,</span> NonCommutative<span class="op">]</span> <span class="ex">=</span> <span class="cn">False</span>;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">m</span><span class="op">,</span> odd<span class="op">]</span> <span class="ex">=</span> DataType<span class="op">[</span><span class="fu">a</span><span class="op">,</span> even<span class="op">]</span> <span class="ex">=</span> <span class="cn">False</span>;</span></code></pre></div>
 <p>Certain FeynCalc objects have <code>DataType</code> <code>PositiveInteger</code> set to <code>True</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>DataType[OPEm, PositiveInteger]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>OPEm<span class="op">,</span> PositiveInteger<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{True}</span></p>
 <p>PowerSimplify uses the DataType information.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>PowerSimplify[ (-<span class="dv">1</span>)^(<span class="dv">2</span> OPEm)]</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>PowerSimplify<span class="op">[</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span>(<span class="dv">2</span> OPEm)<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">1</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>PowerSimplify[ (- SO[<span class="fu">q</span>])^OPEm]</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>PowerSimplify<span class="op">[</span> (<span class="sc">-</span> SO<span class="op">[</span><span class="fu">q</span><span class="op">]</span>)<span class="sc">^</span>OPEm<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(\Delta \cdot q)^m e^{2 i \pi  m \left\lfloor -\frac{\arg (\Delta \cdot q)}{2 \pi }\right\rfloor +i \pi  m}</span></p>
 </body>
 </html>

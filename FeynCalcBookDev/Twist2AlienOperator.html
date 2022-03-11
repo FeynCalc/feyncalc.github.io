@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,9 +106,9 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Twist2GluonOperator.html">Twist2GluonOperator</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Twist2AlienOperator[<span class="fu">p</span>, <span class="dv">0</span>] </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>Twist2AlienOperator[p1, p2, {p3, mu, <span class="fu">a</span>}, <span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Twist2AlienOperator<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Twist2AlienOperator<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">,</span> <span class="op">{</span>p3<span class="op">,</span> mu<span class="op">,</span> <span class="fu">a</span><span class="op">},</span> <span class="dv">0</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{2 \left(\frac{2}{m}-\frac{1}{m+1}-\frac{2}{m-1}\right) C_F g_s^2 S_n \gamma \cdot \Delta  (\Delta \cdot p)^{m-1}}{\varepsilon }</span></p>
 <p><span class="math display">\frac{i \left((-1)^m+1\right) g_s^3 \Delta ^{\text{mu}} S_n T^a.(\gamma \cdot \Delta ) \left(\left(\frac{2}{m}-\frac{1}{m+1}-\frac{2}{m-1}\right) \left(\frac{(\Delta \cdot \;\text{p1})^{m-1}}{\Delta \cdot \;\text{p1}+\Delta \cdot \;\text{p3}}-\frac{(-(\Delta \cdot \;\text{p3}))^{m-1}}{\Delta \cdot \;\text{p1}+\Delta \cdot \;\text{p3}}\right)+\left(\frac{1}{m-1}-\frac{1}{m}\right) (-(\Delta \cdot \;\text{p3}))^{m-2}\right)}{\varepsilon }</span></p>
 </body>

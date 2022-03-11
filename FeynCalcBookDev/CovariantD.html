@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -108,41 +112,41 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a></p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>CovariantD[\[Mu]]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">D_{\mu }</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>CovariantD[\[Mu], <span class="fu">a</span>, <span class="fu">b</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">D_{\mu }^{ab}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>CovariantD[\[Mu], Explicit -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\vec{\partial }_{\mu }-i g_s T^{\text{c24}}.A_{\mu }^{\text{c24}}</span></p>
 <p>The first argument of <code>CovariantD</code> is interpreted as type <code>LorentzIndex</code>, except for <code>OPEDelta</code>, which is type <code>Momentum</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>CovariantD[OPEDelta]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">D_{\Delta }</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>CovariantD[OPEDelta, <span class="fu">a</span>, <span class="fu">b</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">D_{\Delta }^{ab}</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>CovariantD[OPEDelta, <span class="fu">a</span>, <span class="fu">b</span>, Explicit -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\delta ^{ab} \vec{\partial }_{\Delta }-g_s A_{\Delta }^{\text{c25}} f^{ab\text{c25}}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>CovariantD[OPEDelta, Explicit -&gt; <span class="fu">True</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\vec{\partial }_{\Delta }-i g_s T^{\text{c26}}.A_{\Delta }^{\text{c26}}</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>CovariantD[OPEDelta, <span class="fu">a</span>, <span class="fu">b</span>, {<span class="dv">2</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\left(\delta ^{a\text{c27}} \vec{\partial }_{\Delta }-g_s A_{\Delta }^{\text{e28}} f^{a\text{c27}\;\text{e28}}\right).\left(\delta ^{b\text{c27}} \vec{\partial }_{\Delta }-g_s A_{\Delta }^{\text{e29}} f^{\text{c27}b\text{e29}}\right)</span></p>
 <p>This gives<span class="math inline">m * \vec{\partial}_{\Delta}</span>, the partial derivative <span class="math inline">\vec{\partial}_{\mu }</span> contracted with <span class="math inline">\Delta ^{\mu }</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>CovariantD[OPEDelta, <span class="fu">a</span>, <span class="fu">b</span>, {OPEm, <span class="dv">0</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="op">{</span>OPEm<span class="op">,</span> <span class="dv">0</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\delta ^{ab} \left(\vec{\partial }_{\Delta }\right){}^m</span></p>
 <p>The expansion up to first order in the coupling constant <span class="math inline">g_s</span> (the sum is the <code>FeynCalcOPESum</code>)</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>CovariantD[OPEDelta, <span class="fu">a</span>, <span class="fu">b</span>, {OPEm, <span class="dv">1</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="op">{</span>OPEm<span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\delta ^{ab} \left(\vec{\partial }_{\Delta }\right){}^m-g_s \left(\sum _{i=0}^{-1+m} \left(\vec{\partial }_{\Delta }\right){}^i.A_{\Delta }^{\text{c39}_1}.\left(\vec{\partial }_{\Delta }\right){}^{-1-i+m} f^{ab\text{c39}_1}\right)</span></p>
 <p>The expansion up to second order in the <span class="math inline">g_s</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>CovariantD[OPEDelta, <span class="fu">a</span>, <span class="fu">b</span>, {OPEm, <span class="dv">2</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="op">{</span>OPEm<span class="op">,</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">-g_s \left(\sum _{i=0}^{-1+m} \left(\vec{\partial }_{\Delta }\right){}^i.A_{\Delta }^{\text{c47}_1}.\left(\vec{\partial }_{\Delta }\right){}^{-1-i+m} f^{ab\text{c47}_1}\right)-g_s^2 \left(\sum _{j=0}^{-2+m} \left(\sum _{i=0}^j \left(\vec{\partial }_{\Delta }\right){}^i.A_{\Delta }^{\text{c51}_1}.\left(\vec{\partial }_{\Delta }\right){}^{-i+j}.A_{\Delta }^{\text{c51}_2}.\left(\vec{\partial }_{\Delta }\right){}^{-2-j+m} f^{a\text{c51}_1\text{e50}_1} f^{b\text{c51}_2\text{e50}_1}\right)\right)+\delta ^{ab} \left(\vec{\partial }_{\Delta }\right){}^m</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>CovariantD[OPEDelta, <span class="fu">a</span>, <span class="fu">b</span>]^OPEm</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span><span class="sc">^</span>OPEm</span></code></pre></div>
 <p><span class="math display">\left(D_{\Delta }^{ab}\right){}^m</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>CovariantD[OPEDelta, {OPEm, <span class="dv">2</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> <span class="op">{</span>OPEm<span class="op">,</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">-i g_s \left(\sum _{i=0}^{-1+m} \left(\vec{\partial }_{\Delta }\right){}^i.A_{\Delta }^{\text{c60}_1}.\left(\vec{\partial }_{\Delta }\right){}^{-1-i+m} T^{\text{c60}_1}\right)-g_s^2 \left(\sum _{j=0}^{-2+m} \left(\sum _{i=0}^j T^{\text{c64}_1}.T^{\text{c64}_2} \left(\vec{\partial }_{\Delta }\right){}^i.A_{\Delta }^{\text{c64}_1}.\left(\vec{\partial }_{\Delta }\right){}^{-i+j}.A_{\Delta }^{\text{c64}_2}.\left(\vec{\partial }_{\Delta }\right){}^{-2-j+m}\right)\right)+\left(\vec{\partial }_{\Delta }\right){}^m</span></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>CovariantD[OPEDelta, Explicit -&gt; <span class="fu">True</span>] // <span class="fu">StandardForm</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>(*RightPartialD[Momentum[OPEDelta]] - <span class="fu">I</span> SUNT[SUNIndex[c67]] . QuantumField[GaugeField, Momentum[OPEDelta], SUNIndex[c67]] SMP[&quot;<span class="dt">g_</span>s&quot;]*)</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>CovariantD[\[Mu], <span class="fu">a</span>, <span class="fu">b</span>, Explicit -&gt; <span class="fu">True</span>] // <span class="fu">StandardForm</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>(*RightPartialD[LorentzIndex[\[Mu]]] SUNDelta[<span class="fu">a</span>, <span class="fu">b</span>] - QuantumField[GaugeField, LorentzIndex[\[Mu]], SUNIndex[c68]] SMP[&quot;<span class="dt">g_</span>s&quot;] SUNF[<span class="fu">a</span>, <span class="fu">b</span>, c68]*)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span>OPEDelta<span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*RightPartialD[Momentum[OPEDelta]] - I SUNT[SUNIndex[c67]] . QuantumField[GaugeField, Momentum[OPEDelta], SUNIndex[c67]] SMP[&quot;g_s&quot;]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>CovariantD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*RightPartialD[LorentzIndex[\[Mu]]] SUNDelta[a, b] - QuantumField[GaugeField, LorentzIndex[\[Mu]], SUNIndex[c68]] SMP[&quot;g_s&quot;] SUNF[a, b, c68]*)</span></span></code></pre></div>
 </body>
 </html>

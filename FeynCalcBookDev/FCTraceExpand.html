@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,24 +106,24 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DiracTrace.html">DiracTrace</a>, <a href="SUNTrace.html">SUNTrace</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>ex = DiracTrace[GA[\[Mu]] . (GS[p1] + m1) . GA[\[Nu]] . (GS[p2] + m2) . GA[\[Rho]] +<span class="fu">x</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> DiracTrace<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (GS<span class="op">[</span>p1<span class="op">]</span> <span class="sc">+</span> m1) . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . (GS<span class="op">[</span>p2<span class="op">]</span> <span class="sc">+</span> m2) . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]</span> <span class="sc">+</span><span class="fu">x</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p1}}+\text{m1}\right).\bar{\gamma }^{\nu }.\left(\bar{\gamma }\cdot \overline{\text{p2}}+\text{m2}\right).\bar{\gamma }^{\rho }+x\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCTraceExpand[ex]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCTraceExpand<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{m1} \;\text{m2} \;\text{tr}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }\right)+\text{m1} \;\text{tr}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\left(\bar{\gamma }\cdot \overline{\text{p2}}\right).\bar{\gamma }^{\rho }\right)+\text{m2} \;\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p1}}\right).\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }\right)+\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p1}}\right).\bar{\gamma }^{\nu }.\left(\bar{\gamma }\cdot \overline{\text{p2}}\right).\bar{\gamma }^{\rho }\right)+\text{tr}(1) x</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FCTraceExpand[ex, DotSimplify -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCTraceExpand<span class="op">[</span>ex<span class="op">,</span> DotSimplify <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p1}}+\text{m1}\right).\bar{\gamma }^{\nu }.\left(\bar{\gamma }\cdot \overline{\text{p2}}+\text{m2}\right).\bar{\gamma }^{\rho }\right)+\text{tr}(1) x</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FCTraceExpand[ex, DiracTrace -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCTraceExpand<span class="op">[</span>ex<span class="op">,</span> DiracTrace <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p1}}+\text{m1}\right).\bar{\gamma }^{\nu }.\left(\bar{\gamma }\cdot \overline{\text{p2}}+\text{m2}\right).\bar{\gamma }^{\rho }+x\right)</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">a</span>*DiracTrace[GA[\[Mu]] . (GS[p1] + m1) . GA[\[Nu]]] + <span class="fu">b</span>*DiracTrace[GA[\[Mu]] . (GS[p2] + m2) . GA[\[Nu]]]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>FCTraceExpand[%, Momentum -&gt; {p1}]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">a</span><span class="sc">*</span>DiracTrace<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (GS<span class="op">[</span>p1<span class="op">]</span> <span class="sc">+</span> m1) . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> <span class="sc">+</span> <span class="fu">b</span><span class="sc">*</span>DiracTrace<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (GS<span class="op">[</span>p2<span class="op">]</span> <span class="sc">+</span> m2) . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>FCTraceExpand<span class="op">[</span><span class="sc">%</span><span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">a \;\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p1}}+\text{m1}\right).\bar{\gamma }^{\nu }\right)+b \;\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p2}}+\text{m2}\right).\bar{\gamma }^{\nu }\right)</span></p>
 <p><span class="math display">a \left(\text{m1} \;\text{tr}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }\right)+\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p1}}\right).\bar{\gamma }^{\nu }\right)\right)+b \;\text{tr}\left(\bar{\gamma }^{\mu }.\left(\bar{\gamma }\cdot \overline{\text{p2}}+\text{m2}\right).\bar{\gamma }^{\nu }\right)</span></p>
 <p>At the moment <code>SUNTrace</code> automatically expands its content, so here <code>FCTraceExpand</code> is not needed. However, this may change in future.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>ex = SUNTrace[SUNT[<span class="fu">i</span>, <span class="fu">j</span>, <span class="fu">k</span>] + SUNT[<span class="fu">l</span>, <span class="fu">m</span>, <span class="fu">n</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> SUNTrace<span class="op">[</span>SUNT<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> <span class="sc">+</span> SUNT<span class="op">[</span><span class="fu">l</span><span class="op">,</span> <span class="fu">m</span><span class="op">,</span> <span class="fu">n</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\text{tr}(T^i.T^j.T^k)+\text{tr}(T^l.T^m.T^n)</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>FCTraceExpand[ex]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCTraceExpand<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{tr}(T^i.T^j.T^k)+\text{tr}(T^l.T^m.T^n)</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>FCTraceExpand[ex, SUNTrace -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCTraceExpand<span class="op">[</span>ex<span class="op">,</span> SUNTrace <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{tr}(T^i.T^j.T^k)+\text{tr}(T^l.T^m.T^n)</span></p>
 </body>
 </html>

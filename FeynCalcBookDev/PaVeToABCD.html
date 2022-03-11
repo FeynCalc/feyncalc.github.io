@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,23 +106,23 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ToPaVe.html">ToPaVe</a>, <a href="ToPaVe2.html">ToPaVe2</a>, <a href="A0.html">A0</a>, <a href="A00.html">A00</a>, <a href="B0.html">B0</a>, <a href="B1.html">B1</a>, <a href="B00.html">B00</a>, <a href="B11.html">B11</a>, <a href="C0.html">C0</a>, <a href="D0.html">D0</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>PaVe[<span class="dv">0</span>, {pp}, {m1^<span class="dv">2</span>, m2^<span class="dv">2</span>}]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>PaVeToABCD[%]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>% // FCI // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PaVe<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="op">{</span>pp<span class="op">},</span> <span class="op">{</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> m2<span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>PaVeToABCD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\text{B}_0\left(\text{pp},\text{m1}^2,\text{m2}^2\right)</span></p>
 <p><span class="math display">\text{B}_0\left(\text{pp},\text{m1}^2,\text{m2}^2\right)</span></p>
 <pre><code>(*B0[pp, m1^2, m2^2]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>PaVe[<span class="dv">0</span>, {SPD[p1], <span class="dv">0</span>, SPD[p2]}, {m1^<span class="dv">2</span>, m2^<span class="dv">2</span>, m3^<span class="dv">2</span>}]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>PaVeToABCD[%]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>% // FCI // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PaVe<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="op">{</span>SPD<span class="op">[</span>p1<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>p2<span class="op">]},</span> <span class="op">{</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> m2<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> m3<span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PaVeToABCD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\text{C}_0\left(0,\text{p1}^2,\text{p2}^2,\text{m3}^2,\text{m2}^2,\text{m1}^2\right)</span></p>
 <p><span class="math display">\text{C}_0\left(0,\text{p1}^2,\text{p2}^2,\text{m3}^2,\text{m2}^2,\text{m1}^2\right)</span></p>
 <pre><code>(*C0[0, Pair[Momentum[p1, D], Momentum[p1, D]], Pair[Momentum[p2, D], Momentum[p2, D]], m3^2, m2^2, m1^2]*)</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>PaVe[<span class="dv">0</span>, <span class="dv">0</span>, {SPD[p1], <span class="dv">0</span>, SPD[p2]}, {m1^<span class="dv">2</span>, m2^<span class="dv">2</span>, m3^<span class="dv">2</span>}]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>PaVeToABCD[%]</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>% // FCI // <span class="fu">StandardForm</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>  </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PaVe<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="op">{</span>SPD<span class="op">[</span>p1<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>p2<span class="op">]},</span> <span class="op">{</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> m2<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> m3<span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>PaVeToABCD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\text{C}_{00}\left(0,\text{p1}^2,\text{p2}^2,\text{m3}^2,\text{m2}^2,\text{m1}^2\right)</span></p>
 <p><span class="math display">\text{C}_{00}\left(0,\text{p1}^2,\text{p2}^2,\text{m3}^2,\text{m2}^2,\text{m1}^2\right)</span></p>
 <pre><code>(*PaVe[0, 0, {0, Pair[Momentum[p1, D], Momentum[p1, D]], Pair[Momentum[p2, D], Momentum[p2, D]]}, {m3^2, m2^2, m1^2}]*)</code></pre>

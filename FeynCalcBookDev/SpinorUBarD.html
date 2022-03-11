@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,16 +106,16 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Spinor.html">Spinor</a>, <a href="SpinorUBar.html">SpinorUBar</a>, <a href="SpinorU.html">SpinorU</a>, <a href="SpinorV.html">SpinorV</a>, <a href="SpinorVBar.html">SpinorVBar</a>, <a href="SpinorUD.html">SpinorUD</a>, <a href="SpinorVD.html">SpinorVD</a>, <a href="SpinorVBarD.html">SpinorVBarD</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SpinorUBarD[<span class="fu">p</span>, <span class="fu">m</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>FCI[%] // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SpinorUBarD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(p,m)</span></p>
 <pre><code>(*Spinor[Momentum[p, D], m, 1]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>SpinorUBarD[<span class="fu">p</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>FCI[%] // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SpinorUBarD<span class="op">[</span><span class="fu">p</span><span class="op">]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(p)</span></p>
 <pre><code>(*Spinor[Momentum[p, D], 0, 1]*)</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>SpinorUBarD[<span class="fu">p</span>] . GSD[<span class="fu">p</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>DiracEquation[%]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SpinorUBarD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DiracEquation<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(p).(\gamma \cdot p)</span></p>
 <p><span class="math display">0</span></p>
 </body>

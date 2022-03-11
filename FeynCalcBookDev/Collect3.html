@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -104,9 +108,9 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Collect2.html">Collect2</a>, <a href="Isolate.html">Isolate</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Collect3[<span class="dv">2</span> <span class="fu">a</span> (<span class="fu">b</span> - <span class="fu">a</span>) (<span class="fu">h</span> - <span class="dv">1</span>) - <span class="fu">b</span>^<span class="dv">2</span> (<span class="fu">e</span> <span class="fu">a</span> - <span class="fu">c</span>) + <span class="fu">b</span>^<span class="dv">2</span>, {<span class="fu">a</span>, <span class="fu">b</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Collect3<span class="op">[</span><span class="dv">2</span> <span class="fu">a</span> (<span class="fu">b</span> <span class="sc">-</span> <span class="fu">a</span>) (<span class="fu">h</span> <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="fu">b</span><span class="sc">^</span><span class="dv">2</span> (<span class="fu">e</span> <span class="fu">a</span> <span class="sc">-</span> <span class="fu">c</span>) <span class="sc">+</span> <span class="fu">b</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">-2 a^2 h+2 a^2-a b^2 e+2 a b h-2 a b+b^2 c+b^2</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Collect3[<span class="fu">Expand</span>[(<span class="fu">a</span> - <span class="fu">b</span> - <span class="fu">c</span> - <span class="fu">d</span>)^<span class="dv">5</span>], {<span class="fu">a</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Collect3<span class="op">[</span><span class="fu">Expand</span><span class="op">[</span>(<span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span> <span class="sc">-</span> <span class="fu">c</span> <span class="sc">-</span> <span class="fu">d</span>)<span class="sc">^</span><span class="dv">5</span><span class="op">],</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">a^5-5 a^4 b-5 a^4 c-5 a^4 d+10 a^3 b^2+20 a^3 b c+20 a^3 b d+10 a^3 c^2+20 a^3 c d+10 a^3 d^2-10 a^2 b^3-30 a^2 b^2 c-30 a^2 b^2 d-30 a^2 b c^2-60 a^2 b c d-30 a^2 b d^2-10 a^2 c^3-30 a^2 c^2 d-30 a^2 c d^2-10 a^2 d^3+5 a b^4+20 a b^3 c+20 a b^3 d+30 a b^2 c^2+60 a b^2 c d+30 a b^2 d^2+20 a b c^3+60 a b c^2 d+60 a b c d^2+20 a b d^3+5 a c^4+20 a c^3 d+30 a c^2 d^2+20 a c d^3+5 a d^4-b^5-5 b^4 c-5 b^4 d-10 b^3 c^2-20 b^3 c d-10 b^3 d^2-10 b^2 c^3-30 b^2 c^2 d-30 b^2 c d^2-10 b^2 d^3-5 b c^4-20 b c^3 d-30 b c^2 d^2-20 b c d^3-5 b d^4-c^5-5 c^4 d-10 c^3 d^2-10 c^2 d^3-5 c d^4-d^5</span></p>
 </body>
 </html>

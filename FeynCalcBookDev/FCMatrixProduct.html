@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -105,9 +109,9 @@
 <h3 id="examples">Examples</h3>
 <h4 id="generic-matrices">Generic matrices</h4>
 <p>Consider two generic <code>2 \times 2</code>-matrices containing noncommutative heads</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DeclareNonCommutative[opA, opB, opC, opD]</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>mat[<span class="dv">1</span>] = {{opA[<span class="dv">1</span>], opB[<span class="dv">1</span>]}, {opC[<span class="dv">1</span>], opD[<span class="dv">1</span>]}}</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>mat[<span class="dv">2</span>] = {{opA[<span class="dv">2</span>], opB[<span class="dv">2</span>]}, {opC[<span class="dv">2</span>], opD[<span class="dv">2</span>]}}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DeclareNonCommutative<span class="op">[</span>opA<span class="op">,</span> opB<span class="op">,</span> opC<span class="op">,</span> opD<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mat<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> <span class="op">{{</span>opA<span class="op">[</span><span class="dv">1</span><span class="op">],</span> opB<span class="op">[</span><span class="dv">1</span><span class="op">]},</span> <span class="op">{</span>opC<span class="op">[</span><span class="dv">1</span><span class="op">],</span> opD<span class="op">[</span><span class="dv">1</span><span class="op">]}}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mat<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="ex">=</span> <span class="op">{{</span>opA<span class="op">[</span><span class="dv">2</span><span class="op">],</span> opB<span class="op">[</span><span class="dv">2</span><span class="op">]},</span> <span class="op">{</span>opC<span class="op">[</span><span class="dv">2</span><span class="op">],</span> opD<span class="op">[</span><span class="dv">2</span><span class="op">]}}</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
  \;\text{opA}(1) &amp; \;\text{opB}(1) \\
@@ -121,7 +125,7 @@
 \end{array}
 \right)</span></p>
 <p>Using the usual <code>Dot</code> product the elements of the resulting matrix are now multiplied with each other commutatively. Hence, the result is incorrect.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>mat[<span class="dv">1</span>] . mat[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mat<span class="op">[</span><span class="dv">1</span><span class="op">]</span> . mat<span class="op">[</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
  \;\text{opA}(1) \;\text{opA}(2)+\text{opB}(1) \;\text{opC}(2) &amp; \;\text{opA}(1) \;\text{opB}(2)+\text{opB}(1) \;\text{opD}(2) \\
@@ -129,7 +133,7 @@
 \end{array}
 \right)</span></p>
 <p>With <code>FCMatrixProduct</code> the proper ordering is preserved</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FCMatrixProduct[mat[<span class="dv">1</span>], mat[<span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCMatrixProduct<span class="op">[</span>mat<span class="op">[</span><span class="dv">1</span><span class="op">],</span> mat<span class="op">[</span><span class="dv">2</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
  \;\text{opA}(1).\text{opA}(2)+\text{opB}(1).\text{opC}(2) &amp; \;\text{opA}(1).\text{opB}(2)+\text{opB}(1).\text{opD}(2) \\
@@ -137,14 +141,14 @@
 \end{array}
 \right)</span></p>
 <p>We can also multiply more than two matrices at once</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>mat[<span class="dv">3</span>] = {{opA[<span class="dv">3</span>], opB[<span class="dv">3</span>]}, {opC[<span class="dv">3</span>], opD[<span class="dv">3</span>]}}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mat<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="ex">=</span> <span class="op">{{</span>opA<span class="op">[</span><span class="dv">3</span><span class="op">],</span> opB<span class="op">[</span><span class="dv">3</span><span class="op">]},</span> <span class="op">{</span>opC<span class="op">[</span><span class="dv">3</span><span class="op">],</span> opD<span class="op">[</span><span class="dv">3</span><span class="op">]}}</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
  \;\text{opA}(3) &amp; \;\text{opB}(3) \\
  \;\text{opC}(3) &amp; \;\text{opD}(3) \\
 \end{array}
 \right)</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="fu">out</span> = FCMatrixProduct[mat[<span class="dv">1</span>], mat[<span class="dv">2</span>], mat[<span class="dv">3</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">out</span> <span class="ex">=</span> FCMatrixProduct<span class="op">[</span>mat<span class="op">[</span><span class="dv">1</span><span class="op">],</span> mat<span class="op">[</span><span class="dv">2</span><span class="op">],</span> mat<span class="op">[</span><span class="dv">3</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
  \;\text{opB}(1).(\text{opC}(2).\text{opA}(3)+\text{opD}(2).\text{opC}(3))+\text{opA}(1).(\text{opA}(2).\text{opA}(3)+\text{opB}(2).\text{opC}(3)) &amp; \;\text{opA}(1).(\text{opA}(2).\text{opB}(3)+\text{opB}(2).\text{opD}(3))+\text{opB}(1).(\text{opC}(2).\text{opB}(3)+\text{opD}(2).\text{opD}(3)) \\
@@ -152,7 +156,7 @@
 \end{array}
 \right)</span></p>
 <p>Now use <code>DotSimplify</code> to expand noncommutative products</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>DotSimplify[<span class="fu">out</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span><span class="fu">out</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
  \;\text{opA}(1).\text{opB}(2).\text{opC}(3)+\text{opB}(1).\text{opC}(2).\text{opA}(3)+\text{opA}(1).\text{opA}(2).\text{opA}(3)+\text{opB}(1).\text{opD}(2).\text{opC}(3) &amp; \;\text{opA}(1).\text{opB}(2).\text{opD}(3)+\text{opA}(1).\text{opA}(2).\text{opB}(3)+\text{opB}(1).\text{opC}(2).\text{opB}(3)+\text{opB}(1).\text{opD}(2).\text{opD}(3) \\
@@ -161,13 +165,13 @@
 \right)</span></p>
 <h4 id="dirac-matrices-in-terms-of-pauli-matrices">Dirac matrices in terms of Pauli matrices</h4>
 <p>Let us define Dirac matrices in the Dirac basis in terms of Pauli matrices</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">gamma</span>[<span class="dv">0</span>] = {{<span class="dv">1</span>, <span class="dv">0</span>}, {<span class="dv">0</span>, <span class="dv">-1</span>}};</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="fu">gamma</span>[<span class="dt">i_</span>] := {{<span class="dv">0</span>, CSI[<span class="fu">i</span>]}, {-CSI[<span class="fu">i</span>], <span class="dv">0</span>}};</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gamma</span><span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> <span class="op">{{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}}</span>;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gamma</span><span class="op">[</span><span class="at">i_</span><span class="op">]</span> <span class="ex">:=</span> <span class="op">{{</span><span class="dv">0</span><span class="op">,</span> CSI<span class="op">[</span><span class="fu">i</span><span class="op">]},</span> <span class="op">{</span><span class="sc">-</span>CSI<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="dv">0</span><span class="op">}}</span>;</span></code></pre></div>
 <p>and express <span class="math inline">\gamma^i \gamma^j \gamma^i</span> as a <span class="math inline">2 \times 2</span>-matrix</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>FCMatrixProduct[<span class="fu">gamma</span>[<span class="fu">i</span>], <span class="fu">gamma</span>[<span class="fu">j</span>], <span class="fu">gamma</span>[<span class="fu">i</span>]]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>DotSimplify[%] </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>  </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCMatrixProduct<span class="op">[</span><span class="fu">gamma</span><span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="fu">gamma</span><span class="op">[</span><span class="fu">j</span><span class="op">],</span> <span class="fu">gamma</span><span class="op">[</span><span class="fu">i</span><span class="op">]]</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>DotSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
  0.\left(\overline{\sigma }^j.\left(-\overline{\sigma }^i\right)+0.0\right)+\overline{\sigma }^i.\left(0.\left(-\overline{\sigma }^i\right)+\left(-\overline{\sigma }^j\right).0\right) &amp; 0.\left(0.\overline{\sigma }^i+\overline{\sigma }^j.0\right)+\overline{\sigma }^i.\left(\left(-\overline{\sigma }^j\right).\overline{\sigma }^i+0.0\right) \\

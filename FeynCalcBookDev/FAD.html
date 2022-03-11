@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -104,17 +108,17 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FAD.html">FAD</a>, <a href="FCE.html">FCE</a>, <a href="FCI.html">FCI</a>, <a href="FeynAmpDenominator.html">FeynAmpDenominator</a>, <a href="FeynAmpDenominatorSimplify.html">FeynAmpDenominatorSimplify</a>, <a href="PropagatorDenominator.html">PropagatorDenominator</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FAD[<span class="fu">q</span>, <span class="fu">p</span> - <span class="fu">q</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{q^2.(p-q)^2}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FAD[<span class="fu">p</span>, {<span class="fu">p</span> - <span class="fu">q</span>, <span class="fu">m</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="op">{</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{p^2.\left((p-q)^2-m^2\right)}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FAD[{<span class="fu">p</span>, <span class="dv">0</span>, <span class="dv">2</span>}, {<span class="fu">p</span> - <span class="fu">q</span>, <span class="fu">m</span>, <span class="dv">3</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">2</span><span class="op">},</span> <span class="op">{</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{\left(p^2\right)^2.\left((p-q)^2-m^2\right)^3}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FAD[<span class="fu">q</span>, <span class="fu">p</span> - <span class="fu">q</span>] // FCI // <span class="fu">StandardForm</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>(*FeynAmpDenominator[PropagatorDenominator[Momentum[<span class="fu">q</span>, <span class="fu">D</span>], <span class="dv">0</span>], PropagatorDenominator[Momentum[<span class="fu">p</span>, <span class="fu">D</span>] - Momentum[<span class="fu">q</span>, <span class="fu">D</span>], <span class="dv">0</span>]]*)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>FAD[<span class="fu">p</span>] FAD[<span class="fu">p</span> - <span class="fu">q</span>] // FeynAmpDenominatorCombine[#, FCE -&gt; <span class="fu">True</span>] &amp; // <span class="fu">StandardForm</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>(*FAD[<span class="fu">p</span>, <span class="fu">p</span> - <span class="fu">q</span>]*)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FeynAmpDenominator[PropagatorDenominator[Momentum[q, D], 0], PropagatorDenominator[Momentum[p, D] - Momentum[q, D], 0]]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> FAD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">//</span> FeynAmpDenominatorCombine<span class="op">[</span>#<span class="op">,</span> FCE <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FAD[p, p - q]*)</span></span></code></pre></div>
 </body>
 </html>

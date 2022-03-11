@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,7 +106,7 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="NonCommQ.html">NonCommQ</a>, <a href="NonCommutative.html">NonCommutative</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>$NonComm</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>$NonComm</span></code></pre></div>
 <p><span class="math display">\{\text{DiracGamma},\text{DiracSigma},\text{GA},\text{GAD},\text{GAE},\text{GS},\text{GSD},\text{GSE},\text{LeftPartialD},\text{LeftRightPartialD},\text{LeftRightPartialD2},\text{FCPartialD},\text{OPESum},\text{QuantumField},\text{RightPartialD},\text{Spinor},\text{SpinorU},\text{SpinorUBar},\text{SpinorV},\text{SpinorVBar},\text{SUNT},\text{PauliSigma},\text{PauliXi},\text{PauliEta},\text{TGA},\text{CGA},\text{CGAD},\text{CGAE},\text{CGS},\text{CGSD},\text{CGSE},\text{SI},\text{SID},\text{SIE},\text{CSI},\text{CSID},\text{CSIE},\text{FeynCalc$\grave{ }$Package$\grave{ }$dotsimpHold},\text{FCChargeConjugateTransposed},\text{CovariantD},\text{FieldStrength},\text{QuarkGluonVertex},\text{QuarkPropagator},\text{Twist2AlienOperator},\text{Twist2CounterOperator},\text{Twist2QuarkOperator},\text{ChiralityProjector},\text{Spinor},\text{DiracMatrix},\text{DiracSlash}\}</span></p>
 </body>
 </html>

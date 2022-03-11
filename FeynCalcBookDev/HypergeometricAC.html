@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -104,17 +108,17 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="HypExplicit.html">HypExplicit</a>, <a href="HypergeometricIR.html">HypergeometricIR</a>, <a href="HypergeometricSE.html">HypergeometricSE</a>, <a href="ToHypergeometric.html">ToHypergeometric</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>These are all transformation rules currently built in.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>HypergeometricAC[<span class="dv">1</span>][<span class="fu">Hypergeometric2F1</span>[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], <span class="fu">z</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>HypergeometricAC<span class="op">[</span><span class="dv">1</span><span class="op">][</span><span class="fu">Hypergeometric2F1</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="fu">z</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\frac{\Gamma (\gamma ) \Gamma (\alpha +\beta -\gamma ) (1-z)^{-\alpha -\beta +\gamma } \, _2F_1(\gamma -\alpha ,\gamma -\beta ;-\alpha -\beta +\gamma +1;1-z)}{\Gamma (\alpha ) \Gamma (\beta )}+\frac{\Gamma (\gamma ) \Gamma (-\alpha -\beta +\gamma ) \, _2F_1(\alpha ,\beta ;\alpha +\beta -\gamma +1;1-z)}{\Gamma (\gamma -\alpha ) \Gamma (\gamma -\beta )}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>HypergeometricAC[<span class="dv">2</span>][<span class="fu">Hypergeometric2F1</span>[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], <span class="fu">z</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>HypergeometricAC<span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="fu">Hypergeometric2F1</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="fu">z</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\frac{\Gamma (\gamma ) (-z)^{-\alpha } \Gamma (\beta -\alpha ) \, _2F_1\left(\alpha ,\alpha -\gamma +1;\alpha -\beta +1;\frac{1}{z}\right)}{\Gamma (\beta ) \Gamma (\gamma -\alpha )}+\frac{\Gamma (\gamma ) (-z)^{-\beta } \Gamma (\alpha -\beta ) \, _2F_1\left(\beta ,\beta -\gamma +1;-\alpha +\beta +1;\frac{1}{z}\right)}{\Gamma (\alpha ) \Gamma (\gamma -\beta )}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>HypergeometricAC[<span class="dv">3</span>][<span class="fu">Hypergeometric2F1</span>[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], <span class="fu">z</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>HypergeometricAC<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="fu">Hypergeometric2F1</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="fu">z</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\frac{\Gamma (\gamma ) (1-z)^{-\alpha } \Gamma (\beta -\alpha ) \, _2F_1\left(\alpha ,\gamma -\beta ;\alpha -\beta +1;\frac{1}{1-z}\right)}{\Gamma (\beta ) \Gamma (\gamma -\alpha )}+\frac{\Gamma (\gamma ) (1-z)^{-\beta } \Gamma (\alpha -\beta ) \, _2F_1\left(\beta ,\gamma -\alpha ;-\alpha +\beta +1;\frac{1}{1-z}\right)}{\Gamma (\alpha ) \Gamma (\gamma -\beta )}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>HypergeometricAC[<span class="dv">4</span>][<span class="fu">Hypergeometric2F1</span>[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], <span class="fu">z</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>HypergeometricAC<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="fu">Hypergeometric2F1</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="fu">z</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\frac{\Gamma (\gamma ) z^{-\alpha } \Gamma (-\alpha -\beta +\gamma ) \, _2F_1\left(\alpha ,\alpha -\gamma +1;\alpha +\beta -\gamma +1;-\frac{1-z}{z}\right)}{\Gamma (\gamma -\alpha ) \Gamma (\gamma -\beta )}+\frac{\Gamma (\gamma ) z^{\alpha -\gamma } \Gamma (\alpha +\beta -\gamma ) (1-z)^{-\alpha -\beta +\gamma } \, _2F_1\left(1-\alpha ,\gamma -\alpha ;-\alpha -\beta +\gamma +1;-\frac{1-z}{z}\right)}{\Gamma (\alpha ) \Gamma (\beta )}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>HypergeometricAC[<span class="dv">6</span>][<span class="fu">Hypergeometric2F1</span>[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], <span class="fu">z</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>HypergeometricAC<span class="op">[</span><span class="dv">6</span><span class="op">][</span><span class="fu">Hypergeometric2F1</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="fu">z</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">(1-z)^{-\beta } \, _2F_1\left(\beta ,\gamma -\alpha ;\gamma ;-\frac{z}{1-z}\right)</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>HypergeometricAC[<span class="dv">61</span>][<span class="fu">Hypergeometric2F1</span>[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], <span class="fu">z</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>HypergeometricAC<span class="op">[</span><span class="dv">61</span><span class="op">][</span><span class="fu">Hypergeometric2F1</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="fu">z</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">(1-z)^{-\alpha } \, _2F_1\left(\alpha ,\gamma -\beta ;\gamma ;-\frac{z}{1-z}\right)</span></p>
 </body>
 </html>

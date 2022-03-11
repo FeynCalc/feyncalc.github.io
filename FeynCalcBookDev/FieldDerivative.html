@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -104,11 +108,11 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCPartialD.html">FCPartialD</a>, <a href="ExpandParitalD.html">ExpandParitalD</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>QuantumField[<span class="fu">A</span>, {\[Mu]}][<span class="fu">x</span>] . QuantumField[<span class="fu">B</span>, {\[Nu]}][<span class="fu">y</span>] . QuantumField[<span class="fu">C</span>, {\[Rho]}][<span class="fu">x</span>] . QuantumField[<span class="fu">D</span>, {\[Sigma]}][<span class="fu">y</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}][</span><span class="fu">x</span><span class="op">]</span> . QuantumField<span class="op">[</span><span class="fu">B</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]}][</span><span class="fu">y</span><span class="op">]</span> . QuantumField<span class="op">[</span><span class="fu">C</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Rho<span class="op">]}][</span><span class="fu">x</span><span class="op">]</span> . QuantumField<span class="op">[</span><span class="fu">D</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]}][</span><span class="fu">y</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">A_{\mu }(x).B_{\nu }(y).C_{\rho }(x).D_{\sigma }(y)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FieldDerivative[%, <span class="fu">x</span>, {\[Mu]}] // DotExpand</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FieldDerivative<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">x</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}]</span> <span class="sc">//</span> DotExpand</span></code></pre></div>
 <p><span class="math display">A_{\mu }(x).B_{\nu }(y).\left(\left.(\partial _{\mu }C_{\rho }\right)\right)(x).D_{\sigma }(y)+\left(\left.(\partial _{\mu }A_{\mu }\right)\right)(x).B_{\nu }(y).C_{\rho }(x).D_{\sigma }(y)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FieldDerivative[%%, <span class="fu">y</span>, {\[Nu]}] // DotExpand</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FieldDerivative<span class="op">[</span><span class="sc">%%</span><span class="op">,</span> <span class="fu">y</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]}]</span> <span class="sc">//</span> DotExpand</span></code></pre></div>
 <p><span class="math display">A_{\mu }(x).B_{\nu }(y).C_{\rho }(x).\left(\left.(\partial _{\nu }D_{\sigma }\right)\right)(y)+A_{\mu }(x).\left(\left.(\partial _{\nu }B_{\nu }\right)\right)(y).C_{\rho }(x).D_{\sigma }(y)</span></p>
 </body>
 </html>

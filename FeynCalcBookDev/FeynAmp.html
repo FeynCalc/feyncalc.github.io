@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,10 +107,10 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Amplitude.html">Amplitude</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>This is a 1-loop gluon self-energy amplitude (ignoring factors of (2 π)).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FeynAmp[<span class="fu">q</span>, GV[<span class="fu">p</span>, \[Mu], <span class="fu">a</span>, <span class="fu">q</span> - <span class="fu">p</span>, \[Alpha], <span class="fu">c</span>, -q, \[<span class="fu">Beta</span>], <span class="fu">e</span>] GP[<span class="fu">p</span> - <span class="fu">q</span>, \[Alpha], <span class="fu">c</span>, \[Rho], <span class="fu">d</span>] GV[-p, \[Nu], <span class="fu">b</span>, <span class="fu">p</span> - <span class="fu">q</span>, \[Rho], <span class="fu">d</span>, <span class="fu">q</span>, \[Sigma], <span class="fu">f</span>] GP[<span class="fu">q</span>, \[<span class="fu">Beta</span>], <span class="fu">e</span>, \[Sigma], <span class="fu">f</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FeynAmp<span class="op">[</span><span class="fu">q</span><span class="op">,</span> GV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="fu">c</span><span class="op">,</span> <span class="sc">-</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="fu">e</span><span class="op">]</span> GP<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="fu">c</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="fu">d</span><span class="op">]</span> GV<span class="op">[</span><span class="sc">-</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="fu">d</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="fu">f</span><span class="op">]</span> GP<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="fu">e</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="fu">f</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\int d^Dq\left(f^{bdf} f^{ace} \Pi _{ef}^{\beta \sigma }(q) V^{\mu \alpha \beta }(p\text{, }q-p\text{, }-q) V^{\nu \rho \sigma }(-p\text{, }p-q\text{, }q) \Pi _{cd}^{\alpha \rho }(p-q)\right)</span></p>
 <p>This is a generic 2-loop amplitude.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FeynAmp[<span class="fu">Subscript</span>[<span class="fu">q</span>, <span class="dv">1</span>], <span class="fu">Subscript</span>[<span class="fu">q</span>, <span class="dv">2</span>], anyexpression]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FeynAmp<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> anyexpression<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{FeynAmp}\left(q_1,q_2,\text{anyexpression}\right)</span></p>
 </body>
 </html>

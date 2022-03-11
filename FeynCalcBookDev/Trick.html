@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,14 +107,14 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Calc.html">Calc</a>, <a href="Contract.html">Contract</a>, <a href="DiracTrick.html">DiracTrick</a>, <a href="DotSimplify.html">DotSimplify</a>, <a href="DiracTrick.html">DiracTrick</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>This calculates <span class="math inline">g^{\mu \nu} \gamma _{\mu }</span> and <span class="math inline">g_{\nu }^{\nu}</span> in <span class="math inline">D</span> dimensions.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Trick[{GA[\[Mu]] MT[\[Mu], \[Nu]], MTD[\[Nu], \[Nu]]}]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Trick<span class="op">[{</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> MTD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]}]</span></span></code></pre></div>
 <p><span class="math display">\left\{\bar{\gamma }^{\nu },D\right\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FV[<span class="fu">p</span> + <span class="fu">r</span>, \[Mu]] MT[\[Mu], \[Nu]] FV[<span class="fu">q</span> - <span class="fu">p</span>, \[Nu]]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>Trick[%]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">r</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Trick<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{g}^{\mu \nu } \left(\overline{q}-\overline{p}\right)^{\nu } \left(\overline{p}+\overline{r}\right)^{\mu }</span></p>
 <p><span class="math display">\overline{p}\cdot \overline{q}-\overline{p}\cdot \overline{r}-\overline{p}^2+\overline{q}\cdot \overline{r}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>Trick[<span class="fu">c</span> . <span class="fu">b</span> . <span class="fu">a</span> . GA[<span class="fu">d</span>] . GA[<span class="fu">e</span>]]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>% // FCE // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Trick<span class="op">[</span><span class="fu">c</span> . <span class="fu">b</span> . <span class="fu">a</span> . GA<span class="op">[</span><span class="fu">d</span><span class="op">]</span> . GA<span class="op">[</span><span class="fu">e</span><span class="op">]]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCE <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">a b c \bar{\gamma }^d.\bar{\gamma }^e</span></p>
 <pre><code>(*a b c GA[d] . GA[e]*)</code></pre>
 </body>

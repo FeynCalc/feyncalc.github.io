@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,12 +107,12 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DiracChain.html">DiracChain</a>, <a href="DCHN.html">DCHN</a>, <a href="DiracIndex.html">DiracIndex</a>, <a href="DiracIndexDelta.html">DiracIndexDelta</a>, <a href="DIDelta.html">DIDelta</a>, <a href="DiracChainCombine.html">DiracChainCombine</a>, <a href="DiracChainExpand.html">DiracChainExpand</a>, <a href="DiracChainFactor.html">DiracChainFactor</a>, <a href="DiracChainJoin.html">DiracChainJoin</a>, <a href="FCCCT.html">FCCCT</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>Create a closed chain for the 1-loop electron self-energy</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>-(<span class="dv">1</span>/(<span class="dv">16</span> \[<span class="fu">Pi</span>]^<span class="dv">4</span>)) <span class="fu">I</span> el^<span class="dv">2</span> DCHN[Spinor[-Momentum[<span class="fu">p</span>, <span class="fu">D</span>], me, <span class="dv">1</span>], Dir1] DCHN[Spinor[Momentum[<span class="fu">q</span>, <span class="fu">D</span>], me, <span class="dv">1</span>], Dir2] DCHN[GAD[Lor1], Dir1, Dir3] DCHN[GAD[Lor2], Dir2, Dir4] DCHN[me - GSD[<span class="fu">k</span>], Dir3, Dir4] FAD[{<span class="fu">k</span>, me}, <span class="fu">k</span> - <span class="fu">q</span>] MTD[Lor1, Lor2]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>res = FCFADiracChainJoin[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">16</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span>)) <span class="fu">I</span> el<span class="sc">^</span><span class="dv">2</span> DCHN<span class="op">[</span>Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> me<span class="op">,</span> <span class="dv">1</span><span class="op">],</span> Dir1<span class="op">]</span> DCHN<span class="op">[</span>Spinor<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> me<span class="op">,</span> <span class="dv">1</span><span class="op">],</span> Dir2<span class="op">]</span> DCHN<span class="op">[</span>GAD<span class="op">[</span>Lor1<span class="op">],</span> Dir1<span class="op">,</span> Dir3<span class="op">]</span> DCHN<span class="op">[</span>GAD<span class="op">[</span>Lor2<span class="op">],</span> Dir2<span class="op">,</span> Dir4<span class="op">]</span> DCHN<span class="op">[</span>me <span class="sc">-</span> GSD<span class="op">[</span><span class="fu">k</span><span class="op">],</span> Dir3<span class="op">,</span> Dir4<span class="op">]</span> FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> me<span class="op">},</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> MTD<span class="op">[</span>Lor1<span class="op">,</span> Lor2<span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCFADiracChainJoin<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\frac{i \;\text{el}^2 g^{\text{Lor1}\;\text{Lor2}} \left(\gamma ^{\text{Lor1}}\right){}_{\text{Dir1}\;\text{Dir3}} \left(\gamma ^{\text{Lor2}}\right){}_{\text{Dir2}\;\text{Dir4}} (\text{me}-\gamma \cdot k)_{\text{Dir3}\;\text{Dir4}} (\varphi (-p,\text{me}))_{\text{Dir1}} (\varphi (q,\text{me}))_{\text{Dir2}}}{16 \pi ^4 \left(k^2-\text{me}^2\right).(k-q)^2}</span></p>
 <p><span class="math display">-\frac{i \;\text{el}^2 g^{\text{Lor1}\;\text{Lor2}} (\varphi (q,\text{me})).\gamma ^{\text{Lor2}}.\left(-(\gamma \cdot k+\text{me}).\gamma ^{\text{Lor1}}\right).(\varphi (p,\text{me}))}{16 \pi ^4 \left(k^2-\text{me}^2\right).(k-q)^2}</span></p>
 <p>Sometimes the ordering of the spinors is not the one wants to have. However, we can always transpose the chains to reorder the spinors as we like, which doesn’t change the final result</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SpinorChainTranspose[res, <span class="fu">Select</span> -&gt; {{Spinor[<span class="dt">__</span>], Spinor[<span class="dt">__</span>]}}]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SpinorChainTranspose<span class="op">[</span>res<span class="op">,</span> <span class="fu">Select</span> <span class="ot">-&gt;</span> <span class="op">{{</span>Spinor<span class="op">[</span><span class="at">__</span><span class="op">],</span> Spinor<span class="op">[</span><span class="at">__</span><span class="op">]}}]</span></span></code></pre></div>
 <p><span class="math display">-\frac{i \;\text{el}^2 g^{\text{Lor1}\;\text{Lor2}} (\varphi (-p,\text{me})).\gamma ^{\text{Lor1}}.(\text{me}-\gamma \cdot k).\gamma ^{\text{Lor2}}.(\varphi (-q,\text{me}))}{16 \pi ^4 \left(k^2-\text{me}^2\right).(k-q)^2}</span></p>
 <p>Using patterns in the <code>Select</code> option one can create very fine-grained criteria for transposing the chains.</p>
 </body>

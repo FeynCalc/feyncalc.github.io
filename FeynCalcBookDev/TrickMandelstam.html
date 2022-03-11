@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,15 +106,15 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SetMandelstam.html">SetMandelstam</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">ClearAll</span>[<span class="fu">s</span>, <span class="fu">t</span>, <span class="fu">u</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>(<span class="fu">s</span> + <span class="fu">t</span> - <span class="fu">u</span>) (<span class="dv">2</span> SMP[&quot;<span class="dt">m_</span>W&quot;]^<span class="dv">2</span> - <span class="fu">t</span> - <span class="fu">u</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>TrickMandelstam[%, {<span class="fu">s</span>, <span class="fu">t</span>, <span class="fu">u</span>, <span class="dv">2</span> SMP[&quot;<span class="dt">m_</span>W&quot;]^<span class="dv">2</span>}] // Factor2</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ClearAll</span><span class="op">[</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">s</span> <span class="sc">+</span> <span class="fu">t</span> <span class="sc">-</span> <span class="fu">u</span>) (<span class="dv">2</span> SMP<span class="op">[</span><span class="st">&quot;m_W&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">t</span> <span class="sc">-</span> <span class="fu">u</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>TrickMandelstam<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">2</span> SMP<span class="op">[</span><span class="st">&quot;m_W&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> <span class="sc">//</span> Factor2</span></code></pre></div>
 <p><span class="math display">(s+t-u) \left(2 m_W^2-t-u\right)</span></p>
 <p><span class="math display">-2 s \left(u-m_W^2\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">M</span>^<span class="dv">2</span> <span class="fu">s</span> - <span class="fu">s</span>^<span class="dv">2</span> + <span class="fu">M</span>^<span class="dv">2</span> <span class="fu">t</span> - <span class="fu">s</span> <span class="fu">t</span> + <span class="fu">M</span>^<span class="dv">2</span> <span class="fu">u</span> - <span class="fu">s</span> <span class="fu">u</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>TrickMandelstam[%, {<span class="fu">s</span>, <span class="fu">t</span>, <span class="fu">u</span>, <span class="dv">2</span> <span class="fu">M</span>^<span class="dv">2</span>}] </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">M</span><span class="sc">^</span><span class="dv">2</span> <span class="fu">s</span> <span class="sc">-</span> <span class="fu">s</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span> <span class="fu">t</span> <span class="sc">-</span> <span class="fu">s</span> <span class="fu">t</span> <span class="sc">+</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span> <span class="fu">u</span> <span class="sc">-</span> <span class="fu">s</span> <span class="fu">u</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>TrickMandelstam<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">2</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">M^2 s+M^2 t+M^2 u-s^2-s t-s u</span></p>
 <p><span class="math display">2 M^2 \left(M^2-s\right)</span></p>
 </body>

@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -104,30 +108,30 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="LC.html">LC</a>, <a href="FCI.html">FCI</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>LeviCivita[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], \[Delta]]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>LeviCivita<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\alpha \beta \gamma \delta }</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>LeviCivita[][<span class="fu">p</span>, <span class="fu">q</span>, <span class="fu">r</span>, <span class="fu">s</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LeviCivita<span class="op">[][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\overline{p}\overline{q}\overline{r}\overline{s}}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>LeviCivita[\[Alpha], \[<span class="fu">Beta</span>]][<span class="fu">p</span>, <span class="fu">q</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="fu">StandardForm</span>[%]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>LeviCivita<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\alpha \beta \overline{p}\overline{q}}</span></p>
 <pre><code>(*Eps[LorentzIndex[\[Alpha]], LorentzIndex[\[Beta]], Momentum[p], Momentum[q]]*)</code></pre>
 <p><code>LeviCivita</code> is scheduled for removal in the future versions of FeynCalc. The safe alternative is to use <code>LC</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>LC[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], \[Delta]]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\alpha \beta \gamma \delta }</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>LC[][<span class="fu">p</span>, <span class="fu">q</span>, <span class="fu">r</span>, <span class="fu">s</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\overline{p}\overline{q}\overline{r}\overline{s}}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>LC[\[Alpha], \[<span class="fu">Beta</span>]][<span class="fu">p</span>, <span class="fu">q</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\alpha \beta \overline{p}\overline{q}}</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>LCD[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], \[Delta]]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overset{\text{}}{\epsilon }^{\alpha \beta \gamma \delta }</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>LCD[][<span class="fu">p</span>, <span class="fu">q</span>, <span class="fu">r</span>, <span class="fu">s</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>LCD<span class="op">[][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overset{\text{}}{\epsilon }^{pqrs}</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>LCD[\[Alpha], \[<span class="fu">Beta</span>]][<span class="fu">p</span>, <span class="fu">q</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overset{\text{}}{\epsilon }^{\alpha \beta pq}</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>FCI[LC[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], \[Delta]]] === LeviCivita[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], \[Delta]]</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]]</span> <span class="ex">===</span> LeviCivita<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\text{True}</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>FCI[LCD[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], \[Delta]]] === LeviCivita[\[Alpha], \[<span class="fu">Beta</span>], \[<span class="fu">Gamma</span>], \[Delta], Dimension -&gt; <span class="fu">D</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]]</span> <span class="ex">===</span> LeviCivita<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Delta<span class="op">],</span> Dimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{True}</span></p>
 </body>
 </html>

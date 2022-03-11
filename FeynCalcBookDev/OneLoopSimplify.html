@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -103,19 +107,19 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="TID.html">TID</a>, <a href="TIDL.html">TIDL</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SPD[<span class="fu">k</span>, <span class="fu">r</span>] FAD[{<span class="fu">k</span>, <span class="fu">m</span>} , <span class="fu">k</span> - <span class="fu">p</span>] // FCI</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>OneLoopSimplify[%, <span class="fu">k</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>OneLoopSimplify[% /. <span class="fu">m</span> -&gt; <span class="dv">0</span>, <span class="fu">k</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">r</span><span class="op">]</span> FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">}</span> <span class="op">,</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">]</span> <span class="sc">//</span> FCI</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>OneLoopSimplify<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>OneLoopSimplify<span class="op">[</span><span class="sc">%</span> <span class="ot">/.</span> <span class="fu">m</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{k\cdot r}{\left(k^2-m^2\right).(k-p)^2}</span></p>
 <p><span class="math display">\frac{\left(m^2+p^2\right) (p\cdot r)}{2 p^2 k^2.\left((k-p)^2-m^2\right)}-\frac{p\cdot r}{2 p^2 \left(k^2-m^2\right)}</span></p>
 <p><span class="math display">\frac{p\cdot r}{2 k^2.(k-p)^2}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FAD[<span class="fu">k</span>, <span class="fu">k</span>, <span class="fu">k</span> - <span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">1</span>], <span class="fu">k</span> - <span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">2</span>]] FVD[<span class="fu">k</span>, \[Mu]] // FCI</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>OneLoopSimplify[ %, <span class="fu">k</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>FCE[%] /. SPD[<span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">1</span>]] -&gt; <span class="dv">0</span> // FCI</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">k</span><span class="op">,</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">//</span> FCI</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>OneLoopSimplify<span class="op">[</span> <span class="sc">%</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FCE<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="ot">/.</span> SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> <span class="ot">-&gt;</span> <span class="dv">0</span> <span class="sc">//</span> FCI</span></code></pre></div>
 <p><span class="math display">\frac{k^{\mu }}{\left(k^2\right)^2.(k-p_1){}^2.(k-p_2){}^2}</span></p>
 <p><span class="math display">\frac{p_1{}^2 p_2{}^{\mu }-p_1{}^{\mu } \left(p_1\cdot p_2\right)}{2 \left(k^2\right)^2.(k-p_1){}^2 \left((p_1\cdot p_2){}^2-p_1{}^2 p_2{}^2\right)}+\frac{-p_1{}^2 p_2{}^2 p_1{}^{\mu }-p_1{}^2 p_2{}^2 p_2{}^{\mu }+p_1{}^2 p_2{}^{\mu } \left(p_1\cdot p_2\right)+p_2{}^2 p_1{}^{\mu } \left(p_1\cdot p_2\right)}{2 \left(k^2\right)^2.(k-p_1){}^2.(k-p_2){}^2 \left((p_1\cdot p_2){}^2-p_1{}^2 p_2{}^2\right)}-\frac{p_2{}^{\mu } \left(p_1\cdot p_2\right)-p_2{}^2 p_1{}^{\mu }}{2 \left(k^2\right)^2.(k-p_2){}^2 \left((p_1\cdot p_2){}^2-p_1{}^2 p_2{}^2\right)}-\frac{p_1{}^2 p_2{}^{\mu }+p_2{}^2 p_1{}^{\mu }-p_1{}^{\mu } \left(p_1\cdot p_2\right)-p_2{}^{\mu } \left(p_1\cdot p_2\right)}{2 k^2.(k-p_1){}^2.(k-p_2){}^2 \left((p_1\cdot p_2){}^2-p_1{}^2 p_2{}^2\right)}</span></p>
 <p><span class="math display">\frac{p_2{}^2 p_1{}^{\mu }}{2 \left(p_1\cdot p_2\right) \left(k^2\right)^2.(k-p_1){}^2.(k-p_2){}^2}-\frac{p_1{}^{\mu }}{2 \left(p_1\cdot p_2\right) \left(k^2\right)^2.(k-p_1){}^2}-\frac{p_2{}^{\mu } \left(p_1\cdot p_2\right)-p_2{}^2 p_1{}^{\mu }}{2 \left(k^2\right)^2.(k-p_2){}^2 (p_1\cdot p_2){}^2}-\frac{p_2{}^2 p_1{}^{\mu }-p_1{}^{\mu } \left(p_1\cdot p_2\right)-p_2{}^{\mu } \left(p_1\cdot p_2\right)}{2 k^2.(k-p_1){}^2.(k-p_2){}^2 (p_1\cdot p_2){}^2}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>OneLoopSimplify[FAD[<span class="fu">k</span> - <span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">1</span>], <span class="fu">k</span> - <span class="fu">Subscript</span>[<span class="fu">p</span>, <span class="dv">2</span>]] SPD[<span class="fu">k</span>, <span class="fu">l</span>]^<span class="dv">2</span>, <span class="fu">k</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>OneLoopSimplify<span class="op">[</span>FAD<span class="op">[</span><span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> SPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">l</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\frac{D (l\cdot p_1){}^2+D (l\cdot p_2){}^2+2 D \left(l\cdot p_2\right) \left(l\cdot p_1\right)-l^2 p_1{}^2-l^2 p_2{}^2-4 \left(l\cdot p_2\right) \left(l\cdot p_1\right)+2 l^2 \left(p_1\cdot p_2\right)}{4 (1-D) k^2.(k-p_1+p_2){}^2}</span></p>
 </body>
 </html>

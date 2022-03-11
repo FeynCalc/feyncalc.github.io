@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,23 +106,23 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ScalarProduct.html">ScalarProduct</a>, <a href="SMP.html">SMP</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>(<span class="fu">a</span> + <span class="fu">I</span> <span class="fu">b</span>)^<span class="dv">2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>FCAbbreviate[%, {}, {}]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">a</span> <span class="sc">+</span> <span class="fu">I</span> <span class="fu">b</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FCAbbreviate<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{},</span> <span class="op">{}]</span></span></code></pre></div>
 <p><span class="math display">(a+i b)^2</span></p>
 <p><span class="math display">\{\{\},\{\},\{a\to \;\text{var1},b\to \;\text{var2}\}\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SPD[<span class="fu">p</span>, <span class="fu">k</span>] FAD[{<span class="fu">q</span>, SMP[&quot;<span class="dt">m_</span>e&quot;]}, {<span class="fu">q</span> + <span class="fu">p</span>, <span class="fu">m</span>}]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>FCAbbreviate[%, {<span class="fu">q</span>}, {<span class="fu">p</span>, <span class="fu">k</span>}, <span class="fu">Head</span> -&gt; spd]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">}]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCAbbreviate<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">k</span><span class="op">},</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> spd<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{k\cdot p}{\left(q^2-m_e^2\right).\left((p+q)^2-m^2\right)}</span></p>
 <p><span class="math display">\left\{\{\text{spd}(k,k)\to \;\text{sp1},\text{spd}(k,p)\to \;\text{sp2},\text{spd}(p,p)\to \;\text{sp3}\},\left\{m_e\to \;\text{sm1}\right\},\{m\to \;\text{var1}\}\right\}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FCClearScalarProducts[]; </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>SPD[p1, p1] = <span class="dv">0</span>;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>SPD[p2, p2] = <span class="dv">0</span>;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>SPD[p3, p3] = <span class="dv">0</span>;</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>SPD[p1, p2] = <span class="fu">s</span>/<span class="dv">2</span>; SPD[p1, p3] = -(<span class="fu">s</span> + <span class="fu">t</span>)/<span class="dv">2</span>; SPD[p2, p3] = <span class="fu">t</span>/<span class="dv">2</span>;</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>SPD[p2, p3] FAD[<span class="fu">q</span>, <span class="fu">q</span> - p1 - p2, <span class="fu">q</span> - p1 - p2 - p3]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>FCAbbreviate[%, {<span class="fu">q</span>}, {p1, p2, p3}, <span class="fu">Head</span> -&gt; spd]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">,</span> p1<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p2<span class="op">,</span> p2<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p3<span class="op">,</span> p3<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ex">=</span> <span class="fu">s</span><span class="sc">/</span><span class="dv">2</span>; SPD<span class="op">[</span>p1<span class="op">,</span> p3<span class="op">]</span> <span class="ex">=</span> <span class="sc">-</span>(<span class="fu">s</span> <span class="sc">+</span> <span class="fu">t</span>)<span class="sc">/</span><span class="dv">2</span>; SPD<span class="op">[</span>p2<span class="op">,</span> p3<span class="op">]</span> <span class="ex">=</span> <span class="fu">t</span><span class="sc">/</span><span class="dv">2</span>;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p2<span class="op">,</span> p3<span class="op">]</span> FAD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2<span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2 <span class="sc">-</span> p3<span class="op">]</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>FCAbbreviate<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">},</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> spd<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{t}{2 q^2.(-\text{p1}-\text{p2}+q)^2.(-\text{p1}-\text{p2}-\text{p3}+q)^2}</span></p>
 <p><span class="math display">\left\{\left\{\text{spd}(\text{p1},\text{p1})\to 0,\text{spd}(\text{p1},\text{p2})\to \frac{\text{var1}}{2},\text{spd}(\text{p1},\text{p3})\to \frac{1}{2} (-\text{var1}-\text{var2}),\text{spd}(\text{p2},\text{p2})\to 0,\text{spd}(\text{p2},\text{p3})\to \frac{\text{var2}}{2},\text{spd}(\text{p3},\text{p3})\to 0\right\},\{\},\{s\to \;\text{var1},t\to \;\text{var2}\}\right\}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>FCClearScalarProducts[]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span></code></pre></div>
 </body>
 </html>

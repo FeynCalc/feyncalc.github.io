@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -104,13 +108,13 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Variables2.html">Variables2</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Cases2[<span class="fu">f</span>[<span class="fu">a</span>] + <span class="fu">f</span>[<span class="fu">b</span>]^<span class="dv">2</span> + <span class="fu">f</span>[<span class="fu">c</span>, <span class="fu">d</span>], <span class="fu">f</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Cases2<span class="op">[</span><span class="fu">f</span><span class="op">[</span><span class="fu">a</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">f</span><span class="op">[</span><span class="fu">b</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">f</span><span class="op">[</span><span class="fu">c</span><span class="op">,</span> <span class="fu">d</span><span class="op">],</span> <span class="fu">f</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{f(a),f(b),f(c,d)\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Cases2[<span class="fu">Sin</span>[<span class="fu">x</span>] <span class="fu">Sin</span>[<span class="fu">y</span> - <span class="fu">z</span>] + <span class="fu">g</span>[<span class="fu">y</span>], <span class="fu">Sin</span>, <span class="fu">g</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Cases2<span class="op">[</span><span class="fu">Sin</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="fu">Sin</span><span class="op">[</span><span class="fu">y</span> <span class="sc">-</span> <span class="fu">z</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">g</span><span class="op">[</span><span class="fu">y</span><span class="op">],</span> <span class="fu">Sin</span><span class="op">,</span> <span class="fu">g</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{g(y),\sin (x),\sin (y-z)\}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>Cases2[<span class="fu">Sin</span>[<span class="fu">x</span>] <span class="fu">Sin</span>[<span class="fu">y</span> - <span class="fu">z</span>] + <span class="fu">g</span>[<span class="fu">x</span>] + <span class="fu">g</span>[<span class="fu">a</span>, <span class="fu">b</span>, <span class="fu">c</span>], {<span class="fu">Sin</span>, <span class="fu">g</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Cases2<span class="op">[</span><span class="fu">Sin</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="fu">Sin</span><span class="op">[</span><span class="fu">y</span> <span class="sc">-</span> <span class="fu">z</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">g</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">g</span><span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">],</span> <span class="op">{</span><span class="fu">Sin</span><span class="op">,</span> <span class="fu">g</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\{g(x),g(a,b,c),\sin (x),\sin (y-z)\}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>Cases2[GS[<span class="fu">p</span>] . GS[<span class="fu">q</span>] + SP[<span class="fu">p</span>, <span class="fu">p</span>], <span class="fu">Dot</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Cases2<span class="op">[</span>GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">],</span> <span class="fu">Dot</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left\{\left(\bar{\gamma }\cdot \overline{p}\right).\left(\bar{\gamma }\cdot \overline{q}\right)\right\}</span></p>
 </body>
 </html>

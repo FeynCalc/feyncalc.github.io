@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,9 +106,9 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCLoopCanonicalize.html">FCLoopCanonicalize</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>li = FCLoopCanonicalize[myHead[FVD[<span class="fu">q</span>, \[Mu]] FVD[<span class="fu">q</span>, \[Nu]] FAD[<span class="fu">q</span>, {<span class="fu">q</span> + <span class="fu">p</span>, <span class="fu">m</span>}]] + myHead[FVD[<span class="fu">q</span>, \[Rho]] FVD[<span class="fu">q</span>, \[Sigma]] FAD[<span class="fu">q</span>, {<span class="fu">q</span> + <span class="fu">p</span>, <span class="fu">m</span>}]], <span class="fu">q</span>, myHead] </span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>li <span class="ex">=</span> FCLoopCanonicalize<span class="op">[</span>myHead<span class="op">[</span>FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FAD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">}]]</span> <span class="sc">+</span> myHead<span class="op">[</span>FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]</span> FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> FAD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">}]],</span> <span class="fu">q</span><span class="op">,</span> myHead<span class="op">]</span> </span></code></pre></div>
 <p><span class="math display">\left\{\left\{\text{myHead}\left(\frac{q^{\mu } q^{\nu }}{q^2.\left((p+q)^2-m^2\right)}\right),\text{myHead}\left(\frac{q^{\rho } q^{\sigma }}{q^2.\left((p+q)^2-m^2\right)}\right)\right\},\{\{\text{FCGV}(\text{cli241})\to \mu ,\text{FCGV}(\text{cli242})\to \nu \},\{\text{FCGV}(\text{cli241})\to \rho ,\text{FCGV}(\text{cli242})\to \sigma \}\},\left\{\text{myHead}\left(\frac{q^{\text{FCGV}(\text{cli241})} q^{\text{FCGV}(\text{cli242})}}{q^2.\left((p+q)^2-m^2\right)}\right),\text{myHead}\left(\frac{q^{\text{FCGV}(\text{cli241})} q^{\text{FCGV}(\text{cli242})}}{q^2.\left((p+q)^2-m^2\right)}\right)\right\},\left\{\text{myHead}\left(\frac{q^{\text{FCGV}(\text{cli241})} q^{\text{FCGV}(\text{cli242})}}{q^2.\left((p+q)^2-m^2\right)}\right)\right\}\right\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>FCLoopSolutionList[li, prefactor (li[[<span class="dv">4</span>]] /. myHead -&gt; <span class="fu">Identity</span> /. <span class="fu">q</span> -&gt; <span class="fu">p</span>), <span class="fu">Dispatch</span> -&gt; <span class="fu">False</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCLoopSolutionList<span class="op">[</span>li<span class="op">,</span> prefactor (li<span class="op">[[</span><span class="dv">4</span><span class="op">]]</span> <span class="ot">/.</span> myHead <span class="ot">-&gt;</span> <span class="fu">Identity</span> <span class="ot">/.</span> <span class="fu">q</span> <span class="ot">-&gt;</span> <span class="fu">p</span>)<span class="op">,</span> <span class="fu">Dispatch</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left\{\text{myHead}\left(\frac{q^{\mu } q^{\nu }}{q^2.\left((p+q)^2-m^2\right)}\right)\to \frac{\text{prefactor} p^{\mu } p^{\nu }}{p^2.\left(4 p^2-m^2\right)},\text{myHead}\left(\frac{q^{\rho } q^{\sigma }}{q^2.\left((p+q)^2-m^2\right)}\right)\to \frac{\text{prefactor} p^{\rho } p^{\sigma }}{p^2.\left(4 p^2-m^2\right)}\right\}</span></p>
 </body>
 </html>

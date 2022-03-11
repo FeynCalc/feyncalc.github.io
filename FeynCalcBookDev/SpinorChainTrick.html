@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,12 +106,12 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCCanonicalizeDummyIndices.html">FCCanonicalizeDummyIndices</a>, <a href="DiracGamma.html">DiracGamma</a>, <a href="Spinor.html">Spinor</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">a</span> SpinorUBar[p1, m1] . GA[\[Mu]] . SpinorU[p2, m2] SpinorVBar[p1, m1] . GA[\[Mu]] . SpinorV[p4, m4] + <span class="fu">b</span> SpinorUBar[p1, m1] . GA[\[Nu]] . SpinorU[p2, m2] SpinorVBar[p1, m1] . GA[\[Nu]] . SpinorV[p4, m4]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>SpinorChainTrick[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">a</span> SpinorUBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . SpinorU<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span> SpinorVBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . SpinorV<span class="op">[</span>p4<span class="op">,</span> m4<span class="op">]</span> <span class="sc">+</span> <span class="fu">b</span> SpinorUBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . SpinorU<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span> SpinorVBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . SpinorV<span class="op">[</span>p4<span class="op">,</span> m4<span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>SpinorChainTrick<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">a \bar{u}(\text{p1},\text{m1}).\bar{\gamma }^{\mu }.u(\text{p2},\text{m2}) \bar{v}(\text{p1},\text{m1}).\bar{\gamma }^{\mu }.v(\text{p4},\text{m4})+b \bar{u}(\text{p1},\text{m1}).\bar{\gamma }^{\nu }.u(\text{p2},\text{m2}) \bar{v}(\text{p1},\text{m1}).\bar{\gamma }^{\nu }.v(\text{p4},\text{m4})</span></p>
 <p><span class="math display">(a+b) \left(\varphi (\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^{\text{FCGV}(\text{LI241})}.\left(\varphi (\overline{\text{p2}},\text{m2})\right) \left(\varphi (-\overline{\text{p1}},\text{m1})\right).\bar{\gamma }^{\text{FCGV}(\text{LI241})}.\left(\varphi (-\overline{\text{p4}},\text{m4})\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SpinorUBar[p1, m1] . GAE[\[Mu]] . SpinorU[p2, m2] SpinorVBar[p1, m1] . GA[\[Mu]] . SpinorV[p4, m4]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>SpinorChainTrick[%]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SpinorUBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GAE<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . SpinorU<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span> SpinorVBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . SpinorV<span class="op">[</span>p4<span class="op">,</span> m4<span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SpinorChainTrick<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(\text{p1},\text{m1}).\hat{\gamma }^{\mu }.u(\text{p2},\text{m2}) \bar{v}(\text{p1},\text{m1}).\bar{\gamma }^{\mu }.v(\text{p4},\text{m4})</span></p>
 <p><span class="math display">0</span></p>
 </body>

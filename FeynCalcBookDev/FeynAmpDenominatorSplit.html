@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,15 +106,15 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FeynAmpDenominatorCombine.html">FeynAmpDenominatorCombine</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>FAD[q1, q1 - <span class="fu">p</span>, q1 - q2, q2, q2 - <span class="fu">p</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>FeynAmpDenominatorSplit[%]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>% // FCE // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[</span>q1<span class="op">,</span> q1 <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> q1 <span class="sc">-</span> q2<span class="op">,</span> q2<span class="op">,</span> q2 <span class="sc">-</span> <span class="fu">p</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FeynAmpDenominatorSplit<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCE <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{\text{q1}^2.(\text{q1}-p)^2.(\text{q1}-\text{q2})^2.\text{q2}^2.(\text{q2}-p)^2}</span></p>
 <p><span class="math display">\frac{1}{\text{q1}^2 \;\text{q2}^2 (\text{q1}-p)^2 (\text{q2}-p)^2 (\text{q1}-\text{q2})^2}</span></p>
 <pre><code>(*FAD[q1] FAD[-p + q1] FAD[q1 - q2] FAD[q2] FAD[-p + q2]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>FeynAmpDenominatorSplit[FAD[q1, q1 - <span class="fu">p</span>, q1 - q2, q2, q2 - <span class="fu">p</span>], Momentum -&gt; {q1}]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>% // FCE // <span class="fu">StandardForm</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>FeynAmpDenominatorCombine[%] // FCE // <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FeynAmpDenominatorSplit<span class="op">[</span>FAD<span class="op">[</span>q1<span class="op">,</span> q1 <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> q1 <span class="sc">-</span> q2<span class="op">,</span> q2<span class="op">,</span> q2 <span class="sc">-</span> <span class="fu">p</span><span class="op">],</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span>q1<span class="op">}]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCE <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>FeynAmpDenominatorCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> FCE <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{\text{q2}^2.(\text{q2}-p)^2 \;\text{q1}^2.(\text{q1}-p)^2.(\text{q1}-\text{q2})^2}</span></p>
 <pre><code>(*FAD[q2, -p + q2] FAD[q1, -p + q1, q1 - q2]*)
 

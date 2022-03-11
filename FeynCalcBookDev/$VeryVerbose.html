@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,10 +106,10 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCVerbose.html">FCVerbose</a>, <a href="FCPrint.html">FCPrint</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>$VeryVerbose</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>$VeryVerbose</span></code></pre></div>
 <p><span class="math display">0</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>$VeryVerbose = <span class="dv">3</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>Collect2[<span class="fu">Expand</span>[(<span class="fu">x</span> - <span class="fu">y</span> - <span class="fu">z</span>)^<span class="dv">6</span>], <span class="fu">x</span>];</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$VeryVerbose <span class="ex">=</span> <span class="dv">3</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Collect2<span class="op">[</span><span class="fu">Expand</span><span class="op">[</span>(<span class="fu">x</span> <span class="sc">-</span> <span class="fu">y</span> <span class="sc">-</span> <span class="fu">z</span>)<span class="sc">^</span><span class="dv">6</span><span class="op">],</span> <span class="fu">x</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{Collect2: Entering Collect2.}</span></p>
 <p><span class="math display">\text{Collect2: Entering with: }x^6-6 y x^5-6 z x^5+15 y^2 x^4+15 z^2 x^4+30 y z x^4-20 y^3 x^3-20 z^3 x^3-60 y z^2 x^3-60 y^2 z x^3+15 y^4 x^2+15 z^4 x^2+60 y z^3 x^2+90 y^2 z^2 x^2+60 y^3 z x^2-6 y^5 x-6 z^5 x-30 y z^4 x-60 y^2 z^3 x-60 y^3 z^2 x-30 y^4 z x+y^6+z^6+6 y z^5+15 y^2 z^4+20 y^3 z^3+15 y^4 z^2+6 y^5 z</span></p>
 <p><span class="math display">\text{Collect2: After factoring out }1\text{ : }x^6-6 y x^5-6 z x^5+15 y^2 x^4+15 z^2 x^4+30 y z x^4-20 y^3 x^3-20 z^3 x^3-60 y z^2 x^3-60 y^2 z x^3+15 y^4 x^2+15 z^4 x^2+60 y z^3 x^2+90 y^2 z^2 x^2+60 y^3 z x^2-6 y^5 x-6 z^5 x-30 y z^4 x-60 y^2 z^3 x-60 y^3 z^2 x-30 y^4 z x+y^6+z^6+6 y z^5+15 y^2 z^4+20 y^3 z^3+15 y^4 z^2+6 y^5 z</span></p>
@@ -145,6 +149,6 @@
 <p><span class="math display">\text{Collect2: Done releasing tempIso, timing: }0.000431</span></p>
 <p><span class="math display">\text{Collect2: Leaving.}</span></p>
 <p><span class="math display">\text{Collect2: Leaving with}x^6-6 (y+z) x^5+15 (y+z)^2 x^4-20 (y+z)^3 x^3+15 (y+z)^4 x^2-6 (y+z)^5 x+(y+z)^6</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>$VeryVerbose = <span class="dv">0</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>$VeryVerbose <span class="ex">=</span> <span class="dv">0</span>;</span></code></pre></div>
 </body>
 </html>

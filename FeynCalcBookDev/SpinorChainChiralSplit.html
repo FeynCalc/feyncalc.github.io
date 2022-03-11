@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -102,8 +106,8 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DiracSubstitute67.html">DiracSubstitute67</a>, <a href="DiracGamma.html">DiracGamma</a>, <a href="ToDiracGamma67.html">ToDiracGamma67</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SpinorUBar[p1, m1] . GSD[<span class="fu">p</span>] . SpinorV[p2, m2]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>SpinorChainChiralSplit[%]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SpinorUBar<span class="op">[</span>p1<span class="op">,</span> m1<span class="op">]</span> . GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . SpinorV<span class="op">[</span>p2<span class="op">,</span> m2<span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>SpinorChainChiralSplit<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(\text{p1},\text{m1}).(\gamma \cdot p).v(\text{p2},\text{m2})</span></p>
 <p><span class="math display">\left(\varphi (\overline{\text{p1}},\text{m1})\right).(\gamma \cdot p).\bar{\gamma }^6.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)+\left(\varphi (\overline{\text{p1}},\text{m1})\right).(\gamma \cdot p).\bar{\gamma }^7.\left(\varphi (-\overline{\text{p2}},\text{m2})\right)</span></p>
 </body>

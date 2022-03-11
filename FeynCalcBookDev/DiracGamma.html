@@ -15,6 +15,7 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -75,15 +76,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: true
      });
   }}});
@@ -106,38 +110,38 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DiracGammaExpand.html">DiracGammaExpand</a>, <a href="GA.html">GA</a>, <a href="DiracSimplify.html">DiracSimplify</a>, <a href="GS.html">GS</a>, <a href="DiracTrick.html">DiracTrick</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DiracGamma[<span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span><span class="dv">5</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^5</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>DiracGamma[LorentzIndex[\[Alpha]]]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\alpha }</span></p>
 <p>A Dirac-slash, i.e., <span class="math inline">\gamma ^{\mu }q_{\mu}</span>, is displayed as <span class="math inline">\gamma \cdot q</span>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>DiracGamma[Momentum[<span class="fu">q</span>]] </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> </span></code></pre></div>
 <p><span class="math display">\bar{\gamma }\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>DiracGamma[Momentum[<span class="fu">q</span>]] . DiracGamma[Momentum[<span class="fu">p</span> - <span class="fu">q</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> . DiracGamma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{\gamma }\cdot \overline{q}\right).\left(\bar{\gamma }\cdot \left(\overline{p}-\overline{q}\right)\right)</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>DiracGamma[Momentum[<span class="fu">q</span>, <span class="fu">D</span>], <span class="fu">D</span>] </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> <span class="fu">D</span><span class="op">]</span> </span></code></pre></div>
 <p><span class="math display">\gamma \cdot q</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>GS[<span class="fu">p</span> - <span class="fu">q</span>] . GS[<span class="fu">p</span>]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>DiracGammaExpand[%]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>GS<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>DiracGammaExpand<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\bar{\gamma }\cdot \left(\overline{p}-\overline{q}\right)\right).\left(\bar{\gamma }\cdot \overline{p}\right)</span></p>
 <p><span class="math display">\left(\bar{\gamma }\cdot \overline{p}-\bar{\gamma }\cdot \overline{q}\right).\left(\bar{\gamma }\cdot \overline{p}\right)</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>ex = GAD[\[Mu]] . GSD[<span class="fu">p</span> - <span class="fu">q</span>] . GSD[<span class="fu">q</span>] . GAD[\[Mu]]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> . GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\gamma ^{\mu }.(\gamma \cdot (p-q)).(\gamma \cdot q).\gamma ^{\mu }</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>DiracTrick[ex]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DiracTrick<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">4 ((p-q)\cdot q)+(D-4) (\gamma \cdot (p-q)).(\gamma \cdot q)</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>DiracSimplify[ex]</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">D (\gamma \cdot p).(\gamma \cdot q)-D q^2-4 (\gamma \cdot p).(\gamma \cdot q)+4 (p\cdot q)</span></p>
 <p><code>DiracGamma</code> may also carry Cartesian indices or appear contracted with Cartesian momenta.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>DiracGamma[CartesianIndex[<span class="fu">i</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{\gamma }^i</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>DiracGamma[CartesianIndex[<span class="fu">i</span>, <span class="fu">D</span> - <span class="dv">1</span>], <span class="fu">D</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\gamma ^i</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>DiracGamma[CartesianMomentum[<span class="fu">p</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{\gamma }\cdot \overline{p}</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>DiracGamma[CartesianMomentum[<span class="fu">p</span>, <span class="fu">D</span> - <span class="dv">1</span>], <span class="fu">D</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\gamma \cdot p</span></p>
 <p>Temporal indices are represented using <code>ExplicitLorentzIndex[0]</code></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>DiracGamma[ExplicitLorentzIndex[<span class="dv">0</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>DiracGamma<span class="op">[</span>ExplicitLorentzIndex<span class="op">[</span><span class="dv">0</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^0</span></p>
 </body>
 </html>
