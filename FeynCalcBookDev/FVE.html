@@ -117,10 +117,11 @@
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Pair[LorentzIndex[\[Mu], -4 + D], Momentum[p, -4 + D]]*)</span></span></code></pre></div>
 <p>There is no special function to expand momenta in <code>FVE</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span>FVE<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> ExpandScalarProduct<span class="op">[</span>FVE<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">\hat{p}^{\mu }-\hat{q}^{\mu }</span></p>
-<pre><code>(*Pair[LorentzIndex[\[Mu], -4 + D], Momentum[p, -4 + D]] - Pair[LorentzIndex[\[Mu], -4 + D], Momentum[q, -4 + D]]*)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Pair[LorentzIndex[\[Mu], -4 + D], Momentum[p, -4 + D]] - Pair[LorentzIndex[\[Mu], -4 + D], Momentum[q, -4 + D]]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span>FVE<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">0</span></p>
 </body>

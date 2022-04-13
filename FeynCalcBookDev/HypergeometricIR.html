@@ -108,10 +108,11 @@
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>HypergeometricIR<span class="op">[</span><span class="fu">Hypergeometric2F1</span><span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> <span class="fu">z</span><span class="op">],</span> <span class="fu">t</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{t^{b-1} \Gamma (c) (1-t z)^{-a} (1-t)^{-b+c-1}}{\Gamma (b) \Gamma (c-b)}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ToHypergeometric<span class="op">[</span><span class="fu">t</span><span class="sc">^</span><span class="fu">b</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">t</span>)<span class="sc">^</span><span class="fu">c</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">t</span> <span class="fu">z</span>)<span class="sc">^</span><span class="fu">a</span><span class="op">,</span> <span class="fu">t</span><span class="op">]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>HypergeometricIR<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">t</span><span class="op">]</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ToHypergeometric<span class="op">[</span><span class="fu">t</span><span class="sc">^</span><span class="fu">b</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">t</span>)<span class="sc">^</span><span class="fu">c</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">t</span> <span class="fu">z</span>)<span class="sc">^</span><span class="fu">a</span><span class="op">,</span> <span class="fu">t</span><span class="op">]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>HypergeometricIR<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">t</span><span class="op">]</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\frac{\Gamma (b+1) \Gamma (c+1) \, _2F_1(-a,b+1;b+c+2;-z)}{\Gamma (b+c+2)}</span></p>
 <p><span class="math display">t^b (1-t)^c (t z+1)^a</span></p>
 </body>

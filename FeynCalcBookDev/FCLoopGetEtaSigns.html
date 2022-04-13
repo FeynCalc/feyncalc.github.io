@@ -101,27 +101,30 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
+<h2 id="fcloopgetetasigns">FCLoopGetEtaSigns</h2>
 <p><code>FCLoopGetEtaSigns[exp]</code> is an auxiliary function that extracts the signs of <span class="math inline">i \eta</span> from propagators present in the input expression. The result is returned as a list, e.g. <code>{}</code>, <code>{1}</code>, <code>{-1}</code> or <code>{-1,1}</code>.</p>
 <p>This is useful if one wants ensure that all propagators of the given integral or topology follow a particular <span class="math inline">i \eta</span> sign convention.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCTopology.html">FCTopology</a>, <a href="FCLoopSwitchEtaSign.html">FCLoopSwitchEtaSign</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">}]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FCLoopGetEtaSigns<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">}]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FCLoopGetEtaSigns<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{p^2-m^2}</span></p>
 <p><span class="math display">\{1\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCLoopGetEtaSigns<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FCLoopGetEtaSigns<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{(p^2-m^2+i \eta )}</span></p>
 <p><span class="math display">\{1\}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">I</span> <span class="fu">p</span><span class="op">,</span> <span class="sc">-</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">},</span> EtaSign <span class="ot">-&gt;</span> <span class="sc">-</span><span class="dv">1</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>FCLoopGetEtaSigns<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">I</span> <span class="fu">p</span><span class="op">,</span> <span class="sc">-</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">},</span> EtaSign <span class="ot">-&gt;</span> <span class="sc">-</span><span class="dv">1</span><span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>FCLoopGetEtaSigns<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{(-p^2+m^2-i \eta )}</span></p>
 <p><span class="math display">\{-1\}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>FCLoopGetEtaSigns<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>FCLoopGetEtaSigns<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{(p^2+m^2-i \eta )}</span></p>
 <p><span class="math display">\{-1\}</span></p>
 </body>

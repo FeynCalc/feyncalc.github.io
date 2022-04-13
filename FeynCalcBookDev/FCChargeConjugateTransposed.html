@@ -107,15 +107,18 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SpinorChainTranspose.html">SpinorChainTranspose</a>, <a href="DiracGamma.html">DiracGamma</a>, <a href="Spinor.html">Spinor</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FCChargeConjugateTransposed<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FCChargeConjugateTransposed<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }</span></p>
 <p><span class="math display">C\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }\right)^TC^{-1}</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCChargeConjugateTransposed<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]],</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\mu }</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>FCCCT<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> Explicit</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>FCCCT<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> Explicit</span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^5</span></p>
 <p><span class="math display">C\left(\bar{\gamma }^5\right)^TC^{-1}</span></p>
 <p><span class="math display">\bar{\gamma }^5</span></p>

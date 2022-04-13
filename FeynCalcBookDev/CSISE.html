@@ -106,16 +106,15 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="PauliSigma.html">PauliSigma</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>CSISE<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>CSISE<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>CSISE<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span> </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>CSISE<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>CSISE<span class="op">[</span><span class="fu">p</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\hat{\sigma }\cdot \hat{p}</span></p>
-<pre><code>(*PauliSigma[CartesianMomentum[p, -4 + D], -4 + D]*)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>CSISE<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*PauliSigma[CartesianMomentum[p, -4 + D], -4 + D]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>CSISE<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\hat{\sigma }\cdot \hat{p}\right).\left(\hat{\sigma }\cdot \hat{q}\right).\left(\hat{\sigma }\cdot \hat{r}\right).\left(\hat{\sigma }\cdot \hat{s}\right)</span></p>
-<pre><code>(*CSISE[p] . CSISE[q] . CSISE[r] . CSISE[s]*)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CSISE<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*CSISE[p] . CSISE[q] . CSISE[r] . CSISE[s]*)</span></span></code></pre></div>
 </body>
 </html>

@@ -102,21 +102,27 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="gluonpropagator">GluonPropagator</h2>
-<p><code>GluonPropagator[p, {μ, a}, {ν, b}]</code> or <code>GluonPropagator[p, μ, a, ν, b]</code> yields the gluon propagator.</p>
-<p><code>GluonPropagator[p, {μ}, {ν}]</code> or <code>GluonPropagator[p, μ, ν]</code> omits the <code>SUNDelta</code>.</p>
+<p><code>GluonPropagator[p, {mu, a}, {nu, b}]</code> or <code>GluonPropagator[p, mu, a, nu, b]</code> yields the gluon propagator.</p>
+<p><code>GluonPropagator[p, {mu}, {nu}]</code> or <code>GluonPropagator[p, mu, nu]</code> omits the <code>SUNDelta</code>.</p>
 <p><code>GP</code> can be used as an abbreviation of <code>GluonPropagator</code>.</p>
 <p>The gauge and the dimension are determined by the options <code>Gauge</code> and <code>Dimension</code>. The following settings of <code>Gauge</code> are possible:</p>
-<p><code>1</code> for the Feynman gauge;<br />
-<code>alpha</code> for the general covariant gauge; <code>Momentum[n] ,1}</code> for the axial gauge.</p>
+<ul>
+<li><code>1</code> for the Feynman gauge;<br />
+</li>
+<li><code>alpha</code> for the general covariant gauge;</li>
+<li><code>Momentum[n] ,1}</code> for the axial gauge.</li>
+</ul>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="GluonSelfEnergy.html">GluonSelfEnergy</a>, <a href="GluonVertex.html">GluonVertex</a>, <a href="GhostVertex.html">GhostVertex</a>, <a href="GhostPropagator.html">GhostPropagator</a>, <a href="GluonGhostVertex.html">GluonGhostVertex</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="GluonSelfEnergy.html">GluonSelfEnergy</a>, <a href="GluonVertex.html">GluonVertex</a>, <a href="GluonGhostVertex.html">GluonGhostVertex</a>, <a href="GhostPropagator.html">GhostPropagator</a>, <a href="GluonGhostVertex.html">GluonGhostVertex</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GluonPropagator<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">b</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Explicit<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GluonPropagator<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">b</span><span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Explicit<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\Pi _{ab}^{\mu \nu }(p)</span></p>
 <p><span class="math display">-\frac{i \delta ^{ab} g^{\mu \nu }}{p^2}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">b</span><span class="op">,</span> Gauge <span class="ot">-&gt;</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Explicit<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">b</span><span class="op">,</span> Gauge <span class="ot">-&gt;</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Explicit<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\Pi _{ab}^{\mu \nu }(p)</span></p>
 <p><span class="math display">\frac{i \delta ^{ab} \left(\frac{(1-\alpha ) p^{\mu } p^{\nu }}{p^2}-g^{\mu \nu }\right)}{p^2}</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GluonPropagator<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">b</span><span class="op">,</span> Gauge <span class="ot">-&gt;</span> <span class="op">{</span>Momentum<span class="op">[</span><span class="fu">n</span><span class="op">],</span> <span class="dv">1</span><span class="op">},</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>

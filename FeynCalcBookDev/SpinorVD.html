@@ -106,16 +106,19 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Spinor.html">Spinor</a>, <a href="SpinorUBar.html">SpinorUBar</a>, <a href="SpinorU.html">SpinorU</a>, <a href="SpinorV.html">SpinorV</a>, <a href="SpinorVBar.html">SpinorVBar</a>, <a href="SpinorUBarD.html">SpinorUBarD</a>, <a href="SpinorUD.html">SpinorUD</a>, <a href="SpinorVBarD.html">SpinorVBarD</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SpinorVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SpinorVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">v(p,m)</span></p>
-<pre><code>(*Spinor[-Momentum[p, D], m, 1]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SpinorVD<span class="op">[</span><span class="fu">p</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SpinorVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Spinor[-Momentum[p, D], m, 1]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SpinorVD<span class="op">[</span><span class="fu">p</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">v(p)</span></p>
-<pre><code>(*Spinor[-Momentum[p, D], 0, 1]*)</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . SpinorVD<span class="op">[</span><span class="fu">p</span><span class="op">]</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DiracEquation<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SpinorVD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Spinor[-Momentum[p, D], 0, 1]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . SpinorVD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>DiracEquation<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(\gamma \cdot p).v(p)</span></p>
 <p><span class="math display">0</span></p>
 </body>

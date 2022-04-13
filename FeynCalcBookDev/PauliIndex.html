@@ -108,14 +108,16 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="PauliChain.html">PauliChain</a>, <a href="PCHN.html">PCHN</a>, <a href="ExplicitPauliIndex.html">ExplicitPauliIndex</a>, <a href="PauliIndexDelta.html">PauliIndexDelta</a>, <a href="DIDelta.html">DIDelta</a>, <a href="PauliChainJoin.html">PauliChainJoin</a>, <a href="PauliChainCombine.html">PauliChainCombine</a>, <a href="PauliChainExpand.html">PauliChainExpand</a>, <a href="PauliChainFactor.html">PauliChainFactor</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PauliIndex<span class="op">[</span><span class="fu">i</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PauliIndex<span class="op">[</span><span class="fu">i</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">i</span></p>
-<pre><code>(*PauliIndex[i]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PauliIndex<span class="op">[</span><span class="dv">2</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PauliIndex<span class="op">[</span><span class="fu">i</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*PauliIndex[i]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PauliIndex<span class="op">[</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">2</span></p>
-<pre><code>(*ExplicitPauliIndex[2]*)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PauliIndex<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*ExplicitPauliIndex[2]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PIDelta<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*PauliIndexDelta[PauliIndex[i], PauliIndex[j]]*)</span></span></code></pre></div>

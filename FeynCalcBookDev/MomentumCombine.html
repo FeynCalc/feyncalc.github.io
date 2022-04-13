@@ -107,23 +107,25 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExpandScalarProduct.html">ExpandScalarProduct</a>, <a href="Momentum.html">Momentum</a>, <a href="MomentumExpand.html">MomentumExpand</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">-</span> <span class="dv">2</span> Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="sc">//</span> MomentumCombine <span class="sc">//</span> <span class="fu">StandardForm</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span> <span class="sc">//</span> ExpandScalarProduct</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">(*Momentum[p - 2 q]*)</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Momentum[p - 2 q]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> MomentumCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^{\mu }+2 \overline{q}^{\mu }</span></p>
 <p><span class="math display">\left(\overline{p}+2 \overline{q}\right)^{\mu }</span></p>
-<pre><code>(*Pair[LorentzIndex[\[Mu]], Momentum[p + 2 q]]*)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Pair[LorentzIndex[\[Mu]], Momentum[p + 2 q]]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> ExpandScalarProduct</span></code></pre></div>
 <p><span class="math display">\overline{p}^{\mu }+2 \overline{q}^{\mu }</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> MomentumCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">3 \overline{p}^{\mu }+2 \overline{q}^{\mu }</span></p>
 <p><span class="math display">\left(3 \overline{p}+2 \overline{q}\right)^{\mu }</span></p>
-<pre><code>(*Pair[LorentzIndex[\[Mu]], Momentum[3 p + 2 q]]*)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Pair[LorentzIndex[\[Mu]], Momentum[3 p + 2 q]]*)</span></span></code></pre></div>
 </body>
 </html>

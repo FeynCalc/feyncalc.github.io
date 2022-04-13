@@ -111,10 +111,9 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCFactorOut<span class="op">[</span>(<span class="fu">a</span> <span class="sc">+</span> <span class="dv">3</span> <span class="fu">b</span>)<span class="op">,</span> <span class="dv">3</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> <span class="fu">hold</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">3 b \;\text{hold}\left(\frac{a}{3 b}+1\right)</span></p>
 <p><code>FCFactorOut</code> is also an option of <code>Collect2</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">6</span> <span class="fu">y</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Collect2<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="fu">y</span><span class="op">},</span> FCFactorOut <span class="ot">-&gt;</span> <span class="dv">3</span><span class="op">]</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">6</span> <span class="fu">y</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Collect2<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="fu">y</span><span class="op">},</span> FCFactorOut <span class="ot">-&gt;</span> <span class="dv">3</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">x^2+6 y</span></p>
 <p><span class="math display">3 \left(\frac{x^2}{3}+2 y\right)</span></p>
 </body>

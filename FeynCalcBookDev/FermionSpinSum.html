@@ -107,26 +107,30 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Spinor.html">Spinor</a>, <a href="ComplexConjugate.html">ComplexConjugate</a>, <a href="DiracTrace.html">DiracTrace</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>FeynCalc uses the customary relativistic normalization of the spinors.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SpinorUBar<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span> . SpinorU<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FermionSpinSum<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SpinorUBar<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span> . SpinorU<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FermionSpinSum<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}\left(\overline{p},m\right).u\left(\overline{p},m\right)</span></p>
 <p><span class="math display">\text{tr}\left(\bar{\gamma }\cdot \overline{p}+m\right)</span></p>
 <p><span class="math display">4 m</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SpinorVBar<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span> . SpinorV<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FermionSpinSum<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SpinorVBar<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span> . SpinorV<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FermionSpinSum<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{v}\left(\overline{p},m\right).v\left(\overline{p},m\right)</span></p>
 <p><span class="math display">\text{tr}\left(\bar{\gamma }\cdot \overline{p}-m\right)</span></p>
 <p><span class="math display">-4 m</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>amp <span class="ex">=</span> SpinorUBar<span class="op">[</span>k1<span class="op">,</span> <span class="fu">m</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span> . SpinorU<span class="op">[</span>p1<span class="op">,</span> <span class="fu">m</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ampSq <span class="ex">=</span> amp ComplexConjugate<span class="op">[</span>amp<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>amp <span class="ex">=</span> SpinorUBar<span class="op">[</span>k1<span class="op">,</span> <span class="fu">m</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span> . SpinorU<span class="op">[</span>p1<span class="op">,</span> <span class="fu">m</span><span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ampSq <span class="ex">=</span> amp ComplexConjugate<span class="op">[</span>amp<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(\text{k1},m).\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^5.u(\text{p1},m)</span></p>
 <p><span class="math display">\bar{u}(\text{k1},m).\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^5.u(\text{p1},m) \left(-\left(\varphi (\overline{\text{p1}},m)\right).\bar{\gamma }^5.\left(\bar{\gamma }\cdot \overline{p}\right).\left(\varphi (\overline{\text{k1}},m)\right)\right)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FermionSpinSum<span class="op">[</span>ampSq<span class="op">]</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FermionSpinSum<span class="op">[</span>ampSq<span class="op">]</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\text{tr}\left(\left(\bar{\gamma }\cdot \overline{\text{k1}}+m\right).\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^5.\left(\bar{\gamma }\cdot \overline{\text{p1}}+m\right).\bar{\gamma }^5.\left(\bar{\gamma }\cdot \overline{p}\right)\right)</span></p>
 <p><span class="math display">-4 \overline{p}^2 \left(\overline{\text{k1}}\cdot \overline{\text{p1}}\right)+8 \left(\overline{\text{k1}}\cdot \overline{p}\right) \left(\overline{p}\cdot \overline{\text{p1}}\right)-4 m^2 \overline{p}^2</span></p>
 </body>

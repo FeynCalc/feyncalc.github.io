@@ -106,19 +106,22 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="CartesianToLorentz.html">CartesianToLorentz</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> LorentzToCartesian</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> LorentzToCartesian</span></code></pre></div>
 <p><span class="math display">p\cdot q</span></p>
 <p><span class="math display">p^0 q^0-p\cdot q</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> LorentzToCartesian</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> LorentzToCartesian</span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\mu \nu \overline{p}\overline{q}}</span></p>
-<p><span class="math display">\bar{g}^{0\mu } \bar{g}^{\text{\$MU}(\text{\$25})\nu } \left(-\bar{\epsilon }^{\text{\$MU}(\text{\$25})\overline{p}\overline{q}}\right)-\bar{g}^{\text{\$MU}(\text{\$25})\mu } \left(\bar{g}^{0\nu } \left(-\bar{\epsilon }^{\text{\$MU}(\text{\$25})\overline{p}\overline{q}}\right)-\bar{g}^{\text{\$MU}(\text{\$26})\nu } \left(q^0 \bar{\epsilon }^{\text{\$MU}(\text{\$25})\text{\$MU}(\text{\$26})\overline{p}}-p^0 \bar{\epsilon }^{\text{\$MU}(\text{\$25})\text{\$MU}(\text{\$26})\overline{q}}\right)\right)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> LorentzToCartesian </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<p><span class="math display">\bar{g}^{0\mu } \bar{g}^{\text{\$MU}(\text{\$20})\nu } \left(-\bar{\epsilon }^{\text{\$MU}(\text{\$20})\overline{p}\overline{q}}\right)-\bar{g}^{\text{\$MU}(\text{\$20})\mu } \left(\bar{g}^{0\nu } \left(-\bar{\epsilon }^{\text{\$MU}(\text{\$20})\overline{p}\overline{q}}\right)-\bar{g}^{\text{\$MU}(\text{\$21})\nu } \left(q^0 \bar{\epsilon }^{\text{\$MU}(\text{\$20})\text{\$MU}(\text{\$21})\overline{p}}-p^0 \bar{\epsilon }^{\text{\$MU}(\text{\$20})\text{\$MU}(\text{\$21})\overline{q}}\right)\right)</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> LorentzToCartesian </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\gamma ^{\mu }</span></p>
-<p><span class="math display">\bar{\gamma }^0 \bar{g}^{0\mu }-\gamma ^{\text{\$MU}(\text{\$27})} g^{\text{\$MU}(\text{\$27})\mu }</span></p>
+<p><span class="math display">\bar{\gamma }^0 \bar{g}^{0\mu }-\gamma ^{\text{\$MU}(\text{\$22})} g^{\text{\$MU}(\text{\$22})\mu }</span></p>
 </body>
 </html>

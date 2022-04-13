@@ -106,19 +106,20 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCMakeSymbols.html">FCMakeSymbols</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Lor&quot;</span><span class="op">,</span> <span class="st">&quot;1&quot;</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Lor&quot;</span><span class="op">,</span> <span class="st">&quot;1&quot;</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{Lor1}</span></p>
-<pre><code>(*Lor1*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Lor&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">},</span> LorentzIndex<span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Lor&quot;</span><span class="op">,</span> <span class="st">&quot;1&quot;</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Lor1*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Lor&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">},</span> LorentzIndex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{\text{Lor3},\text{Lor1},\text{Lor4}\}</span></p>
-<pre><code>(*{LorentzIndex[Lor3], LorentzIndex[Lor1], LorentzIndex[Lor4]}*)</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Sun&quot;</span><span class="op">,</span> <span class="op">{</span><span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">4</span><span class="op">}]</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Lor&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">},</span> LorentzIndex<span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*{LorentzIndex[Lor3], LorentzIndex[Lor1], LorentzIndex[Lor4]}*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Sun&quot;</span><span class="op">,</span> <span class="op">{</span><span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">4</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\{\text{Suna},\text{Sun1},\text{SunMinus4}\}</span></p>
-<pre><code>(*{Suna, Sun1, SunMinus4}*)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FCMakeIndex<span class="op">[</span><span class="st">&quot;Sun&quot;</span><span class="op">,</span> <span class="op">{</span><span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">4</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*{Suna, Sun1, SunMinus4}*)</span></span></code></pre></div>
 </body>
 </html>

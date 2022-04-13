@@ -106,20 +106,24 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExpandPartialD.html">ExpandPartialD</a>, <a href="LeftRightPartialD.html">LeftRightPartialD</a>, <a href="LeftRightPartialD2.html">LeftRightPartialD2</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>LeftRightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>LeftRightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overleftrightarrow{\partial }_{\mu }</span></p>
 <p><span class="math display">\frac{1}{2} \left(\vec{\partial }_{\mu }-\overleftarrow{\partial }_{\mu }\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LeftRightPartialD2<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LeftRightPartialD2<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overleftrightarrow{\partial }_{\mu }</span></p>
 <p><span class="math display">\overleftarrow{\partial }_{\mu }+\vec{\partial }_{\mu }</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>LeftRightPartialD<span class="op">[</span>OPEDelta<span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>LeftRightPartialD<span class="op">[</span>OPEDelta<span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overleftrightarrow{\partial }_{\Delta }</span></p>
 <p><span class="math display">\frac{1}{2} \left(\vec{\partial }_{\Delta }-\overleftarrow{\partial }_{\Delta }\right)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span> LeftRightPartialD<span class="op">[</span>OPEDelta<span class="op">]</span><span class="sc">^</span><span class="dv">4</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span> LeftRightPartialD<span class="op">[</span>OPEDelta<span class="op">]</span><span class="sc">^</span><span class="dv">4</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">16 \overleftrightarrow{\partial }_{\Delta }^4</span></p>
 <p><span class="math display">\left(\vec{\partial }_{\Delta }-\overleftarrow{\partial }_{\Delta }\right){}^4</span></p>
 </body>

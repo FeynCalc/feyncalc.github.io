@@ -107,17 +107,17 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="IsolateNames.html">IsolateNames</a>, <a href="Collect2.html">Collect2</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>t0 <span class="ex">=</span> Isolate<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{KK}(24)</span></p>
+<p><span class="math display">\text{KK}(19)</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ex">=</span> Isolate<span class="op">[</span>(<span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span>) <span class="fu">f</span> <span class="sc">+</span> (<span class="fu">c</span> <span class="sc">+</span> <span class="fu">d</span>) <span class="fu">f</span> <span class="sc">+</span> <span class="fu">e</span><span class="op">,</span> <span class="fu">f</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">e+f \;\text{KK}(24)+f \;\text{KK}(25)</span></p>
+<p><span class="math display">e+f \;\text{KK}(19)+f \;\text{KK}(20)</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span>t1<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">e+f \;\text{KK}[24]+f \;\text{KK}[25]</span></p>
+<p><span class="math display">e+f \;\text{KK}[19]+f \;\text{KK}[20]</span></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>t0<span class="op">,</span> t1<span class="op">,</span> <span class="fu">ReleaseHold</span><span class="op">[</span>t1<span class="op">]}</span></span></code></pre></div>
-<p><span class="math display">\{\text{KK}(24),e+f \;\text{KK}(24)+f \;\text{KK}(25),f (a+b)+f (c+d)+e\}</span></p>
+<p><span class="math display">\{\text{KK}(19),e+f \;\text{KK}(19)+f \;\text{KK}(20),f (a+b)+f (c+d)+e\}</span></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Isolate<span class="op">[</span><span class="fu">a</span><span class="op">[</span><span class="fu">z</span><span class="op">]</span> (<span class="fu">b</span> <span class="sc">+</span> <span class="fu">c</span> (<span class="fu">y</span> <span class="sc">+</span> <span class="fu">z</span>)) <span class="sc">+</span> <span class="fu">d</span><span class="op">[</span><span class="fu">z</span><span class="op">]</span> (<span class="fu">y</span> <span class="sc">+</span> <span class="fu">z</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">a</span><span class="op">,</span> <span class="fu">d</span><span class="op">},</span> IsolateNames <span class="ot">-&gt;</span> fF<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{fF}(27) a(z)+\text{fF}(26) d(z)</span></p>
+<p><span class="math display">\text{fF}(22) a(z)+\text{fF}(21) d(z)</span></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Information</span><span class="op">[</span>fF<span class="op">]</span></span></code></pre></div>
-<p><img src="img/1h43hlg7mmzzn.svg" alt="1h43hlg7mmzzn" /></p>
+<p><embed src="img/0gi2hdxwlvyo6.pdf" /></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Global`fF</span></code></pre></div>
 <p><span class="math display">\text{fF}</span></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fF<span class="op">[</span><span class="dv">26</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">y</span> <span class="sc">+</span> <span class="fu">z</span></span></code></pre></div>
@@ -125,7 +125,7 @@
 <div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fF<span class="op">[</span><span class="dv">27</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">b</span> <span class="sc">+</span> <span class="fu">c</span> <span class="fu">HoldForm</span><span class="op">[</span>fF<span class="op">[</span><span class="dv">26</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">b+c \;\text{fF}(26)</span></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Isolate<span class="op">[</span><span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span> <span class="sc">-</span> <span class="fu">c</span> <span class="sc">-</span> <span class="fu">d</span> <span class="sc">-</span> <span class="fu">e</span><span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> <span class="fu">l</span><span class="op">,</span> IsolateSplit <span class="ot">-&gt;</span> <span class="dv">15</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">l(29)</span></p>
+<p><span class="math display">l(24)</span></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Clear</span><span class="op">[</span>t0<span class="op">,</span> t1<span class="op">,</span> <span class="fu">l</span><span class="op">,</span> fF<span class="op">]</span></span></code></pre></div>
 </body>
 </html>

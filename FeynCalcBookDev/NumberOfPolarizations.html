@@ -110,16 +110,19 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)</span></p>
 <p>Here the setting Automatic is sufficient.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> <span class="sc">+</span> xyz</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> <span class="sc">+</span> xyz </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)+\text{xyz}</span></p>
 <p><span class="math display">\text{DoPolarizationSums: The input expression contains terms free of polarization vectors. Those will be multiplied with the number of polarizations given by }2.</span></p>
 <p><span class="math display">2 \;\text{xyz}-2</span></p>
 <p>Here it is not</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span>xyz<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
-<p><img src="img/0emyzef54vvcu.svg" alt="0emyzef54vvcu" /></p>
+<p><embed src="img/0emyzef54vvcu.pdf" /></p>
 <p><span class="math display">\text{\$Aborted}</span></p>
 <p>Setting the number of polarizations by hand fixes the issue</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span>xyz<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">,</span> NumberOfPolarizations <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span> </span>

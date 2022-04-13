@@ -116,14 +116,16 @@
 <p><span class="math display">\bar{\sigma }\cdot \overline{p}</span></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{\sigma }\cdot \overline{p}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> . PauliSigma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]]</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> PauliSigmaExpand</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> . PauliSigma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> PauliSigmaExpand</span></code></pre></div>
 <p><span class="math display">\left(\bar{\sigma }\cdot \overline{q}\right).\left(\bar{\sigma }\cdot \left(\overline{p}-\overline{q}\right)\right)</span></p>
 <p><span class="math display">\left(\bar{\sigma }\cdot \overline{q}\right).\left(\bar{\sigma }\cdot \overline{p}-\bar{\sigma }\cdot \overline{q}\right)</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> . PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]]</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> PauliSigmaExpand </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> . PauliSigma<span class="op">[</span>CartesianMomentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]]</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> PauliSigmaExpand </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\left(\overline{\sigma }\cdot \overline{q}\right).\left(\overline{\sigma }\cdot \left(\overline{p}-\overline{q}\right)\right)</span></p>
 <p><span class="math display">\left(\overline{\sigma }\cdot \overline{q}\right).\left(\overline{\sigma }\cdot \overline{p}-\overline{\sigma }\cdot \overline{q}\right)</span></p>
 </body>

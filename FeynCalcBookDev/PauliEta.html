@@ -102,7 +102,7 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="paulieta">PauliEta</h2>
-<p><code>PauliEta[I]</code> represents a two-component Pauli spinor <code>\eta</code>, while <code>PauliEta[-I]</code> stands for <span class="math inline">\eta^{\dagger }</span>.</p>
+<p><code>PauliEta[I]</code> represents a two-component Pauli spinor <span class="math inline">\eta</span>, while <code>PauliEta[-I]</code> stands for <span class="math inline">\eta^{\dagger }</span>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="PauliXi.html">PauliXi</a>.</p>
 <h3 id="examples">Examples</h3>
@@ -110,8 +110,9 @@
 <p><span class="math display">\eta</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PauliEta<span class="op">[</span><span class="sc">-</span><span class="fu">I</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\eta ^{\dagger }</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PauliEta<span class="op">[</span><span class="sc">-</span><span class="fu">I</span><span class="op">]</span> . SIS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . PauliXi<span class="op">[</span><span class="fu">I</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ComplexConjugate</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PauliEta<span class="op">[</span><span class="sc">-</span><span class="fu">I</span><span class="op">]</span> . SIS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . PauliXi<span class="op">[</span><span class="fu">I</span><span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ComplexConjugate</span></code></pre></div>
 <p><span class="math display">\eta ^{\dagger }.\left(\bar{\sigma }\cdot \overline{p}\right).\xi</span></p>
 <p><span class="math display">\xi ^{\dagger }.\left(\bar{\sigma }\cdot \overline{p}\right).\eta</span></p>
 </body>

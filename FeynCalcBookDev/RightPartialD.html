@@ -108,12 +108,14 @@
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\vec{\partial }_{\mu }</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\vec{\partial }_{\mu }.A_{\mu }</span></p>
 <p><span class="math display">\left.(\partial _{\mu }A_{\mu }\right)</span></p>
-<pre><code>(*QuantumField[FCPartialD[LorentzIndex[\[Mu]]], A, LorentzIndex[\[Mu]]]*)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*QuantumField[FCPartialD[LorentzIndex[\[Mu]]], A, LorentzIndex[\[Mu]]]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*RightPartialD[LorentzIndex[\[Mu]]]*)</span></span></code></pre></div>

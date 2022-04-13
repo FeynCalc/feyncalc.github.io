@@ -106,11 +106,12 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ScalarProduct.html">ScalarProduct</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Options</span><span class="op">[</span>ScalarProduct<span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="fu">n</span><span class="op">,</span> Dimension <span class="ot">-&gt;</span> <span class="fu">d</span><span class="op">]</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Options</span><span class="op">[</span>ScalarProduct<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{\text{Dimension}\to 4,\text{FeynCalcInternal}\to \;\text{True},\text{SetDimensions}\to \{4,D\}\}</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> ScalarProduct<span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="fu">n</span><span class="op">,</span> Dimension <span class="ot">-&gt;</span> <span class="fu">d</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">m\cdot n</span></p>
-<pre><code>(*Pair[Momentum[m, d], Momentum[n, d]]*)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Pair[Momentum[m, d], Momentum[n, d]]*)</span></span></code></pre></div>
 </body>
 </html>

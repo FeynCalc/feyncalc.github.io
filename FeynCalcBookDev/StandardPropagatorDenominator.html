@@ -102,7 +102,8 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="standardpropagatordenominator">StandardPropagatorDenominator</h2>
-<p><code>StandardPropagatorDenominator[Momentum[q1, D] +..., Pair[Momentum[q1, D], Momentum[p1, D] +..., m^2, {n, s}]</code> encodes a generic Lorentzian propagator denominator <span class="math inline">\frac{1}{[(q_1+ \ldots)^2 + q_1 \cdot p_1 + \ldots + m^2 + s i \eta]^n}</span>.</p>
+<p><code>StandardPropagatorDenominator[propSq + ..., propEik +..., m^2, {n, s}]</code> encodes a generic Lorentzian propagator denominator <span class="math inline">\frac{1}{[(q_1+ \ldots)^2 + q_1 \cdot p_1 + \ldots + m^2 + s i \eta]^n}</span>.</p>
+<p><code>propSq</code> should be of the form <code>Momentum[q1, D]</code>, while <code>propEik</code> should look like <code>Pair[Momentum[q1, D], Momentum[p1, D]</code>.</p>
 <p>This allows to accommodate for standard propagators of the type <span class="math inline">1/(p^2-m^2)</span> but also for propagators encountered in manifestly Lorentz covariant effective field theories such as HQET or SCET.</p>
 <p><code>StandardPropagatorDenominator</code> is an internal object. To enter such propagators in FeynCalc you should use <code>SFAD</code>.</p>
 <h3 id="see-also">See also</h3>

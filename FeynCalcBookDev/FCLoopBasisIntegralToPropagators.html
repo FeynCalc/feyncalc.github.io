@@ -106,16 +106,19 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a></p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[</span>p1<span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FCLoopBasisIntegralToPropagators<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[</span>p1<span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FCLoopBasisIntegralToPropagators<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{(\text{p1}^2+i \eta )}</span></p>
 <p><span class="math display">\left\{\frac{1}{(\text{p1}^2+i \eta )}\right\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCLoopBasisIntegralToPropagators<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">}]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FCLoopBasisIntegralToPropagators<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{(\text{p1}^2+i \eta ).(\text{p2}^2+i \eta )}</span></p>
 <p><span class="math display">\left\{\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{(\text{p2}^2+i \eta )}\right\}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> SFAD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>FCLoopBasisIntegralToPropagators<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span><span class="fu">q</span><span class="op">}]</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> SFAD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>FCLoopBasisIntegralToPropagators<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span><span class="fu">q</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\frac{p\cdot q}{(q^2+i \eta ).((q-p)^2+i \eta )^2}</span></p>
 <p><span class="math display">\left\{(p\cdot q+i \eta ),\frac{1}{(q^2+i \eta )},\frac{1}{((q-p)^2+i \eta )}\right\}</span></p>
 </body>

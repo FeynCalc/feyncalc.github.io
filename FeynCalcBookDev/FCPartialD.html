@@ -103,26 +103,28 @@
 </header>
 <h2 id="fcpartiald">FCPartialD</h2>
 <p><code>FCPartialD[ind]</code> denotes a partial derivative of a field. It is an internal object that may appear only inside a <code>QuantumField</code>.</p>
-<p><code>FCPartialD[LorentzIndex[μ]]</code> denotes <span class="math inline">\partial _{\mu }</span>.</p>
-<p><code>FCPartialD[LorentzIndex[μ ,D]]</code> denotes the <span class="math inline">D</span>-dimensional <span class="math inline">\partial _{\mu }</span>.</p>
+<p><code>FCPartialD[LorentzIndex[mu]]</code> denotes <span class="math inline">\partial_{\mu }</span>.</p>
+<p><code>FCPartialD[LorentzIndex[mu ,D]]</code> denotes the <span class="math inline">D</span>-dimensional <span class="math inline">\partial_{\mu }</span>.</p>
 <p><code>FCPartialD[CartesianIndex[i]]</code> denotes <span class="math inline">\partial^{i} = - \nabla^i</span>.</p>
-<p>If you need to specify a derivative with respect to a particular variable it also possible to use <code>FCPartialD[{LorentzIndex[μ],y}]</code> or <code>FCPartialD[{CartesianIndex[i],x}]</code>although this notation is still somewhat experimental</p>
+<p>If you need to specify a derivative with respect to a particular variable it also possible to use <code>FCPartialD[{LorentzIndex[mu],y}]</code> or <code>FCPartialD[{CartesianIndex[i],x}]</code>although this notation is still somewhat experimental</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExpandPartialD.html">ExpandPartialD</a>, <a href="LeftPartialD.html">LeftPartialD</a>, <a href="LeftRightPartialD.html">LeftRightPartialD</a>, <a href="RightPartialD.html">RightPartialD</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}]</span> . LeftPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}]</span> . LeftPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">A_{\mu }.\overleftarrow{\partial }_{\nu }</span></p>
 <p><span class="math display">\left.(\partial _{\nu }A_{\mu }\right)</span></p>
-<pre><code>(*QuantumField[FCPartialD[LorentzIndex[\[Nu]]], A, LorentzIndex[\[Mu]]]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[{</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="fu">x</span><span class="op">}]</span> . QuantumField<span class="op">[</span><span class="fu">S</span><span class="op">,</span> <span class="fu">x</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*QuantumField[FCPartialD[LorentzIndex[\[Nu]]], A, LorentzIndex[\[Mu]]]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[{</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="fu">x</span><span class="op">}]</span> . QuantumField<span class="op">[</span><span class="fu">S</span><span class="op">,</span> <span class="fu">x</span><span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\vec{\partial }_{\{i,x\}}.S^x</span></p>
 <p><span class="math display">\left.(\partial _{\{i,x\}}S^x\right)</span></p>
-<pre><code>(*QuantumField[FCPartialD[{CartesianIndex[i], x}], S, x]*)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*QuantumField[FCPartialD[{CartesianIndex[i], x}], S, x]*)</span></span></code></pre></div>
 </body>
 </html>

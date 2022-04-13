@@ -101,6 +101,7 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
+<h2 id="fcloopfindtopologies">FCLoopFindTopologies</h2>
 <p><code>FCLoopFindTopologies[exp, {q1, q2, ...}]</code> attempts to identify the loop integral topologies present in <code>exp</code> by looking at the propagator denominators that depend on the loop momenta <code>q1, q2, ...</code> . It returns a list of two entries, where the first one is the original expression with the denominators rewritten as <code>GLI</code>s, and the second one is the set of the identified topologies. Each of the identified topologies must contain linearly independent propagators (unless the option <code>FCLoopBasisOverdeterminedQ</code> is set to True), but may lack propagators needed to form a complete basis.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCTopology.html">FCTopology</a>, <a href="GLI.html">GLI</a>.</p>

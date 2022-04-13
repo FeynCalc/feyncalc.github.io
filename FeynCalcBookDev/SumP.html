@@ -114,9 +114,10 @@
 <p><span class="math display">S_1^{&#39;(m)}</span></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SumP<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{25}{12}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Explicit<span class="op">[</span>SumP<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="fu">n</span><span class="sc">/</span><span class="dv">2</span><span class="op">]]</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> <span class="fu">n</span> <span class="ot">-&gt;</span> <span class="dv">8</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{2} \left((-1)^{n+1}+1\right) S_1\left(\frac{n-1}{2}\right)+\frac{1}{2} \left((-1)^n+1\right) S_1\left(\frac{n}{2}\right)</span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Explicit<span class="op">[</span>SumP<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="fu">n</span><span class="sc">/</span><span class="dv">2</span><span class="op">]]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> <span class="fu">n</span> <span class="ot">-&gt;</span> <span class="dv">8</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{2} \left(1-(-1)^n\right) S_1\left(\frac{n-1}{2}\right)+\frac{1}{2} \left((-1)^n+1\right) S_1\left(\frac{n}{2}\right)</span></p>
 <p><span class="math display">\frac{25}{12}</span></p>
 </body>
 </html>

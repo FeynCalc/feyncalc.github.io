@@ -107,16 +107,16 @@
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCLoopGraphPlot.html">FCLoopGraphPlot</a>.</p>
 <h3 id="examples">Examples</h3>
 <p>If you use <code>FCLoopIntegralToGraph</code> for visualizing loop integrals, the first two entries of its output can be used as the input for FCLoopAddEdgeTags, e.g. </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCLoopAddEdgeTags<span class="op">[</span>FCLoopIntegralToGraph<span class="op">[</span>FAD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">k</span><span class="op">],</span> <span class="op">{</span><span class="fu">p</span><span class="op">}][[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">GraphPlot</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCLoopAddEdgeTags<span class="op">[</span>FCLoopIntegralToGraph<span class="op">[</span>FAD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">k</span><span class="op">],</span> <span class="op">{</span><span class="fu">p</span><span class="op">}][[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">GraphPlot</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{-3\leftrightarrow 2,-1\leftrightarrow 1,1\leftrightarrow 2,1\leftrightarrow 2\}</span></p>
-<p><img src="img/0z92umyme84rx.svg" alt="0z92umyme84rx" /></p>
+<p><embed src="img/0z92umyme84rx.pdf" /></p>
 <p>If you just want to plot the obtained graph, it is easier to process the output of <code>FCLoopIntegralToGraph</code> directly with <code>FCLoopGraphPlot</code>, which internally uses <code>FCLoopAddEdgeTags</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>FAD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">k</span><span class="op">],</span> <span class="op">{</span><span class="fu">p</span><span class="op">}]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCLoopGraphPlot<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>FAD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">k</span><span class="op">],</span> <span class="op">{</span><span class="fu">p</span><span class="op">}]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FCLoopGraphPlot<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to 2\},\{k,k,\{p,1,0\},\{p-k,1,0\}\},\left\{0,0,\frac{1}{(p^2+i \eta )},\frac{1}{((p-k)^2+i \eta )}\right\},1\right\}</span></p>
-<p><img src="img/18zlvfvc5dy6q.svg" alt="18zlvfvc5dy6q" /></p>
+<p><embed src="img/18zlvfvc5dy6q.pdf" /></p>
 </body>
 </html>

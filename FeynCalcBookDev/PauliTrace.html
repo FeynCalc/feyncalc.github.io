@@ -110,10 +110,11 @@
 <p><span class="math display">\text{tr}\left(\overline{\sigma }^i.\overline{\sigma }^j.\overline{\sigma }^k.\overline{\sigma }^l\right)</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PauliTrace<span class="op">[</span>CSI<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">,</span> <span class="fu">l</span><span class="op">],</span> PauliTraceEvaluate <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">2 \left(\bar{\delta }^{il} \bar{\delta }^{jk}-\bar{\delta }^{ik} \bar{\delta }^{jl}+\bar{\delta }^{ij} \bar{\delta }^{kl}\right)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PauliTrace<span class="op">[</span>CSI<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">,</span> <span class="fu">l</span><span class="op">]]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> PauliSimplify </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PauliTrace<span class="op">[</span>CSI<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">,</span> <span class="fu">l</span><span class="op">]]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> PauliSimplify </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\text{tr}\left(\overline{\sigma }^i.\overline{\sigma }^j.\overline{\sigma }^k.\overline{\sigma }^l\right)</span></p>
 <p><span class="math display">2 \bar{\delta }^{il} \bar{\delta }^{jk}-2 \bar{\delta }^{ik} \bar{\delta }^{jl}+2 \bar{\delta }^{ij} \bar{\delta }^{kl}</span></p>
 </body>

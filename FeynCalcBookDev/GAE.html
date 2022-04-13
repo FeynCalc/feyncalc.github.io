@@ -124,13 +124,15 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>GAE<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> <span class="sc">//</span> Contract</span></code></pre></div>
 <p><span class="math display">0</span></p>
 <p>In order to use Dirac algebra with <span class="math inline">D-4</span>-dimensional objects you need to activate the t’Hooft-Veltman-Breitenlohner-Maison scheme first</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GAE<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GAE<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">\text{NDR}</span></p>
-<p><img src="img/01bbyegb2ggmi.svg" alt="01bbyegb2ggmi" /></p>
+<p><embed src="img/1mv5oz2r1f8id.pdf" /></p>
 <p><span class="math display">\text{\$Aborted}</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GAE<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GAE<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">\text{BMHV}</span></p>
 <p><span class="math display">D-4</span></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span></span></code></pre></div>

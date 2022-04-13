@@ -102,7 +102,7 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="sfad">SFAD</h2>
-<p><code>SFAD[{{q1 +..., p1 . q2 +...,} {m^2, s}, n}, ...]</code> denotes a Cartesian propagator given by , where <span class="math inline">q_1^2</span> and <span class="math inline">p_1 \cdot q_2</span> are Cartesian scalar products in <span class="math inline">D-1</span> dimensions.</p>
+<p><code>SFAD[{{q1 +..., p1 . q2 +...,} {m^2, s}, n}, ...]</code> denotes a Cartesian propagator given by <span class="math inline">\frac{1}{[(q_1+\ldots)^2 + p_1 \cdot q_2 ... + m^2 + s i \eta]^n}</span>, where <span class="math inline">q_1^2</span> and <span class="math inline">p_1 \cdot q_2</span> are Cartesian scalar products in <span class="math inline">D-1</span> dimensions.</p>
 <p>For brevity one can also use shorter forms such as <code>SFAD[{q1+ ...,  m^2}, ...]</code>, <code>SFAD[{q1+ ...,  m^2 , n}, ...]</code>, <code>SFAD[{q1+ ...,  {m^2, -1}}, ...]</code>, <code>SFAD[q1,...]</code> etc.</p>
 <p>If <code>s</code> is not explicitly specified, its value is determined by the option <code>EtaSign</code>, which has the default value <code>+1</code>.</p>
 <p>If <code>n</code> is not explicitly specified, then the default value <code>1</code> is assumed. Translation into FeynCalcI internal form is performed by <code>FeynCalcInternal</code>, where a <code>SFAD</code> is encoded using the special head <code>CartesianPropagatorDenominator</code>.</p>

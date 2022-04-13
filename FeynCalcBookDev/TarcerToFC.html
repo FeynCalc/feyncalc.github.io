@@ -102,9 +102,9 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="tarcertofc">TarcerToFC</h2>
-<p><code>TarcerToFC[expr, {q1, q2}]</code> translates loop integrals in Tarcer-notation to the FeynCalc notation.</p>
+<p><code>TarcerToFC[expr, {q1, q2}]</code> translates loop integrals in the TARCER-notation to the FeynCalc notation.</p>
 <p>See <code>TFI</code> for details on the convention.</p>
-<p>As in the case of <code>ToTFI</code>, the  and  prefactors are implicit, i.e. <code>TarcerToFC</code> doesn’t add them.</p>
+<p>As in the case of <code>ToTFI</code>, the <span class="math inline">\frac{1}{\pi^D}</span> and <span class="math inline">\frac{1}{\pi^{D/2}}</span> prefactors are implicit, i.e. <code>TarcerToFC</code> doesn’t add them.</p>
 <p>To recover momenta from scalar products use the option <code>ScalarProduct</code> e.g. as in <code>TarcerToFC[TBI[D, pp^2, {{1, 0}, {1, 0}}], {q1, q2}, ScalarProduct -&gt; {{pp^2, p1}}]</code></p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ToFI.html">ToFI</a>.</p>

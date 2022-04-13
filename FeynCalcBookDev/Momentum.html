@@ -118,14 +118,16 @@
 <p>The dimension index is suppressed in the output.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">d</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">p</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Momentum<span class="op">[</span><span class="sc">-</span><span class="fu">q</span><span class="op">]</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Momentum<span class="op">[</span><span class="sc">-</span><span class="fu">q</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\overline{q}</span></p>
-<pre><code>(*-Momentum[q]*)</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> Momentum<span class="op">[</span><span class="dv">2</span> <span class="fu">q</span><span class="op">]</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Momentum<span class="op">[</span><span class="sc">-</span><span class="fu">q</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*-Momentum[q]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> Momentum<span class="op">[</span><span class="dv">2</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(\overline{p}-\overline{q}\right)+2 \overline{q}</span></p>
-<pre><code>(*Momentum[p - q] + 2 Momentum[q]*)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Momentum[p - q] + 2 Momentum[q]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> MomentumExpand <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Momentum[p] + Momentum[q]*)</span></span></code></pre></div>

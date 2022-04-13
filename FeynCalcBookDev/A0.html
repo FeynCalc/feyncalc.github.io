@@ -109,8 +109,9 @@
 <p>By default <span class="math inline">A_0</span> is not expressed in terms of <span class="math inline">B_0</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A0<span class="op">[</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{A}_0\left(m^2\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">SetOptions</span><span class="op">[</span>A0<span class="op">,</span> A0ToB0 <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>A0<span class="op">[</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">SetOptions</span><span class="op">[</span>A0<span class="op">,</span> A0ToB0 <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>; </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A0<span class="op">[</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\frac{2 m^2 \;\text{B}_0\left(0,m^2,m^2\right)}{2-D}</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">SetOptions</span><span class="op">[</span>A0<span class="op">,</span> A0ToB0 <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span>;</span></code></pre></div>
 <p>According to the rules of dimensional regularization <span class="math inline">A_0(0)</span> is set to 0.</p>

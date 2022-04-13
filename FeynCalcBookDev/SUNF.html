@@ -106,14 +106,17 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SUND.html">SUND</a>, <a href="SUNDelta.html">SUNDelta</a>, <a href="SUNIndex.html">SUNIndex</a>, <a href="SUNSimplify.html">SUNSimplify</a>, <a href="SUNT.html">SUNT</a>, <a href="Trick.html">Trick</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> <span class="fu">x</span> <span class="sc">+</span> SUNF<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Calc<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>SUNSimplify<span class="op">[</span><span class="sc">%%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> <span class="fu">x</span> <span class="sc">+</span> SUNF<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Calc<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>SUNSimplify<span class="op">[</span><span class="sc">%%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">x f^{abc}+f^{bac}</span></p>
 <p><span class="math display">x f^{abc}-f^{abc}</span></p>
 <p><span class="math display">(x-1) f^{abc}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> Calc</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> Calc</span></code></pre></div>
 <p><span class="math display">f^{aab}</span></p>
 <p><span class="math display">0</span></p>
 <p>This is a consequence of the usual choice for the normalization of the <span class="math inline">T_a</span> generators.</p>
@@ -132,8 +135,9 @@
 <div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> FCE <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*SUNF[a, b, c]*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCI</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SUNF<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCI</span></code></pre></div>
 <p><span class="math display">f^{bac}</span></p>
 <p><span class="math display">-f^{abc}</span></p>
 </body>

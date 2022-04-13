@@ -105,10 +105,11 @@
 <p><code>SMPToSymbol[exp]</code> converts objects of type <code>SMP["sth"]</code> in <code>exp</code> to symbols using <code>ToExpression["sth"]</code>.</p>
 <p>The option <code>StringReplace</code> can be used to specify string replacement rules that will take care of special characters (e.g. <code>^</code> or <code>_</code>) that cannot appear in valid Mathematica expressions. <code>SMPToSymbol</code> is useful when exporting FeynCalc expressions to other tools, e.g. FORM.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SMP.html">SMP</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="SMP.html">SMP</a>, <a href="FCGVToSymbol.html">FCGVToSymbol</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">-</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>SMPToSymbol<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">-</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>SMPToSymbol<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^2-m_e^2</span></p>
 <p><span class="math display">\overline{p}^2-\text{me}^2</span></p>
 </body>

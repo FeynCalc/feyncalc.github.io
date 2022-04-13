@@ -106,13 +106,15 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="IFPD.html">IFPD</a>, <a href="IFPDOn.html">IFPDOn</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>IFPD<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>IFPD<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(\overline{p}^2\text{ - }m^2)</span></p>
-<pre><code>(*IFPD[Momentum[p], m]*)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>IFPDOff<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>IFPD<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*IFPD[Momentum[p], m]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> IFPDOff<span class="op">[</span>IFPD<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> <span class="fu">m</span><span class="op">],</span> <span class="fu">p</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^2-m^2</span></p>
-<pre><code>(*-m^2 + Pair[Momentum[p], Momentum[p]]*)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*-m^2 + Pair[Momentum[p], Momentum[p]]*)</span></span></code></pre></div>
 </body>
 </html>

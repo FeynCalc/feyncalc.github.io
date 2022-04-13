@@ -106,14 +106,16 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCReplaceMomenta.html">FCReplaceMomenta</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCPermuteMomentaRules<span class="op">[{</span>p1<span class="op">,</span> p2<span class="op">}]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span><span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ot">/.</span> <span class="sc">%</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCPermuteMomentaRules<span class="op">[{</span>p1<span class="op">,</span> p2<span class="op">}]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span><span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ot">/.</span> <span class="sc">%</span></span></code></pre></div>
 <p><span class="math display">\{\{\},\{\text{p1}\to \;\text{p2},\text{p2}\to \;\text{p1}\}\}</span></p>
 <p><span class="math display">\{f(\text{p1},\text{p2}),f(\text{p2},\text{p1})\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCPermuteMomentaRules<span class="op">[{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">}]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span><span class="op">[</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">]</span> <span class="ot">/.</span> <span class="sc">%</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCPermuteMomentaRules<span class="op">[{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">}]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span><span class="op">[</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">]</span> <span class="ot">/.</span> <span class="sc">%</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <p><span class="math display">\{\{\},\{\text{p1}\to \;\text{p2},\text{p2}\to \;\text{p1}\},\{\text{p1}\to \;\text{p3},\text{p3}\to \;\text{p1}\},\{\text{p2}\to \;\text{p3},\text{p3}\to \;\text{p2}\},\{\text{p1}\to \;\text{p2},\text{p2}\to \;\text{p3},\text{p3}\to \;\text{p1}\},\{\text{p1}\to \;\text{p3},\text{p2}\to \;\text{p1},\text{p3}\to \;\text{p2}\}\}</span></p>
 <p><span class="math display">\{f(\text{p1},\text{p2},\text{p3}),f(\text{p2},\text{p1},\text{p3}),f(\text{p3},\text{p2},\text{p1}),f(\text{p1},\text{p3},\text{p2}),f(\text{p2},\text{p3},\text{p1}),f(\text{p3},\text{p1},\text{p2})\}</span></p>
 </body>

@@ -106,16 +106,19 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCLoopRemoveNegativePropagatorPowers.html">FCLoopRemoveNegativePropagatorPowers</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">}]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FCLoopNonIntegerPropagatorPowersFreeQ<span class="op">[</span>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">}]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FCLoopNonIntegerPropagatorPowersFreeQ<span class="op">[</span>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{((p+q)^2-m^2+i \eta )^2}</span></p>
 <p><span class="math display">\text{True}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">n</span><span class="op">}]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCLoopNonIntegerPropagatorPowersFreeQ<span class="op">[</span>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">n</span><span class="op">}]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FCLoopNonIntegerPropagatorPowersFreeQ<span class="op">[</span>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">((p+q)^2-m^2+i \eta )^{-n}</span></p>
 <p><span class="math display">\text{False}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>CFAD<span class="op">[{</span><span class="fu">l</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">}]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>FCLoopNonIntegerPropagatorPowersFreeQ<span class="op">[</span>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>CFAD<span class="op">[{</span><span class="fu">l</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">}]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>FCLoopNonIntegerPropagatorPowersFreeQ<span class="op">[</span>FCI<span class="op">[</span><span class="sc">%</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{\sqrt{(l^2+m^2-i \eta )}}</span></p>
 <p><span class="math display">\text{False}</span></p>
 </body>

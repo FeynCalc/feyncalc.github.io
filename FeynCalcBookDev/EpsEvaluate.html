@@ -106,13 +106,13 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Contract.html">Contract</a>, <a href="Eps.html">Eps</a>, <a href="LC.html">LC</a>, <a href="Trick.html">Trick</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> FV<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]]</span> <span class="sc">//</span> MomentumCombine</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>EpsEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> FV<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]]</span> <span class="sc">//</span> MomentumCombine </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> EpsEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\mu \nu \rho \overline{p}+\overline{q}}</span></p>
 <p><span class="math display">\bar{\epsilon }^{\mu \nu \rho \overline{p}}+\bar{\epsilon }^{\mu \nu \rho \overline{q}}</span></p>
-<pre><code>(*Eps[LorentzIndex[\[Mu]], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], Momentum[p]] + Eps[LorentzIndex[\[Mu]], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], Momentum[q]]*)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Eps[LorentzIndex[\[Mu]], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], Momentum[p]] + Eps[LorentzIndex[\[Mu]], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], Momentum[q]]*)</span></span></code></pre></div>
 </body>
 </html>
