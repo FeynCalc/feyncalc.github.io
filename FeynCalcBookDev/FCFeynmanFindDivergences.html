@@ -111,13 +111,12 @@
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFeynmanParametrize.html">FCFeynmanParametrize</a>, <a href="FCFeynmanProjectivize.html">FCFeynmanProjectivize</a>, <a href="FCFeynmanRegularizeDivergence.html">FCFeynmanRegularizeDivergence</a>.</p>
 <h3 id="examples">Examples</h3>
-<h4 id="feynman-representation">Feynman representation</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> SFAD<span class="op">[</span><span class="fu">l</span><span class="op">,</span> <span class="fu">k</span> <span class="sc">+</span> <span class="fu">l</span><span class="op">,</span> <span class="op">{{</span><span class="fu">k</span><span class="op">,</span> <span class="sc">-</span><span class="dv">2</span> <span class="fu">k</span> . <span class="fu">q</span><span class="op">}}]</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fpar <span class="ex">=</span> FCFeynmanParametrize<span class="op">[</span>int<span class="op">,</span> <span class="op">{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">l</span><span class="op">},</span> <span class="fu">Names</span> <span class="ot">-&gt;</span> <span class="fu">x</span><span class="op">,</span> FCReplaceD <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{(l^2+i \eta ).((k+l)^2+i \eta ).(k^2-2 (k\cdot q)+i \eta )}</span></p>
 <p><span class="math display">\left\{(x(1) x(2)+x(3) x(2)+x(1) x(3))^{3 \varepsilon -3} \left(q^2 x(1)^2 (x(2)+x(3))\right)^{1-2 \varepsilon },-\Gamma (2 \varepsilon -1),\{x(1),x(2),x(3)\}\right\}</span></p>
-<p>This Feynman parametric integral integrand contains logarithmic divergences for <span class="math inline">x_1 \to \infty</span> and <span class="math inline">x_{2,3} \to 0</span></p>
+<p>This Feynman parametric integral contains logarithmic divergences for <span class="math inline">x_1 \to \infty</span> and <span class="math inline">x_{2,3} \to 0</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCFeynmanFindDivergences<span class="op">[</span>fpar<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> <span class="fu">x</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
