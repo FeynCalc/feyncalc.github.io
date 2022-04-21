@@ -102,7 +102,7 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="feynampdenominatorexplicit">FeynAmpDenominatorExplicit</h2>
-<p><code>FeynAmpDenominatorExplicit[exp]</code> changes each occurence of <code>PropagatorDenominator[a,b]</code> in exp into <code>1/(SPD[a,a]-b^2)</code> and replaces <code>FeynAmpDenominator</code> by <code>Identity</code>.</p>
+<p><code>FeynAmpDenominatorExplicit[exp]</code> changes each occurrence of <code>PropagatorDenominator[a,b]</code> in exp into <code>1/(SPD[a,a]-b^2)</code> and replaces <code>FeynAmpDenominator</code> by <code>Identity</code>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FeynAmpDenominator.html">FeynAmpDenominator</a>, <a href="PropagatorDenominator.html">PropagatorDenominator</a>.</p>
 <h3 id="examples">Examples</h3>
@@ -114,5 +114,10 @@
 <p><span class="math display">\frac{1}{\left(q^2-m^2\right).(q-p)^2}</span></p>
 <p><span class="math display">\frac{1}{\left(q^2-m^2\right) \left(-2 (p\cdot q)+p^2+q^2\right)}</span></p>
 <p><span class="math display">\frac{1}{\left(-m^2+\text{SPD}[q,q]\right) (\text{SPD}[p,p]-2 \;\text{SPD}[p,q]+\text{SPD}[q,q])}</span></p>
+<p>Notice that you should never apply <code>FeynAmpDenominatorExplicit</code> to loop integrals. Denominators in a proper loop integral should be written as <code>FeynAmpDenominator</code>s. Otherwise, the given integral is assumed to have no denominators and consequently set to zero as being scaleless.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> mu<span class="op">]</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">}],</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{\left(m^2+p^2\right) p^{\text{mu}}}{2 p^2 q^2.\left((q-p)^2-m^2\right)}-\frac{p^{\text{mu}}}{2 p^2 \left(q^2-m^2\right)}</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FeynAmpDenominatorExplicit<span class="op">[</span>FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> mu<span class="op">]</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]],</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">0</span></p>
 </body>
 </html>
