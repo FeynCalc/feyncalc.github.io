@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynHelpers manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynHelpers manual (development version)</h1>
+</header>
+<h2 id="ltoolsevaluate">LToolsEvaluate</h2>
+<p><code>LToolsEvaluate[expr, q]</code> evaluates Passarino-Veltman functions in <code>expr</code> numerically using LoopTools by T. Hahn.</p>
+<p>In contrast to the default behavior of LoopTools, the function returns not just the finite part but also the singular pieces proportional to <span class="math inline">1\varepsilon</span> and <span class="math inline">1\varepsilon^2</span>. This behavior is controlled by the option <code>LToolsFullResult</code>.</p>
+<p>Notice that the normalization of Passarino-Veltman functions differs between FeynCalc and LoopTools, cf. Section 1.2 of the LoopTools manual. In FeynCalc the overall prefactor is just <span class="math inline">1/(i \pi^2)</span>, while LoopTools employs <span class="math inline">1/(i \pi^{D/2} r_{\Gamma})</span> with <span class="math inline">D = 4 -2 \varepsilon</span> and <span class="math inline">r_{\Gamma} = \Gamma^2 (1 - \varepsilon) \Gamma (1 + \varepsilon) / \Gamma(1-2 \varepsilon)</span>.</p>
+<p>When the option <code>LToolsFullResult</code> is set to <code>True</code>, <code>LToolsEvaluate</code> will automatically account for this difference by multiplying the LoopTools output with <span class="math inline">1/\pi^{\varepsilon} r_\Gamma</span>.</p>
+<p>However, for <code>LToolsFullResult -&gt; False</code> no such conversion will occur. This is because the proper conversion between different <span class="math inline">\varepsilon</span>-dependent normalizations requires the knowledge of the poles: when terms proportional to <span class="math inline">\varepsilon</span> multiply the poles, they generate finite contributions. In this sense it is not recommended to use <code>LToolsEvaluate</code> with <code>LToolsFullResult</code> set to <code>False</code>, unless you precisely understand what you are doing.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="LToolsExpandInEpsilon.html">LToolsExpandInEpsilon</a>, <a href="LToolsFullResult.html">LToolsFullResult</a>, <a href="LToolsImplicitPrefactor.html">LToolsImplicitPrefactor</a>, <a href="LToolsSetMudim.html">LToolsSetMudim</a>, <a href="LToolsSetLambda.html">LToolsSetLambda</a>.</p>
+<h3 id="examples">Examples</h3>
+<p>Before using <code>LToolsEvaluate</code> we need to evaluate <code>LToolsLoadLibray[]</code> to establish a connection with the Mathlink executable. The value of the option <code>LToolsPath</code> contains the full path to this file. You might need to adjust it accordingly if LoopTools is installed in a different directory.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">OptionValue</span><span class="op">[</span>LToolsLoadLibrary<span class="op">,</span> LToolsPath<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{/home/vs/.Mathematica/Applications/FeynCalc/AddOns/FeynHelpers/ExternalTools/LoopTools/LoopTools}</span></p>
+<p>Notice that <code>LToolsEvaluate</code> can also load the library by itself on the first run, in case you forget to do so.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LToolsLoadLibrary<span class="op">[]</span></span></code></pre></div>
+<p><span class="math display">\text{LoopTools library loaded.}</span></p>
+<pre><code>(* ====================================================
+   FF 2.0, a package to evaluate one-loop integrals
+ written by G. J. van Oldenborgh, NIKHEF-H, Amsterdam
+ ====================================================
+ for the algorithms used see preprint NIKHEF-H 89/17,
+ &#39;New Algorithms for One-loop Integrals&#39;, by G.J. van
+ Oldenborgh and J.A.M. Vermaseren, published in 
+ Zeitschrift fuer Physik C46(1990)425.
+ ====================================================*)</code></pre>
+<p>The value of the scale <span class="math inline">\mu</span> can be set via the option <code>LToolsSetMudim</code>. Evaluating the <code>PaVe</code>-function <span class="math inline">A_0(m^2)</span> at <span class="math inline">m^2 = 1/10</span> with <span class="math inline">\mu^2=20</span> yields</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>LToolsEvaluate<span class="op">[</span>A0<span class="op">[</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">],</span> LToolsSetMudim <span class="ot">-&gt;</span> <span class="dv">20</span><span class="op">,</span> InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">0.457637\, +\frac{0.1}{\varepsilon }</span></p>
+<p>Cross-checking this result with Package-X yields the same value</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(PaXEvaluate<span class="op">[</span>A0<span class="op">[</span><span class="dv">1</span><span class="sc">/</span><span class="dv">10</span><span class="op">]]</span> <span class="ot">/.</span> ScaleMu<span class="sc">^</span><span class="dv">2</span> <span class="ot">-&gt;</span> <span class="dv">20</span>) <span class="sc">//</span> <span class="fu">N</span></span></code></pre></div>
+<p><span class="math display">0.457637\, +\frac{0.1}{\varepsilon }</span></p>
+<p>More complicated input is also possible</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="ex">=</span> <span class="fu">a</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">b</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">M</span><span class="op">,</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{a}{\left(q^2-m^2\right).(q-p)^2}+\frac{b}{\left(q^2-M^2\right)^2}</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> LToolsEvaluate<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">m</span> <span class="ot">-&gt;</span> <span class="fl">0.12352</span><span class="op">,</span> <span class="fu">M</span> <span class="ot">-&gt;</span> <span class="fl">5.14321</span><span class="op">,</span> SPD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="fl">0.8813</span><span class="op">},</span> LToolsImplicitPrefactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span> <span class="fu">Pi</span>)<span class="sc">^</span>(<span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon)<span class="op">,</span> LToolsSetMudim <span class="ot">-&gt;</span> <span class="dv">23</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{(0.\, +0.00633257 i) ((1.\, +0. i) a+(1.\, +0. i) b)}{\varepsilon }+(0.0661028\, +0.01955 i) ((0.\, +1. i) a+(0.128951\, +0.436013 i) b)</span></p>
+<p>Compare to Package-X</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chk <span class="ex">=</span> (PaXEvaluate<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> PaXImplicitPrefactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span> <span class="fu">Pi</span>)<span class="sc">^</span>(<span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon)<span class="op">]</span> <span class="ot">/.</span> <span class="op">{</span>ScaleMu<span class="sc">^</span><span class="dv">2</span> <span class="ot">-&gt;</span><span class="dv">23</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">m</span> <span class="ot">-&gt;</span> <span class="fl">0.12352</span><span class="op">,</span> <span class="fu">M</span> <span class="ot">-&gt;</span> <span class="fl">5.14321</span><span class="op">,</span> FCI@SPD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="fl">0.8813</span><span class="op">}</span>) <span class="sc">//</span> <span class="fu">N</span></span></code></pre></div>
+<p><span class="math display">\frac{(0.\, +0.00633257 i) (a+b)}{\varepsilon }-(0.\, +0.00633257 i) (-14.4075 a-4.94944 b)+(-0.01955-0.0251337 i) a</span></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCCompareNumbers<span class="op">[</span>res<span class="op">,</span> chk<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FCCompareNumbers: Minimal number of significant digits to agree in: }6</span></p>
+<p><span class="math display">\text{FCCompareNumbers: Chop is set to }\text{1.$\grave{ }$*${}^{\wedge}$-10}</span></p>
+<p><span class="math display">\text{FCCompareNumbers: No number is set to 0. by Chop at this stage. }</span></p>
+<p><span class="math display">0</span></p>
+</body>
+</html>
