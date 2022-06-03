@@ -14,3 +14,5 @@ gem "nokogiri", ">= 1.13.4"
 
 #~source 'https://rubygems.org'
 
+
+gem "webrick", "~> 1.7"
