@@ -19,18 +19,33 @@
       {% endfor %}
 -->
 			<li><a class="topbar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/">Home</a></li>
-			<li><a class="topbar-nav-item" href="{{ site.url }}/news">News</a></li>
+<!--			<li><a class="topbar-nav-item" href="{{ site.url }}/news">News</a></li> -->
 			<li><a class="topbar-nav-item" href="{{ site.url }}/reference">FC Guide (stable)</a></li>
 			<li><a class="topbar-nav-item" href="{{ site.url }}/referenceDev">FC Guide (development)</a></li>
 			<li><a class="topbar-nav-item" href="{{ site.url }}/referenceFeynHelpersDev">FH Guide (development)</a></li>
 			<li><a class="topbar-nav-item" href="{{ site.url }}/examples">Examples</a></li>
 			<li><a class="topbar-nav-item" href="https://github.com/FeynCalc/feyncalc/discussions">Forum</a></li>
 			<li><a class="topbar-nav-item" href="{{ site.url }}/OldForum/thread.html">Old forum archive</a></li>
-			<li><form method="get" action="https://encrypted.google.com/search">
-				<input type="hidden" name="as_q" value="site:feyncalc.org OR site:feyncalc.github.io OR site:github.com/FeynCalc">
-				<input type="text" name="q" placeholder="Search with Google" />
+
+			<li><form id="qsearch" method="get" action="https://www.qwant.com/">
+				<input id="qsearch2" type="text" name="q" placeholder="Search with Qwant" />
 			</form></li>
 
+			<script type="text/javascript">
+			window.onload = function() {
+			document.getElementById("qsearch").onsubmit = function() {			
+			var queryFixed = document.getElementById("qsearch2");
+			queryFixed.value = queryFixed.value + ' site:feyncalc.github.io';
+			return true;
+			};
+			};
+			</script>
+
+
+
+
+			
+			
 			</div>
 	</div>
 </div>
