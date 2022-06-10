@@ -28,58 +28,38 @@
 <p>In the following we provide some relevant instructions but without any warranty that this will work on your machine. <em>If you are experiencing issues setting up a particular tools please contact the corresponding developer team.</em></p>
 <h3 id="feynhelpers">FeynHelpers</h3>
 <h4 id="automatic-installation">Automatic installation</h4>
-<ul>
-<li><p>Run the following instruction in a Kernel or Notebook session of Mathematica to install the stable version</p>
+<p>Run the following instruction in a Kernel or Notebook session of Mathematica to install the stable version</p>
 <pre><code>Import[&quot;https://raw.githubusercontent.com/FeynCalc/feynhelpers/master/install.m&quot;]
-InstallFeynHelpers[]</code></pre></li>
-<li><p>If you like the bleeding edge and you are already using the development version of FeynCalc, you can also install the development version of FeynHelpers</p></li>
-</ul>
+InstallFeynHelpers[]</code></pre>
+<p>If you like the bleeding edge and you are already using the development version of FeynCalc, you can also install the development version of FeynHelpers</p>
 <pre><code>Import[&quot;https://raw.githubusercontent.com/FeynCalc/feynhelpers/master/install.m&quot;]
 InstallFeynHelpers[InstallFeynHelpersDevelopmentVersion-&gt;True]</code></pre>
 <h4 id="manual-installation">Manual installation</h4>
-<ul>
-<li><p>Create a directory <em>FeynHelpers</em> inside</p>
+<p>Create a directory <em>FeynHelpers</em> inside</p>
 <pre><code>FileNameJoin[{$UserBaseDirectory, &quot;Applications&quot;, &quot;FeynCalc&quot;, &quot;AddOns&quot;}]</code></pre>
-<p>and put the source code there.</p></li>
-</ul>
+<p>and put the source code there.</p>
 <h3 id="fermat">Fermat</h3>
 <p>You can download FERMAT binaries for Linux or macOS from the <a href="https://home.bway.net/lewis/zip.html">developer’s website</a>.</p>
 <h4 id="linux">Linux</h4>
-<ul>
-<li>Copy the directory <code>ferl64</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</li>
-</ul>
+<p>Copy the directory <code>ferl64</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</p>
 <h4 id="macos">macOS</h4>
-<ul>
-<li>Copy the directory <code>ferm64</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</li>
-</ul>
+<p>Copy the directory <code>ferm64</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</p>
 <h4 id="windows">Windows</h4>
-<ul>
-<li>Currently there is no native Windows version of FERMAT. The Linux version appears to be usable via WSL, but currently there is no support for that in FeynHelpers.</li>
-</ul>
+<p>Currently there is no native Windows version of FERMAT. The Linux version appears to be usable via WSL, but currently there is no support for that in FeynHelpers.</p>
 <h3 id="fire">FIRE</h3>
 <p>You can download the source code of FIRE from the <a href="https://bitbucket.org/feynmanIntegrals/fire">developer’s website</a>. The content should be extracted to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FIRE"}]</code>.</p>
 <h4 id="linux-1">Linux</h4>
-<ul>
-<li>The instructions for compiling FIRE from source on Linux are provided <a href="https://bitbucket.org/feynmanIntegrals/fire/src/master/README.html">here</a>.</li>
-</ul>
+<p>The instructions for compiling FIRE from source on Linux are provided <a href="https://bitbucket.org/feynmanIntegrals/fire/src/master/README.html">here</a>.</p>
 <h4 id="macos-1">macOS</h4>
-<ul>
-<li>The instructions for compiling FIRE from source on macOS can be found <a href="https://bitbucket.org/feynmanIntegrals/fire/issues/10/issue-of-the-installation-on-macos">here</a>.</li>
-</ul>
+<p>The instructions for compiling FIRE from source on macOS can be found <a href="https://bitbucket.org/feynmanIntegrals/fire/issues/10/issue-of-the-installation-on-macos">here</a>.</p>
 <h4 id="windows-1">Windows</h4>
-<ul>
-<li>There is no native Windows port of FIRE. It should be possible to compile FIRE on WSL with an Ubuntu installation, but currently there is no support for that in FeynHelpers.</li>
-</ul>
+<p>There is no native Windows port of FIRE. It should be possible to compile FIRE on WSL with an Ubuntu installation, but currently there is no support for that in FeynHelpers.</p>
 <h3 id="looptools">LoopTools</h3>
 <p>On the <a href="http://www.feynarts.de/looptools/">developer’s website</a> you can download not only the source code but also precompiled binaries</p>
 <h4 id="linux-or-macos">Linux or macOS</h4>
-<ul>
-<li>Copy the self-compiled or precompiled MathLink executable <code>LoopTools</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</li>
-</ul>
+<p>Copy the self-compiled or precompiled MathLink executable <code>LoopTools</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</p>
 <h4 id="windows-2">Windows</h4>
-<ul>
-<li>Rename the self-compiled or precompiled MathLink executable <code>LoopTools.exe</code> to <code>LoopTools</code> and copy it to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</li>
-</ul>
+<p>Rename the self-compiled or precompiled MathLink executable <code>LoopTools.exe</code> to <code>LoopTools</code> and copy it to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</p>
 <h3 id="pysecdec">pySecDec</h3>
 <p>The installation instructions for pySecDec can be found <a href="https://secdec.readthedocs.io/en/stable/installation.html#download-the-program-and-install">here</a>. FeynHelpers does not require pySecDec to <em>generate</em> the corresponding Python scripts. However, in order to actually compute the given loop integrals one has to run those scripts, which is possible only when pySecDec is installed.</p>
 <h4 id="linux-or-macos-1">Linux or macOS</h4>
@@ -90,17 +70,19 @@ InstallFeynHelpers[InstallFeynHelpersDevelopmentVersion-&gt;True]</code></pre>
 <p>Currently the installation of Package-X is handled by the automatic installer. Since Package-X is a Mathematica package that only needs to be copied to the correct location, the installation is easy to automatize.</p>
 <p>Alternatively, you can download Package-X from the <a href="https://packagex.hepforge.org/">developer’s website</a> and copy the folder <code>X</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications"}]</code>. If you can load Package-X by evaluating <code>X`</code> in a notebook, then the installation was successful.</p>
 <h3 id="qgraf">QGRAF</h3>
-<p>You can download the source code of QFRAF from the <a href="http://cfif.ist.utl.pt/~paulo/qgraf.html">developer’s website</a>.</p>
+<p>You can download the source code of QGRAF from the <a href="http://cfif.ist.utl.pt/~paulo/qgraf.html">developer’s website</a>.</p>
 <h4 id="linux-and-macos">Linux and macOS</h4>
-<p>The compilation instructions can be found in the section “Compiling” of the manual <code>qgraf-3.6.0.pdf</code> inside the tarball. Having compiled the program you need to rename the binary to <code>qgraf</code> and put it to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p>
+<p>The compilation instructions can be found in the section “Compiling” of the manual <code>qgraf-3.x.y.pdf</code> inside the tarball. For example, on a Linux system equipped with a GNU Fortran compiler something like</p>
+<pre><code>gfortran qgraf-3.6.3.f08 -o qgraf</code></pre>
+<p>should do the job. Having compiled the program you need to move the binary file <code>qgraf</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p>
 <h4 id="windows-4">Windows</h4>
-<ul>
-<li><p>To extract the source code tarball of QGRAF you need a tool that can deal with tar.gz archives, e.g. <a href="https://www.7-zip.org/">7-zip</a>.</p></li>
-<li><p>To build QGRAF from source you need a FORTRAN compiler. You can use the <a href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64">MinGW compiler</a> via the <em>MinGW-W64 Online Installer</em> (<code>MinGW-W64-install.exe</code>). When the <code>Settings</code> page appears in the installation wizard, change <code>Architecture</code> from <code>i686</code> to <code>x86_64</code>.</p></li>
-<li><p>Unfortunately, as of June 2022 the installer is broken and fails with the error message “file was downloaded incorrectly”. A possible workaround is described <a href="https://sourceforge.net/p/mingw-w64/support-requests/125/">here</a>. When you reach the <code>Installation folder</code> page in the installation wizard, open <code>C:\Users\YOUR_USER_NAME\AppData\Local\Temp\gentee**</code> and drop there the file <code>x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z</code> that you can donwload from <a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z">SourceForge</a>. This skips the broken process of downloading the file by the installer and should get you through the installation.</p></li>
-<li><p>Finally, open <code>MiniGW-W64 project</code> -&gt; <code>Open Terminal</code> via the start menu. Go to the folder where you extracted the source code of QGRAF and compile it with <code>gfortran.exe -static qgraf-3.x.y.f08 -o qgraf.exe</code>, where <code>x</code> and <code>y</code> denote the current version numbers.</p></li>
-<li><p>Run <code>qgraf.exe</code> to make sure that it works properly.</p></li>
-<li><p>Put <code>qgraf.exe</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p></li>
-</ul>
+<p>To extract the source code tarball of QGRAF you need a tool that can deal with tar.gz archives, e.g. <a href="https://www.7-zip.org/">7-zip</a>.</p>
+<p>To build QGRAF from source you need a FORTRAN compiler. You can use the <a href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64">MinGW compiler</a> via the <em>MinGW-W64 Online Installer</em> (<code>MinGW-W64-install.exe</code>). When the <code>Settings</code> page appears in the installation wizard, change <code>Architecture</code> from <code>i686</code> to <code>x86_64</code>.</p>
+<p>Unfortunately, as of June 2022 the installer is broken and fails with the error message “file was downloaded incorrectly”. A possible workaround is described <a href="https://sourceforge.net/p/mingw-w64/support-requests/125/">here</a>. When you reach the <code>Installation folder</code> page in the installation wizard, open</p>
+<pre><code>C:\Users\YOUR_USER_NAME\AppData\Local\Temp\gentee</code></pre>
+<p>and drop there the file <code>x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z</code> that you can donwload from <a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z">SourceForge</a>. This skips the broken process of downloading the file by the installer and should get you through the installation.</p>
+<p>Finally, open <code>MiniGW-W64 project</code> -&gt; <code>Open Terminal</code> via the start menu. Go to the folder where you extracted the source code of QGRAF and compile it with <code>gfortran.exe -static qgraf-3.x.y.f08 -o qgraf.exe</code>, where <code>x</code> and <code>y</code> denote the current version numbers.</p>
+<p>Run <code>qgraf.exe</code> to make sure that it works properly.</p>
+<p>Finally, move <code>qgraf.exe</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p>
 </body>
 </html>
