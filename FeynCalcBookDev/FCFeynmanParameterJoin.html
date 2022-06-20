@@ -103,6 +103,8 @@
 </header>
 <h2 id="fcfeynmanparameterjoin">FCFeynmanParameterJoin</h2>
 <p><code>FCFeynmanParameterJoin[{{{prop1,prop2,x},prop3,y},...}, {p1,p2,...}]</code> joins all propagators in <code>int</code> using Feynman parameters but does not integrate over the loop momenta <span class="math inline">p_i</span>. The function returns <code>{fpInt,pref,vars}</code>, where <code>fpInt</code> is the piece of the integral that contains a single <code>GFAD</code>-type propagator and <code>pref</code> is the part containing the <code>res</code>. The introduced Feynman parameters are listed in vars. The overall Dirac delta is omitted.</p>
+<p>Notice that each inner list must contain exactly thee elements, the first two being propagators (or products of propagators) and the last one denoting the head of Feynman parameter variables used to join those propagators. For example, <code>{FAD[{p1,m1}],FAD[{p2,m2}],x}</code>, but also <code>{FAD[{p1,m1}],FAD[{p2,m2}]FAD[{p3,m3}],x}</code> or even <code>{FAD[{p1,m1}]FAD[{p2,m2}],FAD[{p3,m3}]FAD[{p4,m4}],x}</code> represent valid examples of such lists, while something like <code>{FAD[{p1,m1}],FAD[{p2,m2}],FAD[{p3,m3}],x}</code> (4 instead of 3 list elements) is invalid and will not work.</p>
+<p>Having obtained an output of <code>FCFeynmanParameterJoin</code> (e.g. called <code>intT</code>), you should use the following syntax to pass this to <code>FCFeynmanParametrize</code>: <code>FCFeynmanParametrize[intT[[1]],intT[[2]],{lmom1, lmom2, ...},Variables-&gt;intT[[3]]]</code></p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFeynmanParametrize.html">FCFeynmanParametrize</a>.</p>
 <h3 id="examples">Examples</h3>
