@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynHelpers manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynHelpers manual (development version)</h1>
+</header>
+<h2 id="tensor-reduction-with-fermat">Tensor reduction with Fermat</h2>
+<p>One of the most useful functions exposed by the Fermat interface is <code>FerSolve</code> that is vastly superior to Mathematica’s <code>Solve</code> when dealing with very large symbolic systems of equations.</p>
+<p>A typical situation where one needs to solve such equations is the derivation of tensor decomposition formulas. To this aim FeynCalc’s <code>Tdec</code> can directly use <code>FerSolve</code>, once FeynHelpers is loaded. One just needs to set the option <code>Solve</code> to <code>FerSolve</code>.</p>
+<p>The following example calculates tensor reduction formula for a rank 6 integral with 2 loop momenta and two external momenta. The Fermat part requires only 40 seconds on a modern laptop to solve the corresponding <span class="math inline">52 \times 52</span> symbolic system.</p>
+<pre><code>Tdec[{{p1, mu1}, {p1, mu2}, {p1, mu3}, {p1, mu4}, {p2, mu5}, {p2, mu6}},
+{Q1, Q2}, Solve -&gt; FerSolve, UseTIDL -&gt; False, FCVerbose -&gt; 1]</code></pre>
+</body>
+</html>

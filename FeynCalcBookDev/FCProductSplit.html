@@ -102,7 +102,7 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fcproductsplit">FCProductSplit</h2>
-<p><code>FCProductSplit[exp, {v1, v2, ...}]</code> splits expr into pieces that are free of any occurrence of <code>v1, v2, ...</code> and pieces that contain those variables. This works both on sums and products. The output is provided in the form of a two element list. One can recover the original expression by applying <code>Total</code> to that list.</p>
+<p><code>FCProductSplit[exp, {v1, v2, ...}]</code> splits expr into pieces that are free of any occurrence of <code>v1, v2, ...</code> and pieces that contain those variables. This works both only for products. The output is provided in the form of a two element list. One can recover the original expression by applying <code>Times</code> to that list.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCSplit.html">FCSplit</a>.</p>
 <h3 id="examples">Examples</h3>

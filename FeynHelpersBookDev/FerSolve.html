@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynHelpers manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynHelpers manual (development version)</h1>
+</header>
+<h2 id="fersolve">FerSolve</h2>
+<p><code>FerSolve[eqs, vars]</code> solves the system of linear equations <code>eqs</code> for the variables <code>vars</code> by calculating the row-reduced form of the corresponding augmented matrix using Fermat by R. Lewis.</p>
+<p>The location of script, input and output files is controlled by the options <code>FerScriptFile</code>, <code>FerInputFile</code>, <code>FerOutputFile</code>. When set to <code>Automatic</code> (default), these files will be automatically created via <code>CreateTemporary[]</code>. If the option <code>Delete</code> is set to <code>True</code> (default), the files will be deleted after a successful Fermat run.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="FerRowReduce.html">FerRowReduce</a>.</p>
+<h3 id="examples">Examples</h3>
+<p>The syntax of FerSolve is very similar to that of <code>Solve</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FerSolve<span class="op">[{</span><span class="fu">a</span> <span class="fu">x</span> <span class="sc">+</span> <span class="fu">y</span> <span class="ex">==</span> <span class="dv">7</span><span class="op">,</span> <span class="fu">b</span> <span class="fu">x</span> <span class="sc">-</span> <span class="fu">y</span> <span class="ex">==</span> <span class="dv">1</span><span class="op">},</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="fu">y</span><span class="op">}]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FerRunScript: Running Fermat.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">FerRunScript: Done running Fermat, timing: 0.6790</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">FerSolve: Verifying the result.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">FerSolve: Done verifying the result, timing: 0.000630*)</span></span></code></pre></div>
+<p><span class="math display">\left\{x\to \frac{8}{a+b},y\to -\frac{a-7 b}{a+b}\right\}</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Solve</span><span class="op">[{</span><span class="fu">a</span> <span class="fu">x</span> <span class="sc">+</span> <span class="fu">y</span> <span class="ex">==</span> <span class="dv">7</span><span class="op">,</span> <span class="fu">b</span> <span class="fu">x</span> <span class="sc">-</span> <span class="fu">y</span> <span class="ex">==</span> <span class="dv">1</span><span class="op">},</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="fu">y</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left\{\left\{x\to \frac{8}{a+b},y\to -\frac{a-7 b}{a+b}\right\}\right\}</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FerSolve<span class="op">[{</span><span class="dv">2</span> <span class="fu">x</span> <span class="sc">+</span> <span class="fu">y</span> <span class="fu">c</span> <span class="ex">==</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span> <span class="fu">x</span> <span class="ex">==</span> <span class="fu">c</span><span class="op">},</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="fu">y</span><span class="op">}]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FerRunScript: Running Fermat.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">FerRunScript: Done running Fermat, timing: 0.1560</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">FerSolve: Verifying the result.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">FerSolve: Done verifying the result, timing: 0.000496*)</span></span></code></pre></div>
+<p><span class="math display">\left\{x\to \frac{c}{4},y\to -\frac{c-4}{2 c}\right\}</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Solve</span><span class="op">[{</span><span class="dv">2</span> <span class="fu">x</span> <span class="sc">+</span> <span class="fu">y</span> <span class="fu">c</span> <span class="ex">==</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span> <span class="fu">x</span> <span class="ex">==</span> <span class="fu">c</span><span class="op">},</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="fu">y</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left\{\left\{x\to \frac{c}{4},y\to -\frac{c-4}{2 c}\right\}\right\}</span></p>
+<p>However, for larger systems of equations <code>FerSolve</code> is superior to <code>Solve</code> owing to better algorithms implemented in Fermat</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>eqs <span class="ex">=</span> <span class="op">{</span>M0 <span class="ex">==</span> (<span class="dv">1</span> <span class="sc">-</span> f1 <span class="sc">-</span> f2 <span class="sc">-</span> f3 <span class="sc">-</span> f4 <span class="sc">-</span> f5 <span class="sc">-</span> f6 <span class="sc">-</span> f7 <span class="sc">-</span> f8 <span class="sc">-</span> f9 <span class="sc">-</span> f10 <span class="sc">-</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>             f11 <span class="sc">-</span> f12 <span class="sc">-</span> f13 <span class="sc">-</span> f14 <span class="sc">-</span> f15 <span class="sc">-</span> f16)<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     M1 <span class="ex">==</span> f1<span class="sc">*</span>m0 <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> f1 <span class="sc">-</span> f2 <span class="sc">-</span> f3 <span class="sc">-</span> f4 <span class="sc">-</span> f5 <span class="sc">-</span> f6 <span class="sc">-</span> f7 <span class="sc">-</span> f8 <span class="sc">-</span> f9 <span class="sc">-</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               f10 <span class="sc">-</span> f11 <span class="sc">-</span> f12 <span class="sc">-</span> f13 <span class="sc">-</span> f14 <span class="sc">-</span> f15 <span class="sc">-</span> f16)<span class="sc">*</span>m1<span class="op">,</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>     M2 <span class="ex">==</span> f1<span class="sc">*</span>m1 <span class="sc">+</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         f2<span class="sc">*</span>m0 <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> f1 <span class="sc">-</span> f2 <span class="sc">-</span> f3 <span class="sc">-</span> f4 <span class="sc">-</span> f5 <span class="sc">-</span> f6 <span class="sc">-</span> f7 <span class="sc">-</span> f8 <span class="sc">-</span> f9 <span class="sc">-</span> f10 <span class="sc">-</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>               f11 <span class="sc">-</span> f12 <span class="sc">-</span> f13 <span class="sc">-</span> f14 <span class="sc">-</span> f15 <span class="sc">-</span> f16)<span class="sc">*</span>m2<span class="op">,</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>     M4 <span class="ex">==</span> f1<span class="sc">*</span>m3 <span class="sc">+</span> f2<span class="sc">*</span>m2 <span class="sc">+</span> f3<span class="sc">*</span>m1 <span class="sc">+</span> f4<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>     M5 <span class="ex">==</span> f2<span class="sc">*</span>m3 <span class="sc">+</span> f3<span class="sc">*</span>m2 <span class="sc">+</span> f4<span class="sc">*</span>m1 <span class="sc">+</span> f5<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>     M6 <span class="ex">==</span> f3<span class="sc">*</span>m3 <span class="sc">+</span> f4<span class="sc">*</span>m2 <span class="sc">+</span> f5<span class="sc">*</span>m1 <span class="sc">+</span> f6<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>     M7 <span class="ex">==</span> f4<span class="sc">*</span>m3 <span class="sc">+</span> f5<span class="sc">*</span>m2 <span class="sc">+</span> f6<span class="sc">*</span>m1 <span class="sc">+</span> f7<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>     M8 <span class="ex">==</span> f5<span class="sc">*</span>m3 <span class="sc">+</span> f6<span class="sc">*</span>m2 <span class="sc">+</span> f7<span class="sc">*</span>m1 <span class="sc">+</span> f8<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>     M9 <span class="ex">==</span> f6<span class="sc">*</span>m3 <span class="sc">+</span> f7<span class="sc">*</span>m2 <span class="sc">+</span> f8<span class="sc">*</span>m1 <span class="sc">+</span> f9<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>     M10 <span class="ex">==</span> f7<span class="sc">*</span>m3 <span class="sc">+</span> f8<span class="sc">*</span>m2 <span class="sc">+</span> f9<span class="sc">*</span>m1 <span class="sc">+</span> f10<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>     M11 <span class="ex">==</span> f8<span class="sc">*</span>m3 <span class="sc">+</span> f9<span class="sc">*</span>m2 <span class="sc">+</span> f10<span class="sc">*</span>m1 <span class="sc">+</span> f11<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>     M12 <span class="ex">==</span> f9<span class="sc">*</span>m3 <span class="sc">+</span> f10<span class="sc">*</span>m2 <span class="sc">+</span> f11<span class="sc">*</span>m1 <span class="sc">+</span> f12<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>     M13 <span class="ex">==</span> f10<span class="sc">*</span>m3 <span class="sc">+</span> f11<span class="sc">*</span>m2 <span class="sc">+</span> f12<span class="sc">*</span>m1 <span class="sc">+</span> f13<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>     M14 <span class="ex">==</span> f11<span class="sc">*</span>m3 <span class="sc">+</span> f12<span class="sc">*</span>m2 <span class="sc">+</span> f13<span class="sc">*</span>m1 <span class="sc">+</span> f14<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>     M15 <span class="ex">==</span> f12<span class="sc">*</span>m3 <span class="sc">+</span> f13<span class="sc">*</span>m2 <span class="sc">+</span> f14<span class="sc">*</span>m1 <span class="sc">+</span> f15<span class="sc">*</span>m0<span class="op">,</span> </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>     M16 <span class="ex">==</span> f13<span class="sc">*</span>m3 <span class="sc">+</span> f14<span class="sc">*</span>m2 <span class="sc">+</span> f15<span class="sc">*</span>m1 <span class="sc">+</span> f16<span class="sc">*</span>m0<span class="op">}</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vars <span class="ex">=</span> <span class="op">{</span>f1<span class="op">,</span> f2<span class="op">,</span> f3<span class="op">,</span> f4<span class="op">,</span> f5<span class="op">,</span> f6<span class="op">,</span> f7<span class="op">,</span> f8<span class="op">,</span> f9<span class="op">,</span> f10<span class="op">,</span> f11<span class="op">,</span> f12<span class="op">,</span> f13<span class="op">,</span> f14<span class="op">,</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     f15<span class="op">,</span> f16<span class="op">}</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sol1 <span class="ex">=</span> FerSolve<span class="op">[</span>eqs<span class="op">,</span> vars<span class="op">]</span>;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FerRunScript: Running Fermat.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">FerRunScript: Done running Fermat, timing: 11.21</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">FerSolve: Verifying the result.</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">FerSolve: Done verifying the result, timing: 0.3670*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sol1<span class="op">[[</span><span class="dv">1</span><span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">\text{f1}\to -\frac{\text{M0} \;\text{m1}-\text{m0} \;\text{M1}}{\text{m0}^2}</span></p>
+</body>
+</html>
