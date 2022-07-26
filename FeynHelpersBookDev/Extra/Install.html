@@ -67,8 +67,9 @@ InstallFeynHelpers[InstallFeynHelpersDevelopmentVersion-&gt;True]</code></pre>
 <h4 id="windows-3">Windows</h4>
 <p>It could be possible to set up pySecDec on WSL, but currently it is unclear whether this can work.</p>
 <h3 id="package-x">Package-X</h3>
-<p>Currently the installation of Package-X is handled by the automatic installer. Since Package-X is a Mathematica package that only needs to be copied to the correct location, the installation is easy to automatize.</p>
-<p>Alternatively, you can download Package-X from the <a href="https://packagex.hepforge.org/">developer’s website</a> and copy the folder <code>X</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications"}]</code>. If you can load Package-X by evaluating <code>X`</code> in a notebook, then the installation was successful.</p>
+<p>Package-X is not being developed or even maintained anymore. However, the author of the tool, Hiren H. Patel, kindly gave us permission to ship <code>OneLoop.m</code> (part of Package-X containing library of analytic results for Passarino-Veltman functions) together with FeynHelpers.</p>
+<p>Therefore, no separate installation of Package-X is needed.</p>
+<p>Please notice that you are using this library on your own risk. The lack of maintenance means that newly discovered bugs are not going to be fixed and there is no guarantee that it will continue to work with newer Mathematica versions.</p>
 <h3 id="qgraf">QGRAF</h3>
 <p>You can download the source code of QGRAF from the <a href="http://cfif.ist.utl.pt/~paulo/qgraf.html">developer’s website</a>.</p>
 <h4 id="linux-and-macos">Linux and macOS</h4>
