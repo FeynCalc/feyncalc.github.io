@@ -107,10 +107,9 @@
 <p><code>GP</code> can be used as an abbreviation of <code>GluonPropagator</code>.</p>
 <p>The gauge and the dimension are determined by the options <code>Gauge</code> and <code>Dimension</code>. The following settings of <code>Gauge</code> are possible:</p>
 <ul>
-<li><code>1</code> for the Feynman gauge;<br />
-</li>
-<li><code>alpha</code> for the general covariant gauge;</li>
-<li><code>Momentum[n] ,1}</code> for the axial gauge.</li>
+<li><code>1</code> for the Feynman gauge</li>
+<li><code>alpha</code> for the general covariant gauge</li>
+<li><code>{Momentum[n] ,1}</code> for the axial gauge</li>
 </ul>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="GluonSelfEnergy.html">GluonSelfEnergy</a>, <a href="GluonVertex.html">GluonVertex</a>, <a href="GluonGhostVertex.html">GluonGhostVertex</a>, <a href="GhostPropagator.html">GhostPropagator</a>, <a href="GluonGhostVertex.html">GluonGhostVertex</a>.</p>
@@ -126,7 +125,7 @@
 <p><span class="math display">\Pi _{ab}^{\mu \nu }(p)</span></p>
 <p><span class="math display">\frac{i \delta ^{ab} \left(\frac{(1-\alpha ) p^{\mu } p^{\nu }}{p^2}-g^{\mu \nu }\right)}{p^2}</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GluonPropagator<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">b</span><span class="op">,</span> Gauge <span class="ot">-&gt;</span> <span class="op">{</span>Momentum<span class="op">[</span><span class="fu">n</span><span class="op">],</span> <span class="dv">1</span><span class="op">},</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{i \delta ^{ab} \left(-\frac{\overline{n}^2 p^{\mu } p^{\nu }-p^2 \overline{n}^{\mu } \overline{n}^{\nu }}{(\overline{n}\cdot \overline{p})^2}+\frac{p^{\mu } \overline{n}^{\nu }+p^{\nu } \overline{n}^{\mu }}{\overline{n}\cdot \overline{p}}-g^{\mu \nu }\right)}{p^2}</span></p>
+<p><span class="math display">\frac{i \delta ^{ab} \left(\frac{p^{\mu } \overline{n}^{\nu }+p^{\nu } \overline{n}^{\mu }}{(\overline{n}\cdot \overline{p}+i \eta )}-\frac{\overline{n}^2 p^{\mu } p^{\nu }-p^2 \overline{n}^{\mu } \overline{n}^{\nu }}{(\overline{n}\cdot \overline{p}+i \eta )^{21}}-g^{\mu \nu }\right)}{p^2}</span></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>GP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\Pi _g^{\mu \nu }(p)</span></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Explicit<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>

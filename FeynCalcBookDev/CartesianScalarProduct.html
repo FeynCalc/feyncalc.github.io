@@ -105,10 +105,10 @@
 <p><code>CartesianScalarProduct[p, q]</code> is the input for the scalar product of two Cartesian vectors <code>p</code> and <code>q</code>.</p>
 <p><code>CartesianScalarProduct[p]</code> is equivalent to <code>CartesianScalarProduct[p, p]</code>.</p>
 <p>Expansion of sums of momenta in <code>CartesianScalarProduct</code> is done with <code>ExpandScalarProduct</code>.</p>
-<p>Scalar products may be set, e.g. via <code>ScalarProduct[a, b] = m^2;</code> but <code>a</code> and <code>b</code> may not contain sums.</p>
+<p>Scalar products may be set, e.g. via <code>CartesianScalarProduct[a, b] = m^2;</code> but <code>a</code> and <code>b</code> may not contain sums.</p>
 <p><code>CartesianScalarProduct[a]</code> corresponds to <code>CartesianScalarProduct[a,a]</code></p>
 <p>Note that <code>ScalarProduct[a, b] = m^2</code> actually sets Cartesian scalar products in different dimensions specified by the value of the <code>SetDimensions</code> option.</p>
-<p>It is highly recommended to set <code>ScalarProduct</code>s before any calculation. This improves the performance of FeynCalc.</p>
+<p>It is highly recommended to set <code>CartesianScalarProduct</code>s before any calculation. This improves the performance of FeynCalc.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="CSP.html">CSP</a>, <a href="CSPD.html">CSPD</a>, <a href="CSPE.html">CSPE</a>.</p>
 <h3 id="examples">Examples</h3>
