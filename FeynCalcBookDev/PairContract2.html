@@ -101,37 +101,26 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h2 id="cartesianpaircontract">CartesianPairContract</h2>
-<p><code>CartesianPairContract</code> is like <code>CartesianPair</code>, but with (local) contraction properties. The function fully supports the BMHV algebra and will not expand momenta inside scalar products.</p>
-<p><code>CartesianPairContract</code> is an auxiliary function used in higher level FeynCalc functions that require fast contractions between multiple expressions, where <code>Contract</code> would be too slow.</p>
+<h2 id="paircontract2">PairContract2</h2>
+<p><code>PairContract2</code> is like <code>Pair</code>, but with local contraction properties. It works best with products of <code>Pair</code>s that are expected to evaluate to a product of scalar products.</p>
+<ul>
+<li>Suitable contractions between products of <code>PairContract2</code> symbols are evaluated immediately.</li>
+<li>Momenta are never expanded and every <code>PairContract2</code> symbol containing <code>Momentum</code> in both slots is immediately converted to a <code>Pair</code>.</li>
+<li>BMHV algebra is not supported, every tensor must be purely <code>4</code> or <code>D</code>-dimensional</li>
+</ul>
+<p><code>PairContract2</code> is an auxiliary function used in higher level FeynCalc functions that require fast contractions between multiple expressions, where <code>Contract</code> would be too slow.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="CartesianPair.html">CartesianPair</a>, <a href="Contract.html">Contract</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Contract.html">Contract</a>, <a href="PairContract.html">PairContract</a>, <a href="PairContract3.html">PairContract3</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> </span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> CartesianPair <span class="ot">-&gt;</span> CartesianPairContract </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> CartesianPairContract <span class="ot">-&gt;</span> CartesianPair</span></code></pre></div>
-<p><span class="math display">\overline{p}^i \overline{q}^i</span></p>
-<p><span class="math display">\text{CartesianPairContract}\left(\overline{p},\overline{q}\right)</span></p>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> Pair <span class="ot">-&gt;</span> PairContract2</span></code></pre></div>
+<p><span class="math display">\overline{p}^{\mu } \overline{q}^{\mu }</span></p>
 <p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">]]</span> </span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]]</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]]</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> CartesianPair <span class="ot">-&gt;</span> CartesianPairContract </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> CartesianPairContract <span class="ot">-&gt;</span> CartesianPair</span></code></pre></div>
-<p><span class="math display">\overline{p}^i \overline{q}^j \bar{\delta }^{ij}</span></p>
-<p><span class="math display">\text{CartesianPairContract}\left(\overline{p},\overline{q}\right)</span></p>
-<p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]]</span> CartesianPair<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> CartesianMomentum<span class="op">[</span><span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]]</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> CartesianPair <span class="ot">-&gt;</span> CartesianPairContract </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> CartesianPairContract <span class="ot">-&gt;</span> CartesianPair </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
-<p><span class="math display">\left(\overline{p}+\overline{q}\right)^i \left(\overline{r}+\overline{s}\right)^i</span></p>
-<p><span class="math display">\text{CartesianPairContract}\left(\overline{p}+\overline{q},\overline{r}+\overline{s}\right)</span></p>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> Pair <span class="ot">-&gt;</span> PairContract2</span></code></pre></div>
+<p><span class="math display">\left(\overline{p}+\overline{q}\right)^{\mu } \left(\overline{r}+\overline{s}\right)^{\mu }</span></p>
 <p><span class="math display">(\overline{p}+\overline{q})\cdot (\overline{r}+\overline{s})</span></p>
 </body>
 </html>

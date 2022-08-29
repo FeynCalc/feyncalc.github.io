@@ -102,9 +102,10 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="paircontract">PairContract</h2>
-<p><code>PairContract</code> is like <code>Pair</code>, but with (local) contraction properties.</p>
+<p><code>PairContract</code> is like <code>Pair</code>, but with (local) contraction properties. The function fully supports the BMHV algebra and will expand momenta inside scalar products when it leads to simpler expressions.</p>
+<p><code>PairContract</code> is an auxiliary function used in higher level FeynCalc functions that require fast contractions between multiple expressions, where <code>Contract</code> would be too slow.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Pair.html">Pair</a>, <a href="Contract.html">Contract</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Contract.html">Contract</a>, <a href="PairContract2.html">PairContract2</a>, <a href="PairContract3.html">PairContract3</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">q</span><span class="op">]]</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
@@ -116,5 +117,15 @@
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> Pair <span class="ot">-&gt;</span> PairContract</span></code></pre></div>
 <p><span class="math display">\overline{p}^{\mu } \overline{q}^{\nu } \bar{g}^{\mu \nu }</span></p>
 <p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]]</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> Pair <span class="ot">-&gt;</span> PairContract</span></code></pre></div>
+<p><span class="math display">\left(\overline{p}+\overline{q}\right)^{\mu } \left(\overline{r}+\overline{s}\right)^{\mu }</span></p>
+<p><span class="math display">(\overline{p}+\overline{q})\cdot (\overline{r}+\overline{s})</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ex">=</span> s2;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>p1<span class="op">,</span> p3<span class="op">]</span> <span class="ex">=</span> s3;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>SP<span class="op">[</span>p1<span class="op">,</span> p2 <span class="sc">+</span> p3<span class="op">]]</span> <span class="ot">/.</span> Pair <span class="ot">-&gt;</span> PairContract</span></code></pre></div>
+<p><span class="math display">\text{s2}+\text{s3}</span></p>
 </body>
 </html>
