@@ -102,9 +102,9 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="explicitpartiald">ExplicitPartialD</h2>
-<p><code>ExplicitPartialD[exp]</code> inserts the definitions for <code>LeftRightPartialD</code> and <code>LeftRightPartialD2</code>.</p>
+<p><code>ExplicitPartialD[exp]</code> inserts the definitions for <code>LeftRightPartialD</code>, <code>LeftRightPartialD2</code>, <code>LeftRightNablaD</code>, <code>LeftRightNablaD2</code>, <code>LeftNablaD</code> and <code>RightNablaD</code></p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExpandPartialD.html">ExpandPartialD</a>, <a href="LeftRightPartialD.html">LeftRightPartialD</a>, <a href="LeftRightPartialD2.html">LeftRightPartialD2</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExpandPartialD.html">ExpandPartialD</a>, <a href="LeftRightPartialD.html">LeftRightPartialD</a>, <a href="LeftRightPartialD2.html">LeftRightPartialD2</a>, <a href="LeftRightNablalD.html">LeftRightNablaD</a>, <a href="LeftRightNablalD2.html">LeftRightNablaD2</a>, <a href="LeftNablalD.html">LeftNablaD</a>, <a href="RightNablalD.html">RightNablaD</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>LeftRightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
@@ -126,5 +126,28 @@
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">16 \overleftrightarrow{\partial }_{\Delta }^4</span></p>
 <p><span class="math display">\left(\vec{\partial }_{\Delta }-\overleftarrow{\partial }_{\Delta }\right){}^4</span></p>
+<p>Notice that by definition <span class="math inline">\nabla^i = \partial_i = - \partial^i</span>, where the last equality depends on the metric signature.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>LeftNablaD<span class="op">[</span><span class="fu">i</span><span class="op">]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\overleftarrow{\nabla }^i</span></p>
+<p><span class="math display">-\overleftarrow{\partial }_i</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>RightNablaD<span class="op">[</span><span class="fu">i</span><span class="op">]</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\vec{\nabla }^i</span></p>
+<p><span class="math display">-\vec{\partial }_i</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>LeftRightNablaD<span class="op">[</span><span class="fu">i</span><span class="op">]</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\overleftrightarrow{\nabla }_i</span></p>
+<p><span class="math display">\frac{1}{2} \overleftarrow{\partial }_i-\vec{\partial }_i</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LeftRightNablaD2<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<p><span class="math display">\overleftrightarrow{\nabla }_{\mu }</span></p>
+<p><span class="math display">-\overleftarrow{\partial }_{\mu }-\vec{\partial }_{\mu }</span></p>
 </body>
 </html>
