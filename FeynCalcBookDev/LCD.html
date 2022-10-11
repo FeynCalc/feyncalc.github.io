@@ -77,7 +77,7 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
    var macros = [];
@@ -92,10 +92,8 @@
      });
   }}});
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="js/katex.min.css" />
+
 </head>
 <body>
 <header id="title-block-header">
@@ -104,6 +102,7 @@
 <h2 id="lcd">LCD</h2>
 <p><code>LCD[m, n, r, s]</code> evaluates to <span class="math inline">D</span>-dimensional <span class="math inline">\varepsilon^{m n r s}</span> by virtue of applying <code>FeynCalcInternal</code>.</p>
 <p><code>LCD[m,...][p, ...]</code> evaluates to <span class="math inline">D</span>-dimensional <span class="math inline">\epsilon ^{m \ldots \mu \ldots}p_{\mu \ldots}</span> applying <code>FeynCalcInternal</code>.</p>
+<p>When some indices of a Levi-Civita-tensor are contracted with 4-vectors, FeynCalc suppresses explicit dummy indices by putting those vectors into the corresponding index slots. For example, <span class="math inline">\varepsilon^{p_1 p_2 p_3 p_4}</span> (accessible via <code>LCD[][p1,p2,p3,p4]</code>) correspond to <span class="math inline">\varepsilon_{\mu \nu \rho \sigma} p_1^\mu p_2^\nu p_3^\rho p_4^\sigma</span>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Eps.html">Eps</a>, <a href="LC.html">LC</a>.</p>
 <h3 id="examples">Examples</h3>
@@ -119,5 +118,12 @@
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Eps[LorentzIndex[\[Mu], D], LorentzIndex[\[Nu], D], Momentum[p, D], Momentum[q, D]]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Factor2<span class="op">[</span>Contract<span class="op">[</span>LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]][</span><span class="fu">p</span><span class="op">]</span> LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]][</span><span class="fu">q</span><span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">(1-D) (2-D) (3-D) (p\cdot q)</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> FVD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FVD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FVD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]</span> FVD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">4</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<p><span class="math display">p_1{}^{\mu } p_2{}^{\nu } p_3{}^{\rho } p_4{}^{\sigma } \overset{\text{}}{\epsilon }^{\mu \nu \rho \sigma }</span></p>
+<p><span class="math display">\overset{\text{}}{\epsilon }^{p_1p_2p_3p_4}</span></p>
 </body>
 </html>

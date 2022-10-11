@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <script src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="dirac-algebra">Dirac algebra</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<p>This section contains some explicit formulas used by FeynCalc when simpifying chains of Dirac matrices. Such relations can be found e.g. in <a href="https:/XXX">Veltman’s Gammatrica</a> or rederived by hand.</p>
+<h3 id="bmhv-algebra">BMHV algebra</h3>
+<p>In the Breitenlohner-Maison-’t Hooft-Veltman scheme we are dealing with matrices in <span class="math inline">D</span>, <span class="math inline">4</span> and <span class="math inline">D-4</span> dimensions. Many identities of the BMHV algebra can be proven by by decomposing Dirac matrices into two pieces </p>
+<p>The anticommuatators between Dirac matrices in different dimensions are given by </p>
+<p>Notice that while <span class="math inline">\gamma^5</span> anticommutes with all other Dirac matrices in <span class="math inline">4</span> dimensions, it commutes with them in <span class="math inline">D-4</span> dimensions. However, in <span class="math inline">D</span> dimensions the anticommutator is not zero </p>
+<p>For the chiral projectors we obtain  and </p>
+</body>
+</html>

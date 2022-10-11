@@ -77,7 +77,7 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
    var macros = [];
@@ -92,10 +92,8 @@
      });
   }}});
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="js/katex.min.css" />
+
 </head>
 <body>
 <header id="title-block-header">
@@ -104,6 +102,7 @@
 <h2 id="clcd">CLCD</h2>
 <p><code>CLCD[m, n, r]</code> evaluates to <code>Eps[CartesianIndex[m, D-1], CartesianIndex[n, D-1], CartesianIndex[r,D-1]]</code> applying <code>FeynCalcInternal</code>.</p>
 <p><code>CLC[m,...][p, ...]</code> evaluates to <code>Eps[CartesianIndex[m, D-1], ..., CartesianMomentum[p, D-1], ...]</code> applying <code>FeynCalcInternal</code>.</p>
+<p>When some indices of a Levi-Civita-tensor are contracted with 3-vectors, FeynCalc suppresses explicit dummy indices by putting those vectors into the corresponding index slots. For example, <span class="math inline">\varepsilon^{p_1 p_2 p_3}</span> (accessible via <code>CLCD[][p1,p2,p3]</code>) correspond to <span class="math inline">\varepsilon^{i j k} p_1^i p_2^j p_3^k</span>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="LCD.html">LCD</a>, <a href="Eps.html">Eps</a>.</p>
 <h3 id="examples">Examples</h3>
@@ -119,5 +118,12 @@
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Eps[CartesianIndex[i, -1 + D], CartesianIndex[j, -1 + D], CartesianMomentum[p, -1 + D]]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>CLCD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">][</span><span class="fu">p</span><span class="op">]</span> CLCD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">][</span><span class="fu">q</span><span class="op">]</span> <span class="sc">//</span> Contract <span class="sc">//</span> Factor2</span></code></pre></div>
 <p><span class="math display">(2-D) (3-D) (p\cdot q)</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>CLCD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> CVD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">i</span><span class="op">]</span> CVD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">j</span><span class="op">]</span> CVD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">k</span><span class="op">]</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<p><span class="math display">p_1{}^i p_2{}^j p_3{}^k \overset{\text{}}{\epsilon }^{ijk}</span></p>
+<p><span class="math display">\overset{\text{}}{\epsilon }^{p_1p_2p_3}</span></p>
 </body>
 </html>
