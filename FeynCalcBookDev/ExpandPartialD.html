@@ -100,7 +100,8 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="expandpartiald">ExpandPartialD</h2>
-<p><code>ExpandPartialD[exp]</code> expands noncommutative products of <code>QuantumField}</code>s and partial differentiation operators in <code>exp</code> and applies the Leibniz rule.</p>
+<p><code>ExpandPartialD[exp]</code> expands noncommutative products of <code>QuantumField</code>s and partial differentiation operators in <code>exp</code> and applies the Leibniz rule.</p>
+<p>By default the function assumes that there are no expressions outside of <code>exp</code> on which the derivatives inside <code>exp</code> could act. If this is not the case, please set the options <code>LeftPartialD</code> or <code>RIghtPartialD</code> to <code>True</code>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExplicitPartialD.html">ExplicitPartialD</a>, <a href="LeftPartialD.html">LeftPartialD</a>, <a href="LeftRightPartialD.html">LeftRightPartialD</a>, <a href="PartialDRelations.html">PartialDRelations</a>, <a href="RightPartialD.html">RightPartialD</a>, <a href="LeftRightNablalD.html">LeftRightNablaD</a>, <a href="LeftRightNablalD2.html">LeftRightNablaD2</a>, <a href="LeftNablalD.html">LeftNablaD</a>, <a href="RightNablalD.html">RightNablaD</a>.</p>
 <h3 id="examples">Examples</h3>
@@ -153,10 +154,18 @@
 <p><span class="math display">\left(\partial _iS^x\right)</span></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[{</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="fu">x</span><span class="op">}]</span> . QuantumField<span class="op">[</span><span class="fu">S</span><span class="op">,</span> <span class="fu">x</span><span class="op">]</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ExpandPartialD </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ExpandPartialD</span></code></pre></div>
 <p><span class="math display">\vec{\partial }_{\{i,x\}}.S^x</span></p>
 <p><span class="math display">\left(\partial _{\{i,x\}}S^x\right)</span></p>
+<p>By default the derivative won’t act on anything outside of the input expression. But it can be made to by setting the option <code>RightPartialD</code> to <code>True</code></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]]</span></span></code></pre></div>
+<p><span class="math display">A_{\mu }.\left(\partial _{\mu }A_{\nu }\right)+\left(\partial _{\mu }A_{\mu }\right).A_{\nu }</span></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]],</span> RightPartialD <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">A_{\mu }.\left(\partial _{\mu }A_{\nu }\right)+\left(\partial _{\mu }A_{\mu }\right).A_{\nu }+A_{\mu }.A_{\nu }.\vec{\partial }_{\mu }</span></p>
+<p>The same applies also to <code>LeftPartialD</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> . LeftNablaD<span class="op">[</span><span class="fu">i</span><span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">-\left(\partial _iA_{\nu }\right)</span></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> . LeftNablaD<span class="op">[</span><span class="fu">i</span><span class="op">],</span> LeftPartialD <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\left(\partial _iA_{\nu }\right)-\overleftarrow{\partial }_i.A_{\nu }</span></p>
 </body>
 </html>

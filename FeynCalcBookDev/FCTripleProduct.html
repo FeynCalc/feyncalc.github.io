@@ -99,18 +99,28 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h2 id="shiftpartiald">ShiftPartialD</h2>
-<p><code>ShiftPartialD[exp, {derivs}, field]</code> uses integration-by-parts identities to shift the derivatives of <code>QuantumField</code>s such, that a term containing <code>derivs</code> acting on <code>field</code> is eliminated from the final expression.</p>
-<p>The function always assumes that the surface term vanishes</p>
+<h2 id="fctripleproduct">FCTripleProduct</h2>
+<p><code>FCTripleProduct[a,b,c]</code> returns the triple product <span class="math inline">a \cdot (b \times c)</span>. By default <code>a</code>,<code>b</code> and <code>c</code> are assumed to be Cartesian vectors. Wrapping the arguments with <code>CartesianIndex</code> will create an expression with open indices.</p>
+<p>If any of the arguments is noncommutative, <code>DOT</code> will be used instead of <code>Times</code> and the function will introduce dummy indices. To give those indices some specific names, use the option <code>CartesianIndexNames</code>.</p>
+<p>If the arguments already contain free CartesianIndices, the first such index will be used for the contraction.</p>
+<p>To obtain an explicit expression you need to set the option <code>Explicit</code> to <code>True</code> or apply the function <code>Explicit</code></p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExplicitPartialD.html">ExplicitPartialD</a>, <a href="ExpandPartialD.html">ExpandPartialD</a>, <a href="QuantumField.html">QuantumField</a></p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Eps.html">Eps</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="ex">=</span> QuantumField<span class="op">[</span>QuarkFieldPsiDagger<span class="op">,</span> PauliIndex<span class="op">[</span>di1<span class="op">]]</span> . RightPartialD<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">]]</span> . QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span> . RightPartialD<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">]]</span> . QuantumField<span class="op">[</span>QuarkFieldPsi<span class="op">,</span> PauliIndex<span class="op">[</span>di2<span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\psi ^{\dagger \;\text{di1}}.\vec{\partial }_i.\phi .\vec{\partial }_j.\psi ^{\text{di2}}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="sc">//</span> ExpandPartialD</span></code></pre></div>
-<p><span class="math display">\psi ^{\dagger \;\text{di1}}.\phi .\left(\partial _i\partial _j\psi ^{\text{di2}}\right)+\psi ^{\dagger \;\text{di1}}.\left(\partial _i\phi \right).\left(\partial _j\psi ^{\text{di2}}\right)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ShiftPartialD<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> <span class="op">{</span>FCPartialD<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">]]},</span> QuarkFieldPsi<span class="op">,</span> FCVerbose <span class="ot">-&gt;</span> <span class="sc">-</span><span class="dv">1</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\left(\partial _i\psi ^{\dagger \;\text{di1}}\right).\phi .\left(\partial _j\psi ^{\text{di2}}\right)</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCTP<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<p><span class="math display">\overline{a}\cdot \left(\overline{b}\times \overline{c}\right)</span></p>
+<pre><code>(*FCTripleProduct[a, b, c]*)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCTP<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+<p><span class="math display">\bar{\epsilon }^{\overline{a}\overline{b}\overline{c}}</span></p>
+<pre><code>(*Eps[CartesianMomentum[a], CartesianMomentum[b], CartesianMomentum[c]]*)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCTP<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">]],</span> QuantumField<span class="op">[</span><span class="fu">B</span><span class="op">,</span> CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">]],</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  QuantumField<span class="op">[</span><span class="fu">C</span><span class="op">,</span> CartesianIndex<span class="op">[</span><span class="fu">k</span><span class="op">]],</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\bar{\epsilon }^{ijk} A^i.B^j.C^k</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FCTP<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> NonCommutative <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> CartesianIndexNames <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\bar{\epsilon }^{ijk} \overline{a}^i.\overline{b}^j.\overline{c}^k</span></p>
 </body>
 </html>

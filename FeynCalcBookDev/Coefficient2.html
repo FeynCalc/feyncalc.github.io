@@ -101,6 +101,7 @@
 </header>
 <h2 id="coefficient2">Coefficient2</h2>
 <p><code>Coefficient2[exp, form1, form2, ...]</code> is like Coefficient, but it also allows to extracts coefficients of <code>form1, form2, ...</code> sequentially. To specify the power in <code>formi</code>, write it as <code>{var,pow}</code>.</p>
+<p>To keep the prefactor whose coefficient you extracted you need to set the option <code>Prefactor</code> to <code>True</code>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Cases2.html">Cases2</a>.</p>
 <h3 id="examples">Examples</h3>
@@ -114,9 +115,15 @@
 <p><span class="math display">\frac{\text{z1}}{\text{ep}^2}+\text{ep} \;\text{x4}+\frac{\text{z2}}{\text{ep}}+\text{z3}</span></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Coefficient2<span class="op">[</span>ex<span class="op">,</span> <span class="op">{</span>a4<span class="op">,</span> <span class="dv">2</span><span class="op">},</span> <span class="op">{</span>ep<span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\text{z2}</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Coefficient2<span class="op">[</span>ex<span class="op">,</span> <span class="op">{</span>a4<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">}]</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Coefficient2<span class="op">[</span>ex<span class="op">,</span> <span class="op">{</span>a4<span class="op">,</span> <span class="dv">2</span><span class="op">},</span> ep<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{x4}</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Coefficient2<span class="op">[</span>ex<span class="op">,</span> a4<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> ep<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{x4}</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Coefficient2<span class="op">[</span>ex<span class="op">,</span> <span class="op">{</span>a4<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\text{x2}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Coefficient2<span class="op">[</span>ex<span class="op">,</span> a4<span class="op">,</span> ep<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Coefficient2<span class="op">[</span>ex<span class="op">,</span> a4<span class="op">,</span> ep<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{x3}</span></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Coefficient2<span class="op">[</span>ex<span class="op">,</span> <span class="op">{</span>a4<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> Prefactor <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{a4} \;\text{x2}</span></p>
 </body>
 </html>

@@ -99,18 +99,32 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h2 id="shiftpartiald">ShiftPartialD</h2>
-<p><code>ShiftPartialD[exp, {derivs}, field]</code> uses integration-by-parts identities to shift the derivatives of <code>QuantumField</code>s such, that a term containing <code>derivs</code> acting on <code>field</code> is eliminated from the final expression.</p>
-<p>The function always assumes that the surface term vanishes</p>
+<h2 id="fcgetfreeindices">FCGetFreeIndices</h2>
+<p><code>FCGetFreeIndices[exp, {head1, head2, ...}]</code> returns the list of free (uncontracted) indices from heads <code>head1</code>, <code>head2</code>, …</p>
+<p>As always in FeynCalc, Einstein summation convention is implicitly assumed. The function is optimized for large expressions, i.e. it is not so good as a criterion in e.g. <code>Select</code>.</p>
+<p>If it is understood that each term in the expression contains the same number of free indices, setting the option <code>First</code> to <code>True</code> can considerably speed up the evaluation.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ExplicitPartialD.html">ExplicitPartialD</a>, <a href="ExpandPartialD.html">ExpandPartialD</a>, <a href="QuantumField.html">QuantumField</a></p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCRenameDummyIndices.html">FCRenameDummyIndices</a>, <a href="Contract.html">Contract</a>, <a href="FCGetDummyIndices.html">FCGetDummyIndices</a>, <a href="DummyIndexFreeQ.html">DummyIndexFreeQ</a>, <a href="FreeIndexFreeQ.html">FreeIndexFreeQ</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="ex">=</span> QuantumField<span class="op">[</span>QuarkFieldPsiDagger<span class="op">,</span> PauliIndex<span class="op">[</span>di1<span class="op">]]</span> . RightPartialD<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">]]</span> . QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span> . RightPartialD<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">j</span><span class="op">]]</span> . QuantumField<span class="op">[</span>QuarkFieldPsi<span class="op">,</span> PauliIndex<span class="op">[</span>di2<span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\psi ^{\dagger \;\text{di1}}.\vec{\partial }_i.\phi .\vec{\partial }_j.\psi ^{\text{di2}}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="sc">//</span> ExpandPartialD</span></code></pre></div>
-<p><span class="math display">\psi ^{\dagger \;\text{di1}}.\phi .\left(\partial _i\partial _j\psi ^{\text{di2}}\right)+\psi ^{\dagger \;\text{di1}}.\left(\partial _i\phi \right).\left(\partial _j\psi ^{\text{di2}}\right)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ShiftPartialD<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> <span class="op">{</span>FCPartialD<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">]]},</span> QuarkFieldPsi<span class="op">,</span> FCVerbose <span class="ot">-&gt;</span> <span class="sc">-</span><span class="dv">1</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\left(\partial _i\psi ^{\dagger \;\text{di1}}\right).\phi .\left(\partial _j\psi ^{\text{di2}}\right)</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FCGetFreeIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>LorentzIndex<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\overline{p}^{\mu } \overline{q}^{\nu }</span></p>
+<p><span class="math display">\{\mu ,\nu \}</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FCGetFreeIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>LorentzIndex<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\overline{p}^{\mu } \overline{q}^{\mu }</span></p>
+<p><span class="math display">\{\}</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>SUNT<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">]]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>FCGetFreeIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>SUNIndex<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">T^a.T^b</span></p>
+<p><span class="math display">\{a,b\}</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>SUNT<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">a</span><span class="op">]]</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>FCGetFreeIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>SUNIndex<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">T^a.T^a</span></p>
+<p><span class="math display">\{\}</span></p>
 </body>
 </html>
