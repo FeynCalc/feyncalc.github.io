@@ -26,8 +26,8 @@
 <p>If you want to create new FeynArts models using <a href="https://feynrules.irmp.ucl.ac.be/">FeynRules</a>, please keep in mind that those models must be patched for compatibility with FeynCalc before they can be used for calculations.</p>
 <p>The patching is done by using the function <code>FAPatch</code> with the option <code>PatchModelsOnly</code> set to <code>True</code></p>
 <ul>
-<li><p>If the model is located inside the <code>Models</code> directory of <code>$FeynArtsDirectory</code>, it is sufficient to evaluate <code>FAPatch[PatchModelsOnly -&gt; True]</code> after loading FeynCalc and FeynArts in the usual way.</p></li>
-<li><p>If the model has been placed into a separate directory, use <code>FAPatch[PatchModelsOnly -&gt; True, FAModelsDirectory -&gt;    "fullPathToMyModelDir"]</code></p></li>
+<li>If the model is located inside the <code>Models</code> directory of <code>$FeynArtsDirectory</code>, it is sufficient to evaluate <code>FAPatch[PatchModelsOnly -&gt; True]</code> after loading FeynCalc and FeynArts in the usual way.</li>
+<li>If the model has been placed into a separate directory, use <code>FAPatch[PatchModelsOnly -&gt; True, FAModelsDirectory -&gt; "fullPathToMyModelDir"]</code></li>
 </ul>
 <p>The patching has to be done only once for each new model. However, rerunning <code>FAPatch[PatchModelsOnly -&gt; True]</code> would not do any harm, so if you often modify existing or add new models, you might want to keep this command in your working notebooks.</p>
 </body>

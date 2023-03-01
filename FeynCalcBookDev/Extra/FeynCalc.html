@@ -72,6 +72,9 @@
 <li><a href="../ExplicitSUNFIndex.html">ExplicitSUNFIndex</a>, <a href="../SUNFIndex.html">SUNFIndex</a> - <span class="math inline">SU(N)</span> fundamental index</li>
 <li><a href="../FAD.html">FAD</a>, <a href="../SFAD.html">SFAD</a>, <a href="../CFAD.html">CFAD</a>, <a href="../GFAD.html">GFAD</a>, <a href="../FeynAmpDenominator.html">FeynAmpDenominator</a> - denominators of Feynman amplitudes</li>
 <li><a href="../FCGV.html">FCGV</a> - a global variable</li>
+<li><a href="../FCIteratedIntegral.html">FCIteratedIntegral</a> - Chen’s iterated integral</li>
+<li><a href="../FCHPL.html">FCHPL</a>, <a href="../FCGPL.html">FCGPL</a> - harmonic and Goncharov polylogarithms</li>
+<li><a href="../FCPartialFractionForm.html">FCPartialFractionForm</a> - partial fractioned form of rational functions</li>
 <li><a href="../FCTensor.html">FCTensor</a>, <a href="../FCVariable.html">FCVariable</a>, <a href="../FreeIndex.html">FreeIndex</a>, <a href="../GrassmannParity.html">GrassmannParity</a>, <a href="../ImplicitDiracIndex.html">ImplicitDiracIndex</a>, <a href="../ImplicitPauliIndex.html">ImplicitPauliIndex</a>, <a href="../ImplicitSUNFIndex.html">ImplicitSUNFIndex</a>, <a href="../NegativeInteger.html">NegativeInteger</a>, <a href="../NonCommutative.html">NonCommutative</a>, <a href="../PositiveInteger.html">PositiveInteger</a>, <a href="../PositiveNumber.html">PositiveNumber</a> - various datatypes</li>
 <li><a href="../FUNCTION.html">FUNCTION</a> - declaration of functions for <a href="../Write2.html">Write2</a></li>
 <li><a href="../DCHN.html">DCHN</a>, <a href="../DiracChain.html">DiracChain</a> - Dirac chain with explicit open Dirac indices</li>
@@ -178,6 +181,7 @@
 <li><a href="../Solve2.html">Solve2</a>, <a href="../Solve3.html">Solve3</a> - alternatives to Mathematica’s <code>Solve</code></li>
 <li><a href="../SumP.html">SumP</a>, <a href="../SumS.html">SumS</a>, <a href="../SumT.html">SumT</a> - different summations</li>
 <li><a href="../TimedIntegrate.html">TimedIntegrate</a> - alternative to Mathematica’s <code>Integrate</code></li>
+<li><a href="../ToFCPartialFractionForm.html">ToFCPartialFractionForm</a>, <a href="../FromFCPartialFractionForm.html">FromFCPartialFractionForm</a> - switching between the usual and partial fractioned form representations for rational functions</li>
 <li><a href="../TBox.html">TBox</a> - helps implementing typesetting rules</li>
 <li><a href="../TypesettingExplicitLorentzIndex.html">TypesettingExplicitLorentzIndex</a> - typesettings of explicit Lorentz indices</li>
 <li><a href="../$TypesettingDim4.html">$TypesettingDim4</a>, <a href="../$TypesettingDimD.html">$TypesettingDimD</a>, <a href="../$TypesettingDimE.html">$TypesettingDimE</a> - typesetting of tensors in <span class="math inline">4</span>, <span class="math inline">D</span> and <span class="math inline">D-4</span> dimensions</li>
@@ -316,11 +320,12 @@
 <li><a href="../FCClausen.html">FCClausen</a> - Clausen’s function</li>
 <li><a href="../FCGramMatrix.html">FCGramMatrix</a> - generates the Gram matrix from the given momenta</li>
 <li><a href="../FCGramDeterminant.html">FCGramDeterminant</a> - calculates the Gram determinant</li>
-<li><a href="../FCDiffEqChangeVariables.html">FCDiffEqChangeVariables</a> - change of variables in a differential equation</li>
+<li><a href="../FCDiffEqChangeVariables.html">FCDiffEqChangeVariables</a>, <a href="../FCDiffEqSolve.html">FCDiffEqSolve</a> - handling of differential equations</li>
 <li><a href="../FCHideEpsilon.html">FCHideEpsilon</a> - substitutes <span class="math inline">\frac{1}{\varepsilon} - \Gamma_E + \log (4 \pi)</span> with <span class="math inline">\Delta</span></li>
 <li><a href="../FCShowEpsilon.html">FCShowEpsilon</a> - substitutes <span class="math inline">\Delta</span> with <span class="math inline">\frac{1}{\varepsilon} - \Gamma_E + \log (4 \pi)</span></li>
 <li><a href="../FCIntegral.html">FCIntegral</a> - head of loop integrals</li>
-<li><a href="../FCFeynmanFindDivergences.html">FCFeynmanFindDivergences</a>, <a href="../FCFeynmanRegularizeDivergence.html">FCFeynmanRegularizeDivergence</a>, <a href="../FCFeynmanParameterJoin.html">FCFeynmanParameterJoin</a>, <a href="../FCFeynmanParametrize.html">FCFeynmanParametrize</a>, <a href="../FCFeynmanPrepare.html">FCFeynmanPrepare</a>, <a href="../FCFeynmanProjectiveQ.html">FCFeynmanProjectiveQ</a>, <a href="../FCFeynmanProjectivize.html">FCFeynmanProjectivize</a> - derivation and manipulation of Feynman parameter integrals</li>
+<li><a href="../FCIteratedIntegralEvaluate.html">FCIteratedIntegralEvaluate</a>, <a href="../FCIteratedIntegralSimplify.html">FCIteratedIntegralSimplify</a> - manipulations of Chen’s iterated integrals</li>
+<li><a href="../FCFeynmanFindDivergences.html">FCFeynmanFindDivergences</a>, <a href="../FCFeynmanRegularizeDivergence.html">FCFeynmanRegularizeDivergence</a>, <a href="../FCFeynmanParameterJoin.html">FCFeynmanParameterJoin</a>, <a href="../FCFeynmanParametrize.html">FCFeynmanParametrize</a>, <a href="../FCFeynmanPrepare.html">FCFeynmanPrepare</a>, <a href="../FCFeynmanProjectiveQ.html">FCFeynmanProjectiveQ</a>, <a href="../FCFeynmanProjectivize.html">FCFeynmanProjectivize</a>, <a href="../FCMellinJoin.html">FCMellinJoin</a> - derivation and manipulation of Feynman parameter integrals</li>
 <li><a href="../FCLoopAddEdgeTags.html">FCLoopAddEdgeTags</a>, <a href="../FCLoopGraphPlot.html">FCLoopGraphPlot</a>, <a href="../FCLoopIntegralToGraph.html">FCLoopIntegralToGraph</a>, <a href="../FCLoopPropagatorsToLineMomenta.html">FCLoopPropagatorsToLineMomenta</a> - create and plot graphs representing loop integrals</li>
 <li><a href="../FCLoopApplyTopologyMappings.html">FCLoopApplyTopologyMappings</a>, <a href="../FCLoopCreateRuleGLIToGLI.html">FCLoopCreateRuleGLIToGLI</a>, <a href="../FCLoopFindMomentumShifts.html">FCLoopFindMomentumShifts</a>, <a href="../FCLoopFindIntegralMappings.html">FCLoopFindIntegralMappings</a>, <a href="../FCLoopFindSubtopologies.html">FCLoopFindSubtopologies</a>, <a href="../FCLoopFindTopologies.html">FCLoopFindTopologies</a>, <a href="../FCLoopFindTopologyMappings.html">FCLoopFindTopologyMappings</a>, <a href="../FCLoopPakOrder.html">FCLoopPakOrder</a>, <a href="../FCLoopToPakForm.html">FCLoopToPakForm</a> - loop integral topology identification and minimization</li>
 <li><a href="../FCGraphCuttableQ.html">FCGraphCuttableQ</a>, <a href="../FCGraphFindPath.html">FCGraphFindPath</a> - graph manipulations</li>
@@ -338,6 +343,7 @@
 <li><a href="../FCLoopFindSectors.html">FCLoopFindSectors</a> - returns sectors for the given <a href="../GLI.html">GLI</a>s</li>
 <li><a href="../FCLoopFromGLI.html">FCLoopFromGLI</a> - converts <a href="../GLI.html">GLI</a>s into explicit integrals with <a href="../FeynAmpDenominator.html">FeynAmpDenominator</a>s</li>
 <li><a href="../FCLoopGetEtaSigns.html">FCLoopGetEtaSigns</a> - extracts the signs of <span class="math inline">i \eta</span> from all propagators</li>
+<li><a href="../FCLoopGetKinematicInvariants.html">FCLoopGetKinematicInvariants</a> - kinematic invariants from the given topology.</li>
 <li><a href="../FCLoopGLIDifferentiate.html">FCLoopGLIDifferentiate</a> - differentiates <a href="../GLI.html">GLI</a>s with respect to a scalar variable.</li>
 <li><a href="../FCLoopAddScalingParameter.html">FCLoopAddScalingParameter</a>, <a href="../FCLoopGLIExpand.html">FCLoopGLIExpand</a> - series expansion of expressions with <a href="../GLI.html">GLI</a>s with respect to a scalar variable</li>
 <li><a href="../FCLoopIBPReducableQ.html">FCLoopIBPReducableQ</a> - checks if the integral contains propagators raised to integer powers</li>
