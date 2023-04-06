@@ -100,23 +100,12 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
-<h2 id="sfad">SFAD</h2>
-<p><code>SFAD[{{q1 +..., p1 . q2 +...,} {m^2, s}, n}, ...]</code> denotes a Cartesian propagator given by <span class="math inline">\frac{1}{[(q_1+\ldots)^2 + p_1 \cdot q_2 ... + m^2 + s i \eta]^n}</span>, where <span class="math inline">q_1^2</span> and <span class="math inline">p_1 \cdot q_2</span> are Cartesian scalar products in <span class="math inline">D-1</span> dimensions.</p>
-<p>For brevity one can also use shorter forms such as <code>SFAD[{q1+ ...,  m^2}, ...]</code>, <code>SFAD[{q1+ ...,  m^2 , n}, ...]</code>, <code>SFAD[{q1+ ...,  {m^2, -1}}, ...]</code>, <code>SFAD[q1,...]</code> etc.</p>
-<p>If <code>s</code> is not explicitly specified, its value is determined by the option <code>EtaSign</code>, which has the default value <code>+1</code>.</p>
-<p>If <code>n</code> is not explicitly specified, then the default value <code>1</code> is assumed. Translation into FeynCalcI internal form is performed by <code>FeynCalcInternal</code>, where a <code>SFAD</code> is encoded using the special head <code>CartesianPropagatorDenominator</code>.</p>
+<h2 id="fcdefaultlightconevectorn">$FCDefaultLightconeVectorN</h2>
+<p><code>$FCDefaultLightconeVectorN</code> is a global variable which is set to FCGV[“n”]. It denotes the default name for the vector <span class="math inline">n</span> in the lightcone decomposition for Lorentz tensors.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FAD.html">FAD</a>, <a href="GFAD.html">GFAD</a>, <a href="CFAD.html">CFAD</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="MemSet.html">MemSet</a>, <a href="FCMemoryAvailable.html">FCMemoryAvailable</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(p^2-m^2+i \eta )}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}}]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(p^2-m^2-i \eta )}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}}]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(p^2+m^2-i \eta )}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="fu">p</span> . <span class="fu">q</span><span class="op">},</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(p\cdot q-m^2+i \eta )}</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="fu">n</span> . <span class="fu">q</span><span class="op">}}]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(n\cdot q+i \eta )}</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$FCDefaultLightconeVectorN</span></code></pre></div>
+<p><span class="math display">\text{FCGV}(\text{n})</span></p>
 </body>
 </html>
