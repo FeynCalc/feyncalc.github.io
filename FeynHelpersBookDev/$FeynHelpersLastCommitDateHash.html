@@ -77,35 +77,18 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
-  </script>
-  <link rel="stylesheet" href="js/katex.min.css" />
 
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
-<p><img src="img/1ne6vpix78l6i.svg" alt="1ne6vpix78l6i" /></p>
+<p><img src="img/0fr2yhbgg9nsx.svg" alt="0fr2yhbgg9nsx" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
-<h2 id="paximplicitprefactor">PaXImplicitPrefactor</h2>
-<p><code>PaXImplicitPrefactor</code> is an option for <code>PaXEvaluate</code>. It specifies the prefactor that does not show up explicitly in the input expression, but is understood to appear in front of every 1-loop integral. For technical reasons, <code>PaXImplicitPrefactor</code> should not depend on the number of dimensions <code>D</code>. Instead you should explicitly specify what <code>D</code> is (e.g. <code>4-2 Epsilon</code>). The default value is <code>1</code>.</p>
-<p>If the standard prefactor <span class="math inline">1/(2 \pi)^D</span> is implicit in your calculations, use <code>ImplicitPrefactor -&gt; 1/(2 Pi)^(4 - 2 Epsilon)</code> .</p>
+<h2 id="feynhelperslastcommitdatehash">$FeynHelpersLastCommitDateHash</h2>
+<p>The setting of <code>$FeynHelpersLastCommitDateHash</code> provides the date and the hash of the last commit in the branch from which the current FeynHelpers version originates.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="PaXEvaluate.html">PaXEvaluate</a>.</p>
+<p><a href="Extra/FeynHelpers.html">Overview</a></p>
 <h3 id="examples">Examples</h3>
 </body>
 </html>

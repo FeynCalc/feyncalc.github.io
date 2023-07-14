@@ -99,6 +99,7 @@
 <header id="title-block-header">
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
+<p><img src="img/0eugcbgadj6yz.svg" alt="0eugcbgadj6yz" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="kiragetrs">KiraGetRS</h2>
 <p><code>KiraGetRS[{sec1, {gli1, ...}}]</code> returns the number of positive and negative propagator powers (<span class="math inline">r</span> and <span class="math inline">s</span> in the Kira/Reduze syntax) for the <code>GLI</code> integrals belonging to sector <code>sec1</code>. The input can be also a list of such entries.</p>
@@ -107,6 +108,7 @@
 <p>If the option <code>Top</code> is set to <code>True</code>, and the input is a list of the form <code>{{sec1, {gli11, ...}}, {sec2, {gli21, ...}}, ...}</code> then the output will consists of a list of top sectors and the largest possible <code>{r,s}</code> combination.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="KiraLabelSector.html">KiraLabelSector</a>, <a href="KiraCreateJobFile.html">KiraCreateJobFile</a>.</p>
+<h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>KiraGetRS<span class="op">[{</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo3<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]}]</span></span></code></pre></div>
 <p><span class="math display">\{6,1\}</span></p>
