@@ -76,8 +76,8 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../css/feyncalc.css" />
-  <script src="../js/katex.min.js"></script>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
    var macros = [];
@@ -92,7 +92,7 @@
      });
   }}});
   </script>
-  <link rel="stylesheet" href="../js/katex.min.css" />
+  <link rel="stylesheet" href="js/katex.min.css" />
 
 </head>
 <body>
@@ -101,6 +101,9 @@
 </header>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="handling-indices">Handling indices</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>.</p>
+<h3 id="manipulations">Manipulations</h3>
 <p>When you square an expression with dummy indices, you must rename them first. People often do this by hand, e.g. as in</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex1 <span class="ex">=</span> (FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">+</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span>) FV<span class="op">[</span><span class="fu">r</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">r</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{r}^{\mu } \overline{r}^{\nu } \left(\overline{p}^{\mu }+\overline{q}^{\mu }\right)</span></p>
