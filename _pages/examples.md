@@ -34,8 +34,8 @@ FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "Examples"}]
 
 |Tree level |1-loop level|2-loop level|
 |:-------------:|:-------------:|
-| [$e^+ e^- \to e^+ e^-$](FeynCalcExamplesMD/QED/Tree/ElAel-ElAel) | [$e^+ e^- \to e^+ e^-$](FeynCalcExamplesMD/QED/OneLoop/ElAel-ElAel) | [$e^- \to e^-$](FeynCalcExamplesMD/QED/TwoLoop/El-El) |
-| [$e^+ e^- \to \gamma \gamma$](FeynCalcExamplesMD/QED/Tree/ElAel-GaGa) | [$e^- \to e^-$](FeynCalcExamplesMD/QED/OneLoop/El-El) | [$\gamma \to \gamma$](FeynCalcExamplesMD/QED/TwoLoop/Ga-Ga) |
+| [$e^+ e^- \to e^+ e^-$](FeynCalcExamplesMD/QED/Tree/ElAel-ElAel) | [$e^+ e^- \to e^+ e^-$](FeynCalcExamplesMD/QED/OneLoop/ElAel-ElAel) | [$e^- \to e^-$](FeynCalcExamplesMD/QED/TwoLoops/El-El) |
+| [$e^+ e^- \to \gamma \gamma$](FeynCalcExamplesMD/QED/Tree/ElAel-GaGa) | [$e^- \to e^-$](FeynCalcExamplesMD/QED/OneLoop/El-El) | [$\gamma \to \gamma$](FeynCalcExamplesMD/QED/TwoLoops/Ga-Ga) |
 | [$e^+ e^- \to \mu^+ \mu^-$](FeynCalcExamplesMD/QED/Tree/ElAel-MuAmu) | [$e^- \to \gamma e^-$](FeynCalcExamplesMD/QED/OneLoop/El-GaEl) | |
 | [$e^- e^- \to e^- e^-$](FeynCalcExamplesMD/QED/Tree/ElEl-ElEl) | [$\gamma$](FeynCalcExamplesMD/QED/OneLoop/Ga) | |
 | [$e^- \gamma \to e^- \gamma$](FeynCalcExamplesMD/QED/Tree/ElGa-ElGa) | [$\gamma \to \gamma$](FeynCalcExamplesMD/QED/OneLoop/Ga-Ga) | |
