@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>t = Collect[((a - c)^2 + (a - b)^2)^2, a, Factor]</pre><div class='IFU'><a name='568187661'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbppk2-jokiov</div>

@@ -1,1 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>FCI[FVD[p, \[Mu]]] === FourVector[p, \[Mu], Dimension -&gt; D]</pre><div class='IFU'>http://wolfram.com/xid/0b67y1d1vpag752hsgey</div>

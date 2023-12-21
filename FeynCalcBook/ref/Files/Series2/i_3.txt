@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Series2[(x (1 - x))^(\[Delta]/2), \[Delta], 1]</pre><div class='IFU'><a name='785606174'></a>http://wolfram.com/xid/0tn9depw6mpqkccwqu-m90jv0</div>

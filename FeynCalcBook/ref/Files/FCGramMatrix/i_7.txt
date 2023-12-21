@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FCGramMatrix[{p1, p2, p3}, Head -&gt; {CartesianPair, CartesianMomentum},
-  Dimension -&gt; D - 1]</pre><div class='IFU'><a name='1695900620'></a>http://wolfram.com/xid/0fnx5q0u7sai4aean0h7btu-2bzbku</div>

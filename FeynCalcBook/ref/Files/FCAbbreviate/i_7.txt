@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>SPD[p, k] FAD[{q, SMP[&quot;m_e&quot;]}, {q + p, m}];
-FCAbbreviate[%, {q}, {p, k}, Head -&gt; spd];
-FCAbbreviate[%, {q}, {p, k}, Head -&gt; spd]</pre><div class='IFU'><a name='835140558'></a>http://wolfram.com/xid/04ieufm3d5y7w095i7byp5ujxf-n3h8u4</div>

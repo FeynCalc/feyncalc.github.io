@@ -1,3 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>DiracGamma[5];
-DiracTrick[%];
-DiracSimplify[%%]</pre><div class='IFU'><a name='41068363'></a>http://wolfram.com/xid/0dot6agzccymmitn9o9gy-yqit5</div>

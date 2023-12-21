@@ -1,1 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>ClearAll[amp, ampIso, colorS]</pre><div class='IFU'><a name='1836486841'></a>http://wolfram.com/xid/0npwa8ny70dc8d976mtje868npg-4nokln</div>

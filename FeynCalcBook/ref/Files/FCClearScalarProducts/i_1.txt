@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>ScalarProduct[p, p] = m^2</pre><div class='IFU'><a name='1785698530'></a>http://wolfram.com/xid/0kwectf7rlj9x4j0mh9yukwmhyxcn-3tfz28</div>

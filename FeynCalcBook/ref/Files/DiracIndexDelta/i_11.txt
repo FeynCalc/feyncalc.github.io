@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>DiracIndexDelta[DiracIndex[i], DiracIndex[j]];
-DiracChainJoin[%];
-DiracChainJoin[%]</pre><div class='IFU'><a name='1782586861'></a>http://wolfram.com/xid/0cesltscbyqdrw0j13gt6dhp2-3rla3z</div>

@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>SetOptions[ AnomalousDimension, Polarization -&gt; 1]</pre><div class='IFU'><a name='1676073016'></a>http://wolfram.com/xid/0l75u4ugf9g0wlyqqpst0i7y6raq-1z6ch2</div>

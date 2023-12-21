@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>FAD[{q, m1}];
-ToPaVe[%, q];
-ToPaVe[%, q]</pre><div class='IFU'><a name='1888986121'></a>http://wolfram.com/xid/04w9abyjsyddcev3q1om-5ixtaz</div>

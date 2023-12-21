@@ -1,1 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>FCI[MTD[\[Mu], \[Nu]]] === MetricTensor[\[Mu], \[Nu], Dimension -&gt; D]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm767g6r3m</div>

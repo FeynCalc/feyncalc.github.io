@@ -1,2 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>FAD[k, k, k - Subscript[p, 1], k - Subscript[p, 2]] FVD[
-   k, \[Mu]] // FCI</pre><div class='IFU'><a name='1056142741'></a>http://wolfram.com/xid/0fnx5q0u7sai4aiu56biqky-rq228n</div>

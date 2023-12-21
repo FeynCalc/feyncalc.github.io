@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>DiracIndexDelta[DiracIndex[i], DiracIndex[j]]</pre><div class='IFU'><a name='334232589'></a>http://wolfram.com/xid/0cesltscbyqdrw0j13gt6dhp2-fs91sv</div>

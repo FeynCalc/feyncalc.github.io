@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>(*IntegrateByParts[(1-t)^(a Epsilon-1) g[t],(1-t)^(a Epsilon-1),t]*)</pre><div class='IFU'><a name='328713984'></a>http://wolfram.com/xid/0cy370nkq1aepacwqh1rezb-fpzrma</div>

@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>CSIS[p1].CSI[i].CSIS[p2];
-PauliSimplify[%];
-PauliSimplify[%]</pre><div class='IFU'><a name='1015419780'></a>http://wolfram.com/xid/0yhrpvlwg1bd1auv27wve6-q2t87a</div>

@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>SUNF[a, b, c] x + SUNF[b, a, c] y;
-Calc[%];
-SUNSimplify[%%]</pre><div class='IFU'><a name='479451850'></a>http://wolfram.com/xid/0nwhua02ikznm76aaey92-h7qlo8</div>

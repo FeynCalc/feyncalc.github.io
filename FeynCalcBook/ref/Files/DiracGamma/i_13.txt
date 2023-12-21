@@ -1,3 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>DiracGamma[5];
-DiracGammaExpand[%];
-DiracGammaExpand[%]</pre><div class='IFU'><a name='324312499'></a>http://wolfram.com/xid/0dot6agzccymmitn9o9gy-fndfet</div>

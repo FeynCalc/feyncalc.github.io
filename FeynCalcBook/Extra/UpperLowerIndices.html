@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="upper-and-lower-indices">Upper and lower indices</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<p>Here we list a set of rules that allows to reconstruct the positions of indices (upstairs or downstairs) appearing in FeynCalc expressions</p>
+<ul>
+<li>Every expression must satisfy Einsteins’s summation convention, both for Lorentz and Cartesian indices. Single terms containing more than two identical Lorentz or Cartesian indices are illegal and will lead to inconsistent results.</li>
+<li>In a contraction of two Lorentz indices it is understood that one of them is upstairs and the other is downstairs.</li>
+<li>In a contraction of two Cartesian indices, both indices are understood to be upper indices.</li>
+<li>A free Lorentz or Cartesian index is always understood to be an upper index</li>
+</ul>
+</body>
+</html>

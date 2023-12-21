@@ -1,3 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>GA[\[Mu], \[Nu]];
-TR[%, SUNTrace -&gt; False, SUNNToCACF -&gt; True];
-TR[%, SUNTrace -&gt; False, SUNNToCACF -&gt; True]</pre><div class='IFU'><a name='1457315131'></a>http://wolfram.com/xid/0k6v9si2wy9y6x38x-ydxlt5</div>

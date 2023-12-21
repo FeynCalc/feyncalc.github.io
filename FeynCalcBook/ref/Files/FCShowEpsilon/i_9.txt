@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>SMP[&quot;Delta&quot;];
-FCShowEpsilon[%];
-FCShowEpsilon[%]</pre><div class='IFU'><a name='41298138'></a>http://wolfram.com/xid/0d2ausydw9qwhmnrovnhhxhf1e-yvf4s</div>

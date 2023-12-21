@@ -1,7 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>((LC[\[Mu], \[Nu], \[Rho], \[Sigma]] FV[p, \[Tau]] + 
-   LC[\[Nu], \[Rho], \[Sigma], \[Tau]] FV[p, \[Mu]] + 
-   LC[\[Rho], \[Sigma], \[Tau], \[Mu]] FV[p, \[Nu]] + 
-   LC[\[Sigma], \[Tau], \[Mu], \[Nu]] FV[p, \[Rho]] + 
-   LC[\[Tau], \[Mu], \[Nu], \[Rho]] FV[p, \[Sigma]]));
-Schouten[%];
-Schouten[%]</pre><div class='IFU'>http://wolfram.com/xid/0gb5m6l6ty1j71b5ar9q8i</div>

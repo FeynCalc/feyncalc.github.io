@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FCI[FV[p, \[Mu]] FV[q, \[Nu]]];
-FreeIndexFreeQ[%, {LorentzIndex}];
-FreeIndexFreeQ[%, {LorentzIndex}]</pre><div class='IFU'><a name='261119511'></a>http://wolfram.com/xid/0teu55sspea5oyni9zslex4j-elqzd1</div>

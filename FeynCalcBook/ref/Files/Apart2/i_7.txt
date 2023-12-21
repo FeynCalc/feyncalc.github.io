@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FAD[{q, m}, {q, M}, q - p];
-StandardForm[FCE[%]];
-StandardForm[FCE[%]]</pre><div class='IFU'><a name='168515472'></a>http://wolfram.com/xid/0g3d2anoefmyyrdnjwczq-c2l5nm</div>

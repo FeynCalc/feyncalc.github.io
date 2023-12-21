@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>DeclareNonCommutative[a, b, c];
-DotSimplify[%];
-DotSimplify[%]</pre><div class='IFU'><a name='1117578635'></a>http://wolfram.com/xid/0b67y1d1vpag7527vm6a-srnvg9</div>

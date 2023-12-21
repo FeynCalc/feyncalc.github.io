@@ -1,4 +1,0 @@
-<pre name='i_27_in' id='i_27_in' class='IFT'>PolarizationVector[p1, \[Mu]] PolarizationVector[
-  p2, \[Nu]] MT[\[Mu], \[Nu]];
-ComplexConjugate[%];
-ComplexConjugate[%]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmirv6bbn2</div>

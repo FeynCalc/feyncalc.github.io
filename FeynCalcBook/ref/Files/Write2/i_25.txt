@@ -1,3 +1,0 @@
-<pre name='i_25_in' id='i_25_in' class='IFT'>TableForm[
- ReadList[If[$OperatingSystem === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; tempfilename, 
-  String]]</pre><div class='IFU'><a name='2122464458'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbppk2-9dx2cc</div>

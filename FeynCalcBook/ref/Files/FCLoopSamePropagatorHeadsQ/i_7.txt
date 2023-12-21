@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FCI@SFAD[q, q - p];
-FCLoopSamePropagatorHeadsQ[%];
-FCLoopSamePropagatorHeadsQ[%]</pre><div class='IFU'><a name='598882292'></a>http://wolfram.com/xid/0bbimfvolh5vm9tdm50r5nkc4ubvuvpl389r3-j6ueti</div>

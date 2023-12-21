@@ -1,2 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>QuarkGluonVertex[{p, \[Mu], a}, {q}, {k}, OPE -&gt; False, 
- Explicit -&gt; True]</pre><div class='IFU'><a name='729288779'></a>http://wolfram.com/xid/04ieufm3d5y7w18ehoededofbu-mchg3x</div>

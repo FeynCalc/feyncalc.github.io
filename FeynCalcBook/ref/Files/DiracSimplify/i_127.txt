@@ -1,3 +1,0 @@
-<pre name='i_127_in' id='i_127_in' class='IFT'>CGA[i].CGA[i];
-DiracSimplify[%];
-DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

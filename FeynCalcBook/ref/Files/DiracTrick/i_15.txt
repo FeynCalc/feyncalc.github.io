@@ -1,1 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>(1/2 - GA[5]/2).(-((a + GS[p + q])/b)).(1/2 + GA[5]/2)</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbp05yp6gs</div>

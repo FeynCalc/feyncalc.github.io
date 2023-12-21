@@ -1,1 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>FeynAmpDenominatorSimplify[f[k] FAD[k, k - q, k - q], k]</pre><div class='IFU'><a name='204796635'></a>http://wolfram.com/xid/0cdri8akgdehbvtiwu3ywe4ld54hwcy-dn7sdp</div>

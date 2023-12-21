@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FAD[q1, q1 - p, {q2, M}, {q2 - p, m}, q1 - q2];
-ToTFI[%, q1, q2, p];
-ToTFI[%, q1, q2, p]</pre><div class='IFU'><a name='1439987751'></a>http://wolfram.com/xid/0plrsa4e1mbttck60asx-x3l7x1</div>

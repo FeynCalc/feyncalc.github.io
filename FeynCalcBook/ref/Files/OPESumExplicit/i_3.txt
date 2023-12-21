@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>OPESum[A^i B^(m - i - 3), {i, 0, m - 3}]</pre><div class='IFU'><a name='448095633'></a>http://wolfram.com/xid/0c9q6hxbtr2yxu8vr4rsviuscb9o-ho2i27</div>

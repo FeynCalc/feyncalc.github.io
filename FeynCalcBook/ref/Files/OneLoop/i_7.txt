@@ -1,4 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>I ((el^2)/(16 Pi^4 (1 - D)))
-  FAD[{q, mf}, {q - k, 
-   mf}] DiracTrace[(mf + GSD[q - k]).GAD[\[Mu]].(mf + 
-     GSD[q]).GAD[\[Mu]]] </pre><div class='IFU'><a name='257997891'></a>http://wolfram.com/xid/0b67y1d1vpag753658lc-ejv2qd</div>

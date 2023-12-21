@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>TemporalMomentum[p];
-% // MomentumExpand // StandardForm;
-% // MomentumExpand // StandardForm</pre><div class='IFU'><a name='1915692055'></a>http://wolfram.com/xid/0npwa8ny70dc8eaum6c6z2aqa1b-5yt7qh</div>

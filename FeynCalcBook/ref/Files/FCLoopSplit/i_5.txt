@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>FVD[q, \[Mu]] FAD[{q, m}];
-FCLoopSplit[%, {q}];
-FCLoopSplit[%, {q}]</pre><div class='IFU'><a name='1597311269'></a>http://wolfram.com/xid/0vsxr48l0aa9maqbs7jfoms-0o97jr</div>

@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>FVD[q, mu] FVD[p, mu] + FVD[q, nu] FVD[p, nu] + FVD[q, si] FVD[r, si];
-FCCanonicalizeDummyIndices[%] // Factor2;
-FCCanonicalizeDummyIndices[%] // Factor2</pre><div class='IFU'><a name='1752687288'></a>http://wolfram.com/xid/0u774fkk3gs1t9rxa6q8b8xnlajjs5rv70q-29sgga</div>

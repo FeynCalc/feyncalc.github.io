@@ -1,3 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>g[x] DeltaFunction[1 - x];
-SimplifyDeltaFunction[ %, x];
-SimplifyDeltaFunction[ %, x]</pre><div class='IFU'><a name='591675657'></a>http://wolfram.com/xid/0vsxr48l0aa9magnpzp8lm6-j2jx47</div>

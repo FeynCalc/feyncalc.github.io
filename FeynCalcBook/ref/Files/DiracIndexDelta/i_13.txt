@@ -1,8 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>DiracIndexDelta[DiracIndex[i2], DiracIndex[i3]] DiracIndexDelta[
-  DiracIndex[i4], DiracIndex[i5]] DiracChain[DiracIndex[i7], 
-  Spinor[-Momentum[q], 0, 1]] DiracChain[Spinor[Momentum[p], m, 1], 
-  DiracIndex[i0]] DiracChain[DiracGamma[LorentzIndex[\[Mu]]], 
-  DiracIndex[i1], DiracIndex[i2]] DiracChain[
-  DiracGamma[LorentzIndex[\[Nu]]], DiracIndex[i5], 
-  DiracIndex[i6]] DiracChain[m + DiracGamma[Momentum[p]], 
-  DiracIndex[i3], DiracIndex[i4]]</pre><div class='IFU'><a name='343925321'></a>http://wolfram.com/xid/0cesltscbyqdrw0j13gt6dhp2-fy1srf</div>

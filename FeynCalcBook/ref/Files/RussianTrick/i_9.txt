@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>t = RHI[{2, 0, 0, 0, 0}, {1, 1, 1, 1, 1}];
-Solve2[%, t];
-Solve2[%, t]</pre><div class='IFU'><a name='1029114011'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybrweuyq4fw-razrql</div>

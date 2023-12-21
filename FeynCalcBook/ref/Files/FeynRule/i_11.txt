@@ -1,2 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>-(1/4) FieldStrength[\[Alpha], \[Beta], 
-   i].FieldStrength[\[Alpha], \[Beta], i]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

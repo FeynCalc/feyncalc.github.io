@@ -1,2 +1,0 @@
-<pre name='i_63_in' id='i_63_in' class='IFT'>DiracSimplify[SpinorVBar[p] . GS[p] . SpinorU[q], 
- DiracEquation -&gt; False]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

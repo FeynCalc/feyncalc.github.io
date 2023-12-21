@@ -1,4 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FCClearScalarProducts[]
-SP[p] = 0;;
-DoPolarizationSums[%, p, n];
-DoPolarizationSums[%, p, n]</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

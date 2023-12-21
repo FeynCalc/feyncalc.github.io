@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FeynAmp[Subscript[q, 1], Subscript[q, 2], anyexpression]</pre><div class='IFU'><a name='1547526680'></a>http://wolfram.com/xid/0da7yqf8j4nw85uin8zr87-zvm5ii</div>

@@ -1,1 +1,0 @@
-<pre name='i_45_in' id='i_45_in' class='IFT'>t = SplittingFunction[PQQNS] /. FCGV[z_] :&gt; ToExpression[z]</pre><div class='IFU'><a name='18981591'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-lk4kp</div>

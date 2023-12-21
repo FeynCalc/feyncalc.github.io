@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>ScalarProduct[m, n, Dimension -&gt; d]</pre><div class='IFU'><a name='1811829745'></a>http://wolfram.com/xid/0e4r12d60dd5cswuj2-38z22b</div>

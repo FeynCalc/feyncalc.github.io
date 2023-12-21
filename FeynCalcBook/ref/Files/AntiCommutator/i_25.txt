@@ -1,3 +1,0 @@
-<pre name='i_25_in' id='i_25_in' class='IFT'>Unset[AntiCommutator[
-\!\(\*OverscriptBox[\(d\), \(~\)]\), 
-\!\(\*OverscriptBox[\(c\), \(~\)]\)]]</pre><div class='IFU'><a name='702830390'></a>http://wolfram.com/xid/0bmo85gxinschsbsjcmw0bi-lwqdoo</div>

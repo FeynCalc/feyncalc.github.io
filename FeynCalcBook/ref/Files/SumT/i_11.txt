@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>\!\(
-\*UnderoverscriptBox[\(\[Sum]\), \(i = 1\), \(4\)]\(\((\(-1\))\)^i/
-  i\)\)</pre><div class='IFU'><a name='1658021019'></a>http://wolfram.com/xid/0e4r12d60dd5css1h3-1pffhp</div>

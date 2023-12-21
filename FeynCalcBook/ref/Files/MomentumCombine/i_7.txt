@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Momentum[p] - 2 Momentum[q] // MomentumCombine // StandardForm;
-MomentumCombine[%];
-MomentumCombine[%]</pre><div class='IFU'><a name='316549312'></a>http://wolfram.com/xid/0isbkgaigz2n8s2etv8ui5e7b-fiq1aq</div>

@@ -1,3 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>GA[\[Mu], \[Nu], \[Rho], \[Sigma]];
-DiracReduce[%];
-DiracReduce[%]</pre><div class='IFU'><a name='654035869'></a>http://wolfram.com/xid/0dot6agzccymmitn9o86q-k3ojlb</div>

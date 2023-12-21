@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Uncontract[ScalarProduct[p, q], q, Pair -&gt; All]</pre><div class='IFU'><a name='1748317670'></a>http://wolfram.com/xid/0d35nshtg4an5106bair-266st0</div>

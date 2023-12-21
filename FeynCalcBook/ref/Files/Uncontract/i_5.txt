@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'> LC[\[Mu], \[Nu]][p, q];
-Uncontract[%, p];
-Uncontract[%, p]</pre><div class='IFU'><a name='1865320721'></a>http://wolfram.com/xid/0ripg176m1b0q8sqbqq-44ukyr</div>

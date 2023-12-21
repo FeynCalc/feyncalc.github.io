@@ -1,3 +1,0 @@
-<pre name='i_37_in' id='i_37_in' class='IFT'>DiracReduce[
- GA[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa]].Chisholm[
-   GA[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa]]]]</pre><div class='IFU'>http://wolfram.com/xid/0cy370nkq1aepabvqqhkspr</div>

@@ -1,5 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>SpinorUBar[Subscript[p, 1], Subscript[m, 
-  1]].GA[\[Mu], \[Nu], \[Rho]].SpinorV[Subscript[p, 2], Subscript[m, 
-  2]];
-DiracReduce[%];
-DiracReduce[%]</pre><div class='IFU'><a name='1093135858'></a>http://wolfram.com/xid/0dot6agzccymmitn9o86q-sc3za8</div>

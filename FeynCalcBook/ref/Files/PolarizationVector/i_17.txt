@@ -1,2 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>&#1077;&#1093;1 = SP[k1, Polarization[k1, I]] SP[k2, Polarization[k1, -I]] SP[k1, 
-   Polarization[k2, I]] SP[k2, Polarization[k2, -I]]</pre><div class='IFU'>http://wolfram.com/xid/0cy370nkq1aepack2rsv8ii</div>

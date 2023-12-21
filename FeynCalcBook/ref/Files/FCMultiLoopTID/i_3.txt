@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FCI[FVD[q1, \[Mu]] FVD[q2, \[Nu]] FAD[q1, 
-   q2, {q1 - p1}, {q2 - p1}, {q1 - q2}]]</pre><div class='IFU'><a name='1095109255'></a>http://wolfram.com/xid/0bl1sloiyx608rkh2tykl4hjhby9b-sd99zt</div>

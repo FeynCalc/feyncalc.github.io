@@ -1,3 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>TrickMandelstam[(s + t - u) (2 
-\!\(\*SubsuperscriptBox[\(M\), \(W\), \(2\)]\) - t - u), {s, t, u, 2 
-\!\(\*SubsuperscriptBox[\(M\), \(W\), \(2\)]\)}] // Factor2</pre><div class='IFU'><a name='576381697'></a>http://wolfram.com/xid/0bl1sloiyx608rkjkjatqlzn4idcv-jtf48z</div>

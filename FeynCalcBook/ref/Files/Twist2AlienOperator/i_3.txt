@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Twist2AlienOperator[p1, p2, {p3, mu, a}, 0]</pre><div class='IFU'><a name='581588333'></a>http://wolfram.com/xid/0kwectf7rlj9x4kovcy0tu7nrajoe-jwjqpr</div>

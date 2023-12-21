@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>(a - x) (b - x);
-Factor[%];
-Factor1[%%]</pre><div class='IFU'><a name='892191531'></a>http://wolfram.com/xid/0tn9depw6mpqkclti8-o1g1od</div>

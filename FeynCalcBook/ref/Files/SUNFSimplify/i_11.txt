@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>SDF[a, b] SDF[b, d];
-SUNFSimplify[%];
-SUNFSimplify[%]</pre><div class='IFU'><a name='484032834'></a>http://wolfram.com/xid/0isbkgaigz2n8s1ensrsdf1si-iagses</div>

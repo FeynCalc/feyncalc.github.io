@@ -1,1 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>DataType[m, odd] = DataType[a, even] = True;</pre><div class='IFU'><a name='2121249133'></a>http://wolfram.com/xid/0eld2y9rdg1pwiueq5q-9c70lb</div>

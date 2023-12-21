@@ -1,1 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>B11[SmallVariable[M^2], m^2, m^2, BReduce -&gt; False]</pre><div class='IFU'>http://wolfram.com/xid/0tn9depw6mpqkc1ikt</div>

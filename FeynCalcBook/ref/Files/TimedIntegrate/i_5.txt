@@ -1,2 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>TimedIntegrate[Log[Cos[x^5]], {x, 0, 1}, Timing -&gt; 10, 
- Integrate -&gt; int]</pre><div class='IFU'><a name='2007698884'></a>http://wolfram.com/xid/0g3d2anoefmyyra76y3yq-7hl8nq</div>

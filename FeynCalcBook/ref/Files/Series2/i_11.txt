@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>Series2[Gamma[x], x, 2, FinalSubstitutions -&gt; {}] // FullSimplify</pre><div class='IFU'><a name='31680807'></a>http://wolfram.com/xid/0tn9depw6mpqkccwqu-s5bcp</div>

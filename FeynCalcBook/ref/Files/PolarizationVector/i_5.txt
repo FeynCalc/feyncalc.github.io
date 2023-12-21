@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>PolarizationVector[k, mu] // StandardForm</pre><div class='IFU'><a name='1765549294'></a>http://wolfram.com/xid/0cy370nkq1aepack2rsv8ii-3hf4t8</div>

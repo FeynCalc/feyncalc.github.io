@@ -1,4 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>SDF[a, b] (SUNTF[i, a, d] SUNTF[j, d, b] + 
-   SD[i, j] SUNTF[i, a, d] SUNTF[i, d, b]);
-SUNFSimplify[%, SUNNToCACF -&gt; False];
-SUNFSimplify[%, SUNNToCACF -&gt; False]</pre><div class='IFU'><a name='15173409'></a>http://wolfram.com/xid/0isbkgaigz2n8s1ensrsdf1si-jbh5v</div>

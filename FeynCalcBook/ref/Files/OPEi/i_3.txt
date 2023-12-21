@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>DataType[OPEi, OPEj, OPEk, OPEl, OPEm, OPEn, OPEo, PositiveInteger]</pre><div class='IFU'><a name='1628297296'></a>http://wolfram.com/xid/0bzj8admtbmggekw1n5mr-07qciq</div>

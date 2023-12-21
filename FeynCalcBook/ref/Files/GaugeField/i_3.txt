@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>QuantumField[GaugeField, LorentzIndex[\[Mu]], SUNIndex[a]]</pre><div class='IFU'><a name='1376527682'></a>http://wolfram.com/xid/0yhrpvlwg1bd1a5yoplhta-w1t1uc</div>

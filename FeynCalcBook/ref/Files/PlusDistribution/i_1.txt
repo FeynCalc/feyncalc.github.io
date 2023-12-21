@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>PlusDistribution[1/(1 - x)]</pre><div class='IFU'><a name='1721332915'></a>http://wolfram.com/xid/0md0z2x3dnst5sksx4k7dm-2q4e9h</div>

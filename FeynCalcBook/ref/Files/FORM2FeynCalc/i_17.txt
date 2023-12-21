@@ -1,4 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>FORM2FeynCalc[&quot;x +f(z)+ log(x)^2+[li2(1-x)]&quot;, 
- Replace -&gt; {&quot;[li2(1-x)]&quot; -&gt; &quot;PolyLog[2,1-x]&quot;}];
-% // StandardForm;
-% // StandardForm</pre><div class='IFU'><a name='1054646204'></a>http://wolfram.com/xid/0cdri8akgdehbvtjmmehtkw7d6r54yy-rp60h6</div>

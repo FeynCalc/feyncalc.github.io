@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>DeleteFile[ToFileName[Directory /. Options[CheckDB], &quot;test.s&quot;]]</pre><div class='IFU'><a name='1720430951'></a>http://wolfram.com/xid/0d35nshtg4an51t9kycl-2qk3ax</div>

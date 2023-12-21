@@ -1,1 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>Integrate2[Log[x]^2/(1 - x), {x, 0, 1}]</pre><div class='IFU'><a name='845490247'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-n9n2qh</div>

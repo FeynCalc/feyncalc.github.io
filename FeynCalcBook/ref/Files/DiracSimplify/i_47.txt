@@ -1,4 +1,0 @@
-<pre name='i_47_in' id='i_47_in' class='IFT'>GA[\[Mu]].(c1 GA[6] + c2 GA[7]).(GA[p] + m).(c3 GA[6] + 
-   c4 GA[7]).GA[\[Mu]];
-DiracSimplify[%];
-DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

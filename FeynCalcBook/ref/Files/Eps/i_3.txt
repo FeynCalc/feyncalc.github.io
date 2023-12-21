@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Eps[Momentum[p], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], 
- LorentzIndex[\[Sigma]]]</pre><div class='IFU'><a name='1187356604'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-tw7gh6</div>

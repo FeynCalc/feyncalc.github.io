@@ -1,4 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>FCI[FVD[q1, \[Mu]] FVD[q2, \[Nu]] FAD[q1, 
-   q2, {q1 - p1}, {q2 - p1}, {q1 - q2}]];
-FCMultiLoopTID[%, {q1, q2}];
-FCMultiLoopTID[%, {q1, q2}]</pre><div class='IFU'>http://wolfram.com/xid/0bl1sloiyx608rkh2tykl4hjhby9b</div>

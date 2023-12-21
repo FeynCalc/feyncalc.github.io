@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>(*FromTFI[TFI[D,SPD[p,p],SOD[p],{{1,0},{1,M},{1,0},{1,m},{1,0}}],q1,\
-q2,p]*)</pre><div class='IFU'><a name='764654490'></a>http://wolfram.com/xid/04w9abyjsyddces1nuz1-mxjhgs</div>

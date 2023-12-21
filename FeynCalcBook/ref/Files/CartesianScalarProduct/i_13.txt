@@ -1,1 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>CartesianScalarProduct[p, q, Dimension -&gt; D - 1] // StandardForm</pre><div class='IFU'><a name='1173751525'></a>http://wolfram.com/xid/0kwectf7rlj9x4ik7s6z32qrvw192-to3urb</div>

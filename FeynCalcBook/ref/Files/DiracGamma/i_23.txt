@@ -1,1 +1,0 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>DiracGamma[CartesianIndex[i, D - 1], D]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o9gy</div>

@@ -1,2 +1,0 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>DiracOrder[
- GA[\[Alpha], \[Beta], \[Delta]], {\[Delta], \[Beta], \[Alpha]}]</pre><div class='IFU'>http://wolfram.com/xid/0g3d2anoefmyyrc18397m</div>

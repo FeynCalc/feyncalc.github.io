@@ -1,4 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Contract[LC[\[Mu], \[Nu], \[Rho], \[Sigma]] FV[
-    p + q, \[Sigma]]] // MomentumCombine;
-EpsEvaluate[%];
-EpsEvaluate[%]</pre><div class='IFU'><a name='84932068'></a>http://wolfram.com/xid/04w9abyjsyddce07rxqs-bouoae</div>

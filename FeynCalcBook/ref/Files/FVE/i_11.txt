@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>FVE[p, \[Mu]];
-StandardForm[%];
-StandardForm[%]</pre><div class='IFU'><a name='1697636138'></a>http://wolfram.com/xid/0eld2y9rdg1pwisxu89-2c0ipo</div>

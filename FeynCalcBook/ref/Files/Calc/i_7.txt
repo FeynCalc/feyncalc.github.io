@@ -1,1 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FV[p + r, \[Mu]] MT[\[Mu], \[Nu]] FV[q - p, \[Nu]]</pre><div class='IFU'><a name='281198835'></a>http://wolfram.com/xid/0fqk91eolmr4ql55m-expco1</div>

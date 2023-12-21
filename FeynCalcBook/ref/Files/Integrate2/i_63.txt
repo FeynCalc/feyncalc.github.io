@@ -1,1 +1,0 @@
-<pre name='i_63_in' id='i_63_in' class='IFT'>Integrate2[x^(OPEm - 1) Log[1 + x]^2, {x, 0, 1}]</pre><div class='IFU'><a name='1701338238'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-2e7u9s</div>

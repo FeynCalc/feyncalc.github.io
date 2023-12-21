@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>CovariantFieldDerivative[QuantumField[A, {\[Mu]}][x], x, {\[Mu]}]</pre><div class='IFU'><a name='2083449432'></a>http://wolfram.com/xid/0bl1sloiyx608rj9jv0n2xcesh1oy-8qpt5m</div>

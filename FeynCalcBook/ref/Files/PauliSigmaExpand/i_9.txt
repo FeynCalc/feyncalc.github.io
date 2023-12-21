@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>SIS[q].SIS[p - q];
-PauliSigmaExpand[%, Momentum -&gt; {a}];
-PauliSigmaExpand[%, Momentum -&gt; {a}]</pre><div class='IFU'><a name='209619609'></a>http://wolfram.com/xid/0ejaxdaedm6g9jpwi7ueedqzm-dq25s7</div>

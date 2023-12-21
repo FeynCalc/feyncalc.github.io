@@ -1,1 +1,0 @@
-<pre name='i_33_in' id='i_33_in' class='IFT'>t4 = FCE[t3] /. SUNF[a, c, g] -&gt; -SUNF[g, c, a]</pre><div class='IFU'><a name='2111632726'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-87hwiw</div>

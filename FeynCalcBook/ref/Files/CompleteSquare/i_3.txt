@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>5 SP[2 p + 3 r, p + r];
-CompleteSquare[%, p];
-CompleteSquare[%, p]</pre><div class='IFU'><a name='1825124248'></a>http://wolfram.com/xid/04w9abyjsyddceorcjaa-4gw052</div>

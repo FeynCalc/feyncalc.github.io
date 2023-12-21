@@ -1,3 +1,0 @@
-<pre name='i_95_in' id='i_95_in' class='IFT'>DiracTrace[GA[\[Mu], \[Nu], \[Rho], \[Sigma]]];
-DiracSimplify[%];
-DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

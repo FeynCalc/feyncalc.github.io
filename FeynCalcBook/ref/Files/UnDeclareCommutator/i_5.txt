@@ -1,4 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>AntiCommutator[QuantumField[FCPartialD[LorentzIndex[xxx_]], A], 
-   QuantumField[A]] = 0;;
-ExpandPartialD[%];
-ExpandPartialD[%]</pre><div class='IFU'><a name='1836484146'></a>http://wolfram.com/xid/08afeya605ft4ejawy0qo4btq-4noiis</div>

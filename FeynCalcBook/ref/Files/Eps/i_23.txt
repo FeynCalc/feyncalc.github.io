@@ -1,4 +1,0 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>Eps[LorentzIndex[\[Mu]], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], 
- LorentzIndex[\[Sigma]]];
-% /. D -&gt; 4;
-% /. D -&gt; 4</pre><div class='IFU'><a name='505384444'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-im6fe2</div>

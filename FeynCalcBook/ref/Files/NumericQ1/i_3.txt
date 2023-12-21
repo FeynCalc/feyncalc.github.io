@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>NumericQ1[3 a + Log[b] + c^2, {}]</pre><div class='IFU'><a name='792660906'></a>http://wolfram.com/xid/0hx01apcnya11tkpq0v4-nd7rcs</div>

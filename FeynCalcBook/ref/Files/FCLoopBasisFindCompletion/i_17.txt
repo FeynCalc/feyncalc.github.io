@@ -1,3 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>FAD[q, {q - p + l, m}];
-FCLoopBasisFindCompletion[%, {q1, q2}];
-FCLoopBasisFindCompletion[%, {q1, q2}]</pre><div class='IFU'><a name='958430790'></a>http://wolfram.com/xid/0o60xv4alkf4dne7pg0yxx7pqv0qwzqq-p4wr7s</div>

@@ -1,2 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Commutator[QuantumField[FCPartialD[LorentzIndex[xxx_]], A], 
-   QuantumField[A]] = 0;</pre><div class='IFU'><a name='998380912'></a>http://wolfram.com/xid/08afeya605ft4ejawy0qo4btq-qso1xe</div>

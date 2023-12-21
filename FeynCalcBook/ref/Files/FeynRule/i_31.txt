@@ -1,8 +1,0 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>-(1/4) CH FieldStrength[mu, nu, a].FieldStrength[mu, nu, 
-   a].QuantumField[H];
-FeynRule[%, {QuantumField[GaugeField, {i}, {a}][p1], 
-  QuantumField[GaugeField, {j}, {b}][p2], QuantumField[H][p3]}];
-FeynRule[%%, {QuantumField[GaugeField, {i}, {a}][p1],
-   	QuantumField[GaugeField, {j}, {b}][p2], 
-   QuantumField[GaugeField, {k}, {c}][p3], 
-   QuantumField[H][p4]}] // Simplify</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

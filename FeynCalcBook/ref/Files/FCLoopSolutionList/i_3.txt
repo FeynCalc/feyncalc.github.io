@@ -1,4 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>li = FCLoopCanonicalize[
-  myHead[FVD[q, \[Mu]] FVD[q, \[Nu]] FAD[q, {q + p, m}]] + 
-   myHead[FVD[q, \[Rho]] FVD[q, \[Sigma]] FAD[q, {q + p, m}]], q, 
-  myHead] </pre><div class='IFU'><a name='47709897'></a>http://wolfram.com/xid/0peckcyot74q3nr7wey2yt43ga-2ovg7</div>

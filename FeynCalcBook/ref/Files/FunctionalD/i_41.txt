@@ -1,5 +1,0 @@
-<pre name='i_41_in' id='i_41_in' class='IFT'>r2 = r1 // DotSimplify // 
-    FCCanonicalizeDummyIndices[#, SUNIndexNames -&gt; {a1, b1, c1, d1}, 
-      LorentzIndexNames -&gt; {mu, nu, rho}] &amp; // 
-   ReplaceAll[#, {a1 -&gt; a, b1 -&gt; b, c1 -&gt; c, d1 -&gt; d, mu -&gt; \[Mu], 
-      nu -&gt; \[Nu], rho -&gt; \[Rho]}] &amp; // Collect2[#, SUNF] &amp;</pre><div class='IFU'>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf</div>

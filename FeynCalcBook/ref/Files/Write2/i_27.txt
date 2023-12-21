@@ -1,3 +1,0 @@
-<pre name='i_27_in' id='i_27_in' class='IFT'>DeleteFile[
- If[$OperatingSystem === &quot;MacOS&quot;, &quot;:&quot;, &quot;&quot;] &lt;&gt; 
-  tempfilename]; Clear[w, t, t2, r, tempfilename];</pre><div class='IFU'><a name='1809491647'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbppk2-37lyy5</div>

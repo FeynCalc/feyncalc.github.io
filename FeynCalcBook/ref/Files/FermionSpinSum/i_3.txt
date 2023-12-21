@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>SpinorUBar[Momentum[p], m].SpinorU[Momentum[p], m]</pre><div class='IFU'><a name='278938360'></a>http://wolfram.com/xid/04ieufm3d5y7w09uylx6ihwgre-ewcwh2</div>

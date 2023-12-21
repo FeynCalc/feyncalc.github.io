@@ -1,1 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>Calc[ ScalarProduct[Subscript[p, 1] - q, Subscript[p, 2] - k]]</pre><div class='IFU'><a name='54231534'></a>http://wolfram.com/xid/0dot6agzccymmiq2pj1ca-6knls</div>

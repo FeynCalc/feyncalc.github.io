@@ -1,3 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>SUNTrace[SUNT[a, b, c, d]];
-SUNSimplify[%, Explicit -&gt; True];
-SUNSimplify[%, Explicit -&gt; True]</pre><div class='IFU'><a name='485058595'></a>http://wolfram.com/xid/0jukp71jhuapzmdsphkx9cwy-ia2rv5</div>

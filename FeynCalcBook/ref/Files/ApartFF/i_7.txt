@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FCClearScalarProducts[];
-ApartFF[%, {q}];
-ApartFF[%, {q}]</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq</div>

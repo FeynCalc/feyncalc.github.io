@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'> SP[p1 + p2 + p3, p4 + p5 + p6];
-ExpandScalarProduct[%];
-ExpandScalarProduct[%]</pre><div class='IFU'><a name='171112254'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybdxahjxcju-c35tcg</div>

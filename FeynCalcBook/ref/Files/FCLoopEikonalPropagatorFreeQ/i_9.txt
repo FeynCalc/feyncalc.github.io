@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>FCI@SFAD[p, p - q];
-FCLoopEikonalPropagatorFreeQ[%];
-FCLoopEikonalPropagatorFreeQ[%]</pre><div class='IFU'><a name='1467055058'></a>http://wolfram.com/xid/0bflvbloczhxmcaz0h2ia2zz9csh0wahnzxqslg44z-yjqc7o</div>

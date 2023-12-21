@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FV[OPEDelta, \[Mu]];
-Contract[% %];
-Contract[% %]</pre><div class='IFU'><a name='1662840966'></a>http://wolfram.com/xid/0ejaxdaedm6g9js55n8dlsa06-1saqk4</div>

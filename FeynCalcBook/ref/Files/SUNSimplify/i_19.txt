@@ -1,3 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>SUNF[a, b, c]  SUNF[a, b, c];
-SUNSimplify[%];
-SUNSimplify[%]</pre><div class='IFU'><a name='1437762377'></a>http://wolfram.com/xid/0bcjf11ba4ib03moby3f50jle-x2ait3</div>

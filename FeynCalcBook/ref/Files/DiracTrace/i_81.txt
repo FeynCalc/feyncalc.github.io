@@ -1,3 +1,0 @@
-<pre name='i_81_in' id='i_81_in' class='IFT'>DiracTrace[1];
-DiracSimplify[%];
-DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o70q</div>

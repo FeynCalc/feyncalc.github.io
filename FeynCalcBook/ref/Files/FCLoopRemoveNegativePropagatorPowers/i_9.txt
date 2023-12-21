@@ -1,5 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>SFAD[{q, m, -1}];
-FCLoopRemoveNegativePropagatorPowers[%]
-% // StandardForm;
-FCLoopRemoveNegativePropagatorPowers[%]
-% // StandardForm</pre><div class='IFU'><a name='1504944720'></a>http://wolfram.com/xid/00fnbeees1wm9batenc323yjwlv3h3bqfr03gmu-y6ag2a</div>

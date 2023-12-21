@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FCI[FVD[p, mu] CFAD[q, q - p]];
-FCLoopMixedIntegralQ[%];
-FCLoopMixedIntegralQ[%]</pre><div class='IFU'><a name='1472762504'></a>http://wolfram.com/xid/0ez33esw5zap4vqlzhb9b274qcazer-ym4o3u</div>

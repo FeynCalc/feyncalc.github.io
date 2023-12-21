@@ -1,3 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>DCHN[SpinorUBar[p, m], i0] DCHN[GA[\[Mu]], i1, i2] DCHN[GS[p] + m, i3,
-   i4] DCHN[GA[\[Nu]], i5, i6] DIDelta[i2, i3] DIDelta[i4, i5] DCHN[
-  i7, SpinorV[q]]</pre><div class='IFU'><a name='758241863'></a>http://wolfram.com/xid/0b67y1d1vpag7529sm3u-mtp1f9</div>

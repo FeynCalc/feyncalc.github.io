@@ -1,2 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>PowerSimplify[{(-1)^(2 OPEi), (-1)^(2 OPEj), (-1)^(2 OPEk), (-1)^(2 \
-OPEl), (-1)^(2 OPEm), (-1)^(2 OPEn), (-1)^(2 OPEo)}]</pre><div class='IFU'><a name='233448399'></a>http://wolfram.com/xid/0bzj8admtbmggekw1n5mr-d49v71</div>

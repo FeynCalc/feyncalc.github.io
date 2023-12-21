@@ -1,2 +1,0 @@
-<pre name='i_27_in' id='i_27_in' class='IFT'>DiracSimplify[GAD[\[Mu],\[Nu]] + GAD[\[Nu], \[Mu]], 
- DiracOrder -&gt; True]</pre><div class='IFU'>http://wolfram.com/xid/0g3d2anoefmyyrc18397m</div>

@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'> FCLoopSolutionList[li, 
- prefactor (li[[4]] /. myHead -&gt; Identity /. q -&gt; p), 
- Dispatch -&gt; False]</pre><div class='IFU'><a name='1357142669'></a>http://wolfram.com/xid/0peckcyot74q3nr7wey2yt43ga-wqaj9r</div>

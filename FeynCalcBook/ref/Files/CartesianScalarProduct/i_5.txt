@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>CartesianScalarProduct[p + q, -q]</pre><div class='IFU'><a name='2091143136'></a>http://wolfram.com/xid/0kwectf7rlj9x4ik7s6z32qrvw192-8vaqnm</div>

@@ -1,5 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>SPD[c1 p1 + c2 p2, q] // ExpandScalarProduct;
-GAD[\[Mu]].(GSD[c1 p] + m).GAD[\[Nu]] // FCI
-% // StandardForm;
-GAD[\[Mu]].(GSD[c1 p] + m).GAD[\[Nu]] // FCI
-% // StandardForm</pre><div class='IFU'><a name='1015735328'></a>http://wolfram.com/xid/0g3d2anoefmyyrau0ob5y-q200oi</div>

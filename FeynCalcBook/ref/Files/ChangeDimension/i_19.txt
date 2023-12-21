@@ -1,3 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>{LorentzIndex[\[Mu]], Momentum[p]};
-Factor2[Contract[%^2]];
-Factor2[Contract[%^2]]</pre><div class='IFU'><a name='1260742676'></a>http://wolfram.com/xid/0dot6agzccymmir0joalu-u4wdj6</div>

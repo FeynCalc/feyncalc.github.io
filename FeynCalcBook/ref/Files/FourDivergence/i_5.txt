@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>SP[p, q];
-FourDivergence[%, FV[q, \[Mu]]];
-FourDivergence[%, FV[q, \[Mu]]]</pre><div class='IFU'><a name='1594453358'></a>http://wolfram.com/xid/0k1l07rf5aaryahu5rw81ho-0nkydc</div>

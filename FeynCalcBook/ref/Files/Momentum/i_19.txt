@@ -1,1 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>ChangeDimension[Momentum[p], d] // StandardForm</pre><div class='IFU'><a name='1679956191'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp10p1mud7-12hkr1</div>

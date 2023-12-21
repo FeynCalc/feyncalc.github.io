@@ -1,1 +1,0 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>Write2[tempfilename, r = t2, FormatType -&gt; FortranForm];</pre><div class='IFU'><a name='1416932507'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbppk2-xpv2el</div>

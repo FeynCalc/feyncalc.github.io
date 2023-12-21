@@ -1,5 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>TemporalMomentum[p];
-TemporalMomentum[-q]
-% // StandardForm;
-TemporalMomentum[-q]
-% // StandardForm</pre><div class='IFU'><a name='1422787809'></a>http://wolfram.com/xid/0npwa8ny70dc8eaum6c6z2aqa1b-xtdkdv</div>

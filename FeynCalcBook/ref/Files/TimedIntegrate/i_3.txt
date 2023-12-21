@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>TimedIntegrate[Log[x^5], {x, 0, 1}, Timing -&gt; 1]</pre><div class='IFU'><a name='2109784600'></a>http://wolfram.com/xid/0g3d2anoefmyyra76y3yq-86eah2</div>

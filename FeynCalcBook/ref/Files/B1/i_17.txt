@@ -1,2 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>B1[pp, SmallVariable[SMP[&quot;m_e&quot;]^2], 
-\!\(\*SubsuperscriptBox[\(m\), \(2\), \(2\)]\)]</pre><div class='IFU'><a name='2089704958'></a>http://wolfram.com/xid/0k6v9si2wy9y6yb3o-8ufwx8</div>

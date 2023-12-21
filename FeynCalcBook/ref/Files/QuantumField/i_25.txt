@@ -1,1 +1,0 @@
-<pre name='i_25_in' id='i_25_in' class='IFT'>QuantumField[QuantumField[A]] === QuantumField[A]</pre><div class='IFU'><a name='1498512634'></a>http://wolfram.com/xid/0nwhua02ikznm8qua1e8u-y2gl08</div>

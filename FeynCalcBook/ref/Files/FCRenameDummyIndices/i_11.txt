@@ -1,5 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>amp = -(Spinor[Momentum[k1], SMP[&quot;m_mu&quot;], 1].GA[
-       Lor1].Spinor[-Momentum[k2], SMP[&quot;m_mu&quot;], 1]*
-     Spinor[-Momentum[p2], SMP[&quot;m_e&quot;], 1].GA[Lor1].Spinor[
-       Momentum[p1], SMP[&quot;m_e&quot;], 1]*FAD[k1 + k2, Dimension -&gt; 4]*
-     SMP[&quot;e&quot;]^2);</pre><div class='IFU'>http://wolfram.com/xid/0u774fkk3gs1t9rxa6q8b8xnlajjs5rv70q</div>

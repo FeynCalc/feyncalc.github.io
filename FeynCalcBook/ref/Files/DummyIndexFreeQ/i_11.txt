@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>FCI[FV[p, \[Mu]] FV[q, \[Nu]]];
-DummyIndexFreeQ[%, {SUNIndex}];
-DummyIndexFreeQ[%, {SUNIndex}]</pre><div class='IFU'><a name='1812674747'></a>http://wolfram.com/xid/0peckcyot74q3nxg7zljhc3ti7-39h62l</div>

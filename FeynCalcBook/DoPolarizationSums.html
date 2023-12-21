@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="dopolarizationsums">DoPolarizationSums</h2>
+<p><code>DoPolarizationSums[exp, k, ...]</code> acts on an expression <code>exp</code> that must contain a polarization vector <span class="math inline">\varepsilon(k)</span> and its complex conjugate (e.g. <code>exp</code> can be a matrix element squared).</p>
+<p>Depending on the arguments of the function, it will perform a sum over the polarization of <span class="math inline">\varepsilon(k)</span> and its c.c.</p>
+<ul>
+<li><code>DoPolarizationSums[exp, k]</code> sums over the three physical polarizations of an external massive vector boson with the <span class="math inline">4</span>-momentum <code>k</code> and the mass <span class="math inline">k^2</span>.</li>
+<li><code>DoPolarizationSums[exp, k, 0]</code> replaces the polarization sum of an external massless vector boson with the momentum <code>k</code> by <span class="math inline">-g^{\mu \nu}</span>. This corresponds to the summation over all 4 polarizations, including the unphysical ones.</li>
+<li><code>DoPolarizationSums[exp, k, n]</code> sums over physical (transverse) polarizations of an external massless vector boson with the momentum <code>k</code>, where <code>n</code> is an auxiliary 4-vector from the gauge-dependent polarization sum formula.</li>
+</ul>
+<p>Cf. <code>PolarizationSum</code> for more examples and explanations on different polarizations.</p>
+<p><code>DoPolarizationSums</code> also work with <span class="math inline">D</span>-dimensional amplitudes.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Polarization.html">Polarization</a>, <a href="PolarizationSum.html">PolarizationSum</a>, <a href="NumberOfPolarizations.html">NumberOfPolarizations</a>, <a href="VirtualBoson.html">VirtualBoson</a>, <a href="Uncontract.html">Uncontract</a>.</p>
+<h3 id="examples">Examples</h3>
+<p>The standard formula for massless vector bosons is valid for all types of the corresponding particles, including gluons.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span>Polarization<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">]]]</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   Momentum<span class="op">[</span>Polarization<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">I</span><span class="op">]]]</span></span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\mu }(p) \bar{\varepsilon }^{\nu }(p)</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\frac{\overline{n}^2 \overline{p}^{\mu } \overline{p}^{\nu }}{(\overline{n}\cdot \overline{p})^2}-\bar{g}^{\mu \nu }+\frac{\overline{n}^{\nu } \overline{p}^{\mu }}{\overline{n}\cdot \overline{p}}+\frac{\overline{n}^{\mu } \overline{p}^{\nu }}{\overline{n}\cdot \overline{p}}</span></p>
+<p>In QED the gauge invariance ensures the cancellation of the unphysical polarizations so that for photons one can also employ the simpler replacement with the metric tensor.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span>Polarization<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">]]]</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>   Momentum<span class="op">[</span>Polarization<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">I</span><span class="op">]]]</span></span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\mu }(p) \bar{\varepsilon }^{\nu }(p)</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\bar{g}^{\mu \nu }</span></p>
+<p>You can also use this trick in QCD, provided that the unphysical degrees of freedom are subtracted using ghosts at a later stage.</p>
+<p>Notice that in this case you should not make the polarization vectors transverse using the <code>Transversality</code> option.</p>
+<p>Furthermore, the averaging over the polarizations of the initial gluons must be done on the physical amplitude squared, i.e. after the ghost contributions have been subtracted.</p>
+<p>Massive vector bosons (e.g. <span class="math inline">W</span> or <span class="math inline">Z</span>) have <span class="math inline">3</span> degrees of freedom and require no auxiliary vector.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span>; </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> Momentum<span class="op">[</span>Polarization<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">]]]</span> Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   Momentum<span class="op">[</span>Polarization<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">I</span><span class="op">]]]</span></span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\mu }(p) \bar{\varepsilon }^{\nu }(p)</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{\overline{p}^{\mu } \overline{p}^{\nu }}{m^2}-\bar{g}^{\mu \nu }</span></p>
+<p>A more realistic example of summing over the polarizations of the photons in <span class="math inline">e^+e^ \to \gamma \gamma</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ClearAll</span><span class="op">[</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">]</span>; </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>k1<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>k2<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>amp <span class="ex">=</span> (<span class="sc">-</span>((Spinor<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>             Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . GS<span class="op">[</span>k2 <span class="sc">-</span> p2<span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>             Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>p2<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span><span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">t</span>) <span class="sc">-</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>     (Spinor<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>           Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . GS<span class="op">[</span>k1 <span class="sc">-</span> p2<span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>           Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>p2<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span><span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">u</span>)<span class="sc">*</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>   (<span class="sc">-</span>((Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>p2<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>             Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . GS<span class="op">[</span>k1 <span class="sc">-</span> p2<span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>             Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . Spinor<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span><span class="sc">*</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>          SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">u</span>) <span class="sc">-</span> (Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>p2<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>           Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . GS<span class="op">[</span>k2 <span class="sc">-</span> p2<span class="op">]</span> . GS<span class="op">[</span>Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>           Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> . Spinor<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span><span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">t</span>)</span></code></pre></div>
+<p><span class="math display">\left(-\frac{\text{e}^2 \left(\varphi (\overline{\text{p1}})\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }(\text{k1})\right).\left(\bar{\gamma }\cdot \left(\overline{\text{k2}}-\overline{\text{p2}}\right)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }(\text{k2})\right).\left(\varphi (-\overline{\text{p2}})\right)}{t}-\frac{\text{e}^2 \left(\varphi (\overline{\text{p1}})\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }(\text{k2})\right).\left(\bar{\gamma }\cdot \left(\overline{\text{k1}}-\overline{\text{p2}}\right)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }(\text{k1})\right).\left(\varphi (-\overline{\text{p2}})\right)}{u}\right) \left(-\frac{\text{e}^2 \left(\varphi (-\overline{\text{p2}})\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }^*(\text{k2})\right).\left(\bar{\gamma }\cdot \left(\overline{\text{k2}}-\overline{\text{p2}}\right)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }^*(\text{k1})\right).\left(\varphi (\overline{\text{p1}})\right)}{t}-\frac{\text{e}^2 \left(\varphi (-\overline{\text{p2}})\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }^*(\text{k1})\right).\left(\bar{\gamma }\cdot \left(\overline{\text{k1}}-\overline{\text{p2}}\right)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon }^*(\text{k2})\right).\left(\varphi (\overline{\text{p1}})\right)}{u}\right)</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>amp <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> k1<span class="op">,</span> <span class="dv">0</span><span class="op">]</span> &amp; <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> k2<span class="op">,</span> <span class="dv">0</span><span class="op">]</span> &amp;</span></code></pre></div>
+<p><span class="math display">\frac{\text{e}^4 \left(\varphi (-\overline{\text{p2}})\right).\bar{\gamma }^{\text{\$MU}(\text{\$27})}.\left(\bar{\gamma }\cdot \left(\overline{\text{k1}}-\overline{\text{p2}}\right)\right).\bar{\gamma }^{\text{\$MU}(\text{\$29})}.\left(\varphi (\overline{\text{p1}})\right) \left(\varphi (\overline{\text{p1}})\right).\bar{\gamma }^{\text{\$MU}(\text{\$27})}.\left(\bar{\gamma }\cdot \left(\overline{\text{k2}}-\overline{\text{p2}}\right)\right).\bar{\gamma }^{\text{\$MU}(\text{\$29})}.\left(\varphi (-\overline{\text{p2}})\right)}{t u}+\frac{\text{e}^4 \left(\varphi (\overline{\text{p1}})\right).\bar{\gamma }^{\text{\$MU}(\text{\$29})}.\left(\bar{\gamma }\cdot \left(\overline{\text{k1}}-\overline{\text{p2}}\right)\right).\bar{\gamma }^{\text{\$MU}(\text{\$27})}.\left(\varphi (-\overline{\text{p2}})\right) \left(\varphi (-\overline{\text{p2}})\right).\bar{\gamma }^{\text{\$MU}(\text{\$29})}.\left(\bar{\gamma }\cdot \left(\overline{\text{k2}}-\overline{\text{p2}}\right)\right).\bar{\gamma }^{\text{\$MU}(\text{\$27})}.\left(\varphi (\overline{\text{p1}})\right)}{t u}+\frac{\text{e}^4 \left(\varphi (\overline{\text{p1}})\right).\bar{\gamma }^{\text{\$MU}(\text{\$29})}.\left(\bar{\gamma }\cdot \left(\overline{\text{k1}}-\overline{\text{p2}}\right)\right).\bar{\gamma }^{\text{\$MU}(\text{\$27})}.\left(\varphi (-\overline{\text{p2}})\right) \left(\varphi (-\overline{\text{p2}})\right).\bar{\gamma }^{\text{\$MU}(\text{\$27})}.\left(\bar{\gamma }\cdot \left(\overline{\text{k1}}-\overline{\text{p2}}\right)\right).\bar{\gamma }^{\text{\$MU}(\text{\$29})}.\left(\varphi (\overline{\text{p1}})\right)}{u^2}+\frac{\text{e}^4 \left(\varphi (\overline{\text{p1}})\right).\bar{\gamma }^{\text{\$MU}(\text{\$27})}.\left(\bar{\gamma }\cdot \left(\overline{\text{k2}}-\overline{\text{p2}}\right)\right).\bar{\gamma }^{\text{\$MU}(\text{\$29})}.\left(\varphi (-\overline{\text{p2}})\right) \left(\varphi (-\overline{\text{p2}})\right).\bar{\gamma }^{\text{\$MU}(\text{\$29})}.\left(\bar{\gamma }\cdot \left(\overline{\text{k2}}-\overline{\text{p2}}\right)\right).\bar{\gamma }^{\text{\$MU}(\text{\$27})}.\left(\varphi (\overline{\text{p1}})\right)}{t^2}</span></p>
+<p>This is a small piece of the matrix element squared for <span class="math inline">g g to Q \bar{Q}</span>.</p>
+<p>The proper summation over the polarizations of the gluons requires a choice of two auxiliary vectors (unless we subtract the unphysical contributions using ghosts).</p>
+<p>It is customary to take the 4-momentum of another gluon as the auxiliary vector in the summation formula.</p>
+<p>The option <code>ExtraFactor</code> is used to average over the polarizations of the initial gluons.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ClearAll</span><span class="op">[</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">]</span>; </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>p1<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span>p2<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>amp <span class="ex">=</span> <span class="dv">1</span><span class="sc">/</span>(<span class="fu">s</span><span class="sc">^</span><span class="dv">2</span> SUNN (<span class="dv">1</span> <span class="sc">-</span> SUNN<span class="sc">^</span><span class="dv">2</span>) <span class="fu">u</span><span class="sc">^</span><span class="dv">2</span>) <span class="dv">2</span> SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span> SP<span class="op">[</span>k1<span class="op">,</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    Polarization<span class="op">[</span>p2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>p2<span class="op">,</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> (<span class="dv">2</span> <span class="fu">s</span><span class="sc">^</span><span class="dv">2</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> <span class="fu">s</span> SUNN<span class="sc">^</span><span class="dv">2</span> <span class="fu">t</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> <span class="fu">s</span> SUNN<span class="sc">^</span><span class="dv">2</span> <span class="fu">u</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> <span class="fu">s</span><span class="sc">^</span><span class="dv">2</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> <span class="fu">s</span> SUNN<span class="sc">^</span><span class="dv">2</span> <span class="fu">t</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> <span class="fu">s</span> SUNN<span class="sc">^</span><span class="dv">2</span> <span class="fu">u</span> SP<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> SUNN<span class="sc">^</span><span class="dv">2</span> <span class="fu">u</span><span class="sc">^</span><span class="dv">2</span> SP<span class="op">[</span>k2<span class="op">,</span> </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>       Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SP<span class="op">[</span>k2<span class="op">,</span> </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>       Polarization<span class="op">[</span>p1<span class="op">,</span> <span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span>)</span></code></pre></div>
+<p><span class="math display">\frac{1}{N \left(1-N^2\right) s^2 u^2}2 g_s^4 \left(\overline{\text{k1}}\cdot \bar{\varepsilon }^*(\text{p2})\right) \left(\overline{\text{k1}}\cdot \bar{\varepsilon }(\text{p2})\right) \left(2 N^2 s t \left(\overline{\text{k1}}\cdot \bar{\varepsilon }(\text{p1})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }^*(\text{p1})\right)+2 N^2 s t \left(\overline{\text{k1}}\cdot \bar{\varepsilon }^*(\text{p1})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }(\text{p1})\right)+N^2 s u \left(\overline{\text{k1}}\cdot \bar{\varepsilon }(\text{p1})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }^*(\text{p1})\right)+N^2 s u \left(\overline{\text{k1}}\cdot \bar{\varepsilon }^*(\text{p1})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }(\text{p1})\right)+2 s^2 \left(\overline{\text{k1}}\cdot \bar{\varepsilon }(\text{p1})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }^*(\text{p1})\right)+2 s^2 \left(\overline{\text{k1}}\cdot \bar{\varepsilon }^*(\text{p1})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }(\text{p1})\right)+2 N^2 u^2 \left(\overline{\text{k2}}\cdot \bar{\varepsilon }^*(\text{p1})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }(\text{p1})\right)\right)</span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>amp <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> p1<span class="op">,</span> p2<span class="op">,</span> ExtraFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> p2<span class="op">,</span> p1<span class="op">,</span> ExtraFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Simplify</span></span></code></pre></div>
+<p><span class="math display">-\frac{1}{N \left(N^2-1\right) s^2 u^2 (\overline{\text{p1}}\cdot \overline{\text{p2}})^2}g_s^4 \left(2 \left(\overline{\text{k1}}\cdot \overline{\text{p1}}\right) \left(\overline{\text{k1}}\cdot \overline{\text{p2}}\right)-\overline{\text{k1}}^2 \left(\overline{\text{p1}}\cdot \overline{\text{p2}}\right)\right) \left(s \left(\overline{\text{k1}}\cdot \overline{\text{p2}}\right) \left(\overline{\text{k2}}\cdot \overline{\text{p1}}\right) \left(N^2 (2 t+u)+2 s\right)+s \left(\overline{\text{k1}}\cdot \overline{\text{p1}}\right) \left(\overline{\text{k2}}\cdot \overline{\text{p2}}\right) \left(N^2 (2 t+u)+2 s\right)-2 N^2 s t \left(\overline{\text{k1}}\cdot \overline{\text{k2}}\right) \left(\overline{\text{p1}}\cdot \overline{\text{p2}}\right)-N^2 s u \left(\overline{\text{k1}}\cdot \overline{\text{k2}}\right) \left(\overline{\text{p1}}\cdot \overline{\text{p2}}\right)-2 s^2 \left(\overline{\text{k1}}\cdot \overline{\text{k2}}\right) \left(\overline{\text{p1}}\cdot \overline{\text{p2}}\right)+2 N^2 u^2 \left(\overline{\text{k2}}\cdot \overline{\text{p1}}\right) \left(\overline{\text{k2}}\cdot \overline{\text{p2}}\right)-N^2 u^2 \overline{\text{k2}}^2 \left(\overline{\text{p1}}\cdot \overline{\text{p2}}\right)\right)</span></p>
+<p>We can also do the same calculation in <span class="math inline">D</span>-dimensions</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ClearAll</span><span class="op">[</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">]</span>; </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p2<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span>amp<span class="op">,</span> <span class="fu">D</span><span class="op">]</span> <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> p1<span class="op">,</span> p2<span class="op">,</span> ExtraFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>   DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> p2<span class="op">,</span> p1<span class="op">,</span> ExtraFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Simplify</span></span></code></pre></div>
+<p><span class="math display">-\frac{1}{N \left(N^2-1\right) s^2 u^2 (\text{p1}\cdot \;\text{p2})^2}g_s^4 \left(2 (\text{k1}\cdot \;\text{p1}) (\text{k1}\cdot \;\text{p2})-\text{k1}^2 (\text{p1}\cdot \;\text{p2})\right) \left(s (\text{k1}\cdot \;\text{p2}) (\text{k2}\cdot \;\text{p1}) \left(N^2 (2 t+u)+2 s\right)+s (\text{k1}\cdot \;\text{p1}) (\text{k2}\cdot \;\text{p2}) \left(N^2 (2 t+u)+2 s\right)-2 N^2 s t (\text{k1}\cdot \;\text{k2}) (\text{p1}\cdot \;\text{p2})-N^2 s u (\text{k1}\cdot \;\text{k2}) (\text{p1}\cdot \;\text{p2})-2 s^2 (\text{k1}\cdot \;\text{k2}) (\text{p1}\cdot \;\text{p2})+2 N^2 u^2 (\text{k2}\cdot \;\text{p1}) (\text{k2}\cdot \;\text{p2})-\text{k2}^2 N^2 u^2 (\text{p1}\cdot \;\text{p2})\right)</span></p>
+<p><code>DoPolarizationSums</code> will complain if you try to sum over the polarizations of a massless vector boson that is not on-shell</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)</span></p>
+<p><img src="img/0vfxwqdmhs15m.svg" alt="0vfxwqdmhs15m" /></p>
+<p><span class="math display">-4</span></p>
+<p>The obvious solution to remove this warning is to put the boson on-shell</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">0</span></p>
+<p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)</span></p>
+<p><span class="math display">-4</span></p>
+<p>However, if you have a massless virtual boson in the final state that by definition cannot be on-shell, (e.g. in the process <span class="math inline">q \bar{q} \to g \gamma^\ast</span>), you can tell this to the function by setting the option <code>VirtualBoson</code> to <code>True</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> VirtualBoson <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)</span></p>
+<p><span class="math display">-4</span></p>
+<p>It may happen that your expression is not directly proportional to a pair of polarization vectors. In this case terms that are free of polarization vectors will be multiplied by the suitable number of polarizations. This behavior is controlled by the option <code>NumberOfPolarizations</code>. The default value <code>Automatic</code> means that the function will automatically figure out the correct number of polarizations.</p>
+<p>Here we have 2 physical polarizations (massless vector boson)</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> <span class="sc">+</span> xyz </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)+\text{xyz}</span></p>
+<p><span class="math display">\text{DoPolarizationSums: The input expression contains terms free of polarization vectors. Those will be multiplied with the number of polarizations given by }2.</span></p>
+<p><span class="math display">2 \;\text{xyz}-2</span></p>
+<p>In <span class="math inline">D</span> dimensions the number of polarizations becomes <span class="math inline">D-2</span></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span><span class="sc">*</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>     ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> <span class="sc">+</span> xyz<span class="op">,</span> <span class="fu">D</span><span class="op">]</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\varepsilon ^{*\text{mu}}(p) \varepsilon ^{\text{mu}}(p)+\text{xyz}</span></p>
+<p><span class="math display">\text{DoPolarizationSums: The input expression contains terms free of polarization vectors. Those will be multiplied with the number of polarizations given by }D-2.</span></p>
+<p><span class="math display">(D-2) \;\text{xyz}-D+2</span></p>
+<p>A massive vector boson has 3 physical polarizations in 4 dimensions</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span>; </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> <span class="sc">+</span> xyz </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\bar{\varepsilon }^{*\text{mu}}(p) \bar{\varepsilon }^{\text{mu}}(p)+\text{xyz}</span></p>
+<p><span class="math display">\text{DoPolarizationSums: The input expression contains terms free of polarization vectors. Those will be multiplied with the number of polarizations given by }3.</span></p>
+<p><span class="math display">3 \;\text{xyz}-3</span></p>
+<p>or <span class="math inline">D-1</span> physical polarizations in <span class="math inline">D</span> dimensions</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span>; </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span><span class="sc">*</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>     ComplexConjugate<span class="op">[</span>PolarizationVector<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]]</span> <span class="sc">+</span> xyz<span class="op">,</span> <span class="fu">D</span><span class="op">]</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\varepsilon ^{*\text{mu}}(p) \varepsilon ^{\text{mu}}(p)+\text{xyz}</span></p>
+<p><span class="math display">\text{DoPolarizationSums: The input expression contains terms free of polarization vectors. Those will be multiplied with the number of polarizations given by }D-1.</span></p>
+<p><span class="math display">(D-1) \;\text{xyz}-D+1</span></p>
+<p>In the case of a standalone expression that contains no polarization vectors whatsoever, the function has no way to determine the correct number of polarizations.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span>xyz<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><img src="img/02zq1seb6t6v9.svg" alt="02zq1seb6t6v9" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<p>Here additional user input is needed</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>DoPolarizationSums<span class="op">[</span>xyz<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> NumberOfPolarizations <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{DoPolarizationSums: The input expression contains terms free of polarization vectors. Those will be multiplied with the number of polarizations given by }2.</span></p>
+<p><span class="math display">2 \;\text{xyz}</span></p>
+</body>
+</html>

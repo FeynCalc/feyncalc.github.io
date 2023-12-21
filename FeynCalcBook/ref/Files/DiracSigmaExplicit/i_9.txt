@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>GSD[p].DiracSigma[GAD[\[Mu]], GAD[\[Nu]]].GSD[q];
-DiracSigmaExplicit[%];
-DiracSigmaExplicit[%]</pre><div class='IFU'>http://wolfram.com/xid/0d2ausydw9qwhmoznp3tly0nbw</div>

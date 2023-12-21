@@ -1,2 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>\[Chi][x, \[Chi][y, z]] + \[Chi][y, \[Chi][z, x]] + \[Chi][
-  z, \[Chi][x, y]]</pre><div class='IFU'><a name='698764152'></a>http://wolfram.com/xid/08q4nt52zsdq758mlem-lua75m</div>

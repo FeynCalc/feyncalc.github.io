@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="veryverbose">$VeryVerbose</h2>
+<p><code>$VeryVerbose</code> is a global variable with default setting <code>0</code>. If set to <code>1</code>, <code>2</code>, …, less and more intermediate comments and informations are displayed during calculations.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCVerbose.html">FCVerbose</a>, <a href="FCPrint.html">FCPrint</a>.</p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>$VeryVerbose</span></code></pre></div>
+<p><span class="math display">0</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$VeryVerbose <span class="ex">=</span> <span class="dv">3</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Collect2<span class="op">[</span><span class="fu">Expand</span><span class="op">[</span>(<span class="fu">x</span> <span class="sc">-</span> <span class="fu">y</span> <span class="sc">-</span> <span class="fu">z</span>)<span class="sc">^</span><span class="dv">6</span><span class="op">],</span> <span class="fu">x</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{Collect2: Entering Collect2.}</span></p>
+<p><span class="math display">\text{Collect2: Entering with: }x^6-6 y x^5-6 z x^5+15 y^2 x^4+15 z^2 x^4+30 y z x^4-20 y^3 x^3-20 z^3 x^3-60 y z^2 x^3-60 y^2 z x^3+15 y^4 x^2+15 z^4 x^2+60 y z^3 x^2+90 y^2 z^2 x^2+60 y^3 z x^2-6 y^5 x-6 z^5 x-30 y z^4 x-60 y^2 z^3 x-60 y^3 z^2 x-30 y^4 z x+y^6+z^6+6 y z^5+15 y^2 z^4+20 y^3 z^3+15 y^4 z^2+6 y^5 z</span></p>
+<p><span class="math display">\text{Collect2: After factoring out }1\text{ : }x^6-6 y x^5-6 z x^5+15 y^2 x^4+15 z^2 x^4+30 y z x^4-20 y^3 x^3-20 z^3 x^3-60 y z^2 x^3-60 y^2 z x^3+15 y^4 x^2+15 z^4 x^2+60 y z^3 x^2+90 y^2 z^2 x^2+60 y^3 z x^2-6 y^5 x-6 z^5 x-30 y z^4 x-60 y^2 z^3 x-60 y^3 z^2 x-30 y^4 z x+y^6+z^6+6 y z^5+15 y^2 z^4+20 y^3 z^3+15 y^4 z^2+6 y^5 z</span></p>
+<p><span class="math display">\text{Collect2: Applying initial function.}</span></p>
+<p><span class="math display">\text{Collect2: After initial function }x^6-6 y x^5-6 z x^5+15 y^2 x^4+15 z^2 x^4+30 y z x^4-20 y^3 x^3-20 z^3 x^3-60 y z^2 x^3-60 y^2 z x^3+15 y^4 x^2+15 z^4 x^2+60 y z^3 x^2+90 y^2 z^2 x^2+60 y^3 z x^2-6 y^5 x-6 z^5 x-30 y z^4 x-60 y^2 z^3 x-60 y^3 z^2 x-30 y^4 z x+y^6+z^6+6 y z^5+15 y^2 z^4+20 y^3 z^3+15 y^4 z^2+6 y^5 z</span></p>
+<p><span class="math display">\text{Collect2: Monomials w.r.t which we will collect: }\{x\}</span></p>
+<p><span class="math display">\text{Collect2: Factoring with}\;\text{Factor}</span></p>
+<p><span class="math display">\text{Collect2: Factoring part done, timing: }0.000423</span></p>
+<p><span class="math display">\text{Collect2: Expanding}</span></p>
+<p><span class="math display">\text{Collect2: Expanding done, timing: }0.000252</span></p>
+<p><span class="math display">\text{Collect2: Separating the part free of the monomials (linear part)}</span></p>
+<p><span class="math display">\text{FCSplit: Splitting, timing: }0.000333</span></p>
+<p><span class="math display">\text{Collect2: Separation done, timing: }0.000812</span></p>
+<p><span class="math display">\text{Collect2: Part that contains the monomials: }x^6-6 y x^5-6 z x^5+15 y^2 x^4+15 z^2 x^4+30 y z x^4-20 y^3 x^3-20 z^3 x^3-60 y z^2 x^3-60 y^2 z x^3+15 y^4 x^2+15 z^4 x^2+60 y z^3 x^2+90 y^2 z^2 x^2+60 y^3 z x^2-6 y^5 x-6 z^5 x-30 y z^4 x-60 y^2 z^3 x-60 y^3 z^2 x-30 y^4 z x</span></p>
+<p><span class="math display">\text{Collect2: Linear part: }y^6+6 z y^5+15 z^2 y^4+20 z^3 y^3+15 z^4 y^2+6 z^5 y+z^6</span></p>
+<p><span class="math display">\text{Collect2: Factoring the linear part}</span></p>
+<p><span class="math display">\text{Collect2: Factoring done, timing: }0.002543</span></p>
+<p><span class="math display">\text{Collect2: Wrapping the momomials with special heads.}</span></p>
+<p><span class="math display">\text{Collect2: Wrapping done, timing: }0.002084</span></p>
+<p><span class="math display">\text{Collect2: nx: }-6 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}(x) y^5-30 z \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}(x) y^4+15 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^2\right) y^4-60 z^2 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}(x) y^3+60 z \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^2\right) y^3-20 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^3\right) y^3-60 z^3 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}(x) y^2+90 z^2 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^2\right) y^2-60 z \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^3\right) y^2+15 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^4\right) y^2-30 z^4 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}(x) y+60 z^3 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^2\right) y-60 z^2 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^3\right) y+30 z \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^4\right) y-6 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^5\right) y-6 z^5 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}(x)+15 z^4 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^2\right)-20 z^3 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^3\right)+15 z^2 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^4\right)-6 z \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^5\right)+\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^6\right)</span></p>
+<p><span class="math display">\text{Collect2: tv: }\left\{\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}(x),\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^2\right),\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^3\right),\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^4\right),\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^5\right),\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$monomialHead}\left(x^6\right)\right\}</span></p>
+<p><span class="math display">\text{Collect2: There are }6\text{ momomials to collect}</span></p>
+<p><span class="math display">\text{Collect2: Computing CoefficientArrays.}</span></p>
+<p><span class="math display">\text{Collect2: CoefficientArrays ready, timing: }0.000387</span></p>
+<p><img src="img/1fqy7jqjvvk1u.svg" alt="1fqy7jqjvvk1u" /></p>
+<p><span class="math display">\text{Collect2: Collecting the monomials.}</span></p>
+<p><span class="math display">\text{Collect2: tvm: }\left\{x,x^2,x^3,x^4,x^5,x^6\right\}</span></p>
+<p><span class="math display">\text{Collect2: Done collecting the monomials, timing: }0.001726</span></p>
+<p><img src="img/0gyiguncykrsk.svg" alt="0gyiguncykrsk" /></p>
+<p><span class="math display">\text{Collect2: Obtaining the final result.}</span></p>
+<p><span class="math display">\text{Collect2: The final result is ready, timing: }0.001661</span></p>
+<p><span class="math display">\text{Collect2: new: }\;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$unity} x^6-6 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$unity} (y+z) x^5+15 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$unity} (y+z)^2 x^4-20 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$unity} (y+z)^3 x^3+15 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$unity} (y+z)^4 x^2-6 \;\text{FeynCalc$\grave{ }$Collect$\grave{ }$Private$\grave{ }$unity} (y+z)^5 x</span></p>
+<p><span class="math display">\text{Collect2: Releasing tempIso.}</span></p>
+<p><span class="math display">\text{Collect2: Done releasing tempIso, timing: }0.000271</span></p>
+<p><span class="math display">\text{Collect2: Putting re togehter.}</span></p>
+<p><span class="math display">\text{Collect2: Done putting re togehter, timing: }0.000250</span></p>
+<p><span class="math display">\text{Collect2: Done releasing tempIso, timing: }0.000510</span></p>
+<p><span class="math display">\text{Collect2: Leaving.}</span></p>
+<p><span class="math display">\text{Collect2: Leaving with}x^6-6 (y+z) x^5+15 (y+z)^2 x^4-20 (y+z)^3 x^3+15 (y+z)^4 x^2-6 (y+z)^5 x+(y+z)^6</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>$VeryVerbose <span class="ex">=</span> <span class="dv">0</span>;</span></code></pre></div>
+</body>
+</html>

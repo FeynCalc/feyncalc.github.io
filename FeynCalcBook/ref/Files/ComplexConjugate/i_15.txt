@@ -1,3 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>GA[\[Mu]];
-ComplexConjugate[%];
-ComplexConjugate[%]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmirv6bbn2</div>

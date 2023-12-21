@@ -1,2 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>DiracChain[1, Spinor[Momentum[p1], m1, 1], 
- Spinor[Momentum[p2], m2, 1]]</pre><div class='IFU'><a name='322314800'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5ln26-fl6ly6</div>

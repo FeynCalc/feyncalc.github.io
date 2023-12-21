@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>LC[\[Mu], \[Nu], \[Rho], \[Sigma]];
-% // StandardForm;
-% // StandardForm</pre><div class='IFU'><a name='1961193735'></a>http://wolfram.com/xid/0mjy0qa6htefs1ao-6pxg11</div>

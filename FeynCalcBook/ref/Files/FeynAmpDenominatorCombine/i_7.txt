@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'> FAD[q] FAD[q - p];
-FeynAmpDenominatorSplit[%];
-FeynAmpDenominatorSplit[%]</pre><div class='IFU'><a name='1679025277'></a>http://wolfram.com/xid/0eg8r6aumgiodhcrjfxnijywh1yptfb-11xmhb</div>

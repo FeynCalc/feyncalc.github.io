@@ -1,1 +1,0 @@
-<pre name='i_33_in' id='i_33_in' class='IFT'>int = FAD[k, p - k, {k, m}] SPD[p, k]</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq</div>

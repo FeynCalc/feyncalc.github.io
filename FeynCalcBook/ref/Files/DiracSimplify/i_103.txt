@@ -1,3 +1,0 @@
-<pre name='i_103_in' id='i_103_in' class='IFT'>GAD[\[Mu]].(GA[p] + m).GAD[\[Mu]];
-DiracSimplify[%];
-DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

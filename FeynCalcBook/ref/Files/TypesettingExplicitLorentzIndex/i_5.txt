@@ -1,2 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>4 M^2 u FV[k, 0]^2 - 4 M^2 u FV[k, 3]^2 - 4 M SP[k, k] - 
- 2 M u FV[k, 0] FV[k, 3]^2 + 4 M u FV[k, 0] FV[k, 2] - u^2 FV[k, 2]^2</pre><div class='IFU'><a name='1698479077'></a>http://wolfram.com/xid/00shn83muccnr9ok37gh4f7d5dcfj4oyl-2dik4n</div>

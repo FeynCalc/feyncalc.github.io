@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'> GA[\[Mu], \[Nu]];
-DiracReduce[%];
-DiracReduce[%]</pre><div class='IFU'><a name='1863378816'></a>http://wolfram.com/xid/0dot6agzccymmitn9o86q-43oyky</div>

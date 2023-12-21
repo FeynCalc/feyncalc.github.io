@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>LeftRightPartialD2[\[Mu]];
-ExplicitPartialD[%];
-ExplicitPartialD[%]</pre><div class='IFU'>http://wolfram.com/xid/0e2fh85wv2ah4yeo4zoxv4an</div>

@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>FeynCalcExternal[DiracGamma[5]];
-% // FeynCalcInternal;
-% // FeynCalcInternal</pre><div class='IFU'><a name='1535054786'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg0gy1avxvey6-zn7t40</div>

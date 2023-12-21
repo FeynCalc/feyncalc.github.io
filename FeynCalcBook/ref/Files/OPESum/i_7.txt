@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>OPESum[SO[p]^OPEi SO[k]^(OPEm - OPEi - 3), {OPEi, 0, OPEm - 3}];
-OPESumExplicit[%];
-OPESumExplicit[%]</pre><div class='IFU'><a name='1712949576'></a>http://wolfram.com/xid/0fnx5q0u7sai4aizzx4hcka-2l4qmy</div>

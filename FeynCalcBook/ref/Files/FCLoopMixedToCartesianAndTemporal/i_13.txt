@@ -1,3 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>FCI@SFAD[q];
-FCLoopMixedToCartesianAndTemporal[%, {k}];
-FCLoopMixedToCartesianAndTemporal[%, {k}]</pre><div class='IFU'><a name='732847737'></a>http://wolfram.com/xid/0qly1g0agou15q0f64zobpi01mclemyeigw7t9e29o9-melq7v</div>

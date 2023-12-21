@@ -1,3 +1,0 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>GAD[\[Mu], \[Nu], \[Mu]];
-DiracSimplify[%];
-DiracSimplify[%]</pre><div class='IFU'><a name='1129253480'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq-syl3ui</div>

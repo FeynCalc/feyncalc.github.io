@@ -1,2 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>-(I/24) LCD[\[Mu], \[Nu], \[Rho], \[Alpha]].GAD[\[Mu], \[Nu], \[Rho], \
-\[Alpha]] // FCI</pre><div class='IFU'><a name='1182317355'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-tt7f61</div>

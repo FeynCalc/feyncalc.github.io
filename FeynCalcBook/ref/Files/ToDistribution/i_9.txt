@@ -1,1 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>Integrate2[ToDistribution[(1 - x)^(Epsilon - 2), x], {x, 0, 1}]</pre><div class='IFU'><a name='1539995997'></a>http://wolfram.com/xid/01ipebruqvo0z6doktbp2-zq5qsv</div>

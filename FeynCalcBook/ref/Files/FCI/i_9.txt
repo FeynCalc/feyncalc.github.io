@@ -1,4 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>{GA[\[Mu]], GAD[\[Rho]], GS[p], SP[p, q], MT[\[Alpha], \[Beta]], 
- FV[p, \[Mu]]};
-FCE[%] // StandardForm;
-FCE[%] // StandardForm</pre><div class='IFU'><a name='1427781639'></a>http://wolfram.com/xid/0cft6mr0tvnz3ejlwou-xwclnd</div>

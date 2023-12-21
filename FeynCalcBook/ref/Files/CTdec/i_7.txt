@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>CTdec[{{Subscript[q, 1], i}, {Subscript[q, 2], j}, {Subscript[q, 3], 
-   k}}, {p}, List -&gt; False]</pre><div class='IFU'><a name='1616776154'></a>http://wolfram.com/xid/0nwhua02ikznm795ah74a-00veq0</div>

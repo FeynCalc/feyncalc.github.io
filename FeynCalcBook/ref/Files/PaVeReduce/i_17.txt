@@ -1,1 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>Write2[&quot;fctd122.for&quot;, d122res == d122, FormatType -&gt; FortranForm];</pre><div class='IFU'><a name='1848976065'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp2kqywpmq-4u39cj</div>

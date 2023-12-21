@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Series3[Gamma[x], x, 1] // FullSimplify</pre><div class='IFU'><a name='1278931466'></a>http://wolfram.com/xid/0tn9depw6mpqkccwqt-vfp74c</div>

@@ -1,3 +1,0 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>SPD[q, p] FAD[{q, m}, {q - p, 0}];
-ApartFF[%, {q}];
-ApartFF[%, {q}]</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq</div>

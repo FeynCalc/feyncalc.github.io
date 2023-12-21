@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>CSIS[p1].CSI[i].CSIS[p2];
-PauliTrick[%] // Contract;
-PauliTrick[%] // Contract</pre><div class='IFU'><a name='1048487381'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybaw1p2yhw8-rmi0br</div>

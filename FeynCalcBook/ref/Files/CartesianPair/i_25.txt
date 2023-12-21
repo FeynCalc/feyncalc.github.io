@@ -1,2 +1,0 @@
-<pre name='i_25_in' id='i_25_in' class='IFT'>ExpandScalarProduct[
- CartesianPair[CartesianMomentum[p - q], CartesianMomentum[p]]]</pre><div class='IFU'><a name='294431519'></a>http://wolfram.com/xid/04ieufm3d5y7w0525wrspihi26-e5ky3l</div>

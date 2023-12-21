@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>SPD[k, r] FAD[{k, m} , k - p] // FCI;
-OneLoopSimplify[% /. m -&gt; 0, k];
-OneLoopSimplify[% /. m -&gt; 0, k]</pre><div class='IFU'><a name='2028218956'></a>http://wolfram.com/xid/0fnx5q0u7sai4aiu56biqky-7tt11q</div>

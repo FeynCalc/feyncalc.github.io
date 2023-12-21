@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>{Re[Epsilon] &gt; -4, Re[Epsilon] &gt; -3, Re[Epsilon] &gt; -2, 
- Re[Epsilon] &gt; -1, Re[Epsilon] &gt; 0}</pre><div class='IFU'><a name='2127471490'></a>http://wolfram.com/xid/0bhwp8a9gs181wxr26-9gxdsk</div>

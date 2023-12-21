@@ -1,3 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>d122 = PaVeReduce[
-   PaVe[1, 2, 2, {se, MW2, MW2, se, S, T}, {0, se, 0, se}], 
-   Mandelstam -&gt; {S, T, U, 2 MW2}, IsolateNames -&gt; F] // FRH</pre><div class='IFU'><a name='1868254708'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp2kqywpmq-46lgue</div>

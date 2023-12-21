@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>TemporalMomentum[p];
-% // MomentumCombine // StandardForm;
-% // MomentumCombine // StandardForm</pre><div class='IFU'><a name='928717436'></a>http://wolfram.com/xid/0npwa8ny70dc8eaum6c6z2aqa1b-pm7w8u</div>

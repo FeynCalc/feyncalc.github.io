@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FCI@CFAD[{q + p, m^2}];
-FCLoopNonIntegerPropagatorPowersFreeQ[%];
-FCLoopNonIntegerPropagatorPowersFreeQ[%]</pre><div class='IFU'><a name='587936085'></a>http://wolfram.com/xid/0gtmjkbbey6vi1je2djzqt9fw29m4vwq1en7igz-j0bsn7</div>

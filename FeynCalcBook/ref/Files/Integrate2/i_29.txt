@@ -1,3 +1,0 @@
-<pre name='i_29_in' id='i_29_in' class='IFT'>Integrate2[
- PolyLog[2, ((x (1 - z) + z) (1 - x + x z))/z]/(1 - x + x z), {x, 0, 
-  1}]</pre><div class='IFU'><a name='2080558124'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-8ozu7i</div>

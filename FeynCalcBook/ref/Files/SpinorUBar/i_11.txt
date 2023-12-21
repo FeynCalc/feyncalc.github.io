@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>SpinorUBar[p, m];
-DiracEquation[%];
-DiracEquation[%]</pre><div class='IFU'><a name='1275256319'></a>http://wolfram.com/xid/0e2fh85wv2ah4ybmcrf2jhte-vdjgcx</div>

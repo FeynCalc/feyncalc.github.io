@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>OPESum[(-SOD[p])^(OPEi+1) SOD[p-q]^(OPEm-OPEi-2),{OPEi,0,OPEm}]</pre><div class='IFU'><a name='301700583'></a>http://wolfram.com/xid/04ieufm3d5y7w10kxhgm0bjhf2-e9wrx1</div>

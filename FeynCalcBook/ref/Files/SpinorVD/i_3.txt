@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>SpinorVD[p, m];
-FCI[%] // StandardForm;
-FCI[%] // StandardForm</pre><div class='IFU'><a name='2060242592'></a>http://wolfram.com/xid/0cy370nkq1aepaa1bofsgan-8cwfm6</div>

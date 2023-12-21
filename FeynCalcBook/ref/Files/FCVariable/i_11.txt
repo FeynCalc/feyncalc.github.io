@@ -1,2 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>DataType[c1, FCVariable] = False
-DataType[c2, FCVariable] = False</pre><div class='IFU'><a name='219796287'></a>http://wolfram.com/xid/0g3d2anoefmyyrau0ob5y-dw496p</div>

@@ -1,1 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>SPD[p, q1] SPD[p, q2]^2 FAD[{q1, m}, {q2, m}, q1 - p, q2 - p, q1 - q2]</pre><div class='IFU'><a name='21286566'></a>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq-myi3s</div>

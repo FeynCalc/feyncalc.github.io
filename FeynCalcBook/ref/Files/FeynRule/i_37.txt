@@ -1,7 +1,0 @@
-<pre name='i_37_in' id='i_37_in' class='IFT'>Lagrangian[&quot;ogu&quot;];
-FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p], 
-   QuantumField[GaugeField, {\[Nu]}, {b}][q]}, 
-  ZeroMomentumInsertion -&gt; False] // Factor;
-FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p], 
-   QuantumField[GaugeField, {\[Nu]}, {b}][q]}, 
-  ZeroMomentumInsertion -&gt; False] // Factor</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

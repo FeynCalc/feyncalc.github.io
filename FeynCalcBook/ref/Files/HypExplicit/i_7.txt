@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Hypergeometric2F1[a, b, c, z];
-HypExplicit[%, \[Nu]];
-HypExplicit[%, \[Nu]]</pre><div class='IFU'><a name='1855078663'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp3ruhg1x4-4yq145</div>

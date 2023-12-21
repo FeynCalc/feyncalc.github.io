@@ -1,1 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>FCI[GAD[\[Mu]]] === DiracMatrix[\[Mu], Dimension -&gt; D]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o66q</div>

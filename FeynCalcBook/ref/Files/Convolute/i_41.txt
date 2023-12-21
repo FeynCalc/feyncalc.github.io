@@ -1,1 +1,0 @@
-<pre name='i_41_in' id='i_41_in' class='IFT'>Convolute[1/(1 - x), x Log[x]] /. FCGV[z_] :&gt; ToExpression[z]</pre><div class='IFU'><a name='1377475961'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbd8w0-w2edjf</div>

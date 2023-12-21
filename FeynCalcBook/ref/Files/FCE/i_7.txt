@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FCE[{DiracGamma[5], DiracGamma[Momentum[p]]}];
-% // StandardForm;
-% // StandardForm</pre><div class='IFU'><a name='811786447'></a>http://wolfram.com/xid/0cft6mr0tvnz3ejlwot-nplopt</div>

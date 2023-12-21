@@ -1,1 +1,0 @@
-<pre name='i_53_in' id='i_53_in' class='IFT'>DiracSimplify[GA[5, \[Mu], \[Nu]], DiracSubstitute5 -&gt; True]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

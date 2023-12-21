@@ -1,1 +1,0 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>Apart[Integrate2[x^(OPEm - 1) PolyLog[3, 1 - x], {x, 0, 1}], OPEm]</pre><div class='IFU'><a name='204763000'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-dn62fe</div>

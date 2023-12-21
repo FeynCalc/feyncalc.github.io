@@ -1,3 +1,0 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>SUND[a, b, c] SUND[a, b, c];
-SUNSimplify[%, SUNNToCACF -&gt; False] // Factor2;
-SUNSimplify[%, SUNNToCACF -&gt; False] // Factor2</pre><div class='IFU'><a name='1466861165'></a>http://wolfram.com/xid/0bcjf11ba4ib03moby3f50jle-yjl7lr</div>

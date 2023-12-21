@@ -1,1 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>CartesianPair[CartesianMomentum[p - q], CartesianMomentum[p]]</pre><div class='IFU'><a name='25203155'></a>http://wolfram.com/xid/04ieufm3d5y7w0525wrspihi26-pag5x</div>

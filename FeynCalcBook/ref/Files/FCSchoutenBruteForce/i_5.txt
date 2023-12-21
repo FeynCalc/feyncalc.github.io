@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>LC[][p1, p2, p3, p4] SP[p5, p6] + LC[][p2, p3, p4, p5] SP[p1, p6] + 
- LC[][p3, p4, p5, p1] SP[p2, p6] + LC[][p4, p5, p1, p2] SP[p3, p6] - 
- LC[][p1, p2, p3, p5] SP[p4, p6]</pre><div class='IFU'><a name='1838333672'></a>http://wolfram.com/xid/0u774fkk3gs1t9rxagm1405ygw6eiu8ulh6-4or5mi</div>

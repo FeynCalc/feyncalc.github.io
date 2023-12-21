@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>CGS[p];
-% // CartesianToLorentz;
-% // CartesianToLorentz</pre><div class='IFU'><a name='1322835112'></a>http://wolfram.com/xid/0d0gx6qsc3tqs4j0lc7zwcouiycffex4-v5u8d2</div>

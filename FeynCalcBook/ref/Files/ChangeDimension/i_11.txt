@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>{LorentzIndex[\[Mu]], Momentum[p]};
-DiracTrick /@ Contract /@ %;
-DiracTrick /@ Contract /@ %</pre><div class='IFU'><a name='2067421250'></a>http://wolfram.com/xid/0dot6agzccymmir0joalu-8g6aqc</div>

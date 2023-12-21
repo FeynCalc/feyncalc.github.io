@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Cases2[f[a] + f[b]^2 + f[c, d], f]</pre><div class='IFU'><a name='1924250367'></a>http://wolfram.com/xid/0tn9depw6mpqkcjmiu-53xndd</div>

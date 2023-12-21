@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Integrate2[Log[1 + x] Log[x]/(1 - x), {x, 0, 1}] // Timing</pre><div class='IFU'><a name='524907050'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-iysu5o</div>

@@ -1,1 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>PauliXi[-I].(SIS[p1 + p2] + SIS[q]).PauliEta[I]</pre><div class='IFU'><a name='603891002'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg7586733s89z-j9trkc</div>

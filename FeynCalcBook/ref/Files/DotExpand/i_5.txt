@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>DeclareNonCommutative /@ {a, b, c, d, e, f};</pre><div class='IFU'><a name='1021626920'></a>http://wolfram.com/xid/0iwhvn88gns5irehh3m-q6janu</div>

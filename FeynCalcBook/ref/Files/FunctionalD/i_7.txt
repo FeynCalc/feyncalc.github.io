@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>(QuantumField[FCPartialD[\[Mu]], \[Phi]].QuantumField[
-     FCPartialD[\[Mu]], \[Phi]] - 
-   m^2 QuantumField[\[Phi]].QuantumField[\[Phi]])/2</pre><div class='IFU'><a name='593299923'></a>http://wolfram.com/xid/0eld2y9rdg1pwiss5wf-j3irfp</div>

@@ -1,1 +1,0 @@
-<pre name='i_85_in' id='i_85_in' class='IFT'>DiracSimplify[DiracTrace[GAD[\[Mu], \[Nu]], TraceOfOne -&gt; D]]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o70q</div>

@@ -1,1 +1,0 @@
-<pre name='i_67_in' id='i_67_in' class='IFT'>ClearAll[r1, r2]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o70q</div>

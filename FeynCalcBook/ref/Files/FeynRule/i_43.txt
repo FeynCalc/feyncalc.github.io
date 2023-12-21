@@ -1,3 +1,0 @@
-<pre name='i_43_in' id='i_43_in' class='IFT'>Lagrangian[&quot;ogu&quot;];
-Factor2[Calc[% /. p -&gt; -q, Assumptions -&gt; Automatic]];
-Factor2[Calc[% /. p -&gt; -q, Assumptions -&gt; Automatic]]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

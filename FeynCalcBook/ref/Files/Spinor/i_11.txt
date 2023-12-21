@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>ChangeDimension[Spinor[Momentum[p]], D] // StandardForm</pre><div class='IFU'><a name='39280367'></a>http://wolfram.com/xid/08q4nt52zsdq75zdnaa-xn67l</div>

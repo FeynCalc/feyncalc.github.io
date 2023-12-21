@@ -1,1 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>ClearAll[amp, ampIso, diracS]</pre><div class='IFU'><a name='1836486841'></a>http://wolfram.com/xid/005ib61n5qgf6h9518qoap29mg0-4nokln</div>

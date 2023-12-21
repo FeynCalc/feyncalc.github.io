@@ -1,2 +1,0 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>FORM2FeynCalc[&quot;i_*az*bz*aM^2*D1*[(1)]*b_G1 * ( \
-4*eperp(mu,nu)*avec.bvec*blam )&quot;]</pre><div class='IFU'><a name='476542838'></a>http://wolfram.com/xid/0cdri8akgdehbvtjmmehtkw7d6r54yy-h5z83c</div>

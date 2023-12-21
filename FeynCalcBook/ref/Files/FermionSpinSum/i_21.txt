@@ -1,3 +1,0 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>SpinorUBar[k1, m].GS[p].GA[5].SpinorU[p1, m];
-DiracSimplify[%];
-DiracSimplify[%]</pre><div class='IFU'>http://wolfram.com/xid/04ieufm3d5y7w09uylx6ihwgre</div>

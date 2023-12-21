@@ -1,2 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>PauliSigma[CartesianMomentum[q]] . 
- PauliSigma[CartesianMomentum[p - q]]</pre><div class='IFU'>http://wolfram.com/xid/0md0z2x3dnst5skk6q3kvi</div>

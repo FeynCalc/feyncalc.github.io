@@ -1,4 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>Eps[LorentzIndex[\[Mu]], LorentzIndex[\[Nu]], LorentzIndex[\[Rho]], 
- LorentzIndex[\[Sigma]]];
-Contract[% %] // Factor2;
-Contract[% %] // Factor2</pre><div class='IFU'><a name='225723746'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-d0obuc</div>

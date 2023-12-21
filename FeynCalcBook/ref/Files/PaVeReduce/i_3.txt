@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>PaVeReduce[PaVe[1, 2, {s, m^2, m^2}, {m^2, m^2, M^2}], 
- IsolateNames -&gt; FF]</pre><div class='IFU'><a name='311139632'></a>http://wolfram.com/xid/0bsq4ic9e7g3rp2kqywpmq-ffi25u</div>

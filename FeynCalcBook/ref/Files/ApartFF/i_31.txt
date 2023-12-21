@@ -1,3 +1,0 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>SPD[q2, p] SPD[q1, p] FAD[{q1, m}, {q2, m}, q1 - p, q2 - p, q2 - q1];
-ApartFF[%, {q1, q2}];
-ApartFF[%%, {q1, q2}, FDS -&gt; False]</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq</div>

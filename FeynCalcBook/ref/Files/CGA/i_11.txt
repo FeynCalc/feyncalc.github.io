@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>DiracSimplify[DiracTrace[CGA[i, j, k, l]]]</pre><div class='IFU'><a name='246195830'></a>http://wolfram.com/xid/0iwhvn88gns5irarosg-ecu37c</div>

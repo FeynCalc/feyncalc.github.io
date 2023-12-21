@@ -1,8 +1,0 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>-(1/4) FieldStrength[\[Alpha], \[Beta], 
-   i].FieldStrength[\[Alpha], \[Beta], i];
-FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p], 
-  QuantumField[GaugeField, {\[Nu]}, {b}][q], 
-  QuantumField[GaugeField, {\[Rho]}, {c}][r]}];
-FeynRule[%, {QuantumField[GaugeField, {\[Mu]}, {a}][p], 
-  QuantumField[GaugeField, {\[Nu]}, {b}][q], 
-  QuantumField[GaugeField, {\[Rho]}, {c}][r]}]</pre><div class='IFU'>http://wolfram.com/xid/0nwhua02ikznm8bb04g26</div>

@@ -1,5 +1,0 @@
-<pre name='i_141_in' id='i_141_in' class='IFT'>ex = Spinor[-Momentum[p1, D], mb, 1].GAD[\[Mu]].GA[
-    7].GAD[\[Nu]].GAD[\[Alpha]].GAD[\[Beta]].GAD[\[Delta]].GA[
-    7].Spinor[-Momentum[p4, D], 0, 1] Spinor[Momentum[p3, D], 0, 
-    1].GAD[\[Alpha]].GAD[\[Beta]].GAD[\[Delta]].GA[
-    7].GAD[\[Nu]].GAD[\[Mu]].GA[7].Spinor[Momentum[p2, D], 0, 1]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

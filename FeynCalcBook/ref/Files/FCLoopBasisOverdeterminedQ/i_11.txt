@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>FAD[q1, q2, {q1 + l, m1}, {q1 - l, m1}, {q2 + l, m1}, {q2 - l, m1}]</pre><div class='IFU'><a name='1391618340'></a>http://wolfram.com/xid/0d0gx6qsc3tqs4kim2yyf69pii65tcub-xathva</div>

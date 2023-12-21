@@ -1,3 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>GV[{\[Mu], a}, {\[Nu], b}, {\[Rho], c}, {\[Sigma], d}];
-Explicit[%];
-Explicit[%]</pre><div class='IFU'>http://wolfram.com/xid/0md0z2x3dnst5sp6x7nkwq</div>

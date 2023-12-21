@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>FCPermuteMomentaRules[{p1, p2}];
-f[p1, p2] /. %;
-f[p1, p2] /. %</pre><div class='IFU'><a name='20836829'></a>http://wolfram.com/xid/0cdri8akgdehbvtjhlr63b5cl72x06a-mov23</div>

@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>HypergeometricAC[6][Hypergeometric2F1[\[Alpha], \[Beta], \[Gamma], z]]</pre><div class='IFU'><a name='436366778'></a>http://wolfram.com/xid/0g3d2anoefmyyrgy171mv-hh241o</div>

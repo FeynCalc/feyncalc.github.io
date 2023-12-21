@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>FCI@FAD[{q1, m}, {q2, m}, {p1 - p2, 0}];
-FCLoopBasisSplit[%, {q1, q2}, Head -&gt; loopInt];
-FCLoopBasisSplit[%, {q1, q2}, Head -&gt; loopInt]</pre><div class='IFU'><a name='889078406'></a>http://wolfram.com/xid/0hubfbmhj87ioy083cmoot3ec0-ozmbko</div>

@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>FAD[{q1, m1}, {q1 - l + p, m}];
-FCLoopBasisOverdeterminedQ[%, {q1}];
-FCLoopBasisOverdeterminedQ[%, {q1}]</pre><div class='IFU'><a name='2142881934'></a>http://wolfram.com/xid/0d0gx6qsc3tqs4kim2yyf69pii65tcub-9p3okg</div>

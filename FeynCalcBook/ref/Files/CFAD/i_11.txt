@@ -1,4 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>
-CFAD[{{p, 0}, m^2}];
-FeynAmpDenominatorExplicit[%];
-FeynAmpDenominatorExplicit[%]</pre><div class='IFU'><a name='725889266'></a>http://wolfram.com/xid/0cft6mr0tvnz3ejfl0z-magl00</div>

@@ -1,2 +1,0 @@
-<pre name='i_31_in' id='i_31_in' class='IFT'>SplittingFunction[agqd, Polarization -&gt; 1] /. 
- FCGV[z_] :&gt; ToExpression[z]</pre><div class='IFU'><a name='1649871241'></a>http://wolfram.com/xid/0da7yqf8j4nw85s4l5bwcy-1kkq2z</div>

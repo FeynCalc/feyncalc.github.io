@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>SPD[c1 p1 + c2 p2, q] // ExpandScalarProduct</pre><div class='IFU'><a name='1215664914'></a>http://wolfram.com/xid/0g3d2anoefmyyrau0ob5y-ud17b4</div>

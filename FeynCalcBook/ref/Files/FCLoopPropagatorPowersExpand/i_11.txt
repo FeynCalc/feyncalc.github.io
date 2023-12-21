@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>SFAD[{q, m, 2}];
-FCLoopPropagatorPowersExpand[%];
-FCLoopPropagatorPowersExpand[%]</pre><div class='IFU'><a name='886566468'></a>http://wolfram.com/xid/0kq87cxfovjn1903r7l19rlhk43mzf160e6-ox4hcm</div>

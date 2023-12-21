@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>(a + I b)^2;
-FCAbbreviate[%, {}, {}];
-FCAbbreviate[%, {}, {}]</pre><div class='IFU'><a name='629151375'></a>http://wolfram.com/xid/04ieufm3d5y7w095i7byp5ujxf-kou6ld</div>

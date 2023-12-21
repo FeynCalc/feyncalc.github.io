@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>SUNSimplify[SUNDelta[SUNIndex[a], SUNIndex[a]], SUNNToCACF -&gt; True]</pre><div class='IFU'><a name='1879564079'></a>http://wolfram.com/xid/0bl1sloiyx608rjzz7asnidbhr0ay-5dbu7l</div>

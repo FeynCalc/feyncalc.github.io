@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>PolarizationSum[\[Mu], \[Nu], k, n]</pre><div class='IFU'><a name='697709473'></a>http://wolfram.com/xid/0bmo85gxinschsbfoi1k7fe-ltomcz</div>

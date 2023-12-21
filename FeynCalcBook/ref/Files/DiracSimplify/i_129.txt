@@ -1,1 +1,0 @@
-<pre name='i_129_in' id='i_129_in' class='IFT'>CGA[i].CGS[p].CGA[j].CGS[p + q] KD[i, j]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

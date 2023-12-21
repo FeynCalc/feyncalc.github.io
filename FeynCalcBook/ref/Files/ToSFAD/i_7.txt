@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>ToSFAD[FAD[{p + q, m, 2}]]
-% // StandardForm</pre><div class='IFU'><a name='2042326245'></a>http://wolfram.com/xid/0gb5m6l6ty1j71e1dx8i0j-718fav</div>

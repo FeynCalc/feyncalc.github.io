@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Series2[Integrate[(1 - x)^(Epsilon - 2), {x, 0, 1}, 
-  GenerateConditions -&gt; False], Epsilon, 3]</pre><div class='IFU'><a name='941654875'></a>http://wolfram.com/xid/01ipebruqvo0z6doktbp2-puw7t5</div>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="integrate2">Integrate2</h2>
+<p><code>Integrate2</code> is like <code>Integrate</code>, but <code>Integrate2[a_Plus, b__] := Map[Integrate2[#, b]&amp;, a]</code> ( more linear algebra and partial fraction decomposition is done)</p>
+<p><code>Integrate2[f[x] DeltaFunction[x], x] -&gt; f[0]</code></p>
+<p><code>Integrate2[f[x] DeltaFunction[x0-x], x] -&gt; f[x0]</code></p>
+<p><code>Integrate2[f[x] DeltaFunction[a + b x], x] -&gt; Integrate[f[x] (1/Abs[b]) DeltaFunction[a/b + x], x]</code>, where <code>Abs[b] -&gt; b</code>, if <code>b</code> is a symbol, and if <code>b = -c</code>, then <code>Abs[-c] -&gt; c</code>, i.e., the variable contained in <code>b</code> is supposed to be positive.</p>
+<p><span class="math inline">\pi ^2</span> is replaced by <code>6 Zeta2</code>.</p>
+<p><code>Integrate2[1/(1-y),{y,x,1}]</code> is interpreted as distribution, i.e. as <code>Integrate2[-1/(1-y)],{y, 0, x}] -&gt; Log[1-y]</code>.</p>
+<p><code>Integrate2[1/(1-x),{x,0,1}] -&gt; 0</code></p>
+<p>Since <code>Integrate2</code> does do a reordering and partial fraction decomposition before calling the integral table of <code>Integrate3</code>, it will in general be slower compared to Integrate3 for sums of integrals. I.e., if the integrand has already an expanded form and if partial fraction decomposition is not necessary it is more effective to use <code>Integrate3</code>.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DeltaFunction.html">DeltaFunction</a>, <a href="Integrate3.html">Integrate3</a>, <a href="Integrate5.html">Integrate5</a>, <a href="SumS.html">SumS</a>, <a href="SumT.html">SumT</a>.</p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">Log</span><span class="op">[</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">]</span> <span class="fu">Log</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Timing</span></span></code></pre></div>
+<p><span class="math display">\left\{0.057955,\zeta (3)-\frac{3}{2} \zeta (2) \log (2)\right\}</span></p>
+<p>Since <code>Integrate2</code> uses table-look-up methods it is much faster than Mathematica’s Integrate.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">PolyLog</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="fu">x</span><span class="sc">^</span><span class="dv">2</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\zeta (2)-4+4 \log (2)</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">PolyLog</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="sc">-</span><span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{\zeta (2)}{2}-\frac{3 \zeta (3)}{4}+1-2 \log (2)</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">PolyLog</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span>)<span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\zeta (2) (-\log (2))+\frac{3 \zeta (3)}{4}+\frac{\log ^3(2)}{3}-\log ^2(2)+2 \log (2)</span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span>DeltaFunction<span class="op">[</span><span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span><span class="op">]</span> <span class="fu">f</span><span class="op">[</span><span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">f(1)</span></p>
+<p><code>Integrate2</code> does integration in a Hadamard sense, i.e., <span class="math inline">\int _0^1 \, f(x) \, d x</span> means actually expanding the result of <span class="math inline">\int _{\delta }^{1-\delta} \, f(x) \, dx</span> up to <span class="math inline">\mathcal{O}(\delta )</span> and neglecting all <span class="math inline">\delta</span>-dependent terms. E.g. <span class="math inline">\int_{\delta }^{1-\delta} \frac{1}{1-x} \, d x = - \log (1-x) \biggl |_{\delta }^{1-\delta } = -\log (\delta )+log (1) \Rightarrow 0</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">0</span></p>
+<p>In the physics literature sometimes the “+” notation is used. In FeynCalc the <span class="math inline">\left(frac{1}{1-x} \right)_{+}</span> is represented by <code>PlusDistribution}[1/(1-x)]</code> or just <code>1/(1-x)</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span>PlusDistribution<span class="op">[</span><span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>)<span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">0</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">PolyLog</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span><span class="op">]</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>)<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">2-\zeta (2)</span></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span>(<span class="fu">Log</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="fu">Log</span><span class="op">[</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">]</span>)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">-\frac{\zeta (3)}{8}</span></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">Log</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">2 \zeta (3)</span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">PolyLog</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="fu">x</span><span class="op">]</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{\zeta (3)}{4}-\frac{1}{2} \zeta (2) \log (2)</span></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">Log</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="fu">PolyLog</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">3-2 \zeta (2)</span></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">x</span> <span class="fu">PolyLog</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">-\frac{\zeta (2)}{4}+\frac{\zeta (3)}{2}+\frac{3}{16}</span></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span>(<span class="fu">Log</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> <span class="fu">Log</span><span class="op">[</span><span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span><span class="op">]</span>)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\zeta (4)+\zeta (2) \log ^2(2)-4 \;\text{Li}_4\left(\frac{1}{2}\right)-\frac{\log ^4(2)}{6}</span></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">PolyLog</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> ((<span class="fu">x</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">z</span>) <span class="sc">+</span> <span class="fu">z</span>) (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span> <span class="sc">+</span> <span class="fu">x</span> <span class="fu">z</span>))<span class="sc">/</span><span class="fu">z</span><span class="op">]</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span> <span class="sc">+</span> <span class="fu">x</span> <span class="fu">z</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{2 i \pi  \;\text{Li}_2(-z)}{1-z}-\frac{4 \;\text{Li}_3\left(\frac{1-z}{2}\right)}{1-z}+\frac{4 \;\text{Li}_3(1-z)}{1-z}+\frac{2 \;\text{Li}_3(-z)}{1-z}+\frac{4 \;\text{Li}_3\left(\frac{1}{z+1}\right)}{1-z}-\frac{4 \;\text{Li}_3\left(\frac{1-z}{z+1}\right)}{1-z}-\frac{4 \;\text{Li}_3\left(\frac{z+1}{2}\right)}{1-z}-\frac{2 \;\text{Li}_2(1-z) \log (z)}{1-z}-\frac{2 \;\text{Li}_2(-z) \log (z)}{1-z}+\frac{4 \;\text{Li}_2(-z) \log (1-z)}{1-z}-\frac{2 S_{12}(1-z)}{1-z}+\frac{i \pi  \zeta (2)}{1-z}-\frac{\zeta (2) \log (z)}{1-z}+\frac{2 \zeta (2) \log (1-z)}{1-z}+\frac{6 \zeta (2) \log (z+1)}{1-z}-\frac{4 \zeta (2) \log (2)}{1-z}+\frac{2 \zeta (3)}{1-z}+\frac{\log ^3(z)}{6 (1-z)}+\frac{4 \log ^3(2)}{3 (1-z)}-\frac{\log (1-z) \log ^2(z)}{1-z}-\frac{\log (z+1) \log ^2(z)}{1-z}-\frac{i \pi  \log ^2(z)}{2 (1-z)}-\frac{2 \log (1-z) \log ^2(z+1)}{1-z}-\frac{2 \log ^2(2) \log (1-z)}{1-z}-\frac{2 \log ^2(2) \log (z+1)}{1-z}+\frac{4 \log (1-z) \log (z+1) \log (z)}{1-z}+\frac{2 i \pi  \log (z+1) \log (z)}{1-z}+\frac{4 \log (2) \log (1-z) \log (z+1)}{1-z}</span></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Apart</span><span class="op">[</span>Integrate2<span class="op">[</span><span class="fu">x</span><span class="sc">^</span>(OPEm <span class="sc">-</span> <span class="dv">1</span>) <span class="fu">PolyLog</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> OPEm<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\frac{\zeta (2)}{m^2}-\frac{\zeta (2)}{m-1}+\frac{\zeta (2)+\zeta (2) \left(-S_1(m-2)\right)+S_{12}(m)+\zeta (3)}{m}</span></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">x</span><span class="sc">^</span>(OPEm <span class="sc">-</span> <span class="dv">1</span>) <span class="fu">Log</span><span class="op">[</span><span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span><span class="op">]</span> <span class="fu">Log</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> <span class="fu">Log</span><span class="op">[</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">]</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Simplify</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> OPEm <span class="ot">-&gt;</span> <span class="dv">2</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">N</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{24} (-1)^m \left(48 \zeta (4)+30 \zeta (2) \log ^2(2)+6 \zeta (2) S_{-1}^2(m-1)+18 \zeta (2) S_2(m-1)-24 \zeta (2) S_{1-1}(m-1)-12 S_{-2}(m-1) \left(\zeta (2)-\log (4) S_{-1}(m-1)-\log ^2(2)\right)-36 \zeta (2) \log (2) S_1(m-1)+12 S_{-1}(m-1) (\zeta (2) \log (8)-2 \zeta (3))+39 \zeta (3) S_1(m-1)+24 S_{-2-1-1}(m-1)+24 S_{-1-2-1}(m-1)+24 S_{-1-1-2}(m-1)+24 S_{1-21}(m-1)+24 S_{1-12}(m-1)+24 S_{2-11}(m-1)-12 \log ^2(2) S_2(m-1)+24 \log (2) S_3(m-1)-24 \log (2) S_{-21}(m-1)-24 \log (2) S_{-12}(m-1)-48 \;\text{Li}_4\left(\frac{1}{2}\right)-63 \zeta (3) \log (2)-2 \log ^4(2)\right)</span></p>
+<p><span class="math display">\frac{1}{24} \left(48 \zeta (2)+48 \zeta (4)+30 \zeta (2) \log ^2(2)+12 \left(\zeta (2)-\log ^2(2)+\log (4)\right)-36 \zeta (2) \log (2)-48 \;\text{Li}_4\left(\frac{1}{2}\right)-12 (\zeta (2) \log (8)-2 \zeta (3))+39 \zeta (3)-63 \zeta (3) \log (2)-144-2 \log ^4(2)-12 \log ^2(2)+72 \log (2)\right)</span></p>
+<p><span class="math display">0.0505138</span></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">x</span><span class="sc">^</span>(OPEm <span class="sc">-</span> <span class="dv">1</span>) (<span class="fu">PolyLog</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span>)<span class="op">]</span> <span class="sc">-</span> <span class="fu">PolyLog</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="sc">-</span>((<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span>))<span class="op">]</span>)<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{3 \zeta (2) (-1)^m \log (2)}{2 m}-\frac{3 \zeta (2) \log (2)}{2 m}+\frac{\zeta (2) (-1)^m S_{-1}(m)}{m}-\frac{\zeta (2) S_{-1}(m)}{2 m}+\frac{\zeta (2) (-1)^m S_1(m)}{2 m}-\frac{\zeta (2) S_1(m)}{m}+\frac{(-1)^m S_{-3}(m)}{m}+\frac{(-1)^m S_{-2}(m) S_1(m)}{m}+\frac{S_1(m) S_2(m)}{m}+\frac{S_3(m)}{m}-\frac{(-1)^m S_{-21}(m)}{m}-\frac{S_{-1-2}(m)}{m}-\frac{(-1)^m S_{-12}(m)}{m}-\frac{S_{21}(m)}{m}-\frac{7 (-1)^m \zeta (3)}{8 m}+\frac{21 \zeta (3)}{8 m}</span></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>OPEm<span class="op">,</span> PositiveInteger<span class="op">]</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">x</span><span class="sc">^</span>(OPEm <span class="sc">-</span> <span class="dv">1</span>) DeltaFunction<span class="op">[</span><span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{True}</span></p>
+<p><span class="math display">1</span></p>
+<p>This is the polarized non-singlet spin splitting function whose first moment vanishes.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span> <span class="ex">=</span> SplittingFunction<span class="op">[</span>PQQNS<span class="op">]</span> <span class="ot">/.</span> FCGV<span class="op">[</span><span class="at">z_</span><span class="op">]</span> :&gt; <span class="fu">ToExpression</span><span class="op">[</span><span class="fu">z</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-8 C_F \left(C_F-\frac{C_A}{2}\right) \left(\frac{\left(x^2+1\right) \left(-2 \zeta (2)-4 \;\text{Li}_2(-x)+\log ^2(x)-4 \log (x+1) \log (x)\right)}{x+1}+4 (1-x)+2 (x+1) \log (x)\right)+C_A C_F \left(\frac{4 \left(x^2+1\right) \log ^2(x)}{1-x}+8 \zeta (2) (x+1)+\left(\frac{536}{9}-16 \zeta (2)\right) \left(\frac{1}{1-x}\right)_++\delta (1-x) \left(\frac{88 \zeta (2)}{3}-24 \zeta (3)+\frac{17}{3}\right)+\frac{4}{9} (53-187 x)-\frac{4}{3} \left(5 x-\frac{22}{1-x}+5\right) \log (x)\right)+C_F N_f \left(-\frac{8 \left(x^2+1\right) \log (x)}{3 (1-x)}+\left(-\frac{16 \zeta (2)}{3}-\frac{2}{3}\right) \delta (1-x)+\frac{88 x}{9}-\frac{80}{9} \left(\frac{1}{1-x}\right)_+-\frac{8}{9}\right)+C_F^2 \left(-\frac{16 \left(x^2+1\right) \log (1-x) \log (x)}{1-x}+\delta (1-x) (-24 \zeta (2)+48 \zeta (3)+3)-40 (1-x)-4 (x+1) \log ^2(x)-8 \left(2 x+\frac{3}{1-x}\right) \log (x)\right)</span></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span> <span class="sc">//</span> <span class="fu">Expand</span></span></code></pre></div>
+<p><span class="math display">8 \zeta (2) C_A C_F-\frac{16 x^2 C_A C_F \;\text{Li}_2(-x)}{x+1}-\frac{16 C_A C_F \;\text{Li}_2(-x)}{x+1}-\frac{8 \zeta (2) x^2 C_A C_F}{x+1}+\frac{4 x^2 C_A C_F \log ^2(x)}{1-x}+\frac{4 x^2 C_A C_F \log ^2(x)}{x+1}-\frac{16 x^2 C_A C_F \log (x) \log (x+1)}{x+1}+\frac{88}{3} \zeta (2) C_A C_F \delta (1-x)+\frac{17}{3} C_A C_F \delta (1-x)+8 \zeta (2) x C_A C_F-\frac{8 \zeta (2) C_A C_F}{x+1}-16 \zeta (2) \left(\frac{1}{1-x}\right)_+ C_A C_F-24 \zeta (3) C_A C_F \delta (1-x)-\frac{892}{9} x C_A C_F+\frac{536}{9} \left(\frac{1}{1-x}\right)_+ C_A C_F+\frac{4 C_A C_F \log ^2(x)}{1-x}+\frac{4 C_A C_F \log ^2(x)}{x+1}+\frac{4}{3} C_A C_F \log (x)+\frac{4}{3} x C_A C_F \log (x)+\frac{88 C_A C_F \log (x)}{3 (1-x)}-\frac{16 C_A C_F \log (x) \log (x+1)}{x+1}+\frac{356 C_A C_F}{9}-\frac{8 x^2 C_F N_f \log (x)}{3 (1-x)}-\frac{16}{3} \zeta (2) C_F N_f \delta (1-x)-\frac{2}{3} C_F N_f \delta (1-x)+\frac{88}{9} x C_F N_f-\frac{80}{9} \left(\frac{1}{1-x}\right)_+ C_F N_f-\frac{8 C_F N_f \log (x)}{3 (1-x)}-\frac{8 C_F N_f}{9}+\frac{32 x^2 C_F^2 \;\text{Li}_2(-x)}{x+1}+\frac{32 C_F^2 \;\text{Li}_2(-x)}{x+1}+\frac{16 \zeta (2) x^2 C_F^2}{x+1}-\frac{8 x^2 C_F^2 \log ^2(x)}{x+1}-\frac{16 x^2 C_F^2 \log (1-x) \log (x)}{1-x}+\frac{32 x^2 C_F^2 \log (x) \log (x+1)}{x+1}-24 \zeta (2) C_F^2 \delta (1-x)+3 C_F^2 \delta (1-x)+\frac{16 \zeta (2) C_F^2}{x+1}+48 \zeta (3) C_F^2 \delta (1-x)+72 x C_F^2-4 x C_F^2 \log ^2(x)-\frac{8 C_F^2 \log ^2(x)}{x+1}-4 C_F^2 \log ^2(x)-32 x C_F^2 \log (x)-\frac{16 C_F^2 \log (1-x) \log (x)}{1-x}-\frac{24 C_F^2 \log (x)}{1-x}-16 C_F^2 \log (x)+\frac{32 C_F^2 \log (x) \log (x+1)}{x+1}-72 C_F^2</span></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">t</span><span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Timing</span></span></code></pre></div>
+<p><span class="math display">\{0.040008,0\}</span></p>
+<p>Expanding <code>t</code> with respect to <code>x</code> yields a form already suitable for <code>Integrate3</code> and therefore the following is faster:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Integrate3<span class="op">[</span><span class="fu">Expand</span><span class="op">[</span><span class="fu">t</span><span class="op">,</span> <span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Expand</span> <span class="sc">//</span> <span class="fu">Timing</span></span></code></pre></div>
+<p><span class="math display">\{0.018181,0\}</span></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Clear</span><span class="op">[</span><span class="fu">t</span><span class="op">]</span>; </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span>DeltaFunction<span class="op">[</span><span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span><span class="op">]</span> <span class="fu">f</span><span class="op">[</span><span class="fu">x</span><span class="op">],</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">f(1)</span></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">x</span><span class="sc">^</span><span class="dv">5</span> <span class="fu">Log</span><span class="op">[</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">N</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{46 \log (2)}{45}-\frac{6959}{10800}</span></p>
+<p><span class="math display">0.0641986</span></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">NIntegrate</span><span class="op">[</span><span class="fu">x</span><span class="sc">^</span><span class="dv">5</span> <span class="fu">Log</span><span class="op">[</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">0.0641986</span></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>Integrate2<span class="op">[</span><span class="fu">x</span><span class="sc">^</span>(OPEm <span class="sc">-</span> <span class="dv">1</span>) <span class="fu">Log</span><span class="op">[</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">-\frac{2 (-1)^m S_1^2(m)}{m}+\frac{(-1)^m S_1\left(\frac{m-1}{2}\right) S_1(m)}{m}-\frac{S_1\left(\frac{m-1}{2}\right) S_1(m)}{m}+\frac{(-1)^m S_1\left(\frac{m}{2}\right) S_1(m)}{m}+\frac{S_1\left(\frac{m}{2}\right) S_1(m)}{m}+\frac{(-1)^m S_2\left(\frac{m-1}{2}\right)}{2 m}-\frac{S_2\left(\frac{m-1}{2}\right)}{2 m}+\frac{(-1)^m S_2\left(\frac{m}{2}\right)}{2 m}+\frac{S_2\left(\frac{m}{2}\right)}{2 m}-\frac{2 (-1)^m S_2(m)}{m}-\frac{2 (-1)^m S_{-11}(m)}{m}+\frac{4 (-1)^m \log (2) S_1(m)}{m}-\frac{(-1)^m \log (2) S_1\left(\frac{m-1}{2}\right)}{m}+\frac{\log (2) S_1\left(\frac{m-1}{2}\right)}{m}-\frac{(-1)^m \log (2) S_1\left(\frac{m}{2}\right)}{m}-\frac{\log (2) S_1\left(\frac{m}{2}\right)}{m}-\frac{(-1)^m \log ^2(2)}{m}+\frac{\log ^2(2)}{m}</span></p>
+</body>
+</html>

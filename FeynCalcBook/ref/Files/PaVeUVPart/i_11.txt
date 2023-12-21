@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>int = FVD[k + p, rho] FVD[k + p, si] FAD[k, {k + p, 0, 2}]</pre><div class='IFU'>http://wolfram.com/xid/08afeya605ft4drai76zosdyq</div>

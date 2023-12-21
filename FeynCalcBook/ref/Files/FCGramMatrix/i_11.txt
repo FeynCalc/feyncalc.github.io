@@ -1,2 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>FCGramDeterminant[{p1, p2, p3}, 
- Head -&gt; {CartesianPair, CartesianMomentum}, Dimension -&gt; D - 1]</pre><div class='IFU'><a name='1026798352'></a>http://wolfram.com/xid/0fnx5q0u7sai4aean0h7btu-q9l4yq</div>

@@ -1,3 +1,0 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>MapThread[
-  FCAttachTypesettingRule[#1, {SubscriptBox, &quot;p&quot;, #2}] &amp;, {{p1, p2, 
-    p3, p4}, Range[4]}];</pre><div class='IFU'><a name='1515379826'></a>http://wolfram.com/xid/0ez33esw5zap4vqlzk2q8ovvk83a7m-zch4uc</div>

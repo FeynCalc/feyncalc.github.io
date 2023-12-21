@@ -1,2 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>Twist4GluonOperator[{oa, ob, oc, od}, {p1, la1, a1}, {p2, la2, 
-  a2}, {p3, la3, a3}, {p4, la4, a4}]</pre><div class='IFU'><a name='456251569'></a>http://wolfram.com/xid/0cxtaw2rnl3r68uvxjyhatobwkcny-htxb8z</div>

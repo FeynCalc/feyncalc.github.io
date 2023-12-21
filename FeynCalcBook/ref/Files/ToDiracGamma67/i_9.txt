@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>GA[\[Mu], 5, \[Nu]];
-ToDiracGamma67[%, All -&gt; True];
-ToDiracGamma67[%, All -&gt; True]</pre><div class='IFU'><a name='805294007'></a>http://wolfram.com/xid/0b6akjmb3r0ldyg3pumwtdo98d-nlqi39</div>

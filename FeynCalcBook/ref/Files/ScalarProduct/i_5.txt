@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>ScalarProduct[p + q, -q]</pre><div class='IFU'><a name='2091143136'></a>http://wolfram.com/xid/0dot6agzccymmiq2pj1ca-8vaqnm</div>

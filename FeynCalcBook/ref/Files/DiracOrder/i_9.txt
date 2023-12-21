@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>GAD[\[Rho], \[Nu], \[Mu], \[Nu]];
-DiracOrder[%];
-DiracOrder[%]</pre><div class='IFU'><a name='1481569664'></a>http://wolfram.com/xid/0g3d2anoefmyyrc18397m-ysdgq6</div>

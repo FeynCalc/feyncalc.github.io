@@ -1,3 +1,0 @@
-<pre name='i_27_in' id='i_27_in' class='IFT'>AbsoluteTiming[
- Collect2[exp, {a, b, c}, Factoring -&gt; False, IsolateNames -&gt; KK, 
-  Expanding -&gt; False]]</pre><div class='IFU'><a name='908574489'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-pa76uj</div>

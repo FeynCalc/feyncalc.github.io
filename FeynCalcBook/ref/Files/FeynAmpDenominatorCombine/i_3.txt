@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'> FAD[q] FAD[q - p];
-FeynAmpDenominatorCombine[%];
-FeynAmpDenominatorCombine[%]</pre><div class='IFU'><a name='102451509'></a>http://wolfram.com/xid/0eg8r6aumgiodhcrjfxnijywh1yptfb-by96dj</div>

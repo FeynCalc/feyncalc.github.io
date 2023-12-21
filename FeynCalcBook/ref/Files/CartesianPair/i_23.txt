@@ -1,1 +1,0 @@
-<pre name='i_23_in' id='i_23_in' class='IFT'>CartesianPair[CartesianMomentum[p], CartesianMomentum[p]]^3</pre><div class='IFU'><a name='721851127'></a>http://wolfram.com/xid/04ieufm3d5y7w0525wrspihi26-l7116h</div>

@@ -1,2 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>DiracSimplify[
- DiracTrace[GAD[\[Mu], \[Nu], \[Rho], \[Sigma], \[Tau], \[Kappa], 5]]]</pre><div class='IFU'><a name='415066987'></a>http://wolfram.com/xid/0gwt4rzmfasvnr4g440xp2syk4xzaz66m-g5el0t</div>

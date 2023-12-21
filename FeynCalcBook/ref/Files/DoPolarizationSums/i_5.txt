@@ -1,2 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Pair[LorentzIndex[\[Mu]], Momentum[Polarization[p, -I]]] Pair[
-  LorentzIndex[\[Nu]], Momentum[Polarization[p, I]]]</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

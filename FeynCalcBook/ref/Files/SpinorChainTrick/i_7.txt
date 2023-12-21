@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>SpinorUBar[p1, m1].GAE[\[Mu]].SpinorU[p2, m2] SpinorVBar[p1, 
-   m1].GA[\[Mu]].SpinorV[p4, m4]</pre><div class='IFU'><a name='1667886211'></a>http://wolfram.com/xid/005ib61n5qgf6hxm08kvab9nyu0-1vavit</div>

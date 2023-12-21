@@ -1,5 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Spinor[Momentum[k2, D], 0, 1].GAD[\[Mu]].Spinor[-Momentum[k1, D], 0, 
-   1]*Spinor[-Momentum[ps, D], SMP[&quot;m_s&quot;], 1].GAD[\[Mu]].Spinor[
-   Momentum[pd, D], SMP[&quot;m_d&quot;], 1];
-ToStandardMatrixElement[%];
-ToStandardMatrixElement[%]</pre><div class='IFU'><a name='626624448'></a>http://wolfram.com/xid/0racumaqnpu17bzmxkm9eec1u-knc0sy</div>

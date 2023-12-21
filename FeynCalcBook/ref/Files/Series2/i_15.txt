@@ -1,2 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>Series2[HypergeometricPFQ[{1, OPEm - 1, Epsilon/2 + OPEm}, {OPEm, 
-   OPEm + Epsilon}, 1], Epsilon, 1]</pre><div class='IFU'><a name='1447119838'></a>http://wolfram.com/xid/0tn9depw6mpqkccwqu-x7u23k</div>

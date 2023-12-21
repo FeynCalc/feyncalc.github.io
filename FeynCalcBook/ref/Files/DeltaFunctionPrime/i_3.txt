@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>Integrate2[DeltaFunctionPrime[1 - x] f[x], {x, 0, 1}]</pre><div class='IFU'><a name='666771914'></a>http://wolfram.com/xid/0fnx5q0u7sai4afxrgk03uc-la9isc</div>

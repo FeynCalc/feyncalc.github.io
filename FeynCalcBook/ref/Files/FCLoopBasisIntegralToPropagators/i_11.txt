@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>SPD[q, p] SFAD[q, q - p, q - p]</pre><div class='IFU'><a name='245070355'></a>http://wolfram.com/xid/07do29az9ac9tu89qht6fwa41rbxalq7lnzq8-eb6zr5</div>

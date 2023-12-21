@@ -1,1 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Integrate2[PlusDistribution[Log[1 - x]/(1 - x)], {x, 0, 1}]</pre><div class='IFU'><a name='1214045782'></a>http://wolfram.com/xid/0md0z2x3dnst5sksx4k7dm-uc3hz8</div>

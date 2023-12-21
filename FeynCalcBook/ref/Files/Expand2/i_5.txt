@@ -1,2 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Expand2[(x1 + x2 + x3) (2 x1 + 3 x2) + (y1 + y2 + y3) (2 y1 + 
-     3 y2), {x1, x2}]</pre><div class='IFU'><a name='1988123480'></a>http://wolfram.com/xid/0jy9tuh3qgh0fbhxvq-65yn6i</div>

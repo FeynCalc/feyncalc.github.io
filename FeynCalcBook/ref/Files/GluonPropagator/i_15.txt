@@ -1,3 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>GP[p, \[Mu], \[Nu]];
-Explicit[%];
-Explicit[%]</pre><div class='IFU'>http://wolfram.com/xid/0br0qd3s106ml2q4lw9538hxju1a</div>

@@ -1,1 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>SpinorVBar[p1, m1].GA[\[Alpha], \[Beta], \[Mu], \[Nu]].SpinorU[p2, m2]</pre><div class='IFU'>http://wolfram.com/xid/0cy370nkq1aepabvqqhkspr</div>

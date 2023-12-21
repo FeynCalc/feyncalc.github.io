@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="fccanonicalizedummyindices">FCCanonicalizeDummyIndices</h2>
+<p><code>FCCanonicalizeDummyIndices[expr]</code> canonicalizes dummy indices in the expression.</p>
+<p>Following index types are supported: <code>LorentzIndex</code>, <code>CartesianIndex</code>, <code>SUNIndex</code>, <code>SUNFIndex</code>, <code>DiracIndex</code>, <code>PauliIndex</code></p>
+<p>In the case of Lorentz indices the option <code>Momentum</code> provides a possibility to limit the canonicalization only to particular <code>Momenta</code>. The option <code>LorentzIndexNames</code> can be used to assign specific names to the canonicalized indices, to have say <span class="math inline">\mu</span>, <span class="math inline">\nu</span>, <span class="math inline">\rho</span> etc. instead of some random names.</p>
+<p>For other index types the corresponding options are called <code>CartesianIndexNames</code>, <code>SUNIndexNames</code>, <code>SUNFIndexNames</code>, <code>DiracIndexNames</code> and <code>PauliIndexNames</code>.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCRenameDummyIndices.html">FCRenameDummyIndices</a>.</p>
+<h3 id="examples">Examples</h3>
+<p>Canonicalization of Lorentz indices</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> mu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> <span class="sc">+</span> FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> nu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> nu<span class="op">]</span> <span class="sc">+</span> FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> si<span class="op">]</span> FVD<span class="op">[</span><span class="fu">r</span><span class="op">,</span> si<span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> Factor2</span></code></pre></div>
+<p><span class="math display">p^{\text{mu}} q^{\text{mu}}+p^{\text{nu}} q^{\text{nu}}+q^{\text{si}} r^{\text{si}}</span></p>
+<p><span class="math display">q^{\text{FCGV}(\text{li191})} \left(2 p^{\text{FCGV}(\text{li191})}+r^{\text{FCGV}(\text{li191})}\right)</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> Pair <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]}]</span></span></code></pre></div>
+<p><span class="math display">p^{\text{\$AL}(\text{\$28})} p^{\text{\$AL}(\text{\$29})} q^{\text{\$AL}(\text{\$28})} q^{\text{\$AL}(\text{\$29})}</span></p>
+<p><span class="math display">p^{\mu } p^{\nu } q^{\mu } q^{\nu }</span></p>
+<p>Canonicalization of Cartesian indices</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>CVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> CVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> <span class="sc">+</span> CVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> CVD<span class="op">[</span><span class="fu">r</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> Factor2</span></code></pre></div>
+<p><span class="math display">p^i q^i+p^j r^j</span></p>
+<p><span class="math display">p^{\text{FCGV}(\text{ci391})} \left(q^{\text{FCGV}(\text{ci391})}+r^{\text{FCGV}(\text{ci391})}\right)</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> CVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> <span class="sc">+</span> CVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> CVD<span class="op">[</span><span class="fu">r</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> CartesianIndexNames <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span> <span class="sc">//</span> Factor2</span></code></pre></div>
+<p><span class="math display">p^i q^i+p^j r^j</span></p>
+<p><span class="math display">p^a \left(q^a+r^a\right)</span></p>
+<p>Canonicalization of color indices</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SUNT<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">a</span><span class="op">]</span> <span class="sc">+</span> SUNT<span class="op">[</span><span class="fu">c</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">T^a.T^b.T^a+T^c.T^b.T^c</span></p>
+<p><span class="math display">2 T^{\text{FCGV}(\text{sun601})}.T^b.T^{\text{FCGV}(\text{sun601})}</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SUNT<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">a</span><span class="op">]</span> <span class="sc">+</span> SUNT<span class="op">[</span><span class="fu">c</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">]</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> SUNIndexNames <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">u</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">T^a.T^b.T^a+T^c.T^b.T^c</span></p>
+<p><span class="math display">2 T^u.T^b.T^u</span></p>
+<p>Canonicalization of Dirac indices</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>GA<span class="op">[</span>mu<span class="op">],</span> <span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> DCHN<span class="op">[</span>GA<span class="op">[</span>nu<span class="op">],</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{ij} \left(\bar{\gamma }^{\text{nu}}\right){}_{jk}</span></p>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{i\text{FCGV}(\text{di771})} \left(\bar{\gamma }^{\text{nu}}\right){}_{\text{FCGV}(\text{di771})k}</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DCHN<span class="op">[</span>GA<span class="op">[</span>mu<span class="op">],</span> <span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> DCHN<span class="op">[</span>GA<span class="op">[</span>nu<span class="op">],</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> DiracIndexNames <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{ij} \left(\bar{\gamma }^{\text{nu}}\right){}_{jk}</span></p>
+<p><span class="math display">\left(\bar{\gamma }^{\text{mu}}\right){}_{ia} \left(\bar{\gamma }^{\text{nu}}\right){}_{ak}</span></p>
+<p>Canonicalization of Pauli indices</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>PCHN<span class="op">[</span>CSI<span class="op">[</span><span class="fu">a</span><span class="op">],</span> <span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> PCHN<span class="op">[</span>CSI<span class="op">[</span><span class="fu">b</span><span class="op">],</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{ij} \left(\overline{\sigma }^b\right){}_{jk}</span></p>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{i\text{FCGV}(\text{pi921})} \left(\overline{\sigma }^b\right){}_{\text{FCGV}(\text{pi921})k}</span></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>PCHN<span class="op">[</span>CSI<span class="op">[</span><span class="fu">a</span><span class="op">],</span> <span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> PCHN<span class="op">[</span>CSI<span class="op">[</span><span class="fu">b</span><span class="op">],</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> PauliIndexNames <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">l</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{ij} \left(\overline{\sigma }^b\right){}_{jk}</span></p>
+<p><span class="math display">\left(\overline{\sigma }^a\right){}_{il} \left(\overline{\sigma }^b\right){}_{lk}</span></p>
+<p>Using the option <code>Head</code> one can specify which index heads should be canonicalized, while the rest will be ignored.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(QuantumField<span class="op">[</span><span class="fu">Superscript</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">],</span> <span class="st">&quot;+&quot;</span><span class="op">],</span> PauliIndex<span class="op">[</span>k1<span class="op">],</span> PauliIndex<span class="op">[</span>k2<span class="op">],</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">R</span><span class="op">,</span> <span class="fu">r</span><span class="op">]</span> . QuantumField<span class="op">[</span>FCPartialD<span class="op">[{</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="fu">r</span><span class="op">}],</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     FCPartialD<span class="op">[{</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="fu">r</span><span class="op">}],</span> <span class="sc">\</span><span class="op">[</span>Phi<span class="op">],</span> PauliIndex<span class="op">[</span>k2<span class="op">],</span> PauliIndex<span class="op">[</span>k1<span class="op">],</span> <span class="fu">R</span><span class="op">,</span> <span class="fu">r</span><span class="op">]</span>) </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> CartesianIndexNames <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">j</span><span class="op">},</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> <span class="op">{</span>CartesianIndex<span class="op">}]</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<p><span class="math display">\phi ^{+\text{k1}\;\text{k2}Rr}.\left(\partial _{\{i,r\}}\partial _{\{i,r\}}\phi ^{\text{k2}\;\text{k1}Rr}\right)</span></p>
+<p><span class="math display">\phi ^{+\text{k1}\;\text{k2}Rr}.\left(\partial _{\{j,r\}}\partial _{\{j,r\}}\phi ^{\text{k2}\;\text{k1}Rr}\right)</span></p>
+</body>
+</html>

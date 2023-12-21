@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>SPD[p, q];
-% // LorentzToCartesian;
-% // LorentzToCartesian</pre><div class='IFU'><a name='151214086'></a>http://wolfram.com/xid/0d0gx6qsc3tqs4mwj3gsbww3qubu6tu2-csbbtk</div>

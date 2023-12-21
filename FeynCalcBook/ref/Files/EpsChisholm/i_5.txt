@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>LC[\[Mu], \[Nu], \[Rho], \[Sigma]] GA[\[Sigma], 5];
-EpsChisholm[%];
-EpsChisholm[%]</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhe11r633p6ov</div>

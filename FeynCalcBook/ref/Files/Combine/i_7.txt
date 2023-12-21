@@ -1,1 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Combine[((a - b) (c - d))/e + g, Expanding -&gt; True]</pre><div class='IFU'><a name='758144630'></a>http://wolfram.com/xid/0bhwp8a9gs181wxagn-mtnyfc</div>

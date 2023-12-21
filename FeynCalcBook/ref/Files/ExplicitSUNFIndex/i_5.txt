@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>ExplicitSUNFIndex[1];
-% // FCI // StandardForm;
-% // FCI // StandardForm</pre><div class='IFU'><a name='1621387441'></a>http://wolfram.com/xid/0cdri8akgdehbvtwu4uzpyr9oe2ndn5-03l8ub</div>

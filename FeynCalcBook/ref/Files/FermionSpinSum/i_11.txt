@@ -1,3 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>SpinorUBar[Momentum[p], m].SpinorU[Momentum[p], m];
-FermionSpinSum[%];
-FermionSpinSum[%]</pre><div class='IFU'><a name='723398437'></a>http://wolfram.com/xid/04ieufm3d5y7w09uylx6ihwgre-l8y73b</div>

@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>SpinorUBar[Subscript[p, 1]].GA[\[Mu]].GA[5].GA[\[Nu]].SpinorU[
-  Subscript[p, 2]]</pre><div class='IFU'><a name='523334398'></a>http://wolfram.com/xid/0bhbk9z6xqab8ybj96fjd58c-ixu5ow</div>

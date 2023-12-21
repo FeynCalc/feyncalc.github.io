@@ -1,1 +1,0 @@
-<pre name='i_19_in' id='i_19_in' class='IFT'>FeynCalc2FORM[&quot;fc2ftest.f&quot;, MT[\[Mu], \[Nu]] FV[p, \[Mu]]];</pre><div class='IFU'><a name='118791271'></a>http://wolfram.com/xid/0ez33esw5zap4vqko24x0c48voea9g-b80d7t</div>

@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>ExpandScalarProduct[myTens[z, Momentum[a + b], Momentum[c + d]]]</pre><div class='IFU'><a name='816959797'></a>http://wolfram.com/xid/0dm6sivpips10tdecix8dbain5e-nsokhz</div>

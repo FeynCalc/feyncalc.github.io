@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="custom-feynrules-models">Custom FeynRules models</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<p>If you want to create new FeynArts models using <a href="https://feynrules.irmp.ucl.ac.be/">FeynRules</a>, please keep in mind that those models must be patched for compatibility with FeynCalc before they can be used for calculations.</p>
+<p>The patching is done by using the function <code>FAPatch</code> with the option <code>PatchModelsOnly</code> set to <code>True</code></p>
+<ul>
+<li>If the model is located inside the <code>Models</code> directory of <code>$FeynArtsDirectory</code>, it is sufficient to evaluate <code>FAPatch[PatchModelsOnly -&gt; True]</code> after loading FeynCalc and FeynArts in the usual way.</li>
+<li>If the model has been placed into a separate directory, use <code>FAPatch[PatchModelsOnly -&gt; True, FAModelsDirectory -&gt; "fullPathToMyModelDir"]</code></li>
+</ul>
+<p>The patching has to be done only once for each new model. However, rerunning <code>FAPatch[PatchModelsOnly -&gt; True]</code> would not do any harm, so if you often modify existing or add new models, you might want to keep this command in your working notebooks.</p>
+</body>
+</html>

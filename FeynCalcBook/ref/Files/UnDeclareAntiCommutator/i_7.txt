@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>UnDeclareAntiCommutator[
-  QuantumField[FCPartialD[LorentzIndex[xxx_]], A], QuantumField[A]];</pre><div class='IFU'><a name='369842680'></a>http://wolfram.com/xid/0bl1sloiyx608rlqj15ivjh8igo9a-gehap2</div>

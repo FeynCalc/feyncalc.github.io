@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>QuantumField[
-  QuarkFieldPsiDagger].GA[\[Mu]].CovariantD[\[Mu]].QuantumField[
-  QuarkFieldPsi]</pre><div class='IFU'><a name='497682476'></a>http://wolfram.com/xid/0teu55sspea5oy97vt13bsc4-iilcji</div>

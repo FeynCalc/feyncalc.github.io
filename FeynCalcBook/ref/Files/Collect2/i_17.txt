@@ -1,1 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>Collect2[Expand[(a - b - c - d)^5], a, Head -&gt; h]</pre><div class='IFU'><a name='1338628687'></a>http://wolfram.com/xid/08q4nt52zsdq758r4qu-we9qsh</div>

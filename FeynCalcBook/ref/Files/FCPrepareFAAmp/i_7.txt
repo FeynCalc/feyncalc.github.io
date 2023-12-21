@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FCClearScalarProducts[];
-FCPrepareFAAmp[%];
-FCPrepareFAAmp[%]</pre><div class='IFU'><a name='1929840896'></a>http://wolfram.com/xid/0viifcl48wt9lytqywgt3ppy2nv0s-569g1u</div>

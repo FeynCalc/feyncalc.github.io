@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>Eps[ExplicitLorentzIndex[0], ExplicitLorentzIndex[1], 
- ExplicitLorentzIndex[2], ExplicitLorentzIndex[3]]</pre><div class='IFU'><a name='1867659172'></a>http://wolfram.com/xid/0c0fr5uhfyi7if85c-458pbq</div>

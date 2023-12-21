@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>SetOptions[A0, A0ToB0 -&gt; True];</pre><div class='IFU'><a name='756011783'></a>http://wolfram.com/xid/0cpi56b8nbt7tjlt93-msd8pl</div>

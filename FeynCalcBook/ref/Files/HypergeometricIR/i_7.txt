@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>HypergeometricIR[Hypergeometric2F1[a, b, c, z], t];
-HypergeometricIR[%, t];
-HypergeometricIR[%, t]</pre><div class='IFU'><a name='1094444131'></a>http://wolfram.com/xid/0gb5m6l6ty1j71j8a4aibl-sdv0r5</div>

@@ -1,1 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>Integrate2[PlusDistribution[1/(1 - x)], {x, 0, 1}]</pre><div class='IFU'><a name='1725124689'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-2tdo0j</div>

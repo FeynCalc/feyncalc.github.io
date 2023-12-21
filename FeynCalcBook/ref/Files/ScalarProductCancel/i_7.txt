@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'> SPD[q2, p] SPD[q1, p] FAD[{q1, m}, {q2, m}, q1 - p, q2 - p, 
-   q2 - q1] // FCI</pre><div class='IFU'><a name='360584001'></a>http://wolfram.com/xid/0isbkgaigz2n8s0vqnwkcqekm-f8yuoj</div>

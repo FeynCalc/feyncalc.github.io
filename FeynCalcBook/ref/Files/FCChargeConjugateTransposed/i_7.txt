@@ -1,2 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>FCChargeConjugateTransposed[GA[\[Mu], \[Nu], \[Rho]], 
- Explicit -&gt; True]</pre><div class='IFU'><a name='1573360164'></a>http://wolfram.com/xid/0q139ucjmy7um2kbwpvgvx3s7t2u3ck-0a0ura</div>

@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>FCReplaceAll[a c, a -&gt; b, c -&gt; d, d -&gt; e, b -&gt; f]</pre><div class='IFU'><a name='1366564949'></a>http://wolfram.com/xid/0fnx5q0u7sai4aean0e00kk-wvwijr</div>

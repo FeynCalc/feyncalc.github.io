@@ -1,1 +1,0 @@
-<pre name='i_43_in' id='i_43_in' class='IFT'>Integrate2[x^(OPEm - 1) DeltaFunction[1 - x], {x, 0, 1}]</pre><div class='IFU'><a name='512808203'></a>http://wolfram.com/xid/0eld2y9rdg1pwitw6py-irljml</div>

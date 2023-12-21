@@ -1,4 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>DiracSigma[GSD[p], GSD[r] + GSD[t]] + 
- DiracSigma[GSD[l] + GSD[n], GSD[p]];
-DiracSigmaExpand[%, Momentum -&gt; {r}];
-DiracSigmaExpand[%, Momentum -&gt; {r}]</pre><div class='IFU'><a name='1102856647'></a>http://wolfram.com/xid/0e2fh85wv2ah4yfd9uvcs0iq-siwbw5</div>

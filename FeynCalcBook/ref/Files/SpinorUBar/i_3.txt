@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>SpinorUBar[p, m];
-FCI[%] // StandardForm;
-FCI[%] // StandardForm</pre><div class='IFU'><a name='2060242592'></a>http://wolfram.com/xid/0e2fh85wv2ah4ybmcrf2jhte-8cwfm6</div>

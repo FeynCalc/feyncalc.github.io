@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>GS[q].GS[p - q];
-StandardForm[%];
-StandardForm[%]</pre><div class='IFU'>http://wolfram.com/xid/0bhbk9z6xqab8ybj96ginile</div>

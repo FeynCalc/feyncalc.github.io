@@ -1,2 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>Integrate[
-  PartialIntegrate[f[x] g[x], f[x], x], {x, 0, 1}] // FullSimplify</pre><div class='IFU'><a name='2004778923'></a>http://wolfram.com/xid/0g3d2anoefmyyrbi7rt8i-7fvnlp</div>

@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>SetTemporalComponent[p, t]</pre><div class='IFU'><a name='2002104407'></a>http://wolfram.com/xid/0d2ausydw9qwhmlyfoemfoieeq-7eabxl</div>

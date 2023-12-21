@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>Trick[{GA[\[Mu]] MT[\[Mu], \[Nu]], MTD[\[Nu], \[Nu]]}];
-Trick[%];
-Trick[%]</pre><div class='IFU'><a name='1357228781'></a>http://wolfram.com/xid/0bc18gi5j2y46ueza5o-wqcepr</div>

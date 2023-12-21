@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>StringChomp[&quot; abc &quot;];
-% // InputForm;
-% // InputForm</pre><div class='IFU'><a name='1353126443'></a>http://wolfram.com/xid/01ipebruqvo0z5yzvt40c-wnwhbx</div>

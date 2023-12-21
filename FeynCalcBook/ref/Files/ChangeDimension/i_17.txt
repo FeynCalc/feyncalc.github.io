@@ -1,3 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>{LorentzIndex[\[Mu]], Momentum[p]};
- ChangeDimension[%, D];
- ChangeDimension[%, D]</pre><div class='IFU'><a name='1364188329'></a>http://wolfram.com/xid/0dot6agzccymmir0joalu-wuhkqj</div>

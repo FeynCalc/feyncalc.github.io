@@ -1,3 +1,0 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>DiracSimplify[
- DiracReduce[GA[\[Mu], \[Nu], \[Rho], \[Sigma]]].DiracReduce[
-   GA[\[Mu], \[Nu], \[Rho], \[Sigma]]]]</pre><div class='IFU'>http://wolfram.com/xid/0dot6agzccymmitn9o86q</div>

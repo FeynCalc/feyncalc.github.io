@@ -1,2 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>SUNFDelta[SUNFIndex[a], SUNFIndex[b]] SUNFDelta[SUNFIndex[b], 
-  SUNFIndex[c]]</pre><div class='IFU'><a name='970611158'></a>http://wolfram.com/xid/0ejaxdaedm6g9jnug1i1bvd9m-qb5unc</div>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: true
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="pavereduce">PaVeReduce</h2>
+<p><code>PaVeReduce[expr]</code> reduces all Passarino-Veltman integrals (i.e. all PaVe’s) in expr down to scalar <code>A0</code>, <code>B0</code>, <code>C0</code> and <code>D0</code>.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FRH.html">FRH</a>, <a href="PaVeOrder.html">PaVeOrder</a>.</p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PaVeReduce<span class="op">[</span>PaVe<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> IsolateNames <span class="ot">-&gt;</span> FF<span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>FRH<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FF}(31)</span></p>
+<p><span class="math display">\left(\frac{2 (2 D-3) M^2}{(D-2) \left(4 m^2-s\right)^2}-\frac{M^2 s}{2 m^2 \left(4 m^2-s\right)^2}-\frac{4 m^2}{\left(4 m^2-s\right)^2}+\frac{s}{\left(4 m^2-s\right)^2}\right) \;\text{B}_0\left(m^2,m^2,M^2\right)+\left(-\frac{2 (D-1) M^2}{(D-2) \left(4 m^2-s\right)^2}+\frac{4 m^2}{(D-2) \left(4 m^2-s\right)^2}-\frac{s}{(D-2) \left(4 m^2-s\right)^2}\right) \;\text{B}_0\left(s,m^2,m^2\right)+\left(-\frac{2 (D-1) M^4}{(D-2) \left(4 m^2-s\right)^2}-\frac{D M^2 s}{(D-2) \left(4 m^2-s\right)^2}+\frac{4 D m^2 M^2}{(D-2) \left(4 m^2-s\right)^2}\right) \;\text{C}_0\left(m^2,m^2,s,m^2,M^2,m^2\right)-\frac{\text{A}_0\left(M^2\right)}{2 m^2 \left(4 m^2-s\right)}+\frac{\text{A}_0\left(m^2\right)}{2 m^2 \left(4 m^2-s\right)}</span></p>
+<p>The reduction results can be saved to a Mathematica file</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PaVeReduce<span class="op">[</span>PaVe<span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span>SmallVariable<span class="op">[</span>me2<span class="op">],</span> mw2<span class="op">,</span> <span class="fu">t</span><span class="op">},</span> <span class="op">{</span>SmallVariable<span class="op">[</span>me2<span class="op">],</span> <span class="dv">0</span><span class="op">,</span> mw2<span class="op">}],</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   WriteOutPaVe <span class="ot">-&gt;</span> <span class="st">&quot;p&quot;</span><span class="op">]</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">TableForm</span><span class="op">[</span><span class="fu">ReadList</span><span class="op">[</span><span class="st">&quot;pPaVe1Cmw2tsmame2C0mw2smame2.s&quot;</span><span class="op">,</span> <span class="fu">String</span><span class="op">]]</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">DeleteFile</span> <span class="sc">/</span>@ <span class="fu">FileNames</span><span class="op">[</span><span class="st">&quot;pPaVe1Cmw2tsmame2C0mw2smame2.s&quot;</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\frac{\text{B}_0(\text{mw2},0,\text{mw2})}{\text{mw2}-t}-\frac{\text{B}_0(t,\text{mw2},\text{me2})}{\text{mw2}-t}</span></p>
+<p><span class="math display">\begin{array}{l}
+ \;\text{( PaVe[0, $\{$mw2$\}$, $\{$0, mw2$\}$]/(mw2 - t) - PaVe[0, $\{$t$\}$, $\{$mw2, SmallVariable[me2]$\}$]/} \\
+ \;\text{  (mw2 - t)} \\
+ \;\text{  ) } \\
+\end{array}</span></p>
+<p>Fortran export is also available</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>se <span class="ex">=</span> SmallVariable<span class="op">[</span>ME2<span class="op">]</span>; </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>d122 <span class="ex">=</span> PaVeReduce<span class="op">[</span>PaVe<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="op">{</span>se<span class="op">,</span> MW2<span class="op">,</span> MW2<span class="op">,</span> se<span class="op">,</span> <span class="fu">S</span><span class="op">,</span> <span class="fu">T</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> se<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> se<span class="op">}],</span> Mandelstam <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">S</span><span class="op">,</span> <span class="fu">T</span><span class="op">,</span> <span class="fu">U</span><span class="op">,</span> <span class="dv">2</span> MW2<span class="op">},</span> IsolateNames <span class="ot">-&gt;</span> <span class="fu">F</span><span class="op">]</span> <span class="sc">//</span> FRH </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Write2<span class="op">[</span><span class="st">&quot;fctd122.for&quot;</span><span class="op">,</span> d122res <span class="ex">==</span> d122<span class="op">,</span> <span class="fu">FormatType</span> <span class="ot">-&gt;</span> <span class="fu">FortranForm</span><span class="op">]</span>; </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">TableForm</span><span class="op">[</span><span class="fu">ReadList</span><span class="op">[</span><span class="st">&quot;fctd122.for&quot;</span><span class="op">,</span> <span class="fu">String</span><span class="op">]]</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">DeleteFile</span> <span class="sc">/</span>@ <span class="fu">FileNames</span><span class="op">[</span><span class="st">&quot;fctd122.for&quot;</span><span class="op">]</span>; <span class="fu">Clear</span><span class="op">[</span>d122<span class="op">,</span> se<span class="op">]</span>; </span></code></pre></div>
+<p><span class="math display">-\frac{D (\text{MW2}-S) T^2 \;\text{D}_0(\text{MW2},\text{MW2},\text{ME2},\text{ME2},T,S,\text{ME2},0,\text{ME2},0) S^3}{8 (3-D) \left(\text{MW2}^2-S U\right)^3}-\frac{D (\text{MW2}-S)^2 T \;\text{C}_0(\text{MW2},S,\text{ME2},\text{ME2},0,0) S^2}{4 (3-D) \left(\text{MW2}^2-S U\right)^3}+\frac{D (\text{MW2}-S) T^2 \;\text{C}_0(T,\text{ME2},\text{ME2},\text{ME2},\text{ME2},0) S^2}{8 (3-D) \left(\text{MW2}^2-S U\right)^3}-\frac{\left(2 \;\text{MW2}^2-D S T-2 S U\right) \;\text{B}_0(S,0,0) S}{2 (2-D) (\text{MW2}-S) \left(\text{MW2}^2-S U\right)^2}+\frac{(\text{MW2}+U) \;\text{A}_0(\text{ME2})}{2 \;\text{MW2} (4 \;\text{MW2}-T) \left(\text{MW2}^2-S U\right)}+\left(\left(-2 D \;\text{MW2}^5+16 \;\text{MW2}^5-3 D S \;\text{MW2}^4+2 S \;\text{MW2}^4-3 D U \;\text{MW2}^4+10 U \;\text{MW2}^4-8 D S^2 \;\text{MW2}^3+4 D S U \;\text{MW2}^3-16 S U \;\text{MW2}^3+2 D S^3 \;\text{MW2}^2+4 D S U^2 \;\text{MW2}^2-8 S U^2 \;\text{MW2}^2-2 D S^2 U \;\text{MW2}^2+2 D S^4 \;\text{MW2}+4 D S^3 U \;\text{MW2}+D S^2 U^3-2 S^2 U^3+D S^3 U^2-2 S^3 U^2\right) \;\text{B}_0(\text{MW2},0,\text{ME2})\right)/\left(2 (2-D) (\text{MW2}-S) (4 \;\text{MW2}-T)^2 \left(\text{MW2}^2-S U\right)^2\right)-\left(\left(20 \;\text{MW2}^4-2 D S \;\text{MW2}^3-12 S \;\text{MW2}^3-6 T \;\text{MW2}^3-2 D U \;\text{MW2}^3-4 D S^2 \;\text{MW2}^2+2 S T \;\text{MW2}^2-20 S U \;\text{MW2}^2+D S^3 \;\text{MW2}+3 D S U^2 \;\text{MW2}+12 S^2 U \;\text{MW2}+6 S T U \;\text{MW2}+D S^4+D S^2 U^2+2 D S^3 U-2 S^2 T U\right) \;\text{B}_0(T,\text{ME2},\text{ME2})\right)/\left(2 (2-D) (4 \;\text{MW2}-T)^2 \left(\text{MW2}^2-S U\right)^2\right)-\left(\left(128 D \;\text{MW2}^7+48 \;\text{MW2}^7-608 D S \;\text{MW2}^6-128 D T \;\text{MW2}^6-144 U \;\text{MW2}^6-4 D^2 S^2 \;\text{MW2}^5+1152 D S^2 \;\text{MW2}^5+28 D T^2 \;\text{MW2}^5-4 D^2 U^2 \;\text{MW2}^5+888 D S T \;\text{MW2}^5-8 D^2 S U \;\text{MW2}^5-96 S U \;\text{MW2}^5+48 T U \;\text{MW2}^5-16 D^2 S^3 \;\text{MW2}^4-1088 D S^3 \;\text{MW2}^4-420 D S T^2 \;\text{MW2}^4+288 S U^2 \;\text{MW2}^4-1840 D S^2 T \;\text{MW2}^4+6 D^2 S^4 \;\text{MW2}^3+512 D S^4 \;\text{MW2}^3+64 D S T^3 \;\text{MW2}^3+10 D^2 S U^3 \;\text{MW2}^3+1116 D S^2 T^2 \;\text{MW2}^3+18 D^2 S^2 U^2 \;\text{MW2}^3+48 S^2 U^2 \;\text{MW2}^3-96 S T U^2 \;\text{MW2}^3+1568 D S^3 T \;\text{MW2}^3-2 D^2 S^3 U \;\text{MW2}^3+8 D^2 S^5 \;\text{MW2}^2-96 D S^5 \;\text{MW2}^2-324 D S^2 T^3 \;\text{MW2}^2-144 S^2 U^3 \;\text{MW2}^2-716 D S^3 T^2 \;\text{MW2}^2+8 D^2 S^3 U^2 \;\text{MW2}^2-528 D S^4 T \;\text{MW2}^2+16 D^2 S^4 U \;\text{MW2}^2-D^2 S^6 \;\text{MW2}+38 D S^2 T^4 \;\text{MW2}-7 D^2 S^2 U^4 \;\text{MW2}+100 D S^3 T^3 \;\text{MW2}-6 D^2 S^3 U^3 \;\text{MW2}+48 S^2 T U^3 \;\text{MW2}+120 D S^4 T^2 \;\text{MW2}+40 D S^5 T \;\text{MW2}-2 D^2 S^5 U \;\text{MW2}-D^2 S^7+2 D S^3 T^4-D^2 S^3 U^4-4 D^2 S^4 U^3-6 D^2 S^5 U^2-4 D^2 S^6 U\right) \;\text{C}_0(\text{MW2},\text{MW2},T,\text{ME2},0,\text{ME2})\right)/\left(8 (2-D) (3-D) (4 \;\text{MW2}-T)^2 \left(\text{MW2}^2-S U\right)^3\right)</span></p>
+<p><span class="math display">\begin{array}{l}
+ \;\text{        d122res = ((MW2 + U)*5.D-1*PaVe(0D0,List(),List(ME2)))/} \\
+ \;\text{     $\&amp;$   (MW2*(MW2**2 - S*U*1D0)*(-(T*1D0) + MW2*4D0)) + } \\
+ \;\text{     $\&amp;$  (5.D-1*(D*S**3*U**2 + D*S**2*U**3 - D*MW2**5*2D0 + } \\
+ \;\text{     $\&amp;$       MW2**4*S*2D0 + D*MW2**2*S**3*2D0 + } \\
+ \;\text{     $\&amp;$       D*MW2*S**4*2D0 - D*MW2**2*S**2*U*2D0 - } \\
+ \;\text{     $\&amp;$       S**3*U**2*2D0 - S**2*U**3*2D0 - D*MW2**4*S*3D0 - } \\
+ \;\text{     $\&amp;$       D*MW2**4*U*3D0 + D*MW2**3*S*U*4D0 + } \\
+ \;\text{     $\&amp;$       D*MW2*S**3*U*4D0 + D*MW2**2*S*U**2*4D0 - } \\
+ \;\text{     $\&amp;$       D*MW2**3*S**2*8D0 - MW2**2*S*U**2*8D0 + } \\
+ \;\text{     $\&amp;$       MW2**4*U*1.D1 + MW2**5*1.6D1 - MW2**3*S*U*1.6D1)*} \\
+ \;\text{     $\&amp;$     PaVe(0D0,List(MW2),List(0D0,ME2)))/} \\
+ \;\text{     $\&amp;$   ((MW2 - S*1D0)*(MW2**2 - S*U*1D0)**2*} \\
+ \;\text{     $\&amp;$     (-(D*1D0) + 2D0)*(-(T*1D0) + MW2*4D0)**2) - } \\
+ \;\text{     $\&amp;$  (S*5.D-1*(-(D*S*T*1D0) + MW2**2*2D0 - S*U*2D0)*} \\
+ \;\text{     $\&amp;$     PaVe(0D0,List(S),List(0D0,0D0)))/} \\
+ \;\text{     $\&amp;$   ((MW2 - S*1D0)*(MW2**2 - S*U*1D0)**2*} \\
+ \;\text{     $\&amp;$     (-(D*1D0) + 2D0)) - } \\
+ \;\text{     $\&amp;$  (5.D-1*(D*MW2*S**3 + D*S**4 + D*S**2*U**2 - } \\
+ \;\text{     $\&amp;$       D*MW2**3*S*2D0 + MW2**2*S*T*2D0 - } \\
+ \;\text{     $\&amp;$       D*MW2**3*U*2D0 + D*S**3*U*2D0 - S**2*T*U*2D0 + } \\
+ \;\text{     $\&amp;$       D*MW2*S*U**2*3D0 - D*MW2**2*S**2*4D0 - } \\
+ \;\text{     $\&amp;$       MW2**3*T*6D0 + MW2*S*T*U*6D0 - MW2**3*S*1.2D1 + } \\
+ \;\text{     $\&amp;$       MW2*S**2*U*1.2D1 + MW2**4*2.D1 - MW2**2*S*U*2.D1)} \\
+ \;\text{     $\&amp;$      *PaVe(0D0,List(T),List(ME2,ME2)))/} \\
+ \;\text{     $\&amp;$   ((MW2**2 - S*U*1D0)**2*(-(D*1D0) + 2D0)*} \\
+ \;\text{     $\&amp;$     (-(T*1D0) + MW2*4D0)**2) - } \\
+ \;\text{     $\&amp;$  (1.25D-1*(-(D**2*MW2*S**6*1D0) - D**2*S**7*1D0 - } \\
+ \;\text{     $\&amp;$       D**2*S**3*U**4*1D0 + D*S**3*T**4*2D0 - } \\
+ \;\text{     $\&amp;$       D**2*MW2**3*S**3*U*2D0 - D**2*MW2*S**5*U*2D0 - } \\
+ \;\text{     $\&amp;$       D**2*MW2**5*S**2*4D0 - D**2*S**6*U*4D0 - } \\
+ \;\text{     $\&amp;$       D**2*MW2**5*U**2*4D0 - D**2*S**4*U**3*4D0 + } \\
+ \;\text{     $\&amp;$       D**2*MW2**3*S**4*6D0 - D**2*S**5*U**2*6D0 - } \\
+ \;\text{     $\&amp;$       D**2*MW2*S**3*U**3*6D0 - } \\
+ \;\text{     $\&amp;$       D**2*MW2*S**2*U**4*7D0 + D**2*MW2**2*S**5*8D0 - } \\
+ \;\text{     $\&amp;$       D**2*MW2**5*S*U*8D0 + } \\
+ \;\text{     $\&amp;$       D**2*MW2**2*S**3*U**2*8D0 + } \\
+ \;\text{     $\&amp;$       D**2*MW2**3*S*U**3*1.D1 - } \\
+ \;\text{     $\&amp;$       D**2*MW2**4*S**3*1.6D1 + } \\
+ \;\text{     $\&amp;$       D**2*MW2**2*S**4*U*1.6D1 + } \\
+ \;\text{     $\&amp;$       D**2*MW2**3*S**2*U**2*1.8D1 + } \\
+ \;\text{     $\&amp;$       D*MW2**5*T**2*2.8D1 + D*MW2*S**2*T**4*3.8D1 + } \\
+ \;\text{     $\&amp;$       D*MW2*S**5*T*4.D1 + MW2**7*4.8D1 + } \\
+ \;\text{     $\&amp;$       MW2**5*T*U*4.8D1 + MW2**3*S**2*U**2*4.8D1 + } \\
+ \;\text{     $\&amp;$       MW2*S**2*T*U**3*4.8D1 + D*MW2**3*S*T**3*6.4D1 - } \\
+ \;\text{     $\&amp;$       D*MW2**2*S**5*9.6D1 - MW2**5*S*U*9.6D1 - } \\
+ \;\text{     $\&amp;$       MW2**3*S*T*U**2*9.6D1 + D*MW2*S**3*T**3*1.D2 + } \\
+ \;\text{     $\&amp;$       D*MW2*S**4*T**2*1.2D2 + D*MW2**7*1.28D2 - } \\
+ \;\text{     $\&amp;$       D*MW2**6*T*1.28D2 - MW2**6*U*1.44D2 - } \\
+ \;\text{     $\&amp;$       MW2**2*S**2*U**3*1.44D2 + MW2**4*S*U**2*2.88D2 - } \\
+ \;\text{     $\&amp;$       D*MW2**2*S**2*T**3*3.24D2 - } \\
+ \;\text{     $\&amp;$       D*MW2**4*S*T**2*4.2D2 + D*MW2**3*S**4*5.12D2 - } \\
+ \;\text{     $\&amp;$       D*MW2**2*S**4*T*5.28D2 - D*MW2**6*S*6.08D2 - } \\
+ \;\text{     $\&amp;$       D*MW2**2*S**3*T**2*7.16D2 + } \\
+ \;\text{     $\&amp;$       D*MW2**5*S*T*8.88D2 - D*MW2**4*S**3*1.088D3 + } \\
+ \;\text{     $\&amp;$       D*MW2**3*S**2*T**2*1.116D3 + } \\
+ \;\text{     $\&amp;$       D*MW2**5*S**2*1.152D3 + } \\
+ \;\text{     $\&amp;$       D*MW2**3*S**3*T*1.568D3 - D*MW2**4*S**2*T*1.84D3)} \\
+ \;\text{     $\&amp;$      *PaVe(0D0,List(MW2,MW2,T),List(ME2,0D0,ME2)))/} \\
+ \;\text{     $\&amp;$   ((MW2**2 - S*U*1D0)**3*(-(D*1D0) + 2D0)*} \\
+ \;\text{     $\&amp;$     (-(D*1D0) + 3D0)*(-(T*1D0) + MW2*4D0)**2) - } \\
+ \;\text{     $\&amp;$  (D*S**2*T*2.5D-1*(MW2 - S*1D0)**2*} \\
+ \;\text{     $\&amp;$     PaVe(0D0,List(MW2,S,ME2),List(ME2,0D0,0D0)))/} \\
+ \;\text{     $\&amp;$   ((MW2**2 - S*U*1D0)**3*(-(D*1D0) + 3D0)) + } \\
+ \;\text{     $\&amp;$  (D*S**2*T**2*1.25D-1*(MW2 - S*1D0)*} \\
+ \;\text{     $\&amp;$     PaVe(0D0,List(T,ME2,ME2),List(ME2,ME2,0D0)))/} \\
+ \;\text{     $\&amp;$   ((MW2**2 - S*U*1D0)**3*(-(D*1D0) + 3D0)) - } \\
+ \;\text{     $\&amp;$  (D*S**3*T**2*1.25D-1*(MW2 - S*1D0)*} \\
+ \;\text{     $\&amp;$     PaVe(0D0,List(MW2,MW2,ME2,ME2,T,S),} \\
+ \;\text{     $\&amp;$      List(ME2,0D0,ME2,0D0)))/} \\
+ \;\text{     $\&amp;$   ((MW2**2 - S*U*1D0)**3*(-(D*1D0) + 3D0))} \\
+\end{array}</span></p>
+</body>
+</html>

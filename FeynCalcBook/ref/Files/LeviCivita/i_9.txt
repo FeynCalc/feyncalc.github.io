@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>LeviCivita[\[Alpha], \[Beta], \[Gamma], \[Delta]];
-StandardForm[%];
-StandardForm[%]</pre><div class='IFU'>http://wolfram.com/xid/0cocv9p3k6ad7mdkiqb7cqqo</div>

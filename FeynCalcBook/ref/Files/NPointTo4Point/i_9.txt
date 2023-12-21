@@ -1,3 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>FCClearScalarProducts[];;
-NPointTo4Point[%, q, FCE -&gt; True, FCVerbose -&gt; -1];
-NPointTo4Point[%, q, FCE -&gt; True, FCVerbose -&gt; -1]</pre><div class='IFU'><a name='453605134'></a>http://wolfram.com/xid/04ieufm3d5y7w1vs1pmitnyhrm-hscl8w</div>

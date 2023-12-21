@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>QuantumField[A, LorentzIndex[\[Mu]]].LeftPartialD[\[Nu]]</pre><div class='IFU'><a name='1505949422'></a>http://wolfram.com/xid/01ipebruqvo0z6tkzcpfj-y6v0ao</div>

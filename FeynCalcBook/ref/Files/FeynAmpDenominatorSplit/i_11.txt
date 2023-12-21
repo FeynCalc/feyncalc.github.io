@@ -1,2 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>FeynAmpDenominatorSplit[FAD[q1, q1 - p, q1 - q2, q2, q2 - p], 
- Momentum -&gt; {q1}]</pre><div class='IFU'><a name='1257504819'></a>http://wolfram.com/xid/0s5liscts2b1on3fxhpfthu188t6pg-u2yy7p</div>

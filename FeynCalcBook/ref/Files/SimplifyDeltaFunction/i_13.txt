@@ -1,1 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>PolyLog[2, 1 - x] DeltaFunctionPrime[1 - x]</pre><div class='IFU'><a name='962444267'></a>http://wolfram.com/xid/0vsxr48l0aa9magnpzp8lm6-p7as09</div>

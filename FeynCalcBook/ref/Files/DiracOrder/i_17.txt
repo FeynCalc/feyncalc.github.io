@@ -1,3 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>GA[5, \[Mu], \[Nu]];
-DiracOrder[%];
-DiracOrder[%]</pre><div class='IFU'><a name='332885129'></a>http://wolfram.com/xid/0g3d2anoefmyyrc18397m-fsg53f</div>

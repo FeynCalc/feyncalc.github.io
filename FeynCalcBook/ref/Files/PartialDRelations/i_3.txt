@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>QuantumField[A, {\[Mu]}].QuantumField[B, {\[Mu]}].LeftPartialD[\[Nu]];
-ExpandPartialD[%, PartialDRelations -&gt; {A -&gt; C}];
-ExpandPartialD[%, PartialDRelations -&gt; {A -&gt; C}]</pre><div class='IFU'><a name='1340152745'></a>http://wolfram.com/xid/0e2fh85wv2ah4yebmasfq3cj-wf6erf</div>

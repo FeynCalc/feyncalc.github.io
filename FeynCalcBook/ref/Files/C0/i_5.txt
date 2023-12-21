@@ -1,1 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>PaVeOrder[C0[b, a, c, m32, m22, m12], PaVeOrderList -&gt; {c, a}]</pre><div class='IFU'><a name='2033659557'></a>http://wolfram.com/xid/0k6v9si2wy9y6x2g7-7w2n1j</div>

@@ -1,4 +1,0 @@
-<pre name='i_27_in' id='i_27_in' class='IFT'>ClearAll[s, t, u];
-FCClearScalarProducts[];
-SP[p1] = 0;
-SP[p2] = 0;</pre><div class='IFU'>http://wolfram.com/xid/0b6akjmb3r0ldyhn5446ve0deg</div>

@@ -1,3 +1,0 @@
-<pre name='i_13_in' id='i_13_in' class='IFT'>2 GSD[p] - 3 GSD[q];
-StandardForm[%];
-StandardForm[%]</pre><div class='IFU'><a name='1011380579'></a>http://wolfram.com/xid/0teu55sspea5oyup8k1z5iyf-q0foi9</div>

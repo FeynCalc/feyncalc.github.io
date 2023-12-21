@@ -1,1 +1,0 @@
-<pre name='i_1_in' id='i_1_in' class='IFT'>FCAntiSymmetrize[f[a, b], {a, b}]</pre><div class='IFU'><a name='74722925'></a>http://wolfram.com/xid/0byqjekzwh1n5jr90rz8gmhyota-biruu3</div>

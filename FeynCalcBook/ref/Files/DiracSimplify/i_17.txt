@@ -1,1 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>DiracSimplify[GS[a + b] . GS[p].GS[c + d].GS[p], Expanding -&gt; False]</pre><div class='IFU'>http://wolfram.com/xid/01ipebruqvo0z6ld5lhqq</div>

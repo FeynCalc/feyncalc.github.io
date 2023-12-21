@@ -1,1 +1,0 @@
-<pre name='i_53_in' id='i_53_in' class='IFT'>ApartFF[int FAD[k], SPD[k], {k}] // ApartFF[#, {k}] &amp;</pre><div class='IFU'>http://wolfram.com/xid/0bmo85gxinschsbt8mm9cgq</div>

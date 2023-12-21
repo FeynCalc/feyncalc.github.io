@@ -1,3 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>FCSetDiracGammaScheme[&quot;NDR&quot;];
-DiracSimplify[%];
-DiracSimplify[%]</pre><div class='IFU'><a name='933234494'></a>http://wolfram.com/xid/0gwt4rzmfasvnr4g440xp2syk4xzaz66m-ppwqmo</div>

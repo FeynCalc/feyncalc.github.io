@@ -1,1 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>DotSimplify[AntiCommutator[a + b, a - 2 b ]]</pre><div class='IFU'><a name='871283752'></a>http://wolfram.com/xid/0bmo85gxinschsbsjcmw0bi-oo0w4q</div>

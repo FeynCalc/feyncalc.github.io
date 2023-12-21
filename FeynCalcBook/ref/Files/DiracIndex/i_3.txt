@@ -1,3 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>DiracIndex[i];
-% // StandardForm;
-% // StandardForm</pre><div class='IFU'><a name='293124345'></a>http://wolfram.com/xid/01ipebruqvo0z6ld5lw0d-e4syg7</div>

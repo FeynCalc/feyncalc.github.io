@@ -1,3 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>SUNDelta[SUNIndex[a], SUNIndex[b]];
-% // StandardForm;
-% // StandardForm</pre><div class='IFU'><a name='965204507'></a>http://wolfram.com/xid/0cocv9p3k6ad7ma5v23sm4re-p8xyul</div>

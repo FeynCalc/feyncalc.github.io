@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>SP[p1, p2]
-SP[p1, p3]
-SP[p1, p4]</pre><div class='IFU'>http://wolfram.com/xid/0peckcyot74q3nkyubyjaosefz</div>

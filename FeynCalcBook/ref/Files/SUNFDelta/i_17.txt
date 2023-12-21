@@ -1,3 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>SUNFDelta[SUNFIndex[a], ExplicitSUNFIndex[2]] SUNFDelta[SUNFIndex[a], 
-   SUNFIndex[b]] SUNFDelta[SUNFIndex[c], 
-   ExplicitSUNFIndex[2]] // SUNFSimplify</pre><div class='IFU'><a name='69005829'></a>http://wolfram.com/xid/0ejaxdaedm6g9jnug1i1bvd9m-bfdbiv</div>
