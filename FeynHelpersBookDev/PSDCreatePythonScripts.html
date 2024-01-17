@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,29 +109,120 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <p><img src="img/0uw74idqq2ilw.svg" alt="0uw74idqq2ilw" /></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="psdcreatepythonscripts">PSDCreatePythonScripts</h2>
-<p><code>PSDCreatePythonScripts[int, topo, path]</code> creates a set of Python scripts needed for the evaluation of the integral <code>int</code> (in the <code>GLI</code> representation) belonging to the topology <code>topo</code>. The files are saved to the directory <code>path/topoNameXindices</code>. The function returns a list of two strings that point to the generation and integration scripts for pySecDec.</p>
-<p>One can also use the <code>FeynAmpDenominator</code>-representation as in <code>PSDCreatePythonScripts[fadInt, lmoms, path]</code>, where <code>lmoms</code> is the list of the loop momenta on which <code>fadInt</code> depends. In this case the generation and integration scripts will directly go into <code>path</code>.</p>
-<p>Another way to invoke the function would be <code>PSDCreatePythonScripts[{int1, int2, ...}, {topo1, topo2, ...}, path]</code> in which case the files will be saved to <code>path/topoName1Xindices1</code>, <code>path/topoName2Xindices2</code> etc. The syntax <code>PSDCreatePythonScripts[{int1, int2, ...}, {topo1, topo2, ...}, {path1, path2, ...}]</code> is also possible.</p>
-<p>Unless you are computing a single scale integral with the scale variable set to unity, you must specify all external parameters (e.g. masses and scalar products of external momenta) and their numerical values via the corresponding options. For real-valued parameters use the option <code>PSDRealParameterRules</code> as <code>PSDRealParameterRules-&gt;{param1-&gt;val1, param2-&gt;val2, ...}</code>. For complex-valued parameters use <code>PSDComplexParameterRules</code>with the same syntax. The precise numerical values do not matter at the generation stage, one only has to distinguish between real- and complex-valued parameters. As far as the integration stage is concerned, you can easily change the numerical values when running the corresponding Python script. The values supplied via <code>PSDRealParameterRules</code> and <code>PSDComplexParameterRules</code> will be the default, though.</p>
-<p>Notice that the variables passed to pySecDec must be atomic i.e. you can use <code>qq</code>, <code>m</code>, <code>m2</code>, <code>M</code> etc. but not something like <code>Pair[Momentum[q],Momentum[q]]</code>, <code>mass[2]</code>, or <code>sp["p.q"]</code>. This means that you need to replace scalar products of external momenta that appear in your integrals with some simple symbols. If this has not been done on the level of replacement rules attached to your <code>FCTopology</code> objects (5th argument), you can still use the option <code>FinalSubstitutions</code>.</p>
-<p>Another important option that you most likely would like to specify is <code>PSDRequestedOrder</code> which specifies the order in <span class="math inline">\varepsilon</span> up to which the integral should be evaluated.</p>
-<p>The names of generation and integration scripts can be changed via the options <code>PSDGenerateFileName</code> and <code>PSDIntegrateFileName</code> with the default values being <code>generate_int.py</code> and <code>integrate_int.py</code> respectively.</p>
-<p>The method used for the sector decomposition is controlled by the option <code>PSDDecompositionMethod</code>, where <code>"geometric"</code> is the default value.</p>
-<p>The integrator used for the numerical evaluation of the integral is set by the option <code>PSDIntegrator</code>, where <code>"Qmc"</code> is the default value. Accordingly, if you want to increase the number of Qmc iterations, you should use the option <code>PSDMinn</code>.</p>
-<p>If you know in advance that the integral you are computing does not have cuts (i.e. the result is purely real with no imaginary part), then it is highly recommended to disable the contour deformation. This will give you a huge performance boost. The option controlling this pySecDec parameter is called <code>PSDContourDeformation</code> and is set to <code>True</code> by default.</p>
-<p>The prefactor of integrals evaluated by pySecDec is given by <span class="math inline">\frac{1}{i \pi^{D/2}}</span> per loop, which is the standard choice for multiloop calculations. However, factors of <span class="math inline">\gamma_E</span> and <span class="math inline">\log(4\pi)</span> are not eliminated by default. The FeynHelpers interface takes care of that by adding an extra <span class="math inline">e^{\gamma_E \frac{4-D}{2}}</span> per loop. This is controlled by the value of the <code>PSDAdditionalPrefactor</code> option. When set to <code>Default</code>, the overall prefactor is given by <span class="math inline">\frac{e^{\gamma_E \frac{4-D}{2}}}{i \pi^{D/2}}</span> per loop. Setting this option to a different value, say <code>x</code>, will give you <span class="math inline">\frac{x}{(i \pi^{D/2})^L}</span> as the overall prefactor with <span class="math inline">L</span> being the number of loops. Notice that in this case <code>x</code> must be a string using the pySecDec syntax.</p>
-<p>For realistic integrals the generation stage can take a considerable amount of time, especially when done on a laptop. For this reason <code>PSDCreatePythonScripts</code> implements some safety measures to prevent the user from accidentally overwriting or corrupting the existing files. First of all, if the files <code>generate_int.py</code> and <code>integrate_int.py</code> already exist, the function will not overwrite them by default. To change this behavior you need to set the value of the option <code>OverwriteTarget</code> to <code>True</code>. In addition to that, pySecDec by itself will abort the generation stage if the output directory for the C++ code (specified by the option <code>PSDOutputDirectory</code>) already exists. However, you can tweak the corresponding Python script such, that the output directory will be always overwritten without further warnings. To this aim you need to set the option <code>PSDOverwritePackageDirectory</code> to <code>True</code>.</p>
+<p><code>PSDCreatePythonScripts[int, topo, path]</code> creates a set of
+Python scripts needed for the evaluation of the integral
+<code>int</code> (in the <code>GLI</code> representation) belonging to
+the topology <code>topo</code>. The files are saved to the directory
+<code>path/topoNameXindices</code>. The function returns a list of two
+strings that point to the generation and integration scripts for
+pySecDec.</p>
+<p>One can also use the <code>FeynAmpDenominator</code>-representation
+as in <code>PSDCreatePythonScripts[fadInt, lmoms, path]</code>, where
+<code>lmoms</code> is the list of the loop momenta on which
+<code>fadInt</code> depends. In this case the generation and integration
+scripts will directly go into <code>path</code>.</p>
+<p>Another way to invoke the function would be
+<code>PSDCreatePythonScripts[{int1, int2, ...}, {topo1, topo2, ...}, path]</code>
+in which case the files will be saved to
+<code>path/topoName1Xindices1</code>,
+<code>path/topoName2Xindices2</code> etc. The syntax
+<code>PSDCreatePythonScripts[{int1, int2, ...}, {topo1, topo2, ...}, {path1, path2, ...}]</code>
+is also possible.</p>
+<p>Unless you are computing a single scale integral with the scale
+variable set to unity, you must specify all external parameters
+(e.g. masses and scalar products of external momenta) and their
+numerical values via the corresponding options. For real-valued
+parameters use the option <code>PSDRealParameterRules</code> as
+<code>PSDRealParameterRules-&gt;{param1-&gt;val1, param2-&gt;val2, ...}</code>.
+For complex-valued parameters use
+<code>PSDComplexParameterRules</code>with the same syntax. The precise
+numerical values do not matter at the generation stage, one only has to
+distinguish between real- and complex-valued parameters. As far as the
+integration stage is concerned, you can easily change the numerical
+values when running the corresponding Python script. The values supplied
+via <code>PSDRealParameterRules</code> and
+<code>PSDComplexParameterRules</code> will be the default, though.</p>
+<p>Notice that the variables passed to pySecDec must be atomic i.e. you
+can use <code>qq</code>, <code>m</code>, <code>m2</code>, <code>M</code>
+etc. but not something like <code>Pair[Momentum[q],Momentum[q]]</code>,
+<code>mass[2]</code>, or <code>sp["p.q"]</code>. This means that you
+need to replace scalar products of external momenta that appear in your
+integrals with some simple symbols. If this has not been done on the
+level of replacement rules attached to your <code>FCTopology</code>
+objects (5th argument), you can still use the option
+<code>FinalSubstitutions</code>.</p>
+<p>Another important option that you most likely would like to specify
+is <code>PSDRequestedOrder</code> which specifies the order in <span
+class="math inline">\varepsilon</span> up to which the integral should
+be evaluated.</p>
+<p>The names of generation and integration scripts can be changed via
+the options <code>PSDGenerateFileName</code> and
+<code>PSDIntegrateFileName</code> with the default values being
+<code>generate_int.py</code> and <code>integrate_int.py</code>
+respectively.</p>
+<p>The method used for the sector decomposition is controlled by the
+option <code>PSDDecompositionMethod</code>, where
+<code>"geometric"</code> is the default value.</p>
+<p>The integrator used for the numerical evaluation of the integral is
+set by the option <code>PSDIntegrator</code>, where <code>"Qmc"</code>
+is the default value. Accordingly, if you want to increase the number of
+Qmc iterations, you should use the option <code>PSDMinn</code>.</p>
+<p>If you know in advance that the integral you are computing does not
+have cuts (i.e. the result is purely real with no imaginary part), then
+it is highly recommended to disable the contour deformation. This will
+give you a huge performance boost. The option controlling this pySecDec
+parameter is called <code>PSDContourDeformation</code> and is set to
+<code>True</code> by default.</p>
+<p>The prefactor of integrals evaluated by pySecDec is given by <span
+class="math inline">\frac{1}{i \pi^{D/2}}</span> per loop, which is the
+standard choice for multiloop calculations. However, factors of <span
+class="math inline">\gamma_E</span> and <span
+class="math inline">\log(4\pi)</span> are not eliminated by default. The
+FeynHelpers interface takes care of that by adding an extra <span
+class="math inline">e^{\gamma_E \frac{4-D}{2}}</span> per loop. This is
+controlled by the value of the <code>PSDAdditionalPrefactor</code>
+option. When set to <code>Default</code>, the overall prefactor is given
+by <span class="math inline">\frac{e^{\gamma_E \frac{4-D}{2}}}{i
+\pi^{D/2}}</span> per loop. Setting this option to a different value,
+say <code>x</code>, will give you <span class="math inline">\frac{x}{(i
+\pi^{D/2})^L}</span> as the overall prefactor with <span
+class="math inline">L</span> being the number of loops. Notice that in
+this case <code>x</code> must be a string using the pySecDec syntax.</p>
+<p>For realistic integrals the generation stage can take a considerable
+amount of time, especially when done on a laptop. For this reason
+<code>PSDCreatePythonScripts</code> implements some safety measures to
+prevent the user from accidentally overwriting or corrupting the
+existing files. First of all, if the files <code>generate_int.py</code>
+and <code>integrate_int.py</code> already exist, the function will not
+overwrite them by default. To change this behavior you need to set the
+value of the option <code>OverwriteTarget</code> to <code>True</code>.
+In addition to that, pySecDec by itself will abort the generation stage
+if the output directory for the C++ code (specified by the option
+<code>PSDOutputDirectory</code>) already exists. However, you can tweak
+the corresponding Python script such, that the output directory will be
+always overwritten without further warnings. To this aim you need to set
+the option <code>PSDOverwritePackageDirectory</code> to
+<code>True</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="PSDIntegrate.html">PSDIntegrate</a>, <a href="PSDLoopIntegralFromPropagators.html">PSDLoopIntegralFromPropagators</a>, <a href="PSDLoopPackage.html">PSDLoopPackage</a>, <a href="PSDLoopRegions.html">PSDLoopRegions</a>.</p>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a
+href="PSDIntegrate.html">PSDIntegrate</a>, <a
+href="PSDLoopIntegralFromPropagators.html">PSDLoopIntegralFromPropagators</a>,
+<a href="PSDLoopPackage.html">PSDLoopPackage</a>, <a
+href="PSDLoopRegions.html">PSDLoopRegions</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>topo1 <span class="ex">=</span> FCTopology<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span>FAD<span class="op">[{</span>p1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> <span class="fu">q</span><span class="op">,</span> m2<span class="op">}]},</span> <span class="op">{</span>p1<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>topo1 <span class="ex">=</span> FCTopology<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span>FAD<span class="op">[{</span>p1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> <span class="fu">q</span><span class="op">,</span> m2<span class="op">}]},</span> <span class="op">{</span>p1<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>int1 <span class="ex">=</span> GLI<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\text{FCTopology}\left(\text{prop1L},\left\{\frac{1}{\text{p1}^2-\text{m1}^2},\frac{1}{(\text{p1}+q)^2-\text{m2}^2}\right\},\{\text{p1}\},\{q\},\{\},\{\}\right)</span></p>
+<p><span
+class="math display">\text{FCTopology}\left(\text{prop1L},\left\{\frac{1}{\text{p1}^2-\text{m1}^2},\frac{1}{(\text{p1}+q)^2-\text{m2}^2}\right\},\{\text{p1}\},\{q\},\{\},\{\}\right)</span></p>
 <p><span class="math display">G^{\text{prop1L}}(1,1)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> PSDCreatePythonScripts<span class="op">[</span>int1<span class="op">,</span> topo1<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> PSDRealParameterRules <span class="ot">-&gt;</span> <span class="op">{</span>qq <span class="ot">-&gt;</span> <span class="fl">1.</span> <span class="op">,</span> m1 <span class="ot">-&gt;</span> <span class="fl">2.</span> <span class="op">,</span> m2 <span class="ot">-&gt;</span> <span class="fl">3.</span><span class="op">},</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>FCI@SPD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> qq<span class="op">},</span> OverwriteTarget <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">14</span><span class="op">]</span> &amp;</span>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> PSDCreatePythonScripts<span class="op">[</span>int1<span class="op">,</span> topo1<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> PSDRealParameterRules <span class="ot">-&gt;</span> <span class="op">{</span>qq <span class="ot">-&gt;</span> <span class="fl">1.</span> <span class="op">,</span> m1 <span class="ot">-&gt;</span> <span class="fl">2.</span> <span class="op">,</span> m2 <span class="ot">-&gt;</span> <span class="fl">3.</span><span class="op">},</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>FCI@SPD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> qq<span class="op">},</span> OverwriteTarget <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">14</span><span class="op">]</span> &amp;</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*#!/usr/bin/env python3</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">from pySecDec import sum_package, loop_package, loop_regions, LoopIntegralFromPropagators</span></span>
@@ -138,7 +238,8 @@
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">regulators = [&#39;eps&#39;]</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">)</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">2</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">14</span><span class="op">]</span> &amp;</span>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">2</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">14</span><span class="op">]</span> &amp;</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*#!/usr/bin/env python3</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">from pySecDec.integral_interface import IntegralLibrary, series_to_mathematica, series_to_maple, series_to_sympy</span></span>
@@ -154,6 +255,7 @@
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">integral_without_prefactor, prefactor, integral_with_prefactor = li(verbose = True,</span></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">real_parameters = num_params_real,*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PSDCreatePythonScripts<span class="op">[</span>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">,</span> <span class="st">&quot;tal1LInt&quot;</span><span class="op">}],</span> PSDRealParameterRules <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">m</span> <span class="ot">-&gt;</span> <span class="fl">1.</span><span class="op">},</span> OverwriteTarget <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PSDCreatePythonScripts<span class="op">[</span>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">,</span> <span class="st">&quot;tal1LInt&quot;</span><span class="op">}],</span> PSDRealParameterRules <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">m</span> <span class="ot">-&gt;</span> <span class="fl">1.</span><span class="op">},</span> OverwriteTarget <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
 </body>
 </html>

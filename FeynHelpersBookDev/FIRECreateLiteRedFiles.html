@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynHelpers manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script defer="" src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynHelpers manual (development version)</h1>
+</header>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<h2 id="firecreateliteredfiles">FIRECreateLiteRedFiles</h2>
+<p><code>FIRECreateLiteRedFiles[path]</code> creates lbases files
+(generated with LiteRed) using the script
+<code>CreateLiteRedFiles.m</code> in <code>path</code>. To that aim a
+Mathematica kernel is started in the background via
+<code>RunProcess</code>. The function returns <code>True</code> if the
+evaluation succeeds and <code>False</code> otherwise.</p>
+<p>Notice that lbases files must be created before generating sbases
+using FIRECreateStartFiles (or running the respective scripts directly)
+.</p>
+<p>Alternatively, one can use
+<code>FIRECreateLiteRedFiles[path, topo]</code> where <code>topo</code>
+is an <code>FCTopology</code> symbol and the full path is implied to be
+<code>path/topoName/CreateStartFile.m</code>.</p>
+<p>If you need to process a list of topologies, following syntaxes are
+possible <code>FIRECreateLiteRedFiles[{path1,path2, ...}]</code>,
+<code>FIRECreateLiteRedFiles[path, {topo1, topo2, ...}]</code></p>
+<p>The path to the Mathematica Kernel can be specified via
+<code>FIREMathematicaKernelPath</code>. The default value is
+<code>Automatic</code>.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a
+href="FIRECreateConfigFile.html">FIRECreateConfigFile</a>, <a
+href="FIREPrepareStartFile.html">FIREPrepareStartFile</a>, <a
+href="FIREMathematicaKernelPath.html">FIREMathematicaKernelPath</a></p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>topo <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;prop3lX1&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span>p1<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[</span>p2<span class="op">],</span> SFAD<span class="op">[{</span>p3<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2 <span class="sc">-</span> p3<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p2<span class="op">],</span> SFAD<span class="op">[</span>p1 <span class="sc">+</span> p3<span class="op">],</span> SFAD<span class="op">[</span>p2 <span class="sc">+</span> p3<span class="op">]},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">Q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCTopology}\left(\text{prop3lX1},\left\{\frac{1}{(\text{p1}^2-m^2+i
+\eta )},\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{(\text{p3}^2-m^2+i \eta
+)},\frac{1}{((-\text{p1}-\text{p2}-\text{p3}+Q)^2+i \eta
+)},\frac{1}{((-\text{p1}-\text{p2}+Q)^2+i \eta
+)},\frac{1}{((Q-\text{p1})^2+i \eta )},\frac{1}{((Q-\text{p2})^2+i \eta
+)},\frac{1}{((\text{p1}+\text{p3})^2+i \eta
+)},\frac{1}{((\text{p2}+\text{p3})^2+i \eta
+)}\right\},\{\text{p1},\text{p2},\text{p3}\},\{Q\},\{\},\{\}\right)</span></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIREPrepareStartFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}]]</span></span></code></pre></div>
+<p><span
+class="math display">\text{/home/vs/.Mathematica/Applications/FeynCalc/Database/prop3lX1/CreateStartFile.m}</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FIRECreateLiteRedFiles<span class="op">[</span>fileName<span class="op">,</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">3</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FIRECreateLiteRedFiles: Full path to
+the Math Kernel binary:
+}\;\text{/media/Data/Software/Mathematica/14.0/Executables/math}</span></p>
+<p><span class="math display">\text{FIRECreateLiteRedFiles: Full path to
+the script file:
+}\;\text{/home/vs/.Mathematica/Applications/FeynCalc/Database/prop3lX1/CreateStartFile.m}</span></p>
+<p><span class="math display">\text{FIRECreateLiteRedFiles: Working
+directory:
+}\;\text{/home/vs/.Mathematica/Applications/FeynCalc/Database/prop3lX1/}</span></p>
+<p><span class="math display">\text{FIRECreateLiteRedFiles: Script file:
+}\;\text{CreateStartFile.m}</span></p>
+<p><span class="math display">\text{True}</span></p>
+</body>
+</html>

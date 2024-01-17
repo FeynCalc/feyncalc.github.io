@@ -8,26 +8,34 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -37,10 +45,18 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <h2 id="paxexpandinepsilon">PaXExpandInEpsilon</h2>
-<p><code>PaXExpandInEpsilon</code> is an option for <code>PaXEvaluate</code>. If <code>ImplicitPrefactor</code> is not <code>1</code> and <code>SubstituteEpsilon</code> is set to <code>True</code>, then the value of <code>PaXExpandInEpsilon</code> determines whether the final result should be again expanded in <code>Epsilon</code>.</p>
-<p>The expansion is done only up to <span class="math inline">\mathcal{O}(\varepsilon^0)</span>. The default value is <code>True</code>.</p>
+<p><code>PaXExpandInEpsilon</code> is an option for
+<code>PaXEvaluate</code>. If <code>ImplicitPrefactor</code> is not
+<code>1</code> and <code>SubstituteEpsilon</code> is set to
+<code>True</code>, then the value of <code>PaXExpandInEpsilon</code>
+determines whether the final result should be again expanded in
+<code>Epsilon</code>.</p>
+<p>The expansion is done only up to <span
+class="math inline">\mathcal{O}(\varepsilon^0)</span>. The default value
+is <code>True</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="PaXEvaluate.html">PaXEvaluate</a>.</p>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a
+href="PaXEvaluate.html">PaXEvaluate</a>.</p>
 <h3 id="examples">Examples</h3>
 </body>
 </html>

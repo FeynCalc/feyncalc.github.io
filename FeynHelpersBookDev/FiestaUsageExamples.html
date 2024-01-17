@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynHelpers manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script defer="" src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynHelpers manual (development version)</h1>
+</header>
+<h2 id="fiesta-usage-examples">FIESTA usage examples</h2>
+<p>The main idea behind the FeynHelpers interface to FIESTA is to
+facilitate the generation of FIESTA scripts for integrals written in the
+FeynCalc notation (i.e. as <code>GLI</code>s with the corresponding
+lists of <code>FCTopology</code> symbols). If needed, those scripts can
+be also evaluated in background.</p>
+<p>The main high-level function of this interface is called
+<code>FSACreateMathematicaScripts</code>. In the simplest case we need
+two provide following arguments and options</p>
+<ul>
+<li>the 1st argument is some <code>GLI</code></li>
+<li>the 2nd argument is the <code>FCTopology</code> to which this
+<code>GLI</code> belongs</li>
+<li>the 3rd argument is where to put the directory with FIESTA scripts.
+For quick tests one can simply use <code>NotebookDirectory[]</code></li>
+<li>the option <code>FSAOrderInEps</code> specifies the order in <span
+class="math inline">\varepsilon</span> to which the integral should be
+evaluated (default is <code>0</code>)</li>
+<li>the option <code>FSAParameterRules</code> is a list of rules for
+replacing kinematic invariants with numerical values which can be real
+or complex numbers.</li>
+<li>if the script directory already exists, the function will by default
+refuse to overwrite it. Setting the option <code>OverwriteTarget</code>
+to <code>True</code> you can tell the code that you do not care about
+that</li>
+</ul>
+<p>Here is a simple 1-loop example that incorporates all of the above.
+Notice that it is crucial to switch the <span class="math inline">i
+\eta</span> sign of propagators from plus to minus, otherwise the result
+will be incorrect.</p>
+<pre><code>int = GLI[prop1L, {1, 1}]
+topo = FCLoopSwitchEtaSign[FCTopology[prop1L, {FAD[{p1, m1}], FAD[{p1 + q, m2}]}, {p1}, {q}, {}, {}], -1]
+files = FSACreateMathematicaScripts[int, topo, NotebookDirectory[], FinalSubstitutions -&gt; {Hold[SPD][q] -&gt; qq} , 
+  FSAParameterRules -&gt; {qq -&gt; 30., m1 -&gt; 2., m2 -&gt; 3.}, OverwriteTarget -&gt; True]</code></pre>
+<p>The output is a list containing two elements. The first one is the
+full path to the Mathematica script file <code>FiestaScript.m</code>,
+while the second give the name of the output file containing numerical
+result for the given integral. For simple integrals you can evaluate the
+script directly in your Mathematica session by running</p>
+<pre><code>FSARunIntegration[files[[1]]]</code></pre>
+<p>Notice that the evaluation of sufficiently complicated integrals can
+take hours or even days so in general it is not recommended to use
+<code>FSARunIntegration</code>.</p>
+<p>Here is a sample the script file</p>
+<pre><code>Get[&quot;/home/vs/.Mathematica/Applications/FIESTA5/FIESTA5.m&quot;];
+
+
+If[$FrontEnd===Null,
+  projectDirectory=DirectoryName[$InputFileName],
+  projectDirectory=NotebookDirectory[]
+];
+SetDirectory[projectDirectory];
+resFileName = &quot;numres_&quot; &lt;&gt; StringRiffle[ToString[#, InputForm] &amp; /@ {15., 2., 3.}, &quot;_&quot;]&lt;&gt;&quot;_fiesta.m&quot;;
+Print[&quot;Working directory: &quot;, projectDirectory];
+Print[&quot;The results will be saved to: &quot;, resFileName];
+
+
+uf = UF[{p1},{m1^2 - p1^2, m2^2 - (p1 + q)^2}, {q^2 -&gt; qq, qq -&gt; 15., m1 -&gt; 2., m2 -&gt; 3.}];
+SetOptions[FIESTA, &quot;NumberOfSubkernels&quot; -&gt; 4,&quot;ComplexMode&quot; -&gt; True,&quot;ReturnErrorWithBrackets&quot; -&gt; True,
+&quot;Integrator&quot; -&gt; &quot;quasiMonteCarlo&quot;,&quot;IntegratorOptions&quot; -&gt; {{&quot;maxeval&quot;, &quot;50000&quot;}, 
+{&quot;epsrel&quot;, &quot;1.000000E-05&quot;}, {&quot;epsabs&quot;, &quot;1.000000E-12&quot;}, {&quot;integralTransform&quot;, &quot;korobov&quot;}}];
+pref = 1;
+resRaw = SDEvaluate[uf,{1, 1},0];
+res = resRaw*pref;
+Print[&quot;Final result: &quot;, res];
+Put[res, resFileName];</code></pre>
+<p>To load the numerical results into your Mathematica session you can
+use the function <code>FSALoadNumericalResults</code>. To that aim you
+just need to give it <code>files</code> as input.</p>
+<pre><code>FSALoadNumericalResults[files]</code></pre>
+<p>If you want to perform an asymptotic expansion, you need to set the
+option <code>FSASDExpandAsy</code> to <code>True</code>, specify the
+expansion variable using <code>FSAExpandVar</code> and set the desired
+expansion order via <code>FSASDExpandAsyOrder</code>. For example,</p>
+<pre><code>int = GLI[prop1L, {1, 1}]
+topo = FCLoopSwitchEtaSign[FCTopology[prop1L, {FAD[{p1, m1}], FAD[{p1 + q, m2}]}, {p1}, {q}, {}, {}], -1]
+files = FSACreateMathematicaScripts[int, topo, NotebookDirectory[], FinalSubstitutions -&gt; {Hold[SPD][q] -&gt; qq} , 
+  FSAParameterRules -&gt; {qq -&gt; 30., m1 -&gt; 2.}, OverwriteTarget -&gt; True, FSASDExpandAsy-&gt;True, FSAExpandVar -&gt; m2, FSASDExpandAsyOrder-&gt; 4]</code></pre>
+</body>
+</html>

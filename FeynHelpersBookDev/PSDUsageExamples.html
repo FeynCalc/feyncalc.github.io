@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynHelpers manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script defer="" src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynHelpers manual (development version)</h1>
+</header>
+<h2 id="pysecdec-usage-examples">pySecDec usage examples</h2>
+<p>The main idea behind the FeynHelpers interface to pySecDec is to
+facilitate the generation of pySecDec scripts for integrals written in
+the FeynCalc notation (i.e. as <code>GLI</code>s with the corresponding
+lists of <code>FCTopology</code> symbols).</p>
+<p>The main high-level function of this interface is called
+<code>PSDCreatePythonScripts</code>. In the simplest case we need two
+provide following arguments and options</p>
+<ul>
+<li>the 1st argument is some <code>GLI</code></li>
+<li>the 2nd argument is the <code>FCTopology</code> to which this
+<code>GLI</code> belongs</li>
+<li>the 3rd argument is where to put the directory with pySecDec
+scripts. For quick tests one can simply use
+<code>NotebookDirectory[]</code></li>
+<li>the option <code>PSDRequestedOrder</code> specifies the order in
+<span class="math inline">\varepsilon</span> to which the integral
+should be evaluated (default is <code>0</code>)</li>
+<li>the option <code>PSDRealParameterRules</code> is a list of rules for
+replacing kinematic invariants with numerical values which are real
+numbers. For complex numbers you need to use
+<code>PSDComplexParameterRules</code></li>
+<li>if the script directory already exists, the function will by default
+refuse to overwrite it. Setting the option <code>OverwriteTarget</code>
+to <code>True</code> you can tell the code that you do not care about
+that</li>
+</ul>
+<p>Here is a simple 1-loop example that incorporates all of the
+above</p>
+<pre><code>int = GLI[prop1L, {1, 1}]
+topo = FCTopology[prop1L, {FAD[{p1, m1}], FAD[{p1 + q, m2}]}, {p1}, {q}, {Hold[SPD][q] -&gt; qq}, {}]
+files = PSDCreatePythonScripts[int, topo, NotebookDirectory[], 
+  PSDRealParameterRules -&gt; {qq -&gt; 1., m1 -&gt; 2., m2 -&gt; 3.}, OverwriteTarget -&gt; True]</code></pre>
+<p>The output is a list containing two elements which are full paths to
+the two pySecDec script files <code>generate_int.py</code> and
+<code>integrate_int.py</code>. You can now switch to the terminal, enter
+the corresponding directory and perform the integral evaluation by first
+running</p>
+<pre><code>python generate_int.py</code></pre>
+<p>Here is a sample output of this script</p>
+<pre><code>running &quot;sum_package&quot; for loopint
+running &quot;make_package&quot; for &quot;loopint_integral&quot;
+computing Jacobian determinant for primary sector 0
+total number sectors before symmetry finding: 2
+total number sectors after symmetry finding (iterative): 2
+total number sectors after symmetry finding (light Pak): 2
+total number sectors after symmetry finding (full Pak): 2
+writing FORM files for sector 1
+writing FORM files for sector 2
+expanding the prefactor exp(EulerGamma*eps)*gamma(eps) (regulators: [eps] , orders: [0] )
+ + (1)*eps**-1 + (0)
+&quot;loopint_integral&quot; done</code></pre>
+<p>Now you need to compile the generated library files. This can be done
+via</p>
+<pre><code>make -j8 -C loopint</code></pre>
+<p>where 8 stands for the number threads to be run simultaneously. It
+depends on how powerful the CPU in your machine is.</p>
+<p>Finally, entering</p>
+<pre><code>python integrate_int.py</code></pre>
+<p>will perform the actual numerical evaluation and save the obtained
+results to <code>numres_*_psd.txt</code>, <code>numres_*_mma.m</code>
+and <code>numres_*_maple.mpl</code>. Here <code>*</code> stands for the
+numerical values of kinematic invariants present in the integral. You
+can modify those values without the need to recompile the libraries by
+simply editing the arrays <code>num_params_real</code> and
+<code>num_params_complex</code> in <code>integrate_int.py</code>.</p>
+<p>For Mathematica users the file <code>numres_*_mma.m</code> is
+probably the most useful one. You can load the content of this file into
+your Mathematica session using the function
+<code>PSDLoadNumericalResults</code>. To that aim you just need to give
+it the output of <code>PSDCreatePythonScripts</code> and set the options
+<code>PSDRealParameterRules</code> and
+<code>PSDComplexParameterRules</code> to the same values that were used
+when invoking <code>PSDCreatePythonScripts</code></p>
+<pre><code>PSDLoadNumericalResults[files, PSDRealParameterRules -&gt; {qq -&gt; 1., m1 -&gt; 2., m2 -&gt; 3.}]</code></pre>
+</body>
+</html>

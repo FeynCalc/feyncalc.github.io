@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
 
@@ -21,10 +29,22 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <h2 id="qgsaveinputfile">QGSaveInputFile</h2>
-<p><code>QGSaveInputFile</code> is an option for <code>QGCreateAmp</code>, which specifies where to save the QGRAF input file <code>"qgraf.dat"</code>. This file is automatically created from the input parameters of <code>QGCreateAmp</code> but it must be located in the same directory as the QGRAF binary when QGRAF is invoked. The default value is False, which means that <code>"qgraf.dat"</code> will be deleted after the successful QGRAF run. When set to <code>True</code>, <code>"qgraf.dat"</code> will be copied to the current directory.</p>
-<p>Specifying an explicit path will make <code>QGCreateAmp</code> put <code>"qgraf.dat"</code> there. Notice that only the file for generating the amplitudes is saved. The file for generating the diagrams (if exists) is identical except for the difference in the style line.</p>
+<p><code>QGSaveInputFile</code> is an option for
+<code>QGCreateAmp</code>, which specifies where to save the QGRAF input
+file <code>"qgraf.dat"</code>. This file is automatically created from
+the input parameters of <code>QGCreateAmp</code> but it must be located
+in the same directory as the QGRAF binary when QGRAF is invoked. The
+default value is False, which means that <code>"qgraf.dat"</code> will
+be deleted after the successful QGRAF run. When set to
+<code>True</code>, <code>"qgraf.dat"</code> will be copied to the
+current directory.</p>
+<p>Specifying an explicit path will make <code>QGCreateAmp</code> put
+<code>"qgraf.dat"</code> there. Notice that only the file for generating
+the amplitudes is saved. The file for generating the diagrams (if
+exists) is identical except for the difference in the style line.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="QGCreateAmp.html">QGCreateAmp</a>.</p>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a
+href="QGCreateAmp.html">QGCreateAmp</a>.</p>
 <h3 id="examples">Examples</h3>
 </body>
 </html>

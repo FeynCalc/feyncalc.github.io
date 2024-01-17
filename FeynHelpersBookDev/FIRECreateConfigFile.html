@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,28 +109,73 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <h2 id="firecreateconfigfile">FIRECreateConfigFile</h2>
-<p><code>FIRECreateConfigFile[topo, fireID, path]</code> automatically generates a FIRE .config file for the given topology <code>topo</code> with the FIRE-identifier <code>fireID</code> and saves it to <code>path/topoName</code> as <code>topoName.config</code> where <code>topoName</code> is the <code>FCTopology</code>-identifier. The function returns the full path to the generated .config file.</p>
-<p>If the directory specified in <code>path/topoName</code> does not exist, it will be created automatically. If it already exists, its content will be automatically overwritten, unless the option <code>OverwriteTarget</code> is set to <code>False</code>.</p>
-<p>If no <code>fireID</code> is given, i.e. the function is called as <code>FIRECreateConfigFile[topo,  path]</code>, then the default value <code>4242</code> is used.</p>
-<p>It is also possible to invoke the routine as <code>FIRECreateConfigFile[{topo1, topo2, ...}, {id1, id2, ...}, {path1, path2, ...}]</code> or <code>FIRECreateConfigFile[{topo1, topo2, ...}, {path1, path2, ...}]</code>if one needs to process a list of topologies.</p>
-<p>The syntax <code>FIRECreateConfigFile[{topo1, topo2, ...}, {id1, id2, ...}, path]</code> or <code>FIRECreateConfigFile[{topo1, topo2, ...}, path]</code> is also allowed. This implies that all config files will go into the corresponding subdirectories of path, e.g. <code>path/topoName1</code>, <code>path/topoName2</code> etc.</p>
-<p>The default name of the file containing loop integrals for the reduction is <code>"LoopIntegrals.m"</code>. It can be changed via the option <code>FIREIntegrals</code>.</p>
-<p>To customize the content of the .config file one can use following options:</p>
+<p><code>FIRECreateConfigFile[topo, fireID, path]</code> automatically
+generates a FIRE .config file for the given topology <code>topo</code>
+with the FIRE-identifier <code>fireID</code> and saves it to
+<code>path/topoName</code> as <code>topoName.config</code> where
+<code>topoName</code> is the <code>FCTopology</code>-identifier. The
+function returns the full path to the generated .config file.</p>
+<p>If the directory specified in <code>path/topoName</code> does not
+exist, it will be created automatically. If it already exists, its
+content will be automatically overwritten, unless the option
+<code>OverwriteTarget</code> is set to <code>False</code>.</p>
+<p>If no <code>fireID</code> is given, i.e. the function is called as
+<code>FIRECreateConfigFile[topo,  path]</code>, then the default value
+<code>4242</code> is used.</p>
+<p>It is also possible to invoke the routine as
+<code>FIRECreateConfigFile[{topo1, topo2, ...}, {id1, id2, ...}, {path1, path2, ...}]</code>
+or
+<code>FIRECreateConfigFile[{topo1, topo2, ...}, {path1, path2, ...}]</code>if
+one needs to process a list of topologies.</p>
+<p>The syntax
+<code>FIRECreateConfigFile[{topo1, topo2, ...}, {id1, id2, ...}, path]</code>
+or <code>FIRECreateConfigFile[{topo1, topo2, ...}, path]</code> is also
+allowed. This implies that all config files will go into the
+corresponding subdirectories of path, e.g. <code>path/topoName1</code>,
+<code>path/topoName2</code> etc.</p>
+<p>The default name of the file containing loop integrals for the
+reduction is <code>"LoopIntegrals.m"</code>. It can be changed via the
+option <code>FIREIntegrals</code>.</p>
+<p>To customize the content of the .config file one can use following
+options:</p>
 <ul>
-<li><code>FIREBucket</code> (corresponds to <code>#bucket</code>, default value <code>29</code>)</li>
-<li><code>FIRECompressor</code> (corresponds to <code>#compressor</code>, default value <code>"zstd"</code>)</li>
-<li><code>FIREFThreads</code> (corresponds to <code>#fthreads</code>, default value <span class="math inline">2 \times N_{CPU}</span>)</li>
-<li><code>FIRELThreads</code> (corresponds to <code>#lthreads</code>, default value <code>2</code>)</li>
-<li><code>FIREPosPref</code> (corresponds to <code>#pospref</code>, unset by default)</li>
-<li><code>FIRESThreads</code> (corresponds to <code>#sthreads</code>, default value <span class="math inline">N_{CPU}</span>)</li>
-<li><code>FIREThreads</code> (corresponds to <code>#threads</code>, default value <span class="math inline">N_{CPU}</span>)</li>
+<li><code>FIREBucket</code> (corresponds to <code>#bucket</code>,
+default value <code>29</code>)</li>
+<li><code>FIRECompressor</code> (corresponds to
+<code>#compressor</code>, default value <code>"zstd"</code>)</li>
+<li><code>FIREFThreads</code> (corresponds to <code>#fthreads</code>,
+default value <span class="math inline">2 \times N_{CPU}</span>)</li>
+<li><code>FIRELThreads</code> (corresponds to <code>#lthreads</code>,
+default value <code>2</code>)</li>
+<li><code>FIREPosPref</code> (corresponds to <code>#pospref</code>,
+unset by default)</li>
+<li><code>FIRESThreads</code> (corresponds to <code>#sthreads</code>,
+default value <span class="math inline">N_{CPU}</span>)</li>
+<li><code>FIREThreads</code> (corresponds to <code>#threads</code>,
+default value <span class="math inline">N_{CPU}</span>)</li>
 </ul>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="FIREBucket.html">FIREBucket</a>, <a href="FIRECompressor.html">FIRECompressor</a>, <a href="FIREFthreads.html">FIREFthreads</a>, <a href="FIRELthreads.html">FIRELthreads</a>, <a href="FIREIntegrals.html">FIREIntegrals</a>, <a href="FIREPosPref.html">FIREPosPref</a>, <a href="FIRESthreads.html">FIRESthreads</a>, <a href="FIREThreads.html">FIREThreads</a>.</p>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a
+href="FIREBucket.html">FIREBucket</a>, <a
+href="FIRECompressor.html">FIRECompressor</a>, <a
+href="FIREFthreads.html">FIREFthreads</a>, <a
+href="FIRELthreads.html">FIRELthreads</a>, <a
+href="FIREIntegrals.html">FIREIntegrals</a>, <a
+href="FIREPosPref.html">FIREPosPref</a>, <a
+href="FIRESthreads.html">FIRESthreads</a>, <a
+href="FIREThreads.html">FIREThreads</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>topo <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;asyR1prop2Ltopo01310X11111N1&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mg<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>p3 . <span class="fu">q</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mb<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> p1 . p3<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> mb<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}]</span></span></code></pre></div>
-<p><span class="math display">\text{FCTopology}\left(\text{asyR1prop2Ltopo01310X11111N1},\left\{\frac{1}{(-\text{p1}^2-i \eta )},\frac{1}{(-\text{p3}^2+\text{mg}^2-i \eta )},\frac{1}{(-2 (\text{p3}\cdot q)-i \eta )},\frac{1}{(-(\text{p1}+q)^2+\text{mb}^2-i \eta )},\frac{1}{(\text{p1}\cdot \;\text{p3}-i \eta )}\right\},\{\text{p1},\text{p3}\},\{q\},\left\{q^2\to \;\text{mb}^2\right\},\{\}\right)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIRECreateConfigFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}]]</span>;</span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>topo <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;asyR1prop2Ltopo01310X11111N1&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mg<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>p3 . <span class="fu">q</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mb<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> p1 . p3<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> mb<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCTopology}\left(\text{asyR1prop2Ltopo01310X11111N1},\left\{\frac{1}{(-\text{p1}^2-i
+\eta )},\frac{1}{(-\text{p3}^2+\text{mg}^2-i \eta )},\frac{1}{(-2
+(\text{p3}\cdot q)-i \eta )},\frac{1}{(-(\text{p1}+q)^2+\text{mb}^2-i
+\eta )},\frac{1}{(\text{p1}\cdot \;\text{p3}-i \eta
+)}\right\},\{\text{p1},\text{p3}\},\{q\},\left\{q^2\to
+\;\text{mb}^2\right\},\{\}\right)</span></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIRECreateConfigFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}]]</span>;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fileName <span class="sc">//</span> <span class="fu">FilePrint</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">(*#compressor zstd</span></span>
@@ -136,7 +190,8 @@
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#problem 4242 asyR1prop2Ltopo01310X11111N1.start</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#integrals LoopIntegrals.m</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#output asyR1prop2Ltopo01310X11111N1.tables*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIRECreateConfigFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> FIREIntegrals <span class="ot">-&gt;</span> <span class="st">&quot;LIs.m&quot;</span><span class="op">,</span> FIRELthreads <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">]</span>;</span>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIRECreateConfigFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> FIREIntegrals <span class="ot">-&gt;</span> <span class="st">&quot;LIs.m&quot;</span><span class="op">,</span> FIRELthreads <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">]</span>;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fileName <span class="sc">//</span> <span class="fu">FilePrint</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">(*#compressor zstd</span></span>
@@ -151,7 +206,8 @@
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#problem 4242 asyR1prop2Ltopo01310X11111N1.start</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#integrals LIs.m</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#output asyR1prop2Ltopo01310X11111N1.tables*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIRECreateConfigFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> FIREIntegrals <span class="ot">-&gt;</span> <span class="st">&quot;LIs.m&quot;</span><span class="op">,</span> FIRELthreads <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">]</span>;</span>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIRECreateConfigFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> FIREIntegrals <span class="ot">-&gt;</span> <span class="st">&quot;LIs.m&quot;</span><span class="op">,</span> FIRELthreads <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">]</span>;</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fileName <span class="sc">//</span> <span class="fu">FilePrint</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">(*#compressor zstd</span></span>
@@ -166,14 +222,28 @@
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#problem 4242 asyR1prop2Ltopo01310X11111N1.start</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#integrals LIs.m</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#output asyR1prop2Ltopo01310X11111N1.tables*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span><span class="st">&quot;asyR3prop2Ltopo01310X11111N1&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mg<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>p3 . <span class="fu">q</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>p1 . <span class="fu">q</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">-</span> p3)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> mb<span class="sc">^</span><span class="dv">2</span><span class="op">},</span>  <span class="op">{}],</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span><span class="st">&quot;asyR1prop2Ltopo01310X11111N1&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mg<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>p3 . <span class="fu">q</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mb<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> p1 . p3<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> mb<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}]</span> </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
-<p><span class="math display">\left\{\text{FCTopology}\left(\text{asyR3prop2Ltopo01310X11111N1},\left\{\frac{1}{(-\text{p1}^2-i \eta )},\frac{1}{(-\text{p3}^2+\text{mg}^2-i \eta )},\frac{1}{(-2 (\text{p3}\cdot q)-i \eta )},\frac{1}{(-2 (\text{p1}\cdot q)-i \eta )},\frac{1}{(-(\text{p1}-\text{p3})^2-i \eta )}\right\},\{\text{p1},\text{p3}\},\{q\},\left\{q^2\to \;\text{mb}^2\right\},\{\}\right),\text{FCTopology}\left(\text{asyR1prop2Ltopo01310X11111N1},\left\{\frac{1}{(-\text{p1}^2-i \eta )},\frac{1}{(-\text{p3}^2+\text{mg}^2-i \eta )},\frac{1}{(-2 (\text{p3}\cdot q)-i \eta )},\frac{1}{(-(\text{p1}+q)^2+\text{mb}^2-i \eta )},\frac{1}{(\text{p1}\cdot \;\text{p3}-i \eta )}\right\},\{\text{p1},\text{p3}\},\{q\},\left\{q^2\to \;\text{mb}^2\right\},\{\}\right)\right\}</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> FIRECreateConfigFile<span class="op">[</span>topos<span class="op">,</span> <span class="op">{</span><span class="dv">1150</span><span class="op">,</span> <span class="dv">1160</span><span class="op">},</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}]]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FilePrint</span><span class="op">[</span><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]]</span>;</span>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{asyR3prop2Ltopo01310X11111N1},\left\{\frac{1}{(-\text{p1}^2-i
+\eta )},\frac{1}{(-\text{p3}^2+\text{mg}^2-i \eta )},\frac{1}{(-2
+(\text{p3}\cdot q)-i \eta )},\frac{1}{(-2 (\text{p1}\cdot q)-i \eta
+)},\frac{1}{(-(\text{p1}-\text{p3})^2-i \eta
+)}\right\},\{\text{p1},\text{p3}\},\{q\},\left\{q^2\to
+\;\text{mb}^2\right\},\{\}\right),\text{FCTopology}\left(\text{asyR1prop2Ltopo01310X11111N1},\left\{\frac{1}{(-\text{p1}^2-i
+\eta )},\frac{1}{(-\text{p3}^2+\text{mg}^2-i \eta )},\frac{1}{(-2
+(\text{p3}\cdot q)-i \eta )},\frac{1}{(-(\text{p1}+q)^2+\text{mb}^2-i
+\eta )},\frac{1}{(\text{p1}\cdot \;\text{p3}-i \eta
+)}\right\},\{\text{p1},\text{p3}\},\{q\},\left\{q^2\to
+\;\text{mb}^2\right\},\{\}\right)\right\}</span></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> FIRECreateConfigFile<span class="op">[</span>topos<span class="op">,</span> <span class="op">{</span><span class="dv">1150</span><span class="op">,</span> <span class="dv">1160</span><span class="op">},</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}]]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FilePrint</span><span class="op">[</span><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]]</span>;</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*#compressor zstd</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#threads 8</span></span>
@@ -187,7 +257,8 @@
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#problem 1150 asyR3prop2Ltopo01310X11111N1.start</span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#integrals LoopIntegrals.m</span></span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#output asyR3prop2Ltopo01310X11111N1.tables*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FilePrint</span><span class="op">[</span><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">2</span><span class="op">]]]</span>;</span>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FilePrint</span><span class="op">[</span><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">2</span><span class="op">]]]</span>;</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*#compressor zstd</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#threads 8</span></span>

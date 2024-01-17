@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynHelpers manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script defer="" src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynHelpers manual (development version)</h1>
+</header>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<h2 id="fsacreatemathematicascripts">FSACreateMathematicaScripts</h2>
+<p><code>FSACreateMathematicaScripts[int, topo, path]</code> creates a
+Mathematica script needed for the evaluation of the integral
+<code>int</code> (in the <code>GLI</code> representation) belonging to
+the topology <code>topo</code>. The files are saved to the directory
+<code>path/topoNameXindices</code>. The function returns a list of two
+strings that point to the script for FIESTA and the output file.</p>
+<p>One can also use the <code>FeynAmpDenominator</code>-representation
+as in <code>FSACreateMathematicaScripts[fadInt, lmoms, path]</code>,
+where <code>lmoms</code> is the list of the loop momenta on which
+<code>fadInt</code> depends. In this case the FIESTA script will
+directly go into <code>path</code>.</p>
+<p>Another way to invoke the function would be
+<code>FSACreateMathematicaScripts[{int1, int2, ...}, {topo1, topo2, ...}, path]</code>
+in which case the files will be saved to
+<code>path/topoName1Xindices1</code>,
+<code>path/topoName2Xindices2</code> etc. The syntax
+<code>FSACreateMathematicaScripts[{int1, int2, ...}, {topo1, topo2, ...}, {path1, path2, ...}]</code>
+is also possible.</p>
+<p>Unless you are computing a single scale integral with the scale
+variable set to unity, you must specify all external parameters
+(e.g. masses and scalar products of external momenta) and their
+numerical values via the option <code>FSAParameterRules</code>. The
+option <code>FinalSubstitutions</code> can be used to assign some
+kinematic parameters (e.g. scalar products or masses) particular
+symbolic values.</p>
+<p>Another important option that you most likely would like to specify
+is <code>FSAOrderInEps</code> which specifies the order in <span
+class="math inline">\varepsilon</span> up to which the integral should
+be evaluated.</p>
+<p>The names of the FIESTA script can be changed via the option
+<code>FSAScriptFileName with the default value being</code>FIESTAScript.m`.</p>
+<p>The integrator used for the numerical evaluation of the integral is
+set by the option <code>FSAIntegrator</code>, where
+<code>"quasiMonteCarlo"</code> is the default value. Accordingly, if you
+want to increase the number of iterations, you should use the option
+<code>FSAIntegratorOptions</code>.</p>
+<p>If you know in advance that the integral you are computing does not
+have cuts (i.e. the result is purely real with no imaginary part), then
+it is highly recommended to disable the contour deformation. This will
+give you a huge performance boost. The option controlling this FIESTA
+parameter is called <code>FSAComplexMode</code> and is set to
+<code>True</code> by default.</p>
+<p>The prefactor of integrals evaluated by pySecDec is given by <span
+class="math inline">\frac{1}{i \pi^{D/2}} e^{\gamma_E
+\frac{4-D}{2}}</span> per loop, which is the standard choice for
+multiloop calculations. An extra prefactor can be added using the option
+`FSAAdditionalPrefactor.</p>
+<p>If you want to compute an integral using asymptotic expansion, you
+need to set the option <code>FSASDExpandAsy</code> to <code>True</code>
+and specify the expansion order via <code>FSASDExpandAsyOrder</code>.
+Furthermore, the expansion parameter must be made known using
+<code>FSAExpandVar</code>.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a
+href="FSAOrderInEps.html">FSAOrderInEps</a>, <a
+href="FSAIntegrator.html">FSAIntegrator</a>, <a
+href="FSAComplexMode.html">FSAComplexMode</a>, <a
+href="FSASDExpandAsy.html">FSASDExpandAsy</a>, <a
+href="FSASDExpandAsyOrder.html">FSASDExpandAsyOrder</a>, <a
+href="FSAExpandVar.html">FSAExpandVar</a>.</p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>topo1 <span class="ex">=</span> FCTopology<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span><span class="sc">-</span>SFAD<span class="op">[{{</span><span class="fu">I</span> p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> <span class="sc">-</span>SFAD<span class="op">[{{</span><span class="fu">I</span> (p1 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m2<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>int1 <span class="ex">=</span> GLI<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCTopology}\left(\text{prop1L},\left\{-\frac{1}{(-\text{p1}^2+\text{m1}^2-i
+\eta )},-\frac{1}{(-(\text{p1}+q)^2+\text{m2}^2-i \eta
+)}\right\},\{\text{p1}\},\{q\},\{\},\{\}\right)</span></p>
+<p><span class="math display">G^{\text{prop1L}}(1,1)</span></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> FSACreateMathematicaScripts<span class="op">[</span>int1<span class="op">,</span> topo1<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> qq<span class="op">,</span> qq <span class="ot">-&gt;</span> <span class="fl">20.</span> <span class="op">,</span> m1 <span class="ot">-&gt;</span> <span class="fl">2.</span> <span class="op">,</span> m2 <span class="ot">-&gt;</span> <span class="fl">2.</span><span class="op">}]</span>;</span></code></pre></div>
+<p><img src="img/15bie2p9wh0uq.svg" alt="15bie2p9wh0uq" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">20</span><span class="op">]</span> &amp;</span></code></pre></div>
+<p><img src="img/17rauzqegivvs.svg" alt="17rauzqegivvs" /></p>
+<p><img src="img/0jjbj48wa80cb.svg" alt="0jjbj48wa80cb" /></p>
+<p><span
+class="math display">\text{FilePrint}[\text{fileNames}[[1]],1\text{;;}20]</span></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{</span><span class="fu">I</span> <span class="fu">p</span><span class="op">,</span> <span class="op">{</span><span class="sc">-</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}}]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{(-p^2+m^2-i \eta )}</span></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> FSACreateMathematicaScripts<span class="op">[</span>SFAD<span class="op">[{</span><span class="fu">I</span> <span class="fu">p</span><span class="op">,</span> <span class="op">{</span><span class="sc">-</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}}],</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">,</span> <span class="st">&quot;tal1LInt&quot;</span><span class="op">}],</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">m</span> <span class="ot">-&gt;</span> <span class="fl">1.</span><span class="op">}]</span>;</span></code></pre></div>
+<p><img src="img/1fewa4926cnb4.svg" alt="1fewa4926cnb4" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">20</span><span class="op">]</span> &amp;</span></code></pre></div>
+<p><img src="img/0xax37b3to6o9.svg" alt="0xax37b3to6o9" /></p>
+<p><img src="img/0zgw7om8p0zoz.svg" alt="0zgw7om8p0zoz" /></p>
+<p><span
+class="math display">\text{FilePrint}[\text{fileNames}[[1]],1\text{;;}20]</span></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FSACreateMathematicaScripts<span class="op">[</span>GLI<span class="op">[</span>asyR2prop2Ltopo01013X11111N1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span>asyR2prop2Ltopo01013X11111N1<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span>(<span class="sc">-</span><span class="fu">I</span>)<span class="sc">*</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>(<span class="sc">-</span><span class="fu">I</span>)<span class="sc">*</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>(<span class="sc">-</span><span class="fu">I</span>)<span class="sc">*</span>(p3 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mb<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>(<span class="sc">-</span><span class="fu">I</span>)<span class="sc">*</span>(p1 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mb<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>     GFAD<span class="op">[{{</span>SPD<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span>p1 <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>p3<span class="op">]</span> <span class="sc">-</span> SPD<span class="op">[</span>p3<span class="op">,</span> p3<span class="op">],</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> mb<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}],</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>   FSAParameterRules <span class="ot">-&gt;</span> <span class="op">{</span>mb <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">},</span> FSAOrderInEps <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span>;</span></code></pre></div>
+<p><img src="img/0iax3lha5f3x2.svg" alt="0iax3lha5f3x2" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+</body>
+</html>

@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,23 +109,71 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <h2 id="fireimportresults">FIREImportResults</h2>
-<p><code>FIREImportResults[topoName, path]</code> imports the content of a FIRE .tables file and converts the results to replacement rules for <code>GLI</code>s with the id <code>topoName</code>.</p>
-<p>Notice that <code>topoName</code> can be also a list of replacement rules that link FIRE ids to <code>FCTopology</code> ids. For the sake of convenience one can also use full <code>FCTopology</code> objects instead of their ids as in <code>FIREImportResults[topo, path]</code> or <code>FIREImportResults[{topo1, topo2, ...}, path]</code>.</p>
-<p>If <code>path</code> represents a full path to a file, then this file is loaded. If it is just a path to a directory, then <code>path/topoName/topoName</code> is assumed to be the full path.</p>
+<p><code>FIREImportResults[topoName, path]</code> imports the content of
+a FIRE .tables file and converts the results to replacement rules for
+<code>GLI</code>s with the id <code>topoName</code>.</p>
+<p>Notice that <code>topoName</code> can be also a list of replacement
+rules that link FIRE ids to <code>FCTopology</code> ids. For the sake of
+convenience one can also use full <code>FCTopology</code> objects
+instead of their ids as in <code>FIREImportResults[topo, path]</code> or
+<code>FIREImportResults[{topo1, topo2, ...}, path]</code>.</p>
+<p>If <code>path</code> represents a full path to a file, then this file
+is loaded. If it is just a path to a directory, then
+<code>path/topoName/topoName</code> is assumed to be the full path.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynHelpers.html">Overview</a>, <a href="FIRECreateConfigFile.html">FIRECreateConfigFile</a>, <a href="FIRECreateStartFile.html">FIRECreateStartFile</a>, <a href="FIRERunReduction.html">FIRERunReduction</a></p>
+<p><a href="Extra/FeynHelpers.html">Overview</a>, <a
+href="FIRECreateConfigFile.html">FIRECreateConfigFile</a>, <a
+href="FIRECreateStartFile.html">FIRECreateStartFile</a>, <a
+href="FIRERunReduction.html">FIRERunReduction</a></p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ibpTables <span class="ex">=</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynHelpersDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> <span class="st">&quot;prop3L1topo010000100.tables&quot;</span><span class="op">}]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="ex">=</span> FIREImportResults<span class="op">[</span><span class="st">&quot;prop3L1topo010000100&quot;</span><span class="op">,</span> ibpTables<span class="op">]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="sc">//</span> <span class="fu">Length</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ibpTables <span class="ex">=</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynHelpersDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> <span class="st">&quot;prop3L1topo010000100.tables&quot;</span><span class="op">}]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="ex">=</span> FIREImportResults<span class="op">[</span><span class="st">&quot;prop3L1topo010000100&quot;</span><span class="op">,</span> ibpTables<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="sc">//</span> <span class="fu">Length</span></span></code></pre></div>
 <p><span class="math display">112</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ibpRules<span class="op">[[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\left\{G^{\text{prop3L1topo010000100}}(1,1,-2,1,1,-2,1,1,0)\to \frac{\left(d^2-8 d+16\right) \;\text{m1}^8 G^{\text{prop3L1topo010000100}}(0,1,1,1,1,1,1,0,0)}{16 d^2-32 d+16}+\frac{\left(-35 d^5+456 d^4-2092 d^3+4048 d^2-3136 d+768\right) \;\text{m1}^6 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,1,0,0)}{216 d^5-1296 d^4+3000 d^3-3360 d^2+1824 d-384}+\frac{\left(42 d^6-484 d^5+2333 d^4-5568 d^3+6572 d^2-3456 d+576\right) \;\text{m1}^4 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,0,0,0)}{216 d^6-1620 d^5+4944 d^4-7860 d^3+6864 d^2-3120 d+576},G^{\text{prop3L1topo010000100}}(1,1,-1,1,1,-1,1,1,-1)\to \frac{\left(6 d-3 d^2\right) \;\text{m1}^6 G^{\text{prop3L1topo010000100}}(0,1,1,1,1,1,1,0,0)}{32 d^2-64 d+32}+\frac{\left(-61 d^4+380 d^3-860 d^2+864 d-320\right) \;\text{m1}^4 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,1,0,0)}{144 d^4-768 d^3+1488 d^2-1248 d+384}+\frac{\left(42 d^4-253 d^3+550 d^2-520 d+176\right) \;\text{m1}^2 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,0,0,0)}{72 d^4-384 d^3+744 d^2-624 d+192}\right\}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ibpRulesTest <span class="ex">=</span> FIREImportResults<span class="op">[{</span><span class="dv">3110</span> <span class="ot">-&gt;</span> <span class="st">&quot;prop3L1topo010000100&quot;</span><span class="op">},</span> ibpTables<span class="op">]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="ex">===</span> ibpRulesTest</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ibpRules<span class="op">[[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{G^{\text{prop3L1topo010000100}}(1,1,-2,1,1,-2,1,1,0)\to
+\frac{\left(d^2-8 d+16\right) \;\text{m1}^8
+G^{\text{prop3L1topo010000100}}(0,1,1,1,1,1,1,0,0)}{16 d^2-32
+d+16}+\frac{\left(-35 d^5+456 d^4-2092 d^3+4048 d^2-3136 d+768\right)
+\;\text{m1}^6 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,1,0,0)}{216
+d^5-1296 d^4+3000 d^3-3360 d^2+1824 d-384}+\frac{\left(42 d^6-484
+d^5+2333 d^4-5568 d^3+6572 d^2-3456 d+576\right) \;\text{m1}^4
+G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,0,0,0)}{216 d^6-1620
+d^5+4944 d^4-7860 d^3+6864 d^2-3120
+d+576},G^{\text{prop3L1topo010000100}}(1,1,-1,1,1,-1,1,1,-1)\to
+\frac{\left(6 d-3 d^2\right) \;\text{m1}^6
+G^{\text{prop3L1topo010000100}}(0,1,1,1,1,1,1,0,0)}{32 d^2-64
+d+32}+\frac{\left(-61 d^4+380 d^3-860 d^2+864 d-320\right) \;\text{m1}^4
+G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,1,0,0)}{144 d^4-768 d^3+1488
+d^2-1248 d+384}+\frac{\left(42 d^4-253 d^3+550 d^2-520 d+176\right)
+\;\text{m1}^2 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,0,0,0)}{72
+d^4-384 d^3+744 d^2-624 d+192}\right\}</span></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ibpRulesTest <span class="ex">=</span> FIREImportResults<span class="op">[{</span><span class="dv">3110</span> <span class="ot">-&gt;</span> <span class="st">&quot;prop3L1topo010000100&quot;</span><span class="op">},</span> ibpTables<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="ex">===</span> ibpRulesTest</span></code></pre></div>
 <p><span class="math display">\text{True}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ibpRulesTest<span class="op">[[</span><span class="dv">3</span> ;; <span class="dv">4</span><span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\left\{G^{\text{prop3L1topo010000100}}(1,1,-1,1,1,-2,1,1,0)\to \frac{(4-d) \;\text{m1}^6 G^{\text{prop3L1topo010000100}}(0,1,1,1,1,1,1,0,0)}{8 d-8}+\frac{(8-5 d) \;\text{m1}^4 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,1,0,0)}{12 d-12}+\frac{(3 d-8) \;\text{m1}^2 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,0,0,0)}{6 d-6},G^{\text{prop3L1topo010000100}}(1,1,-2,1,1,-1,1,1,0)\to \frac{(4-d) \;\text{m1}^6 G^{\text{prop3L1topo010000100}}(0,1,1,1,1,1,1,0,0)}{8 d-8}+\frac{(8-5 d) \;\text{m1}^4 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,1,0,0)}{12 d-12}+\frac{(3 d-8) \;\text{m1}^2 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,0,0,0)}{6 d-6}\right\}</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>topo <span class="ex">=</span> FCTopology<span class="op">[</span>prop3L1topo010000100<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p2<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">-</span> p2)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p2 <span class="sc">-</span> p3)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">+</span> q1)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p2 <span class="sc">+</span> q1)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p3 <span class="sc">+</span> q1)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span>p1 . p3<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span>q1<span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span>q1<span class="op">,</span> q1<span class="op">]</span> <span class="ot">-&gt;</span> m1<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ibpRulesTest<span class="op">[[</span><span class="dv">3</span> ;; <span class="dv">4</span><span class="op">]]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{G^{\text{prop3L1topo010000100}}(1,1,-1,1,1,-2,1,1,0)\to
+\frac{(4-d) \;\text{m1}^6
+G^{\text{prop3L1topo010000100}}(0,1,1,1,1,1,1,0,0)}{8 d-8}+\frac{(8-5 d)
+\;\text{m1}^4 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,1,0,0)}{12
+d-12}+\frac{(3 d-8) \;\text{m1}^2
+G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,0,0,0)}{6
+d-6},G^{\text{prop3L1topo010000100}}(1,1,-2,1,1,-1,1,1,0)\to \frac{(4-d)
+\;\text{m1}^6 G^{\text{prop3L1topo010000100}}(0,1,1,1,1,1,1,0,0)}{8
+d-8}+\frac{(8-5 d) \;\text{m1}^4
+G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,1,0,0)}{12 d-12}+\frac{(3
+d-8) \;\text{m1}^2 G^{\text{prop3L1topo010000100}}(0,0,1,1,1,1,0,0,0)}{6
+d-6}\right\}</span></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>topo <span class="ex">=</span> FCTopology<span class="op">[</span>prop3L1topo010000100<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p2<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">-</span> p2)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p2 <span class="sc">-</span> p3)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">+</span> q1)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p2 <span class="sc">+</span> q1)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p3 <span class="sc">+</span> q1)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span>p1 . p3<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span>q1<span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span>q1<span class="op">,</span> q1<span class="op">]</span> <span class="ot">-&gt;</span> m1<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}]</span>;</span></code></pre></div>
 </body>
 </html>
