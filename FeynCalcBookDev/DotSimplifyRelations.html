@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
 
@@ -21,11 +29,18 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="dotsimplifyrelations">DotSimplifyRelations</h2>
-<p><code>DotSimplifyRelations</code> is an option for <code>DotSimplify</code>. Its setting may be a list of substitution rules of the form <code>DotSimplifyRelations -&gt; {a.b -&gt; c, b^2 -&gt; 0, ...}</code>.</p>
-<p>In the rules, <code>Condition</code> should not be used and patterns should be avoided on the right-hand sides.</p>
-<p>Notice that the performance of <code>DotSimplify</code> scales very badly with the complexity of <code>DotSimplifyRelations</code> and the number of terms of the expression.</p>
+<p><code>DotSimplifyRelations</code> is an option for
+<code>DotSimplify</code>. Its setting may be a list of substitution
+rules of the form
+<code>DotSimplifyRelations -&gt; {a.b -&gt; c, b^2 -&gt; 0, ...}</code>.</p>
+<p>In the rules, <code>Condition</code> should not be used and patterns
+should be avoided on the right-hand sides.</p>
+<p>Notice that the performance of <code>DotSimplify</code> scales very
+badly with the complexity of <code>DotSimplifyRelations</code> and the
+number of terms of the expression.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="DotSimplify.html">DotSimplify</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="DotSimplify.html">DotSimplify</a>.</p>
 <h3 id="examples">Examples</h3>
 </body>
 </html>

@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,110 +109,225 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fcverbose">FCVerbose</h2>
-<p><code>FCVerbose</code> is an option for numerous functions that allows to specify a local value of <code>$VeryVerbose</code> inside those functions. When set to a positive integer, all the debugging information inside the function will be given according to the value of <code>FCVerbose</code>, while the debugging output of other functions will be still governed by the value of <code>$VeryVerbose</code>. Following values are common</p>
+<p><code>FCVerbose</code> is an option for numerous functions that
+allows to specify a local value of <code>$VeryVerbose</code> inside
+those functions. When set to a positive integer, all the debugging
+information inside the function will be given according to the value of
+<code>FCVerbose</code>, while the debugging output of other functions
+will be still governed by the value of <code>$VeryVerbose</code>.
+Following values are common</p>
 <ul>
-<li><p><code>1</code> - a brief description of the calculational steps including timings</p></li>
+<li><p><code>1</code> - a brief description of the calculational steps
+including timings</p></li>
 <li><p><code>2</code> - somewhat more debugging information</p></li>
-<li><p><code>3</code> - lots of debugging output, probably useful only for developers</p></li>
+<li><p><code>3</code> - lots of debugging output, probably useful only
+for developers</p></li>
 </ul>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="$VeryVerbose.html">$VeryVerbose</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="$VeryVerbose.html">$VeryVerbose</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{DiracSimplify: Entering.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Normal mode.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Extracting Dirac objects.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Done extracting Dirac objects, timing: }0.03636</span></p>
-<p><span class="math display">\text{DiracSimplify: Doing index contractions.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Index contractions done, timing: }0.000453</span></p>
-<p><span class="math display">\text{DiracSimplify: Applying diracSimplifyEval}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval done, timing: }0.01655</span></p>
-<p><span class="math display">\text{DiracSimplify: Inserting Dirac objects back into products.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Done inserting Dirac objects back into products, timing: }0.000132</span></p>
-<p><span class="math display">\text{DiracSimplify: Applying SpinorChainTrick.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Done applying SpinorChainTrick, timing: }0.001167</span></p>
-<p><span class="math display">\text{DiracSimplify: Creating the final replacement rule.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Final replacement rule done, timing: }0.000119</span></p>
-<p><span class="math display">\text{DiracSimplify: Expanding the result.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Expanding done, timing: }0.000413</span></p>
+<p><span class="math display">\text{DiracSimplify: Normal
+mode.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Extracting Dirac
+objects.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Done extracting Dirac
+objects, timing: }0.03636</span></p>
+<p><span class="math display">\text{DiracSimplify: Doing index
+contractions.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Index contractions
+done, timing: }0.000453</span></p>
+<p><span class="math display">\text{DiracSimplify: Applying
+diracSimplifyEval}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval
+done, timing: }0.01655</span></p>
+<p><span class="math display">\text{DiracSimplify: Inserting Dirac
+objects back into products.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Done inserting Dirac
+objects back into products, timing: }0.000132</span></p>
+<p><span class="math display">\text{DiracSimplify: Applying
+SpinorChainTrick.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Done applying
+SpinorChainTrick, timing: }0.001167</span></p>
+<p><span class="math display">\text{DiracSimplify: Creating the final
+replacement rule.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Final replacement
+rule done, timing: }0.000119</span></p>
+<p><span class="math display">\text{DiracSimplify: Expanding the
+result.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Expanding done,
+timing: }0.000413</span></p>
 <p><span class="math display">\text{DiracSimplify: Leaving.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Total timing: }0.06579</span></p>
+<p><span class="math display">\text{DiracSimplify: Total timing:
+}0.06579</span></p>
 <p><span class="math display">4 \bar{\gamma }^{\rho }</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{DiracSimplify: Entering.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Normal mode.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Extracting Dirac objects.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Done extracting Dirac objects, timing: }0.008883</span></p>
-<p><span class="math display">\text{DiracSimplify: Doing index contractions.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Index contractions done, timing: }0.000426</span></p>
-<p><span class="math display">\text{DiracSimplify: Applying diracSimplifyEval}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Entering}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Applying DiracTrick.}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: DiracTrick done, timing: }0.003183</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Applying Dotsimplify.}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Dotsimplify done, timing: }0.002288</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Applying DiracTrick.}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: DiracTrick done, timing: }0.006512</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Applying Dotsimplify.}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Dotsimplify done, timing: }0.002125</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval done, timing: }0.01820</span></p>
-<p><span class="math display">\text{DiracSimplify: Inserting Dirac objects back into products.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Done inserting Dirac objects back into products, timing: }0.000146</span></p>
-<p><span class="math display">\text{DiracSimplify: Applying SpinorChainTrick.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Done applying SpinorChainTrick, timing: }0.001152</span></p>
-<p><span class="math display">\text{DiracSimplify: Creating the final replacement rule.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Final replacement rule done, timing: }0.000123</span></p>
-<p><span class="math display">\text{DiracSimplify: Expanding the result.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Expanding done, timing: }0.000374</span></p>
+<p><span class="math display">\text{DiracSimplify: Normal
+mode.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Extracting Dirac
+objects.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Done extracting Dirac
+objects, timing: }0.008883</span></p>
+<p><span class="math display">\text{DiracSimplify: Doing index
+contractions.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Index contractions
+done, timing: }0.000426</span></p>
+<p><span class="math display">\text{DiracSimplify: Applying
+diracSimplifyEval}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Entering}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Applying DiracTrick.}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+DiracTrick done, timing: }0.003183</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Applying Dotsimplify.}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Dotsimplify done, timing: }0.002288</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Applying DiracTrick.}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+DiracTrick done, timing: }0.006512</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Applying Dotsimplify.}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Dotsimplify done, timing: }0.002125</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval
+done, timing: }0.01820</span></p>
+<p><span class="math display">\text{DiracSimplify: Inserting Dirac
+objects back into products.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Done inserting Dirac
+objects back into products, timing: }0.000146</span></p>
+<p><span class="math display">\text{DiracSimplify: Applying
+SpinorChainTrick.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Done applying
+SpinorChainTrick, timing: }0.001152</span></p>
+<p><span class="math display">\text{DiracSimplify: Creating the final
+replacement rule.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Final replacement
+rule done, timing: }0.000123</span></p>
+<p><span class="math display">\text{DiracSimplify: Expanding the
+result.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Expanding done,
+timing: }0.000374</span></p>
 <p><span class="math display">\text{DiracSimplify: Leaving.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Total timing: }0.03523</span></p>
+<p><span class="math display">\text{DiracSimplify: Total timing:
+}0.03523</span></p>
 <p><span class="math display">4 \bar{\gamma }^{\rho }</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">3</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">3</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{DiracSimplify: Entering.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Entering with }\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }</span></p>
-<p><span class="math display">\text{DiracSimplify: Normal mode.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Extracting Dirac objects.}</span></p>
-<p><span class="math display">\text{DiracSimplify: dsPart: }\;\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{ }$dsHeadAll}\left(\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{ }$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }\right)\right)</span></p>
-<p><span class="math display">\text{DiracSimplify: freePart: }0</span></p>
-<p><span class="math display">\text{DiracSimplify: Done extracting Dirac objects, timing: }0.009456</span></p>
-<p><span class="math display">\text{DiracSimplify: diracObjects: }\left\{\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{ }$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }\right)\right\}</span></p>
-<p><span class="math display">\text{DiracSimplify: Doing index contractions.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Index contractions done, timing: }0.000418</span></p>
-<p><span class="math display">\text{DiracSimplify: diracObjectsEval after index contractions: }\left\{\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{ }$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }\right)\right\}</span></p>
-<p><span class="math display">\text{DiracSimplify: Applying diracSimplifyEval}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Entering}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Entering with: }\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Applying DiracTrick.}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: DiracTrick done, timing: }0.002919</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: After DiracTrick: }4 \bar{\gamma }^{\rho }</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Applying Dotsimplify.}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Dotsimplify done, timing: }0.002082</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: After Dotsimplify: }4 \bar{\gamma }^{\rho }</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Applying DiracTrick.}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: DiracTrick done, timing: }0.006242</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: After DiracTrick: }4 \bar{\gamma }^{\rho }</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Applying Dotsimplify.}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Dotsimplify done, timing: }0.002124</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: After Dotsimplify: }4 \bar{\gamma }^{\rho }</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval: Leaving with: }4 \bar{\gamma }^{\rho }</span></p>
-<p><span class="math display">\text{DiracSimplify: After diracSimplifyEval: }\left\{4 \bar{\gamma }^{\rho }\right\}</span></p>
-<p><span class="math display">\text{DiracSimplify: diracSimplifyEval done, timing: }0.02049</span></p>
-<p><span class="math display">\text{DiracSimplify: Inserting Dirac objects back into products.}</span></p>
-<p><span class="math display">\text{DiracSimplify: repRule: }\left\{\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{ }$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }\right)\to 4 \bar{\gamma }^{\rho }\right\}</span></p>
-<p><span class="math display">\text{DiracSimplify: Done inserting Dirac objects back into products, timing: }0.001005</span></p>
-<p><span class="math display">\text{DiracSimplify: Intermediate result: }\left\{4 \bar{\gamma }^{\rho }\right\}</span></p>
-<p><span class="math display">\text{DiracSimplify: Applying SpinorChainTrick.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Done applying SpinorChainTrick, timing: }0.001158</span></p>
-<p><span class="math display">\text{DiracSimplify: After SpinorChainTrick: }\left\{4 \bar{\gamma }^{\rho }\right\}</span></p>
-<p><span class="math display">\text{DiracSimplify: Creating the final replacement rule.}</span></p>
-<p><span class="math display">\text{DiracSimplify: repRule: }\left\{\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{ }$dsHeadAll}\left(\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{ }$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }\right)\right)\to 4 \bar{\gamma }^{\rho }\right\}</span></p>
-<p><span class="math display">\text{DiracSimplify: Final replacement rule done, timing: }0.000980</span></p>
-<p><span class="math display">\text{DiracSimplify: Expanding the result.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Expanding done, timing: }0.000399</span></p>
-<p><span class="math display">\text{DiracSimplify: After expanding: }4 \bar{\gamma }^{\rho }</span></p>
+<p><span class="math display">\text{DiracSimplify: Entering with
+}\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }</span></p>
+<p><span class="math display">\text{DiracSimplify: Normal
+mode.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Extracting Dirac
+objects.}</span></p>
+<p><span class="math display">\text{DiracSimplify: dsPart:
+}\;\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{
+}$dsHeadAll}\left(\text{FeynCalc$\grave{ }$DiracSimplify$\grave{
+}$Private$\grave{ }$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}\right)\right)</span></p>
+<p><span class="math display">\text{DiracSimplify: freePart:
+}0</span></p>
+<p><span class="math display">\text{DiracSimplify: Done extracting Dirac
+objects, timing: }0.009456</span></p>
+<p><span class="math display">\text{DiracSimplify: diracObjects:
+}\left\{\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{
+}$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma
+}^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}\right)\right\}</span></p>
+<p><span class="math display">\text{DiracSimplify: Doing index
+contractions.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Index contractions
+done, timing: }0.000418</span></p>
+<p><span class="math display">\text{DiracSimplify: diracObjectsEval
+after index contractions: }\left\{\text{FeynCalc$\grave{
+}$DiracSimplify$\grave{ }$Private$\grave{ }$dsHead}\left(\bar{\gamma
+}^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu
+}.\bar{\gamma }^{\nu }\right)\right\}</span></p>
+<p><span class="math display">\text{DiracSimplify: Applying
+diracSimplifyEval}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Entering}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Entering with: }\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma
+}^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Applying DiracTrick.}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+DiracTrick done, timing: }0.002919</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+After DiracTrick: }4 \bar{\gamma }^{\rho }</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Applying Dotsimplify.}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Dotsimplify done, timing: }0.002082</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+After Dotsimplify: }4 \bar{\gamma }^{\rho }</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Applying DiracTrick.}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+DiracTrick done, timing: }0.006242</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+After DiracTrick: }4 \bar{\gamma }^{\rho }</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Applying Dotsimplify.}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Dotsimplify done, timing: }0.002124</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+After Dotsimplify: }4 \bar{\gamma }^{\rho }</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval:
+Leaving with: }4 \bar{\gamma }^{\rho }</span></p>
+<p><span class="math display">\text{DiracSimplify: After
+diracSimplifyEval: }\left\{4 \bar{\gamma }^{\rho }\right\}</span></p>
+<p><span class="math display">\text{DiracSimplify: diracSimplifyEval
+done, timing: }0.02049</span></p>
+<p><span class="math display">\text{DiracSimplify: Inserting Dirac
+objects back into products.}</span></p>
+<p><span class="math display">\text{DiracSimplify: repRule:
+}\left\{\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{
+}$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma
+}^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }\right)\to 4
+\bar{\gamma }^{\rho }\right\}</span></p>
+<p><span class="math display">\text{DiracSimplify: Done inserting Dirac
+objects back into products, timing: }0.001005</span></p>
+<p><span class="math display">\text{DiracSimplify: Intermediate result:
+}\left\{4 \bar{\gamma }^{\rho }\right\}</span></p>
+<p><span class="math display">\text{DiracSimplify: Applying
+SpinorChainTrick.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Done applying
+SpinorChainTrick, timing: }0.001158</span></p>
+<p><span class="math display">\text{DiracSimplify: After
+SpinorChainTrick: }\left\{4 \bar{\gamma }^{\rho }\right\}</span></p>
+<p><span class="math display">\text{DiracSimplify: Creating the final
+replacement rule.}</span></p>
+<p><span class="math display">\text{DiracSimplify: repRule:
+}\left\{\text{FeynCalc$\grave{ }$DiracSimplify$\grave{ }$Private$\grave{
+}$dsHeadAll}\left(\text{FeynCalc$\grave{ }$DiracSimplify$\grave{
+}$Private$\grave{ }$dsHead}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}.\bar{\gamma }^{\rho }.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}\right)\right)\to 4 \bar{\gamma }^{\rho }\right\}</span></p>
+<p><span class="math display">\text{DiracSimplify: Final replacement
+rule done, timing: }0.000980</span></p>
+<p><span class="math display">\text{DiracSimplify: Expanding the
+result.}</span></p>
+<p><span class="math display">\text{DiracSimplify: Expanding done,
+timing: }0.000399</span></p>
+<p><span class="math display">\text{DiracSimplify: After expanding: }4
+\bar{\gamma }^{\rho }</span></p>
 <p><span class="math display">\text{DiracSimplify: Leaving.}</span></p>
-<p><span class="math display">\text{DiracSimplify: Total timing: }0.04359</span></p>
-<p><span class="math display">\text{DiracSimplify: Leaving with }4 \bar{\gamma }^{\rho }</span></p>
+<p><span class="math display">\text{DiracSimplify: Total timing:
+}0.04359</span></p>
+<p><span class="math display">\text{DiracSimplify: Leaving with }4
+\bar{\gamma }^{\rho }</span></p>
 <p><span class="math display">4 \bar{\gamma }^{\rho }</span></p>
 </body>
 </html>

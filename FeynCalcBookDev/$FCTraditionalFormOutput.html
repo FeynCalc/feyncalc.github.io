@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
 
@@ -21,11 +29,24 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fctraditionalformoutput">$FCTraditionalFormOutput</h2>
-<p>The Boolean setting of <code>$FCTraditionalFormOutput</code> determines which output format type should be used in the notebook front end when FeynCalc is loaded. If set to <code>True</code>, FeynCalc will activate the <code>TraditionalForm</code> output. Otherwise, the <code>StandardForm</code> output (Mathematica’s default) will be used.</p>
-<p>This setting only changes the output format of the current notebook, i.e. it is not persistent and will not modify the global options of Mathematica.</p>
-<p>If unsure, it is recommended to set <code>$FCTraditionalFormOutput</code> to <code>True</code>, so that you can benefit from the nice FeynCalc typesetting for various QFT quantities.</p>
+<p>The Boolean setting of <code>$FCTraditionalFormOutput</code>
+determines which output format type should be used in the notebook front
+end when FeynCalc is loaded. If set to <code>True</code>, FeynCalc will
+activate the <code>TraditionalForm</code> output. Otherwise, the
+<code>StandardForm</code> output (Mathematica’s default) will be
+used.</p>
+<p>This setting only changes the output format of the current notebook,
+i.e. it is not persistent and will not modify the global options of
+Mathematica.</p>
+<p>If unsure, it is recommended to set
+<code>$FCTraditionalFormOutput</code> to <code>True</code>, so that you
+can benefit from the nice FeynCalc typesetting for various QFT
+quantities.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCEnableTraditionalFormOutput.html">FCEnableTraditionalFormOutput</a>, <a href="FCDisableTraditionalFormOutput.html">FCDisableTraditionalFormOutput</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FCEnableTraditionalFormOutput.html">FCEnableTraditionalFormOutput</a>,
+<a
+href="FCDisableTraditionalFormOutput.html">FCDisableTraditionalFormOutput</a>.</p>
 <h3 id="examples">Examples</h3>
 </body>
 </html>

@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -99,33 +108,84 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="pavelimitto4">PaVeLimitTo4</h2>
-<p><code>PaVeLimitTo4[expr]</code> simplifies products of Passarino-Veltman functions and <span class="math inline">D</span>-dependent prefactors by evaluating the prefactors at <span class="math inline">D=4</span> and adding an extra term from the product of <span class="math inline">(D-4)</span> and the UV pole of the Passarino-Veltman function.</p>
-<p>This is possible because the UV poles of arbitrary Passarino-Veltman functions can be determined via <code>PaVeUVPart</code>. The result is valid up to 0th order in Epsilon, i.e. it is sufficient for 1-loop calculations.</p>
-<p>Warning! This simplification always ignores possible IR poles of Passarino-Veltman functions. Therefore, it can be used only if all IR poles are regulated without using dimensional regularization (e.g. by assigning gluons or photons a fake mass) or if it is known in advance that the given expression is free of IR singularities.</p>
-<p>The application of <code>PaVeLimitTo4</code> is equivalent to using the old <code>OneLoop</code> routine with the flags <code>$LimitTo4</code> and <code>$LimitTo4IRUnsafe</code> set to <code>True</code>.</p>
+<p><code>PaVeLimitTo4[expr]</code> simplifies products of
+Passarino-Veltman functions and <span
+class="math inline">D</span>-dependent prefactors by evaluating the
+prefactors at <span class="math inline">D=4</span> and adding an extra
+term from the product of <span class="math inline">(D-4)</span> and the
+UV pole of the Passarino-Veltman function.</p>
+<p>This is possible because the UV poles of arbitrary Passarino-Veltman
+functions can be determined via <code>PaVeUVPart</code>. The result is
+valid up to 0th order in Epsilon, i.e. it is sufficient for 1-loop
+calculations.</p>
+<p>Warning! This simplification always ignores possible IR poles of
+Passarino-Veltman functions. Therefore, it can be used only if all IR
+poles are regulated without using dimensional regularization (e.g. by
+assigning gluons or photons a fake mass) or if it is known in advance
+that the given expression is free of IR singularities.</p>
+<p>The application of <code>PaVeLimitTo4</code> is equivalent to using
+the old <code>OneLoop</code> routine with the flags
+<code>$LimitTo4</code> and <code>$LimitTo4IRUnsafe</code> set to
+<code>True</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="$LimitTo4.html">$LimitTo4</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="$LimitTo4.html">$LimitTo4</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> (<span class="fu">D</span> <span class="sc">-</span> <span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">D</span> <span class="sc">-</span> <span class="dv">3</span>) A0<span class="op">[</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>PaVeLimitTo4<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{(D-2) \;\text{A}_0\left(m^2\right)}{D-3}</span></p>
-<p><span class="math display">2 \;\text{A}_0\left(m^2\right)+2 m^2</span></p>
-<p>Simplify the 1-loop amplitude for <span class="math inline">H \to g g</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> (<span class="sc">-</span>(<span class="dv">1</span><span class="sc">/</span>((<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">D</span>) mH<span class="sc">^</span><span class="dv">2</span> mW sinW)) <span class="dv">2</span> <span class="fu">I</span> (<span class="sc">-</span><span class="dv">4</span> <span class="sc">+</span> <span class="fu">D</span>) <span class="fu">e</span> gs<span class="sc">^</span><span class="dv">2</span> mt<span class="sc">^</span><span class="dv">2</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> B0<span class="op">[</span>mH<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">]</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>     SD<span class="op">[</span>Glu2<span class="op">,</span> Glu3<span class="op">]</span> (<span class="sc">-</span><span class="dv">2</span> SPD<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        SPD<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       mH<span class="sc">^</span><span class="dv">2</span> SPD<span class="op">[</span>Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">],</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span>) <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>((<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">D</span>) mH<span class="sc">^</span><span class="dv">2</span> mW sinW) <span class="fu">I</span> <span class="fu">e</span> gs<span class="sc">^</span><span class="dv">2</span> mt<span class="sc">^</span><span class="dv">2</span> (<span class="sc">-</span><span class="dv">2</span> mH<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">D</span> mH<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>       <span class="dv">8</span> mt<span class="sc">^</span><span class="dv">2</span>) <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> C0<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> mH<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">]</span> SD<span class="op">[</span>Glu2<span class="op">,</span> Glu3<span class="op">]</span> (<span class="sc">-</span><span class="dv">2</span> SPD<span class="op">[</span>k1<span class="op">,</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>         Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SPD<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>k1<span class="op">,</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>          <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> mH<span class="sc">^</span><span class="dv">2</span> SPD<span class="op">[</span>Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>          Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">],</span> Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span>))</span></code></pre></div>
-<p><span class="math display">-\frac{2 i \pi ^2 (D-4) e \;\text{gs}^2 \;\text{mt}^2 \delta ^{\text{Glu2}\;\text{Glu3}} \;\text{B}_0\left(\text{mH}^2,\text{mt}^2,\text{mt}^2\right) \left(\text{mH}^2 \left(\varepsilon ^*(\text{k1})\cdot \varepsilon ^*(\text{k2})\right)-2 \left(\text{k1}\cdot \varepsilon ^*(\text{k2})\right) \left(\text{k2}\cdot \varepsilon ^*(\text{k1})\right)\right)}{(D-2) \;\text{mH}^2 \;\text{mW} \;\text{sinW}}-\frac{i \pi ^2 e \;\text{gs}^2 \;\text{mt}^2 \left(D \;\text{mH}^2-2 \;\text{mH}^2-8 \;\text{mt}^2\right) \delta ^{\text{Glu2}\;\text{Glu3}} \;\text{C}_0\left(0,0,\text{mH}^2,\text{mt}^2,\text{mt}^2,\text{mt}^2\right) \left(\text{mH}^2 \left(\varepsilon ^*(\text{k1})\cdot \varepsilon ^*(\text{k2})\right)-2 \left(\text{k1}\cdot \varepsilon ^*(\text{k2})\right) \left(\text{k2}\cdot \varepsilon ^*(\text{k1})\right)\right)}{(D-2) \;\text{mH}^2 \;\text{mW} \;\text{sinW}}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PaVeLimitTo4<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{i \pi ^2 e \;\text{gs}^2 \;\text{mt}^2 \left(\text{mH}^2-4 \;\text{mt}^2\right) \delta ^{\text{Glu2}\;\text{Glu3}} \;\text{C}_0\left(0,0,\text{mH}^2,\text{mt}^2,\text{mt}^2,\text{mt}^2\right) \left(2 \left(\overline{\text{k1}}\cdot \bar{\varepsilon }^*(\text{k2})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }^*(\text{k1})\right)-\text{mH}^2 \left(\bar{\varepsilon }^*(\text{k1})\cdot \bar{\varepsilon }^*(\text{k2})\right)\right)}{\text{mH}^2 \;\text{mW} \;\text{sinW}}-\frac{2 i \pi ^2 e \;\text{gs}^2 \;\text{mt}^2 \delta ^{\text{Glu2}\;\text{Glu3}} \left(2 \left(\overline{\text{k1}}\cdot \bar{\varepsilon }^*(\text{k2})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon }^*(\text{k1})\right)-\text{mH}^2 \left(\bar{\varepsilon }^*(\text{k1})\cdot \bar{\varepsilon }^*(\text{k2})\right)\right)}{\text{mH}^2 \;\text{mW} \;\text{sinW}}</span></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> (<span class="fu">D</span> <span class="sc">-</span> <span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">D</span> <span class="sc">-</span> <span class="dv">3</span>) A0<span class="op">[</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">]</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>PaVeLimitTo4<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{(D-2)
+\;\text{A}_0\left(m^2\right)}{D-3}</span></p>
+<p><span class="math display">2 \;\text{A}_0\left(m^2\right)+2
+m^2</span></p>
+<p>Simplify the 1-loop amplitude for <span class="math inline">H \to g
+g</span></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> (<span class="sc">-</span>(<span class="dv">1</span><span class="sc">/</span>((<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">D</span>) mH<span class="sc">^</span><span class="dv">2</span> mW sinW)) <span class="dv">2</span> <span class="fu">I</span> (<span class="sc">-</span><span class="dv">4</span> <span class="sc">+</span> <span class="fu">D</span>) <span class="fu">e</span> gs<span class="sc">^</span><span class="dv">2</span> mt<span class="sc">^</span><span class="dv">2</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> B0<span class="op">[</span>mH<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">]</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     SD<span class="op">[</span>Glu2<span class="op">,</span> Glu3<span class="op">]</span> (<span class="sc">-</span><span class="dv">2</span> SPD<span class="op">[</span>k1<span class="op">,</span> Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        SPD<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       mH<span class="sc">^</span><span class="dv">2</span> SPD<span class="op">[</span>Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">],</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span>) <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>((<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">D</span>) mH<span class="sc">^</span><span class="dv">2</span> mW sinW) <span class="fu">I</span> <span class="fu">e</span> gs<span class="sc">^</span><span class="dv">2</span> mt<span class="sc">^</span><span class="dv">2</span> (<span class="sc">-</span><span class="dv">2</span> mH<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">D</span> mH<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="dv">8</span> mt<span class="sc">^</span><span class="dv">2</span>) <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> C0<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> mH<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> mt<span class="sc">^</span><span class="dv">2</span><span class="op">]</span> SD<span class="op">[</span>Glu2<span class="op">,</span> Glu3<span class="op">]</span> (<span class="sc">-</span><span class="dv">2</span> SPD<span class="op">[</span>k1<span class="op">,</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> SPD<span class="op">[</span>k2<span class="op">,</span> Polarization<span class="op">[</span>k1<span class="op">,</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>          <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span> <span class="sc">+</span> mH<span class="sc">^</span><span class="dv">2</span> SPD<span class="op">[</span>Polarization<span class="op">[</span>k1<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>          Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">],</span> Polarization<span class="op">[</span>k2<span class="op">,</span> <span class="sc">-</span><span class="fu">I</span><span class="op">,</span> Transversality <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]]</span>))</span></code></pre></div>
+<p><span class="math display">-\frac{2 i \pi ^2 (D-4) e \;\text{gs}^2
+\;\text{mt}^2 \delta ^{\text{Glu2}\;\text{Glu3}}
+\;\text{B}_0\left(\text{mH}^2,\text{mt}^2,\text{mt}^2\right)
+\left(\text{mH}^2 \left(\varepsilon ^*(\text{k1})\cdot \varepsilon
+^*(\text{k2})\right)-2 \left(\text{k1}\cdot \varepsilon
+^*(\text{k2})\right) \left(\text{k2}\cdot \varepsilon
+^*(\text{k1})\right)\right)}{(D-2) \;\text{mH}^2 \;\text{mW}
+\;\text{sinW}}-\frac{i \pi ^2 e \;\text{gs}^2 \;\text{mt}^2 \left(D
+\;\text{mH}^2-2 \;\text{mH}^2-8 \;\text{mt}^2\right) \delta
+^{\text{Glu2}\;\text{Glu3}}
+\;\text{C}_0\left(0,0,\text{mH}^2,\text{mt}^2,\text{mt}^2,\text{mt}^2\right)
+\left(\text{mH}^2 \left(\varepsilon ^*(\text{k1})\cdot \varepsilon
+^*(\text{k2})\right)-2 \left(\text{k1}\cdot \varepsilon
+^*(\text{k2})\right) \left(\text{k2}\cdot \varepsilon
+^*(\text{k1})\right)\right)}{(D-2) \;\text{mH}^2 \;\text{mW}
+\;\text{sinW}}</span></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PaVeLimitTo4<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{i \pi ^2 e \;\text{gs}^2
+\;\text{mt}^2 \left(\text{mH}^2-4 \;\text{mt}^2\right) \delta
+^{\text{Glu2}\;\text{Glu3}}
+\;\text{C}_0\left(0,0,\text{mH}^2,\text{mt}^2,\text{mt}^2,\text{mt}^2\right)
+\left(2 \left(\overline{\text{k1}}\cdot \bar{\varepsilon
+}^*(\text{k2})\right) \left(\overline{\text{k2}}\cdot \bar{\varepsilon
+}^*(\text{k1})\right)-\text{mH}^2 \left(\bar{\varepsilon
+}^*(\text{k1})\cdot \bar{\varepsilon
+}^*(\text{k2})\right)\right)}{\text{mH}^2 \;\text{mW}
+\;\text{sinW}}-\frac{2 i \pi ^2 e \;\text{gs}^2 \;\text{mt}^2 \delta
+^{\text{Glu2}\;\text{Glu3}} \left(2 \left(\overline{\text{k1}}\cdot
+\bar{\varepsilon }^*(\text{k2})\right) \left(\overline{\text{k2}}\cdot
+\bar{\varepsilon }^*(\text{k1})\right)-\text{mH}^2
+\left(\bar{\varepsilon }^*(\text{k1})\cdot \bar{\varepsilon
+}^*(\text{k2})\right)\right)}{\text{mH}^2 \;\text{mW}
+\;\text{sinW}}</span></p>
 </body>
 </html>

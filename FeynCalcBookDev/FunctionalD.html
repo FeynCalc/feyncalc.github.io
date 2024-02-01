@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,103 +109,271 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="functionald">FunctionalD</h2>
-<p><code>FunctionalD[exp, {QuantumField[name, LorentzIndex[mu], ..., SUNIndex[a]][p], ...}]</code> calculates the functional derivative of exp with respect to the QuantumField list (with incoming momenta <span class="math inline">\text{p}</span>, etc.) and does the Fourier transform.</p>
-<p><code>FunctionalD[expr, {QuantumField[name, LorentzIndex[mu], ... SUNIndex[a]], ...}]</code> calculates the functional derivative and does partial integration but omits the <span class="math inline">\text{x}</span>-space delta functions.</p>
-<p><code>FunctionalD</code> is a low level function used in <code>FeynRule</code>.</p>
+<p><code>FunctionalD[exp, {QuantumField[name, LorentzIndex[mu], ..., SUNIndex[a]][p], ...}]</code>
+calculates the functional derivative of exp with respect to the
+QuantumField list (with incoming momenta <span
+class="math inline">\text{p}</span>, etc.) and does the Fourier
+transform.</p>
+<p><code>FunctionalD[expr, {QuantumField[name, LorentzIndex[mu], ... SUNIndex[a]], ...}]</code>
+calculates the functional derivative and does partial integration but
+omits the <span class="math inline">\text{x}</span>-space delta
+functions.</p>
+<p><code>FunctionalD</code> is a low level function used in
+<code>FeynRule</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FeynRule.html">FeynRule</a>, <a href="QuantumField.html">QuantumField</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FeynRule.html">FeynRule</a>, <a
+href="QuantumField.html">QuantumField</a>.</p>
 <h3 id="examples">Examples</h3>
-<p>Instead of the usual <span class="math inline">\delta \phi (x)/ \delta \phi (y)= \delta ^{(D)}(x-y)</span> the arguments and the <span class="math inline">\delta</span> function are omitted, i.e. for the program for simplicity: <span class="math inline">\delta \phi / \delta \phi =1</span>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]],</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]]</span></span></code></pre></div>
+<p>Instead of the usual <span class="math inline">\delta \phi (x)/
+\delta \phi (y)= \delta ^{(D)}(x-y)</span> the arguments and the <span
+class="math inline">\delta</span> function are omitted, i.e. for the
+program for simplicity: <span class="math inline">\delta \phi / \delta
+\phi =1</span>.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]],</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">1</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">2 \phi</span></p>
-<p>Instead of the usual <span class="math inline">(\delta \partial _{\mu} \phi (x) )/ \delta \phi (y)= \partial _{\mu} \delta^{(D)}(x-y)</span> the arguments are omitted, and the <span class="math inline">\partial_\mu</span> operator is specified by default to be an integration by parts operator, i.e. the right hand side will be just <code>Null</code> or, more precisely, (by default) <span class="math inline">-\partial _{mu }</span>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]],</span> <span class="sc">\</span><span class="op">[</span>Phi<span class="op">]],</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]]</span></span></code></pre></div>
+<p>Instead of the usual <span class="math inline">(\delta \partial
+_{\mu} \phi (x) )/ \delta \phi (y)= \partial _{\mu}
+\delta^{(D)}(x-y)</span> the arguments are omitted, and the <span
+class="math inline">\partial_\mu</span> operator is specified by default
+to be an integration by parts operator, i.e. the right hand side will be
+just <code>Null</code> or, more precisely, (by default) <span
+class="math inline">-\partial _{mu }</span>.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]],</span> <span class="sc">\</span><span class="op">[</span>Phi<span class="op">]],</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">-\vec{\partial }_{\mu }</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]],</span> <span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span> . QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]],</span> <span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span> . QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span> <span class="sc">-</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span>)<span class="sc">/</span><span class="dv">2</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span><span class="sc">%</span><span class="op">,</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{2} \left(\left(\left.(\partial _{\mu }\phi \right)\right).\left(\left.(\partial _{\mu }\phi \right)\right)-m^2 \phi .\phi \right)</span></p>
-<p><span class="math display">m^2 (-\phi )-\left(\partial _{\mu }\partial _{\mu }\phi \right)</span></p>
-<p>Consider <span class="math inline">S[A] = -\int d^D x \frac{1}{4} F_a^{\mu \nu }(x) F_{\mu \nu }(x)</span></p>
+<p><span class="math display">\frac{1}{2} \left(\left(\left.(\partial
+_{\mu }\phi \right)\right).\left(\left.(\partial _{\mu }\phi
+\right)\right)-m^2 \phi .\phi \right)</span></p>
+<p><span class="math display">m^2 (-\phi )-\left(\partial _{\mu
+}\partial _{\mu }\phi \right)</span></p>
+<p>Consider <span class="math inline">S[A] = -\int d^D x \frac{1}{4}
+F_a^{\mu \nu }(x) F_{\mu \nu }(x)</span></p>
 <p>First approach:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>F1 <span class="ex">=</span> FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="op">{</span><span class="fu">A</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">},</span> <span class="dv">1</span><span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> </span>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>F1 <span class="ex">=</span> FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="op">{</span><span class="fu">A</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">c</span><span class="op">},</span> <span class="dv">1</span><span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>F2 <span class="ex">=</span> FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> <span class="op">{</span><span class="fu">A</span><span class="op">,</span> <span class="fu">d</span><span class="op">,</span> <span class="fu">e</span><span class="op">},</span> <span class="dv">1</span><span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">S</span><span class="op">[</span><span class="fu">A</span><span class="op">]</span> <span class="ex">=</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">4</span> F1 . F2</span></code></pre></div>
-<p><span class="math display">f^{abc} A_{\mu }^b.A_{\nu }^c+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu }A_{\mu }^a\right)</span></p>
-<p><span class="math display">f^{ade} A_{\mu }^d.A_{\nu }^e+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu }A_{\mu }^a\right)</span></p>
-<p><span class="math display">-\frac{1}{4} \left(f^{abc} A_{\mu }^b.A_{\nu }^c+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu }A_{\mu }^a\right)\right).\left(f^{ade} A_{\mu }^d.A_{\nu }^e+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu }A_{\mu }^a\right)\right)</span></p>
-<p>In order to derive the equation of motion, the functional derivative of <span class="math inline">S</span> with respect to <span class="math inline">A_{\sigma }^g</span> has to be set to zero. Bearing in mind that for FeynCalc we have to be precise as to where which operators (coming from the substitution of the derivative of the delta function) act.</p>
-<p>Act with the functional derivative operator on the first field strength:</p>
-<p><span class="math inline">0 = (\delta S) / ( \delta A_ {\sigma }^g(y) ) =-2/4 \int d^D x (\delta / (\delta A_ {\sigma }^g (y) ) F^a_{\mu \nu}(x)) F_a^{\mu \nu} (x)</span></p>
-<p>See what happens with just <span class="math inline">(\delta S[A]) / (\delta A_{\sigma }^g)</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Ag <span class="ex">=</span> QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]},</span> <span class="op">{</span><span class="fu">g</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">f^{abc} A_{\mu }^b.A_{\nu
+}^c+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu
+}A_{\mu }^a\right)</span></p>
+<p><span class="math display">f^{ade} A_{\mu }^d.A_{\nu
+}^e+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu
+}A_{\mu }^a\right)</span></p>
+<p><span class="math display">-\frac{1}{4} \left(f^{abc} A_{\mu
+}^b.A_{\nu }^c+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial
+_{\nu }A_{\mu }^a\right)\right).\left(f^{ade} A_{\mu }^d.A_{\nu
+}^e+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu
+}A_{\mu }^a\right)\right)</span></p>
+<p>In order to derive the equation of motion, the functional derivative
+of <span class="math inline">S</span> with respect to <span
+class="math inline">A_{\sigma }^g</span> has to be set to zero. Bearing
+in mind that for FeynCalc we have to be precise as to where which
+operators (coming from the substitution of the derivative of the delta
+function) act.</p>
+<p>Act with the functional derivative operator on the first field
+strength:</p>
+<p><span class="math inline">0 = (\delta S) / ( \delta A_ {\sigma }^g(y)
+) =-2/4 \int d^D x (\delta / (\delta A_ {\sigma }^g (y) ) F^a_{\mu
+\nu}(x)) F_a^{\mu \nu} (x)</span></p>
+<p>See what happens with just <span class="math inline">(\delta S[A]) /
+(\delta A_{\sigma }^g)</span></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Ag <span class="ex">=</span> QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]},</span> <span class="op">{</span><span class="fu">g</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">A_{\sigma }^g</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>F1<span class="op">,</span> Ag<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">A_{\mu }^b \bar{g}^{\nu \sigma } f^{abg}-A_{\nu }^c \bar{g}^{\mu \sigma } f^{acg}+\delta ^{ag} \vec{\partial }_{\mu } \left(-\bar{g}^{\nu \sigma }\right)+\delta ^{ag} \vec{\partial }_{\nu } \bar{g}^{\mu \sigma }</span></p>
-<p>Use <code>FCCanonicalizeDummyIndices</code> to minimize the number of dummy indices.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ex">=</span> FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> SUNIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>c1<span class="op">}]</span> <span class="ot">/.</span> c1 <span class="ot">-&gt;</span> <span class="fu">c</span></span></code></pre></div>
-<p><span class="math display">A_{\mu }^c \bar{g}^{\nu \sigma } f^{acg}-A_{\nu }^c \bar{g}^{\mu \sigma } f^{acg}+\delta ^{ag} \vec{\partial }_{\mu } \left(-\bar{g}^{\nu \sigma }\right)+\delta ^{ag} \vec{\partial }_{\nu } \bar{g}^{\mu \sigma }</span></p>
-<p>Instead of inserting the definition for the second <span class="math inline">F_a^{\mu \nu}</span>, introduce a <code>QuantumField</code> object with antisymmetry built into the Lorentz indices:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">F</span> <span class="sc">/</span>: QuantumField<span class="op">[</span><span class="at">pard___</span><span class="op">,</span> <span class="fu">F</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]</span>_<span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]</span>_<span class="op">,</span> <span class="at">s_</span><span class="op">]</span> <span class="ex">:=</span> <span class="sc">-</span>QuantumField<span class="op">[</span>pard<span class="op">,</span> <span class="fu">F</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="fu">s</span><span class="op">]</span> <span class="sc">/</span>; ! <span class="fu">OrderedQ</span><span class="op">[{</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]}]</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">F</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]},</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span> </span>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>F1<span class="op">,</span> Ag<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">A_{\mu }^b \bar{g}^{\nu \sigma }
+f^{abg}-A_{\nu }^c \bar{g}^{\mu \sigma } f^{acg}+\delta ^{ag}
+\vec{\partial }_{\mu } \left(-\bar{g}^{\nu \sigma }\right)+\delta ^{ag}
+\vec{\partial }_{\nu } \bar{g}^{\mu \sigma }</span></p>
+<p>Use <code>FCCanonicalizeDummyIndices</code> to minimize the number of
+dummy indices.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ex">=</span> FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> SUNIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>c1<span class="op">}]</span> <span class="ot">/.</span> c1 <span class="ot">-&gt;</span> <span class="fu">c</span></span></code></pre></div>
+<p><span class="math display">A_{\mu }^c \bar{g}^{\nu \sigma }
+f^{acg}-A_{\nu }^c \bar{g}^{\mu \sigma } f^{acg}+\delta ^{ag}
+\vec{\partial }_{\mu } \left(-\bar{g}^{\nu \sigma }\right)+\delta ^{ag}
+\vec{\partial }_{\nu } \bar{g}^{\mu \sigma }</span></p>
+<p>Instead of inserting the definition for the second <span
+class="math inline">F_a^{\mu \nu}</span>, introduce a
+<code>QuantumField</code> object with antisymmetry built into the
+Lorentz indices:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">F</span> <span class="sc">/</span>: QuantumField<span class="op">[</span><span class="at">pard___</span><span class="op">,</span> <span class="fu">F</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]</span>_<span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]</span>_<span class="op">,</span> <span class="at">s_</span><span class="op">]</span> <span class="ex">:=</span> <span class="sc">-</span>QuantumField<span class="op">[</span>pard<span class="op">,</span> <span class="fu">F</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="fu">s</span><span class="op">]</span> <span class="sc">/</span>; ! <span class="fu">OrderedQ</span><span class="op">[{</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]}]</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">F</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]},</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]</span> :&gt; <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]</span> :&gt; <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}</span></span></code></pre></div>
 <p><span class="math display">F_{\mu \nu }^a</span></p>
 <p><span class="math display">-F_{\mu \nu }^a</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>t2 <span class="ex">=</span> Contract<span class="op">[</span>ExpandPartialD<span class="op">[</span><span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> t1 . QuantumField<span class="op">[</span><span class="fu">F</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> </span>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>t2 <span class="ex">=</span> Contract<span class="op">[</span>ExpandPartialD<span class="op">[</span><span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> t1 . QuantumField<span class="op">[</span><span class="fu">F</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        SUNIndex<span class="op">[</span><span class="fu">a</span><span class="op">]]]]</span> <span class="ot">/.</span> <span class="fu">Dot</span> <span class="ot">-&gt;</span> <span class="fu">Times</span></span></code></pre></div>
-<p><span class="math display">-\frac{1}{2} A_{\mu }^c f^{acg} F_{\mu \sigma }^a-\frac{1}{2} A_{\nu }^c f^{acg} F_{\nu \sigma }^a+\frac{1}{2} \left(\left.(\partial _{\mu }F_{\mu \sigma }^g\right)\right)+\frac{1}{2} \left(\left.(\partial _{\nu }F_{\nu \sigma }^g\right)\right)</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>t3 <span class="ex">=</span> FCCanonicalizeDummyIndices<span class="op">[</span>t2<span class="op">,</span> LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>mu<span class="op">},</span> SUNIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>aa<span class="op">,</span> </span>
+<p><span class="math display">-\frac{1}{2} A_{\mu }^c f^{acg} F_{\mu
+\sigma }^a-\frac{1}{2} A_{\nu }^c f^{acg} F_{\nu \sigma }^a+\frac{1}{2}
+\left(\left.(\partial _{\mu }F_{\mu \sigma }^g\right)\right)+\frac{1}{2}
+\left(\left.(\partial _{\nu }F_{\nu \sigma }^g\right)\right)</span></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>t3 <span class="ex">=</span> FCCanonicalizeDummyIndices<span class="op">[</span>t2<span class="op">,</span> LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>mu<span class="op">},</span> SUNIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>aa<span class="op">,</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      cc<span class="op">}]</span> <span class="ot">/.</span> <span class="op">{</span>mu <span class="ot">-&gt;</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> aa <span class="ot">-&gt;</span> <span class="fu">a</span><span class="op">,</span> cc <span class="ot">-&gt;</span> <span class="fu">c</span><span class="op">}</span></span></code></pre></div>
-<p><span class="math display">A_{\mu }^a f^{acg} F_{\mu \sigma }^c+\left.(\partial _{\mu }F_{\mu \sigma }^g\right)</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>t4 <span class="ex">=</span> FCE<span class="op">[</span>t3<span class="op">]</span> <span class="ot">/.</span> SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> <span class="fu">g</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="sc">-</span>SUNF<span class="op">[</span><span class="fu">g</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> <span class="fu">a</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left.(\partial _{\mu }F_{\mu \sigma }^g\right)-A_{\mu }^a f^{gca} F_{\mu \sigma }^c</span></p>
-<p>Since the variational derivative vanishes <code>t4</code> implies that <span class="math inline">0= D_{\mu} F_g^{\mu \sigma }</span></p>
+<p><span class="math display">A_{\mu }^a f^{acg} F_{\mu \sigma
+}^c+\left.(\partial _{\mu }F_{\mu \sigma }^g\right)</span></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>t4 <span class="ex">=</span> FCE<span class="op">[</span>t3<span class="op">]</span> <span class="ot">/.</span> SUNF<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> <span class="fu">g</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="sc">-</span>SUNF<span class="op">[</span><span class="fu">g</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> <span class="fu">a</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left.(\partial _{\mu }F_{\mu \sigma
+}^g\right)-A_{\mu }^a f^{gca} F_{\mu \sigma }^c</span></p>
+<p>Since the variational derivative vanishes <code>t4</code> implies
+that <span class="math inline">0= D_{\mu} F_g^{\mu \sigma }</span></p>
 <p>Second approach:</p>
-<p>It is of course also possible to do the functional derivative on the <span class="math inline">S[A]</span> with both field strength tensors inserted.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">S</span><span class="op">[</span><span class="fu">A</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\frac{1}{4} \left(f^{abc} A_{\mu }^b.A_{\nu }^c+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu }A_{\mu }^a\right)\right).\left(f^{ade} A_{\mu }^d.A_{\nu }^e+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu }A_{\mu }^a\right)\right)</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ex">=</span> FunctionalD<span class="op">[</span><span class="fu">S</span><span class="op">[</span><span class="fu">A</span><span class="op">],</span> Ag<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\frac{1}{4} f^{abc} f^{adg} A_{\mu }^b.A_{\sigma }^c.A_{\mu }^d+\frac{1}{4} f^{abc} f^{aeg} A_{\sigma }^b.A_{\nu }^c.A_{\nu }^e-\frac{1}{4} f^{abg} f^{ade} A_{\mu }^b.A_{\mu }^d.A_{\sigma }^e-\frac{1}{4} f^{abg} A_{\mu }^b.\left(\left.(\partial _{\mu }A_{\sigma }^a\right)\right)+\frac{1}{4} f^{abg} A_{\mu }^b.\left(\left.(\partial _{\sigma }A_{\mu }^a\right)\right)+\frac{1}{4} f^{acg} f^{ade} A_{\nu }^c.A_{\sigma }^d.A_{\nu }^e-\frac{1}{4} f^{acg} A_{\nu }^c.\left(\left.(\partial _{\nu }A_{\sigma }^a\right)\right)+\frac{1}{4} f^{acg} A_{\nu }^c.\left(\left.(\partial _{\sigma }A_{\nu }^a\right)\right)-\frac{1}{4} f^{adg} \left(\left.(\partial _{\mu }A_{\sigma }^a\right)\right).A_{\mu }^d+\frac{1}{4} f^{adg} \left(\left.(\partial _{\sigma }A_{\mu }^a\right)\right).A_{\mu }^d-\frac{1}{4} f^{aeg} \left(\left.(\partial _{\nu }A_{\sigma }^a\right)\right).A_{\nu }^e+\frac{1}{4} f^{aeg} \left(\left.(\partial _{\sigma }A_{\nu }^a\right)\right).A_{\nu }^e+\frac{1}{4} f^{bcg} A_{\mu }^b.\left(\left.(\partial _{\mu }A_{\sigma }^c\right)\right)+\frac{1}{4} f^{bcg} \left(\left.(\partial _{\mu }A_{\mu }^b\right)\right).A_{\sigma }^c-\frac{1}{4} f^{bcg} A_{\sigma }^b.\left(\left.(\partial _{\nu }A_{\nu }^c\right)\right)-\frac{1}{4} f^{bcg} \left(\left.(\partial _{\nu }A_{\sigma }^b\right)\right).A_{\nu }^c+\frac{1}{4} f^{deg} A_{\mu }^d.\left(\left.(\partial _{\mu }A_{\sigma }^e\right)\right)+\frac{1}{4} f^{deg} \left(\left.(\partial _{\mu }A_{\mu }^d\right)\right).A_{\sigma }^e-\frac{1}{4} f^{deg} A_{\sigma }^d.\left(\left.(\partial _{\nu }A_{\nu }^e\right)\right)-\frac{1}{4} f^{deg} \left(\left.(\partial _{\nu }A_{\sigma }^d\right)\right).A_{\nu }^e+\frac{1}{2} \left(\partial _{\mu }\partial _{\mu }A_{\sigma }^g\right)-\frac{1}{2} \left(\partial _{\mu }\partial _{\sigma }A_{\mu }^g\right)+\frac{1}{2} \left(\partial _{\nu }\partial _{\nu }A_{\sigma }^g\right)-\frac{1}{2} \left(\partial _{\nu }\partial _{\sigma }A_{\nu }^g\right)</span></p>
-<p>This is just functional derivation and partial integration and simple contraction of indices. At first no attempt is made to rename dummy indices (since this is difficult in general).</p>
-<p>With a general replacement rule only valid for commuting fields the color indices can be canonicalized a bit more. The idea is to use the commutative properties of the vector fields, and canonicalize the color indices by a trick.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Commutator<span class="op">[</span>QuantumField<span class="op">[</span><span class="at">aaa___</span>FCPartialD<span class="op">,</span> <span class="fu">A</span><span class="op">,</span> <span class="at">bbb__</span><span class="op">],</span> QuantumField<span class="op">[</span><span class="at">ccc___</span>FCPartialD<span class="op">,</span> <span class="fu">A</span><span class="op">,</span> </span>
+<p>It is of course also possible to do the functional derivative on the
+<span class="math inline">S[A]</span> with both field strength tensors
+inserted.</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">S</span><span class="op">[</span><span class="fu">A</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\frac{1}{4} \left(f^{abc} A_{\mu
+}^b.A_{\nu }^c+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial
+_{\nu }A_{\mu }^a\right)\right).\left(f^{ade} A_{\mu }^d.A_{\nu
+}^e+\left.(\partial _{\mu }A_{\nu }^a\right)-\left.(\partial _{\nu
+}A_{\mu }^a\right)\right)</span></p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ex">=</span> FunctionalD<span class="op">[</span><span class="fu">S</span><span class="op">[</span><span class="fu">A</span><span class="op">],</span> Ag<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\frac{1}{4} f^{abc} f^{adg} A_{\mu
+}^b.A_{\sigma }^c.A_{\mu }^d+\frac{1}{4} f^{abc} f^{aeg} A_{\sigma
+}^b.A_{\nu }^c.A_{\nu }^e-\frac{1}{4} f^{abg} f^{ade} A_{\mu }^b.A_{\mu
+}^d.A_{\sigma }^e-\frac{1}{4} f^{abg} A_{\mu }^b.\left(\left.(\partial
+_{\mu }A_{\sigma }^a\right)\right)+\frac{1}{4} f^{abg} A_{\mu
+}^b.\left(\left.(\partial _{\sigma }A_{\mu }^a\right)\right)+\frac{1}{4}
+f^{acg} f^{ade} A_{\nu }^c.A_{\sigma }^d.A_{\nu }^e-\frac{1}{4} f^{acg}
+A_{\nu }^c.\left(\left.(\partial _{\nu }A_{\sigma
+}^a\right)\right)+\frac{1}{4} f^{acg} A_{\nu }^c.\left(\left.(\partial
+_{\sigma }A_{\nu }^a\right)\right)-\frac{1}{4} f^{adg}
+\left(\left.(\partial _{\mu }A_{\sigma }^a\right)\right).A_{\mu
+}^d+\frac{1}{4} f^{adg} \left(\left.(\partial _{\sigma }A_{\mu
+}^a\right)\right).A_{\mu }^d-\frac{1}{4} f^{aeg} \left(\left.(\partial
+_{\nu }A_{\sigma }^a\right)\right).A_{\nu }^e+\frac{1}{4} f^{aeg}
+\left(\left.(\partial _{\sigma }A_{\nu }^a\right)\right).A_{\nu
+}^e+\frac{1}{4} f^{bcg} A_{\mu }^b.\left(\left.(\partial _{\mu
+}A_{\sigma }^c\right)\right)+\frac{1}{4} f^{bcg} \left(\left.(\partial
+_{\mu }A_{\mu }^b\right)\right).A_{\sigma }^c-\frac{1}{4} f^{bcg}
+A_{\sigma }^b.\left(\left.(\partial _{\nu }A_{\nu
+}^c\right)\right)-\frac{1}{4} f^{bcg} \left(\left.(\partial _{\nu
+}A_{\sigma }^b\right)\right).A_{\nu }^c+\frac{1}{4} f^{deg} A_{\mu
+}^d.\left(\left.(\partial _{\mu }A_{\sigma }^e\right)\right)+\frac{1}{4}
+f^{deg} \left(\left.(\partial _{\mu }A_{\mu }^d\right)\right).A_{\sigma
+}^e-\frac{1}{4} f^{deg} A_{\sigma }^d.\left(\left.(\partial _{\nu
+}A_{\nu }^e\right)\right)-\frac{1}{4} f^{deg} \left(\left.(\partial
+_{\nu }A_{\sigma }^d\right)\right).A_{\nu }^e+\frac{1}{2} \left(\partial
+_{\mu }\partial _{\mu }A_{\sigma }^g\right)-\frac{1}{2} \left(\partial
+_{\mu }\partial _{\sigma }A_{\mu }^g\right)+\frac{1}{2} \left(\partial
+_{\nu }\partial _{\nu }A_{\sigma }^g\right)-\frac{1}{2} \left(\partial
+_{\nu }\partial _{\sigma }A_{\nu }^g\right)</span></p>
+<p>This is just functional derivation and partial integration and simple
+contraction of indices. At first no attempt is made to rename dummy
+indices (since this is difficult in general).</p>
+<p>With a general replacement rule only valid for commuting fields the
+color indices can be canonicalized a bit more. The idea is to use the
+commutative properties of the vector fields, and canonicalize the color
+indices by a trick.</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Commutator<span class="op">[</span>QuantumField<span class="op">[</span><span class="at">aaa___</span>FCPartialD<span class="op">,</span> <span class="fu">A</span><span class="op">,</span> <span class="at">bbb__</span><span class="op">],</span> QuantumField<span class="op">[</span><span class="at">ccc___</span>FCPartialD<span class="op">,</span> <span class="fu">A</span><span class="op">,</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">ddd__</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>r2 <span class="ex">=</span> r1 <span class="sc">//</span> DotSimplify <span class="sc">//</span> FCCanonicalizeDummyIndices<span class="op">[</span>#<span class="op">,</span> SUNIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>a1<span class="op">,</span> b1<span class="op">,</span> c1<span class="op">,</span> d1<span class="op">},</span> </span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>       LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>mu<span class="op">,</span> nu<span class="op">,</span> rho<span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>a1 <span class="ot">-&gt;</span> <span class="fu">a</span><span class="op">,</span> b1 <span class="ot">-&gt;</span> <span class="fu">b</span><span class="op">,</span> c1 <span class="ot">-&gt;</span> <span class="fu">c</span><span class="op">,</span> </span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>       d1 <span class="ot">-&gt;</span> <span class="fu">d</span><span class="op">,</span> mu <span class="ot">-&gt;</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> nu <span class="ot">-&gt;</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> rho <span class="ot">-&gt;</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]}]</span> &amp; <span class="sc">//</span> Collect2<span class="op">[</span>#<span class="op">,</span> SUNF<span class="op">]</span> &amp;</span></code></pre></div>
-<p><span class="math display">\frac{1}{2} f^{adg} f^{bcd} A_{\mu }^a.A_{\mu }^b.A_{\sigma }^c+\frac{1}{2} f^{acd} f^{bdg} A_{\mu }^a.A_{\mu }^b.A_{\sigma }^c+f^{abg} \left(2 A_{\mu }^a.\left(\left.(\partial _{\mu }A_{\sigma }^b\right)\right)-A_{\mu }^a.\left(\left.(\partial _{\sigma }A_{\mu }^b\right)\right)-A_{\sigma }^a.\left(\left.(\partial _{\mu }A_{\mu }^b\right)\right)\right)+\left(\partial _{\mu }\partial _{\mu }A_{\sigma }^g\right)-\left(\partial _{\mu }\partial _{\sigma }A_{\mu }^g\right)</span></p>
-<p>Inspection reveals that still terms are the same. Gather the terms with two <code>f</code>’s:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>twof <span class="ex">=</span> <span class="fu">Select</span><span class="op">[</span>r2 <span class="sc">//</span> <span class="fu">Expand</span><span class="op">,</span> <span class="fu">Count</span><span class="op">[</span>#<span class="op">,</span> SUNF<span class="op">[</span><span class="at">__</span><span class="op">]]</span> <span class="ex">===</span> <span class="dv">2</span> &amp;<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{2} f^{adg} f^{bcd} A_{\mu }^a.A_{\mu }^b.A_{\sigma }^c+\frac{1}{2} f^{acd} f^{bdg} A_{\mu }^a.A_{\mu }^b.A_{\sigma }^c</span></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>twofnew <span class="ex">=</span> ((twof<span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">/.</span> <span class="op">{</span><span class="fu">a</span> <span class="ot">-&gt;</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">b</span> <span class="ot">-&gt;</span> <span class="fu">a</span><span class="op">}</span>) <span class="sc">+</span> twof<span class="op">[[</span><span class="dv">2</span><span class="op">]]</span>) <span class="sc">//</span> DotSimplify</span></code></pre></div>
-<p><span class="math display">f^{acd} f^{bdg} A_{\mu }^a.A_{\mu }^b.A_{\sigma }^c</span></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>r3 <span class="ex">=</span> r2 <span class="sc">-</span> twof <span class="sc">+</span> twofnew</span></code></pre></div>
-<p><span class="math display">f^{acd} f^{bdg} A_{\mu }^a.A_{\mu }^b.A_{\sigma }^c+f^{abg} \left(2 A_{\mu }^a.\left(\left.(\partial _{\mu }A_{\sigma }^b\right)\right)-A_{\mu }^a.\left(\left.(\partial _{\sigma }A_{\mu }^b\right)\right)-A_{\sigma }^a.\left(\left.(\partial _{\mu }A_{\mu }^b\right)\right)\right)+\left(\partial _{\mu }\partial _{\mu }A_{\sigma }^g\right)-\left(\partial _{\mu }\partial _{\sigma }A_{\mu }^g\right)</span></p>
-<p>Check that this is now indeed the same as the <code>t4</code> result from the first attempt.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>t4</span></code></pre></div>
-<p><span class="math display">\left.(\partial _{\mu }F_{\mu \sigma }^g\right)-A_{\mu }^a f^{gca} F_{\mu \sigma }^c</span></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>w0 <span class="ex">=</span> RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="fu">g</span><span class="op">,</span> <span class="op">{</span><span class="fu">A</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">},</span> <span class="dv">1</span><span class="op">]</span> <span class="sc">+</span> </span>
+<p><span class="math display">\frac{1}{2} f^{adg} f^{bcd} A_{\mu
+}^a.A_{\mu }^b.A_{\sigma }^c+\frac{1}{2} f^{acd} f^{bdg} A_{\mu
+}^a.A_{\mu }^b.A_{\sigma }^c+f^{abg} \left(2 A_{\mu
+}^a.\left(\left.(\partial _{\mu }A_{\sigma }^b\right)\right)-A_{\mu
+}^a.\left(\left.(\partial _{\sigma }A_{\mu }^b\right)\right)-A_{\sigma
+}^a.\left(\left.(\partial _{\mu }A_{\mu
+}^b\right)\right)\right)+\left(\partial _{\mu }\partial _{\mu }A_{\sigma
+}^g\right)-\left(\partial _{\mu }\partial _{\sigma }A_{\mu
+}^g\right)</span></p>
+<p>Inspection reveals that still terms are the same. Gather the terms
+with two <code>f</code>’s:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>twof <span class="ex">=</span> <span class="fu">Select</span><span class="op">[</span>r2 <span class="sc">//</span> <span class="fu">Expand</span><span class="op">,</span> <span class="fu">Count</span><span class="op">[</span>#<span class="op">,</span> SUNF<span class="op">[</span><span class="at">__</span><span class="op">]]</span> <span class="ex">===</span> <span class="dv">2</span> &amp;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{2} f^{adg} f^{bcd} A_{\mu
+}^a.A_{\mu }^b.A_{\sigma }^c+\frac{1}{2} f^{acd} f^{bdg} A_{\mu
+}^a.A_{\mu }^b.A_{\sigma }^c</span></p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>twofnew <span class="ex">=</span> ((twof<span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">/.</span> <span class="op">{</span><span class="fu">a</span> <span class="ot">-&gt;</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">b</span> <span class="ot">-&gt;</span> <span class="fu">a</span><span class="op">}</span>) <span class="sc">+</span> twof<span class="op">[[</span><span class="dv">2</span><span class="op">]]</span>) <span class="sc">//</span> DotSimplify</span></code></pre></div>
+<p><span class="math display">f^{acd} f^{bdg} A_{\mu }^a.A_{\mu
+}^b.A_{\sigma }^c</span></p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>r3 <span class="ex">=</span> r2 <span class="sc">-</span> twof <span class="sc">+</span> twofnew</span></code></pre></div>
+<p><span class="math display">f^{acd} f^{bdg} A_{\mu }^a.A_{\mu
+}^b.A_{\sigma }^c+f^{abg} \left(2 A_{\mu }^a.\left(\left.(\partial _{\mu
+}A_{\sigma }^b\right)\right)-A_{\mu }^a.\left(\left.(\partial _{\sigma
+}A_{\mu }^b\right)\right)-A_{\sigma }^a.\left(\left.(\partial _{\mu
+}A_{\mu }^b\right)\right)\right)+\left(\partial _{\mu }\partial _{\mu
+}A_{\sigma }^g\right)-\left(\partial _{\mu }\partial _{\sigma }A_{\mu
+}^g\right)</span></p>
+<p>Check that this is now indeed the same as the <code>t4</code> result
+from the first attempt.</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>t4</span></code></pre></div>
+<p><span class="math display">\left.(\partial _{\mu }F_{\mu \sigma
+}^g\right)-A_{\mu }^a f^{gca} F_{\mu \sigma }^c</span></p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>w0 <span class="ex">=</span> RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="fu">g</span><span class="op">,</span> <span class="op">{</span><span class="fu">A</span><span class="op">,</span> <span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">},</span> <span class="dv">1</span><span class="op">]</span> <span class="sc">+</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>   QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> SUNIndex<span class="op">[</span><span class="fu">c</span><span class="op">]]</span> . FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> </span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span><span class="fu">A</span><span class="op">,</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">d</span><span class="op">},</span> <span class="dv">1</span><span class="op">]</span> SUNF<span class="op">[</span><span class="fu">g</span><span class="op">,</span> <span class="fu">c</span><span class="op">,</span> <span class="fu">a</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">f^{gca} A_{\mu }^c.F_{\mu \sigma }^{a\{A,b,d\}1}+\vec{\partial }_{\mu }.F_{\mu \sigma }^{g\{A,a,b\}1}</span></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>w1 <span class="ex">=</span> Explicit<span class="op">[</span>w0<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">f^{gca} A_{\mu }^c.\left(f^{abd} A_{\mu }^b.A_{\sigma }^d+\left.(\partial _{\mu }A_{\sigma }^a\right)-\left.(\partial _{\sigma }A_{\mu }^a\right)\right)+\vec{\partial }_{\mu }.\left(f^{gab} A_{\mu }^a.A_{\sigma }^b+\left.(\partial _{\mu }A_{\sigma }^g\right)-\left.(\partial _{\sigma }A_{\mu }^g\right)\right)</span></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>w2 <span class="ex">=</span> ExpandPartialD<span class="op">[</span>w1<span class="op">]</span> <span class="sc">//</span> DotSimplify</span></code></pre></div>
-<p><span class="math display">-f^{abd} f^{acg} A_{\mu }^b.A_{\mu }^c.A_{\sigma }^d+f^{abg} A_{\mu }^a.\left(\left.(\partial _{\mu }A_{\sigma }^b\right)\right)+f^{abg} A_{\sigma }^b.\left(\left.(\partial _{\mu }A_{\mu }^a\right)\right)-f^{acg} A_{\mu }^c.\left(\left.(\partial _{\mu }A_{\sigma }^a\right)\right)+f^{acg} A_{\mu }^c.\left(\left.(\partial _{\sigma }A_{\mu }^a\right)\right)+\left(\partial _{\mu }\partial _{\mu }A_{\sigma }^g\right)-\left(\partial _{\mu }\partial _{\sigma }A_{\mu }^g\right)</span></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dif1 <span class="ex">=</span> w2 <span class="sc">-</span> r3</span></code></pre></div>
-<p><span class="math display">-f^{abd} f^{acg} A_{\mu }^b.A_{\mu }^c.A_{\sigma }^d-f^{acd} f^{bdg} A_{\mu }^a.A_{\mu }^b.A_{\sigma }^c+f^{abg} A_{\mu }^a.\left(\left.(\partial _{\mu }A_{\sigma }^b\right)\right)-f^{abg} \left(2 A_{\mu }^a.\left(\left.(\partial _{\mu }A_{\sigma }^b\right)\right)-A_{\mu }^a.\left(\left.(\partial _{\sigma }A_{\mu }^b\right)\right)-A_{\sigma }^a.\left(\left.(\partial _{\mu }A_{\mu }^b\right)\right)\right)+f^{abg} A_{\sigma }^b.\left(\left.(\partial _{\mu }A_{\mu }^a\right)\right)-f^{acg} A_{\mu }^c.\left(\left.(\partial _{\mu }A_{\sigma }^a\right)\right)+f^{acg} A_{\mu }^c.\left(\left.(\partial _{\sigma }A_{\mu }^a\right)\right)</span></p>
+<p><span class="math display">f^{gca} A_{\mu }^c.F_{\mu \sigma
+}^{a\{A,b,d\}1}+\vec{\partial }_{\mu }.F_{\mu \sigma
+}^{g\{A,a,b\}1}</span></p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>w1 <span class="ex">=</span> Explicit<span class="op">[</span>w0<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">f^{gca} A_{\mu }^c.\left(f^{abd} A_{\mu
+}^b.A_{\sigma }^d+\left.(\partial _{\mu }A_{\sigma
+}^a\right)-\left.(\partial _{\sigma }A_{\mu
+}^a\right)\right)+\vec{\partial }_{\mu }.\left(f^{gab} A_{\mu
+}^a.A_{\sigma }^b+\left.(\partial _{\mu }A_{\sigma
+}^g\right)-\left.(\partial _{\sigma }A_{\mu }^g\right)\right)</span></p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>w2 <span class="ex">=</span> ExpandPartialD<span class="op">[</span>w1<span class="op">]</span> <span class="sc">//</span> DotSimplify</span></code></pre></div>
+<p><span class="math display">-f^{abd} f^{acg} A_{\mu }^b.A_{\mu
+}^c.A_{\sigma }^d+f^{abg} A_{\mu }^a.\left(\left.(\partial _{\mu
+}A_{\sigma }^b\right)\right)+f^{abg} A_{\sigma }^b.\left(\left.(\partial
+_{\mu }A_{\mu }^a\right)\right)-f^{acg} A_{\mu }^c.\left(\left.(\partial
+_{\mu }A_{\sigma }^a\right)\right)+f^{acg} A_{\mu
+}^c.\left(\left.(\partial _{\sigma }A_{\mu
+}^a\right)\right)+\left(\partial _{\mu }\partial _{\mu }A_{\sigma
+}^g\right)-\left(\partial _{\mu }\partial _{\sigma }A_{\mu
+}^g\right)</span></p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dif1 <span class="ex">=</span> w2 <span class="sc">-</span> r3</span></code></pre></div>
+<p><span class="math display">-f^{abd} f^{acg} A_{\mu }^b.A_{\mu
+}^c.A_{\sigma }^d-f^{acd} f^{bdg} A_{\mu }^a.A_{\mu }^b.A_{\sigma
+}^c+f^{abg} A_{\mu }^a.\left(\left.(\partial _{\mu }A_{\sigma
+}^b\right)\right)-f^{abg} \left(2 A_{\mu }^a.\left(\left.(\partial _{\mu
+}A_{\sigma }^b\right)\right)-A_{\mu }^a.\left(\left.(\partial _{\sigma
+}A_{\mu }^b\right)\right)-A_{\sigma }^a.\left(\left.(\partial _{\mu
+}A_{\mu }^b\right)\right)\right)+f^{abg} A_{\sigma
+}^b.\left(\left.(\partial _{\mu }A_{\mu }^a\right)\right)-f^{acg} A_{\mu
+}^c.\left(\left.(\partial _{\mu }A_{\sigma }^a\right)\right)+f^{acg}
+A_{\mu }^c.\left(\left.(\partial _{\sigma }A_{\mu
+}^a\right)\right)</span></p>
 <p>As expected:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dif1 <span class="sc">//</span> FCCanonicalizeDummyIndices</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dif1 <span class="sc">//</span> FCCanonicalizeDummyIndices</span></code></pre></div>
 <p><span class="math display">0</span></p>
 <p>Finally, unset the commutator of the bosonic fields.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>UnDeclareCommutator<span class="op">[</span>QuantumField<span class="op">[</span><span class="at">aaa___</span>FCPartialD<span class="op">,</span> <span class="fu">A</span><span class="op">,</span> <span class="at">bbb__</span><span class="op">],</span> </span>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>UnDeclareCommutator<span class="op">[</span>QuantumField<span class="op">[</span><span class="at">aaa___</span>FCPartialD<span class="op">,</span> <span class="fu">A</span><span class="op">,</span> <span class="at">bbb__</span><span class="op">],</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    QuantumField<span class="op">[</span><span class="at">ccc___</span>FCPartialD<span class="op">,</span> <span class="fu">A</span><span class="op">,</span> <span class="at">ddd__</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>;</span></code></pre></div>
 </body>
 </html>

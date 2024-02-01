@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,61 +109,137 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fcloopfindintegralmappings">FCLoopFindIntegralMappings</h2>
-<p><code>FCLoopFindIntegralMappings[{int1, int2, ...}, {p1, p2, ...}]</code> finds mappings between scalar multiloop integrals <code>int1, int2, ...</code> that depend on the loop momenta <code>p1, p2, ...</code> using the algorithm of Alexey Pak <a href="https://arxiv.org/abs/1111.0868">arXiv:1111.0868</a>.</p>
-<p>The current implementation is based on the <code>FindEquivalents</code> function from FIRE 6 <a href="https://arxiv.org/abs/1901.07808">arXiv:1901.07808</a></p>
-<p>It is also possible to invoke the function as <code>FCLoopFindIntegralMappings[{GLI[...], ...}, {FCTopology[...], ...}] or FCLoopFindIntegralMappings[{FCTopology[...], ...}]</code>.</p>
-<p>Notice that in this case the value of the option <code>FinalSubstitutions</code> is ignored, as replacement rules will be extracted directly from the definition of the topology.</p>
-<p>The default output is a list of two lists. The first list contains mapping rules between different loop integrals, while the second list provides all unique master integrals extracted from the input.</p>
-<p>An alternative output mode is activated when the option <code>List</code> is set to <code>True</code>. In this case the output is a list of lists, where each list contains master integrals that were identified to be identical.</p>
-<p>The option <code>PreferredIntegrals</code> can be used to enforce the mapping onto a preferred set of master integral. Notice that the final result will only contain those preferred integrals, that are actually present in the input.</p>
+<p><code>FCLoopFindIntegralMappings[{int1, int2, ...}, {p1, p2, ...}]</code>
+finds mappings between scalar multiloop integrals
+<code>int1, int2, ...</code> that depend on the loop momenta
+<code>p1, p2, ...</code> using the algorithm of Alexey Pak <a
+href="https://arxiv.org/abs/1111.0868">arXiv:1111.0868</a>.</p>
+<p>The current implementation is based on the
+<code>FindEquivalents</code> function from FIRE 6 <a
+href="https://arxiv.org/abs/1901.07808">arXiv:1901.07808</a></p>
+<p>It is also possible to invoke the function as
+<code>FCLoopFindIntegralMappings[{GLI[...], ...}, {FCTopology[...], ...}] or FCLoopFindIntegralMappings[{FCTopology[...], ...}]</code>.</p>
+<p>Notice that in this case the value of the option
+<code>FinalSubstitutions</code> is ignored, as replacement rules will be
+extracted directly from the definition of the topology.</p>
+<p>The default output is a list of two lists. The first list contains
+mapping rules between different loop integrals, while the second list
+provides all unique master integrals extracted from the input.</p>
+<p>An alternative output mode is activated when the option
+<code>List</code> is set to <code>True</code>. In this case the output
+is a list of lists, where each list contains master integrals that were
+identified to be identical.</p>
+<p>The option <code>PreferredIntegrals</code> can be used to enforce the
+mapping onto a preferred set of master integral. Notice that the final
+result will only contain those preferred integrals, that are actually
+present in the input.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCTopology.html">FCTopology</a>, <a href="GLI.html">GLI</a>, <a href="FCLoopToPakForm.html">FCLoopToPakForm</a>, <a href="FCLoopPakOrder.html">FCLoopPakOrder</a>, <a href="FCLoopFindTopologyMappings.html">FCLoopFindTopologyMappings</a></p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FCTopology.html">FCTopology</a>, <a href="GLI.html">GLI</a>, <a
+href="FCLoopToPakForm.html">FCLoopToPakForm</a>, <a
+href="FCLoopPakOrder.html">FCLoopPakOrder</a>, <a
+href="FCLoopFindTopologyMappings.html">FCLoopFindTopologyMappings</a></p>
 <h3 id="examples">Examples</h3>
-<p>When given a list of <code>FeynAmpDenominator</code>-integrals, the function will merely group identical integrals into sublists</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ints <span class="ex">=</span> <span class="op">{</span>FAD<span class="op">[{</span>p1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> <span class="fu">q</span><span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p1<span class="op">,</span> m2<span class="op">}]}</span></span></code></pre></div>
-<p><span class="math display">\left\{\frac{1}{\text{p1}^2-\text{m1}^2},\frac{1}{(\text{p1}+q)^2-\text{m1}^2},\frac{1}{\text{p1}^2-\text{m2}^2}\right\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>ints<span class="op">,</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\left\{\left\{\frac{1}{\text{p1}^2-\text{m1}^2},\frac{1}{(\text{p1}+q)^2-\text{m1}^2}\right\},\left\{\frac{1}{\text{p1}^2-\text{m2}^2}\right\}\right\}</span></p>
-<p>The following 3 integrals look rather different from each other, but are actually identical</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ints <span class="ex">=</span> <span class="op">{</span>FAD<span class="op">[</span>p1<span class="op">]</span> FAD<span class="op">[</span>p1 <span class="sc">-</span> p3 <span class="sc">-</span> p4<span class="op">]</span> FAD<span class="op">[</span>p4<span class="op">]</span> FAD<span class="op">[</span>p3 <span class="sc">+</span> q1<span class="op">]</span> FAD<span class="op">[{</span>p3<span class="op">,</span> m1<span class="op">}]</span> FAD<span class="op">[{</span>p1 <span class="sc">-</span> p4<span class="op">,</span> m1<span class="op">}]</span><span class="sc">*</span></span>
+<p>When given a list of <code>FeynAmpDenominator</code>-integrals, the
+function will merely group identical integrals into sublists</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ints <span class="ex">=</span> <span class="op">{</span>FAD<span class="op">[{</span>p1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> <span class="fu">q</span><span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p1<span class="op">,</span> m2<span class="op">}]}</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\frac{1}{\text{p1}^2-\text{m1}^2},\frac{1}{(\text{p1}+q)^2-\text{m1}^2},\frac{1}{\text{p1}^2-\text{m2}^2}\right\}</span></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>ints<span class="op">,</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\left\{\frac{1}{\text{p1}^2-\text{m1}^2},\frac{1}{(\text{p1}+q)^2-\text{m1}^2}\right\},\left\{\frac{1}{\text{p1}^2-\text{m2}^2}\right\}\right\}</span></p>
+<p>The following 3 integrals look rather different from each other, but
+are actually identical</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ints <span class="ex">=</span> <span class="op">{</span>FAD<span class="op">[</span>p1<span class="op">]</span> FAD<span class="op">[</span>p1 <span class="sc">-</span> p3 <span class="sc">-</span> p4<span class="op">]</span> FAD<span class="op">[</span>p4<span class="op">]</span> FAD<span class="op">[</span>p3 <span class="sc">+</span> q1<span class="op">]</span> FAD<span class="op">[{</span>p3<span class="op">,</span> m1<span class="op">}]</span> FAD<span class="op">[{</span>p1 <span class="sc">-</span> p4<span class="op">,</span> m1<span class="op">}]</span><span class="sc">*</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    FAD<span class="op">[{</span>p1 <span class="sc">+</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span>p1 <span class="sc">+</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">}],</span> FAD<span class="op">[</span>p4<span class="op">]</span> FAD<span class="op">[</span>p1 <span class="sc">-</span> p3 <span class="sc">+</span> q1<span class="op">]</span> FAD<span class="op">[</span>p3 <span class="sc">+</span> q1<span class="op">]</span> FAD<span class="op">[</span>p1 <span class="sc">+</span> p4 <span class="sc">+</span> q1<span class="op">]</span><span class="sc">*</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    FAD<span class="op">[{</span>p3<span class="op">,</span> m1<span class="op">}]</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> q1<span class="op">,</span> m1<span class="op">}]</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="dv">2</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span>p1 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="dv">2</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">}],</span> </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>   FAD<span class="op">[</span>p1<span class="op">]</span> FAD<span class="op">[</span>p4 <span class="sc">-</span> <span class="dv">2</span> q1<span class="op">]</span> FAD<span class="op">[</span>p3 <span class="sc">+</span> q1<span class="op">]</span> FAD<span class="op">[</span>p1 <span class="sc">-</span> p3 <span class="sc">-</span> p4 <span class="sc">+</span> <span class="dv">2</span> q1<span class="op">]</span> FAD<span class="op">[{</span>p3<span class="op">,</span> m1<span class="op">}]</span><span class="sc">*</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    FAD<span class="op">[{</span>p1 <span class="sc">-</span> p4 <span class="sc">+</span> <span class="dv">2</span> q1<span class="op">,</span> m1<span class="op">}]</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span>p1 <span class="sc">+</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">}]}</span></span></code></pre></div>
-<p><span class="math display">\left\{\frac{1}{\text{p1}^2 \;\text{p4}^2 \left(\text{p3}^2-\text{m1}^2\right) (\text{p1}+\text{q1})^4 (\text{p3}+\text{q1})^2 (\text{p1}-\text{p3}-\text{p4})^2 \left((\text{p1}-\text{p4})^2-\text{m1}^2\right)},\frac{1}{\text{p4}^2 \left(\text{p3}^2-\text{m1}^2\right) (\text{p3}+\text{q1})^2 (\text{p1}-\text{p3}+\text{q1})^2 (\text{p1}+\text{p4}+\text{q1})^2 (\text{p1}+\text{p4}+2 \;\text{q1})^4 \left((\text{p1}+\text{q1})^2-\text{m1}^2\right)},\frac{1}{\text{p1}^2 \left(\text{p3}^2-\text{m1}^2\right) (\text{p1}+\text{q1})^4 (\text{p3}+\text{q1})^2 (\text{p4}-2 \;\text{q1})^2 (\text{p1}-\text{p3}-\text{p4}+2 \;\text{q1})^2 \left((\text{p1}-\text{p4}+2 \;\text{q1})^2-\text{m1}^2\right)}\right\}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>ints<span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">,</span> p4<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left\{\frac{1}{\text{p1}^2 \;\text{p4}^2
+\left(\text{p3}^2-\text{m1}^2\right) (\text{p1}+\text{q1})^4
+(\text{p3}+\text{q1})^2 (\text{p1}-\text{p3}-\text{p4})^2
+\left((\text{p1}-\text{p4})^2-\text{m1}^2\right)},\frac{1}{\text{p4}^2
+\left(\text{p3}^2-\text{m1}^2\right) (\text{p3}+\text{q1})^2
+(\text{p1}-\text{p3}+\text{q1})^2 (\text{p1}+\text{p4}+\text{q1})^2
+(\text{p1}+\text{p4}+2 \;\text{q1})^4
+\left((\text{p1}+\text{q1})^2-\text{m1}^2\right)},\frac{1}{\text{p1}^2
+\left(\text{p3}^2-\text{m1}^2\right) (\text{p1}+\text{q1})^4
+(\text{p3}+\text{q1})^2 (\text{p4}-2 \;\text{q1})^2
+(\text{p1}-\text{p3}-\text{p4}+2 \;\text{q1})^2
+\left((\text{p1}-\text{p4}+2
+\;\text{q1})^2-\text{m1}^2\right)}\right\}</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>ints<span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">,</span> p4<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{ccc}
- \frac{1}{\text{p1}^2 \;\text{p4}^2 \left(\text{p3}^2-\text{m1}^2\right) (\text{p1}+\text{q1})^4 (\text{p3}+\text{q1})^2 (\text{p1}-\text{p3}-\text{p4})^2 \left((\text{p1}-\text{p4})^2-\text{m1}^2\right)} &amp; \frac{1}{\text{p4}^2 \left(\text{p3}^2-\text{m1}^2\right) (\text{p3}+\text{q1})^2 (\text{p1}-\text{p3}+\text{q1})^2 (\text{p1}+\text{p4}+\text{q1})^2 (\text{p1}+\text{p4}+2 \;\text{q1})^4 \left((\text{p1}+\text{q1})^2-\text{m1}^2\right)} &amp; \frac{1}{\text{p1}^2 \left(\text{p3}^2-\text{m1}^2\right) (\text{p1}+\text{q1})^4 (\text{p3}+\text{q1})^2 (\text{p4}-2 \;\text{q1})^2 (\text{p1}-\text{p3}-\text{p4}+2 \;\text{q1})^2 \left((\text{p1}-\text{p4}+2 \;\text{q1})^2-\text{m1}^2\right)} \\
+\frac{1}{\text{p1}^2 \;\text{p4}^2 \left(\text{p3}^2-\text{m1}^2\right)
+(\text{p1}+\text{q1})^4 (\text{p3}+\text{q1})^2
+(\text{p1}-\text{p3}-\text{p4})^2
+\left((\text{p1}-\text{p4})^2-\text{m1}^2\right)} &amp;
+\frac{1}{\text{p4}^2 \left(\text{p3}^2-\text{m1}^2\right)
+(\text{p3}+\text{q1})^2 (\text{p1}-\text{p3}+\text{q1})^2
+(\text{p1}+\text{p4}+\text{q1})^2 (\text{p1}+\text{p4}+2 \;\text{q1})^4
+\left((\text{p1}+\text{q1})^2-\text{m1}^2\right)} &amp;
+\frac{1}{\text{p1}^2 \left(\text{p3}^2-\text{m1}^2\right)
+(\text{p1}+\text{q1})^4 (\text{p3}+\text{q1})^2 (\text{p4}-2
+\;\text{q1})^2 (\text{p1}-\text{p3}-\text{p4}+2 \;\text{q1})^2
+\left((\text{p1}-\text{p4}+2 \;\text{q1})^2-\text{m1}^2\right)} \\
 \end{array}
 \right)</span></p>
-<p>If the input is a list of <code>GLI</code>-integrals, <code>FCLoopFindIntegralMappings</code> will return a list containing two sublists. The former will be a list of replacement rules while the latter will contain all unique master integrals</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ClearAll</span><span class="op">[</span>topo1<span class="op">,</span> topo2<span class="op">]</span>; </span>
+<p>If the input is a list of <code>GLI</code>-integrals,
+<code>FCLoopFindIntegralMappings</code> will return a list containing
+two sublists. The former will be a list of replacement rules while the
+latter will contain all unique master integrals</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ClearAll</span><span class="op">[</span>topo1<span class="op">,</span> topo2<span class="op">]</span>; </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span>p1<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[{</span>p2<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">},</span> <span class="op">{},</span> <span class="op">{},</span> <span class="op">{}],</span> </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span>p3<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[{</span>p4<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]},</span> <span class="op">{</span>p3<span class="op">,</span> p4<span class="op">},</span> <span class="op">{},</span> <span class="op">{},</span> <span class="op">{}]</span> </span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
-<p><span class="math display">\left\{\text{FCTopology}\left(\text{topo1},\left\{\frac{1}{(\text{p1}^2-m^2+i \eta )},\frac{1}{(\text{p2}^2-m^2+i \eta )}\right\},\{\text{p1},\text{p2}\},\{\},\{\},\{\}\right),\text{FCTopology}\left(\text{topo2},\left\{\frac{1}{(\text{p3}^2-m^2+i \eta )},\frac{1}{(\text{p4}^2-m^2+i \eta )}\right\},\{\text{p3},\text{p4}\},\{\},\{\},\{\}\right)\right\}</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>glis <span class="ex">=</span> <span class="op">{</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{topo1},\left\{\frac{1}{(\text{p1}^2-m^2+i
+\eta )},\frac{1}{(\text{p2}^2-m^2+i \eta
+)}\right\},\{\text{p1},\text{p2}\},\{\},\{\},\{\}\right),\text{FCTopology}\left(\text{topo2},\left\{\frac{1}{(\text{p3}^2-m^2+i
+\eta )},\frac{1}{(\text{p4}^2-m^2+i \eta
+)}\right\},\{\text{p3},\text{p4}\},\{\},\{\},\{\}\right)\right\}</span></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>glis <span class="ex">=</span> <span class="op">{</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">}]}</span></span></code></pre></div>
-<p><span class="math display">\left\{G^{\text{topo1}}(1,1),G^{\text{topo1}}(1,2),G^{\text{topo1}}(2,1),G^{\text{topo2}}(1,1),G^{\text{topo2}}(2,2)\right\}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>glis<span class="op">,</span> topos<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left\{\left\{G^{\text{topo2}}(1,1)\to G^{\text{topo1}}(1,1),G^{\text{topo1}}(2,1)\to G^{\text{topo1}}(1,2)\right\},\left\{G^{\text{topo1}}(1,1),G^{\text{topo1}}(1,2),G^{\text{topo2}}(2,2)\right\}\right\}</span></p>
-<p>This behavior can be turned off by setting the value of the option <code>List</code> to <code>True</code></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>glis<span class="op">,</span> topos<span class="op">,</span> <span class="fu">List</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left\{\left\{G^{\text{topo1}}(1,1),G^{\text{topo2}}(1,1)\right\},\left\{G^{\text{topo1}}(1,2),G^{\text{topo1}}(2,1)\right\},\left\{G^{\text{topo2}}(2,2)\right\}\right\}</span></p>
-<p>In practice, one usually has a list of preferred integrals onto which one would like to map the occurring master integrals. Such integrals can be specified via the <code>PreferredIntegrals</code> option</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>glis<span class="op">,</span> topos<span class="op">,</span> PreferredIntegrals <span class="ot">-&gt;</span> <span class="op">{</span>GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<p><span
+class="math display">\left\{G^{\text{topo1}}(1,1),G^{\text{topo1}}(1,2),G^{\text{topo1}}(2,1),G^{\text{topo2}}(1,1),G^{\text{topo2}}(2,2)\right\}</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>glis<span class="op">,</span> topos<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left\{\left\{G^{\text{topo2}}(1,1)\to
+G^{\text{topo1}}(1,1),G^{\text{topo1}}(2,1)\to
+G^{\text{topo1}}(1,2)\right\},\left\{G^{\text{topo1}}(1,1),G^{\text{topo1}}(1,2),G^{\text{topo2}}(2,2)\right\}\right\}</span></p>
+<p>This behavior can be turned off by setting the value of the option
+<code>List</code> to <code>True</code></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>glis<span class="op">,</span> topos<span class="op">,</span> <span class="fu">List</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\left\{G^{\text{topo1}}(1,1),G^{\text{topo2}}(1,1)\right\},\left\{G^{\text{topo1}}(1,2),G^{\text{topo1}}(2,1)\right\},\left\{G^{\text{topo2}}(2,2)\right\}\right\}</span></p>
+<p>In practice, one usually has a list of preferred integrals onto which
+one would like to map the occurring master integrals. Such integrals can
+be specified via the <code>PreferredIntegrals</code> option</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[</span>glis<span class="op">,</span> topos<span class="op">,</span> PreferredIntegrals <span class="ot">-&gt;</span> <span class="op">{</span>GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]}]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{ccc}
- G^{\text{topo1}}(1,1)\to G^{\text{topo2}}(1,1) &amp; G^{\text{topo1}}(1,2)\to G^{\text{topo2}}(2,1) &amp; G^{\text{topo1}}(2,1)\to G^{\text{topo2}}(2,1) \\
- G^{\text{topo2}}(1,1) &amp; G^{\text{topo2}}(2,1) &amp; G^{\text{topo2}}(2,2) \\
+G^{\text{topo1}}(1,1)\to G^{\text{topo2}}(1,1) &amp;
+G^{\text{topo1}}(1,2)\to G^{\text{topo2}}(2,1) &amp;
+G^{\text{topo1}}(2,1)\to G^{\text{topo2}}(2,1) \\
+G^{\text{topo2}}(1,1) &amp; G^{\text{topo2}}(2,1) &amp;
+G^{\text{topo2}}(2,2) \\
 \end{array}
 \right)</span></p>
 <p>The indices of <code>GLI</code>s do not have to be integers</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span>prop2LtopoG20<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>p1 <span class="sc">+</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span>m3<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>p3 <span class="sc">+</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>p1 <span class="sc">-</span> p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> </span>
@@ -164,30 +249,55 @@
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>p3 <span class="sc">+</span> q1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>p1 <span class="sc">-</span> p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span>q1<span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span> </span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
-<p><span class="math display">\left\{\text{FCTopology}\left(\text{prop2LtopoG20},\left\{\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{((\text{p1}+\text{q1})^2-\text{m3}^2+i \eta )},\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((\text{p3}+\text{q1})^2+i \eta )},\frac{1}{((\text{p1}-\text{p3})^2+i \eta )}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\{\},\{\}\right),\text{FCTopology}\left(\text{prop2LtopoG21},\left\{\frac{1}{(\text{p1}^2-\text{m1}^2+i \eta )},\frac{1}{((\text{p1}+\text{q1})^2-\text{m3}^2+i \eta )},\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((\text{p3}+\text{q1})^2+i \eta )},\frac{1}{((\text{p1}-\text{p3})^2+i \eta )}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\{\},\{\}\right)\right\}</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[{</span>GLI<span class="op">[</span>prop2LtopoG21<span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> n1<span class="op">,</span> n2<span class="op">,</span> n3<span class="op">,</span> n4<span class="op">}],</span> </span>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{prop2LtopoG20},\left\{\frac{1}{(\text{p1}^2+i
+\eta )},\frac{1}{((\text{p1}+\text{q1})^2-\text{m3}^2+i \eta
+)},\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((\text{p3}+\text{q1})^2+i
+\eta )},\frac{1}{((\text{p1}-\text{p3})^2+i \eta
+)}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\{\},\{\}\right),\text{FCTopology}\left(\text{prop2LtopoG21},\left\{\frac{1}{(\text{p1}^2-\text{m1}^2+i
+\eta )},\frac{1}{((\text{p1}+\text{q1})^2-\text{m3}^2+i \eta
+)},\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((\text{p3}+\text{q1})^2+i
+\eta )},\frac{1}{((\text{p1}-\text{p3})^2+i \eta
+)}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\{\},\{\}\right)\right\}</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[{</span>GLI<span class="op">[</span>prop2LtopoG21<span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> n1<span class="op">,</span> n2<span class="op">,</span> n3<span class="op">,</span> n4<span class="op">}],</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span>prop2LtopoG20<span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> n1<span class="op">,</span> n2<span class="op">,</span> n3<span class="op">,</span> n4<span class="op">}]},</span> topos<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{c}
- G^{\text{prop2LtopoG21}}(0,\text{n1},\text{n2},\text{n3},\text{n4})\to G^{\text{prop2LtopoG20}}(0,\text{n1},\text{n2},\text{n3},\text{n4}) \\
- G^{\text{prop2LtopoG20}}(0,\text{n1},\text{n2},\text{n3},\text{n4}) \\
+G^{\text{prop2LtopoG21}}(0,\text{n1},\text{n2},\text{n3},\text{n4})\to
+G^{\text{prop2LtopoG20}}(0,\text{n1},\text{n2},\text{n3},\text{n4}) \\
+G^{\text{prop2LtopoG20}}(0,\text{n1},\text{n2},\text{n3},\text{n4}) \\
 \end{array}
 \right)</span></p>
-<p>It is also possible to find mappings for factorizing integrals, provided that suitable products of integrals are given as preferred integrals</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span>FCTopology<span class="op">[</span>prop2Ltopo31313<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span></span>
+<p>It is also possible to find mappings for factorizing integrals,
+provided that suitable products of integrals are given as preferred
+integrals</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span>FCTopology<span class="op">[</span>prop2Ltopo31313<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">I</span> p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m3<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span> (p1 <span class="sc">+</span> q1)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">I</span> p3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m3<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="fu">I</span> </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>         (p3 <span class="sc">+</span> q1)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m1<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">I</span> (p1 <span class="sc">-</span> p3)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m3<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span>q1<span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span>q1<span class="op">,</span> q1<span class="op">]</span> <span class="ot">-&gt;</span> m1<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}],</span> </span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span>tad1Ltopo2<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="fu">I</span> p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>m3<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">},</span> <span class="op">{},</span> <span class="op">{</span>SPD<span class="op">[</span>q1<span class="op">,</span>q1<span class="op">]</span> <span class="ot">-&gt;</span> m1<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}]}</span></span></code></pre></div>
-<p><span class="math display">\left\{\text{FCTopology}\left(\text{prop2Ltopo31313},\left\{\frac{1}{(-\text{p1}^2+\text{m3}^2-i \eta )},\frac{1}{(-(\text{p1}+\text{q1})^2+\text{m1}^2-i \eta )},\frac{1}{(-\text{p3}^2+\text{m3}^2-i \eta )},\frac{1}{(-(\text{p3}+\text{q1})^2+\text{m1}^2-i \eta )},\frac{1}{(-(\text{p1}-\text{p3})^2+\text{m3}^2-i \eta )}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\left\{\text{q1}^2\to \;\text{m1}^2\right\},\{\}\right),\text{FCTopology}\left(\text{tad1Ltopo2},\left\{\frac{1}{(-\text{p1}^2+\text{m3}^2-i \eta )}\right\},\{\text{p1}\},\{\},\left\{\text{q1}^2\to \;\text{m1}^2\right\},\{\}\right)\right\}</span></p>
-<p>Here we ask the function to map all products of two 1-loop tadpoles to <code>GLI[tad1Ltopo2,{1}]^2</code></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[{</span>GLI<span class="op">[</span>tad1Ltopo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> </span>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{prop2Ltopo31313},\left\{\frac{1}{(-\text{p1}^2+\text{m3}^2-i
+\eta )},\frac{1}{(-(\text{p1}+\text{q1})^2+\text{m1}^2-i \eta
+)},\frac{1}{(-\text{p3}^2+\text{m3}^2-i \eta
+)},\frac{1}{(-(\text{p3}+\text{q1})^2+\text{m1}^2-i \eta
+)},\frac{1}{(-(\text{p1}-\text{p3})^2+\text{m3}^2-i \eta
+)}\right\},\{\text{p1},\text{p3}\},\{\text{q1}\},\left\{\text{q1}^2\to
+\;\text{m1}^2\right\},\{\}\right),\text{FCTopology}\left(\text{tad1Ltopo2},\left\{\frac{1}{(-\text{p1}^2+\text{m3}^2-i
+\eta )}\right\},\{\text{p1}\},\{\},\left\{\text{q1}^2\to
+\;\text{m1}^2\right\},\{\}\right)\right\}</span></p>
+<p>Here we ask the function to map all products of two 1-loop tadpoles
+to <code>GLI[tad1Ltopo2,{1}]^2</code></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindIntegralMappings<span class="op">[{</span>GLI<span class="op">[</span>tad1Ltopo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span>prop2Ltopo31313<span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]},</span> topos<span class="op">,</span> PreferredIntegrals <span class="ot">-&gt;</span> <span class="op">{</span>GLI<span class="op">[</span>tad1Ltopo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{c}
- G^{\text{prop2Ltopo31313}}(0,0,1,0,1)\to G^{\text{tad1Ltopo2}}(1)^2 \\
- G^{\text{tad1Ltopo2}}(1)^2 \\
+G^{\text{prop2Ltopo31313}}(0,0,1,0,1)\to G^{\text{tad1Ltopo2}}(1)^2 \\
+G^{\text{tad1Ltopo2}}(1)^2 \\
 \end{array}
 \right)</span></p>
 </body>

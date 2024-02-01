@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,104 +109,161 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="contract">Contract</h2>
-<p><code>Contract[expr]</code> contracts pairs of Lorentz or Cartesian indices of metric tensors, vectors and (depending on the value of the option <code>EpsContract</code>) of Levi-Civita tensors in <code>expr</code>.</p>
-<p>For contractions of Dirac matrices with each other use <code>DiracSimplify</code>.</p>
-<p><code>Contract[exp1, exp2]</code> contracts <code>(exp1*exp2)</code>, where <code>exp1</code> and <code>exp2</code> may be larger products of sums of metric tensors and 4-vectors. This can be also useful when evaluating polarization sums, where <code>exp2</code> should be the product (or expanded sum) of the polarization sums for the vector bosons.</p>
+<p><code>Contract[expr]</code> contracts pairs of Lorentz or Cartesian
+indices of metric tensors, vectors and (depending on the value of the
+option <code>EpsContract</code>) of Levi-Civita tensors in
+<code>expr</code>.</p>
+<p>For contractions of Dirac matrices with each other use
+<code>DiracSimplify</code>.</p>
+<p><code>Contract[exp1, exp2]</code> contracts <code>(exp1*exp2)</code>,
+where <code>exp1</code> and <code>exp2</code> may be larger products of
+sums of metric tensors and 4-vectors. This can be also useful when
+evaluating polarization sums, where <code>exp2</code> should be the
+product (or expanded sum) of the polarization sums for the vector
+bosons.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Pair.html">Pair</a>, <a href="CartesianPair.html">CartesianPair</a>, <a href="DiracSimplify.html">DiracSimplify</a>, <a href="MomentumCombine.html">MomentumCombine</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="Pair.html">Pair</a>, <a
+href="CartesianPair.html">CartesianPair</a>, <a
+href="DiracSimplify.html">DiracSimplify</a>, <a
+href="MomentumCombine.html">MomentumCombine</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\mu } \bar{g}^{\mu \nu }</span></p>
+<p><span class="math display">\overline{p}^{\mu } \bar{g}^{\mu \nu
+}</span></p>
 <p><span class="math display">\overline{p}^{\nu }</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^{\mu } \overline{p}^{\mu }</span></p>
+<p><span class="math display">\bar{\gamma }^{\mu } \overline{p}^{\mu
+}</span></p>
 <p><span class="math display">\bar{\gamma }\cdot \overline{p}</span></p>
 <p>The default dimension for a metric tensor is 4.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{g}^{\mu \mu }</span></p>
 <p><span class="math display">4</span></p>
-<p>A quick way to enter <span class="math inline">D</span>-dimensional metric tensors is given by <code>MTD</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>MTD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span>  MTD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
+<p>A quick way to enter <span class="math inline">D</span>-dimensional
+metric tensors is given by <code>MTD</code>.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>MTD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span>  MTD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(g^{\mu \nu})^2</span></p>
 <p><span class="math display">D</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span> <span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\mu } \overline{q}^{\mu }</span></p>
+<p><span class="math display">\overline{p}^{\mu } \overline{q}^{\mu
+}</span></p>
 <p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\overline{a}-\overline{b}\right)^{\mu } \left(\overline{p}-\overline{q}\right)^{\mu }</span></p>
-<p><span class="math display">\overline{a}\cdot \overline{p}-\overline{a}\cdot \overline{q}-\overline{b}\cdot \overline{p}+\overline{b}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FVD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FVD<span class="op">[</span><span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
+<p><span
+class="math display">\left(\overline{a}-\overline{b}\right)^{\mu }
+\left(\overline{p}-\overline{q}\right)^{\mu }</span></p>
+<p><span class="math display">\overline{a}\cdot
+\overline{p}-\overline{a}\cdot \overline{q}-\overline{b}\cdot
+\overline{p}+\overline{b}\cdot \overline{q}</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FVD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FVD<span class="op">[</span><span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(a-b)^{\nu } (p-q)^{\nu }</span></p>
-<p><span class="math display">a\cdot p-a\cdot q-b\cdot p+b\cdot q</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
+<p><span class="math display">a\cdot p-a\cdot q-b\cdot p+b\cdot
+q</span></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\sigma } \bar{\epsilon }^{\mu \nu \alpha \sigma }</span></p>
-<p><span class="math display">\bar{\epsilon }^{\alpha \mu \nu \overline{p}}</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
+<p><span class="math display">\overline{p}^{\sigma } \bar{\epsilon
+}^{\mu \nu \alpha \sigma }</span></p>
+<p><span class="math display">\bar{\epsilon }^{\alpha \mu \nu
+\overline{p}}</span></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\epsilon }^{\mu \nu \alpha \beta } \bar{\epsilon }^{\mu \nu \alpha \sigma }</span></p>
+<p><span class="math display">\bar{\epsilon }^{\mu \nu \alpha \beta }
+\bar{\epsilon }^{\mu \nu \alpha \sigma }</span></p>
 <p><span class="math display">-6 \bar{g}^{\beta \sigma }</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> LCD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> Factor2</span></code></pre></div>
-<p><span class="math display">\overset{\text{}}{\epsilon }^{\mu \nu \alpha \beta } \overset{\text{}}{\epsilon }^{\mu \nu \alpha \sigma }</span></p>
-<p><span class="math display">(1-D) (2-D) (3-D) g^{\beta \sigma }</span></p>
-<p>Contractions of Cartesian tensors are also possible. They can live in <span class="math inline">3</span>, <span class="math inline">D-1</span> or <span class="math inline">D-4</span> dimensions.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>KD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> CV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> </span>
+<p><span class="math display">\overset{\text{}}{\epsilon }^{\mu \nu
+\alpha \beta } \overset{\text{}}{\epsilon }^{\mu \nu \alpha \sigma
+}</span></p>
+<p><span class="math display">(1-D) (2-D) (3-D) g^{\beta \sigma
+}</span></p>
+<p>Contractions of Cartesian tensors are also possible. They can live in
+<span class="math inline">3</span>, <span class="math inline">D-1</span>
+or <span class="math inline">D-4</span> dimensions.</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>KD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> CV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^i \bar{\delta }^{ij}</span></p>
+<p><span class="math display">\overline{p}^i \bar{\delta
+}^{ij}</span></p>
 <p><span class="math display">\overline{p}^j</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>CV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> </span>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>CV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{\gamma }^i \overline{p}^i</span></p>
-<p><span class="math display">\overline{\gamma }\cdot \overline{p}</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>KD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> </span>
+<p><span class="math display">\overline{\gamma }^i
+\overline{p}^i</span></p>
+<p><span class="math display">\overline{\gamma }\cdot
+\overline{p}</span></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>KD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">i</span><span class="op">]</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\delta }^{ii}</span></p>
 <p><span class="math display">3</span></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>KD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> </span>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>KD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">(\bar{\delta}^{ij})^2</span></p>
 <p><span class="math display">3</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>CV<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> CV<span class="op">[</span><span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> </span>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>CV<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> CV<span class="op">[</span><span class="fu">a</span> <span class="sc">-</span> <span class="fu">b</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\overline{a}-\overline{b}\right)^j \left(\overline{p}-\overline{q}\right)^j</span></p>
-<p><span class="math display">(\overline{a}-\overline{b})\cdot (\overline{p}-\overline{q})</span></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>CLC<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> CV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
+<p><span class="math display">\left(\overline{a}-\overline{b}\right)^j
+\left(\overline{p}-\overline{q}\right)^j</span></p>
+<p><span class="math display">(\overline{a}-\overline{b})\cdot
+(\overline{p}-\overline{q})</span></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>CLC<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> CV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^k \bar{\epsilon }^{ijk}</span></p>
-<p><span class="math display">\bar{\epsilon }^{ij\overline{p}}</span></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>CLC<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> CLC<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">l</span><span class="op">]</span> </span>
+<p><span class="math display">\overline{p}^k \bar{\epsilon
+}^{ijk}</span></p>
+<p><span class="math display">\bar{\epsilon
+}^{ij\overline{p}}</span></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>CLC<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> CLC<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">l</span><span class="op">]</span> </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\epsilon }^{ijk} \bar{\epsilon }^{ijl}</span></p>
+<p><span class="math display">\bar{\epsilon }^{ijk} \bar{\epsilon
+}^{ijl}</span></p>
 <p><span class="math display">2 \bar{\delta }^{kl}</span></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>CLCD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> CLCD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">l</span><span class="op">]</span> </span>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>CLCD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> CLCD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">l</span><span class="op">]</span> </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span> <span class="sc">//</span> Factor2</span></code></pre></div>
-<p><span class="math display">\overset{\text{}}{\epsilon }^{ijk} \overset{\text{}}{\epsilon }^{ijl}</span></p>
+<p><span class="math display">\overset{\text{}}{\epsilon }^{ijk}
+\overset{\text{}}{\epsilon }^{ijl}</span></p>
 <p><span class="math display">(2-D) (3-D) \delta ^{kl}</span></p>
 </body>
 </html>

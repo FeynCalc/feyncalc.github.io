@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script defer="" src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<p>FeynCalc is a Mathematica package for algebraic calculations in
+Quantum Field Theory and semi-automatic evaluation of Feynman
+Diagrams.</p>
+<h2 id="useful-information">Useful information</h2>
+<ul>
+<li><a href="Install.html">Installation</a></li>
+<li><a href="Load.html">Loading the package</a></li>
+<li><a href="UpperLowerIndices.html">Upper and lower indices</a></li>
+<li><a href="MasterIntegrals.html">Master integrals</a></li>
+<li><a href="FeynArtsSigns.html">New FeynArts sign conventions</a></li>
+<li><a href="CustomModels.html">Custom FeynRules models</a></li>
+<li><a href="DiracAlgebraFormulas.html">Useful formulas for Dirac
+algebra</a></li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="../InternalExternal.html">Internal vs. external
+representations</a></li>
+<li><a href="../Contractions.html">Index contractions</a></li>
+<li><a href="../Dimensions.html">Dimensions</a></li>
+<li><a href="../Kinematics.html">Kinematics</a></li>
+<li><a href="../Expansions.html">Expanding and undoing
+expansions</a></li>
+<li><a href="../Indices.html">Handling indices</a></li>
+<li><a href="../DiracAlgebra.html">Dirac algebra</a></li>
+<li><a href="../ColorAlgebra.html">Color algebra</a></li>
+<li><a href="../Loops.html">Loops</a></li>
+<li><a href="../Nonrelativistic.html">Nonrelativistic
+calculations</a></li>
+<li><a href="../LightCone.html">Calculations with light-cone
+vectors</a></li>
+</ul>
+<h2 id="basic-objects">Basic objects</h2>
+<ul>
+<li><a href="../Abbreviation.html">Abbreviation</a> - gives a shortname
+for name (in <code>HoldForm</code>)</li>
+<li><a href="../AntiQuarkField.html">AntiQuarkField</a>, <a
+href="../QuarkField.html">QuarkField</a>, <a
+href="../QuarkFieldPsi.html">QuarkFieldPsi</a>, <a
+href="../QuarkFieldPsiDagger.html">QuarkFieldPsiDagger</a>, <a
+href="../QuarkFieldChi.html">QuarkFieldChi</a>, <a
+href="../QuarkFieldChiDagger.html">QuarkFieldChiDagger</a> - name of a
+fermionic field</li>
+<li><a href="../CA.html">CA</a>, <a href="../CF.html">CF</a> - Casimir
+operator eigenvalues of <span class="math inline">SU(N)</span></li>
+<li><a href="../CGA.html">CGA</a>, <a href="../CGS.html">CGS</a>, <a
+href="../CGAD.html">CGAD</a>, <a href="../CGSD.html">CGSD</a>, <a
+href="../CGAE.html">CGAE</a>, <a href="../CGSE.html">CGSE</a> -
+representation of Dirac matrices with Cartesian indices or Dirac
+matrices contracted to <span class="math inline">3</span>-momenta</li>
+<li><a href="../CSI.html">CSI</a>, <a href="../CSID.html">CSID</a>, <a
+href="../CSIE.html">CSIE</a>, <a href="../CSIS.html">CSIS</a>, <a
+href="../CSISD.html">CSISD</a>, <a href="../CSISE.html">CSISE</a> -
+Pauli matrices with Cartesian indices or Pauli matrices contracted to
+<span class="math inline">3</span>-momenta</li>
+<li><a href="../CSP.html">CSP</a>, <a href="../CSPD.html">CSPD</a>, <a
+href="../CSPE.html">CSPE</a> - scalar products of <span
+class="math inline">3</span>-momenta</li>
+<li><a href="../CV.html">CV</a>, <a href="../CVD.html">CVD</a>, <a
+href="../CVE.html">CVE</a> - Cartesian <span
+class="math inline">3</span>-vectors</li>
+<li><a href="../CartesianIndex.html">CartesianIndex</a> - Cartesian
+index</li>
+<li><a href="../CartesianMomentum.html">CartesianMomentum</a> - internal
+representation of <span class="math inline">3</span>-momenta</li>
+<li><a href="../CartesianPair.html">CartesianPair</a> - special pairing
+used in the internal representation to represent Kronecker deltas, <span
+class="math inline">3</span>-vectors or Cartesian scalar products</li>
+<li><a href="../DiracBasis.html">DiracBasis</a> - can be used as a
+separator in the SPVAT-decomposition</li>
+<li><a href="../DeltaFunction.html">DeltaFunction</a>, <a
+href="../DeltaFunctionPrime.html">DeltaFunctionPrime</a>, <a
+href="../DeltaFunctionDoublePrime.html">DeltaFunctionDoublePrime</a> -
+Dirac delta function and its derivatives</li>
+<li><a href="../DiracGamma.html">DiracGamma</a>, <a
+href="../GA.html">GA</a>, <a href="../GA5.html">GA5</a>, <a
+href="../GS.html">GS</a>, <a href="../GAD.html">GAD</a>, <a
+href="../GSD.html">GSD</a>, <a href="../GAE.html">GAE</a>, <a
+href="../GSE.html">GSE</a> - Dirac matrices and Feynman slashes</li>
+<li><a href="../GALP.html">GALP</a>, <a href="../GALN.html">GALN</a>, <a
+href="../GALR.html">GALR</a>, <a href="../GALPD.html">GALPD</a>, <a
+href="../GALND.html">GALND</a>, <a href="../GALRD.html">GALRD</a>, <a
+href="../GSLP.html">GSLP</a>, <a href="../GSLN.html">GSLN</a>, <a
+href="../GSLR.html">GSLR</a>, <a href="../GSLPD.html">GSLPD</a>, <a
+href="../GSLND.html">GSLND</a>, <a href="../GSLRD.html">GSLRD</a> -
+Lightcone components of Dirac matrices and Feynman slashes</li>
+<li><a href="../DiracIndexDelta.html">DiracIndexDelta</a>, <a
+href="../DIDelta.html">DIDelta</a> - Kronecker delta in the Dirac
+space</li>
+<li><a href="../DiracSigma.html">DiracSigma</a> - denotes <span
+class="math inline">\frac{i}{2}[\gamma^\mu, \gamma^\nu]</span></li>
+<li><a href="../DOT.html">DOT</a> - noncommutative multiplication
+sign</li>
+<li><a href="../Eps.html">Eps</a>, <a href="../LC.html">LC</a>, <a
+href="../LCD.html">LCD</a>, <a href="../CLC.html">CLC</a>, <a
+href="../CLCD.html">CLCD</a> - totally antisymmetric <span
+class="math inline">\varepsilon</span> (Levi-Civita) tensor</li>
+<li><a href="../EpsilonUV.html">EpsilonUV</a>, <a
+href="../EpsilonIR.html">EpsilonIR</a>, <a
+href="../Epsilon.html">Epsilon</a> - <span
+class="math inline">\varepsilon</span> from dimensional
+regularization</li>
+<li><a href="../ExplicitLorentzIndex.html">ExplicitLorentzIndex</a>, <a
+href="../LorentzIndex.html">LorentzIndex</a> - Lorentz index</li>
+<li><a href="../ExplicitDiracIndex.html">ExplicitDiracIndex</a>, <a
+href="../DiracIndex.html">DiracIndex</a> - Dirac index</li>
+<li><a href="../ExplicitPauliIndex.html">ExplicitPauliIndex</a>, <a
+href="../PauliIndex.html">PauliIndex</a> - Pauli index</li>
+<li><a href="../ExplicitSUNIndex.html">ExplicitSUNIndex</a>, <a
+href="../SUNIndex.html">SUNIndex</a> - <span
+class="math inline">SU(N)</span> adjoint index</li>
+<li><a href="../ExplicitSUNFIndex.html">ExplicitSUNFIndex</a>, <a
+href="../SUNFIndex.html">SUNFIndex</a> - <span
+class="math inline">SU(N)</span> fundamental index</li>
+<li><a href="../FAD.html">FAD</a>, <a href="../SFAD.html">SFAD</a>, <a
+href="../CFAD.html">CFAD</a>, <a href="../GFAD.html">GFAD</a>, <a
+href="../FeynAmpDenominator.html">FeynAmpDenominator</a> - denominators
+of Feynman amplitudes</li>
+<li><a href="../FCGV.html">FCGV</a> - a global variable</li>
+<li><a href="../FCIteratedIntegral.html">FCIteratedIntegral</a> - Chen’s
+iterated integral</li>
+<li><a href="../FCHPL.html">FCHPL</a>, <a href="../FCGPL.html">FCGPL</a>
+- harmonic and Goncharov polylogarithms</li>
+<li><a href="../FCPartialFractionForm.html">FCPartialFractionForm</a> -
+partial fractioned form of rational functions</li>
+<li><a href="../FCTensor.html">FCTensor</a>, <a
+href="../FCVariable.html">FCVariable</a>, <a
+href="../FreeIndex.html">FreeIndex</a>, <a
+href="../GrassmannParity.html">GrassmannParity</a>, <a
+href="../ImplicitDiracIndex.html">ImplicitDiracIndex</a>, <a
+href="../ImplicitPauliIndex.html">ImplicitPauliIndex</a>, <a
+href="../ImplicitSUNFIndex.html">ImplicitSUNFIndex</a>, <a
+href="../NegativeInteger.html">NegativeInteger</a>, <a
+href="../NonCommutative.html">NonCommutative</a>, <a
+href="../PositiveInteger.html">PositiveInteger</a>, <a
+href="../PositiveNumber.html">PositiveNumber</a> - various
+datatypes</li>
+<li><a href="../FUNCTION.html">FUNCTION</a> - declaration of functions
+for <a href="../Write2.html">Write2</a></li>
+<li><a href="../DCHN.html">DCHN</a>, <a
+href="../DiracChain.html">DiracChain</a> - Dirac chain with explicit
+open Dirac indices</li>
+<li><a href="../FeynAmp.html">FeynAmp</a>, <a
+href="../FeynAmpList.html">FeynAmpList</a> - Feynman amplitudes</li>
+<li><a href="../FCPartialD.html">FCPartialD</a>, <a
+href="../LeftNablaD.html">LeftNablaD</a>, <a
+href="../LeftRightNablaD.html">LeftRightNablaD</a>, <a
+href="../LeftRightNablaD2.html">LeftRightNablaD2</a>, <a
+href="../LeftNablaD.html">LeftPartialD</a>, <a
+href="../LeftRightPartialD.html">LeftRightPartialD</a>, <a
+href="../LeftRightNablaD2.html">LeftRightPartialD2</a>, <a
+href="../RightNablaD.html">RightNablaD</a>, <a
+href="../RightPartialD.html">RightPartialD</a> - partial derivatives
+acting on operators</li>
+<li><a href="../FCTopology.html">FCTopology</a> - representation of a
+loop integral family topology</li>
+<li><a href="../FV.html">FV</a>, <a href="../FVD.html">FVD</a>, <a
+href="../FVE.html">FVE</a> - Minkowskian <span
+class="math inline">4</span>-vectors</li>
+<li><a href="../FVLP.html">FVLP</a>, <a href="../FVLN.html">FVLN</a>, <a
+href="../FVLR.html">FVLR</a>, <a href="../FVLPD.html">FVLPD</a>, <a
+href="../FVLND.html">FVLND</a>, <a href="../FVLRD.html">FVLRD</a> -
+Lightcone components of Minkowskian <span
+class="math inline">4</span>-vectors</li>
+<li><a href="../GaugeField.html">GaugeField</a> - name of a gauge
+field</li>
+<li><a href="../GaugeXi.html">GaugeXi</a> - gauge parameter <span
+class="math inline">\xi</span></li>
+<li><a href="../GluonField.html">GluonField</a> - name of a gluon
+field</li>
+<li><a href="../IFPD.html">IFPD</a> - denotes <span
+class="math inline">p^2 - m^2</span></li>
+<li><a href="../KD.html">KD</a>, <a href="../KDD.html">KDD</a>, <a
+href="../KDE.html">KDE</a> - Cartesian Kronecker delta <span
+class="math inline">\delta^{ij}</span></li>
+<li><a href="../Li2.html">Li2</a>, <a href="../Li3.html">Li3</a>, <a
+href="../Li4.html">Li4</a> - polylogarithms of different weights</li>
+<li><a
+href="../LightConePerpendicularComponent.html">LightConePerpendicularComponent</a>
+- internal representation for perpendicular components of <span
+class="math inline">4</span>-momenta and Lorentz indices</li>
+<li><a href="../Momentum.html">Momentum</a> - internal representation of
+<span class="math inline">4</span>-momenta</li>
+<li><a href="../MT.html">MT</a>, <a href="../MTD.html">MTD</a>, <a
+href="../MTE.html">MTE</a> - metric tensor <span
+class="math inline">g^{\mu \nu}</span></li>
+<li><a href="../MTLP.html">MTLP</a>, <a href="../MTLN.html">MTLN</a>, <a
+href="../MTLR.html">MTLR</a>, <a href="../MTLPD.html">MTLPD</a>, <a
+href="../MTLND.html">MTLND</a>, <a href="../MTLRD.html">MTLRD</a> -
+Lightcone components of the metric tensor <span
+class="math inline">g^{\mu \nu}</span></li>
+<li><a href="../Nf.html">Nf</a> - number of flavors <span
+class="math inline">n_f</span></li>
+<li><a href="../Pair.html">Pair</a> - special pairing used in the
+internal representation to represent the metric, scalar products or
+<span class="math inline">4</span>-vectors</li>
+<li><a href="../PCHN.html">PCHN</a>, <a
+href="../PauliChain.html">PauliChain</a> - Pauli chain with explicit
+open Pauli indices</li>
+<li><a href="../PauliEta.html">PauliEta</a>, <a
+href="../PauliXi.html">PauliXi</a> - Pauli spinors</li>
+<li><a href="../PauliIndexDelta.html">PauliIndexDelta</a>, <a
+href="../PIDelta.html">PIDelta</a> - Kronecker delta in the Pauli
+space</li>
+<li><a href="../PauliSigma.html">PauliSigma</a> - internal
+representation of Pauli matrices</li>
+<li><a href="../Polarization.html">Polarization</a> - internal
+representation of polarizations</li>
+<li><a href="../PolarizationVector.html">PolarizationVector</a> -
+polarization vector</li>
+<li><a href="../PlusDistribution.html">PlusDistribution</a> - a special
+distribution</li>
+<li><a href="../PropagatorDenominator.html">PropagatorDenominator</a>,
+<a href="../PD.html">PD</a>, <a
+href="../StandardPropagatorDenominator.html">StandardPropagatorDenominator</a>,
+<a
+href="../CartesianPropagatorDenominator.html">CartesianPropagatorDenominator</a>,
+<a
+href="../GenericPropagatorDenominator.html">GenericPropagatorDenominator</a>
+- internal representation of propagator denominators</li>
+<li><a href="../QuantumField.html">QuantumField</a> - generic name of a
+quantum field</li>
+<li><a href="../ScaleMu.html">ScaleMu</a> - <span
+class="math inline">\mu</span> scale in dimensional regularization</li>
+<li><a href="../SD.html">SD</a>, <a href="../SUNDelta.html">SUNDelta</a>
+- Kronecker delta for adjoint <span class="math inline">SU(N)</span>
+indices</li>
+<li><a href="../SDF.html">SDF</a>, <a
+href="../SUNFDelta.html">SUNFDelta</a> - Kronecker delta for fundamental
+<span class="math inline">SU(N)</span> indices</li>
+<li><a href="../SI.html">SI</a>, <a href="../SID.html">SID</a>, <a
+href="../SIE.html">SIE</a>, <a href="../SIS.html">SIS</a>, <a
+href="../SISD.html">SISD</a>, <a href="../SISE.html">SISE</a> - Pauli
+matrices with Lorentz indices or Pauli matrices contracted to <span
+class="math inline">4</span>-momenta</li>
+<li><a href="../SmallDelta.html">SmallDelta</a>, <a
+href="../SmallEpsilon.html">SmallEpsilon</a> - some small positive
+numbers</li>
+<li><a href="../SmallVariable.html">SmallVariable</a> - small variable
+to be used as a regulator in Passarino-Veltman functions</li>
+<li><a href="../Spinor.html">Spinor</a>, <a
+href="../SpinorU.html">SpinorU</a>, <a
+href="../SpinorUBar.html">SpinorUBar</a>, <a
+href="../SpinorV.html">SpinorV</a>, <a
+href="../SpinorVBar.html">SpinorVBar</a>, <a
+href="../SpinorUD.html">SpinorUD</a>, <a
+href="../SpinorUBarD.html">SpinorUBarD</a>, <a
+href="../SpinorVD.html">SpinorVD</a>, <a
+href="../SpinorVBarD.html">SpinorVBarD</a> - Dirac spinors</li>
+<li><a href="../SP.html">SP</a>, <a href="../SPD.html">SPD</a>, <a
+href="../SPE.html">SPE</a> - scalar products of <span
+class="math inline">4</span>-momenta</li>
+<li><a href="../SPLP.html">SPLP</a>, <a href="../SPLN.html">SPLN</a>, <a
+href="../SPLR.html">SPLR</a>, <a href="../SPLPD.html">SPLPD</a>, <a
+href="../SPLND.html">SPLND</a>, <a href="../SPLRD.html">SPLRD</a> -
+Lightcone components of Mikowskian scalar products</li>
+<li><a href="../StandardMatrixElement.html">StandardMatrixElement</a> -
+special head for isolating Dirac and color structures from the rest of
+the expression</li>
+<li><a href="../SUND.html">SUND</a> - structure constant <span
+class="math inline">d^{abc}</span> in <span
+class="math inline">SU(N)</span></li>
+<li><a href="../SUNF.html">SUNF</a> - structure constant <span
+class="math inline">f^{abc}</span> in <span
+class="math inline">SU(N)</span></li>
+<li><a href="../SUNN.html">SUNN</a> - <span
+class="math inline">n_c</span> in <span
+class="math inline">SU(N)</span></li>
+<li><a href="../SUNT.html">SUNT</a>, <a href="../SUNTF.html">SUNTF</a> -
+<span class="math inline">T^a_{ij}</span> of <span
+class="math inline">SU(N)</span> in the fundamental representation</li>
+<li><a href="../TC.html">TC</a> - temporal component of a <span
+class="math inline">4</span>-vector, i.e. <span
+class="math inline">p^0</span></li>
+<li><a href="../TGA.html">TGA</a> - temporal component of a Dirac
+matrix, i.e. <span class="math inline">\gamma^0</span></li>
+<li><a href="../TemporalMomentum.html">TemporalMomentum</a> - internal
+representation of temporal components of <span
+class="math inline">4</span>-momenta</li>
+<li><a href="../TemporalPair.html">TemporalPair</a> - special pairing
+used in the internal representation to represent temporal components of
+<span class="math inline">4</span>-vectors</li>
+<li><a href="../Tf.html">Tf</a> - <span class="math inline">T_F</span>
+group constant of <span class="math inline">SU(N)</span></li>
+<li><a href="../Zeta2.html">Zeta2</a>, <a
+href="../Zeta4.html">Zeta4</a>, <a href="../Zeta6.html">Zeta6</a>, <a
+href="../Zeta8.html">Zeta8</a>, <a href="../Zeta10.html">Zeta10</a> -
+Riemann zeta functions <span class="math inline">\zeta_{2k}</span> of
+different even weights</li>
+</ul>
+<h2 id="basic-functions">Basic functions</h2>
+<ul>
+<li><a href="../Apart1.html">Apart1</a>, <a
+href="../Apart3.html">Apart3</a> - alternative to Mathematica’s
+<code>Apart</code></li>
+<li><a href="../Cases2.html">Cases2</a> - alternative to Mathematica’s
+<code>Cases</code></li>
+<li><a href="../Coefficient2.html">Coefficient2</a> - alternative to
+Mathematica’s <code>Coefficient</code></li>
+<li><a href="../Combine.html">Combine</a> - alternative to Mathematica’s
+<code>Together</code></li>
+<li><a href="../Complement1.html">Complement1</a> - alternative to
+Mathematica’s <code>Complement</code></li>
+<li><a href="../Collect2.html">Collect2</a>, <a
+href="../Collect3.html">Collect3</a> - alternatives to Mathematica’s
+<code>Collect</code></li>
+<li><a href="../DataType.html">DataType</a> - defines data types</li>
+<li><a href="../Expand2.html">Expand2</a> - alternative to Mathematica’s
+<code>Expand</code></li>
+<li><a href="../ExpandAll2.html">ExpandAll2</a> - alternative to
+Mathematica’s <code>ExpandAll</code></li>
+<li><a href="../Explicit.html">Explicit</a> - inserts explicit
+expressions for certain objects</li>
+<li><a href="../Factor1.html">Factor1</a>, <a
+href="../Factor2.html">Factor2</a>, <a
+href="../Factor3.html">Factor3</a> - alternatives to Mathematica’s
+<code>Factor</code></li>
+<li><a href="../FactorList2.html">FactorList2</a> - alternative to
+Mathematica’s <code>FactorList2</code></li>
+<li><a href="../FC.html">FC</a> - changes the output format to <a
+href="../FeynCalcForm.html">FeynCalcForm</a></li>
+<li><a href="../FCAbbreviate.html">FCAbbreviate</a> - introduces
+abbreviations</li>
+<li><a href="../FCAntiSymmetrize.html">FCAntiSymmetrize</a> -
+antisymmetrizes with respect to the given variables</li>
+<li><a href="../FCDeclareHeader.html">FCDeclareHeader</a>, <a
+href="../FCPrint.html">FCPrint</a>, <a
+href="../FCReloadAddOns.html">FCReloadAddOns</a>, <a
+href="../FCReloadFunctionFromFile.html">FCReloadFunctionFromFile</a> -
+for writing or debugging new FeynCalc functions or add-ons</li>
+<li><a href="../FCClearCache.html">FCClearCache</a>, <a
+href="../FCMemoryAvailable.html">FCMemoryAvailable</a>, <a
+href="../FCShowCache.html">FCShowCache</a>, <a
+href="../FCUseCache.html">FCUseCache</a> - cache management</li>
+<li><a href="../FCCheckSyntax.html">FCCheckSyntax</a> - checks for
+syntax errors in the input expressions</li>
+<li><a href="../FCCheckVersion.html">FCCheckVersion</a> - checks the
+FeynCalc version</li>
+<li><a href="../FCCompareResults.html">FCCompareResults</a> - compares
+results of different calculations</li>
+<li><a href="../FCCompareNumbers.html">FCCompareNumbers</a> - compares
+(semi)numerical expressions</li>
+<li><a
+href="../FCDisableTraditionalFormOutput.html">FCDisableTraditionalFormOutput</a>,
+<a
+href="../FCEnableTraditionalFormOutput.html">FCEnableTraditionalFormOutput</a>
+- turns the <code>TraditionalForm</code> output off or on</li>
+<li><a href="../FCFactorOut.html">FCFactorOut</a> - factors out the
+given prefactor</li>
+<li><a href="../FCFilePatch.html">FCFilePatch</a> - patches files using
+regular expressions</li>
+<li><a href="../FCGetNotebookDirectory.html">FCGetNotebookDirectory</a>
+- alternative to Mathematica’s <code>NotebookDirectory</code></li>
+<li><a href="../FCHighlight.html">FCHighlight</a> - highlights selected
+variables</li>
+<li><a href="../FCE.html">FCE</a>, <a
+href="../FeynCalcExternal.html">FeynCalcExternal</a> - converts the
+expression to the external FeynCalc representation</li>
+<li><a href="../FCF.html">FCF</a>, <a
+href="../FeynCalcForm.html">FeynCalcForm</a> - changes the printed
+output to an easy to read form</li>
+<li><a href="../FCI.html">FCI</a>, <a
+href="../FeynCalcInternal.html">FeynCalcInternal</a> - converts the
+expression to the internal FeynCalc representation</li>
+<li><a href="../FCMakeIndex.html">FCMakeIndex</a> - generates indices
+from strings (useful e.g. for QGRAF input)</li>
+<li><a href="../FCMakeSymbols.html">FCMakeSymbols</a> - generates lists
+of symbols</li>
+<li><a href="../FCMatchSolve.html">FCMatchSolve</a> - solves for
+matching coefficients and renormalization constants</li>
+<li><a href="../FCPatternFreeQ.html">FCPatternFreeQ</a> - checks if the
+expression contains any patterns</li>
+<li><a href="../FCProgressBar.html">FCProgressBar</a> - a simplistic
+progress bar</li>
+<li><a href="../FCReplaceAll.html">FCReplaceAll</a> - alternative to
+Mathematica’s <code>ReplaceAll</code></li>
+<li><a href="../FCReorderList.html">FCReorderList</a> - reorder elements
+of a list</li>
+<li><a href="../FCReplaceRepeated.html">FCReplaceRepeated</a> -
+alternative to Mathematica’s <code>ReplaceRepeated</code></li>
+<li><a href="../FCShowReferenceCard.html">FCShowReferenceCard</a> -
+FeynArts cheatsheet</li>
+<li><a href="../FCSplit.html">FCSplit</a>, <a
+href="../FCProductSplit.html">FCProductSplit</a>, <a
+href="../PartitHead.html">PartitHead</a>, <a
+href="../SelectFree.html">SelectFree</a>, <a
+href="../SelectNotFree.html">SelectNotFree</a>, <a
+href="../SelectFree2.html">SelectFree2</a>, <a
+href="../SelectNotFree2.html">SelectNotFree2</a>, <a
+href="../SelectSplit.html">SelectSplit</a> - alternatives to
+Mathematica’s <code>Select</code></li>
+<li><a href="../FCSymmetrize.html">FCSymmetrize</a> - symmetrizes with
+respect to the given variables</li>
+<li><a href="../FeynCalcHowToCite.html">FeynCalcHowToCite</a> - lists
+relevant FeynCalc publications</li>
+<li><a href="../FI.html">FI</a> - changes the output format to
+<code>InputForm</code></li>
+<li><a href="../FreeQ2.html">FreeQ2</a> - alternative to Mathematica’s
+<code>FreeQ</code></li>
+<li><a href="../FRH.html">FRH</a> - alternative to Mathematica’s
+<code>ReleaseHold</code></li>
+<li><a href="../ILimit.html">ILimit</a>, <a
+href="../MLimit.html">MLimit</a> - alternatives to Mathematica’s
+<code>Limit</code></li>
+<li><a href="../Isolate.html">Isolate</a>, <a href="../KK.html">KK</a> -
+replaces expressions by abbreviations</li>
+<li><a href="../Map2.html">Map2</a> - alternative to Mathematica’s
+<code>Map</code></li>
+<li><a href="../MemSet.html">MemSet</a> - memoization depending on the
+amount of free RAM</li>
+<li><a href="../NTerms.html">NTerms</a> - alternative to Mathematica’s
+<code>Length</code></li>
+<li><a href="../NumericalFactor.html">NumericalFactor</a> - gives the
+overall numerical factor</li>
+<li><a href="../NumericQ1.html">NumericQ1</a> - alternative to
+Mathematica’s <code>NumericQ</code></li>
+<li><a href="../Power2.html">Power2</a> - alternative to Mathematica’s
+<code>Power</code></li>
+<li><a href="../PowerFactor.html">PowerFactor</a>, <a
+href="../PowerSimplify.html">PowerSimplify</a>, <a
+href="../XYT.html">XYT</a> - simplification of expressions with
+exponents</li>
+<li><a href="../Series2.html">Series2</a>, <a
+href="../Series3.html">Series3</a> - alternatives to Mathematica’s
+<code>Series</code></li>
+<li><a
+href="../SetStandardMatrixElements.html">SetStandardMatrixElements</a> -
+introduces abbreviations for <a
+href="../StandardMatrixElement.html">StandardMatrixElement</a>s</li>
+<li><a href="../Solve2.html">Solve2</a>, <a
+href="../Solve3.html">Solve3</a> - alternatives to Mathematica’s
+<code>Solve</code></li>
+<li><a href="../SumP.html">SumP</a>, <a href="../SumS.html">SumS</a>, <a
+href="../SumT.html">SumT</a> - different summations</li>
+<li><a href="../TimedIntegrate.html">TimedIntegrate</a> - alternative to
+Mathematica’s <code>Integrate</code></li>
+<li><a
+href="../ToFCPartialFractionForm.html">ToFCPartialFractionForm</a>, <a
+href="../FromFCPartialFractionForm.html">FromFCPartialFractionForm</a> -
+switching between the usual and partial fractioned form representations
+for rational functions</li>
+<li><a href="../TBox.html">TBox</a> - helps implementing typesetting
+rules</li>
+<li><a
+href="../TypesettingExplicitLorentzIndex.html">TypesettingExplicitLorentzIndex</a>
+- typesettings of explicit Lorentz indices</li>
+<li><a href="../$TypesettingDim4.html">$TypesettingDim4</a>, <a
+href="../$TypesettingDimD.html">$TypesettingDimD</a>, <a
+href="../$TypesettingDimE.html">$TypesettingDimE</a> - typesetting of
+tensors in <span class="math inline">4</span>, <span
+class="math inline">D</span> and <span class="math inline">D-4</span>
+dimensions</li>
+<li><a href="%5BVariables2">Variables2</a> - alternative to
+Mathematica’s <code>Variables</code></li>
+</ul>
+<h2 id="lorentz-and-cartesian-tensors">Lorentz and Cartesian
+tensors</h2>
+<ul>
+<li><a href="../Amputate.html">Amputate</a> - amputates <span
+class="math inline">4</span>-vectors, Dirac matrices or Levi-Civita
+tensors</li>
+<li><a href="../CartesianToLorentz.html">CartesianToLorentz</a> -
+rewrties certain Cartesian tensors in terms of Lorentz tensors</li>
+<li><a href="../CartesianPairContract.html">CartesianPairContract</a> -
+like <a href="../CartesianPair.html">CartesianPair</a> but with local
+contraction properties</li>
+<li><a href="../CartesianScalarProduct.html">CartesianScalarProduct</a>
+- defines scalar products of <span
+class="math inline">3</span>-vectors</li>
+<li><a href="../ChangeDimension.html">ChangeDimension</a> - changes
+dimension of Lorentz or Cartesian indices and momenta</li>
+<li><a href="../CompleteSquare.html">CompleteSquare</a> - completes the
+square of a second order polynomial in the given momentum</li>
+<li><a href="../Contract.html">Contract</a> - contracts Lorentz or
+Cartesian indices of tensors and Dirac matrices</li>
+<li><a href="../DeclareFCTensor.html">DeclareFCTensor</a> - declares the
+given head to be a tensor</li>
+<li><a href="../DummyIndexFreeQ.html">DummyIndexFreeQ</a> - checks if
+the expression contains dummy indices</li>
+<li><a href="../EpsContract.html">EpsContract</a> - rewrites products of
+Levi-Civita tensors in terms of scalar products</li>
+<li><a href="../EpsContractFreeQ.html">EpsContractFreeQ</a> - checks if
+the expression contains products of Levi-Civita tensors</li>
+<li><a href="../EpsEvaluate.html">EpsEvaluate</a> - applies total
+antisymmetry and linearity to all Levi-Civita tensors</li>
+<li><a href="../ExpandScalarProduct.html">ExpandScalarProduct</a> -
+expands scalar products of sums of momenta</li>
+<li><a
+href="../FCCanonicalizeDummyIndices.html">FCCanonicalizeDummyIndices</a>
+- canonicalizes dummy indices</li>
+<li><a href="../FCClearScalarProducts.html">FCClearScalarProducts</a> -
+removes all user-specific definitions of scalar products</li>
+<li><a href="../FCGetDimensions.html">FCGetDimensions</a> - returns the
+space-time dimensions of objects in the expression</li>
+<li><a href="../FCGetDummyIndices.html">FCGetDummyIndices</a> - extracts
+dummy indices in the expression</li>
+<li><a href="../FCGetFreeIndices.html">FCGetFreeIndices</a> - extracts
+free indices in the expression</li>
+<li><a href="../FCGetScalarProducts.html">FCGetScalarProducts</a> -
+returns scalar products assigned to some values</li>
+<li><a href="../FCPermuteMomentaRules.html">FCPermuteMomentaRules</a> -
+generates rules for permutations of momenta</li>
+<li><a href="../FCRenameDummyIndices.html">FCRenameDummyIndices</a> -
+renames dummy indices</li>
+<li><a href="../FCReplaceMomenta.html">FCReplaceMomenta</a> - replaces
+momenta in the expression</li>
+<li><a href="../FCReplaceD.html">FCReplaceD</a> - replaces <span
+class="math inline">D</span> with e.g. <span class="math inline">4-2
+\varepsilon</span></li>
+<li><a href="../FCRerouteMomenta.html">FCRerouteMomenta</a> - improves
+routing of the external momenta using momentum conservation</li>
+<li><a href="../FCSchoutenBruteForce.html">FCSchoutenBruteForce</a> -
+brute force application of the <a href="../Schouten.html">Schouten</a>
+identity to minimize the number of terms</li>
+<li><a href="../FCSetScalarProducts.html">FCSetScalarProducts</a>, <a
+href="../ScalarProduct.html">ScalarProduct</a> - defines scalar products
+of <span class="math inline">4</span>-vectors</li>
+<li><a href="../FCSetMetricSignature.html">FCSetMetricSignature</a>, <a
+href="../FCGetMetricSignature.html">FCGetMetricSignature</a> - changes
+the signature of the flat-space metric</li>
+<li><a href="../FourDivergence.html">FourDivergence</a> - calculates
+partial derivative with respect to a <span
+class="math inline">4</span>-vector</li>
+<li><a href="../FourLaplacian.html">FourLaplacian</a> - calculates the
+Laplacian</li>
+<li><a href="../FreeIndexFreeQ.html">FreeIndexFreeQ</a> - checks if the
+expression contains free indices</li>
+<li><a href="../LorentzToCartesian.html">LorentzToCartesian</a> -
+rewrties Lorentz tensors in terms of Cartesian tensors</li>
+<li><a href="../MomentumCombine.html">MomentumCombine</a> - inverse
+operation to <a href="../MomentumExpand.html">MomentumExpand</a> and <a
+href="../ExpandScalarProduct.html">ExpandScalarProduct</a></li>
+<li><a href="../MomentumExpand.html">MomentumExpand</a> - expands <a
+href="../Momentum.html">Momentum</a></li>
+<li><a href="../PairContract.html">PairContract</a>, <a
+href="../PairContract2.html">PairContract2</a>, <a
+href="../PairContract3.html">PairContract3</a>, - like <a
+href="../Pair.html">Pair</a> but with local contraction properties</li>
+<li><a href="../Schouten.html">Schouten</a> - applies <a
+href="../Schouten.html">Schouten</a>’s identity (random guess)</li>
+<li><a href="../SetMandelstam.html">SetMandelstam</a> - defines the
+Mandelstam variables</li>
+<li><a href="../SetTemporalComponent.html">SetTemporalComponent</a> -
+assings values to temporal components of Lorentz vectors</li>
+<li><a href="../TensorFunction.html">TensorFunction</a> - defines an
+unspecified Lorentz tensor</li>
+<li><a href="../ThreeDivergence.html">ThreeDivergence</a> - calculates
+partial derivative with respect to a <span
+class="math inline">3</span>-vector</li>
+<li><a href="../TrickMandelstam.html">TrickMandelstam</a> - simplifies
+the expression by eliminating one of the Mandelstam variables</li>
+<li><a href="../ToLightConeComponents.html">ToLightConeComponents</a> -
+rewrties Lorentz tensors in terms of their components along the
+lightcone</li>
+<li><a href="../Uncontract.html">Uncontract</a> - uncontracts Lorentz
+indices of tensors and Dirac matrices</li>
+<li><a href="../UnDeclareFCTensor.html">UnDeclareFCTensor</a> -
+undeclares the given head to be a tensor</li>
+</ul>
+<h2 id="dirac-algebra">Dirac algebra</h2>
+<ul>
+<li><a href="../Anti5.html">Anti5</a> - anticommutes all <span
+class="math inline">\gamma^5</span> matrices to the left or to the
+right</li>
+<li><a href="../Chisholm.html">Chisholm</a> - substitutes products of
+<span class="math inline">3</span> Dirac matrices by the <a
+href="../Chisholm.html">Chisholm</a> identity</li>
+<li><a href="../DiracChainJoin.html">DiracChainJoin</a>, <a
+href="../FCFADiracChainJoin.html">FCFADiracChainJoin</a>, <a
+href="../DiracChainCombine.html">DiracChainCombine</a>, <a
+href="../DiracChainExpand.html">DiracChainExpand</a>, <a
+href="../DiracChainFactor.html">DiracChainFactor</a> - manipulations of
+matrix chains with explicit Dirac indices</li>
+<li><a href="../DiracEquation.html">DiracEquation</a> - applies the
+Dirac equation</li>
+<li><a href="../DiracGammaCombine.html">DiracGammaCombine</a> - inverse
+operation to <a
+href="../DiracGammaExpand.html">DiracGammaExpand</a></li>
+<li><a href="../DiracGammaExpand.html">DiracGammaExpand</a> - expands
+sums of momenta contracted with Dirac matrices</li>
+<li><a href="../DiracOrder.html">DiracOrder</a> - orders the Dirac
+matrices in expression lexicographically</li>
+<li><a href="../DiracReduce.html">DiracReduce</a> - reduces all <span
+class="math inline">4</span>-dimensional Dirac matrices to the standard
+basis (SPVAT-decomposition)</li>
+<li><a href="../DiracSigmaExpand.html">DiracSigmaExpand</a> - applies
+linearity to the arguments of <a
+href="../DiracSigma.html">DiracSigma</a></li>
+<li><a href="../DiracSigmaExplicit.html">DiracSigmaExplicit</a> -
+inserts the explicit definition of <a
+href="../DiracSigma.html">DiracSigma</a></li>
+<li><a href="../DiracSimplify.html">DiracSimplify</a> - simplifies
+products of Dirac matrices and expands non-commutative products</li>
+<li><a href="../DiracSubstitute5.html">DiracSubstitute5</a> - rewrites
+<span class="math inline">\gamma^5</span> as <span
+class="math inline">\gamma^6-\gamma^7</span></li>
+<li><a href="../DiracSubstitute67.html">DiracSubstitute67</a> - inserts
+explicit definitions of the chirality projectors <span
+class="math inline">\gamma^6</span> and <span
+class="math inline">\gamma^7</span></li>
+<li><a href="../DiracTrace.html">DiracTrace</a> - traces of Dirac
+matrices</li>
+<li><a href="../DiracTrick.html">DiracTrick</a> - contracts Dirac
+matrices with each other and performs several simplifications but no
+expansions</li>
+<li><a href="../EpsChisholm.html">EpsChisholm</a> - substitutes <a
+href="../Chisholm.html">Chisholm</a> identity for a Dirac matrix
+contracted with a Levi-Civita tensor</li>
+<li><a href="../FCCCT.html">FCCCT</a>, <a
+href="../FCChargeConjugateTransposed.html">FCChargeConjugateTransposed</a>
+- transposes chains of Dirac matrices and applies change conjugation,
+e.g. <span class="math inline">x</span> becomes <span
+class="math inline">C x^T C^{-1}</span></li>
+<li><a href="../FCDiracIsolate.html">FCDiracIsolate</a> - wraps Dirac
+matrices and spinors into specified heads</li>
+<li><a href="../FCGetDiracGammaScheme.html">FCGetDiracGammaScheme</a> -
+shows the current scheme for treating Dirac matrices in dimensional
+regularization</li>
+<li><a href="../FCSetDiracGammaScheme.html">FCSetDiracGammaScheme</a> -
+sets the current scheme for treating Dirac matrices in dimensional
+regularization</li>
+<li><a href="../GordonSimplify.html">GordonSimplify</a> - applies
+Gordon’s identities</li>
+<li><a href="../SirlinSimplify.html">SirlinSimplify</a> - applies
+Sirlin’s relations to products of spinor chains</li>
+<li><a href="../SpinorChainEvaluate.html">SpinorChainEvaluate</a> -
+inserts explicit expressions for selected Dirac spinor chains</li>
+<li><a href="../SpinorChainChiralSplit.html">SpinorChainChiralSplit</a>
+- introduces chirality projectors in spinor chains free of <span
+class="math inline">\gamma^5</span></li>
+<li><a href="../SpinorChainTranspose.html">SpinorChainTranspose</a> -
+tranposes a closed spinor chains</li>
+<li><a href="../SpinorChainTrick.html">SpinorChainTrick</a> - simplifies
+products of spinor chains</li>
+<li><a href="../ToDiracGamma67.html">ToDiracGamma67</a> - replaces <span
+class="math inline">\frac{1}{2}(1 \pm \gamma^5)</span> with <span
+class="math inline">\gamma^{6/7}</span></li>
+<li><a href="../ToDiracSigma.html">ToDiracSigma</a> - inverse operation
+to <a href="../DiracSigmaExplicit.html">DiracSigmaExplicit</a></li>
+<li><a href="../ToLarin.html">ToLarin</a> - substitutes <span
+class="math inline">\gamma^\mu \gamma^5</span> according to Larin’s
+scheme</li>
+</ul>
+<h2 id="pauli-algebra">Pauli algebra</h2>
+<ul>
+<li><a href="../FCGetPauliSigmaScheme.html">FCGetPauliSigmaScheme</a>,
+<a href="../FCSetPauliSigmaScheme.html">FCSetPauliSigmaScheme</a> -
+specifies the threatment of Pauli matrices in dimensional
+regularization</li>
+<li><a href="../FCPauliIsolate.html">FCPauliIsolate</a> - wraps Pauli
+matrices and spinors into specified heads</li>
+<li><a href="../PauliChainJoin.html">PauliChainJoin</a>, <a
+href="../PauliChainCombine.html">PauliChainCombine</a>, <a
+href="../PauliChainExpand.html">PauliChainExpand</a>, <a
+href="../PauliChainFactor.html">PauliChainFactor</a> - manipulations of
+matrix chains with explicit Pauli indices</li>
+<li><a href="../PauliOrder.html">PauliOrder</a> - orders the Pauli
+matrices in expression lexicographically</li>
+<li><a href="../PauliSigmaCombine.html">PauliSigmaCombine</a> - inverse
+operation to <a
+href="../PauliSigmaExpand.html">PauliSigmaExpand</a></li>
+<li><a href="../PauliSigmaExpand.html">PauliSigmaExpand</a> - expands
+sums of momenta contracted with Pauli matrices</li>
+<li><a href="../PauliSimplify.html">PauliSimplify</a> - simplifies
+products of Pauli matrices and expands noncommutative products</li>
+<li><a href="../PauliTrace.html">PauliTrace</a> - traces of Pauli
+matrices</li>
+<li><a href="../PauliTrick.html">PauliTrick</a> - contracts Pauli
+matrices with each other and performs several simplifications but no
+expansions</li>
+</ul>
+<h2 id="algebra-of-noncommutative-objects">Algebra of noncommutative
+objects</h2>
+<ul>
+<li><a href="../AntiCommutator.html">AntiCommutator</a> - defines an
+anti-commutator</li>
+<li><a href="../Calc.html">Calc</a>, <a href="../Trick.html">Trick</a> -
+multiple simplifications for Dirac and <span
+class="math inline">SU(N)</span> algebra</li>
+<li><a href="../Commutator.html">Commutator</a> - defines a
+commutator</li>
+<li><a href="../CommutatorExplicit.html">CommutatorExplicit</a> -
+substitutes explicit definitions of commutators and anticommutators</li>
+<li><a href="../CommutatorOrder.html">CommutatorOrder</a> - canonical
+ordering of (anti)commutator arguments</li>
+<li><a href="../DeclareNonCommutative.html">DeclareNonCommutative</a> -
+declares noncommutative objects</li>
+<li><a href="../DotExpand.html">DotExpand</a> - expands dot
+products</li>
+<li><a href="../DotSimplify.html">DotSimplify</a> - expands and reorders
+noncommutative terms</li>
+<li><a href="../FCMatrixIsolate.html">FCMatrixIsolate</a> - wraps Dirac,
+Pauli and <span class="math inline">SU(N)</span> objects into specified
+heads</li>
+<li><a href="../FCMatrixProduct.html">FCMatrixProduct</a> - multiplies
+matrices with noncommutative entries</li>
+<li><a href="../FCTraceExpand.html">FCTraceExpand</a> - expands traces
+using linearity wihtout calculating them</li>
+<li><a href="../FCTraceFactor.html">FCTraceFactor</a> - pulls <span
+class="math inline">c</span>-numbers out of traces</li>
+<li><a href="../NonCommFreeQ.html">NonCommFreeQ</a>, <a
+href="../NonCommQ.html">NonCommQ</a> - checks if the expression contains
+noncommutative quantities</li>
+<li><a href="../NonCommHeadQ.html">NonCommHeadQ</a> - checks if the head
+of the expression is noncommutative</li>
+<li><a href="../TR.html">TR</a> - calculates Dirac and possibly also
+<span class="math inline">SU(N)</span> traces</li>
+<li><a
+href="../UnDeclareAllAntiCommutators.html">UnDeclareAllAntiCommutators</a>,
+<a href="../UnDeclareAllCommutators.html">UnDeclareAllCommutators</a>,
+<a href="../UnDeclareAntiCommutator.html">UnDeclareAntiCommutator</a>,
+<a href="../UnDeclareCommutator.html">UnDeclareCommutator</a> - removes
+definitions of (anti)commutators</li>
+<li><a
+href="../UnDeclareNonCommutative.html">UnDeclareNonCommutative</a> -
+undeclares noncommutative objects</li>
+</ul>
+<h2 id="sun-algebra"><span class="math inline">SU(N)</span> algebra</h2>
+<ul>
+<li><a href="../FCColorIsolate.html">FCColorIsolate</a> - wraps color
+matrices and structure constants into specified heads</li>
+<li><a href="../CalcColorFactor.html">CalcColorFactor</a> - calculates
+the color factor</li>
+<li><a href="../SUNDeltaContract.html">SUNDeltaContract</a> - contracts
+Kronecker deltas with adjoint color indices</li>
+<li><a href="../SUNFDeltaContract.html">SUNFDeltaContract</a> -
+contracts Kronecker deltas with fundamental color indices</li>
+<li><a href="../SUNSimplify.html">SUNSimplify</a> - simplifies
+expressions that contain <span class="math inline">SU(N)</span>
+matrices</li>
+<li><a href="../SUNTrace.html">SUNTrace</a> - computes traces over <span
+class="math inline">SU(N)</span> matrices</li>
+</ul>
+<h2 id="loop-integrals">Loop integrals</h2>
+<ul>
+<li><a href="../A0.html">A0</a>, <a href="../A00.html">A00</a> -
+Passarino-Veltman 1-point integrals (tadpoles)</li>
+<li><a href="../Apart2.html">Apart2</a> - partial fractions loop
+integrals (only very simple cases)</li>
+<li><a href="../ApartFF.html">ApartFF</a>, <a
+href="../FCLoopCreatePartialFractioningRules.html">FCLoopCreatePartialFractioningRules</a>
+- performs partial fraction decomposition of arbitrary loop
+integrals</li>
+<li><a href="../B0.html">B0</a>, <a href="../B00.html">B00</a>, <a
+href="../B1.html">B1</a>, <a href="../B11.html">B11</a> -
+Passarino-Veltman 2-point integrals (bubbles)</li>
+<li><a href="../C0.html">C0</a> - Passarino-Veltman <span
+class="math inline">3</span>-point integrals (triangles)</li>
+<li><a href="../CTdec.html">CTdec</a>, <a href="../Tdec.html">Tdec</a> -
+calculates tensor decomposition formulas for loop integrals</li>
+<li><a href="../D0.html">D0</a> - Passarino-Veltman <span
+class="math inline">4</span>-point integrals (boxes)</li>
+<li><a href="../DB0.html">DB0</a> - derivative of <a
+href="../B0.html">B0</a> with respect to the external momentum</li>
+<li><a href="../DB1.html">DB1</a> - derivative of <a
+href="../B1.html">B1</a> with respect to the external momentum</li>
+<li><a href="../FCApart.html">FCApart</a> - backend of <a
+href="../%5BApartFF%5D(ApartFF).html">[ApartFF](ApartFF)</a>, works only
+on single loop integrals</li>
+<li><a href="../FCClausen.html">FCClausen</a> - Clausen’s function</li>
+<li><a href="../FCGramMatrix.html">FCGramMatrix</a> - generates the Gram
+matrix from the given momenta</li>
+<li><a href="../FCGramDeterminant.html">FCGramDeterminant</a> -
+calculates the Gram determinant</li>
+<li><a
+href="../FCDiffEqChangeVariables.html">FCDiffEqChangeVariables</a>, <a
+href="../FCDiffEqSolve.html">FCDiffEqSolve</a> - handling of
+differential equations</li>
+<li><a href="../FCHideEpsilon.html">FCHideEpsilon</a> - substitutes
+<span class="math inline">\frac{1}{\varepsilon} - \Gamma_E + \log (4
+\pi)</span> with <span class="math inline">\Delta</span></li>
+<li><a href="../FCShowEpsilon.html">FCShowEpsilon</a> - substitutes
+<span class="math inline">\Delta</span> with <span
+class="math inline">\frac{1}{\varepsilon} - \Gamma_E + \log (4
+\pi)</span></li>
+<li><a href="../FCIntegral.html">FCIntegral</a> - head of loop
+integrals</li>
+<li><a
+href="../FCIteratedIntegralEvaluate.html">FCIteratedIntegralEvaluate</a>,
+<a
+href="../FCIteratedIntegralSimplify.html">FCIteratedIntegralSimplify</a>
+- manipulations of Chen’s iterated integrals</li>
+<li><a
+href="../FCFeynmanFindDivergences.html">FCFeynmanFindDivergences</a>, <a
+href="../FCFeynmanRegularizeDivergence.html">FCFeynmanRegularizeDivergence</a>,
+<a href="../FCFeynmanParameterJoin.html">FCFeynmanParameterJoin</a>, <a
+href="../FCFeynmanParametrize.html">FCFeynmanParametrize</a>, <a
+href="../FCFeynmanPrepare.html">FCFeynmanPrepare</a>, <a
+href="../FCFeynmanProjectiveQ.html">FCFeynmanProjectiveQ</a>, <a
+href="../FCFeynmanProjectivize.html">FCFeynmanProjectivize</a>, <a
+href="../FCMellinJoin.html">FCMellinJoin</a> - derivation and
+manipulation of Feynman parameter integrals</li>
+<li><a href="../FCLoopAddEdgeTags.html">FCLoopAddEdgeTags</a>, <a
+href="../FCLoopGraphPlot.html">FCLoopGraphPlot</a>, <a
+href="../FCLoopIntegralToGraph.html">FCLoopIntegralToGraph</a>, <a
+href="../FCLoopPropagatorsToLineMomenta.html">FCLoopPropagatorsToLineMomenta</a>
+- create and plot graphs representing loop integrals</li>
+<li><a
+href="../FCLoopApplyTopologyMappings.html">FCLoopApplyTopologyMappings</a>,
+<a href="../FCLoopCreateRuleGLIToGLI.html">FCLoopCreateRuleGLIToGLI</a>,
+<a href="../FCLoopFindMomentumShifts.html">FCLoopFindMomentumShifts</a>,
+<a
+href="../FCLoopFindIntegralMappings.html">FCLoopFindIntegralMappings</a>,
+<a href="../FCLoopFindSubtopologies.html">FCLoopFindSubtopologies</a>,
+<a href="../FCLoopFindTopologies.html">FCLoopFindTopologies</a>, <a
+href="../FCLoopFindTopologyMappings.html">FCLoopFindTopologyMappings</a>,
+<a href="../FCLoopPakOrder.html">FCLoopPakOrder</a>, <a
+href="../FCLoopToPakForm.html">FCLoopToPakForm</a> - loop integral
+topology identification and minimization</li>
+<li><a href="../FCGraphCuttableQ.html">FCGraphCuttableQ</a>, <a
+href="../FCGraphFindPath.html">FCGraphFindPath</a> - graph
+manipulations</li>
+<li><a
+href="../FCLoopBasisCreateScalarProducts.html">FCLoopBasisCreateScalarProducts</a>
+- auxiliary function that generates all possible loop momenta dependent
+scalar products</li>
+<li><a
+href="../FCLoopBasisFindCompletion.html">FCLoopBasisFindCompletion</a> -
+suggests propagators needed to have a complete loop integral basis</li>
+<li><a href="../FCLoopBasisGetSize.html">FCLoopBasisGetSize</a> -
+returns the number of propagators in a topology</li>
+<li><a href="../FCLoopBasisIncompleteQ.html">FCLoopBasisIncompleteQ</a>
+- checks if the propagators of a loop integral do not form a basis</li>
+<li><a
+href="../FCLoopBasisOverdeterminedQ.html">FCLoopBasisOverdeterminedQ</a>
+- checks if the propagators of a loop integral are linearly
+dependent</li>
+<li><a href="../FCLoopBasisSplit.html">FCLoopBasisSplit</a> - checks if
+the loop integral factorizes into a product of separate integrals</li>
+<li><a href="../FCLoopBasisExtract.html">FCLoopBasisExtract</a> -
+auxiliary function that extracts the scalar products from a loop
+integral</li>
+<li><a href="../FCLoopCanonicalize.html">FCLoopCanonicalize</a> -
+auxiliary function that canonicalizes free Lorentz indices of 1-loop
+integrals</li>
+<li><a href="../FCLoopCreateRulesToGLI.html">FCLoopCreateRulesToGLI</a>
+- rewrites scalar products as linear combinations of <a
+href="../GLI.html">GLI</a>s with negative indices</li>
+<li><a
+href="../FCLoopEikonalPropagatorFreeQ.html">FCLoopEikonalPropagatorFreeQ</a>
+- checks if the integral contains eikonal propagators</li>
+<li><a href="../FCLoopExtract.html">FCLoopExtract</a> - extracts loop
+integrals</li>
+<li><a href="../FCLoopFindSectors.html">FCLoopFindSectors</a> - returns
+sectors for the given <a href="../GLI.html">GLI</a>s</li>
+<li><a href="../FCLoopFromGLI.html">FCLoopFromGLI</a> - converts <a
+href="../GLI.html">GLI</a>s into explicit integrals with <a
+href="../FeynAmpDenominator.html">FeynAmpDenominator</a>s</li>
+<li><a href="../FCLoopGetEtaSigns.html">FCLoopGetEtaSigns</a> - extracts
+the signs of <span class="math inline">i \eta</span> from all
+propagators</li>
+<li><a
+href="../FCLoopGetKinematicInvariants.html">FCLoopGetKinematicInvariants</a>
+- kinematic invariants from the given topology.</li>
+<li><a href="../FCLoopGLIDifferentiate.html">FCLoopGLIDifferentiate</a>
+- differentiates <a href="../GLI.html">GLI</a>s with respect to a scalar
+variable.</li>
+<li><a
+href="../FCLoopAddScalingParameter.html">FCLoopAddScalingParameter</a>,
+<a href="../FCLoopGLIExpand.html">FCLoopGLIExpand</a> - series expansion
+of expressions with <a href="../GLI.html">GLI</a>s with respect to a
+scalar variable</li>
+<li><a href="../FCLoopIBPReducableQ.html">FCLoopIBPReducableQ</a> -
+checks if the integral contains propagators raised to integer
+powers</li>
+<li><a
+href="../FCLoopIntegralToPropagators.html">FCLoopIntegralToPropagators</a>
+- auxiliary function that converts a loop integral into a list of
+propagators</li>
+<li><a href="../FCLoopIsolate.html">FCLoopIsolate</a> - wraps loop
+integrals into specified heads</li>
+<li><a href="../FCLoopMixedIntegralQ.html">FCLoopMixedIntegralQ</a> -
+checks if the integral depends on both <span
+class="math inline">4</span>-vectors and <span
+class="math inline">3</span>-vectors</li>
+<li><a
+href="../FCLoopMixedToCartesianAndTemporal.html">FCLoopMixedToCartesianAndTemporal</a>
+- eliminates the dependence on <span
+class="math inline">4</span>-vectors by trading them for temporal
+components and <span class="math inline">3</span>-vectors</li>
+<li><a
+href="../FCLoopNonIntegerPropagatorPowersFreeQ.html">FCLoopNonIntegerPropagatorPowersFreeQ</a>
+- checks if the integral has propagators raised to noninteger
+powers</li>
+<li><a href="../FCLoopPakScalelessQ.html">FCLoopPakScalelessQ</a>, <a
+href="../FCLoopScalelessQ.html">FCLoopScalelessQ</a> - detects scaleless
+loop integrals</li>
+<li><a
+href="../FCLoopPropagatorPowersCombine.html">FCLoopPropagatorPowersCombine</a>
+- combines same propagators into one raised to the corresponding integer
+power</li>
+<li><a
+href="../FCLoopPropagatorPowersExpand.html">FCLoopPropagatorPowersExpand</a>
+- rewrites propagators raised to integer powers as products of
+propagators</li>
+<li><a
+href="../FCLoopPropagatorsToTopology.html">FCLoopPropagatorsToTopology</a>
+- auxiliary function that generates a list of propagators to describe a
+topology</li>
+<li><a href="../FCLoopRemovePropagator.html">FCLoopRemovePropagator</a>
+- removes specific propagators from given <code>FCTopology</code>s or
+<code>GLI</code>s</li>
+<li><a
+href="../FCLoopSamePropagatorHeadsQ.html">FCLoopSamePropagatorHeadsQ</a>
+- checks if the integral contains different types of propagators</li>
+<li><a
+href="../FCLoopRemoveNegativePropagatorPowers.html">FCLoopRemoveNegativePropagatorPowers</a>
+- rewrites propagators rasied to negative integer powers as
+numerators</li>
+<li><a href="../FCLoopSelectTopology.html">FCLoopSelectTopology</a> -
+selects topologies belonging for the given <code>GLI</code>s</li>
+<li><a href="../FCLoopSwitchEtaSign.html">FCLoopSwitchEtaSign</a> -
+changes the sign of <span class="math inline">i \eta</span> in all
+propagators to <span class="math inline">1</span> or <span
+class="math inline">-1</span></li>
+<li><a
+href="../FCLoopSingularityStructure.html">FCLoopSingularityStructure</a>
+- useful information on possible UV and IR singularities of the
+integral</li>
+<li><a href="../FCLoopSolutionList.html">FCLoopSolutionList</a> -
+auxiliary function that processes the output of <a
+href="../FCLoopCanonicalize.html">FCLoopCanonicalize</a></li>
+<li><a href="../FCLoopSplit.html">FCLoopSplit</a> - splits the
+expressions into pieces that contain different types of loop
+integrals</li>
+<li><a
+href="../FCLoopTopologyNameToSymbol.html">FCLoopTopologyNameToSymbol</a>
+- converts string topology ids to expressions</li>
+<li><a href="../FCLoopTensorReduce.html">FCLoopTensorReduce</a> - tensor
+reduction for expressions generated by <a
+href="../FCLoopFindTopologies.html">FCLoopFindTopologies</a></li>
+<li><a href="../FCLoopValidTopologyQ.html">FCLoopValidTopologyQ</a> -
+validates an <a href="../FCTopology.html">FCTopology</a> object</li>
+<li><a href="../FCMultiLoopTID.html">FCMultiLoopTID</a> - tensor
+reduction of multi-loop integrals (only for non-zero Gram
+determinants)</li>
+<li><a
+href="../FeynAmpDenominatorCombine.html">FeynAmpDenominatorCombine</a> -
+combines products of propagators</li>
+<li><a
+href="../FeynAmpDenominatorExplicit.html">FeynAmpDenominatorExplicit</a>
+- rewrites <a href="../FeynAmpDenominator.html">FeynAmpDenominator</a>
+in terms of scalar products and masses</li>
+<li><a
+href="../FeynAmpDenominatorSimplify.html">FeynAmpDenominatorSimplify</a>,
+<a href="../FDS.html">FDS</a> - simplifies loop integrals by doing
+shifts and detects integrals that vanish by symmetry</li>
+<li><a
+href="../FeynAmpDenominatorSplit.html">FeynAmpDenominatorSplit</a> -
+splits all <a href="../FeynAmpDenominator.html">FeynAmpDenominator</a>s
+into products of single propagators</li>
+<li><a href="../FromGFAD.html">FromGFAD</a> - tries to convert generic
+propagators (<a
+href="../GenericPropagatorDenominator.html">GenericPropagatorDenominator</a>)
+into the standard ones (<a
+href="../StandardPropagatorDenominator.html">StandardPropagatorDenominator</a>,
+<a
+href="../CartesianPropagatorDenominator.html">CartesianPropagatorDenominator</a>)</li>
+<li><a href="../GammaExpand.html">GammaExpand</a> - rewrites <span
+class="math inline">\Gamma(n+m)</span> where <span
+class="math inline">n</span> is an integer</li>
+<li><a href="../GenPaVe.html">GenPaVe</a>, <a
+href="../PaVe.html">PaVe</a> - denotes invariant Passarino-Veltman
+integrals</li>
+<li><a href="../GLI.html">GLI</a> - represents generic loop multiloop
+integrals</li>
+<li><a href="../GLIMultiply.html">GLIMultiply</a> - local products of <a
+href="../GLI.html">GLI</a> objects belonging to the same topology</li>
+<li><a href="../Hill.html">Hill</a> - gives the Hill identity</li>
+<li><a href="../HypergeometricAC.html">HypergeometricAC</a> -
+analytically continues <span class="math inline">{}_2 F_1</span>
+functions</li>
+<li><a href="../HypergeometricIR.html">HypergeometricIR</a> -
+substitutes a particular integral represenetation for all
+<code>Hypergeometric2F1[a,b,c,d]</code></li>
+<li><a href="../HypergeometricSE.html">HypergeometricSE</a> - expresses
+hypergeometric functions by their series expansion</li>
+<li><a href="../HypExplicit.html">HypExplicit</a> - expresses
+hypergeometric functions by their definition in terms of a sum</li>
+<li><a href="../HypInt.html">HypInt</a> - substitutes <span
+class="math inline">{}_2 F_1</span> functions by their integral
+definition</li>
+<li><a href="../IntegrateByParts.html">IntegrateByParts</a>, <a
+href="../PartialIntegrate.html">PartialIntegrate</a> - integration by
+parts for particular Feynman parameter integrals</li>
+<li><a href="../NPointTo4Point.html">NPointTo4Point</a> - rewrites
+IR-finite <span class="math inline">1</span>-loop pentagons in terms of
+box integrals</li>
+<li><a href="../OneLoopSimplify.html">OneLoopSimplify</a> - simplifies
+<span class="math inline">1</span>-loop Feynman diagram amplitudes</li>
+<li><a href="../ToHypergeometric.html">ToHypergeometric</a> - introduces
+<span class="math inline">{}_2 F_1</span></li>
+<li><a href="../PaVeToABCD.html">PaVeToABCD</a> - converts <a
+href="../PaVe.html">PaVe</a> functions to direct (<a
+href="../A0.html">A0</a>, <a href="../B0.html">B0</a> etc.)
+functions</li>
+<li><a href="../PaVeOrder.html">PaVeOrder</a> - orders the arguments of
+Passarino-Veltman functions in a particular way</li>
+<li><a href="../PaVeLimitTo4.html">PaVeLimitTo4</a> - simplifies
+UV-finite <span class="math inline">D</span>-dimensional expressions
+written in terms of<a href="../PaVe.html">PaVe</a> functions</li>
+<li><a href="../PaVeReduce.html">PaVeReduce</a> - reduces
+Passarino-Veltman integrals down to <span
+class="math inline">A_0</span>, <span class="math inline">B_0</span>,
+<span class="math inline">C_0</span> and <span
+class="math inline">D_0</span></li>
+<li><a href="../PaVeUVPart.html">PaVeUVPart</a> - returns the
+UV-divergent pieces of arbitrary Passarino-Veltman functions</li>
+<li><a href="../SimplifyDeltaFunction.html">SimplifyDeltaFunction</a> -
+applies some simplifications to <a
+href="../DeltaFunction.html">DeltaFunction</a></li>
+<li><a href="../Sn.html">Sn</a> - denotes <span
+class="math inline">\pi^{(n/2)}/(2 \pi)^n</span></li>
+<li><a href="../TarcerToFC.html">TarcerToFC</a> - converts TARCER
+integral into <a
+href="../FeynAmpDenominator.html">FeynAmpDenominator</a> notation</li>
+<li><a href="../TFIOrder.html">TFIOrder</a> - orders the arguments of
+some <code>TFI</code> functions in a standard way</li>
+<li><a href="../TID.html">TID</a> - does a 1-loop tensor integral
+decomposition</li>
+<li><a href="../TIDL.html">TIDL</a> - library of tensor integral
+decomposition formulas</li>
+<li><a href="../ToDistribution.html">ToDistribution</a> - introduces <a
+href="../DeltaFunction.html">DeltaFunction</a>, <a
+href="../DeltaFunctionPrime.html">DeltaFunctionPrime</a> and <a
+href="../PlusDistribution.html">PlusDistribution</a></li>
+<li><a href="../ToFI.html">ToFI</a>, <a href="../ToTFI.html">ToTFI</a> -
+converts 1- and 2-loop scalar self-energy integrals to the Tarcer
+notation</li>
+<li><a href="../ToSFAD.html">ToGFAD</a> - converts <a
+href="../FAD.html">FAD</a>s, <a href="../SFAD.html">SFAD</a>s and <a
+href="../CFAD.html">CFAD</a>s to <a href="../GFAD.html">GFAD</a>s</li>
+<li><a href="../ToPaVe.html">ToPaVe</a> - converts scalar 1-loop
+integrals to Passarino-Veltman scalar functions</li>
+<li><a href="../ToPaVe2.html">ToPaVe2</a> - rewrites Passarino-Veltman
+functions <a href="../A0.html">A0</a>, <a href="../A00.html">A00</a>, <a
+href="../B0.html">B0</a>, <a href="../B1.html">B1</a>, <a
+href="../B00.html">B00</a>, <a href="../B11.html">B11</a>, <a
+href="../C0.html">C0</a> and <a href="../D0.html">D0</a> as <a
+href="../PaVe.html">PaVe</a> objects</li>
+<li><a href="../ToSFAD.html">ToSFAD</a> - converts <a
+href="../FAD.html">FAD</a>s to <a href="../SFAD.html">SFAD</a>s</li>
+<li><a href="../TrickIntegrate.html">TrickIntegrate</a> - integration of
+some special distributions</li>
+</ul>
+<h2 id="export-and-import">Export and import</h2>
+<ul>
+<li><a href="../FCGVToSymbol.html">FCGVToSymbol</a> - converts <a
+href="../FCGV.html">FCGV</a>s to symbols</li>
+<li><a href="../FCLoopGLIToSymbol.html">FCLoopGLIToSymbol</a> - converts
+<a href="../GLI.html">GLI</a>s to symbols</li>
+<li><a href="../FCToTeXReorder.html">FCToTeXReorder</a> - custom
+ordering of terms in expressions</li>
+<li><a
+href="../FCToTeXPreviewTermOrder.html">FCToTeXPreviewTermOrder</a> -
+previews the output of <a
+href="../FCToTeXReorder.html">FCToTeXReorder</a></li>
+<li><a href="../FeynCalc2FORM.html">FeynCalc2FORM</a> - displays
+expression in FORM syntax</li>
+<li><a href="../FeynCalcToLaTeX.html">FeynCalcToLaTeX</a> - generates
+LaTeX</li>
+<li><a href="../FORM2FeynCalc.html">FORM2FeynCalc</a> - translates the
+FORM expression in file into FeynCalc notation</li>
+<li><a href="../StringChomp.html">StringChomp</a> - chops initial and
+final white space of a string</li>
+<li><a href="../SMPToSymbol.html">SMPToSymbol</a> - converts <a
+href="../SMP.html">SMP</a>s to symbols</li>
+<li><a href="../Write2.html">Write2</a> - writes the given settings in
+sequence followed by a newline to the specified output file</li>
+</ul>
+<h2 id="feynman-rules-and-amplitudes">Feynman rules and amplitudes</h2>
+<ul>
+<li><a href="../BackgroundGluonVertex.html">BackgroundGluonVertex</a> -
+<span class="math inline">3</span>-gluon vertex in the background field
+gauge</li>
+<li><a href="../ComplexConjugate.html">ComplexConjugate</a> - complex
+conjugates Feynman amplitudes</li>
+<li><a href="../CovariantD.html">CovariantD</a> - generic covariant
+derivative</li>
+<li><a
+href="../CovariantFieldDerivative.html">CovariantFieldDerivative</a>, <a
+href="../CDr.html">CDr</a> - covariant field derivative</li>
+<li><a href="../DoPolarizationSums.html">DoPolarizationSums</a>, <a
+href="../PolarizationSum.html">PolarizationSum</a> - sums over
+polarizations of external vector bosons</li>
+<li><a href="../ExpandPartialD.html">ExpandPartialD</a> - expands dot
+products of <a href="../QuantumField.html">QuantumField</a>s using the
+Leibniz rule</li>
+<li><a href="../ExplicitPartialD.html">ExplicitPartialD</a> - inserts
+the definition for <a
+href="../LeftRightPartialD.html">LeftRightPartialD</a> and <a
+href="../LeftRightPartialD2.html">LeftRightPartialD2</a></li>
+<li><a href="../FAPatch.html">FAPatch</a> - patches FeynArts to be
+compatible with FeynCalc</li>
+<li><a
+href="../FCAttachTypesettingRule.html">FCAttachTypesettingRule</a>, <a
+href="../FCRemoveTypesettingRules.html">FCRemoveTypesettingRules</a> -
+attaches custom typesetting rules</li>
+<li><a href="../FCFAConvert.html">FCFAConvert</a> - converts a FeynArts
+amplitude to FeynCalc</li>
+<li><a href="../FCPrepareFAAmp.html">FCPrepareFAAmp</a> - auxiliary
+function for a partial conversion of a FeynArts amplitude to
+FeynCalc</li>
+<li><a href="../FCTP.html">FCTP</a>, <a
+href="../FCTripleProduct.html">FCTripleProduct</a> - triple product in 3
+dimensions</li>
+<li><a href="../FermionSpinSum.html">FermionSpinSum</a> - constructs
+Dirac traces out of squared ampliudes with external Dirac fermions</li>
+<li><a href="../FeynRule.html">FeynRule</a> - determines Feynman rules
+from <a href="../Lagrangian.html">Lagrangian</a>s</li>
+<li><a href="../FieldDerivative.html">FieldDerivative</a>, <a
+href="../FDr.html">FDr</a> - field derivative</li>
+<li><a href="../FieldStrength.html">FieldStrength</a> - field strength
+tensor <span class="math inline">F^{\mu \nu}</span></li>
+<li><a href="../FunctionalD.html">FunctionalD</a> - functional
+derivative</li>
+<li><a href="../GhostPropagator.html">GhostPropagator</a>, <a
+href="../GHP.html">GHP</a> - ghost propagator</li>
+<li><a href="../GluonGhostVertex.html">GluonGhostVertex</a>, <a
+href="../GGV.html">GGV</a> - gluon ghost vertex</li>
+<li><a href="../GluonPropagator.html">GluonPropagator</a>, <a
+href="../GP.html">GP</a> - gluon propagator</li>
+<li><a href="../GluonSelfEnergy.html">GluonSelfEnergy</a> - 1-loop gluon
+self-energy</li>
+<li><a href="../GluonVertex.html">GluonVertex</a>, <a
+href="../GV.html">GV</a> - <span class="math inline">3</span>- and <span
+class="math inline">4</span>-gluon vertices</li>
+<li><a href="../QuarkGluonVertex.html">QuarkGluonVertex</a>, <a
+href="../QGV.html">QGV</a> - quark gluon vertex</li>
+<li><a href="../QuarkPropagator.html">QuarkPropagator</a>, <a
+href="../QP.html">QP</a> - quark propagator</li>
+<li><a href="../ScalarGluonVertex.html">ScalarGluonVertex</a> -
+scalar-scalar-gluon vertex</li>
+<li><a href="../ShiftPartialD.html">ShiftPartialD</a> - shifts partial
+derivatives acting on <a href="../QuantumField.html">QuantumField</a>s
+using IBPs</li>
+<li><a href="../SquareAmplitude.html">SquareAmplitude</a> - writes <span
+class="math inline">|\mathcal{M}|^2</span> as a list of amplitude
+products</li>
+<li><a href="../SMP.html">SMP</a> - symbols for various SM
+paremeters</li>
+<li><a href="../SMVertex.html">SMVertex</a> - some SM vertices</li>
+<li><a
+href="../ToStandardMatrixElement.html">ToStandardMatrixElement</a> -
+wraps Dirac structures, color structures and polarization vectors with a
+special head</li>
+<li><a
+href="../QCDFeynmanRuleConvention.html">QCDFeynmanRuleConvention</a> -
+signs of Feynman rules in some functions</li>
+</ul>
+<h2 id="tables">Tables</h2>
+<ul>
+<li><a href="../Amplitude.html">Amplitude</a> - database of Feynman
+amplitudes</li>
+<li><a href="../AnomalousDimension.html">AnomalousDimension</a> -
+non-singlet one-loop contribution to the anomalous dimension in the
+<span class="math inline">\overline{{\textrm{MS}}}</span> scheme</li>
+<li><a href="../CheckDB.html">CheckDB</a> - saves or retrieves
+expressions from the database</li>
+<li><a href="../Convolute.html">Convolute</a>, <a
+href="../ConvoluteTable.html">ConvoluteTable</a> - convolution of
+functions</li>
+<li><a href="../CounterTerm.html">CounterTerm</a> - database of counter
+terms</li>
+<li><a href="../Gamma1.html">Gamma1</a>, <a
+href="../Gamma2.html">Gamma2</a>, <a href="../Gamma3.html">Gamma3</a>,
+<a href="../GammaEpsilon.html">GammaEpsilon</a> - special products and
+expansions of <span class="math inline">\Gamma</span> functions</li>
+<li><a href="../Integrate2.html">Integrate2</a>, <a
+href="../Integrate3.html">Integrate3</a>, <a
+href="../Integrate5.html">Integrate5</a> - some integrals</li>
+<li><a href="../InverseMellin.html">InverseMellin</a> - inverse Mellin
+transform for some polynomials</li>
+<li><a href="../Kummer.html">Kummer</a> - applies <a
+href="../Kummer.html">Kummer</a> relations</li>
+<li><a href="../Lagrangian.html">Lagrangian</a> - database of <a
+href="../Lagrangian.html">Lagrangian</a>s</li>
+<li><a href="../Nielsen.html">Nielsen</a> - denotes <a
+href="../Nielsen.html">Nielsen</a>’s polylogarithm</li>
+<li><a href="../SimplifyPolyLog.html">SimplifyPolyLog</a>, <a
+href="../SPL.html">SPL</a> - several simplifications for
+<code>Log</code> and <code>PolyLog</code> functions under certain
+assumptions</li>
+<li><a href="../SplittingFunction.html">SplittingFunction</a> - database
+of splitting functiosn</li>
+</ul>
+<h2 id="options">Options</h2>
+<ul>
+<li><a href="../$DisableMemSet.html">$DisableMemSet</a>, <a
+href="../$FAPatch.html">$FAPatch</a>, <a
+href="../$FCCheckContext.html">$FCCheckContext</a>, <a
+href="../$FCCloudTraditionalForm.html">$FCCloudTraditionalForm</a>, <a
+href="../$FCTraditionalFormOutput.html">$FCTraditionalFormOutput</a>, <a
+href="../$FeynArtsDirectory.html">$FeynArtsDirectory</a>, <a
+href="../$FeynCalcDevelopmentVersion.html">$FeynCalcDevelopmentVersion</a>,
+<a href="../$FeynCalcDirectory.html">$FeynCalcDirectory</a>, <a
+href="../$FeynCalcLastCommitDateHash.html">$FeynCalcLastCommitDateHash</a>
+<a href="../$FeynCalcStartupMessages.html">$FeynCalcStartupMessages</a>,
+<a href="../$LoadAddOns.html">$LoadAddOns</a>, <a
+href="../$Multiplications.html">$Multiplications</a>, <a
+href="../$RenameFeynCalcObjects.html">$RenameFeynCalcObjects</a> -
+global switches that can be set before loading FeynCalc</li>
+<li><a href="../$Containers.html">$Containers</a>, <a
+href="../$DistributiveFunctions.html">$DistributiveFunctions</a>, <a
+href="../$DisableMemSet.html">$DisableMemSet</a>, <a
+href="../$FCAdvice.html">$FCAdvice</a>, <a
+href="../$FCMemoryAvailable.html">$FCMemoryAvailable</a>, <a
+href="../$FCShowIEta.html">$FCShowIEta</a>, <a
+href="../$FortranContinuationCharacter.html">$FortranContinuationCharacter</a>,
+<a
+href="../$KeepLogDivergentScalelessIntegrals.html">$KeepLogDivergentScalelessIntegrals</a>,
+<a href="../$LeviCivitaSign.html">$LeviCivitaSign</a>, <a
+href="../$LimitTo4.html">$LimitTo4</a>, <a
+href="../$LimitTo4IRUnsafe.html">$LimitTo4IRUnsafe</a>, <a
+href="../$VeryVerbose.html">$VeryVerbose</a>, <a
+href="../$FAPatch.html">$FAPatch</a> - global switches that can be
+changed during the operation of FeynCalc</li>
+<li><a href="../$Abbreviations.html">$Abbreviations</a>, <a
+href="../$AL.html">$AL</a>, <a
+href="../$FCTensorList.html">$FCTensorList</a>, <a
+href="../$FeynCalcVersion.html">$FeynCalcVersion</a>, <a
+href="../$MU.html">$MU</a>, <a href="../$NonComm.html">$NonComm</a>, <a
+href="../$ScalarProducts.html">$ScalarProducts</a> - global variables
+needed for the proper functioning of FeynCalc</li>
+<li><a href="../A0ToB0.html">A0ToB0</a>, <a
+href="../AuxiliaryMomenta.html">AuxiliaryMomenta</a>, <a
+href="../B0Real.html">B0Real</a>, <a
+href="../B0Unique.html">B0Unique</a>, <a
+href="../Bracket.html">Bracket</a>, <a
+href="../BReduce.html">BReduce</a>, <a
+href="../CartesianIndexNames.html">CartesianIndexNames</a>, <a
+href="../ClearHeads.html">ClearHeads</a>, <a
+href="../Collecting.html">Collecting</a>, <a
+href="../CombineGraphs.html">CombineGraphs</a>, <a
+href="../CounterT.html">CounterT</a>, <a
+href="../CouplingConstant.html">CouplingConstant</a>, <a
+href="../CustomIndexNames.html">CustomIndexNames</a>, <a
+href="../D0Convention.html">D0Convention</a>, <a
+href="../DetectLoopTopologies.html">DetectLoopTopologies</a>, <a
+href="../Dimension.html">Dimension</a>, <a
+href="../DiracIndexNames.html">DiracIndexNames</a>, <a
+href="../DiracSpinorNormalization.html">DiracSpinorNormalization</a>, <a
+href="../DiracTraceEvaluate.html">DiracTraceEvaluate</a>, <a
+href="../Divideout.html">Divideout</a>, <a
+href="../DotPower.html">DotPower</a>, <a
+href="../DotSimplifyRelations.html">DotSimplifyRelations</a>, <a
+href="../DropScaleless.html">DropScaleless</a>, <a
+href="../DropSumOver.html">DropSumOver</a>, <a
+href="../DummyIndex.html">DummyIndex</a>, <a
+href="../EpsDiscard.html">EpsDiscard</a>, <a
+href="../EpsExpand.html">EpsExpand</a>, <a
+href="../EpsilonOrder.html">EpsilonOrder</a>, <a
+href="../EtaSign.html">EtaSign</a>, <a
+href="../ExceptHeads.html">ExceptHeads</a>, <a
+href="../ExcludeMasses.html">ExcludeMasses</a>, <a
+href="../Expanding.html">Expanding</a>, <a
+href="../ExtraFactor.html">ExtraFactor</a>, <a
+href="../ExtraPropagators.html">ExtraPropagators</a>, <a
+href="../ExtraVariables.html">ExtraVariables</a>, <a
+href="../FactorFull.html">FactorFull</a>, <a
+href="../Factoring.html">Factoring</a>, <a
+href="../FactoringDenominator.html">FactoringDenominator</a>, <a
+href="../Factorout.html">Factorout</a>, <a
+href="../FAModelsDirectory.html">FAModelsDirectory</a>, <a
+href="../FCDoControl.html">FCDoControl</a>, <a
+href="../FCJoinDOTs.html">FCJoinDOTs</a>, <a
+href="../FCVerbose.html">FCVerbose</a>, <a
+href="../FeynmanIntegralPrefactor.html">FeynmanIntegralPrefactor</a>, <a
+href="../FinalFunction.html">FinalFunction</a>, <a
+href="../FinalSubstitutions.html">FinalSubstitutions</a>, <a
+href="../ForceSave.html">ForceSave</a>, <a
+href="../FORMAbbreviations.html">FORMAbbreviations</a>, <a
+href="../FORMEpilog.html">FORMEpilog</a>, <a
+href="../FORMIdStatements.html">FORMIdStatements</a>, <a
+href="../FORMProlog.html">FORMProlog</a>, <a
+href="../FortranFormatDoublePrecision.html">FortranFormatDoublePrecision</a>,
+<a href="../FunctionLimits.html">FunctionLimits</a>, <a
+href="../Gauge.html">Gauge</a>, <a
+href="../IncomingMomenta.html">IncomingMomenta</a>, <a
+href="../IndexPosition.html">IndexPosition</a>, <a
+href="../InitialFunction.html">InitialFunction</a>, <a
+href="../InitialSubstitutions.html">InitialSubstitutions</a>, <a
+href="../InsideDiracTrace.html">InsideDiracTrace</a>, <a
+href="../InsidePauliTrace.html">InsidePauliTrace</a>, <a
+href="../IntegralTable.html">IntegralTable</a>, <a
+href="../IntermediateSubstitutions.html">IntermediateSubstitutions</a>,
+<a href="../IsolateFast.html">IsolateFast</a>, <a
+href="../IsolateNames.html">IsolateNames</a>, <a
+href="../IsolatePlus.html">IsolatePlus</a>, <a
+href="../IsolatePrint.html">IsolatePrint</a>, <a
+href="../IsolateSplit.html">IsolateSplit</a>, <a
+href="../IsolateTimes.html">IsolateTimes</a>, <a
+href="../LarinMVV.html">LarinMVV</a>, <a
+href="../LightPak.html">LightPak</a>, <a
+href="../$FCDefaultLightconeVectorN.html">$FCDefaultLightconeVectorN</a>,
+<a
+href="../$FCDefaultLightconeVectorNB.html">$FCDefaultLightconeVectorNB</a>,
+<a href="../Loop.html">Loop</a>, <a
+href="../LoopMomenta.html">LoopMomenta</a>, <a
+href="../LorentzIndexNames.html">LorentzIndexNames</a>, <a
+href="../Mandelstam.html">Mandelstam</a>, <a
+href="../MultiLoop.html">MultiLoop</a>, <a
+href="../NoSave.html">NoSave</a>, <a
+href="../NumberOfPolarizations.html">NumberOfPolarizations</a>, <a
+href="../NotMomentum.html">NotMomentum</a>, <a
+href="../OtherLoopMomenta.html">OtherLoopMomenta</a>, <a
+href="../OutgoingMomenta.html">OutgoingMomenta</a>, <a
+href="../PairCollect.html">PairCollect</a>, <a
+href="../PartialDRelations.html">PartialDRelations</a>, <a
+href="../PatchModelsOnly.html">PatchModelsOnly</a>,<a
+href="../PauliIndexNames.html">PauliIndexNames</a>, <a
+href="../PauliReduce.html">PauliReduce</a>, <a
+href="../PauliTraceEvaluate.html">PauliTraceEvaluate</a>, <a
+href="../PaVeAutoOrder.html">PaVeAutoOrder</a>, <a
+href="../PaVeAutoReduce.html">PaVeAutoReduce</a>, <a
+href="../PaVeIntegralHeads.html">PaVeIntegralHeads</a>, <a
+href="../PaVeOrderList.html">PaVeOrderList</a>, <a
+href="../PostFortranFile.html">PostFortranFile</a>, <a
+href="../Prefactor.html">Prefactor</a>, <a
+href="../PreferredIntegrals.html">PreferredIntegrals</a>, <a
+href="../PreferredTopologies.html">PreferredTopologies</a>, <a
+href="../PreFortranFile.html">PreFortranFile</a>, <a
+href="../PreservePropagatorStructures.html">PreservePropagatorStructures</a>,
+<a href="../QuarkMass.html">QuarkMass</a>, <a
+href="../ReduceGamma.html">ReduceGamma</a>, <a
+href="../ReduceToScalars.html">ReduceToScalars</a>, <a
+href="../Rename.html">Rename</a>, <a
+href="../SameSideExternalEdges.html">SameSideExternalEdges</a>, <a
+href="../SchoutenAllowNegativeGain.html">SchoutenAllowNegativeGain</a>,
+<a href="../SchoutenAllowZeroGain.html">SchoutenAllowZeroGain</a>, <a
+href="../SelectGraphs.html">SelectGraphs</a>, <a
+href="../SetDimensions.html">SetDimensions</a>, <a
+href="../SmallVariables.html">SmallVariables</a>, <a
+href="../SplitSymbolicPowers.html">SplitSymbolicPowers</a>, <a
+href="../SubLoop.html">SubLoop</a>, <a
+href="../SubtopologyMarker.html">SubtopologyMarker</a>, <a
+href="../SUNFJacobi.html">SUNFJacobi</a>, <a
+href="../SUNIndexNames.html">SUNIndexNames</a>, <a
+href="../SUNFIndexNames.html">SUNFIndexNames</a>, <a
+href="../SUNTraceEvaluate.html">SUNTraceEvaluate</a>, <a
+href="../SUNNToCACF.html">SUNNToCACF</a>, <a
+href="../TraceDimension.html">TraceDimension</a>, <a
+href="../TraceOfOne.html">TraceOfOne</a>, <a
+href="../Transversality.html">Transversality</a>, <a
+href="../TransversePolarizationVectors.html">TransversePolarizationVectors</a>,
+<a href="../UndoChiralSplittings.html">UndoChiralSplittings</a>, <a
+href="../UsePaVeBasis.html">UsePaVeBasis</a>, <a
+href="../UseTIDL.html">UseTIDL</a>, <a
+href="../UseWriteString.html">UseWriteString</a>, <a
+href="../VirtualBoson.html">VirtualBoson</a>, <a
+href="../West.html">West</a>, <a href="../WriteOut.html">WriteOut</a>,
+<a href="../WriteOutPaVe.html">WriteOutPaVe</a>, <a
+href="../WriteStringOutput.html">WriteStringOutput</a>, <a
+href="../ZeroMomentumInsertion.html">ZeroMomentumInsertion</a> - options
+of various functions and symbols</li>
+</ul>
+<h2 id="misc">Misc</h2>
+<ul>
+<li><a href="../CalculateCounterTerm.html">CalculateCounterTerm</a>, <a
+href="../GO.html">GO</a>, <a href="../Integratedx.html">Integratedx</a>,
+<a href="../$MIntegrate.html">$MIntegrate</a>, <a
+href="../$OPEWard.html">$OPEWard</a>, <a href="../OPE.html">OPE</a>, <a
+href="../OPE1Loop.html">OPE1Loop</a>, <a
+href="../OPE2TID.html">OPE2TID</a>, <a
+href="../OPEDelta.html">OPEDelta</a>, <a href="../OPEi.html">OPEi</a>,
+<a href="../OPEInt.html">OPEInt</a>, <a
+href="../OPEIntegrate.html">OPEIntegrate</a>, <a
+href="../OPEIntegrate2.html">OPEIntegrate2</a>, <a
+href="../OPEIntegrateDelta.html">OPEIntegrateDelta</a>, <a
+href="../OPEj.html">OPEj</a>, <a href="../OPEk.html">OPEk</a>, <a
+href="../OPEl.html">OPEl</a>, <a href="../OPEm.html">OPEm</a>, <a
+href="../OPEn.html">OPEn</a>, <a href="../OPEo.html">OPEo</a>, <a
+href="../OPESum.html">OPESum</a>, <a
+href="../OPESumExplicit.html">OPESumExplicit</a>, <a
+href="../OPESumSimplify.html">OPESumSimplify</a>, <a
+href="../QO.html">QO</a>, <a href="../SO.html">SO</a>, <a
+href="../SOD.html">SOD</a>, <a
+href="../SymbolicSum2.html">SymbolicSum2</a>, <a
+href="../SymbolicSum3.html">SymbolicSum3</a>, <a
+href="../Twist2AlienOperator.html">Twist2AlienOperator</a>, <a
+href="../Twist2CounterOperator.html">Twist2CounterOperator</a>, <a
+href="../Twist2GluonOperator.html">Twist2GluonOperator</a>, <a
+href="../Twist2QuarkOperator.html">Twist2QuarkOperator</a>, <a
+href="../Twist3QuarkOperator.html">Twist3QuarkOperator</a>, <a
+href="../Twist4GluonOperator.html">Twist4GluonOperator</a> - various
+(often unfinished and undocumented) functions for QCD OPE
+calculations</li>
+</ul>
+<h2 id="deprecated-or-legacy-functions">Deprecated or legacy
+functions</h2>
+<ul>
+<li><a href="../AlphaStrong.html">AlphaStrong</a> - use <a
+href="../SMP.html">SMP</a>[“alpha_s”] instead</li>
+<li><a href="../AlphaFS.html">AlphaFS</a> - use <a
+href="../SMP.html">SMP</a>[“alpha_fs”] instead</li>
+<li><a href="../$BreitMaison.html">$BreitMaison</a>, <a
+href="../$Larin.html">$Larin</a> - use <a
+href="../FCSetDiracGammaScheme.html">FCSetDiracGammaScheme</a>
+instead</li>
+<li><a href="../ChiralityProjector.html">ChiralityProjector</a> - use
+<code>GA[6]</code> and <code>GA[7]</code> instead</li>
+<li><a href="../ClearScalarProducts.html">ClearScalarProducts</a> - use
+<a href="../FCClearScalarProducts.html">FCClearScalarProducts</a>
+instead</li>
+<li><a href="../DiracMatrix.html">DiracMatrix</a>, <a
+href="../DiracSlash.html">DiracSlash</a> - use <a
+href="../GA.html">GA</a> and <a href="../GS.html">GS</a> instead</li>
+<li><a href="../DiracSpinor.html">DiracSpinor</a> - use <a
+href="../Spinor.html">Spinor</a> instead</li>
+<li><a href="../FourVector.html">FourVector</a> - use <a
+href="../FV.html">FV</a> instead</li>
+<li><a href="../Gstrong.html">Gstrong</a> - use <a
+href="../SMP.html">SMP</a>[“g_s”] instead</li>
+<li><a href="../IFPDOn.html">IFPDOn</a>, <a
+href="../IFPDOff.html">IFPDOff</a> - use <a
+href="../GLIMultiply.html">GLIMultiply</a> instead</li>
+<li><a href="../LeviCivita.html">LeviCivita</a> - use <a
+href="../LC.html">LC</a> instead</li>
+<li><a href="../$LoadFeynArts.html">$LoadFeynArts</a>, <a
+href="../$LoadPhi.html">$LoadPhi</a>, <a
+href="../$LoadTARCER.html">$LoadTARCER</a> - use <a
+href="../$LoadAddOns.html">$LoadAddOns</a></li>
+<li><a href="../MetricTensor.html">MetricTensor</a> - use <a
+href="../MT.html">MT</a> instead</li>
+<li><a href="../OneLoop.html">OneLoop</a>, <a
+href="../OneLoopSum.html">OneLoopSum</a> - use <a
+href="../TID.html">TID</a> instead</li>
+<li><a href="../PartialFourVector.html">PartialFourVector</a> - use <a
+href="../TID.html">TID</a> instead</li>
+<li><a
+href="../PropagatorDenominatorExplicit.html">PropagatorDenominatorExplicit</a>
+- use <a href="../FeynAmpDenominator.html">FeynAmpDenominator</a>
+instead</li>
+<li><a href="../ScalarProductCancel.html">ScalarProductCancel</a>, <a
+href="../SPC.html">SPC</a> - use <a href="../ApartFF.html">ApartFF</a>
+instead</li>
+<li><a href="../ScalarProductExpand.html">ScalarProductExpand</a> - use
+<a href="../ExpandScalarProduct.html">ExpandScalarProduct</a>
+instead</li>
+</ul>
+</body>
+</html>

@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,42 +109,71 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="pair">Pair</h2>
-<p><code>Pair[x, y]</code> is the head of a special pairing used in the internal representation: <code>x</code> and <code>y</code> may have heads <code>LorentzIndex</code> or <code>Momentum</code>.</p>
-<p>If both <code>x</code> and <code>y</code> have head <code>LorentzIndex</code>, the metric tensor (e.g. <span class="math inline">g^{\mu \nu}</span>) is understood.</p>
-<p>If <code>x</code> and <code>y</code> have head <code>Momentum</code>, a scalar product (e.g. <span class="math inline">p \cdot q</span>) is meant.</p>
-<p>If one of <code>x</code> and <code>y</code> has head <code>LorentzIndex</code> and the other <code>Momentum</code>, a Lorentz vector (e.g. <span class="math inline">p^{\mu }</span>) is implied.</p>
+<p><code>Pair[x, y]</code> is the head of a special pairing used in the
+internal representation: <code>x</code> and <code>y</code> may have
+heads <code>LorentzIndex</code> or <code>Momentum</code>.</p>
+<p>If both <code>x</code> and <code>y</code> have head
+<code>LorentzIndex</code>, the metric tensor (e.g. <span
+class="math inline">g^{\mu \nu}</span>) is understood.</p>
+<p>If <code>x</code> and <code>y</code> have head <code>Momentum</code>,
+a scalar product (e.g. <span class="math inline">p \cdot q</span>) is
+meant.</p>
+<p>If one of <code>x</code> and <code>y</code> has head
+<code>LorentzIndex</code> and the other <code>Momentum</code>, a Lorentz
+vector (e.g. <span class="math inline">p^{\mu }</span>) is implied.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FV.html">FV</a>, <a href="FVD.html">FVD</a>, <a href="MT.html">MT</a>, <a href="MTD.html">MTD</a>, <a href="ScalarProduct.html">ScalarProduct</a>, <a href="SP.html">SP</a>, <a href="SPD.html">SPD</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FV.html">FV</a>,
+<a href="FVD.html">FVD</a>, <a href="MT.html">MT</a>, <a
+href="MTD.html">MTD</a>, <a href="ScalarProduct.html">ScalarProduct</a>,
+<a href="SP.html">SP</a>, <a href="SPD.html">SPD</a>.</p>
 <h3 id="examples">Examples</h3>
-<p>This represents a <span class="math inline">4</span>-dimensional metric tensor</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]]</span></span></code></pre></div>
+<p>This represents a <span class="math inline">4</span>-dimensional
+metric tensor</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">\bar{g}^{\alpha \beta }</span></p>
 <p>This is a D-dimensional metric tensor</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="fu">D</span><span class="op">],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="fu">D</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="fu">D</span><span class="op">],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="fu">D</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">g^{\alpha \beta }</span></p>
-<p>If the Lorentz indices live in different dimensions, this gets resolved according to the t’Hooft-Veltman-Breitenlohner-Maison prescription</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="fu">n</span> <span class="sc">-</span> <span class="dv">4</span><span class="op">],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]]</span></span></code></pre></div>
+<p>If the Lorentz indices live in different dimensions, this gets
+resolved according to the t’Hooft-Veltman-Breitenlohner-Maison
+prescription</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="fu">n</span> <span class="sc">-</span> <span class="dv">4</span><span class="op">],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">0</span></p>
 <p>A <span class="math inline">4</span>-dimensional Lorentz vector</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^{\alpha }</span></p>
 <p>A <span class="math inline">D</span>-dimensional Lorentz vector</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">p^{\alpha }</span></p>
-<p><span class="math inline">4</span>-dimensional scalar products of Lorentz vectors</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
+<p><span class="math inline">4</span>-dimensional scalar products of
+Lorentz vectors</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^2</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}\cdot (\overline{p}-\overline{q})</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">\overline{p}\cdot
+(\overline{p}-\overline{q})</span></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^4</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^6</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^2-\overline{p}\cdot \overline{q}</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="sc">-</span><span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> <span class="sc">+</span> Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]]</span></span></code></pre></div>
+<p><span class="math display">\overline{p}^2-\overline{p}\cdot
+\overline{q}</span></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="sc">-</span><span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span> <span class="sc">+</span> Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">q</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">0</span></p>
 </body>
 </html>

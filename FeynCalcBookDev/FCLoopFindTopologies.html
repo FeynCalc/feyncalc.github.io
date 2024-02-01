@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,44 +109,128 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fcloopfindtopologies">FCLoopFindTopologies</h2>
-<p><code>FCLoopFindTopologies[exp, {q1, q2, ...}]</code> attempts to identify the loop integral topologies present in <code>exp</code> by looking at the propagator denominators that depend on the loop momenta <code>q1, q2, ...</code> . It returns a list of two entries, where the first one is the original expression with the denominators rewritten as <code>GLI</code>s, and the second one is the set of the identified topologies.</p>
-<p>Each of the identified topologies must contain linearly independent propagators (unless the option <code>FCLoopBasisOverdeterminedQ</code> is set to True), but may lack propagators needed to form a complete basis.</p>
-<p>Scaleless topologies are automatically removed, but this can be disabled by setting the option <code>FCLoopScalelessQ</code> to <code>True</code>.</p>
+<p><code>FCLoopFindTopologies[exp, {q1, q2, ...}]</code> attempts to
+identify the loop integral topologies present in <code>exp</code> by
+looking at the propagator denominators that depend on the loop momenta
+<code>q1, q2, ...</code> . It returns a list of two entries, where the
+first one is the original expression with the denominators rewritten as
+<code>GLI</code>s, and the second one is the set of the identified
+topologies.</p>
+<p>Each of the identified topologies must contain linearly independent
+propagators (unless the option <code>FCLoopBasisOverdeterminedQ</code>
+is set to True), but may lack propagators needed to form a complete
+basis.</p>
+<p>Scaleless topologies are automatically removed, but this can be
+disabled by setting the option <code>FCLoopScalelessQ</code> to
+<code>True</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCTopology.html">FCTopology</a>, <a href="GLI.html">GLI</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FCTopology.html">FCTopology</a>, <a href="GLI.html">GLI</a>.</p>
 <h3 id="examples">Examples</h3>
-<p>Find topologies occurring in the 2-loop ghost self-energy amplitude</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>amp <span class="ex">=</span> <span class="fu">Get</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> </span>
+<p>Find topologies occurring in the 2-loop ghost self-energy
+amplitude</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>amp <span class="ex">=</span> <span class="fu">Get</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Amplitudes&quot;</span><span class="op">,</span> <span class="st">&quot;Gh-Gh-2L.m&quot;</span><span class="op">}]]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>amp<span class="op">,</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">}]</span>;</span></code></pre></div>
-<p><span class="math display">\text{Number of the initial candidate topologies: }3</span></p>
-<p><span class="math display">\text{Number of the identified unique topologies: }3</span></p>
-<p><span class="math display">\text{Number of the preferred topologies among the unique topologies: }0</span></p>
-<p><span class="math display">\text{Number of the identified subtopologies: }0</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">//</span> <span class="fu">Last</span></span></code></pre></div>
-<p><span class="math display">\left\{\text{FCTopology}\left(\text{fctopology1},\left\{\frac{1}{(\text{q2}^2+i \eta )},\frac{1}{(\text{q1}^2+i \eta )},\frac{1}{((\text{q1}+\text{q2})^2+i \eta )},\frac{1}{((p+\text{q1})^2+i \eta )},\frac{1}{((p-\text{q2})^2+i \eta )}\right\},\{\text{q1},\text{q2}\},\{p\},\{\},\{\}\right),\text{FCTopology}\left(\text{fctopology2},\left\{\frac{1}{(\text{q2}^2+i \eta )},\frac{1}{(\text{q1}^2+i \eta )},\frac{1}{((p+\text{q2})^2+i \eta )},\frac{1}{((p-\text{q1})^2+i \eta )}\right\},\{\text{q1},\text{q2}\},\{p\},\{\},\{\}\right),\text{FCTopology}\left(\text{fctopology3},\left\{\frac{1}{(\text{q2}^2+i \eta )},\frac{1}{(\text{q1}^2+i \eta )},\frac{1}{((p-\text{q1})^2+i \eta )},\frac{1}{((p-\text{q1}+\text{q2})^2+i \eta )}\right\},\{\text{q1},\text{q2}\},\{p\},\{\},\{\}\right)\right\}</span></p>
-<p>Find topologies occurring in the 2-loop QCD corrections to the <span class="math inline">B_s</span>-meson mixing</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="fu">Get</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> </span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>amp<span class="op">,</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">}]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+initial candidate topologies: }3</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified unique topologies: }3</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+preferred topologies among the unique topologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified subtopologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: }\;\text{Your
+topologies depend on the follwing kinematic invariants that are not all
+entirely lowercase: }\{\text{Pair[Momentum[p, D], Momentum[p,
+D]]}\}</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: }\;\text{This
+may lead to issues if these topologies are meant to be processed using
+tools such as FIRE, KIRA or Fermat.}</span></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">//</span> <span class="fu">Last</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{fctopology1},\left\{\frac{1}{(\text{q2}^2+i
+\eta )},\frac{1}{(\text{q1}^2+i \eta
+)},\frac{1}{((\text{q1}+\text{q2})^2+i \eta
+)},\frac{1}{((p+\text{q1})^2+i \eta )},\frac{1}{((p-\text{q2})^2+i \eta
+)}\right\},\{\text{q1},\text{q2}\},\{p\},\{\},\{\}\right),\text{FCTopology}\left(\text{fctopology2},\left\{\frac{1}{(\text{q2}^2+i
+\eta )},\frac{1}{(\text{q1}^2+i \eta )},\frac{1}{((p+\text{q2})^2+i \eta
+)},\frac{1}{((p-\text{q1})^2+i \eta
+)}\right\},\{\text{q1},\text{q2}\},\{p\},\{\},\{\}\right),\text{FCTopology}\left(\text{fctopology3},\left\{\frac{1}{(\text{q2}^2+i
+\eta )},\frac{1}{(\text{q1}^2+i \eta )},\frac{1}{((p-\text{q1})^2+i \eta
+)},\frac{1}{((p-\text{q1}+\text{q2})^2+i \eta
+)}\right\},\{\text{q1},\text{q2}\},\{p\},\{\},\{\}\right)\right\}</span></p>
+<p>Find topologies occurring in the 2-loop QCD corrections to the <span
+class="math inline">B_s</span>-meson mixing</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="fu">Get</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Topologies&quot;</span><span class="op">,</span> <span class="st">&quot;BMixingTopos2L.m&quot;</span><span class="op">}]]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>topos <span class="sc">//</span> <span class="fu">Length</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>topos <span class="sc">//</span> <span class="fu">Length</span></span></code></pre></div>
 <p><span class="math display">544</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>topos<span class="op">,</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">}]</span>;</span></code></pre></div>
-<p><span class="math display">\text{Number of the initial candidate topologies: }18</span></p>
-<p><span class="math display">\text{Number of the identified unique topologies: }18</span></p>
-<p><span class="math display">\text{Number of the preferred topologies among the unique topologies: }0</span></p>
-<p><span class="math display">\text{Number of the identified subtopologies: }0</span></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>topos<span class="op">,</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">}]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+initial candidate topologies: }18</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified unique topologies: }18</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+preferred topologies among the unique topologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified subtopologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: }\;\text{Your
+topologies depend on the follwing kinematic invariants that are not all
+entirely lowercase: }\{\text{mb},\text{mc},\text{Pair[Momentum[p1, D],
+Momentum[p1, D]]}\}</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: }\;\text{This
+may lead to issues if these topologies are meant to be processed using
+tools such as FIRE, KIRA or Fermat.}</span></p>
 <p>Show the first two topologies</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(res <span class="sc">//</span> <span class="fu">Last</span>)<span class="op">[[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\left\{\text{FCTopology}\left(\text{fctopology1},\left\{\frac{1}{((\text{k2}+\text{p1})^2+i \eta )},\frac{1}{(\text{k2}^2-\text{mb}^2+i \eta )},\frac{1}{(\text{k1}^2-\text{mc}^2+i \eta )},\frac{1}{((\text{k1}+\text{k2})^2-\text{mc}^2+i \eta )},\frac{1}{((\text{k1}-\text{p1})^2-\text{mc}^2+i \eta )}\right\},\{\text{k1},\text{k2}\},\{\text{p1}\},\{\},\{\}\right),\text{FCTopology}\left(\text{fctopology2},\left\{\frac{1}{((\text{k2}-\text{p1})^2+i \eta )},\frac{1}{(\text{k2}^2-\text{mb}^2+i \eta )},\frac{1}{(\text{k1}^2-\text{mc}^2+i \eta )},\frac{1}{((\text{k1}+\text{p1})^2-\text{mc}^2+i \eta )},\frac{1}{((\text{k1}+\text{k2})^2-\text{mc}^2+i \eta )}\right\},\{\text{k1},\text{k2}\},\{\text{p1}\},\{\},\{\}\right)\right\}</span></p>
-<p>In practical calculations even the simple extraction of topologies from the given list of diagrams can take considerable amount of time. This is why it is better to parallelize this process as much as possible.</p>
-<p>We can split this part into two steps, were we first apply <code>FCLoopIsolate</code> to the resulting amplitudes and then pass the output to <code>FCLoopFindTopologies</code>. To avoid the unnecessary application of <code>FCLoopIsolate</code> during this step, we should specify the head with which the topologies have been wrapped via the option <code>FCLoopIsolate</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>isolatedTopos <span class="ex">=</span> FCLoopIsolate<span class="op">[</span>topos<span class="op">[[</span><span class="dv">44</span> ;; <span class="dv">48</span><span class="op">]],</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span>  Collecting <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> Factoring <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="fu">Numerator</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> loopDen<span class="op">]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>isolatedTopos<span class="op">,</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> FCLoopIsolate <span class="ot">-&gt;</span> loopDen<span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> ampDen<span class="op">,</span> Collecting <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span>; </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
-<p><span class="math display">\text{Number of the initial candidate topologies: }2</span></p>
-<p><span class="math display">\text{Number of the identified unique topologies: }2</span></p>
-<p><span class="math display">\text{Number of the preferred topologies among the unique topologies: }0</span></p>
-<p><span class="math display">\text{Number of the identified subtopologies: }0</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(res <span class="sc">//</span> <span class="fu">Last</span>)<span class="op">[[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{fctopology1},\left\{\frac{1}{((\text{k2}+\text{p1})^2+i
+\eta )},\frac{1}{(\text{k2}^2-\text{mb}^2+i \eta
+)},\frac{1}{(\text{k1}^2-\text{mc}^2+i \eta
+)},\frac{1}{((\text{k1}+\text{k2})^2-\text{mc}^2+i \eta
+)},\frac{1}{((\text{k1}-\text{p1})^2-\text{mc}^2+i \eta
+)}\right\},\{\text{k1},\text{k2}\},\{\text{p1}\},\{\},\{\}\right),\text{FCTopology}\left(\text{fctopology2},\left\{\frac{1}{((\text{k2}-\text{p1})^2+i
+\eta )},\frac{1}{(\text{k2}^2-\text{mb}^2+i \eta
+)},\frac{1}{(\text{k1}^2-\text{mc}^2+i \eta
+)},\frac{1}{((\text{k1}+\text{p1})^2-\text{mc}^2+i \eta
+)},\frac{1}{((\text{k1}+\text{k2})^2-\text{mc}^2+i \eta
+)}\right\},\{\text{k1},\text{k2}\},\{\text{p1}\},\{\},\{\}\right)\right\}</span></p>
+<p>In practical calculations even the simple extraction of topologies
+from the given list of diagrams can take considerable amount of time.
+This is why it is better to parallelize this process as much as
+possible.</p>
+<p>We can split this part into two steps, were we first apply
+<code>FCLoopIsolate</code> to the resulting amplitudes and then pass the
+output to <code>FCLoopFindTopologies</code>. To avoid the unnecessary
+application of <code>FCLoopIsolate</code> during this step, we should
+specify the head with which the topologies have been wrapped via the
+option <code>FCLoopIsolate</code>.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>isolatedTopos <span class="ex">=</span> FCLoopIsolate<span class="op">[</span>topos<span class="op">[[</span><span class="dv">44</span> ;; <span class="dv">48</span><span class="op">]],</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span>  Collecting <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> Factoring <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="fu">Numerator</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> loopDen<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>isolatedTopos<span class="op">,</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> FCLoopIsolate <span class="ot">-&gt;</span> loopDen<span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> ampDen<span class="op">,</span> Collecting <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+initial candidate topologies: }2</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified unique topologies: }2</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+preferred topologies among the unique topologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified subtopologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: }\;\text{Your
+topologies depend on the follwing kinematic invariants that are not all
+entirely lowercase: }\{\text{mb},\text{mc},\text{Pair[Momentum[p1, D],
+Momentum[p1, D]]}\}</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: }\;\text{This
+may lead to issues if these topologies are meant to be processed using
+tools such as FIRE, KIRA or Fermat.}</span></p>
 </body>
 </html>

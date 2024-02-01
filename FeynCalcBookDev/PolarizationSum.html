@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,33 +109,78 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="polarizationsum">PolarizationSum</h2>
-<p><code>PolarizationSum[mu, nu, ... ]</code> represents the sum over a polarization vector and its complex conjugate with two free indices. Depending on its arguments the function returns different polarization sums for massive or massless vector bosons.</p>
+<p><code>PolarizationSum[mu, nu, ... ]</code> represents the sum over a
+polarization vector and its complex conjugate with two free indices.
+Depending on its arguments the function returns different polarization
+sums for massive or massless vector bosons.</p>
 <ul>
-<li><code>PolarizationSum[nu, nu, k]</code> returns <span class="math inline">-g^{\mu \nu}+\frac{k^{\mu} k^{\nu}}{k^2}</span>, i.e. the sum over the 3 physical polarizations of a massive on-shell vector boson with <span class="math inline">m = k^2</span>.</li>
-<li><code>PolarizationSum[mu, nu]</code> or <code>PolarizationSum[mu, nu, k, 0]</code> gives <span class="math inline">-g^{\mu \nu }</span>. This corresponds to the summation over all <span class="math inline">4</span> polarizations of a massless vector boson, <span class="math inline">2</span> of which are unphysical if the particle is on-shell.</li>
-<li><code>PolarizationSum[mu, nu, k, n]</code> yields <span class="math inline">-g^{\mu \nu}+\frac{k^{\mu }n^{\nu}+k^{\nu }n^{\mu }}{k \cdot n} - \frac{n^2 k^{\mu}k^{\nu}}{(k \cdot n)^2}</span> which is the so-called axial-gauge polarization sum that picks up only the two physical polarizations of a massless vector boson. Here <span class="math inline">n</span> is an auxiliary vector that must satisfy <span class="math inline">n \cdot k \neq 0</span>. The physical results will not depend on <span class="math inline">n</span>, yet in practice it is often convenient to identify <span class="math inline">n</span> with one of the 4-vectors already present in the calculation. For example, in a final state with multiple gluons denoted by their momenta <span class="math inline">k_i</span>, the vector <span class="math inline">n</span> for the <span class="math inline">i</span>-th gluon could be a <span class="math inline">k_j</span> with <span class="math inline">j \neq i</span>. Notice that when using this polarization sum in a QCD calculation, one doesn’t have to consider diagrams with ghosts in the final states.</li>
+<li><code>PolarizationSum[nu, nu, k]</code> returns <span
+class="math inline">-g^{\mu \nu}+\frac{k^{\mu} k^{\nu}}{k^2}</span>,
+i.e. the sum over the 3 physical polarizations of a massive on-shell
+vector boson with <span class="math inline">m = k^2</span>.</li>
+<li><code>PolarizationSum[mu, nu]</code> or
+<code>PolarizationSum[mu, nu, k, 0]</code> gives <span
+class="math inline">-g^{\mu \nu }</span>. This corresponds to the
+summation over all <span class="math inline">4</span> polarizations of a
+massless vector boson, <span class="math inline">2</span> of which are
+unphysical if the particle is on-shell.</li>
+<li><code>PolarizationSum[mu, nu, k, n]</code> yields <span
+class="math inline">-g^{\mu \nu}+\frac{k^{\mu }n^{\nu}+k^{\nu }n^{\mu
+}}{k \cdot n} - \frac{n^2 k^{\mu}k^{\nu}}{(k \cdot n)^2}</span> which is
+the so-called axial-gauge polarization sum that picks up only the two
+physical polarizations of a massless vector boson. Here <span
+class="math inline">n</span> is an auxiliary vector that must satisfy
+<span class="math inline">n \cdot k \neq 0</span>. The physical results
+will not depend on <span class="math inline">n</span>, yet in practice
+it is often convenient to identify <span class="math inline">n</span>
+with one of the 4-vectors already present in the calculation. For
+example, in a final state with multiple gluons denoted by their momenta
+<span class="math inline">k_i</span>, the vector <span
+class="math inline">n</span> for the <span
+class="math inline">i</span>-th gluon could be a <span
+class="math inline">k_j</span> with <span class="math inline">j \neq
+i</span>. Notice that when using this polarization sum in a QCD
+calculation, one doesn’t have to consider diagrams with ghosts in the
+final states.</li>
 </ul>
-<p>To obtain a <span class="math inline">D</span>-dimensional polarization sum use the option <code>Dimension</code>.</p>
-<p>If you need to calculate a polarization sum depending on a 4-momentum that is not on-shell, use the option <code>VirtualBoson</code>.</p>
+<p>To obtain a <span class="math inline">D</span>-dimensional
+polarization sum use the option <code>Dimension</code>.</p>
+<p>If you need to calculate a polarization sum depending on a 4-momentum
+that is not on-shell, use the option <code>VirtualBoson</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Polarization.html">Polarization</a>, <a href="DoPolarizationSums.html">DoPolarizationSums</a>, <a href="Uncontract.html">Uncontract</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="Polarization.html">Polarization</a>, <a
+href="DoPolarizationSums.html">DoPolarizationSums</a>, <a
+href="Uncontract.html">Uncontract</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">-\bar{g}^{\mu \nu }</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">k</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{\overline{k}^{\mu } \overline{k}^{\nu }}{\overline{k}^2}-\bar{g}^{\mu \nu }</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">k</span><span class="op">,</span> Dimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{k^{\mu } k^{\nu }}{k^2}-g^{\mu \nu }</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; SP<span class="op">[</span><span class="fu">k</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">k</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{\overline{k}^{\mu }
+\overline{k}^{\nu }}{\overline{k}^2}-\bar{g}^{\mu \nu }</span></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">k</span><span class="op">,</span> Dimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{k^{\mu } k^{\nu }}{k^2}-g^{\mu \nu
+}</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; SP<span class="op">[</span><span class="fu">k</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">k</span><span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\frac{\overline{n}^2 \overline{k}^{\mu } \overline{k}^{\nu }}{(\overline{k}\cdot \overline{n})^2}-\bar{g}^{\mu \nu }+\frac{\overline{k}^{\nu } \overline{n}^{\mu }}{\overline{k}\cdot \overline{n}}+\frac{\overline{k}^{\mu } \overline{n}^{\nu }}{\overline{k}\cdot \overline{n}}</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
+<p><span class="math display">-\frac{\overline{n}^2 \overline{k}^{\mu }
+\overline{k}^{\nu }}{(\overline{k}\cdot \overline{n})^2}-\bar{g}^{\mu
+\nu }+\frac{\overline{k}^{\nu } \overline{n}^{\mu }}{\overline{k}\cdot
+\overline{n}}+\frac{\overline{k}^{\mu } \overline{n}^{\nu
+}}{\overline{k}\cdot \overline{n}}</span></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">k</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> Dimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
 <p><img src="img/13n3qjjcr6x0f.svg" alt="13n3qjjcr6x0f" /></p>
 <p><span class="math display">-g^{\mu \nu }</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>PolarizationSum<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">k</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> Dimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> VirtualBoson <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-g^{\mu \nu }</span></p>
