@@ -135,11 +135,9 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 -2)}{16 \pi ^2}</span></p>
 <p><code>PaVe</code> functions do not require the second argument
 specifying the loop momentum</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PaVe<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">]],</span> Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">]]},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">M</span><span class="op">}]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PaXEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">]</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<p>```mathematica PaVe[0, {0, Pair[Momentum[p, D], Momentum[p, D]],
+Pair[Momentum[p, D], Momentum[p, D]]}, {0, 0, M}] PaXEvaluate[%]</p>
+<p>```mathematica</p>
 <p><span
 class="math display">\text{C}_0\left(0,p^2,p^2,0,0,M\right)</span></p>
 <p><span

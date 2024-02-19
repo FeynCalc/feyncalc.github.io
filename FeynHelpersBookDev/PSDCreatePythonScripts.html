@@ -109,8 +109,6 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <p><img src="img/0uw74idqq2ilw.svg" alt="0uw74idqq2ilw" /></p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="psdcreatepythonscripts">PSDCreatePythonScripts</h2>
 <p><code>PSDCreatePythonScripts[int, topo, path]</code> creates a set of
 Python scripts needed for the evaluation of the integral
@@ -213,49 +211,49 @@ href="PSDLoopIntegralFromPropagators.html">PSDLoopIntegralFromPropagators</a>,
 <a href="PSDLoopPackage.html">PSDLoopPackage</a>, <a
 href="PSDLoopRegions.html">PSDLoopRegions</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>topo1 <span class="ex">=</span> FCTopology<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span>FAD<span class="op">[{</span>p1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> <span class="fu">q</span><span class="op">,</span> m2<span class="op">}]},</span> <span class="op">{</span>p1<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>int1 <span class="ex">=</span> GLI<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>topo1 <span class="ex">=</span> FCTopology<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span>FAD<span class="op">[{</span>p1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> <span class="fu">q</span><span class="op">,</span> m2<span class="op">}]},</span> <span class="op">{</span>p1<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>int1 <span class="ex">=</span> GLI<span class="op">[</span>prop1L<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
 <p><span
 class="math display">\text{FCTopology}\left(\text{prop1L},\left\{\frac{1}{\text{p1}^2-\text{m1}^2},\frac{1}{(\text{p1}+q)^2-\text{m2}^2}\right\},\{\text{p1}\},\{q\},\{\},\{\}\right)</span></p>
 <p><span class="math display">G^{\text{prop1L}}(1,1)</span></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> PSDCreatePythonScripts<span class="op">[</span>int1<span class="op">,</span> topo1<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> PSDRealParameterRules <span class="ot">-&gt;</span> <span class="op">{</span>qq <span class="ot">-&gt;</span> <span class="fl">1.</span> <span class="op">,</span> m1 <span class="ot">-&gt;</span> <span class="fl">2.</span> <span class="op">,</span> m2 <span class="ot">-&gt;</span> <span class="fl">3.</span><span class="op">},</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>FCI@SPD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> qq<span class="op">},</span> OverwriteTarget <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> PSDCreatePythonScripts<span class="op">[</span>int1<span class="op">,</span> topo1<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> PSDRealParameterRules <span class="ot">-&gt;</span> <span class="op">{</span>qq <span class="ot">-&gt;</span> <span class="fl">1.</span> <span class="op">,</span> m1 <span class="ot">-&gt;</span> <span class="fl">2.</span> <span class="op">,</span> m2 <span class="ot">-&gt;</span> <span class="fl">3.</span><span class="op">},</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>FCI@SPD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> qq<span class="op">},</span> OverwriteTarget <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">14</span><span class="op">]</span> &amp;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*#!/usr/bin/env python3</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">from pySecDec import sum_package, loop_package, loop_regions, LoopIntegralFromPropagators</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">import pySecDec as psd</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">li = LoopIntegralFromPropagators(</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">[&#39;-m1**2 + p1**2&#39;, &#39;-m2**2 + (p1 + q)**2&#39;],</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">loop_momenta = [&#39;p1&#39;],</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">powerlist = [1, 1],</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">dimensionality = &#39;4 - 2*eps&#39;,</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">Feynman_parameters = &#39;x&#39;,</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">replacement_rules = [(&#39;q**2&#39;,&#39;qq&#39;)],</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">regulators = [&#39;eps&#39;]</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">14</span><span class="op">]</span> &amp;</span>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">2</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">14</span><span class="op">]</span> &amp;</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*#!/usr/bin/env python3</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">from pySecDec import sum_package, loop_package, loop_regions, LoopIntegralFromPropagators</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">import pySecDec as psd</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">from pySecDec.integral_interface import IntegralLibrary, series_to_mathematica, series_to_maple, series_to_sympy</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">import sympy as sp</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">li = LoopIntegralFromPropagators(</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">[&#39;-m1**2 + p1**2&#39;, &#39;-m2**2 + (p1 + q)**2&#39;],</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">loop_momenta = [&#39;p1&#39;],</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">powerlist = [1, 1],</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">dimensionality = &#39;4 - 2*eps&#39;,</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">Feynman_parameters = &#39;x&#39;,</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">replacement_rules = [(&#39;q**2&#39;,&#39;qq&#39;)],</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">regulators = [&#39;eps&#39;]</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">)</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">*)</span></span></code></pre></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">li = IntegralLibrary(&#39;loopint/loopint_pylink.so&#39;)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">li.use_Qmc(</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">num_params_real = [1., 2., 3.]</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">num_params_complex = []</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">integral_without_prefactor, prefactor, integral_with_prefactor = li(verbose = True,</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">real_parameters = num_params_real,*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">2</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">14</span><span class="op">]</span> &amp;</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*#!/usr/bin/env python3</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">from pySecDec.integral_interface import IntegralLibrary, series_to_mathematica, series_to_maple, series_to_sympy</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">import sympy as sp</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">li = IntegralLibrary(&#39;loopint/loopint_pylink.so&#39;)</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">li.use_Qmc(</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">)</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">num_params_real = [1., 2., 3.]</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">num_params_complex = []</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">integral_without_prefactor, prefactor, integral_with_prefactor = li(verbose = True,</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">real_parameters = num_params_real,*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PSDCreatePythonScripts<span class="op">[</span>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">,</span> <span class="st">&quot;tal1LInt&quot;</span><span class="op">}],</span> PSDRealParameterRules <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">m</span> <span class="ot">-&gt;</span> <span class="fl">1.</span><span class="op">},</span> OverwriteTarget <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PSDCreatePythonScripts<span class="op">[</span>SFAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">,</span> <span class="st">&quot;tal1LInt&quot;</span><span class="op">}],</span> PSDRealParameterRules <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">m</span> <span class="ot">-&gt;</span> <span class="fl">1.</span><span class="op">},</span> OverwriteTarget <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
 </body>
 </html>

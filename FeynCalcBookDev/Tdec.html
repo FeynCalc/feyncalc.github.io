@@ -153,5 +153,28 @@ q_3\right) \left(p\cdot q_2\right)-p^2 \left(q_2\cdot q_3\right)
 \left(p\cdot q_1\right)\right)}{(1-D) p^6}</span></p>
 <p><span class="math display">\left(p\cdot q_1\right) \left(p\cdot
 q_2\right) \left(p\cdot q_3\right)</span></p>
+<p>To calculate a tensor decomposition with specific kinematic
+constraints, use the option <code>FinalSubstitutions</code>. Notice that
+kinematic configurations involving zero Gram determinants are not
+supported.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Tdec<span class="op">[{{</span><span class="fu">l</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]},</span> <span class="op">{</span><span class="fu">l</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]}},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">},</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>p2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">},</span> FCE <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> <span class="fu">List</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\frac{g^{\mu \nu } \left(l^2
+(\text{p1}\cdot \;\text{p2})^2-2 (l\cdot \;\text{p1}) (l\cdot
+\;\text{p2}) (\text{p1}\cdot \;\text{p2})\right)}{(2-D) (\text{p1}\cdot
+\;\text{p2})^2}+\frac{\text{p2}^{\mu } \;\text{p2}^{\nu } \left(2
+(l\cdot \;\text{p1})^2 (\text{p1}\cdot \;\text{p2})^2-D (l\cdot
+\;\text{p1})^2 (\text{p1}\cdot \;\text{p2})^2\right)}{(2-D)
+(\text{p1}\cdot \;\text{p2})^4}+\frac{\text{p1}^{\mu } \;\text{p1}^{\nu
+} \left(2 (l\cdot \;\text{p2})^2 (\text{p1}\cdot \;\text{p2})^2-D
+(l\cdot \;\text{p2})^2 (\text{p1}\cdot \;\text{p2})^2\right)}{(2-D)
+(\text{p1}\cdot \;\text{p2})^4}-\frac{\text{p1}^{\nu } \;\text{p2}^{\mu
+} \left(D (l\cdot \;\text{p1}) (l\cdot \;\text{p2}) (\text{p1}\cdot
+\;\text{p2})^2-l^2 (\text{p1}\cdot \;\text{p2})^3\right)}{(2-D)
+(\text{p1}\cdot \;\text{p2})^4}-\frac{\text{p1}^{\mu } \;\text{p2}^{\nu
+} \left(D (l\cdot \;\text{p1}) (l\cdot \;\text{p2}) (\text{p1}\cdot
+\;\text{p2})^2-l^2 (\text{p1}\cdot \;\text{p2})^3\right)}{(2-D)
+(\text{p1}\cdot \;\text{p2})^4}</span></p>
 </body>
 </html>

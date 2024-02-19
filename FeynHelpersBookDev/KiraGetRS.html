@@ -109,8 +109,6 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <p><img src="img/0eugcbgadj6yz.svg" alt="0eugcbgadj6yz" /></p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="kiragetrs">KiraGetRS</h2>
 <p><code>KiraGetRS[{sec1, {gli1, ...}}]</code> returns the number of
 positive and negative propagator powers (<span
@@ -137,13 +135,13 @@ output will consists of a list of top sectors and the largest possible
 href="KiraLabelSector.html">KiraLabelSector</a>, <a
 href="KiraCreateJobFile.html">KiraCreateJobFile</a>.</p>
 <h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>KiraGetRS<span class="op">[{</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo3<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]}]</span></span></code></pre></div>
+<p><span class="math display">\{6,1\}</span></p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>KiraGetRS<span class="op">[{</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo3<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]}]</span></span></code></pre></div>
-<p><span class="math display">\{6,1\}</span></p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>KiraGetRS<span class="op">[{</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo3<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]},</span> <span class="fu">Max</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo3<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]},</span> <span class="fu">Max</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
 2 &amp; 1 \\
@@ -152,9 +150,9 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 6 &amp; 0 \\
 \end{array}
 \right)</span></p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">out</span> <span class="ex">=</span> FCLoopFindSectors<span class="op">[{</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo3<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]}]</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">out</span> <span class="ex">=</span> FCLoopFindSectors<span class="op">[{</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    GLI<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> GLI<span class="op">[</span>topo3<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]}]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{ccc}
 \left\{\{1,0,1,0\},\left\{G^{\text{topo3}}(1,0,1,-1)\right\}\right\}
@@ -166,8 +164,8 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 \{1,0,1,0\} &amp; \{1,0,1,1\} &amp; \{1,1,1,1\} \\
 \end{array}
 \right)</span></p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>KiraGetRS<span class="op">[</span><span class="fu">out</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>KiraGetRS<span class="op">[</span><span class="fu">out</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{cc}
 \{1,0,1,0\} &amp; \{2,1\} \\
@@ -175,8 +173,8 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 \{1,1,1,1\} &amp; \{6,0\} \\
 \end{array}
 \right)</span></p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>KiraGetRS<span class="op">[</span><span class="fu">out</span><span class="op">,</span> <span class="fu">Top</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>KiraGetRS<span class="op">[</span><span class="fu">out</span><span class="op">,</span> <span class="fu">Top</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left\{\left(
 \begin{array}{cccc}
 1 &amp; 1 &amp; 1 &amp; 1 \\

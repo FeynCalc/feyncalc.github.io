@@ -108,8 +108,6 @@
 <header id="title-block-header">
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="kiraimportresults">KiraImportResults</h2>
 <p><code>KiraImportResults[topoName, path]</code> imports the content of
 a Kira reduction table and converts the results to replacement rules for
@@ -128,15 +126,15 @@ href="KiraCreateConfigFiles.html">KiraCreateConfigFiles</a>, <a
 href="KiraCreateJobFile.html">KiraCreateJobFile</a>, <a
 href="KiraRunReduction.html">KiraRunReduction</a></p>
 <h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ibpTables <span class="ex">=</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynHelpersDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> <span class="st">&quot;kira_asyR1prop2Ltopo01310X11111N1.m&quot;</span><span class="op">}]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ibpTables <span class="ex">=</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynHelpersDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> <span class="st">&quot;kira_asyR1prop2Ltopo01310X11111N1.m&quot;</span><span class="op">}]</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="ex">=</span> KiraImportResults<span class="op">[</span><span class="st">&quot;prop3L1topo010000100&quot;</span><span class="op">,</span> ibpTables<span class="op">]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="ex">=</span> KiraImportResults<span class="op">[</span><span class="st">&quot;prop3L1topo010000100&quot;</span><span class="op">,</span> ibpTables<span class="op">]</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="sc">//</span> <span class="fu">Length</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ibpRules <span class="sc">//</span> <span class="fu">Length</span></span></code></pre></div>
 <p><span class="math display">10727</span></p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ibpRules<span class="op">[[</span><span class="sc">-</span><span class="dv">5</span> ;;<span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ibpRules<span class="op">[[</span><span class="sc">-</span><span class="dv">5</span> ;;<span class="op">]]</span></span></code></pre></div>
 <p><span
 class="math display">\left\{G^{\text{asyR1prop2Ltopo01310X11111N1}}(2,1,1,1,1)\to
 \frac{\left(D^3-8 D^2+20 D-16\right)

@@ -108,8 +108,6 @@
 <header id="title-block-header">
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="firecreateliteredfiles">FIRECreateLiteRedFiles</h2>
 <p><code>FIRECreateLiteRedFiles[path]</code> creates lbases files
 (generated with LiteRed) using the script
@@ -136,8 +134,8 @@ href="FIRECreateConfigFile.html">FIRECreateConfigFile</a>, <a
 href="FIREPrepareStartFile.html">FIREPrepareStartFile</a>, <a
 href="FIREMathematicaKernelPath.html">FIREMathematicaKernelPath</a></p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>topo <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;prop3lX1&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span>p1<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[</span>p2<span class="op">],</span> SFAD<span class="op">[{</span>p3<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2 <span class="sc">-</span> p3<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p2<span class="op">],</span> SFAD<span class="op">[</span>p1 <span class="sc">+</span> p3<span class="op">],</span> SFAD<span class="op">[</span>p2 <span class="sc">+</span> p3<span class="op">]},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">Q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>topo <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;prop3lX1&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span>p1<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[</span>p2<span class="op">],</span> SFAD<span class="op">[{</span>p3<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2 <span class="sc">-</span> p3<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p1<span class="op">],</span> SFAD<span class="op">[</span><span class="fu">Q</span> <span class="sc">-</span> p2<span class="op">],</span> SFAD<span class="op">[</span>p1 <span class="sc">+</span> p3<span class="op">],</span> SFAD<span class="op">[</span>p2 <span class="sc">+</span> p3<span class="op">]},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">Q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span></code></pre></div>
 <p><span
 class="math display">\text{FCTopology}\left(\text{prop3lX1},\left\{\frac{1}{(\text{p1}^2-m^2+i
 \eta )},\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{(\text{p3}^2-m^2+i \eta
@@ -147,12 +145,12 @@ class="math display">\text{FCTopology}\left(\text{prop3lX1},\left\{\frac{1}{(\te
 )},\frac{1}{((\text{p1}+\text{p3})^2+i \eta
 )},\frac{1}{((\text{p2}+\text{p3})^2+i \eta
 )}\right\},\{\text{p1},\text{p2},\text{p3}\},\{Q\},\{\},\{\}\right)</span></p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIREPrepareStartFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fileName <span class="ex">=</span> FIREPrepareStartFile<span class="op">[</span>topo<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}]]</span></span></code></pre></div>
 <p><span
 class="math display">\text{/home/vs/.Mathematica/Applications/FeynCalc/Database/prop3lX1/CreateStartFile.m}</span></p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FIRECreateLiteRedFiles<span class="op">[</span>fileName<span class="op">,</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">3</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FIRECreateLiteRedFiles<span class="op">[</span>fileName<span class="op">,</span> FCVerbose <span class="ot">-&gt;</span> <span class="dv">3</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{FIRECreateLiteRedFiles: Full path to
 the Math Kernel binary:
 }\;\text{/media/Data/Software/Mathematica/14.0/Executables/math}</span></p>
