@@ -109,6 +109,7 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <h2 id="qgraf-usage-examples">QGRAF usage examples</h2>
+<h3 id="generic-approach">Generic approach</h3>
 <p>The main idea behind the FeynHelpers interface to QGRAF is to
 facilitate the generation of Feynman diagrams using QGRAF and the
 subsequent conversion of the obtained amplitudes into the FeynCalc
@@ -157,14 +158,16 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span><span class="st">&quot;Ael&quot;</span><span class="op">,</span><span class="st">&quot;anti fermion&quot;</span><span class="op">,</span><span class="st">&quot;e^+&quot;</span><span class="op">}}]</span>;</span></code></pre></div>
 <p>we can create a file containing the styling for the fields present in
 our model, so that the diagrams will look nice. Then,</p>
-<pre><code>QGTZFCreateTeXFiles[qgOutput,Split-&gt;True];</code></pre>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>QGTZFCreateTeXFiles<span class="op">[</span>qgOutput<span class="op">,</span><span class="fu">Split</span><span class="ot">-&gt;</span><span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
 <p>will generate a TeX file for each of the diagrams located in
 <code>FileNameJoin[{$FeynCalcDirectory,"Database","ElAelToElAelAt1L","TeX"}]]</code>.
 Provided that we have <code>GNU parallel</code> and
 <code>pdfunite</code> installed, we can now switch to the terminal,
 enter the corresponding directory and generate the diagrams via</p>
-<pre><code>./makeDiagrams.sh
-./glueDiagrams.sh</code></pre>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>makeDiagrams.sh</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>glueDiagrams.sh</span></code></pre></div>
 <p>If everything goes as expected, this will give us a file
 <code>allDiagrams.pdf</code> containing all the generated diagrams.</p>
 <p>Coming back to the analytic part of the calculation, we need to load
@@ -180,5 +183,50 @@ corresponding insertions file. Finally, with</p>
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>amps<span class="ex">=</span>QGConvertToFC<span class="op">[</span>qgOutput<span class="op">,</span>DiracChainJoin<span class="ot">-&gt;</span><span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
 <p>we obtain the list of our amplitudes ready for a subsequent
 evaluation within FeynCalc.</p>
+<h3 id="custom-models">Custom models</h3>
+<p>The following example shows how to generate diagrams for a custom
+<span class="math inline">\phi^4</span>-model, where we write our own
+model file and implement the corresponding Feynman rules.</p>
+<p>The process of writing new models is explained in the QGRAF manual.
+The only special feature required for a FeynCalc is a custom function in
+the propagators called <code>mass</code> that encodes the mass of the
+particles. A model for the real scalar field with quartic
+self-interactions can be implemented as follows</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> model <span class="ex">=</span> &#39;phi<span class="sc">^</span><span class="dv">4</span>&#39; <span class="op">]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> Propagators:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>Phi<span class="op">,</span> Phi<span class="op">,</span> <span class="sc">+</span>; mass<span class="ex">=</span>&#39;mphi&#39;<span class="op">]</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> Vertices:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>Phi<span class="op">,</span>  Phi<span class="op">,</span>  Phi<span class="op">,</span> Phi<span class="op">]</span></span></code></pre></div>
+<p>We need to introduce Feynman rules for the external states,
+propagators and vertices. Notice that in the case of vertices all
+momenta should be ingoing. The corresponding model file and the
+collection of insertions are located in
+<code>FileNameJoin[{$FeynHelpersDirectory,"Documentation","Examples","Phi4}];</code>
+When using QGRAF via the FeynHelpers interface we need to specify the
+full path to those files. For example,</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>qgModel<span class="ex">=</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynHelpersDirectory<span class="op">,</span><span class="st">&quot;Documentation&quot;</span><span class="op">,</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Examples&quot;</span><span class="op">,</span><span class="st">&quot;Phi4&quot;</span><span class="op">,</span><span class="st">&quot;Phi4&quot;</span><span class="op">}]</span>;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>qgInsertions<span class="ex">=</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynHelpersDirectory<span class="op">,</span><span class="st">&quot;Documentation&quot;</span><span class="op">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Examples&quot;</span><span class="op">,</span><span class="st">&quot;Phi4&quot;</span><span class="op">,</span><span class="st">&quot;Insertions-Phi4.m&quot;</span><span class="op">}]</span>;</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>qgOutput<span class="ex">=</span>QGCreateAmp<span class="op">[</span><span class="dv">1</span><span class="op">,{</span><span class="st">&quot;Phi[p1]&quot;</span><span class="op">,</span><span class="st">&quot;Phi[p2]&quot;</span><span class="op">}</span><span class="ot">-&gt;</span><span class="op">{</span><span class="st">&quot;Phi[p3]&quot;</span><span class="op">,</span><span class="st">&quot;Phi[p4]&quot;</span><span class="op">},</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>QGModel<span class="ot">-&gt;</span>qgModel<span class="op">,</span> QGLoopMomentum<span class="ot">-&gt;</span><span class="fu">l</span><span class="op">,</span>QGOptions<span class="ot">-&gt;</span><span class="op">{</span><span class="st">&quot;notadpole&quot;</span><span class="op">,</span><span class="st">&quot;onshell&quot;</span><span class="op">},</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>QGOutputDirectory<span class="ot">-&gt;</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span><span class="st">&quot;Database&quot;</span><span class="op">,</span><span class="st">&quot;PhiPhiToPhiPhiAt1L&quot;</span><span class="op">}]]</span>;</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>tikzStyles<span class="ex">=</span>QGTZFCreateFieldStyles<span class="op">[</span>qgModel<span class="op">,</span>qgOutput<span class="op">,</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>QGFieldStyles<span class="ot">-&gt;</span><span class="op">{{</span><span class="st">&quot;Phi&quot;</span><span class="op">,</span><span class="st">&quot;scalar&quot;</span><span class="op">,</span><span class="st">&quot;</span><span class="sc">\\</span><span class="st">phi&quot;</span><span class="op">}}]</span>;</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>QGTZFCreateTeXFiles<span class="op">[</span>qgOutput<span class="op">,</span><span class="fu">Split</span><span class="ot">-&gt;</span><span class="cn">True</span><span class="op">]</span>;</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>QGLoadInsertions<span class="op">[</span>qgInsertions<span class="op">]</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>amps<span class="ex">=</span>QGConvertToFC<span class="op">[</span>qgOutput<span class="op">,</span>DiracChainJoin<span class="ot">-&gt;</span><span class="cn">True</span><span class="op">,</span>QGInsertionRule<span class="ot">-&gt;</span><span class="op">{</span><span class="fu">FileBaseName</span><span class="op">[</span>qgInsertions<span class="op">]}]</span><span class="sc">//</span>SMPToSymbol;</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>amps</span></code></pre></div>
 </body>
 </html>
