@@ -8,26 +8,34 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="../css/feyncalc.css" />
-  <script src="../js/katex.min.js"></script>
+  <script defer="" src="../js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="../js/katex.min.css" />
 
@@ -36,93 +44,480 @@
 <header id="title-block-header">
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
-<p>FeynHelpers is a collection of interfaces that allow you to use other HEP-related tools from your <a href="https://feyncalc.github.io">FeynCalc</a> session.</p>
+<p>FeynHelpers is a collection of interfaces that allow you to use other
+HEP-related tools from your <a
+href="https://feyncalc.github.io">FeynCalc</a> session.</p>
 <h2 id="useful-information">Useful information</h2>
 <ul>
-<li><a href="Cite.html">How to cite this package and the related tools</a></li>
+<li><a href="Cite.html">How to cite this package and the related
+tools</a></li>
 <li><a href="Install.html">Installation instructions</a></li>
-<li><a href="TensorReductionWithFermat.html">Tensor reduction with Fermat</a></li>
-<li><a href="PSDUsageExamples.html">pySecDec usage examples</a> - a small tutorial on using the pySecDec interface</li>
+<li><a href="TensorReductionWithFermat.html">Tensor reduction with
+Fermat</a></li>
 </ul>
-<h2 id="generic-functions-and-symbols">Generic functions and symbols</h2>
+<h2 id="tutorials">Tutorials</h2>
 <ul>
-<li><a href="../FeynHelpersHowToCite.html">FeynHelpersHowToCite</a> - references to be cited when using FeynHelpers</li>
-<li><a href="../$FeynHelpersDirectory.html">$FeynHelpersDirectory</a>, <a href="../$FeynHelpersLastCommitDateHash.html">$FeynHelpersLastCommitDateHash</a>, <a href="../$FeynHelpersLoadInterfaces.html">$FeynHelpersLoadInterfaces</a>, <a href="../$FeynHelpersVersion.html">$FeynHelpersVersion</a> - global variables needed for the proper functioning of FeynHelpers</li>
+<li><a href="FiestaUsageExamples.html">FIESTA usage examples</a> - a
+small tutorial on using the FIESTA interface</li>
+<li><a href="PSDUsageExamples.html">pySecDec usage examples</a> - a
+small tutorial on using the pySecDec interface</li>
+<li><a href="QGRAFUsageExamples.html">QGRAF usage examples</a> - a small
+tutorial on using the QFRAF interface</li>
+</ul>
+<h2 id="generic-functions-and-symbols">Generic functions and
+symbols</h2>
+<ul>
+<li><a href="../FeynHelpersHowToCite.html">FeynHelpersHowToCite</a> -
+references to be cited when using FeynHelpers</li>
+<li><a href="../$FeynHelpersDirectory.html">$FeynHelpersDirectory</a>,
+<a
+href="../$FeynHelpersLastCommitDateHash.html">$FeynHelpersLastCommitDateHash</a>,
+<a
+href="../$FeynHelpersLoadInterfaces.html">$FeynHelpersLoadInterfaces</a>,
+<a href="../$FeynHelpersVersion.html">$FeynHelpersVersion</a> - global
+variables needed for the proper functioning of FeynHelpers</li>
 </ul>
 <h2 id="fermat-interface">Fermat interface</h2>
 <ul>
-<li><a href="../FerImportArrayAsSparseMatrix.html">FerImportArrayAsSparseMatrix</a> - converts Fermat arrays into Mathematica sparse arrays</li>
-<li><a href="../FerMatrixToFermatArray.html">FerMatrixToFermatArray</a> - converts matrices to Fermat arrays</li>
-<li><a href="../FerCommand.html">FerCommand</a> - templates for selected Fermat instruction</li>
-<li><a href="../FerRunScript.html">FerRunScript</a> - runs Fermat scripts</li>
-<li><a href="../FerRowReduce.html">FerRowReduce</a> - Fermat version of <code>RowReduce</code></li>
-<li><a href="../FerSolve.html">FerSolve</a> - Fermat version of <code>Solve</code></li>
-<li><a href="../FerInputFile.html">FerInputFile</a>, <a href="../FerOutputFile.html">FerOutputFile</a>, <a href="../FerPath.html">FerPath</a>, <a href="../FerScriptFile.html">FerScriptFile</a> - options of functions related to the Fermat interface</li>
+<li><a
+href="../FerImportArrayAsSparseMatrix.html">FerImportArrayAsSparseMatrix</a>
+- converts Fermat arrays into Mathematica sparse arrays</li>
+<li><a href="../FerMatrixToFermatArray.html">FerMatrixToFermatArray</a>
+- converts matrices to Fermat arrays</li>
+<li><a href="../FerCommand.html">FerCommand</a> - templates for selected
+Fermat instruction</li>
+<li><a href="../FerRunScript.html">FerRunScript</a> - runs Fermat
+scripts</li>
+<li><a href="../FerRowReduce.html">FerRowReduce</a> - Fermat version of
+<code>RowReduce</code></li>
+<li><a href="../FerSolve.html">FerSolve</a> - Fermat version of
+<code>Solve</code></li>
+<li><a href="../FerInputFile.html">FerInputFile</a>, <a
+href="../FerOutputFile.html">FerOutputFile</a>, <a
+href="../FerPath.html">FerPath</a>, <a
+href="../FerScriptFile.html">FerScriptFile</a> - options of functions
+related to the Fermat interface</li>
 </ul>
 <h2 id="package-x-interface">Package-X interface</h2>
 <ul>
-<li><a href="../PaXEvaluate.html">PaXEvaluate</a>, <a href="../PaXEvaluateUV.html">PaXEvaluateUV</a>, <a href="../PaXEvaluateIR.html">PaXEvaluateIR</a>, <a href="../PaXEvaluateUVIRSplit.html">PaXEvaluateUVIRSplit</a> - evaluates the given scalar 1-loop integral or Passarino-Veltman function analytically using Package-X</li>
-<li><a href="../PaXContinuedDiLog.html">PaXContinuedDiLog</a>, <a href="../PaXDiLog.html">PaXDiLog</a>, <a href="../PaXDiscB.html">PaXDiscB</a>, <a href="../PaXEpsilonBar.html">PaXEpsilonBar</a>, <a href="../PaXKallenLambda.html">PaXKallenLambda</a>, <a href="../PaXKibblePhi.html">PaXKibblePhi</a>, <a href="../PaXKibblePhi.html">PaXKibblePhi</a>, <a href="../PaXLn.html">PaXLn</a>, <a href="../PaXpvA.html">PaXpvA</a>, <a href="../PaXpvB.html">PaXpvB</a>, <a href="../PaXpvC.html">PaXpvC</a>, <a href="../PaXpvD.html">PaXpvD</a> - placeholders for certain Package-X symbols</li>
-<li><a href="../PaXAnalytic.html">PaXAnalytic</a>, <a href="../PaXC0Expand.html">PaXC0Expand</a>, <a href="../PaXD0Expand.html">PaXD0Expand</a>, <a href="../PaXDiscExpand.html">PaXDiscExpand</a>, <a href="../PaXExpandInEpsilon.html">PaXExpandInEpsilon</a>, <a href="../PaXImplicitPrefactor.html">PaXImplicitPrefactor</a>, <a href="../PaXKallenExpand.html">PaXKallenExpand</a>, <a href="../PaXKibbleExpand.html">PaXKibbleExpand</a>, <a href="../PaXLoopRefineOptions.html">PaXLoopRefineOptions</a>, <a href="../PaXSeries.html">PaXSeries</a>, <a href="../PaXSimplifyEpsilon.html">PaXSimplifyEpsilon</a>, <a href="../PaXSubstituteEpsilon.html">PaXSubstituteEpsilon</a> - options of functions related to the Package-X interface</li>
+<li><a href="../PaXEvaluate.html">PaXEvaluate</a>, <a
+href="../PaXEvaluateUV.html">PaXEvaluateUV</a>, <a
+href="../PaXEvaluateIR.html">PaXEvaluateIR</a>, <a
+href="../PaXEvaluateUVIRSplit.html">PaXEvaluateUVIRSplit</a> - evaluates
+the given scalar 1-loop integral or Passarino-Veltman function
+analytically using Package-X</li>
+<li><a href="../PaXContinuedDiLog.html">PaXContinuedDiLog</a>, <a
+href="../PaXDiLog.html">PaXDiLog</a>, <a
+href="../PaXDiscB.html">PaXDiscB</a>, <a
+href="../PaXEpsilonBar.html">PaXEpsilonBar</a>, <a
+href="../PaXKallenLambda.html">PaXKallenLambda</a>, <a
+href="../PaXKibblePhi.html">PaXKibblePhi</a>, <a
+href="../PaXKibblePhi.html">PaXKibblePhi</a>, <a
+href="../PaXLn.html">PaXLn</a>, <a href="../PaXpvA.html">PaXpvA</a>, <a
+href="../PaXpvB.html">PaXpvB</a>, <a href="../PaXpvC.html">PaXpvC</a>,
+<a href="../PaXpvD.html">PaXpvD</a> - placeholders for certain Package-X
+symbols</li>
+<li><a href="../PaXAnalytic.html">PaXAnalytic</a>, <a
+href="../PaXC0Expand.html">PaXC0Expand</a>, <a
+href="../PaXD0Expand.html">PaXD0Expand</a>, <a
+href="../PaXDiscExpand.html">PaXDiscExpand</a>, <a
+href="../PaXExpandInEpsilon.html">PaXExpandInEpsilon</a>, <a
+href="../PaXImplicitPrefactor.html">PaXImplicitPrefactor</a>, <a
+href="../PaXKallenExpand.html">PaXKallenExpand</a>, <a
+href="../PaXKibbleExpand.html">PaXKibbleExpand</a>, <a
+href="../PaXLoopRefineOptions.html">PaXLoopRefineOptions</a>, <a
+href="../PaXSeries.html">PaXSeries</a>, <a
+href="../PaXSimplifyEpsilon.html">PaXSimplifyEpsilon</a>, <a
+href="../PaXSubstituteEpsilon.html">PaXSubstituteEpsilon</a> - options
+of functions related to the Package-X interface</li>
+</ul>
+<h2 id="fiesta-interface">FIESTA interface</h2>
+<ul>
+<li><a
+href="../FSACreateMathematicaScripts.html">FSACreateMathematicaScripts</a>
+- creates Mathematica scripts for evaluating the given integral with
+FIESTA</li>
+<li><a href="../FSARunIntegration.html">FSARunIntegration</a> - runs
+Mathematica scripts created by the
+<code>FSACreateMatehmaticaScripts</code> routine</li>
+<li><a
+href="../FSALoadNumericalResults.html">FSALoadNumericalResults</a> -
+loads the numerical result from FIESTA</li>
+<li><a href="../FSAAdditionalPrefactor.html">FSAAdditionalPrefactor</a>,
+<a href="../FSAAnalyticIntegration.html">FSAAnalyticIntegration</a>, <a
+href="../FSAAnalyzeWorstPower.html">FSAAnalyzeWorstPower</a>, <a
+href="../FSAAssemblyIntegration.html">FSAAssemblyIntegration</a>, <a
+href="../FSAAsyLP.html">FSAAsyLP</a>, <a
+href="../FSABalanceMode.html">FSABalanceMode</a>, <a
+href="../FSABalancePower.html">FSABalancePower</a>, <a
+href="../FSABalanceSamplingPoints.html">FSABalanceSamplingPoints</a>, <a
+href="../FSABucketSize.html">FSABucketSize</a>, <a
+href="../FSAChunkSize.html">FSAChunkSize</a>, <a
+href="../FSACIntegratePath.html">FSACIntegratePath</a>, <a
+href="../FSAComplexMode.html">FSAComplexMode</a>, <a
+href="../FSAContourShiftCoefficient.html">FSAContourShiftCoefficient</a>,
+<a
+href="../FSAContourShiftIgnoreFail.html">FSAContourShiftIgnoreFail</a>,
+<a href="../FSAContourShiftShape.html">FSAContourShiftShape</a>, <a
+href="../FSACreateMathematicaScripts.html">FSACreateMathematicaScripts</a>,
+<a href="../FSAd0.html">FSAd0</a>, <a
+href="../FSADataPath.html">FSADataPath</a>, <a
+href="../FSADebugAllEntries.html">FSADebugAllEntries</a>, <a
+href="../FSADebugMemory.html">FSADebugMemory</a>, <a
+href="../FSADebugParallel.html">FSADebugParallel</a>, <a
+href="../FSADebugSector.html">FSADebugSector</a>, <a
+href="../FSAEpVarNegativeTermsHandling.html">FSAEpVarNegativeTermsHandling</a>,
+<a href="../FSAExactIntegrationOrder.html">FSAExactIntegrationOrder</a>,
+<a
+href="../FSAExactIntegrationTimeout.html">FSAExactIntegrationTimeout</a>,
+<a href="../FSAExpandResult.html">FSAExpandResult</a>, <a
+href="../FSAExpandVar.html">FSAExpandVar</a>, <a
+href="../FSAFixedContourShift.html">FSAFixedContourShift</a>, <a
+href="../FSAFixSectors.html">FSAFixSectors</a>, <a
+href="../FSAGPUIntegration.html">FSAGPUIntegration</a>, <a
+href="../FSAGraph.html">FSAGraph</a>, <a
+href="../FSAIntegrator.html">FSAIntegrator</a>, <a
+href="../FSAIntegratorOptions.html">FSAIntegratorOptions</a>, <a
+href="../FSALambdaIterations.html">FSALambdaIterations</a>, <a
+href="../FSALambdaSplit.html">FSALambdaSplit</a>, <a
+href="../FSAMathematicaBinary.html">FSAMathematicaBinary</a>, <a
+href="../FSAMathematicaKernelPath.html">FSAMathematicaKernelPath</a>, <a
+href="../FSAMinimizeContourTransformation.html">FSAMinimizeContourTransformation</a>,
+<a href="../FSAMixSectors.html">FSAMixSectors</a>, <a
+href="../FSAMPMin.html">FSAMPMin</a>, <a
+href="../FSAMPPrecisionShift.html">FSAMPPrecisionShift</a>, <a
+href="../FSAMPSmallX.html">FSAMPSmallX</a>, <a
+href="../FSAMPThreshold.html">FSAMPThreshold</a>, <a
+href="../FSANoAVX.html">FSANoAVX</a>, <a
+href="../FSANoDatabaseLock.html">FSANoDatabaseLock</a>, <a
+href="../FSANumberOfLinks.html">FSANumberOfLinks</a>, <a
+href="../FSANumberOfSubkernels.html">FSANumberOfSubkernels</a>, <a
+href="../FSAOnlyPrepare.html">FSAOnlyPrepare</a>, <a
+href="../FSAOnlyPrepareRegions.html">FSAOnlyPrepareRegions</a>, <a
+href="../FSAOptimizeIntegrationStrings.html">FSAOptimizeIntegrationStrings</a>,
+<a href="../FSAOrderInEps.html">FSAOrderInEps</a>, <a
+href="../FSAParameterRules.html">FSAParameterRules</a>, <a
+href="../FSAPath.html">FSAPath</a>, <a
+href="../FSAPMVar.html">FSAPMVar</a>, <a
+href="../FSAPolesMultiplicity.html">FSAPolesMultiplicity</a>, <a
+href="../FSAPrecision.html">FSAPrecision</a>, <a
+href="../FSAPrimarySectorCoefficients.html">FSAPrimarySectorCoefficients</a>,
+<a href="../FSAQHullPath.html">FSAQHullPath</a>, <a
+href="../FSARegionNumber.html">FSARegionNumber</a>, <a
+href="../FSARegVar.html">FSARegVar</a>, <a
+href="../FSARemoveDatabases.html">FSARemoveDatabases</a>, <a
+href="../FSAResolutionMode.html">FSAResolutionMode</a>, <a
+href="../FSAReturnErrorWithBrackets.html">FSAReturnErrorWithBrackets</a>,
+<a href="../FSAScriptFileName.html">FSAScriptFileName</a>, <a
+href="../FSASDExpandAsy.html">FSASDExpandAsy</a>, <a
+href="../FSASDExpandAsyOrder.html">FSASDExpandAsyOrder</a>, <a
+href="../FSASectorSplitting.html">FSASectorSplitting</a>, <a
+href="../FSASectorSymmetries.html">FSASectorSymmetries</a>, <a
+href="../FSASeparateTerms.html">FSASeparateTerms</a>, <a
+href="../FSAShowOutput.html">FSAShowOutput</a>, <a
+href="../FSAStrategy.html">FSAStrategy</a>, <a
+href="../FSAUsingC.html">FSAUsingC</a>, <a
+href="../FSAXVar.html">FSAXVar</a>, <a
+href="../FSAZeroCheckCount.html">FSAZeroCheckCount</a> - options of
+functions related to the FIESTA interface</li>
 </ul>
 <h2 id="c-fire-interface">C++ FIRE interface</h2>
 <ul>
-<li><a href="../FIRECreateConfigFile.html">FIRECreateConfigFile</a> - creates the FIRE .config file</li>
-<li><a href="../FIRECreateIntegralFile.html">FIRECreateIntegralFile</a> - creates list of integrals that need to be reduced</li>
-<li><a href="../FIRECreateStartFile.html">FIRECreateStartFile</a> - runs Mathematica scripts that creates the relevant FIRE .start file</li>
-<li><a href="../FIREImportResults.html">FIREImportResults</a> - converts reduction results from .table files to <code>GLI</code>s</li>
-<li><a href="../FIREPrepareStartFile.html">FIREPrepareStartFile</a> - prepares a Mathematica script that generates the relevant FIRE .start file</li>
-<li><a href="../FIRERunReduction.html">FIRERunReduction</a> - starts reduction using C++ FIRE from the current notebook</li>
-<li><a href="../FIREToFCTopology.html">FIREToFCTopology</a> - converts the given FIRE topology to <code>FCTopology</code></li>
-<li><a href="../FIREBinaryPath.html">FIREBinaryPath</a>, <a href="../FIREBucket.html">FIREBucket</a>, <a href="../FIRECompressor.html">FIRECompressor</a>, <a href="../FIREFthreads.html">FIREFthreads</a>, <a href="../FIREIntegrals.html">FIREIntegrals</a>, <a href="../FIRELthreads.html">FIRELthreads</a>, <a href="../FIREMathematicaKernelPath.html">FIREMathematicaKernelPath</a>, <a href="../FIREPosPref.html">FIREPosPref</a>, <a href="../FIREShowOutput.html">FIREShowOutput</a>, <a href="../FIRESthreads.html">FIRESthreads</a>, <a href="../FIREThreads.html">FIREThreads</a> - options of functions related to the C++ FIRE interface</li>
+<li><a href="../FIRECreateConfigFile.html">FIRECreateConfigFile</a> -
+creates the FIRE .config file</li>
+<li><a href="../FIRECreateIntegralFile.html">FIRECreateIntegralFile</a>
+- creates list of integrals that need to be reduced</li>
+<li><a href="../FIRECreateLiteRedFiles.html">FIRECreateLiteRedFiles</a>
+- runs Mathematica scripts that creates the relevant lbases file</li>
+<li><a href="../FIRECreateStartFile.html">FIRECreateStartFile</a> - runs
+Mathematica scripts that creates the relevant FIRE .start file</li>
+<li><a href="../FIREImportResults.html">FIREImportResults</a> - converts
+reduction results from .table files to <code>GLI</code>s</li>
+<li><a href="../FIREPrepareStartFile.html">FIREPrepareStartFile</a> -
+prepares a Mathematica script that generates the relevant FIRE .start
+file</li>
+<li><a href="../FIRERunReduction.html">FIRERunReduction</a> - starts
+reduction using C++ FIRE from the current notebook</li>
+<li><a href="../FIREToFCTopology.html">FIREToFCTopology</a> - converts
+the given FIRE topology to <code>FCTopology</code></li>
+<li><a
+href="../FIREAutoDetectRestrictions.html">FIREAutoDetectRestrictions</a>,
+<a href="../FIREBinaryPath.html">FIREBinaryPath</a>, <a
+href="../FIREBucket.html">FIREBucket</a>, <a
+href="../FIRECompressor.html">FIRECompressor</a>, <a
+href="../FIREDatabase.html">FIREDatabase</a>, <a
+href="../FIREFthreads.html">FIREFthreads</a>, <a
+href="../FIREIntegrals.html">FIREIntegrals</a>, <a
+href="../FIRELI.html">FIRELI</a>,, <a
+href="../FIRELthreads.html">FIRELthreads</a>, <a
+href="../FIREMathematicaKernelPath.html">FIREMathematicaKernelPath</a>,
+<a href="../FIREParallel.html">FIREParallel</a>, <a
+href="../FIREProblemId.html">FIREProblemId</a>, <a
+href="../FIREPosPref.html">FIREPosPref</a>, <a
+href="../FIREShowOutput.html">FIREShowOutput</a>, <a
+href="../FIRESthreads.html">FIRESthreads</a>, <a
+href="../FIREThreads.html">FIREThreads</a>, <a
+href="../FIREUseLiteRed.html">FIREUseLiteRed</a> - options of functions
+related to the C++ FIRE interface</li>
 </ul>
 <h2 id="mathematica-fire-interface">Mathematica FIRE interface</h2>
 <ul>
-<li><a href="../FIREBurn.html">FIREBurn</a> - reduced the given integral using Mathematica version of FIRE</li>
-<li><a href="../FIREAddPropagators.html">FIREAddPropagators</a>, <a href="../FIREConfigFiles.html">FIREConfigFiles</a>, <a href="../FIREPath.html">FIREPath</a>, <a href="../FIRERun.html">FIRERun</a>, <a href="../FIRESilentMode.html">FIRESilentMode</a>, <a href="../FIREStartFile.html">FIREStartFile</a>, <a href="../FIREUsingFermat.html">FIREUsingFermat</a> - options of functions related to the Mathematica FIRE interface</li>
+<li><a href="../FIREBurn.html">FIREBurn</a> - reduced the given integral
+using Mathematica version of FIRE</li>
+<li><a href="../FIREAddPropagators.html">FIREAddPropagators</a>, <a
+href="../FIREConfigFiles.html">FIREConfigFiles</a>, <a
+href="../FIREPath.html">FIREPath</a>, <a
+href="../FIRERun.html">FIRERun</a>, <a
+href="../FIRESilentMode.html">FIRESilentMode</a>, <a
+href="../FIREStartFile.html">FIREStartFile</a>, <a
+href="../FIREUsingFermat.html">FIREUsingFermat</a> - options of
+functions related to the Mathematica FIRE interface</li>
 </ul>
 <h2 id="kira-interface">Kira interface</h2>
 <ul>
-<li><a href="../KiraCreateConfigFiles.html">KiraCreateConfigFiles</a> - creates configuration files for the reduction</li>
-<li><a href="../KiraCreateIntegralFile.html">KiraCreateIntegralFile</a> - creates list of integrals that need to be reduced</li>
-<li><a href="../KiraCreateJobFile.html">KiraCreateJobFile</a> - creates the job file to rund the redution</li>
-<li><a href="../KiraGetRS.html">KiraGetRS</a> - extracts the <span class="math inline">r</span> and <span class="math inline">s</span> parameters in the Kira/Reduze syntax</li>
-<li><a href="../KiraImportResults.html">KiraImportResults</a> - converts reduction results to <code>GLI</code>s</li>
-<li><a href="../KiraLabelSector.html">KiraLabelSector</a> - labels sectors using the Reduze notation</li>
-<li><a href="../KiraRunReduction.html">KiraRunReduction</a> - starts reduction using Kira from the current notebook</li>
-<li><a href="../KiraBinaryPath.html">KiraBinaryPath</a>, <a href="../KiraFermatPath.html">KiraFermatPath</a>, <a href="../KiraImplicitIncomingMomenta.html">KiraImplicitIncomingMomenta</a>, <a href="../KiraIntegrals.html">KiraIntegrals</a>, <a href="../KiraJobFileName.html">KiraJobFileName</a>, <a href="../KiraMassDimensions.html">KiraMassDimensions</a>, <a href="../KiraShowOutput.html">KiraShowOutput</a> - options of functions related to the KIRA interface</li>
+<li><a href="../KiraCreateConfigFiles.html">KiraCreateConfigFiles</a> -
+creates configuration files for the reduction</li>
+<li><a href="../KiraCreateIntegralFile.html">KiraCreateIntegralFile</a>
+- creates list of integrals that need to be reduced</li>
+<li><a href="../KiraCreateJobFile.html">KiraCreateJobFile</a> - creates
+the job file to rund the redution</li>
+<li><a href="../KiraGetRS.html">KiraGetRS</a> - extracts the <span
+class="math inline">r</span> and <span class="math inline">s</span>
+parameters in the Kira/Reduze syntax</li>
+<li><a href="../KiraImportResults.html">KiraImportResults</a> - converts
+reduction results to <code>GLI</code>s</li>
+<li><a href="../KiraLabelSector.html">KiraLabelSector</a> - labels
+sectors using the Reduze notation</li>
+<li><a href="../KiraRunReduction.html">KiraRunReduction</a> - starts
+reduction using Kira from the current notebook</li>
+<li><a href="../KiraBinaryPath.html">KiraBinaryPath</a>, <a
+href="../KiraFermatPath.html">KiraFermatPath</a>, <a
+href="../KiraIncomingMomenta.html">KiraIncomingMomenta</a>, <a
+href="../KiraIntegrals.html">KiraIntegrals</a>, <a
+href="../KiraJobFileName.html">KiraJobFileName</a>, <a
+href="../KiraMassDimensions.html">KiraMassDimensions</a>, <a
+href="../KiraMomentumConservation.html">KiraMomentumConservation</a>, <a
+href="../KiraOutgoingMomenta.html">KiraOutgoingMomenta</a>, <a
+href="../KiraShowOutput.html">KiraShowOutput</a> - options of functions
+related to the KIRA interface</li>
 </ul>
 <h2 id="looptools-interface">LoopTools interface</h2>
 <ul>
-<li><a href="../LToolsEvaluate.html">LToolsEvaluate</a> - evaluates Passarino-Veltman functions numerically using LoopTools</li>
-<li><a href="../LToolsLoadLibrary.html">LToolsLoadLibrary</a> - loads the LoopTools library</li>
-<li><a href="../LToolsUnLoadLibrary.html">LToolsUnLoadLibrary</a> - unloads the LoopTools library</li>
-<li><a href="../LToolsExpandInEpsilon.html">LToolsExpandInEpsilon</a>, <a href="../LToolsFullResult.html">LToolsFullResult</a>, <a href="../LToolsImplicitPrefactor.html">LToolsImplicitPrefactor</a>, <a href="../LToolsSetLambda.html">LToolsSetLambda</a>, <a href="../LToolsSetMudim.html">LToolsSetMudim</a>, <a href="../LToolsPath.html">LToolsPath</a> - options of functions related to the LoopTools interface</li>
-<li><a href="../LToolsA0.html">LToolsA0</a>, <a href="../LToolsA00.html">LToolsA00</a>, <a href="../LToolsA0i.html">LToolsA0i</a>, <a href="../LToolsB0.html">LToolsB0</a>, <a href="../LToolsB00.html">LToolsB00</a>, <a href="../LToolsB0i.html">LToolsB0i</a>, <a href="../LToolsB1.html">LToolsB1</a>, <a href="../LToolsB001.html">LToolsB001</a>, <a href="../LToolsB11.html">LToolsB11</a>, <a href="../LToolsB111.html">LToolsB111</a>, <a href="../LToolsC0.html">LToolsC0</a>, <a href="../LToolsC0i.html">LToolsC0i</a>, <a href="../LToolsClearCache.html">LToolsClearCache</a>, <a href="../LToolsD0.html">LToolsD0</a>, <a href="../LToolsD0i.html">LToolsD0i</a>, <a href="../LToolsDB0.html">LToolsDB0</a>, <a href="../LToolsDB00.html">LToolsDB00</a>, <a href="../LToolsDB1.html">LToolsDB1</a>, <a href="../LToolsDB11.html">LToolsDB11</a>, <a href="../LToolsDebugA.html">LToolsDebugA</a>, <a href="../LToolsDebugAll.html">LToolsDebugAll</a>, <a href="../LToolsDebugB.html">LToolsDebugB</a>, <a href="../LToolsDebugC.html">LToolsDebugC</a>, <a href="../LToolsDebugD.html">LToolsDebugD</a>, <a href="../LToolsDebugE.html">LToolsDebugE</a>, <a href="../LToolsDR1eps.html">LToolsDR1eps</a>, <a href="../LToolsDRResult.html">LToolsDRResult</a>, <a href="../LToolsE0.html">LToolsE0</a>, <a href="../LToolsE0i.html">LToolsE0i</a>, <a href="../LToolsGetCmpBits.html">LToolsGetCmpBits</a>, <a href="../LToolsGetDebugKey.html">LToolsGetDebugKey</a>, <a href="../LToolsGetDelta.html">LToolsGetDelta</a>, <a href="../LToolsGetDiffEps.html">LToolsGetDiffEps</a>, <a href="../LToolsGetErrDigits.html">LToolsGetErrDigits</a>, <a href="../LToolsGetLambda.html">LToolsGetLambda</a>, <a href="../LToolsGetMaxDev.html">LToolsGetMaxDev</a>, <a href="../LToolsGetMinMass.html">LToolsGetMinMass</a>, <a href="../LToolsGetMudim.html">LToolsGetMudim</a>, <a href="../LToolsGetUVDiv.html">LToolsGetUVDiv</a>, <a href="../LToolsGetVersionKey.html">LToolsGetVersionKey</a>, <a href="../LToolsGetWarnDigits.html">LToolsGetWarnDigits</a>, <a href="../LToolsGetZeroEps.html">LToolsGetZeroEps</a>, <a href="../LToolsKeyA0.html">LToolsKeyA0</a>, <a href="../LToolsKeyAll.html">LToolsKeyAll</a>, <a href="../LToolsKeyBget.html">LToolsKeyBget</a>, <a href="../LToolsKeyC0.html">LToolsKeyC0</a>, <a href="../LToolsKeyCEget.html">LToolsKeyCEget</a>, <a href="../LToolsKeyD0.html">LToolsKeyD0</a>, <a href="../LToolsKeyE0.html">LToolsKeyE0</a>, <a href="../LToolsKeyEget.html">LToolsKeyEget</a>, <a href="../LToolsLi2.html">LToolsLi2</a>, <a href="../LToolsLi2omx.html">LToolsLi2omx</a>, <a href="../LToolsMarkCache.html">LToolsMarkCache</a>, <a href="../LToolsPaVe.html">LToolsPaVe</a>, <a href="../LToolsRestoreCache.html">LToolsRestoreCache</a>, <a href="../LToolsSetCmpBits.html">LToolsSetCmpBits</a>, <a href="../LToolsSetDebugKey.html">LToolsSetDebugKey</a>, <a href="../LToolsSetDebugRange.html">LToolsSetDebugRange</a>, <a href="../LToolsSetDelta.html">LToolsSetDelta</a>, <a href="../LToolsSetDiffEps.html">LToolsSetDiffEps</a>, <a href="../LToolsSetErrDigits.html">LToolsSetErrDigits</a>, <a href="../LToolsSetMaxDev.html">LToolsSetMaxDev</a>, <a href="../LToolsSetMinMass.html">LToolsSetMinMass</a>, <a href="../LToolsSetUVDiv.html">LToolsSetUVDiv</a>, <a href="../LToolsSetVersionKey.html">LToolsSetVersionKey</a>, <a href="../LToolsSetWarnDigits.html">LToolsSetWarnDigits</a> - placeholders for certain LoopTools symbols</li>
-<li><a href="../$LTools.html">$LTools</a> - global variables needed for the proper functioning of the interface</li>
+<li><a href="../LToolsEvaluate.html">LToolsEvaluate</a> - evaluates
+Passarino-Veltman functions numerically using LoopTools</li>
+<li><a href="../LToolsLoadLibrary.html">LToolsLoadLibrary</a> - loads
+the LoopTools library</li>
+<li><a href="../LToolsUnLoadLibrary.html">LToolsUnLoadLibrary</a> -
+unloads the LoopTools library</li>
+<li><a href="../LToolsExpandInEpsilon.html">LToolsExpandInEpsilon</a>,
+<a href="../LToolsFullResult.html">LToolsFullResult</a>, <a
+href="../LToolsImplicitPrefactor.html">LToolsImplicitPrefactor</a>, <a
+href="../LToolsSetLambda.html">LToolsSetLambda</a>, <a
+href="../LToolsSetMudim.html">LToolsSetMudim</a>, <a
+href="../LToolsPath.html">LToolsPath</a> - options of functions related
+to the LoopTools interface</li>
+<li><a href="../LToolsA0.html">LToolsA0</a>, <a
+href="../LToolsA00.html">LToolsA00</a>, <a
+href="../LToolsA0i.html">LToolsA0i</a>, <a
+href="../LToolsB0.html">LToolsB0</a>, <a
+href="../LToolsB00.html">LToolsB00</a>, <a
+href="../LToolsB0i.html">LToolsB0i</a>, <a
+href="../LToolsB1.html">LToolsB1</a>, <a
+href="../LToolsB001.html">LToolsB001</a>, <a
+href="../LToolsB11.html">LToolsB11</a>, <a
+href="../LToolsB111.html">LToolsB111</a>, <a
+href="../LToolsC0.html">LToolsC0</a>, <a
+href="../LToolsC0i.html">LToolsC0i</a>, <a
+href="../LToolsClearCache.html">LToolsClearCache</a>, <a
+href="../LToolsD0.html">LToolsD0</a>, <a
+href="../LToolsD0i.html">LToolsD0i</a>, <a
+href="../LToolsDB0.html">LToolsDB0</a>, <a
+href="../LToolsDB00.html">LToolsDB00</a>, <a
+href="../LToolsDB1.html">LToolsDB1</a>, <a
+href="../LToolsDB11.html">LToolsDB11</a>, <a
+href="../LToolsDebugA.html">LToolsDebugA</a>, <a
+href="../LToolsDebugAll.html">LToolsDebugAll</a>, <a
+href="../LToolsDebugB.html">LToolsDebugB</a>, <a
+href="../LToolsDebugC.html">LToolsDebugC</a>, <a
+href="../LToolsDebugD.html">LToolsDebugD</a>, <a
+href="../LToolsDebugE.html">LToolsDebugE</a>, <a
+href="../LToolsDR1eps.html">LToolsDR1eps</a>, <a
+href="../LToolsDRResult.html">LToolsDRResult</a>, <a
+href="../LToolsE0.html">LToolsE0</a>, <a
+href="../LToolsE0i.html">LToolsE0i</a>, <a
+href="../LToolsGetCmpBits.html">LToolsGetCmpBits</a>, <a
+href="../LToolsGetDebugKey.html">LToolsGetDebugKey</a>, <a
+href="../LToolsGetDelta.html">LToolsGetDelta</a>, <a
+href="../LToolsGetDiffEps.html">LToolsGetDiffEps</a>, <a
+href="../LToolsGetErrDigits.html">LToolsGetErrDigits</a>, <a
+href="../LToolsGetLambda.html">LToolsGetLambda</a>, <a
+href="../LToolsGetMaxDev.html">LToolsGetMaxDev</a>, <a
+href="../LToolsGetMinMass.html">LToolsGetMinMass</a>, <a
+href="../LToolsGetMudim.html">LToolsGetMudim</a>, <a
+href="../LToolsGetUVDiv.html">LToolsGetUVDiv</a>, <a
+href="../LToolsGetVersionKey.html">LToolsGetVersionKey</a>, <a
+href="../LToolsGetWarnDigits.html">LToolsGetWarnDigits</a>, <a
+href="../LToolsGetZeroEps.html">LToolsGetZeroEps</a>, <a
+href="../LToolsKeyA0.html">LToolsKeyA0</a>, <a
+href="../LToolsKeyAll.html">LToolsKeyAll</a>, <a
+href="../LToolsKeyBget.html">LToolsKeyBget</a>, <a
+href="../LToolsKeyC0.html">LToolsKeyC0</a>, <a
+href="../LToolsKeyCEget.html">LToolsKeyCEget</a>, <a
+href="../LToolsKeyD0.html">LToolsKeyD0</a>, <a
+href="../LToolsKeyE0.html">LToolsKeyE0</a>, <a
+href="../LToolsKeyEget.html">LToolsKeyEget</a>, <a
+href="../LToolsLi2.html">LToolsLi2</a>, <a
+href="../LToolsLi2omx.html">LToolsLi2omx</a>, <a
+href="../LToolsMarkCache.html">LToolsMarkCache</a>, <a
+href="../LToolsPaVe.html">LToolsPaVe</a>, <a
+href="../LToolsRestoreCache.html">LToolsRestoreCache</a>, <a
+href="../LToolsSetCmpBits.html">LToolsSetCmpBits</a>, <a
+href="../LToolsSetDebugKey.html">LToolsSetDebugKey</a>, <a
+href="../LToolsSetDebugRange.html">LToolsSetDebugRange</a>, <a
+href="../LToolsSetDelta.html">LToolsSetDelta</a>, <a
+href="../LToolsSetDiffEps.html">LToolsSetDiffEps</a>, <a
+href="../LToolsSetErrDigits.html">LToolsSetErrDigits</a>, <a
+href="../LToolsSetMaxDev.html">LToolsSetMaxDev</a>, <a
+href="../LToolsSetMinMass.html">LToolsSetMinMass</a>, <a
+href="../LToolsSetUVDiv.html">LToolsSetUVDiv</a>, <a
+href="../LToolsSetVersionKey.html">LToolsSetVersionKey</a>, <a
+href="../LToolsSetWarnDigits.html">LToolsSetWarnDigits</a> -
+placeholders for certain LoopTools symbols</li>
+<li><a href="../$LTools.html">$LTools</a> - global variables needed for
+the proper functioning of the interface</li>
 </ul>
 <h2 id="pysecdec-interface">pySecDec interface</h2>
 <ul>
-<li><a href="../PSDCreatePythonScripts.html">PSDCreatePythonScripts</a> - creates Python scripts for evaluating the given integral with pySecDec</li>
-<li><a href="../PSDIntegrate.html">PSDIntegrate</a> - creates input for pySecDec’s numerical integration routines</li>
-<li><a href="../PSDLoopIntegralFromPropagators.html">PSDLoopIntegralFromPropagators</a> - converts the given loop integral into input for pySecDec’s <code>LoopIntegralFromPropagators</code></li>
-<li><a href="../PSDLoadNumericalResults.html">PSDLoadNumericalResults</a> - loads the numerical result from pySecDec</li>
-<li><a href="../PSDLoopPackage.html">PSDLoopPackage</a> - creates input for pySecDec’s <code>loop_package</code></li>
-<li><a href="../PSDLoopRegions.html">PSDLoopRegions</a> - creates input for pySecDec’s <code>loop_regions</code></li>
-<li><a href="../PSDSumPackage.html">PSDSumPackage</a> - creates input for pySecDec’s <code>sum_package</code></li>
-<li><a href="../PSDAdditionalPrefactor.html">PSDAdditionalPrefactor</a>, <a href="../PSDAddMonomialRegulatorPower.html">PSDAddMonomialRegulatorPower</a>, <a href="../PSDCoefficients.html">PSDCoefficients</a>, <a href="../PSDComplexParameterRules.html">PSDComplexParameterRules</a>, <a href="../PSDComplexParameters.html">PSDComplexParameters</a>, <a href="../PSDComplexParameterValues.html">PSDComplexParameterValues</a>, <a href="../PSDContourDeformation.html">PSDContourDeformation</a>, <a href="../PSDCPUThreads.html">PSDCPUThreads</a>, <a href="../PSDDecompositionMethod.html">PSDDecompositionMethod</a>, <a href="../PSDDecreaseToPercentage.html">PSDDecreaseToPercentage</a>, <a href="../PSDDeformationParametersDecreaseFactor.html">PSDDeformationParametersDecreaseFactor</a>, <a href="../PSDDeformationParametersMaximum.html">PSDDeformationParametersMaximum</a>, <a href="../PSDDeformationParametersMinimum.html">PSDDeformationParametersMinimum</a>, <a href="../PSDEnforceComplex.html">PSDEnforceComplex</a>, <a href="../PSDEpsAbs.html">PSDEpsAbs</a>, <a href="../PSDEpsRel.html">PSDEpsRel</a>, <a href="../PSDErrorMode.html">PSDErrorMode</a>, <a href="../PSDErrorModeQmc.html">PSDErrorModeQmc</a>, <a href="../PSDEvaluateMinn.html">PSDEvaluateMinn</a>, <a href="../PSDExpansionByRegionsOrder.html">PSDExpansionByRegionsOrder</a>, <a href="../PSDExpansionByRegionsParameter.html">PSDExpansionByRegionsParameter</a>, <a href="../PSDFitFunction.html">PSDFitFunction</a>, <a href="../PSDFlags.html">PSDFlags</a>, <a href="../PSDFormExecutable.html">PSDFormExecutable</a>, <a href="../PSDFormMemoryUse.html">PSDFormMemoryUse</a>, <a href="../PSDFormOptimizationLevel.html">PSDFormOptimizationLevel</a>, <a href="../PSDFormThreads.html">PSDFormThreads</a>, <a href="../PSDFormWorkSpace.html">PSDFormWorkSpace</a>, <a href="../PSDGenerateFileName.html">PSDGenerateFileName</a>, <a href="../PSDGeneratingVectors.html">PSDGeneratingVectors</a>, <a href="../PSDIntegrateFileName.html">PSDIntegrateFileName</a>, <a href="../PSDIntegrator.html">PSDIntegrator</a>, <a href="../PSDLoopIntegralName.html">PSDLoopIntegralName</a>, <a href="../PSDMaxEpsAbs.html">PSDMaxEpsAbs</a>, <a href="../PSDMaxEpsRel.html">PSDMaxEpsRel</a>, <a href="../PSDMaxEval.html">PSDMaxEval</a>, <a href="../PSDMaxIncreaseFac.html">PSDMaxIncreaseFac</a>, <a href="../PSDMinDecreaseFactor.html">PSDMinDecreaseFactor</a>, <a href="../PSDMinEpsAbs.html">PSDMinEpsAbs</a>, <a href="../PSDMinEpsRel.html">PSDMinEpsRel</a>, <a href="../PSDMinEval.html">PSDMinEval</a>, <a href="../PSDMinm.html">PSDMinm</a>, <a href="../PSDMinn.html">PSDMinn</a>, <a href="../PSDNormalizExecutable.html">PSDNormalizExecutable</a>, <a href="../PSDNumberOfPresamples.html">PSDNumberOfPresamples</a>, <a href="../PSDNumberOfThreads.html">PSDNumberOfThreads</a>, <a href="../PSDOutputDirectory.html">PSDOutputDirectory</a>, <a href="../PSDOverwritePackageDirectory.html">PSDOverwritePackageDirectory</a>, <a href="../PSDPyLinkQMCTransforms.html">PSDPyLinkQMCTransforms</a>, <a href="../PSDRealParameterRules.html">PSDRealParameterRules</a>, <a href="../PSDRealParameters.html">PSDRealParameters</a>, <a href="../PSDRealParameterValues.html">PSDRealParameterValues</a>, <a href="../PSDRegulators.html">PSDRegulators</a>, <a href="../PSDRequestedOrder.html">PSDRequestedOrder</a>, <a href="../PSDResetCudaAfter.html">PSDResetCudaAfter</a>, <a href="../PSDSplit.html">PSDSplit</a>, <a href="../PSDTransform.html">PSDTransform</a>, <a href="../PSDVerbose.html">PSDVerbose</a>, <a href="../PSDVerbosity.html">PSDVerbosity</a> - options of functions related to the pySecDec interface</li>
+<li><a href="../PSDCreatePythonScripts.html">PSDCreatePythonScripts</a>
+- creates Python scripts for evaluating the given integral with
+pySecDec</li>
+<li><a href="../PSDIntegrate.html">PSDIntegrate</a> - creates input for
+pySecDec’s numerical integration routines</li>
+<li><a
+href="../PSDLoopIntegralFromPropagators.html">PSDLoopIntegralFromPropagators</a>
+- converts the given loop integral into input for pySecDec’s
+<code>LoopIntegralFromPropagators</code></li>
+<li><a
+href="../PSDLoadNumericalResults.html">PSDLoadNumericalResults</a> -
+loads the numerical result from pySecDec</li>
+<li><a href="../PSDLoopPackage.html">PSDLoopPackage</a> - creates input
+for pySecDec’s <code>loop_package</code></li>
+<li><a href="../PSDLoopRegions.html">PSDLoopRegions</a> - creates input
+for pySecDec’s <code>loop_regions</code></li>
+<li><a href="../PSDSumPackage.html">PSDSumPackage</a> - creates input
+for pySecDec’s <code>sum_package</code></li>
+<li><a href="../PSDAdditionalPrefactor.html">PSDAdditionalPrefactor</a>,
+<a
+href="../PSDAddMonomialRegulatorPower.html">PSDAddMonomialRegulatorPower</a>,
+<a href="../PSDCoefficients.html">PSDCoefficients</a>, <a
+href="../PSDComplexParameterRules.html">PSDComplexParameterRules</a>, <a
+href="../PSDComplexParameters.html">PSDComplexParameters</a>, <a
+href="../PSDComplexParameterValues.html">PSDComplexParameterValues</a>,
+<a href="../PSDContourDeformation.html">PSDContourDeformation</a>, <a
+href="../PSDCPUThreads.html">PSDCPUThreads</a>, <a
+href="../PSDDecompositionMethod.html">PSDDecompositionMethod</a>, <a
+href="../PSDDecreaseToPercentage.html">PSDDecreaseToPercentage</a>, <a
+href="../PSDDeformationParametersDecreaseFactor.html">PSDDeformationParametersDecreaseFactor</a>,
+<a
+href="../PSDDeformationParametersMaximum.html">PSDDeformationParametersMaximum</a>,
+<a
+href="../PSDDeformationParametersMinimum.html">PSDDeformationParametersMinimum</a>,
+<a href="../PSDEnforceComplex.html">PSDEnforceComplex</a>, <a
+href="../PSDEpsAbs.html">PSDEpsAbs</a>, <a
+href="../PSDEpsRel.html">PSDEpsRel</a>, <a
+href="../PSDErrorMode.html">PSDErrorMode</a>, <a
+href="../PSDErrorModeQmc.html">PSDErrorModeQmc</a>, <a
+href="../PSDEvaluateMinn.html">PSDEvaluateMinn</a>, <a
+href="../PSDExpansionByRegionsOrder.html">PSDExpansionByRegionsOrder</a>,
+<a
+href="../PSDExpansionByRegionsParameter.html">PSDExpansionByRegionsParameter</a>,
+<a href="../PSDFitFunction.html">PSDFitFunction</a>, <a
+href="../PSDFlags.html">PSDFlags</a>, <a
+href="../PSDFormExecutable.html">PSDFormExecutable</a>, <a
+href="../PSDFormMemoryUse.html">PSDFormMemoryUse</a>, <a
+href="../PSDFormOptimizationLevel.html">PSDFormOptimizationLevel</a>, <a
+href="../PSDFormThreads.html">PSDFormThreads</a>, <a
+href="../PSDFormWorkSpace.html">PSDFormWorkSpace</a>, <a
+href="../PSDGenerateFileName.html">PSDGenerateFileName</a>, <a
+href="../PSDGeneratingVectors.html">PSDGeneratingVectors</a>, <a
+href="../PSDIntegrateFileName.html">PSDIntegrateFileName</a>, <a
+href="../PSDIntegrator.html">PSDIntegrator</a>, <a
+href="../PSDLoopIntegralName.html">PSDLoopIntegralName</a>, <a
+href="../PSDMaxEpsAbs.html">PSDMaxEpsAbs</a>, <a
+href="../PSDMaxEpsRel.html">PSDMaxEpsRel</a>, <a
+href="../PSDMaxEval.html">PSDMaxEval</a>, <a
+href="../PSDMaxIncreaseFac.html">PSDMaxIncreaseFac</a>, <a
+href="../PSDMinDecreaseFactor.html">PSDMinDecreaseFactor</a>, <a
+href="../PSDMinEpsAbs.html">PSDMinEpsAbs</a>, <a
+href="../PSDMinEpsRel.html">PSDMinEpsRel</a>, <a
+href="../PSDMinEval.html">PSDMinEval</a>, <a
+href="../PSDMinm.html">PSDMinm</a>, <a
+href="../PSDMinn.html">PSDMinn</a>, <a
+href="../PSDNormalizExecutable.html">PSDNormalizExecutable</a>, <a
+href="../PSDNumberOfPresamples.html">PSDNumberOfPresamples</a>, <a
+href="../PSDNumberOfThreads.html">PSDNumberOfThreads</a>, <a
+href="../PSDOutputDirectory.html">PSDOutputDirectory</a>, <a
+href="../PSDOverwritePackageDirectory.html">PSDOverwritePackageDirectory</a>,
+<a href="../PSDPyLinkQMCTransforms.html">PSDPyLinkQMCTransforms</a>, <a
+href="../PSDRealParameterRules.html">PSDRealParameterRules</a>, <a
+href="../PSDRealParameters.html">PSDRealParameters</a>, <a
+href="../PSDRealParameterValues.html">PSDRealParameterValues</a>, <a
+href="../PSDRegulators.html">PSDRegulators</a>, <a
+href="../PSDRequestedOrder.html">PSDRequestedOrder</a>, <a
+href="../PSDResetCudaAfter.html">PSDResetCudaAfter</a>, <a
+href="../PSDSplit.html">PSDSplit</a>, <a
+href="../PSDTransform.html">PSDTransform</a>, <a
+href="../PSDVerbose.html">PSDVerbose</a>, <a
+href="../PSDVerbosity.html">PSDVerbosity</a> - options of functions
+related to the pySecDec interface</li>
 </ul>
 <h2 id="qgraf-interface">QGRAF interface</h2>
 <ul>
-<li><a href="../QGConvertToFC.html">QGConvertToFC</a> - converts QGRAF output into FeynCalc input</li>
-<li><a href="../QGCreateAmp.html">QGCreateAmp</a> - generates Feynman amplitudes and diagrams</li>
-<li><a href="../QGLoadInsertions.html">QGLoadInsertions</a> - loads sets of Feynman rules</li>
-<li><a href="../QGPrepareDiagramsTeX.html">QGPrepareDiagramsTeX</a> - prepares TeX form of Feynman diagrams</li>
-<li><a href="../QGPolarization.html">QGPolarization</a> - placeholder for the polarization of a field</li>
-<li><a href="../QGPropagator.html">QGPropagator</a> - placeholder for the propagator of a field</li>
-<li><a href="../QGTruncatedPolarization.html">QGTruncatedPolarization</a> - placeholder for the truncated external state of a field</li>
-<li><a href="../QGVertex.html">QGVertex</a> - placeholder for the interaction vertex of some fields</li>
-<li><a href="../$QGInsertionsDirectory.html">$QGInsertionsDirectory</a>, <a href="../$QGLogOutputAmplitudes.html">$QGLogOutputAmplitudes</a>, <a href="../$QGLogOutputDiagrams.html">$QGLogOutputDiagrams</a>, <a href="../$QGModelsDirectory.html">$QGModelsDirectory</a>, <a href="../$QGStylesDirectory.html">$QGStylesDirectory</a>, <a href="../$QGTeXDirectory.html">$QGTeXDirectory</a>, <a href="../QGAmplitudeStyle.html">QGAmplitudeStyle</a>, <a href="../QGBinaryFile.html">QGBinaryFile</a>, <a href="../QGCleanUpOutputDirectory.html">QGCleanUpOutputDirectory</a>, <a href="../QGDiagramStyle.html">QGDiagramStyle</a>, <a href="../QGInsertionRule.html">QGInsertionRule</a>, <a href="../QGLoopMomentum.html">QGLoopMomentum</a>, <a href="../QGModel.html">QGModel</a>, <a href="../QGOptionalStatements.html">QGOptionalStatements</a>, <a href="../QGOptions.html">QGOptions</a>, <a href="../QGOutputAmplitudes.html">QGOutputAmplitudes</a>, <a href="../QGOutputDiagrams.html">QGOutputDiagrams</a>, <a href="../QGOutputDirectory.html">QGOutputDirectory</a>, <a href="../QGOverwriteExistingAmplitudes.html">QGOverwriteExistingAmplitudes</a>, <a href="../QGOverwriteExistingDiagrams.html">QGOverwriteExistingDiagrams</a>, <a href="../QGSaveInputFile.html">QGSaveInputFile</a>, <a href="../QGShowOutput.html">QGShowOutput</a>, <a href="../QGTeXEpilog.html">QGTeXEpilog</a>, <a href="../QGTeXProlog.html">QGTeXProlog</a> - options of functions related to the QGRAF interface</li>
+<li><a href="../QGConvertToFC.html">QGConvertToFC</a> - converts QGRAF
+output into FeynCalc input</li>
+<li><a href="../QGCreateAmp.html">QGCreateAmp</a> - generates Feynman
+amplitudes and diagrams</li>
+<li><a href="../QGLoadInsertions.html">QGLoadInsertions</a> - loads sets
+of Feynman rules</li>
+<li><a href="../QGTZFCreateFieldStyles.html">QGTZFCreateFieldStyles</a>
+- prepares TikZ-Feynman stylings for the occurring fields</li>
+<li><a href="../QGTZFCreateTeXFiles.html">QGTZFCreateTeXFiles</a> -
+prepares TeX form of Feynman diagrams</li>
+<li><a href="../QGPolarization.html">QGPolarization</a> - placeholder
+for the polarization of a field</li>
+<li><a href="../QGPropagator.html">QGPropagator</a> - placeholder for
+the propagator of a field</li>
+<li><a
+href="../QGTruncatedPolarization.html">QGTruncatedPolarization</a> -
+placeholder for the truncated external state of a field</li>
+<li><a href="../QGVertex.html">QGVertex</a> - placeholder for the
+interaction vertex of some fields</li>
+<li><a href="../$QGScriptsDirectory.html">$QGScriptsDirectory</a>, <a
+href="../$QGInsertionsDirectory.html">$QGInsertionsDirectory</a>, <a
+href="../$QGLogOutputAmplitudes.html">$QGLogOutputAmplitudes</a>, <a
+href="../$QGLogOutputDiagrams.html">$QGLogOutputDiagrams</a>, <a
+href="../$QGModelsDirectory.html">$QGModelsDirectory</a>, <a
+href="../$QGStylesDirectory.html">$QGStylesDirectory</a>, <a
+href="../$QGTeXDirectory.html">$QGTeXDirectory</a>, <a
+href="../QGAmplitudeStyle.html">QGAmplitudeStyle</a>, <a
+href="../QGBinaryFile.html">QGBinaryFile</a>, <a
+href="../QGCleanUpOutputDirectory.html">QGCleanUpOutputDirectory</a>, <a
+href="../QGDiagramStyle.html">QGDiagramStyle</a>, <a
+href="../QGInsertionRule.html">QGInsertionRule</a>, <a
+href="../QGLoopMomentum.html">QGLoopMomentum</a>, <a
+href="../QGModel.html">QGModel</a>, <a
+href="../QGOptionalStatements.html">QGOptionalStatements</a>, <a
+href="../QGOptions.html">QGOptions</a>, <a
+href="../QGOutputAmplitudes.html">QGOutputAmplitudes</a>, <a
+href="../QGOutputDiagrams.html">QGOutputDiagrams</a>, <a
+href="../QGOutputDirectory.html">QGOutputDirectory</a>, <a
+href="../QGOverwriteExistingAmplitudes.html">QGOverwriteExistingAmplitudes</a>,
+<a
+href="../QGOverwriteExistingDiagrams.html">QGOverwriteExistingDiagrams</a>,
+<a href="../QGSaveInputFile.html">QGSaveInputFile</a>, <a
+href="../QGShowOutput.html">QGShowOutput</a>, <a
+href="../QGFieldStyles.html">QGFieldStyles</a> - options of functions
+related to the QGRAF interface</li>
 </ul>
 </body>
 </html>

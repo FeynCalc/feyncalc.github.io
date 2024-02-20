@@ -8,10 +8,82 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../css/feyncalc.css" />
 
@@ -21,77 +93,177 @@
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
 <h2 id="installation">Installation</h2>
-<p>The installation of FeynHelpers from scratch is a two step process. Apart from installing the actual FeynCalc addon (step 1) it is also necessary to set up the tools to which FeynHelpers provides FeynCalc interfaces (step 2).</p>
-<p>Due to the fact that these tools are written in different programming languages and usually must be compiled on user’s machine, it is not possible to fully automatize this second step. Instead, we expect the user to install the relevant tools manually.</p>
-<p>In the following we provide some relevant instructions but without any warranty that this will work on your machine. <em>If you are experiencing issues setting up a particular tools please contact the corresponding developer team.</em></p>
+<p>The installation of FeynHelpers from scratch is a two step process.
+Apart from installing the actual FeynCalc addon (step 1) it is also
+necessary to set up the tools to which FeynHelpers provides FeynCalc
+interfaces (step 2).</p>
+<p>Due to the fact that these tools are written in different programming
+languages and usually must be compiled on user’s machine, it is not
+possible to fully automatize this second step. Instead, we expect the
+user to install the relevant tools manually.</p>
+<p>In the following we provide some relevant instructions but without
+any warranty that this will work on your machine. <em>If you are
+experiencing issues setting up a particular tools please contact the
+corresponding developer team.</em></p>
 <h3 id="feynhelpers">FeynHelpers</h3>
 <h4 id="automatic-installation">Automatic installation</h4>
-<p>Run the following instruction in a Kernel or Notebook session of Mathematica to install the stable version</p>
-<pre><code>Import[&quot;https://raw.githubusercontent.com/FeynCalc/feynhelpers/master/install.m&quot;]
-InstallFeynHelpers[]</code></pre>
-<p>If you like the bleeding edge and you are already using the development version of FeynCalc, you can also install the development version of FeynHelpers</p>
-<pre><code>Import[&quot;https://raw.githubusercontent.com/FeynCalc/feynhelpers/master/install.m&quot;]
-InstallFeynHelpers[InstallFeynHelpersDevelopmentVersion-&gt;True]</code></pre>
+<p>Run the following instruction in a Kernel or Notebook session of
+Mathematica to install the stable version</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Import</span><span class="op">[</span><span class="st">&quot;https://raw.githubusercontent.com/FeynCalc/feynhelpers/master/install.m&quot;</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>InstallFeynHelpers<span class="op">[]</span></span></code></pre></div>
+<p>If you like the bleeding edge and you are already using the
+development version of FeynCalc, you can also install the development
+version of FeynHelpers</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Import</span><span class="op">[</span><span class="st">&quot;https://raw.githubusercontent.com/FeynCalc/feynhelpers/master/install.m&quot;</span><span class="op">]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>InstallFeynHelpers<span class="op">[</span>InstallFeynHelpersDevelopmentVersion<span class="ot">-&gt;</span><span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <h4 id="manual-installation">Manual installation</h4>
 <p>Create a directory <em>FeynHelpers</em> inside</p>
-<pre><code>FileNameJoin[{$UserBaseDirectory, &quot;Applications&quot;, &quot;FeynCalc&quot;, &quot;AddOns&quot;}]</code></pre>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$UserBaseDirectory</span><span class="op">,</span> <span class="st">&quot;Applications&quot;</span><span class="op">,</span> <span class="st">&quot;FeynCalc&quot;</span><span class="op">,</span> <span class="st">&quot;AddOns&quot;</span><span class="op">}]</span></span></code></pre></div>
 <p>and put the source code there.</p>
 <h3 id="fermat">Fermat</h3>
-<p>You can download FERMAT binaries for Linux or macOS from the <a href="https://home.bway.net/lewis/zip.html">developer’s website</a>.</p>
+<p>You can download FERMAT binaries for Linux or macOS from the <a
+href="https://home.bway.net/lewis/zip.html">developer’s website</a>.</p>
 <h4 id="linux">Linux</h4>
-<p>Copy the directory <code>ferl64</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</p>
+<p>Copy the directory <code>ferl64</code> to
+<code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</p>
 <h4 id="macos">macOS</h4>
-<p>Copy the directory <code>ferm64</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</p>
+<p>Copy the directory <code>ferm64</code> to
+<code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</p>
 <h4 id="windows">Windows</h4>
-<p>Currently there is no native Windows version of FERMAT. The Linux version appears to be usable via WSL, but currently there is no support for that in FeynHelpers.</p>
+<p>Currently there is no native Windows version of FERMAT. The Linux
+version appears to be usable via WSL, but currently there is no support
+for that in FeynHelpers.</p>
 <h3 id="fire">FIRE</h3>
-<p>You can download the source code of FIRE from the <a href="https://bitbucket.org/feynmanIntegrals/fire">developer’s website</a>. The content should be extracted to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FIRE"}]</code>.</p>
-<p>We recommend to enable support for zstd, lthreads, tcmalloc, snappy and zlib via</p>
-<pre><code>./configure --enable_zlib --enable_snappy --enable_lthreads --enable_tcmalloc --enable_zstd</code></pre>
-<p>If you compile FIRE without the zstd support, you should change the option <code>FIRECompressor</code> of <code>FIRECreateConfigFile</code> to <code>"lz4"</code>. However, for performance reasons it is better to use the zstd compression algorithm.</p>
+<p>You can download the source code of FIRE from the <a
+href="https://bitbucket.org/feynmanIntegrals/fire">developer’s
+website</a>. The content should be extracted to
+<code>FileNameJoin[{$UserBaseDirectory, "Applications", "FIRE"}]</code>.</p>
+<p>We recommend to enable support for zstd, lthreads, tcmalloc, snappy
+and zlib via</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>configure <span class="sc">--</span><span class="at">enable_</span>zlib <span class="sc">--</span><span class="at">enable_</span>snappy <span class="sc">--</span><span class="at">enable_</span>lthreads <span class="sc">--</span><span class="at">enable_</span>tcmalloc <span class="sc">--</span><span class="at">enable_</span>zstd</span></code></pre></div>
+<p>If you compile FIRE without the zstd support, you should change the
+option <code>FIRECompressor</code> of <code>FIRECreateConfigFile</code>
+to <code>"lz4"</code>. However, for performance reasons it is better to
+use the zstd compression algorithm.</p>
 <h4 id="linux-1">Linux</h4>
-<p>The instructions for compiling FIRE from source on Linux are provided <a href="https://bitbucket.org/feynmanIntegrals/fire/src/master/">here</a>.</p>
+<p>The instructions for compiling FIRE from source on Linux are provided
+<a
+href="https://bitbucket.org/feynmanIntegrals/fire/src/master/">here</a>.</p>
 <h4 id="macos-1">macOS</h4>
-<p>The instructions for compiling FIRE from source on macOS can be found <a href="https://bitbucket.org/feynmanIntegrals/fire/issues/10/issue-of-the-installation-on-macos">here</a>.</p>
+<p>The instructions for compiling FIRE from source on macOS can be found
+<a
+href="https://bitbucket.org/feynmanIntegrals/fire/issues/10/issue-of-the-installation-on-macos">here</a>.</p>
 <h4 id="windows-1">Windows</h4>
-<p>There is no native Windows port of FIRE. It should be possible to compile FIRE on WSL with an Ubuntu installation, but currently there is no support for that in FeynHelpers.</p>
+<p>There is no native Windows port of FIRE. It should be possible to
+compile FIRE on WSL with an Ubuntu installation, but currently there is
+no support for that in FeynHelpers.</p>
 <h3 id="kira">Kira</h3>
-<p>You can download the source code of Kira from the <a href="https://gitlab.com/kira-pyred/kira">developer’s website</a>. FeynHelpers does not require Kira to <em>generate</em> the corresponding yaml files. However, in order to actually do the reduction one has to run those scripts, which is possible only when Kira is installed.</p>
+<p>You can download the source code of Kira from the <a
+href="https://gitlab.com/kira-pyred/kira">developer’s website</a>.
+FeynHelpers does not require Kira to <em>generate</em> the corresponding
+yaml files. However, in order to actually do the reduction one has to
+run those scripts, which is possible only when Kira is installed.</p>
 <h4 id="linux-and-macos">Linux and macOS</h4>
-<p>The instructions for compiling Kira from source on Linux or macOS are provided <a href="https://gitlab.com/kira-pyred/kira">here</a>.</p>
+<p>The instructions for compiling Kira from source on Linux or macOS are
+provided <a href="https://gitlab.com/kira-pyred/kira">here</a>.</p>
 <h4 id="windows-2">Windows</h4>
-<p>It should be possible to compile Kira on WSL with an Ubuntu installation, but currently there is no support for that in FeynHelpers.</p>
+<p>It should be possible to compile Kira on WSL with an Ubuntu
+installation, but currently there is no support for that in
+FeynHelpers.</p>
 <h3 id="package-x">Package-X</h3>
-<p>Package-X is not being developed or even maintained anymore. However, the author of the tool, Hiren H. Patel, kindly gave us permission to ship <code>OneLoop.m</code> (part of Package-X containing library of analytic results for Passarino-Veltman functions) together with FeynHelpers.</p>
+<p>Package-X is not being developed or even maintained anymore. However,
+the author of the tool, Hiren H. Patel, kindly gave us permission to
+ship <code>OneLoop.m</code> (part of Package-X containing library of
+analytic results for Passarino-Veltman functions) together with
+FeynHelpers.</p>
 <p>Therefore, no separate installation of Package-X is needed.</p>
-<p>Please notice that you are using this library on your own risk. The lack of maintenance means that newly discovered bugs are not going to be fixed and there is no guarantee that it will continue to work with newer Mathematica versions.</p>
+<p>Please notice that you are using this library on your own risk. The
+lack of maintenance means that newly discovered bugs are not going to be
+fixed and there is no guarantee that it will continue to work with newer
+Mathematica versions.</p>
 <h3 id="pysecdec">pySecDec</h3>
-<p>The installation instructions for pySecDec can be found <a href="https://secdec.readthedocs.io/en/stable/installation.html#download-the-program-and-install">here</a>. FeynHelpers does not require pySecDec to <em>generate</em> the corresponding Python scripts. However, in order to actually compute the given loop integrals one has to run those scripts, which is possible only when pySecDec is installed.</p>
-<p>Notice that the default sector decomposition method configured in the pySecDec method is <code>geometric</code>, which requires an external program called <a href="https://www.normaliz.uni-osnabrueck.de">normaliz</a>. Please refer to the <a href="https://secdec.readthedocs.io/en/stable/installation.html?highlight=normaliz#the-geomethod-and-normaliz">corresponding section</a> in the pySecDec manual for further details on setting <code>normaliz</code> up.</p>
+<p>The installation instructions for pySecDec can be found <a
+href="https://secdec.readthedocs.io/en/stable/installation.html#download-the-program-and-install">here</a>.
+FeynHelpers does not require pySecDec to <em>generate</em> the
+corresponding Python scripts. However, in order to actually compute the
+given loop integrals one has to run those scripts, which is possible
+only when pySecDec is installed.</p>
+<p>Notice that the default sector decomposition method configured in the
+pySecDec method is <code>geometric</code>, which requires an external
+program called <a
+href="https://www.normaliz.uni-osnabrueck.de">normaliz</a>. Please refer
+to the <a
+href="https://secdec.readthedocs.io/en/stable/installation.html?highlight=normaliz#the-geomethod-and-normaliz">corresponding
+section</a> in the pySecDec manual for further details on setting
+<code>normaliz</code> up.</p>
 <h4 id="linux-or-macos">Linux or macOS</h4>
 <p>It should be possible to install pySecDec via pip automatically.</p>
 <h4 id="windows-3">Windows</h4>
-<p>It could be possible to set up pySecDec on WSL, but currently it is unclear whether this can work.</p>
+<p>It could be possible to set up pySecDec on WSL, but currently it is
+unclear whether this can work.</p>
 <h3 id="looptools">LoopTools</h3>
-<p>On the <a href="http://www.feynarts.de/looptools/">developer’s website</a> you can download not only the source code but also precompiled binaries</p>
+<p>On the <a href="http://www.feynarts.de/looptools/">developer’s
+website</a> you can download not only the source code but also
+precompiled binaries</p>
 <h4 id="linux-or-macos-1">Linux or macOS</h4>
-<p>Copy the self-compiled or precompiled MathLink executable <code>LoopTools</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</p>
+<p>Copy the self-compiled or precompiled MathLink executable
+<code>LoopTools</code> to
+<code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</p>
 <h4 id="windows-4">Windows</h4>
-<p>Rename the self-compiled or precompiled MathLink executable <code>LoopTools.exe</code> to <code>LoopTools</code> and copy it to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</p>
+<p>Rename the self-compiled or precompiled MathLink executable
+<code>LoopTools.exe</code> to <code>LoopTools</code> and copy it to
+<code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</p>
 <h3 id="qgraf">QGRAF</h3>
-<p>You can download the source code of QGRAF from the <a href="http://cfif.ist.utl.pt/~paulo/qgraf.html">developer’s website</a>.</p>
+<p>You can download the source code of QGRAF from the <a
+href="http://cfif.ist.utl.pt/~paulo/qgraf.html">developer’s
+website</a>.</p>
 <h4 id="linux-and-macos-1">Linux and macOS</h4>
-<p>The compilation instructions can be found in the section “Compiling” of the manual <code>qgraf-3.x.y.pdf</code> inside the tarball. For example, on a Linux system equipped with a GNU Fortran compiler something like</p>
-<pre><code>gfortran qgraf-3.6.3.f08 -o qgraf</code></pre>
-<p>should do the job. Having compiled the program you need to move the binary file <code>qgraf</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p>
+<p>The compilation instructions can be found in the section “Compiling”
+of the manual <code>qgraf-3.x.y.pdf</code> inside the tarball. For
+example, on a Linux system equipped with a GNU Fortran compiler
+something like</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gfortran qgraf<span class="dv">-3</span>.<span class="dv">6</span>.<span class="fl">3.</span>f08 <span class="sc">-</span><span class="fu">o</span> qgraf</span></code></pre></div>
+<p>should do the job. Having compiled the program you need to move the
+binary file <code>qgraf</code> to
+<code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p>
 <h4 id="windows-5">Windows</h4>
-<p>To extract the source code tarball of QGRAF you need a tool that can deal with tar.gz archives, e.g. <a href="https://www.7-zip.org/">7-zip</a>.</p>
-<p>To build QGRAF from source you need a FORTRAN compiler. You can use the <a href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64">MinGW compiler</a> via the <em>MinGW-W64 Online Installer</em> (<code>MinGW-W64-install.exe</code>). When the <code>Settings</code> page appears in the installation wizard, change <code>Architecture</code> from <code>i686</code> to <code>x86_64</code>.</p>
-<p>Unfortunately, as of June 2022 the installer is broken and fails with the error message “file was downloaded incorrectly”. A possible workaround is described <a href="https://sourceforge.net/p/mingw-w64/support-requests/125/">here</a>. When you reach the <code>Installation folder</code> page in the installation wizard, open</p>
+<p>To extract the source code tarball of QGRAF you need a tool that can
+deal with tar.gz archives, e.g. <a
+href="https://www.7-zip.org/">7-zip</a>.</p>
+<p>To build QGRAF from source you need a FORTRAN compiler. You can use
+the <a
+href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64">MinGW
+compiler</a> via the <em>MinGW-W64 Online Installer</em>
+(<code>MinGW-W64-install.exe</code>). When the <code>Settings</code>
+page appears in the installation wizard, change
+<code>Architecture</code> from <code>i686</code> to
+<code>x86_64</code>.</p>
+<p>Unfortunately, as of June 2022 the installer is broken and fails with
+the error message “file was downloaded incorrectly”. A possible
+workaround is described <a
+href="https://sourceforge.net/p/mingw-w64/support-requests/125/">here</a>.
+When you reach the <code>Installation folder</code> page in the
+installation wizard, open</p>
 <pre><code>C:\Users\YOUR_USER_NAME\AppData\Local\Temp\gentee</code></pre>
-<p>and drop there the file <code>x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z</code> that you can donwload from <a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z">SourceForge</a>. This skips the broken process of downloading the file by the installer and should get you through the installation.</p>
-<p>Finally, open <code>MiniGW-W64 project</code> -&gt; <code>Open Terminal</code> via the start menu. Go to the folder where you extracted the source code of QGRAF and compile it with <code>gfortran.exe -static qgraf-3.x.y.f08 -o qgraf.exe</code>, where <code>x</code> and <code>y</code> denote the current version numbers.</p>
+<p>and drop there the file
+<code>x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z</code> that you can
+donwload from <a
+href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z">SourceForge</a>.
+This skips the broken process of downloading the file by the installer
+and should get you through the installation.</p>
+<p>Finally, open <code>MiniGW-W64 project</code> -&gt;
+<code>Open Terminal</code> via the start menu. Go to the folder where
+you extracted the source code of QGRAF and compile it with
+<code>gfortran.exe -static qgraf-3.x.y.f08 -o qgraf.exe</code>, where
+<code>x</code> and <code>y</code> denote the current version
+numbers.</p>
 <p>Run <code>qgraf.exe</code> to make sure that it works properly.</p>
-<p>Finally, move <code>qgraf.exe</code> to <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p>
+<p>Finally, move <code>qgraf.exe</code> to
+<code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p>
 </body>
 </html>
