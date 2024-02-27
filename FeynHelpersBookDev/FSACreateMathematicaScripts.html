@@ -139,7 +139,8 @@ is <code>FSAOrderInEps</code> which specifies the order in <span
 class="math inline">\varepsilon</span> up to which the integral should
 be evaluated.</p>
 <p>The names of the FIESTA script can be changed via the option
-<code>FSAScriptFileName with the default value being</code>FIESTAScript.m`.</p>
+<code>FSAScriptFileName</code> with the default value being
+<code>FIESTAScript.m</code>.</p>
 <p>The integrator used for the numerical evaluation of the integral is
 set by the option <code>FSAIntegrator</code>, where
 <code>"quasiMonteCarlo"</code> is the default value. Accordingly, if you
@@ -181,12 +182,12 @@ class="math display">\text{FCTopology}\left(\text{prop1L},\left\{-\frac{1}{(-\te
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> FSACreateMathematicaScripts<span class="op">[</span>int1<span class="op">,</span> topo1<span class="op">,</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> qq<span class="op">,</span> qq <span class="ot">-&gt;</span> <span class="fl">20.</span> <span class="op">,</span> m1 <span class="ot">-&gt;</span> <span class="fl">2.</span> <span class="op">,</span> m2 <span class="ot">-&gt;</span> <span class="fl">2.</span><span class="op">}]</span>;</span></code></pre></div>
-<p><img src="img/15bie2p9wh0uq.svg" alt="15bie2p9wh0uq" /></p>
+<p><img src="img/1eo5wsq2ojuzs.svg" alt="1eo5wsq2ojuzs" /></p>
 <p><span class="math display">\text{\$Aborted}</span></p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">20</span><span class="op">]</span> &amp;</span></code></pre></div>
-<p><img src="img/17rauzqegivvs.svg" alt="17rauzqegivvs" /></p>
-<p><img src="img/0jjbj48wa80cb.svg" alt="0jjbj48wa80cb" /></p>
+<p><img src="img/0atqy5p84j6p9.svg" alt="0atqy5p84j6p9" /></p>
+<p><img src="img/0rcz2tphdg2rt.svg" alt="0rcz2tphdg2rt" /></p>
 <p><span
 class="math display">\text{FilePrint}[\text{fileNames}[[1]],1\text{;;}20]</span></p>
 <div class="sourceCode" id="cb4"><pre
@@ -195,12 +196,12 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span> <span class="ex">=</span> FSACreateMathematicaScripts<span class="op">[</span>SFAD<span class="op">[{</span><span class="fu">I</span> <span class="fu">p</span><span class="op">,</span> <span class="op">{</span><span class="sc">-</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}}],</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">,</span> <span class="st">&quot;tal1LInt&quot;</span><span class="op">}],</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">m</span> <span class="ot">-&gt;</span> <span class="fl">1.</span><span class="op">}]</span>;</span></code></pre></div>
-<p><img src="img/1fewa4926cnb4.svg" alt="1fewa4926cnb4" /></p>
+<p><img src="img/1rzhy3960bfmw.svg" alt="1rzhy3960bfmw" /></p>
 <p><span class="math display">\text{\$Aborted}</span></p>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fileNames</span><span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">FilePrint</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span> ;; <span class="dv">20</span><span class="op">]</span> &amp;</span></code></pre></div>
-<p><img src="img/0xax37b3to6o9.svg" alt="0xax37b3to6o9" /></p>
-<p><img src="img/0zgw7om8p0zoz.svg" alt="0zgw7om8p0zoz" /></p>
+<p><img src="img/04volbxbplnim.svg" alt="04volbxbplnim" /></p>
+<p><img src="img/1u3kvusck6g4t.svg" alt="1u3kvusck6g4t" /></p>
 <p><span
 class="math display">\text{FilePrint}[\text{fileNames}[[1]],1\text{;;}20]</span></p>
 <div class="sourceCode" id="cb7"><pre
@@ -210,7 +211,7 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     GFAD<span class="op">[{{</span>SPD<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span>p1 <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>p3<span class="op">]</span> <span class="sc">-</span> SPD<span class="op">[</span>p3<span class="op">,</span> p3<span class="op">],</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> mb<span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{}],</span> </span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Database&quot;</span><span class="op">}],</span> </span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>   FSAParameterRules <span class="ot">-&gt;</span> <span class="op">{</span>mb <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">},</span> FSAOrderInEps <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span>;</span></code></pre></div>
-<p><img src="img/0iax3lha5f3x2.svg" alt="0iax3lha5f3x2" /></p>
+<p><img src="img/0ufeuds32147o.svg" alt="0ufeuds32147o" /></p>
 <p><span class="math display">\text{\$Aborted}</span></p>
 </body>
 </html>

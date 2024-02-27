@@ -152,7 +152,7 @@ tools for this task. The most convenient way to do this is to employ
 <code>lualatex</code> together with the TikZ-Feyman package. By
 evaluating</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tikzStyles<span class="ex">=</span>QGTZFCreateFieldStyles<span class="op">[</span>qgModel<span class="op">,</span><span class="st">&quot;QEDOneFlavor&quot;</span><span class="op">,</span></span>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tikzStyles<span class="ex">=</span>QGTZFCreateFieldStyles<span class="op">[</span><span class="st">&quot;QEDOneFlavor&quot;</span><span class="op">,</span> qgOutput<span class="op">,</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>QGFieldStyles<span class="ot">-&gt;</span><span class="op">{{</span><span class="st">&quot;Ga&quot;</span><span class="op">,</span><span class="st">&quot;photon&quot;</span><span class="op">,</span><span class="st">&quot;</span><span class="sc">\\</span><span class="st">gamma&quot;</span><span class="op">},</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span><span class="st">&quot;El&quot;</span><span class="op">,</span><span class="st">&quot;fermion&quot;</span><span class="op">,</span><span class="st">&quot;e^-&quot;</span><span class="op">},</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span><span class="st">&quot;Ael&quot;</span><span class="op">,</span><span class="st">&quot;anti fermion&quot;</span><span class="op">,</span><span class="st">&quot;e^+&quot;</span><span class="op">}}]</span>;</span></code></pre></div>
@@ -170,6 +170,10 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>glueDiagrams.sh</span></code></pre></div>
 <p>If everything goes as expected, this will give us a file
 <code>allDiagrams.pdf</code> containing all the generated diagrams.</p>
+<p>If one wants to visualize the momentum flow through the diagrams, one
+can use a special style when calling <code>QGCreateAmp</code>. This is
+done by setting the option <code>QGDiagramStyle</code> to
+<code>tikz-feynman-momentumflow.sty</code>.</p>
 <p>Coming back to the analytic part of the calculation, we need to load
 the list of Feynman rules for the vertices and propagators present in
 the generated amplitudes. Again, FeynHelpers contains a built-in

@@ -85,8 +85,8 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="css/feyncalc.css" />
-  <script defer="" src="js/katex.min.js"></script>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <script defer="" src="../js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -101,49 +101,29 @@
    });
 }}});
   </script>
-  <link rel="stylesheet" href="js/katex.min.css" />
+  <link rel="stylesheet" href="../js/katex.min.css" />
 
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">FeynHelpers manual (development version)</h1>
 </header>
-<h2 id="paxevaluate">PaXEvaluate</h2>
-<p><code>PaXEvaluate[expr, q]</code> evaluates scalar 1-loop integrals
-(up to 4-point functions) in <code>expr</code> that depend on the loop
-momentum <code>q</code> in <code>D</code> dimensions.</p>
-<p>The evaluation is using H. Patel’s Package-X.</p>
-<h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynHelpers.html">Overview</a>, <a
-href="PaXEvaluateIR.html">PaXEvaluateIR</a>, <a
-href="PaXEvaluateUV.html">PaXEvaluateUV</a>, <a
-href="PaXEvaluateUVIRSplit.html">PaXEvaluateUVIRSplit</a>.</p>
-<h3 id="examples">Examples</h3>
+<h2 id="looptools-usage-examples">LoopTools usage examples</h2>
+<p>The LoopTools interface allows to quickly evaluate Passarino-Veltman
+functions with suitable kinematics numerically using LoopTools.</p>
+<p>Given an amplitude written in terms of
+<code>PaVe</code>-functions</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">}]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>PaXEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> PaXImplicitPrefactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span> <span class="fu">Pi</span>)<span class="sc">^</span>(<span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon)<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{q^2-m^2}</span></p>
-<p><span class="math display">\frac{i m^2}{16 \pi ^2 \varepsilon
-}-\frac{i m^2 \left(-\log \left(\frac{\mu ^2}{m^2}\right)+\gamma -1-\log
-(4 \pi )\right)}{16 \pi ^2}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>amp <span class="ex">=</span> <span class="fu">Get</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynHelpersDirectory<span class="op">,</span> <span class="st">&quot;Documentation&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> <span class="st">&quot;ampHToGG.m&quot;</span><span class="op">}]]</span>;</span></code></pre></div>
+<p>we can evaluate it by first loading LoopTools via</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FAD<span class="op">[{</span><span class="fu">l</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">+</span> <span class="fu">l</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PaXEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">l</span><span class="op">,</span> PaXImplicitPrefactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span> <span class="fu">Pi</span>)<span class="sc">^</span>(<span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon)<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{l^2.(l+q)^2}</span></p>
-<p><span class="math display">\frac{i}{16 \pi ^2 \varepsilon }+\frac{i
-\log \left(-\frac{4 \pi  \mu ^2}{q^2}\right)}{16 \pi ^2}-\frac{i (\gamma
--2)}{16 \pi ^2}</span></p>
-<p><code>PaVe</code> functions do not require the second argument
-specifying the loop momentum</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LToolsLoadLibrary<span class="op">[]</span></span></code></pre></div>
+<p>and then running</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PaVe<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">]],</span> Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span><span class="op">]]},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">M</span><span class="op">}]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PaXEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span
-class="math display">\text{C}_0\left(0,p^2,p^2,0,0,M\right)</span></p>
-<p><span
-class="math display">\frac{1}{\varepsilon  M-\varepsilon  p^2}-\frac{\gamma
--\log \left(\frac{\mu ^2}{\pi  M}\right)}{M-p^2}+\frac{\log
-\left(\frac{M}{M-p^2}\right)}{M-p^2}+\frac{M \log
-\left(\frac{M}{M-p^2}\right)}{p^2 \left(M-p^2\right)}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ampEval <span class="ex">=</span> LToolsEvaluate<span class="op">[</span>amp<span class="op">,</span> LToolsSetMudim <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>mH <span class="ot">-&gt;</span> <span class="dv">125</span><span class="op">,</span> mt <span class="ot">-&gt;</span> <span class="dv">173</span><span class="op">}]</span></span></code></pre></div>
+<p>where we set <span class="math inline">\mu = 1</span>. The resulting
+expression is then</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Collect2<span class="op">[</span>ampEval <span class="ot">/.</span> <span class="op">{</span><span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">,</span> mH <span class="ot">-&gt;</span> <span class="dv">125</span><span class="op">,</span> mt <span class="ot">-&gt;</span> <span class="dv">173</span><span class="op">},</span> Pair<span class="op">]</span></span></code></pre></div>
 </body>
 </html>
