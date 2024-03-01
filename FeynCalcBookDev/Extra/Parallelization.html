@@ -85,37 +85,38 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="css/feyncalc.css" />
+  <link rel="stylesheet" href="../css/feyncalc.css" />
 
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h2 id="loading-the-package">Loading the package</h2>
+<h2 id="parallelization">Parallelization</h2>
 <h3 id="see-also">See also</h3>
 <p><a href="FeynCalc.html">Overview</a>.</p>
-<h3 id="getting-started">Getting started</h3>
-<p>To load FeynCalc 9 or newer run</p>
+<p>Some FeynCalc routines can be parallelized meaning that the code will
+try to distribute chunks of the calculation to multiple Mathematica
+kernels.</p>
+<p>To this aim the number of subkernels should roughly correspond to the
+number of CPU cores</p>
+<h3 id="enabling-parallelization">Enabling parallelization</h3>
+<p>To enable the parallelization you need to actively launch some
+parallel kernels and then set the variable
+<code>$ParallelizeFeynCalc</code> to <code>True</code>. In this case a
+copy of FeynCalc will be loaded on each of the parallel kernels and used
+to parallelize some selected operations. For example,</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;&lt;FeynCalc`</span></code></pre></div>
-<p>in your Mathematica session. Notice that once FeynCalc has been
-loaded, it cannot be “reloaded” again. You need to restart the kernel
-first.</p>
-<h3 id="add-ons">Add-ons</h3>
-<p>Extensions such FeynHelpers, FeynOnium, FeynArts loader, PHI etc. are
-loaded by adding the corresponding text strings to the global variable
-<code>$LoadAddOns</code>. This variable must be set before loading
-FeynCalc. For example</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$LoadAddOns<span class="ex">=</span><span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">,</span><span class="st">&quot;FeynHelpers&quot;</span><span class="op">}</span>;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;&lt;FeynCalc`</span></code></pre></div>
-<h3 id="startup-messages">Startup messages</h3>
-<p>To suppress the package startup messages you can set the global
-variable <code>$FeynCalcStartupMessages</code> to <code>False</code>
-before loading FeynCalc. For example</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>$FeynCalcStartupMessages<span class="ex">=</span><span class="cn">False</span>;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;&lt;FeynCalc`</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LaunchKernels</span><span class="op">[</span><span class="dv">8</span><span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span></span></code></pre></div>
+<h3
+id="functions-that-support-automatic-execution-on-parallel-kernels">Functions
+that support automatic execution on parallel kernels</h3>
+<ul>
+<li><code>FCLoopFromGLI</code></li>
+<li><code>FCFeynmanPrepare</code></li>
+<li><code>FCLoopToPakForm</code></li>
+<li><code>FCLoopFindIntegralMappings</code></li>
+</ul>
 </body>
 </html>

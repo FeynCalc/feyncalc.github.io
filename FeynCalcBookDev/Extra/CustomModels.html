@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="../css/feyncalc.css" />
 
@@ -23,12 +31,23 @@
 <h2 id="custom-feynrules-models">Custom FeynRules models</h2>
 <h3 id="see-also">See also</h3>
 <p><a href="FeynCalc.html">Overview</a>.</p>
-<p>If you want to create new FeynArts models using <a href="https://feynrules.irmp.ucl.ac.be/">FeynRules</a>, please keep in mind that those models must be patched for compatibility with FeynCalc before they can be used for calculations.</p>
-<p>The patching is done by using the function <code>FAPatch</code> with the option <code>PatchModelsOnly</code> set to <code>True</code></p>
+<p>If you want to create new FeynArts models using <a
+href="https://feynrules.irmp.ucl.ac.be/">FeynRules</a>, please keep in
+mind that those models must be patched for compatibility with FeynCalc
+before they can be used for calculations.</p>
+<p>The patching is done by using the function <code>FAPatch</code> with
+the option <code>PatchModelsOnly</code> set to <code>True</code></p>
 <ul>
-<li>If the model is located inside the <code>Models</code> directory of <code>$FeynArtsDirectory</code>, it is sufficient to evaluate <code>FAPatch[PatchModelsOnly -&gt; True]</code> after loading FeynCalc and FeynArts in the usual way.</li>
-<li>If the model has been placed into a separate directory, use <code>FAPatch[PatchModelsOnly -&gt; True, FAModelsDirectory -&gt; "fullPathToMyModelDir"]</code></li>
+<li>If the model is located inside the <code>Models</code> directory of
+<code>$FeynArtsDirectory</code>, it is sufficient to evaluate
+<code>FAPatch[PatchModelsOnly -&gt; True]</code> after loading FeynCalc
+and FeynArts in the usual way.</li>
+<li>If the model has been placed into a separate directory, use
+<code>FAPatch[PatchModelsOnly -&gt; True, FAModelsDirectory -&gt; "fullPathToMyModelDir"]</code></li>
 </ul>
-<p>The patching has to be done only once for each new model. However, rerunning <code>FAPatch[PatchModelsOnly -&gt; True]</code> would not do any harm, so if you often modify existing or add new models, you might want to keep this command in your working notebooks.</p>
+<p>The patching has to be done only once for each new model. However,
+rerunning <code>FAPatch[PatchModelsOnly -&gt; True]</code> would not do
+any harm, so if you often modify existing or add new models, you might
+want to keep this command in your working notebooks.</p>
 </body>
 </html>
