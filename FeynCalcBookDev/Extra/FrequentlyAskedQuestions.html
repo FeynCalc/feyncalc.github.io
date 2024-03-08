@@ -265,13 +265,12 @@ provides the functions <code>FeynCalcInternal</code> or <code>FCI</code>
 and <code>FeynCalcExternal</code> or <code>FCE</code> to convert between
 the two notations. The user input can use any of the two notations or
 even mix them. For example,</p>
-<p><code>Contract[FV[p,mu] MT[mu,nu]]</code>,</p>
-<p><code>Contract[Pair[LorentzIndex[mu], LorentzIndex[nu]]*Pair[LorentzIndex[mu], Momentum[p]]]</code>
-and</p>
-<p><code>Contract[Pair[LorentzIndex[mu], Momentum[p] MT[mu,nu]]]</code></p>
-<p>are all valid FeynCalc expressions. This is because all FeynCalc
-functions first convert the user input to the FCI notation. Some
-commonly used FCE functions are</p>
+<p><code>Contract[FV[p,mu] MT[mu,nu]]</code>,
+<code>Contract[Pair[LorentzIndex[mu], LorentzIndex[nu]]*Pair[LorentzIndex[mu], Momentum[p]]]</code>
+and <code>Contract[Pair[LorentzIndex[mu], Momentum[p] MT[mu,nu]]]</code>
+are all valid FeynCalc expressions. This is because all FeynCalc
+functions first convert the user input to the <code>FCI</code> notation.
+Some commonly used FCE functions are</p>
 <ul>
 <li><code>GA[mu]</code> (Dirac matrix in <code>4</code> dimensions) for
 <code>DiracGamma[LorentzIndex[mu]]</code></li>
@@ -393,7 +392,7 @@ replaced by 4-momenta. What does this mean?</h3>
 contractions between 4-vectors and the epsilon tensor. So,
 <code>LC[mu, nu, rho][p]</code> is the same as
 <code>Contract[LC[mu, nu, rho, si] FV[p, si]]</code>. There is also a
-technical reason for using this notation. Writing conctractions without
+technical reason for using this notation. Writing contractions without
 explicitly introducing dummy indices avoids the necessity to
 canonicalize the indices, e.g. to ensure that say
 <code>LC[mu, nu, rho, si] FV[p, si] - LC[mu, nu, rho, tau] FV[p, tau]</code>
@@ -410,46 +409,43 @@ integral and does not imply any normalization factors. E.g.
 arguments) for a Passarino-Veltman coefficient or scalar function. In
 FeynCalc they are normalized differently as compared to the literature,
 such that <code>PaVe[0, {}, {m}]</code> (1-point scalar function)
-denotes <code>\frac{1}{i Pi^2} \int d^D p \frac{1}{p^2-m^2}</code>. The
-same normalization holds also for all the other PaVe functions. This
-normalization is used also e.g. in the OneLoop package.</p>
+denotes <span class="math inline">\frac{1}{i Pi^2} \int d^D p
+\frac{1}{p^2-m^2}</span>. The same normalization holds also for all the
+other PaVe functions. This normalization is used also e.g. in the
+OneLoop package.</p>
 <p>To sum it up, if we denote <span class="math inline">\int \frac{d^D
 p}{(2 \pi)^4} \frac{1}{p^2-m^2}</span> (1-loop tadpole integral with the
 standard normalization) as <span class="math inline">I_0</span> and
 <span class="math inline">-i (16 \pi^2) I_0</span> (1-point PaVe scalar
 function with the standard normalization) as <span
 class="math inline">A_0</span>, then we have</p>
-<p><span class="math display">
-\texttt{FAD}[\{p,m\}] = (2\pi)^D I_0 = I \pi^2 (2 \pi)^{D-4} A_0 = i
-\pi^2 \, \texttt{PaVe}[0, \{\}, \{m\}]
-</span></p>
+<p><span class="math display">\begin{align*}
+\mathtt{FAD}[\{p,m\}] = (2\pi)^D I_0 = I \pi^2 (2 \pi)^{D-4} A_0 = i
+\pi^2 \, \mathtt{PaVe}[0, \{\}, \{m\}]
+\end{align*}</span></p>
 <p>This is consistent with the well-known relation</p>
-<p><span class="math display">
+<p><span class="math display">\begin{align*}
 I_0 = \frac{i}{16 \pi^2} A_0
-</span></p>
+\end{align*}</span></p>
 <p>Note, than when you convert <code>FAD</code>-type loop integrals to
 <code>PaVe</code>, FeynCalc automatically introduces the prefactor <span
 class="math inline">\frac{1}{\pi^2}</span>, to account for the fact
 that</p>
-<p><span class="math display">
-\texttt{PaVe}[0, \{\}, \{m\}] \to \frac{1}{i \pi^2}
-\texttt{FAD}[\{p,m\}]
-</span></p>
+<p><span class="math display">\begin{align*}
+\mathtt{PaVe}[0, \{\}, \{m\}] \to \frac{1}{i \pi^2}
+\mathtt{FAD}[\{p,m\}]
+\end{align*}</span></p>
 <p>If the prefactor <span class="math inline">\frac{1}{(\pi^2)^D}</span>
 in front of each 1-loop integral from <code>FAD</code> or
 <code>PaVe</code> is taken to be implicit (i.e. it understood but not
 written down explicitly), then one can conveniently work with the
 following replacements</p>
-<ul>
-<li><code>FAD[{p,m}]</code> <span class="math inline">\to
-I_0</span></li>
-<li><code>FAD[{p,m}]</code> <span class="math inline">\to \frac{i}{16
-\pi^2} A_0</span></li>
-<li><code>PaVe[0, {}, {m}]</code> <span class="math inline">\to
-\frac{1}{i \pi^2} I_0</span></li>
-<li><code>PaVe[0, {}, {m}]</code> <span class="math inline">\to
-\frac{1}{(2 \pi)^4} A_0</span></li>
-</ul>
+<p><span class="math display">\begin{align*}
+\mathtt{FAD}[\{p,m\}] &amp;\to I_0, \\
+\mathtt{FAD}[\{p,m\}] &amp;\to \frac{i}{16 \pi^2} A_0, \\
+\mathtt{PaVe}[0, \{\}, \{m\}] &amp;\to \frac{1}{i \pi^2} I_0, \\
+\mathtt{PaVe}[0, \{\}, \{m\}] &amp;\to \frac{1}{(2 \pi)^4} A_0.
+\end{align*}</span></p>
 <p>For practical purposes, this approach is indeed the most convenient
 one. If you are generating your amplitudes with FeynArts, you need to
 use the option <code>Prefactor</code> of <code>CreateFeynAmp</code> to
