@@ -284,9 +284,10 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p>Furthermore, before saving the FeynArts model via
 <code>WriteFeynArtsOutput</code> we need to set the global variable
 <code>FR$Loop</code> to <code>True</code>. For example,</p>
-<pre><code>FR$Loop=True;
-SetDirectory[FileNameJoin[{$UserBaseDirectory,&quot;Applications&quot;,&quot;FeynCalc&quot;,&quot;FeynArts&quot;,&quot;Models&quot;}]];
-WriteFeynArtsOutput[LPhi4,Output-&gt;&quot;Phi4&quot;,CouplingRename-&gt;False];</code></pre>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FR$Loop<span class="ex">=</span><span class="cn">True</span>;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SetDirectory</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$UserBaseDirectory</span><span class="op">,</span><span class="st">&quot;Applications&quot;</span><span class="op">,</span><span class="st">&quot;FeynCalc&quot;</span><span class="op">,</span><span class="st">&quot;FeynArts&quot;</span><span class="op">,</span><span class="st">&quot;Models&quot;</span><span class="op">}]]</span>;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>WriteFeynArtsOutput<span class="op">[</span>LPhi4<span class="op">,</span>Output<span class="ot">-&gt;</span><span class="st">&quot;Phi4&quot;</span><span class="op">,</span>CouplingRename<span class="ot">-&gt;</span><span class="cn">False</span><span class="op">]</span>;</span></code></pre></div>
 <h3 id="renormalization-schemes">Renormalization schemes</h3>
 <p>From the computational point of view, the most convenient scheme is
 Modified Minimal Subtraction <span
@@ -389,11 +390,11 @@ q^{\nu}  - \Pi^{\mu \nu} (q)
 \end{equation}</span></p>
 <p>and the renormalized one reads</p>
 <p><span class="math display">\begin{equation}
-    \Gamma_R^{\mu \nu} (q) = \Gamma^{\mu \nu} (q) + \text{CT}.
+    \Gamma_R^{\mu \nu} (q) = \Gamma^{\mu \nu} (q) + \;\text{CT}.
 \end{equation}</span></p>
 <p>For convenience we also introduce</p>
 <p><span class="math display">\begin{equation}
-    \tilde{\Gamma}^{\mu \nu}_R(q) = - \Pi^{\mu \nu} (q) + \text{CT}
+    \tilde{\Gamma}^{\mu \nu}_R(q) = - \Pi^{\mu \nu} (q) + \;\text{CT}
 \end{equation}</span></p>
 <p>which corresponds to what one actually calculates when considering
 the sum of a bare amplitude and the corresponding counter-term.</p>
@@ -491,11 +492,11 @@ q^{\mu} q^{\nu}  - \Pi^{\mu \nu} (q)
 \end{equation}</span></p>
 <p>and the renormalized one reads</p>
 <p><span class="math display">\begin{equation}
-    \Gamma_R^{\mu \nu} (q) = \Gamma^{\mu \nu} (q) + \text{CT}
+    \Gamma_R^{\mu \nu} (q) = \Gamma^{\mu \nu} (q) + \;\text{CT}
 \end{equation}</span></p>
 <p>For convenience we also introduce</p>
 <p><span class="math display">\begin{equation}
-    \tilde{\Gamma}^{\mu \nu}_R(q) = - \Pi^{\mu \nu} (q) + \text{CT}
+    \tilde{\Gamma}^{\mu \nu}_R(q) = - \Pi^{\mu \nu} (q) + \;\text{CT}
 \end{equation}</span></p>
 <p>which corresponds to what one actually calculates when considering
 the sum of a bare amplitude and the corresponding counter-term.</p>
