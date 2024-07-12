@@ -187,18 +187,12 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">End</span><span class="op">[]</span></span></code></pre></div>
 <h3 id="packages-that-use-feyncalc">Packages that use FeynCalc</h3>
 <p>Starting with FeynCalc 9.0 one can easily write something like</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BeginPackage</span><span class="op">[</span><span class="st">&quot;MyPackage`&quot;</span><span class="op">,{</span><span class="st">&quot;FeynCalc`&quot;</span><span class="op">}]</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>MySP::usage<span class="ex">=</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Description of MySP&quot;</span>;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Begin</span><span class="op">[</span><span class="st">&quot;`Private`&quot;</span><span class="op">]</span>;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>MySP<span class="op">[</span><span class="at">a_</span><span class="op">,</span><span class="at">b_</span><span class="op">]</span><span class="ex">:=</span> FCI<span class="op">[</span>SP<span class="op">[</span><span class="fu">a</span><span class="op">,</span><span class="fu">b</span><span class="op">]]</span>;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">End</span><span class="op">[]</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">EndPackage</span><span class="op">[]</span></span></code></pre></div>
+<p>``<code>mathematica BeginPackage["MyPackage</code>“,{”FeynCalc`“}]</p>
+<p>MySP::usage= “Description of MySP”;</p>
+<p>Begin[“<code>Private</code>”];</p>
+<p>MySP[a_,b_]:= FCI[SP[a,b]];</p>
+<p>End[] EndPackage[]</p>
+<p>```mathematica</p>
 <h3 id="package-or-add-on">Package or add-on?</h3>
 <p>The decision, whether you want to write an add-on or a separate
 package that requires FeynCalc should be made depending on your working

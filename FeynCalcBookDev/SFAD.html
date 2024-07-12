@@ -110,11 +110,11 @@
 </header>
 <h2 id="sfad">SFAD</h2>
 <p><code>SFAD[{{q1 +..., p1 . q2 +...,} {m^2, s}, n}, ...]</code>
-denotes a Cartesian propagator given by <span
+denotes a standard Lorentzian propagator given by <span
 class="math inline">\frac{1}{[(q_1+\ldots)^2 + p_1 \cdot q_2 ... + m^2 +
 s i \eta]^n}</span>, where <span class="math inline">q_1^2</span> and
-<span class="math inline">p_1 \cdot q_2</span> are Cartesian scalar
-products in <span class="math inline">D-1</span> dimensions.</p>
+<span class="math inline">p_1 \cdot q_2</span> are Lorentzian scalar
+products in <span class="math inline">D</span> dimensions.</p>
 <p>For brevity one can also use shorter forms such as
 <code>SFAD[{q1+ ...,  m^2}, ...]</code>,
 <code>SFAD[{q1+ ...,  m^2 , n}, ...]</code>,
@@ -122,12 +122,18 @@ products in <span class="math inline">D-1</span> dimensions.</p>
 etc.</p>
 <p>If <code>s</code> is not explicitly specified, its value is
 determined by the option <code>EtaSign</code>, which has the default
-value <code>+1</code>.</p>
+value <code>+1</code> and corresponds to <span class="math inline">+ i
+\eta</span></p>
 <p>If <code>n</code> is not explicitly specified, then the default value
-<code>1</code> is assumed. Translation into FeynCalcI internal form is
-performed by <code>FeynCalcInternal</code>, where a <code>SFAD</code> is
-encoded using the special head
-<code>CartesianPropagatorDenominator</code>.</p>
+<code>1</code> is assumed. Translation into the FeynCalc internal form
+is performed by <code>FeynCalcInternal</code>, where an
+<code>SFAD</code> is encoded using the special head
+<code>StandardPropagatorDenominator</code>.</p>
+<p><code>SFAD</code> can represent more versatile propagators as
+compared to the old <code>FAD</code>. In particular, <code>FAD</code>
+does not allow one to enter eikonal propagators, track the sign of the
+<span class="math inline">i \eta</span> or change the sign and the form
+of the mass term.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
 href="FAD.html">FAD</a>, <a href="GFAD.html">GFAD</a>, <a
@@ -149,5 +155,29 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="fu">n</span> . <span class="fu">q</span><span class="op">}}]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{(n\cdot q+i \eta )}</span></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> . <span class="fu">q</span><span class="op">},</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{(p^2+p\cdot q-m^2+i \eta
+)}</span></p>
+<p>The so called Smirnov-notation for propagators can be achieved by
+multiplying the quadratic part by <code>I</code> and switching the sign
+of the mass term.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="sc">-</span><span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{(-p^2+m^2+i \eta )}</span></p>
+<p>If one wants to have additional variables multiplying loop or
+external momenta, those need to be declared to be of the
+<code>FCVariable</code> type</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>la<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span></span></code></pre></div>
+<p><span class="math display">\text{True}</span></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> la <span class="fu">p</span> . <span class="fu">q</span><span class="op">},</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{(\text{la} (p\cdot q)-m^2+i \eta
+)}</span></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FeynAmpDenominator[StandardPropagatorDenominator[0, la Pair[Momentum[p, D], Momentum[q, D]], -m^2, {1, 1}]]*)</span></span></code></pre></div>
 </body>
 </html>
