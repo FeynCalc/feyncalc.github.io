@@ -111,7 +111,29 @@
 <h2 id="momentumcombine">MomentumCombine</h2>
 <p><code>MomentumCombine[expr]</code> is the inverse operation to
 <code>MomentumExpand</code> and <code>ExpandScalarProduct</code>.
-<code>MomentumCombine</code> combines also <code>Pair</code>s.</p>
+<code>MomentumCombine</code> combines also <code>Pair</code>s. Notice,
+that <code>MomentumCombine</code> cannot complete squares. It can,
+however, bring expressions containing scalar products to a suitable form
+that allows for a square completion using other means.</p>
+<p>This function offers multiple options.</p>
+<p>The option <code>NumberQ</code> (default is <code>True</code>)
+specifies whether one should only merge quantities with numerical
+prefactors or not. Setting it to <code>False</code> allows for symbolic
+prefactors.</p>
+<p>Setting the option <code>"Quadratic"</code> to <code>False</code>
+(default is <code>True</code>) effectively means that momenta squared
+will not be combined with anything else.</p>
+<p>With the option <code>"ExcludeScalarProducts"</code> we can ensure
+that scalar products containing any of the momenta listed are not merged
+with anything else. So <code>a.x + a.y</code> can be merged either if
+<code>a</code> contains no such momenta, or if both <code>x</code> and
+<code>y</code> are free of them.</p>
+<p>The option <code>Except</code> forbids merging the listed momenta
+with anything else. It is much more restrictive than
+<code>"ExcludeScalarProducts"</code> that allows for merging terms
+linear in the listed momenta.</p>
+<p>The option <code>Select</code> allows for gathering all terms linear
+in the given momenta before applying any other combining rules.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
 href="ExpandScalarProduct.html">ExpandScalarProduct</a>, <a
@@ -199,5 +221,54 @@ rest. To that end we need to use the option <code>Except</code></p>
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span>ex<span class="op">,</span> <span class="fu">NumberQ</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="st">&quot;Quadratic&quot;</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="fu">Except</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">l</span><span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">(\text{a1} n+\text{a2} \;\text{nb})\cdot
 p+k\cdot p+l\cdot p+p^2</span></p>
+<p>Suppose that we have an expression that can be written as a square.
+To achieve the desired combination of momenta we need to</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(DataType<span class="op">[</span>#<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>) &amp; <span class="sc">/</span>@ <span class="op">{</span>gkin<span class="op">,</span> meta<span class="op">,</span> u0b<span class="op">}</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> SPD<span class="op">[</span>k1<span class="op">,</span> k1<span class="op">]</span> <span class="sc">-</span> <span class="dv">2</span> SPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> gkin meta SPD<span class="op">[</span>k1<span class="op">,</span> <span class="fu">n</span><span class="op">]</span> <span class="sc">-</span> <span class="dv">2</span> gkin meta u0b SPD<span class="op">[</span>k1<span class="op">,</span> <span class="fu">n</span><span class="op">]</span> <span class="sc">-</span> meta u0b SPD<span class="op">[</span>k1<span class="op">,</span> nb<span class="op">]</span> <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>   SPD<span class="op">[</span>k2<span class="op">,</span> k2<span class="op">]</span> <span class="sc">-</span> <span class="dv">2</span> gkin meta SPD<span class="op">[</span>k2<span class="op">,</span> <span class="fu">n</span><span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> gkin meta u0b SPD<span class="op">[</span>k2<span class="op">,</span> <span class="fu">n</span><span class="op">]</span> <span class="sc">+</span>meta u0b SPD<span class="op">[</span>k2<span class="op">,</span> nb<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-2 \;\text{gkin} \;\text{meta}
+\;\text{u0b} (\text{k1}\cdot n)+2 \;\text{gkin} \;\text{meta}
+(\text{k1}\cdot n)+2 \;\text{gkin} \;\text{meta} \;\text{u0b}
+(\text{k2}\cdot n)-2 \;\text{gkin} \;\text{meta} (\text{k2}\cdot n)-2
+(\text{k1}\cdot \;\text{k2})-\text{meta} \;\text{u0b} (\text{k1}\cdot
+\;\text{nb})+\text{k1}^2+\text{meta} \;\text{u0b} (\text{k2}\cdot
+\;\text{nb})+\text{k2}^2</span></p>
+<p>The naive application of <code>MomentumCombine</code> doesn’t return
+anything useful</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{meta} \;\text{u0b}
+((\text{k2}-\text{k1})\cdot \;\text{nb})+\text{k1}\cdot (\text{k1}-2
+\;\text{k2})-2 \;\text{gkin} \;\text{meta} \;\text{u0b} (\text{k1}\cdot
+n)+2 \;\text{gkin} \;\text{meta} (\text{k1}\cdot n)+2 \;\text{gkin}
+\;\text{meta} \;\text{u0b} (\text{k2}\cdot n)-2 \;\text{gkin}
+\;\text{meta} (\text{k2}\cdot n)+\text{k2}^2</span></p>
+<p>Here we actually want to gather terms linear in <code>k1</code> and
+<code>k2</code>first before trying to combine them together. To that aim
+we can use the option <code>Select</code>. Employing the options
+<code>"Quadratic"</code> and <code>"ExcludeScalarProducts"</code> we can
+prevent <code>k1</code> and <code>k2</code> from getting combined with
+anything containing those momenta. Furthermore, we enable symbolical
+prefactor by setting <code>NumberQ</code> to false</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span>ex<span class="op">,</span> <span class="fu">Select</span> <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="st">&quot;Quadratic&quot;</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="st">&quot;ExcludeScalarProducts&quot;</span> <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="fu">NumberQ</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{k1}\cdot (-2 \;\text{gkin}
+\;\text{meta} n \;\text{u0b}+2 \;\text{gkin} \;\text{meta} n-\text{meta}
+\;\text{nb} \;\text{u0b})+\text{k2}\cdot (2 \;\text{gkin} \;\text{meta}
+n \;\text{u0b}-2 \;\text{gkin} \;\text{meta} n+\text{meta} \;\text{nb}
+\;\text{u0b})-2 (\text{k1}\cdot
+\;\text{k2})+\text{k1}^2+\text{k2}^2</span></p>
+<p>This result looks very good, but <code>k1</code> and <code>k2</code>
+were not combined because they are contracted to long linear
+combinations of 4-momenta that were not properly factorized. The option
+<code>Factoring</code> solves this issue</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> MomentumCombine<span class="op">[</span>ex<span class="op">,</span> <span class="fu">Select</span> <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="st">&quot;Quadratic&quot;</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="st">&quot;ExcludeScalarProducts&quot;</span> <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="fu">NumberQ</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> Factoring <span class="ot">-&gt;</span> Factor2<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{meta} ((\text{k1}-\text{k2})\cdot
+(-2 \;\text{gkin} n \;\text{u0b}+2 \;\text{gkin} n-\text{nb}
+\;\text{u0b}))-2 (\text{k1}\cdot
+\;\text{k2})+\text{k1}^2+\text{k2}^2</span></p>
 </body>
 </html>

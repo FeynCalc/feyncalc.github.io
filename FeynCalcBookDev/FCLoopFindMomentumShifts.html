@@ -108,6 +108,7 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
+<h2 id="fcloopfindmomentumshifts">FCLoopFindMomentumShifts</h2>
 <p><code>FCLoopFindMomentumShifts[source, target, {p1, p2, ...}]</code>
 finds loop momentum shifts that bring loop integrals or topologies in
 the list <code>source</code> to the form specified in target. The
@@ -123,7 +124,9 @@ list of such lists.</p>
 <p>For topologies involving kinematic constraints some mappings may
 require shifts not only in the loop but also in the external momenta.
 Such shifts are disabled by default but can be activated by setting the
-option <code>Momentum</code> to <code>All</code>.</p>
+option <code>Momentum</code> to <code>All</code>. This option can be
+dangerous, because the amplitude does not necessarily have to be
+symmetric under shifts of external momenta!</p>
 <p>Normally, <code>FCLoopFindMomentumShifts</code> will abort the
 evaluation if it fails to find any suitable shifts. Setting the option
 <code>Abort</code> to <code>False</code> will force the function to
@@ -157,15 +160,14 @@ class="math display">\left\{\frac{1}{\text{p4}^2},\frac{1}{(\text{p1}+\text{p4}+
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindMomentumShifts<span class="op">[</span>source<span class="op">,</span> target<span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">,</span> p4<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\{\{\text{p1}\to
-\;\text{p1}+\text{p4}+\text{q1},\text{p3}\to \;\text{p3},\text{p4}\to
-\;\text{p4}\}\}</span></p>
+\;\text{p1}+\text{p4}+\text{q1}\}\}</span></p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindMomentumShifts<span class="op">[{{</span>FAD<span class="op">[</span>r4<span class="op">],</span> FAD<span class="op">[</span>r1<span class="op">],</span> FAD<span class="op">[</span>r1 <span class="sc">-</span> p3 <span class="sc">-</span> r4<span class="op">],</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    FAD<span class="op">[{</span>r1 <span class="sc">-</span> r4<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>p3<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[</span>p3 <span class="sc">+</span> q1<span class="op">],</span> FAD<span class="op">[</span>r1 <span class="sc">+</span> q1<span class="op">]}},</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span>FAD<span class="op">[</span>p4<span class="op">],</span> FAD<span class="op">[</span>p1 <span class="sc">+</span> p4 <span class="sc">+</span> q1<span class="op">],</span> FAD<span class="op">[</span>p1 <span class="sc">-</span> p3 <span class="sc">+</span> q1<span class="op">],</span> FAD<span class="op">[{</span>p1 <span class="sc">+</span> q1<span class="op">,</span> m1<span class="op">}],</span> </span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   FAD<span class="op">[{</span>p3<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[</span>p3 <span class="sc">+</span> q1<span class="op">],</span> FAD<span class="op">[</span>p1 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="dv">2</span> q1<span class="op">]},</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">,</span> p4<span class="op">,</span> r4<span class="op">,</span>r1<span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\{\{\text{p3}\to \;\text{p3},\text{r4}\to
-\;\text{p4},\text{r1}\to \;\text{p1}+\text{p4}+\text{q1}\}\}</span></p>
+<p><span class="math display">\{\{\text{r4}\to \;\text{p4},\text{r1}\to
+\;\text{p1}+\text{p4}+\text{q1}\}\}</span></p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>source1 <span class="ex">=</span> <span class="op">{</span>FCTopology<span class="op">[</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    fctopology3<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span>p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
@@ -222,8 +224,8 @@ class="math display">\text{FCTopology}\left(\text{fctopology1},\left\{\frac{1}{(
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindMomentumShifts<span class="op">[</span>source1<span class="op">,</span> target1<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{\{\text{p1}\to
--\text{p1}-\text{p3}+Q,\text{p2}\to -\text{p2}-\text{p3}+Q,\text{p3}\to
-\;\text{p3}\},\{\text{p1}\to Q-\text{p2},\text{p2}\to
+-\text{p1}-\text{p3}+Q,\text{p2}\to
+-\text{p2}-\text{p3}+Q\},\{\text{p1}\to Q-\text{p2},\text{p2}\to
 Q-\text{p1},\text{p3}\to -\text{p3}\}\}</span></p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>source2 <span class="ex">=</span> <span class="op">{</span>FCTopology<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span></span>
@@ -263,12 +265,146 @@ class="math display">\text{FCTopology}\left(\text{topo2},\left\{\frac{1}{((\text
 external momenta</p>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Quiet</span><span class="op">[</span>FCLoopFindMomentumShifts<span class="op">[</span>source2<span class="op">,</span> target2<span class="op">,</span> <span class="fu">Abort</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies topo1
+and topo2. This can be due to the presence of nonquadratic propagators
+or because shifts in external momenta are also necessary.}</span></p>
 <p><span class="math display">\{\{\}\}</span></p>
 <p>Once we allow such shifts, everything works as expected</p>
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindMomentumShifts<span class="op">[</span>source2<span class="op">,</span> target2<span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{\{\text{l1}\to
-\;\text{l1}-\text{l2}-\text{q2},\text{l2}\to -\text{l2},\text{q1}\to
-\;\text{q2},\text{q2}\to \;\text{q1}\}\}</span></p>
+-\text{l1}+\text{l2}+\text{q2},\text{q1}\to -\text{q2},\text{q2}\to
+-\text{q1}\}\}</span></p>
+<p>For equivalent topologies containing mixed quadratic-eikonal
+propagators it’s often not possible to find suitable shifts because the
+function cannot reconstruct the correct momentum flow through such
+propagators</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>source3 <span class="ex">=</span> <span class="op">{</span>FCTopology<span class="op">[</span><span class="st">&quot;pfrTopo303&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span>k2<span class="op">,</span> <span class="sc">-</span><span class="dv">2</span> gkin meta k2 . <span class="fu">n</span> <span class="sc">+</span> meta u0b k2 . nb<span class="op">},</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span><span class="dv">2</span> gkin meta<span class="sc">^</span><span class="dv">2</span> u0b<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>k1 <span class="sc">-</span> k2<span class="op">,</span> meta u0b (<span class="sc">-</span>k1 <span class="sc">+</span> k2) . nb<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>k1<span class="op">,</span> <span class="sc">-</span><span class="dv">2</span> gkin meta k1 . <span class="fu">n</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>k1<span class="op">,</span> <span class="sc">-</span>meta u0b k1 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span>k2 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span>k1 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">},</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">},</span> <span class="op">{}]}</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{pfrTopo303},\left\{\frac{1}{(\text{k2}^2+\text{meta}
+\;\text{u0b} (\text{k2}\cdot \;\text{nb})-2 \;\text{gkin} \;\text{meta}
+(\text{k2}\cdot n)-2 \;\text{gkin} \;\text{meta}^2 \;\text{u0b}+i \eta
+)},\frac{1}{((\text{k1}-\text{k2})^2+\text{meta} \;\text{u0b}
+((\text{k2}-\text{k1})\cdot \;\text{nb})+i \eta
+)},\frac{1}{(\text{k1}^2-2 \;\text{gkin} \;\text{meta} (\text{k1}\cdot
+n)+i \eta )},\frac{1}{(\text{k1}^2-\text{meta} \;\text{u0b}
+(\text{k1}\cdot \;\text{nb})+i \eta )},\frac{1}{(-\text{k2}\cdot
+\;\text{nb}+i \eta )},\frac{1}{(-\text{k1}\cdot \;\text{nb}+i \eta
+)}\right\},\{\text{k1},\text{k2}\},\{n,\text{nb}\},\{\text{Hold}[\text{SPD}][n]\to
+0,\text{Hold}[\text{SPD}][\text{nb}]\to
+0,\text{Hold}[\text{SPD}][n,\text{nb}]\to
+2\},\{\}\right)\right\}</span></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>target3 <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;pfrTopo267&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span>k2<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>k1 <span class="sc">-</span> k2<span class="op">,</span> <span class="dv">2</span> gkin meta k1 . <span class="fu">n</span> <span class="sc">-</span> <span class="dv">2</span> gkin meta u0b k1 . <span class="fu">n</span> <span class="sc">-</span> <span class="dv">2</span> gkin meta k2 . <span class="fu">n</span> <span class="sc">+</span> <span class="dv">2</span> gkin meta u0b k2 . <span class="fu">n</span> <span class="sc">+</span> meta u0b (<span class="sc">-</span>k1 <span class="sc">+</span> k2) . nb<span class="op">},</span> <span class="op">{</span><span class="dv">2</span> gkin meta<span class="sc">^</span><span class="dv">2</span> u0b <span class="sc">-</span> <span class="dv">2</span> gkin meta<span class="sc">^</span><span class="dv">2</span> u0b<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>k1<span class="op">,</span> <span class="dv">2</span> gkin meta k1 . <span class="fu">n</span> <span class="sc">-</span> <span class="dv">2</span> gkin meta u0b k1 . <span class="fu">n</span> <span class="sc">-</span> meta u0b k1 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">2</span> gkin meta<span class="sc">^</span><span class="dv">2</span> u0b <span class="sc">-</span> <span class="dv">2</span> gkin meta<span class="sc">^</span><span class="dv">2</span> u0b<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>k1<span class="op">,</span> <span class="sc">-</span><span class="dv">2</span> gkin meta u0b k1 . <span class="fu">n</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> k2 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">2</span> gkin meta<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> k1 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">2</span> gkin meta u0b<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">},</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">},</span> <span class="op">{}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCTopology}\left(\text{pfrTopo267},\left\{\frac{1}{(\text{k2}^2+i
+\eta )},1\left/\left(((\text{k1}-\text{k2})^2+2 \;\text{gkin}
+\;\text{meta} (\text{k1}\cdot n)-2 \;\text{gkin} \;\text{meta}
+\;\text{u0b} (\text{k1}\cdot n)-2 \;\text{gkin} \;\text{meta}
+(\text{k2}\cdot n)+2 \;\text{gkin} \;\text{meta} \;\text{u0b}
+(\text{k2}\cdot n)+\text{meta} \;\text{u0b} ((\text{k2}-\text{k1})\cdot
+\;\text{nb})+2 \;\text{gkin} \;\text{meta}^2 \;\text{u0b}^2-2
+\;\text{gkin} \;\text{meta}^2 \;\text{u0b}+i \eta
+)\right)\right.,\frac{1}{(\text{k1}^2+2 \;\text{gkin} \;\text{meta}
+(\text{k1}\cdot n)-2 \;\text{gkin} \;\text{meta} \;\text{u0b}
+(\text{k1}\cdot n)-\text{meta} \;\text{u0b} (\text{k1}\cdot
+\;\text{nb})+2 \;\text{gkin} \;\text{meta}^2 \;\text{u0b}^2-2
+\;\text{gkin} \;\text{meta}^2 \;\text{u0b}+i \eta
+)},\frac{1}{(\text{k1}^2-2 \;\text{gkin} \;\text{meta} \;\text{u0b}
+(\text{k1}\cdot n)+i \eta )},\frac{1}{(\text{k2}\cdot \;\text{nb}-2
+\;\text{gkin} \;\text{meta}+i \eta )},\frac{1}{(\text{k1}\cdot
+\;\text{nb}-2 \;\text{gkin} \;\text{meta} \;\text{u0b}+i \eta
+)}\right\},\{\text{k1},\text{k2}\},\{n,\text{nb}\},\{\text{Hold}[\text{SPD}][n]\to
+0,\text{Hold}[\text{SPD}][\text{nb}]\to
+0,\text{Hold}[\text{SPD}][n,\text{nb}]\to 2\},\{\}\right)</span></p>
+<p><span
+class="math display">(\text{DataType}[\#,\text{FCVariable}]=\text{True})\&amp;\text{/@}\{\text{gkin},\text{meta},\text{u0b}\};</span></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindMomentumShifts<span class="op">[</span>source3<span class="op">,</span> target3<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{The topologies contain following mixed quadratic-eikonal
+propagators that complicate the determination of the shifts:
+}\left\{\frac{1}{(\text{k1}^2-2 \;\text{gkin} \;\text{meta}
+(\text{k1}\cdot n)+i \eta )},\frac{1}{(\text{k1}^2-2 \;\text{gkin}
+\;\text{meta} \;\text{u0b} (\text{k1}\cdot n)+i \eta
+)},\frac{1}{(\text{k1}^2-\text{meta} \;\text{u0b} (\text{k1}\cdot
+\;\text{nb})+i \eta )},\frac{1}{(\text{k1}^2+n\cdot (2 \;\text{gkin}
+\;\text{meta} \;\text{k1}-2 \;\text{gkin} \;\text{meta} \;\text{u0b}
+\;\text{k1})-\text{meta} \;\text{u0b} (\text{k1}\cdot \;\text{nb})+2
+\;\text{gkin} \;\text{meta}^2 \;\text{u0b}^2-2 \;\text{gkin}
+\;\text{meta}^2 \;\text{u0b}+i \eta
+)},\frac{1}{((\text{k1}-\text{k2})^2+\text{meta} \;\text{u0b}
+((\text{k2}-\text{k1})\cdot \;\text{nb})+i \eta
+)},\frac{1}{((\text{k1}-\text{k2})^2+\text{meta} \;\text{u0b}
+((\text{k2}-\text{k1})\cdot \;\text{nb})+n\cdot (2 \;\text{gkin}
+\;\text{meta} \;\text{k1}-2 \;\text{gkin} \;\text{meta} \;\text{u0b}
+\;\text{k1}-2 \;\text{gkin} \;\text{meta} \;\text{k2}+2 \;\text{gkin}
+\;\text{meta} \;\text{u0b} \;\text{k2})+2 \;\text{gkin} \;\text{meta}^2
+\;\text{u0b}^2-2 \;\text{gkin} \;\text{meta}^2 \;\text{u0b}+i \eta
+)},\frac{1}{(\text{k2}^2+\text{k2}\cdot (\text{meta} \;\text{u0b}
+\;\text{nb}-2 \;\text{gkin} \;\text{meta} n)-2 \;\text{gkin}
+\;\text{meta}^2 \;\text{u0b}+i \eta )}\right\}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{You can try to trade them for purely quadratic propagators
+using FCLoopReplaceQuadraticEikonalPropagators.}</span></p>
+<p><img src="img/189bbth1nyc1e.svg" alt="189bbth1nyc1e" /></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo303 and pfrTopo267. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<p>To this aim one can try converting those mixed propagators to purely
+quadratic ones using
+<code>FCLoopReplaceQuadraticEikonalPropagators</code></p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>source3New <span class="ex">=</span> FCLoopReplaceQuadraticEikonalPropagators<span class="op">[</span>source3<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>   InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">-</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">-</span> k2<span class="op">]},</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   IntermediateSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{pfrTopo303},\left\{\frac{1}{((\text{k2}-\text{gkin}
+\;\text{meta} n+\frac{\text{meta} \;\text{u0b} \;\text{nb}}{2})^2+i \eta
+)},\frac{1}{((\text{k1}-\text{k2}-\frac{\text{meta} \;\text{u0b}
+\;\text{nb}}{2})^2+i \eta )},\frac{1}{((\text{k1}-\text{gkin}
+\;\text{meta} n)^2+i \eta )},\frac{1}{((\text{k1}-\frac{\text{meta}
+\;\text{u0b} \;\text{nb}}{2})^2+i \eta )},\frac{1}{(-\text{k2}\cdot
+\;\text{nb}+i \eta )},\frac{1}{(-\text{k1}\cdot \;\text{nb}+i \eta
+)}\right\},\{\text{k1},\text{k2}\},\{n,\text{nb}\},\{\text{Hold}[\text{SPD}][n]\to
+0,\text{Hold}[\text{SPD}][\text{nb}]\to
+0,\text{Hold}[\text{SPD}][n,\text{nb}]\to
+2\},\{\}\right)\right\}</span></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>target3New <span class="ex">=</span> FCLoopReplaceQuadraticEikonalPropagators<span class="op">[</span>target3<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">-</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">-</span> k2<span class="op">]},</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    IntermediateSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">First</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCTopology}\left(\text{pfrTopo267},\left\{\frac{1}{(\text{k2}^2+i
+\eta )},\frac{1}{((\text{k1}-\text{k2}+\text{gkin} \;\text{meta}
+n-\text{gkin} \;\text{meta} \;\text{u0b} n-\frac{\text{meta}
+\;\text{u0b} \;\text{nb}}{2})^2+i \eta
+)},\frac{1}{((\text{k1}+\text{gkin} \;\text{meta} n-\text{gkin}
+\;\text{meta} \;\text{u0b} n-\frac{\text{meta} \;\text{u0b}
+\;\text{nb}}{2})^2+i \eta )},\frac{1}{((\text{k1}-\text{gkin}
+\;\text{meta} \;\text{u0b} n)^2+i \eta )},\frac{1}{(\text{k2}\cdot
+\;\text{nb}-2 \;\text{gkin} \;\text{meta}+i \eta
+)},\frac{1}{(\text{k1}\cdot \;\text{nb}-2 \;\text{gkin} \;\text{meta}
+\;\text{u0b}+i \eta
+)}\right\},\{\text{k1},\text{k2}\},\{n,\text{nb}\},\{\text{Hold}[\text{SPD}][n]\to
+0,\text{Hold}[\text{SPD}][\text{nb}]\to
+0,\text{Hold}[\text{SPD}][n,\text{nb}]\to 2\},\{\}\right)</span></p>
+<p>With the new topologies everything works as expected</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindMomentumShifts<span class="op">[</span>source3New<span class="op">,</span> target3New<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left\{\left\{\text{k1}\to \;\text{gkin}
+\;\text{meta} n \;\text{u0b}-\text{k1}+\frac{\text{meta} \;\text{nb}
+\;\text{u0b}}{2},\text{k2}\to \frac{1}{2} (2 \;\text{gkin} \;\text{meta}
+n-2 \;\text{k2}-\text{meta} \;\text{nb}
+\;\text{u0b})\right\}\right\}</span></p>
 </body>
 </html>

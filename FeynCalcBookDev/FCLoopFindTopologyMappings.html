@@ -176,7 +176,7 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 )},\frac{1}{((\text{p1}+\text{p2}+\text{p3}-Q)^2+i \eta
 )}\right\},\{\text{p1},\text{p2},\text{p3}\},\{Q\},\{\},\{\}\right)
 &amp; \{\text{p1}\to -\text{p1}-\text{p3}+Q,\text{p2}\to
--\text{p2}-\text{p3}+Q,\text{p3}\to \;\text{p3}\} &amp;
+-\text{p2}-\text{p3}+Q\} &amp;
 G^{\text{fctopology3}}(\text{n1$\_$},\text{n7$\_$},\text{n8$\_$},\text{n5$\_$},\text{n6$\_$},\text{n4$\_$},\text{n2$\_$},\text{n3$\_$},\text{n9$\_$}):\to
 G^{\text{fctopology1}}(\text{n1},\text{n2},\text{n3},\text{n4},\text{n5},\text{n6},\text{n7},\text{n8},\text{n9})
 \\
@@ -201,8 +201,7 @@ G^{\text{fctopology1}}(\text{n1},\text{n2},\text{n3},\text{n4},\text{n5},\text{n
 )},\frac{1}{((\text{p1}+\text{p2}-Q)^2+i \eta
 )},\frac{1}{((\text{p1}+\text{p2}+\text{p3}-Q)^2+i \eta
 )}\right\},\{\text{p1},\text{p2},\text{p3}\},\{Q\},\{\},\{\}\right)
-&amp; \{\text{p1}\to \;\text{p2},\text{p2}\to \;\text{p1},\text{p3}\to
-\;\text{p3}\} &amp;
+&amp; \{\text{p1}\to \;\text{p2},\text{p2}\to \;\text{p1}\} &amp;
 G^{\text{fctopology5}}(\text{n1$\_$},\text{n3$\_$},\text{n2$\_$},\text{n4$\_$},\text{n6$\_$},\text{n5$\_$},\text{n7$\_$},\text{n8$\_$},\text{n9$\_$}):\to
 G^{\text{fctopology2}}(\text{n1},\text{n2},\text{n3},\text{n4},\text{n5},\text{n6},\text{n7},\text{n8},\text{n9})
 \\
@@ -445,8 +444,8 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 )}\right\},\{\text{l1},\text{l2}\},\{\text{q1},\text{q2}\},\left\{\text{q1}^2\to
 0,\text{q2}^2\to 0,\text{q1}\cdot \;\text{q2}\to
 \frac{s}{2}\right\},\{\}\right) &amp; \{\text{l1}\to
--\text{l1}+\text{l2}-\text{q1},\text{l2}\to \;\text{l2},\text{q1}\to
--\text{q2},\text{q2}\to -\text{q1}\} &amp;
+-\text{l1}+\text{l2}-\text{q1},\text{q1}\to -\text{q2},\text{q2}\to
+-\text{q1}\} &amp;
 G^{\text{topo2}}(\text{n1$\_$},\text{n2$\_$},\text{n3$\_$},\text{n4$\_$},\text{n5$\_$}):\to
 G^{\text{topo1}}(\text{n1},\text{n2},\text{n3},\text{n4},\text{n5}) \\
 \end{array}
@@ -454,6 +453,10 @@ G^{\text{topo1}}(\text{n1},\text{n2},\text{n3},\text{n4},\text{n5}) \\
 <p>Otherwise no mappings exist</p>
 <div class="sourceCode" id="cb19"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTopologyMappings<span class="op">[</span>topos4<span class="op">][[</span><span class="dv">1</span><span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies topo2
+and topo1. This can be due to the presence of nonquadratic propagators
+or because shifts in external momenta are also necessary.}</span></p>
 <p><span class="math display">\text{FCLoopFindTopologyMappings:
 }\;\text{Found }0\text{ mapping relations }</span></p>
 <p><span class="math display">\text{FCLoopFindTopologyMappings:
@@ -478,12 +481,39 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span><span class="dv">2</span> gkin meta<span class="sc">^</span><span class="dv">2</span> u0b<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">},</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> </span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">},</span> <span class="op">{}]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb22"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>meta<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>u0b<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>gkin<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>meta<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>u0b<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span></code></pre></div>
 <p>At first sight these two topologies are independent from each
 other</p>
 <div class="sourceCode" id="cb23"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTopologyMappings<span class="op">[{</span>topoEik1<span class="op">,</span> topoEik2<span class="op">}]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{The topologies contain following mixed quadratic-eikonal
+propagators that complicate the determination of the shifts:
+}\left\{\frac{1}{(\text{k1}^2+\text{k1}\cdot (2 \;\text{gkin}
+\;\text{meta} n-\text{meta} \;\text{u0b} \;\text{nb})-2 \;\text{gkin}
+\;\text{meta}^2 \;\text{u0b}+i \eta
+)},\frac{1}{(\text{k1}^2+\text{k1}\cdot (\text{meta} \;\text{u0b}
+\;\text{nb}-2 \;\text{gkin} \;\text{meta} n)-2 \;\text{gkin}
+\;\text{meta}^2 \;\text{u0b}+i \eta )},\frac{1}{(\text{k2}^2-\text{meta}
+\;\text{u0b} (\text{k2}\cdot \;\text{nb})+i \eta
+)},\frac{1}{((\text{k1}+\text{k2})^2-2 \;\text{gkin} \;\text{meta}
+\;\text{u0b} ((\text{k1}+\text{k2})\cdot n)+i \eta
+)},\frac{1}{((\text{k1}+\text{k2})^2-\text{meta} \;\text{u0b}
+((\text{k1}+\text{k2})\cdot \;\text{nb})+i \eta
+)},\frac{1}{((\text{k1}+\text{k2})^2+(\text{k1}+\text{k2})\cdot (2
+\;\text{gkin} \;\text{meta} \;\text{u0b} n-\text{meta} \;\text{u0b}
+\;\text{nb})-2 \;\text{gkin} \;\text{meta}^2 \;\text{u0b}^2+i \eta
+)}\right\}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{You can try to trade them for purely quadratic propagators
+using FCLoopReplaceQuadraticEikonalPropagators.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+mytopo79 and mytopo67. This can be due to the presence of nonquadratic
+propagators or because shifts in external momenta are also
+necessary.}</span></p>
 <p><span class="math display">\text{FCLoopFindTopologyMappings:
 }\;\text{Found }0\text{ mapping relations }</span></p>
 <p><span class="math display">\text{FCLoopFindTopologyMappings:
@@ -491,24 +521,18 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p>However, if we tell the code how some eikonal propagators can be
 brought into a quadratic form, then an explicit mapping can be found</p>
 <div class="sourceCode" id="cb24"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>eikRule <span class="ex">=</span> <span class="op">{</span>SFAD<span class="op">[{{</span>k2<span class="op">,</span> <span class="sc">-</span>meta u0b k2 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span> <span class="ot">-&gt;</span> SFAD<span class="op">[</span>k2 <span class="sc">-</span> meta u0b<span class="sc">/</span><span class="dv">2</span> nb<span class="op">]}</span></span></code></pre></div>
-<p><span class="math display">\left\{\frac{1}{(\text{k2}^2-\text{meta}
-\;\text{u0b} (\text{k2}\cdot \;\text{nb})+i \eta )}\to
-\frac{1}{((\text{k2}-\frac{\text{meta} \;\text{u0b} \;\text{nb}}{2})^2+i
-\eta )}\right\}</span></p>
-<div class="sourceCode" id="cb25"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>eikMappings <span class="ex">=</span> FCLoopFindTopologyMappings<span class="op">[{</span>topoEik1<span class="op">,</span> topoEik2<span class="op">},</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    InitialSubstitutions <span class="ot">-&gt;</span> eikRule<span class="op">]</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>toposNew <span class="ex">=</span> FCLoopReplaceQuadraticEikonalPropagators<span class="op">[{</span>topoEik1<span class="op">,</span> topoEik2<span class="op">},</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>      ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">-</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">-</span> k2<span class="op">],</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>      ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]},</span> </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    IntermediateSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">}]</span>;</span></code></pre></div>
+<p>```mathematica eikMappings =
+FCLoopFindTopologyMappings[toposNew];</p>
+<p>```mathematica</p>
 <p><span class="math display">\text{FCLoopFindTopologyMappings:
 }\;\text{Found }1\text{ mapping relations }</span></p>
 <p><span class="math display">\text{FCLoopFindTopologyMappings:
 }\;\text{Final number of independent topologies: }1</span></p>
-<div class="sourceCode" id="cb26"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>eikMappings<span class="op">[[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">2</span> ;;<span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\left\{\left\{\text{k1}\to
--\text{k1},\text{k2}\to \frac{1}{2} (\text{meta} \;\text{nb}
-\;\text{u0b}-2
-\;\text{k2})\right\},G^{\text{mytopo79}}(\text{n5$\_$},\text{n2$\_$},\text{n4$\_$},\text{n1$\_$},\text{n3$\_$},\text{n7$\_$},\text{n6$\_$}):\to
-G^{\text{mytopo67}}(\text{n1},\text{n2},\text{n3},\text{n4},\text{n5},\text{n6},\text{n7})\right\}</span></p>
 </body>
 </html>

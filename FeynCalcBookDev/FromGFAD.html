@@ -113,12 +113,20 @@
 denominators into standard and Cartesian propagator denominators.</p>
 <p>The options <code>InitialSubstitutions</code> and
 <code>IntermediateSubstitutions</code> can be used to help the function
-handle nontrivial propagators.</p>
+handle nontrivial propagators. In particular,
+<code>InitialSubstitutions</code> can define rules for completing the
+square in the loop momenta of the propagator, while
+<code>IntermediateSubstitutions</code> contains relations for scalar
+products appearing in those rules.</p>
+<p>Another useful option is <code>LoopMomenta</code> which is
+particularly helpful when converting mixed quadratic-eikonal propagators
+to quadratic ones.</p>
 <p>For propagators containing symbolic variables it might be necessary
 to tell the function that those are larger than zero (if applicable), so
 that expressions such as <span
 class="math inline">\sqrt{\lambda^2}</span> can be simplified
-accordingly.</p>
+accordingly. To that aim one should use the option
+<code>PowerExpand</code>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
 href="GFAD.html">GFAD</a>, <a href="SFAD.html">SFAD</a>, <a
@@ -129,61 +137,68 @@ href="FeynAmpDenominatorExplicit.html">FeynAmpDenominatorExplicit</a>.</p>
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GFAD<span class="op">[</span>SPD<span class="op">[</span>p1<span class="op">]]</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FromGFAD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(\text{p1}^2+i \eta )}</span></p>
-<p><span class="math display">\frac{1}{(\text{p1}^2+i \eta )}</span></p>
+<p><span
+class="math display">\text{GFAD}(\text{SPD}(\text{p1}))</span></p>
+<p><span
+class="math display">\text{FromGFAD}(\text{GFAD}(\text{SPD}(\text{p1})))</span></p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FeynAmpDenominator[StandardPropagatorDenominator[Momentum[p1, D], 0, 0, {1, 1}]]*)</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FromGFAD[GFAD[SPD[p1]]]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GFAD<span class="op">[</span>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]]</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FromGFAD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(\text{p1}^2+2 (\text{p1}\cdot
-\;\text{p2})+i \eta )}</span></p>
-<p><span class="math display">\frac{1}{(\text{p1}^2+2 (\text{p1}\cdot
-\;\text{p2})+i \eta )}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> GFAD<span class="op">[</span>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">\text{GFAD}(2
+\;\text{SPD}(\text{p1},\text{p2})+\text{SPD}(\text{p1}))</span></p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FeynAmpDenominator[StandardPropagatorDenominator[Momentum[p1, D], 2 Pair[Momentum[p1, D], Momentum[p2, D]], 0, {1, 1}]]*)</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FromGFAD}(\text{GFAD}(2
+\;\text{SPD}(\text{p1},\text{p2})+\text{SPD}(\text{p1})))</span></p>
+<p>We can get a proper conversion into a quadratic propagator using the
+option <code>LoopMomenta</code>. Notice that here <code>p2.p2</code> is
+being put into the mass slot</p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>GFAD<span class="op">[{{</span>CSPD<span class="op">[</span>p1<span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> CSPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="sc">+</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">2</span><span class="op">}]</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FromGFAD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(m^2+\text{p1}^2+2
-(\text{p1}\cdot \;\text{p2})-i \eta )^2}</span></p>
-<p><span class="math display">\frac{1}{(\text{p1}^2+2 (\text{p1}\cdot
-\;\text{p2})+m^2-i \eta )^2}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{FromGFAD}(\text{GFAD}(2
+\;\text{SPD}(\text{p1},\text{p2})+\text{SPD}(\text{p1})),\text{LoopMomenta}\to
+\{\text{p1}\})</span></p>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FeynAmpDenominator[CartesianPropagatorDenominator[0, CartesianPair[CartesianMomentum[p1, -1 + D], CartesianMomentum[p1, -1 + D]] + 2 CartesianPair[CartesianMomentum[p1, -1 + D], CartesianMomentum[p2, -1 + D]], m^2, {2, -1}]]*)</span></span></code></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*GFAD[SPD[p1] + 2 SPD[p1, p2]]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>prop <span class="ex">=</span> FeynAmpDenominator<span class="op">[</span>GenericPropagatorDenominator<span class="op">[</span><span class="sc">-</span>la Pair<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       Momentum<span class="op">[</span>p1<span class="op">,</span> <span class="fu">D</span><span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> Pair<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">D</span><span class="op">]],</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">}]]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(2 (\text{p1}\cdot q)-\text{la}
-\;\text{p1}^2+i \eta )}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>GFAD<span class="op">[{{</span>CSPD<span class="op">[</span>p1<span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> CSPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="sc">+</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="dv">2</span><span class="op">}]</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FromGFAD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{GFAD}\left(\left\{\left\{2
+\;\text{CSPD}(\text{p1},\text{p2})+\text{CSPD}(\text{p1})+m^2,-1\right\},2\right\}\right)</span></p>
+<p><span
+class="math display">\text{FromGFAD}\left(\text{GFAD}\left(\left\{\left\{2
+\;\text{CSPD}(\text{p1},\text{p2})+\text{CSPD}(\text{p1})+m^2,-1\right\},2\right\}\right)\right)</span></p>
 <div class="sourceCode" id="cb8"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FromGFAD<span class="op">[</span>prop<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(-\text{la} \;\text{p1}^2+2
-(\text{p1}\cdot q)+i \eta )}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FromGFAD[GFAD[{{m^2 + CSPD[p1] + 2 CSPD[p1, p2], -1}, 2}]]*)</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>la<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>prop <span class="ex">=</span> FeynAmpDenominator<span class="op">[</span>GenericPropagatorDenominator<span class="op">[</span><span class="sc">-</span>la Pair<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       Momentum<span class="op">[</span>p1<span class="op">,</span> <span class="fu">D</span><span class="op">]]</span> <span class="sc">+</span> <span class="dv">2</span> Pair<span class="op">[</span>Momentum<span class="op">[</span>p1<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="fu">D</span><span class="op">]],</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">}]]</span></span></code></pre></div>
 <p><span
-class="math display">\text{FeynAmpDenominator}\left[\text{StandardPropagatorDenominator}\left[\sqrt{-\text{la}}
-\;\text{Momentum}[\text{p1},D],2
-\;\text{Pair}[\text{Momentum}[\text{p1},D],\text{Momentum}[q,D]],0,\{1,1\}\right]\right]</span></p>
+class="math display">\text{FeynAmpDenominator}(\text{GenericPropagatorDenominator}(2
+\;\text{Pair}(\text{Momentum}(\text{p1},D),\text{Momentum}(q,D))-\text{la}
+\;\text{Pair}(\text{Momentum}(\text{p1},D),\text{Momentum}(\text{p1},D)),\{1,1\}))</span></p>
 <div class="sourceCode" id="cb10"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FromGFAD<span class="op">[</span>prop<span class="op">,</span> <span class="fu">PowerExpand</span> <span class="ot">-&gt;</span> <span class="op">{</span>la<span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(-\text{la} \;\text{p1}^2+2
-(\text{p1}\cdot q)+i \eta )}</span></p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FromGFAD<span class="op">[</span>prop<span class="op">]</span></span></code></pre></div>
 <p><span
-class="math display">\text{FeynAmpDenominator}\left[\text{StandardPropagatorDenominator}\left[i
-\sqrt{\text{la}} \;\text{Momentum}[\text{p1},D],2
-\;\text{Pair}[\text{Momentum}[\text{p1},D],\text{Momentum}[q,D]],0,\{1,1\}\right]\right]</span></p>
+class="math display">\text{FromGFAD}(\text{FeynAmpDenominator}(\text{GenericPropagatorDenominator}(2
+\;\text{Pair}(\text{Momentum}(\text{p1},D),\text{Momentum}(q,D))-\text{la}
+\;\text{Pair}(\text{Momentum}(\text{p1},D),\text{Momentum}(\text{p1},D)),\{1,1\})))</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FromGFAD<span class="op">[</span>prop<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FromGFAD}(\text{FeynAmpDenominator}(\text{GenericPropagatorDenominator}(2
+\;\text{Pair}(\text{Momentum}(\text{p1},D),\text{Momentum}(q,D))-\text{la}
+\;\text{Pair}(\text{Momentum}(\text{p1},D),\text{Momentum}(\text{p1},D)),\{1,1\})),\text{LoopMomenta}\to
+\{\text{p1}\})</span></p>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> GFAD<span class="op">[{{</span><span class="sc">-</span>SPD<span class="op">[</span>p1<span class="op">,</span> p1<span class="op">],</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span><span class="sc">*</span>GFAD<span class="op">[{{</span>SPD<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span>p1 <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>p3<span class="op">]</span> <span class="sc">-</span> SPD<span class="op">[</span>p3<span class="op">,</span> p3<span class="op">],</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span><span class="sc">*</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    GFAD<span class="op">[{{</span><span class="sc">-</span>SPD<span class="op">[</span>p3<span class="op">,</span> p3<span class="op">],</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span><span class="sc">*</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mb<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span><span class="sc">*</span></span>
@@ -196,58 +211,201 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>           <span class="dv">1</span><span class="op">}]</span><span class="sc">*</span>GFAD<span class="op">[{{</span>SPD<span class="op">[</span>p1<span class="op">,</span> <span class="sc">-</span>p1 <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>p3<span class="op">]</span> <span class="sc">-</span> SPD<span class="op">[</span>p3<span class="op">,</span> p3<span class="op">],</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span><span class="sc">*</span>GFAD<span class="op">[{{</span><span class="sc">-</span>SPD<span class="op">[</span>p3<span class="op">,</span> p3<span class="op">],</span> </span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="dv">1</span><span class="op">},</span> <span class="dv">2</span><span class="op">}]</span><span class="sc">*</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p1 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="sc">-</span>mb<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span><span class="sc">*</span>SFAD<span class="op">[{{</span><span class="fu">I</span><span class="sc">*</span>(p3 <span class="sc">+</span> <span class="fu">q</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> </span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span><span class="sc">-</span>mb<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span>)<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{2} \left(-\frac{2
-\;\text{mg}^2}{(-\text{p1}^2+i \eta )^2 (-\text{p3}^2+i \eta )
-(-(\text{p1}+q)^2+\text{mb}^2+i \eta ) (-(\text{p3}+q)^2+\text{mb}^2+i
-\eta ) (\text{p1}\cdot (2 \;\text{p3}-\text{p1})-\text{p3}^2+i \eta
-)}-\frac{2 \;\text{mg}^2}{(-\text{p1}^2+i \eta ) (-\text{p3}^2+i \eta )
-(-(\text{p1}+q)^2+\text{mb}^2+i \eta ) (-(\text{p3}+q)^2+\text{mb}^2+i
-\eta ) (\text{p1}\cdot (2 \;\text{p3}-\text{p1})-\text{p3}^2+i \eta
-)^2}-\frac{2 \;\text{mg}^2}{(-\text{p1}^2+i \eta ) (-\text{p3}^2+i \eta
-)^2 (-(\text{p1}+q)^2+\text{mb}^2+i \eta )
-(-(\text{p3}+q)^2+\text{mb}^2+i \eta ) (\text{p1}\cdot (2
-\;\text{p3}-\text{p1})-\text{p3}^2+i \eta
-)}\right)+\frac{1}{(-\text{p1}^2+i \eta ) (-\text{p3}^2+i \eta )
-(-(\text{p1}+q)^2+\text{mb}^2+i \eta ) (-(\text{p3}+q)^2+\text{mb}^2+i
-\eta ) (\text{p1}\cdot (2 \;\text{p3}-\text{p1})-\text{p3}^2+i \eta
-)}</span></p>
+<p><span class="math display">\frac{1}{2} \left(-2 \;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},2\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)-2
+\;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},2\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)-2
+\;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},2\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)\right)+\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)</span></p>
+<p>Notice that <code>FromGFAD</code> does not expand scalar products in
+the propagators before trying to convert them to <code>SFAD</code>s or
+<code>CFAD</code>s. If this is needed, the user should better apply
+<code>ExpandScalarProduct</code> to the expression by hand.</p>
 <div class="sourceCode" id="cb13"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{2} \left(-\frac{2
-\;\text{mg}^2}{(-\text{p1}^2+i \eta )^2 (-\text{p3}^2+i \eta )
-(-(\text{p1}+q)^2+\text{mb}^2+i \eta ) (-(\text{p3}+q)^2+\text{mb}^2+i
-\eta ) (-\text{p3}^2+2 (\text{p1}\cdot \;\text{p3})-\text{p1}^2+i \eta
-)}-\frac{2 \;\text{mg}^2}{(-\text{p1}^2+i \eta ) (-\text{p3}^2+i \eta
-)^2 (-(\text{p1}+q)^2+\text{mb}^2+i \eta )
-(-(\text{p3}+q)^2+\text{mb}^2+i \eta ) (-\text{p3}^2+2 (\text{p1}\cdot
-\;\text{p3})-\text{p1}^2+i \eta )}-\frac{2
-\;\text{mg}^2}{(-\text{p1}^2+i \eta ) (-\text{p3}^2+i \eta )
-(-(\text{p1}+q)^2+\text{mb}^2+i \eta ) (-(\text{p3}+q)^2+\text{mb}^2+i
-\eta ) (-\text{p3}^2+2 (\text{p1}\cdot \;\text{p3})-\text{p1}^2+i \eta
-)^2}\right)+\frac{1}{(-\text{p1}^2+i \eta ) (-\text{p3}^2+i \eta )
-(-(\text{p1}+q)^2+\text{mb}^2+i \eta ) (-(\text{p3}+q)^2+\text{mb}^2+i
-\eta ) (-\text{p3}^2+2 (\text{p1}\cdot \;\text{p3})-\text{p1}^2+i \eta
-)}</span></p>
-<p>Using the option <code>InitialSubstitutions</code> one can perform
-certain replacement that might not be found automatically</p>
+<p><span class="math display">\text{FromGFAD}\left(\frac{1}{2} \left(-2
+\;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},2\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)-2
+\;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},2\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)-2
+\;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},2\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)\right)+\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)\right)</span></p>
 <div class="sourceCode" id="cb14"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> GFAD<span class="op">[</span>SPD<span class="op">[</span>k1<span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> SPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="sc">+</span> SPD<span class="op">[</span>k2<span class="op">]</span> <span class="sc">+</span> SPD<span class="op">[</span>k1<span class="op">,</span> <span class="fu">n</span><span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(\text{k1}^2+2 (\text{k1}\cdot
-\;\text{k2})+\text{k1}\cdot n+\text{k2}^2+i \eta )}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ExpandScalarProduct<span class="op">[</span>ex<span class="op">]]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FromGFAD}\left(\text{ExpandScalarProduct}\left(\frac{1}{2}
+\left(-2 \;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},2\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)-2
+\;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},2\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)-2
+\;\text{mg}^2
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},2\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)\right)+\text{GFAD}(\{\{-\text{SPD}(\text{p1},\text{p1}),1\},1\})
+\;\text{GFAD}(\{\{-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{GFAD}(\{\{\text{SPD}(\text{p1},2
+\;\text{p3}-\text{p1})-\text{SPD}(\text{p3},\text{p3}),1\},1\})
+\;\text{SFAD}\left(\left\{\{i
+(\text{p1}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)
+\;\text{SFAD}\left(\left\{\{i
+(\text{p3}+q),0\},\left\{-\text{mb}^2,1\right\},1\right\}\right)\right)\right)</span></p>
+<p>Using the option <code>InitialSubstitutions</code> one can perform
+certain replacement that might not be found automatically. The values of
+scalar products can be set using
+<code>IntermediateSubstitutions</code></p>
 <div class="sourceCode" id="cb15"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> FCE <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">InputForm</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(\text{k1}^2+\text{k1}\cdot (2
-\;\text{k2}+n)+\text{k2}^2+i \eta )}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> GFAD<span class="op">[{{</span>SPD<span class="op">[</span>k1<span class="op">,</span> k1<span class="op">]</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>u0b<span class="sc">*</span>SPD<span class="op">[</span>k1<span class="op">,</span> <span class="fu">n</span><span class="op">],</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span>;</span></code></pre></div>
+<p>Notice that we need to declare the appearing variables as
+<code>FCVariable</code>s</p>
 <div class="sourceCode" id="cb16"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span>k1<span class="op">,</span> k1 . (<span class="dv">2</span><span class="sc">*</span>k2 <span class="sc">+</span> <span class="fu">n</span>) <span class="sc">+</span> k2 . k2<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(DataType<span class="op">[</span>#<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>) &amp; <span class="sc">/</span>@ <span class="op">{</span>gkin<span class="op">,</span> meta<span class="op">,</span> u0b<span class="op">}</span>;</span></code></pre></div>
+<p>Without these options we get a mixed quadratic-eikonal propagator
+that will cause us troubles when doing topology minimizations.</p>
 <div class="sourceCode" id="cb17"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> FCE <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]}]</span></span>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> FCE <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> <span class="fu">InputForm</span></span></code></pre></div>
 <p><span
-class="math display">\frac{1}{((\text{k1}+\text{k2})^2+\text{k1}\cdot
-n+i \eta )}</span></p>
+class="math display">\text{FromGFAD}(\text{GFAD}(\{\{\text{SPD}(\text{k1},\text{k1})-2
+\;\text{gkin} \;\text{meta} \;\text{u0b}
+\;\text{SPD}(\text{k1},n),1\},1\}),\text{FCE}\to
+\;\text{True})</span></p>
 <div class="sourceCode" id="cb18"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span>k1 <span class="sc">+</span> k2<span class="op">,</span> k1 . <span class="fu">n</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>GFAD<span class="op">[{{</span>SPD<span class="op">[</span>k1<span class="op">,</span> k1<span class="op">]</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>u0b<span class="sc">*</span>SPD<span class="op">[</span>k1<span class="op">,</span> <span class="fu">n</span><span class="op">],</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a> FCE <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p>But when doing everything right we end up with a purely quadratic
+propagator</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">-</span> gkin meta u0b <span class="fu">n</span><span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">-</span> gkin meta u0b <span class="fu">n</span><span class="op">]},</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  IntermediateSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FromGFAD}(\text{GFAD}(\{\{\text{SPD}(\text{k1},\text{k1})-2
+\;\text{gkin} \;\text{meta} \;\text{u0b}
+\;\text{SPD}(\text{k1},n),1\},1\}),\text{InitialSubstitutions}\to
+\{\text{ExpandScalarProduct}(\text{SPD}(\text{k1}-\text{gkin}
+\;\text{meta} n \;\text{u0b}))\to \;\text{SPD}(\text{k1}-\text{gkin}
+\;\text{meta} n \;\text{u0b})\},\text{IntermediateSubstitutions}\to
+\{\text{SPD}(n)\to 0,\text{SPD}(\text{nb})\to
+0,\text{SPD}(n,\text{nb})\to 2\})</span></p>
+<p>However, in this case the function can also figure out the necessary
+square completion on its own if we tell it that <code>k1</code> is a
+momentum w.r.t which the square should be completed. In this case the
+option <code>IntermediateSubstitutions</code> is not really needed</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FromGFAD}(\text{GFAD}(\{\{\text{SPD}(\text{k1},\text{k1})-2
+\;\text{gkin} \;\text{meta} \;\text{u0b}
+\;\text{SPD}(\text{k1},n),1\},1\}),\text{LoopMomenta}\to
+\{\text{k1}\})</span></p>
+<p>It is still helpful, though</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">},</span> IntermediateSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FromGFAD}(\text{GFAD}(\{\{\text{SPD}(\text{k1},\text{k1})-2
+\;\text{gkin} \;\text{meta} \;\text{u0b}
+\;\text{SPD}(\text{k1},n),1\},1\}),\text{LoopMomenta}\to
+\{\text{k1}\},\text{IntermediateSubstitutions}\to \{\text{SPD}(n)\to
+0,\text{SPD}(\text{nb})\to 0,\text{SPD}(n,\text{nb})\to 2\})</span></p>
+<p>If we have multiple loop momenta, we need to first complete the
+square with respect to them before handling the full expression</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> GFAD<span class="op">[{{</span>SPD<span class="op">[</span>k1<span class="op">,</span> k1<span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> SPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="sc">+</span> SPD<span class="op">[</span>k2<span class="op">,</span> k2<span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> gkin meta (SPD<span class="op">[</span>k1<span class="op">,</span> <span class="fu">n</span><span class="op">]</span> <span class="sc">+</span> SPD<span class="op">[</span>k2<span class="op">,</span> <span class="fu">n</span><span class="op">]</span>)<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{GFAD}(\{\{2 \;\text{gkin}
+\;\text{meta} (\text{SPD}(\text{k1},n)+\text{SPD}(\text{k2},n))+2
+\;\text{SPD}(\text{k1},\text{k2})+\text{SPD}(\text{k1},\text{k1})+\text{SPD}(\text{k2},\text{k2}),1\},1\})</span></p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{FromGFAD}(\text{GFAD}(\{\{2
+\;\text{gkin} \;\text{meta}
+(\text{SPD}(\text{k1},n)+\text{SPD}(\text{k2},n))+2
+\;\text{SPD}(\text{k1},\text{k2})+\text{SPD}(\text{k1},\text{k1})+\text{SPD}(\text{k2},\text{k2}),1\},1\}),\text{LoopMomenta}\to
+\{\text{k1},\text{k2}\})</span></p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>FromGFAD<span class="op">[</span>ex<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]},</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  IntermediateSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{FromGFAD}(\text{GFAD}(\{\{2
+\;\text{gkin} \;\text{meta}
+(\text{SPD}(\text{k1},n)+\text{SPD}(\text{k2},n))+2
+\;\text{SPD}(\text{k1},\text{k2})+\text{SPD}(\text{k1},\text{k1})+\text{SPD}(\text{k2},\text{k2}),1\},1\}),\text{LoopMomenta}\to
+\{\text{k1},\text{k2}\},\text{InitialSubstitutions}\to
+\{\text{ExpandScalarProduct}(\text{SPD}(\text{k1}+\text{k2}))\to
+\;\text{SPD}(\text{k1}+\text{k2})\},\text{IntermediateSubstitutions}\to
+\{\text{SPD}(n)\to 0\})</span></p>
 </body>
 </html>
