@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TopologyIdentification manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../FeynCalcBookDev/css/feyncalc.css" />
+  <script defer=""
+  src="../../../FeynCalcBookDev/js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="../../../FeynCalcBookDev/js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">TopologyIdentification manual (development
+version)</h1>
+</header>
+<h2 id="load-feyncalc-and-the-necessary-add-ons-or-other-packages">Load
+FeynCalc and the necessary add-ons or other packages</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>description <span class="ex">=</span> <span class="st">&quot;B -&gt; EtaC, QCD, topology minimization, 2-loops&quot;</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$FrontEnd</span> <span class="ex">===</span> <span class="cn">Null</span><span class="op">,</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span>; </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Print</span><span class="op">[</span>description<span class="op">]</span>; </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$Notebooks</span> <span class="ex">===</span> <span class="cn">False</span><span class="op">,</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc` </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">10</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FeynCalc }\;\text{10.0.0 (dev
+version, 2024-08-07 16:59:34 +02:00, 2f62a22c). For help, use the
+}\underline{\text{online} \;\text{documentation},}\;\text{ visit the
+}\underline{\text{forum}}\;\text{ and have a look at the supplied
+}\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
+be downloaded }\underline{\text{here}.}</span></p>
+<p><span class="math display">\text{If you use FeynCalc in your
+research, please evaluate FeynCalcHowToCite[] to learn how to cite this
+software.}</span></p>
+<p><span class="math display">\text{Please keep in mind that the proper
+academic attribution of our work is crucial to ensure the future
+development of this package!}</span></p>
+<h2 id="load-the-topologies">Load the topologies</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">SetDirectory</span><span class="op">[</span>FCGetNotebookDirectory<span class="op">[]]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>rawTopologies0 <span class="ex">=</span> <span class="fu">Get</span><span class="op">[</span><span class="st">&quot;RawTopologies-B-Etac.m&quot;</span><span class="op">]</span>;</span></code></pre></div>
+<h2 id="run-the-naive-topology-identification">Run the naive topology
+identification</h2>
+<p><span
+class="math display">\text{fcVariables}=\{\text{gkin},\text{meta},\text{u0b}\};</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(DataType<span class="op">[</span>#<span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>) &amp; <span class="sc">/</span>@ fcVariables;</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rawTopologies <span class="ex">=</span> loopHead <span class="sc">/</span>@ (rawTopologies0);</span></code></pre></div>
+<p><span
+class="math display">\text{kinematics}=\{\text{Hold}[\text{SPD}][n]\text{-$&gt;$}0,\text{Hold}[\text{SPD}][\text{nb}]\text{-$&gt;$}0,\text{Hold}[\text{SPD}][n,\text{nb}]\text{-$&gt;$}2\};</span></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>aux1 <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>rawTopologies<span class="op">,</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> FCLoopIsolate <span class="ot">-&gt;</span> loopHead<span class="op">,</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    FCLoopBasisOverdeterminedQ <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FinalSubstitutions <span class="ot">-&gt;</span> kinematics<span class="op">,</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Names</span> <span class="ot">-&gt;</span> <span class="st">&quot;preTopoDia&quot;</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> <span class="fu">Identity</span><span class="op">,</span> FCLoopGetKinematicInvariants <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> FCLoopScalelessQ <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+initial candidate topologies: }248</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified unique topologies: }184</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+preferred topologies among the unique topologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified subtopologies: }64</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Follwing
+identified topologies are scaleless and will be set to zero:
+}\{\text{preTopoDia31},\text{preTopoDia32},\text{preTopoDia33},\text{preTopoDia34},\text{preTopoDia60},\text{preTopoDia61},\text{preTopoDia77},\text{preTopoDia86},\text{preTopoDia88},\text{preTopoDia98},\text{preTopoDia110},\text{preTopoDia111},\text{preTopoDia118},\text{preTopoDia119},\text{preTopoDia120},\text{preTopoDia123},\text{preTopoDia139},\text{preTopoDia144},\text{preTopoDia152},\text{preTopoDia155},\text{preTopoDia156},\text{preTopoDia157},\text{preTopoDia158},\text{preTopoDia159},\text{preTopoDia160},\text{preTopoDia161},\text{preTopoDia162},\text{preTopoDia163},\text{preTopoDia164},\text{preTopoDia165},\text{preTopoDia166},\text{preTopoDia170},\text{preTopoDia174},\text{preTopoDia175},\text{preTopoDia176},\text{preTopoDia177},\text{preTopoDia178},\text{preTopoDia179},\text{preTopoDia180},\text{preTopoDia181},\text{preTopoDia182},\text{preTopoDia183},\text{preTopoDia184}\}</span></p>
+<p>This particular set of topologies contains mixed quadratic-eikonal
+that will cause issues with the topology minimization if we leave them
+as is.</p>
+<p>To handle this situation we employ the routine
+<code>FCLoopReplaceQuadraticEikonalPropagators</code>, telling it the
+loop momenta, kinematic constraints and the rules for completing the
+square for the pure loop parts of the propagators</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>topoPre <span class="ex">=</span> FCLoopReplaceQuadraticEikonalPropagators<span class="op">[</span>aux1<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">-</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">-</span> k2<span class="op">],</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>      ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]},</span> IntermediateSubstitutions <span class="ot">-&gt;</span> kinematics<span class="op">]</span>;</span></code></pre></div>
+<h2 id="handle-overdetermined-propagator-bases">Handle overdetermined
+propagator bases</h2>
+<p>Single out topologies that have an overdetermined sets of
+propagators</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>overdeterminedToposPre <span class="ex">=</span> <span class="fu">Select</span><span class="op">[</span>topoPre<span class="op">,</span> FCLoopBasisOverdeterminedQ<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>overdeterminedToposPre <span class="sc">//</span> <span class="fu">Length</span></span></code></pre></div>
+<p><span class="math display">105</span></p>
+<p>Generate partial fractioning rules to be applied to the original sets
+of denominators</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>pfrRules <span class="ex">=</span> FCLoopCreatePartialFractioningRules<span class="op">[</span>aux1<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> topoPre<span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{76.2728,\text{Null}\}</span></p>
+<p>Some examples of such rules are</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pfrRules<span class="op">[[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{G^{\text{preTopoDia49}}(1,1,0,1,1,1,1)\to
+\frac{G^{\text{preTopoDia49PFR23}}(1,2,1,1,1)}{\text{meta}
+\;\text{u0b}}-\frac{G^{\text{preTopoDia49PFR35}}(1,1,2,1,1)}{\text{meta}
+(\text{u0b}-1)}+\frac{G^{\text{preTopoDia49PFR36}}(1,1,2,1,1)}{\text{meta}
+(\text{u0b}-1) \;\text{u0b}},G^{\text{preTopoDia126}}(1,1,1,1,1,1)\to
+\frac{G^{\text{preTopoDia126PFR2}}(1,1,2,1,1)}{\text{meta}
+\;\text{u0b}}-\frac{G^{\text{preTopoDia126PFR5}}(1,1,1,2,1)}{\text{meta}
+(\text{u0b}-1)}+\frac{G^{\text{preTopoDia126PFR6}}(1,1,1,2,1)}{\text{meta}
+(\text{u0b}-1) \;\text{u0b}}\right\}</span></p>
+<p>These rules can be converted to FORM and used for simplifying the
+amplitude.</p>
+<p>New topologies after partial fractioning</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pfrToposPre <span class="ex">=</span> <span class="fu">Union</span><span class="op">[</span><span class="fu">First</span> <span class="sc">/</span>@ pfrRules<span class="op">[[</span><span class="dv">2</span><span class="op">]]]</span>;</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>aux2 <span class="ex">=</span> <span class="op">{</span>aux1<span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">/.</span> <span class="fu">Dispatch</span><span class="op">[</span>pfrRules<span class="op">[[</span><span class="dv">1</span><span class="op">]]],</span> topoPre<span class="op">}</span>;</span></code></pre></div>
+<p>Some denominators from original topologies that do not require
+partial fractioning . Notice that the corresponding topologies
+themselves still might contain overdetermined sets of propagators</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>remainderDens <span class="ex">=</span> SelectNotFree<span class="op">[</span>aux2<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> <span class="fu">First</span> <span class="sc">/</span>@ overdeterminedToposPre<span class="op">]</span> <span class="sc">//</span> <span class="fu">Union</span></span></code></pre></div>
+<p><span
+class="math display">\left\{G^{\text{preTopoDia100}}(1,1,0,0,1,1,1),G^{\text{preTopoDia100}}(1,1,0,0,1,2,1),G^{\text{preTopoDia105}}(1,1,1,0,0,2,1),G^{\text{preTopoDia116}}(1,1,1,1,1,1,0),G^{\text{preTopoDia126}}(1,1,1,0,0,1),G^{\text{preTopoDia126}}(1,2,1,1,1,0),G^{\text{preTopoDia130}}(1,1,0,0,2,1),G^{\text{preTopoDia142}}(1,1,0,0,2,1),G^{\text{preTopoDia143}}(1,1,1,2,0,1),G^{\text{preTopoDia147}}(1,1,0,1,1,1),G^{\text{preTopoDia147}}(1,1,0,2,1,1),G^{\text{preTopoDia149}}(1,0,1,0,2,1),G^{\text{preTopoDia2}}(1,1,1,0,1,1,0,1),G^{\text{preTopoDia22}}(1,1,0,0,0,0,0,1),G^{\text{preTopoDia23}}(1,1,1,1,1,0,1,0),G^{\text{preTopoDia25}}(1,1,0,1,1,1,0,1),G^{\text{preTopoDia28}}(1,1,0,1,1,1,0,1),G^{\text{preTopoDia39}}(1,0,1,0,1,1,1,1),G^{\text{preTopoDia39}}(1,1,1,0,1,1,0,1),G^{\text{preTopoDia4}}(1,1,0,2,0,1,1,0),G^{\text{preTopoDia49}}(1,1,0,0,1,0,1),G^{\text{preTopoDia76}}(1,1,0,0,1,2,1),G^{\text{preTopoDia79}}(1,1,1,1,1,0,1),G^{\text{preTopoDia93}}(1,1,1,0,2,0,1),G^{\text{preTopoDia95}}(1,1,0,1,1,1,0),G^{\text{preTopoDia95}}(1,1,1,0,1,1,0),G^{\text{preTopoDia96}}(1,1,1,0,0,1,1)\right\}</span></p>
+<p>Determine which topologies related to these denominators are
+overdetermined</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>overdeterminedTopos <span class="ex">=</span> FCLoopSelectTopology<span class="op">[</span>remainderDens<span class="op">,</span> overdeterminedToposPre<span class="op">]</span>;</span></code></pre></div>
+<p>Group the remaining denominators together with the corresponding
+topologies. Remove the now irrelevant propagators from the leftover
+topologies</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>toRemoveList <span class="ex">=</span> <span class="op">{</span>#<span class="op">,</span> First@SelectNotFree<span class="op">[</span>overdeterminedTopos<span class="op">,</span> #<span class="op">[[</span><span class="dv">1</span><span class="op">]]],</span> <span class="fu">First</span> <span class="sc">/</span>@ <span class="fu">Position</span><span class="op">[</span>#<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> <span class="dv">0</span><span class="op">]}</span> &amp; <span class="sc">/</span>@ remainderDens;</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>newNoPfrGLIs <span class="ex">=</span> (FCLoopRemovePropagator<span class="op">[</span>#<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> #<span class="op">[[</span><span class="dv">3</span><span class="op">]]]</span> &amp; <span class="sc">/</span>@ toRemoveList);</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>newNoPfrTopos <span class="ex">=</span> (FCLoopRemovePropagator<span class="op">[</span>#<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> #<span class="op">[[</span><span class="dv">3</span><span class="op">]]]</span> &amp; <span class="sc">/</span>@ toRemoveList);</span></code></pre></div>
+<p>List of all resulting topologies upon doing partial fractioning</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pfrTopos <span class="ex">=</span> <span class="fu">Union</span><span class="op">[</span>pfrToposPre<span class="op">,</span> <span class="fu">First</span> <span class="sc">/</span>@ newNoPfrTopos<span class="op">]</span>;</span></code></pre></div>
+<p>Replacement rule for renaming preTopo - topologies (with PFR -
+suffixes from partial fractioning) to pfrTopo topologies</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pfrToposNew <span class="ex">=</span> <span class="fu">Table</span><span class="op">[</span><span class="st">&quot;pfrTopo&quot;</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="op">{</span><span class="fu">i</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="fu">Length</span><span class="op">[</span>pfrTopos<span class="op">]}]</span>;</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pfrRenRu <span class="ex">=</span> <span class="fu">Thread</span><span class="op">[</span><span class="fu">Rule</span><span class="op">[</span>pfrTopos<span class="op">,</span> pfrToposNew<span class="op">]]</span>;</span></code></pre></div>
+<p>An extra rule for mapping the remaining denominators to the
+corresponding topologies with removed propagators</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gliRulePfr <span class="ex">=</span> <span class="fu">Thread</span><span class="op">[</span><span class="fu">Rule</span><span class="op">[</span>remainderDens<span class="op">,</span> newNoPfrGLIs<span class="op">]]</span> <span class="ot">/.</span> pfrRenRu;</span></code></pre></div>
+<p>Final list of topologies upon doing partial fractioning</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>relevantPFrTopos <span class="ex">=</span> <span class="fu">Union</span><span class="op">[</span><span class="fu">Cases</span><span class="op">[</span>aux2<span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">/.</span> <span class="fu">Dispatch</span><span class="op">[</span>gliRulePfr<span class="op">],</span> GLI<span class="op">[</span><span class="at">id_</span><span class="op">,</span> <span class="at">___</span><span class="op">]</span> :&gt; id<span class="op">,</span> <span class="fu">Infinity</span><span class="op">]]</span>;</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>finalPreToposPfrRaw <span class="ex">=</span> SelectNotFree<span class="op">[</span><span class="fu">Join</span><span class="op">[</span>topoPre<span class="op">,</span> pfrRules<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> newNoPfrTopos <span class="ot">/.</span> <span class="fu">Dispatch</span><span class="op">[</span>pfrRenRu<span class="op">]],</span>relevantPFrTopos<span class="op">]</span> <span class="sc">//</span> <span class="fu">Union</span>;</span></code></pre></div>
+<p>Identify scaleless topologies among them</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>scalelessPfrTopos <span class="ex">=</span> <span class="fu">Select</span><span class="op">[</span>finalPreToposPfrRaw<span class="op">,</span> FCLoopScalelessQ<span class="op">]</span> <span class="ot">/.</span> <span class="fu">Dispatch</span><span class="op">[</span>pfrRenRu<span class="op">]</span>;</span></code></pre></div>
+<p>Remove scaleless topologies. This gives us the final list of
+topologies after partial fractioning</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>finalPreTopos <span class="ex">=</span> SelectFree<span class="op">[</span>finalPreToposPfrRaw <span class="ot">/.</span> pfrRenRu<span class="op">,</span> scalelessPfrTopos<span class="op">]</span> <span class="sc">//</span> <span class="fu">Union</span>;</span></code></pre></div>
+<p>Check that there are no overdetermined topologies left</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span><span class="fu">Union</span><span class="op">[</span>FCLoopBasisOverdeterminedQ <span class="sc">/</span>@ finalPreTopos<span class="op">]</span> <span class="ex">=</span>!<span class="ex">=</span> <span class="op">{</span><span class="cn">False</span><span class="op">},</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Print</span><span class="op">[</span><span class="st">&quot;ERROR! Not all overdetermined topologies were eliminated.&quot;</span><span class="op">]</span>; </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a> <span class="op">]</span></span></code></pre></div>
+<p>Finally use <code>FCLoopFindTopologyMappings</code> to find mappings
+between topologies</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>mappedTopos <span class="ex">=</span> FCLoopFindTopologyMappings<span class="op">[</span>finalPreTopos<span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo378 and pfrTopo114. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo413 and pfrTopo114. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo76 and pfrTopo114. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo82 and pfrTopo114. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo97 and pfrTopo114. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo207 and pfrTopo154. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo320 and pfrTopo154. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo327 and pfrTopo154. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo6 and pfrTopo154. This can be due to the presence of nonquadratic
+propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo450 and pfrTopo19. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo80 and pfrTopo19. This can be due to the presence of nonquadratic
+propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo278 and pfrTopo203. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo349 and pfrTopo203. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+pfrTopo63 and pfrTopo23. This can be due to the presence of nonquadratic
+propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindMomentumShifts:
+}\;\text{Failed to derive the momentum shifts between topologies
+preTopoDia171 and pfrTopo23. This can be due to the presence of
+nonquadratic propagators or because shifts in external momenta are also
+necessary.}</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Found }190\text{ mapping relations }</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of independent topologies: }241</span></p>
+<p><span class="math display">\{22.4032,\text{Null}\}</span></p>
+<p>Allowing for shifts of external momenta would give us even more
+mapping relations but this is not safe unless we explicitly know that
+the amplitude is symmetric under such shifts</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>mappedToposTest <span class="ex">=</span> FCLoopFindTopologyMappings<span class="op">[</span>finalPreTopos<span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Found }205\text{ mapping relations }</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of independent topologies: }226</span></p>
+<p><span class="math display">\{23.6277,\text{Null}\}</span></p>
+<p>Introducing new names for the final topologies</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>finTopoNames <span class="ex">=</span> <span class="fu">First</span> <span class="sc">/</span>@ mappedTopos<span class="op">[[</span><span class="dv">2</span><span class="op">]]</span>;</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>finTopoNamesNew <span class="ex">=</span> <span class="fu">Table</span><span class="op">[</span><span class="st">&quot;finTopo&quot;</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="op">{</span><span class="fu">i</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="fu">Length</span><span class="op">[</span>finTopoNames<span class="op">]}]</span>;</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>finRenRu <span class="ex">=</span> <span class="fu">Thread</span><span class="op">[</span><span class="fu">Rule</span><span class="op">[</span>finTopoNames<span class="op">,</span> finTopoNamesNew<span class="op">]]</span>;</span></code></pre></div>
+<p>Some of the final topologies might be incomplete, so we need to
+account for that as well</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>finToposRenamed <span class="ex">=</span> mappedTopos<span class="op">[[</span><span class="dv">2</span><span class="op">]]</span> <span class="ot">/.</span> finRenRu;</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>incompleteTopos <span class="ex">=</span> <span class="fu">Select</span><span class="op">[</span>finToposRenamed<span class="op">,</span> FCLoopBasisIncompleteQ<span class="op">]</span>;</span></code></pre></div>
+<p>For the basis completion we can use all available propagators</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>allProps <span class="ex">=</span> <span class="fu">Union</span><span class="op">[</span><span class="fu">Flatten</span><span class="op">[</span>#<span class="op">[[</span><span class="dv">2</span><span class="op">]]</span> &amp; <span class="sc">/</span>@ finToposRenamed<span class="op">]]</span>;</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>completedTopos <span class="ex">=</span> FCLoopBasisFindCompletion<span class="op">[</span>incompleteTopos<span class="op">,</span> <span class="fu">Method</span> <span class="ot">-&gt;</span> allProps<span class="op">]</span>;</span></code></pre></div>
+<p>Generate basis completion rules</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>basisCompletionRules <span class="ex">=</span> FCLoopCreateRuleGLIToGLI<span class="op">[</span>completedTopos<span class="op">,</span> <span class="fu">List</span> <span class="sc">/</span>@ incompleteTopos<span class="op">]</span> <span class="sc">//</span><span class="fu">Flatten</span>;</span></code></pre></div>
+<p>Generating the ultimate list of topologies where all propagator sets
+now form a basis</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ultimateTopos <span class="ex">=</span> finToposRenamed <span class="ot">/.</span> <span class="fu">Thread</span><span class="op">[</span><span class="fu">Rule</span><span class="op">[</span>incompleteTopos<span class="op">,</span> completedTopos<span class="op">]]</span>;</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ultimateToposNewNames <span class="ex">=</span> <span class="fu">Table</span><span class="op">[</span><span class="st">&quot;topology&quot;</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="op">{</span><span class="fu">i</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="fu">Length</span><span class="op">[</span>finToposRenamed<span class="op">]}]</span>;</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ultimateToposRenamingRule <span class="ex">=</span> <span class="fu">Thread</span><span class="op">[</span><span class="fu">Rule</span><span class="op">[</span><span class="fu">First</span> <span class="sc">/</span>@ ultimateTopos<span class="op">,</span> ultimateToposNewNames<span class="op">]]</span>;</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>ultimateToposRenamed <span class="ex">=</span> ultimateTopos <span class="ot">/.</span> ultimateToposRenamingRule;</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>fcTopologies <span class="ex">=</span> ultimateToposRenamed;</span></code></pre></div>
+<p>Finally, we also need rules to eliminate scalar products</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ruGLI <span class="ex">=</span> <span class="fu">Map</span><span class="op">[{</span>#<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> FCLoopCreateRulesToGLI<span class="op">[</span>#<span class="op">]}</span> &amp;<span class="op">,</span> fcTopologies <span class="sc">//</span> FCLoopTopologyNameToSymbol<span class="op">]</span>;</span></code></pre></div>
+<p>Names of the final topologies</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sortedTopologyNames <span class="ex">=</span> <span class="fu">First</span> <span class="sc">/</span>@ fcTopologies;</span></code></pre></div>
+</body>
+</html>

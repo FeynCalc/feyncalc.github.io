@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>QCD manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../FeynCalcBookDev/css/feyncalc.css" />
+  <script defer=""
+  src="../../../FeynCalcBookDev/js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="../../../FeynCalcBookDev/js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">QCD manual (development version)</h1>
+</header>
+<h2 id="load-feyncalc-and-the-necessary-add-ons-or-other-packages">Load
+FeynCalc and the necessary add-ons or other packages</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>description <span class="ex">=</span> <span class="st">&quot;Gh -&gt; Gh, massless QCD, 2-loops&quot;</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$FrontEnd</span> <span class="ex">===</span> <span class="cn">Null</span><span class="op">,</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span>; </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Print</span><span class="op">[</span>description<span class="op">]</span>; </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$Notebooks</span> <span class="ex">===</span> <span class="cn">False</span><span class="op">,</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>$LoadAddOns <span class="ex">=</span> <span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">}</span>;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc`</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">10</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FeynCalc }\;\text{10.0.0 (dev
+version, 2024-08-07 16:59:34 +02:00, 2f62a22c). For help, use the
+}\underline{\text{online} \;\text{documentation},}\;\text{ visit the
+}\underline{\text{forum}}\;\text{ and have a look at the supplied
+}\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
+be downloaded }\underline{\text{here}.}</span></p>
+<p><span class="math display">\text{If you use FeynCalc in your
+research, please evaluate FeynCalcHowToCite[] to learn how to cite this
+software.}</span></p>
+<p><span class="math display">\text{Please keep in mind that the proper
+academic attribution of our work is crucial to ensure the future
+development of this package!}</span></p>
+<p><span class="math display">\text{FeynArts }\;\text{3.11 (3 Aug 2020)
+patched for use with FeynCalc, for documentation see the
+}\underline{\text{manual}}\;\text{ or visit
+}\underline{\text{www}.\text{feynarts}.\text{de}.}</span></p>
+<p><span class="math display">\text{If you use FeynArts in your
+research, please cite}</span></p>
+<p><span class="math display">\text{ $\bullet $ T. Hahn, Comput. Phys.
+Commun., 140, 418-431, 2001, arXiv:hep-ph/0012260}</span></p>
+<h2 id="generate-feynman-diagrams">Generate Feynman diagrams</h2>
+<p>Nicer typesetting</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>diags <span class="ex">=</span> InsertFields<span class="op">[</span>CreateTopologies<span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">}],</span> <span class="op">{</span><span class="fu">U</span><span class="op">[</span><span class="dv">5</span><span class="op">]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">U</span><span class="op">[</span><span class="dv">5</span><span class="op">]},</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Classes<span class="op">},</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span> <span class="sc">|</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">S</span><span class="op">[</span>_<span class="op">]},</span> Model <span class="ot">-&gt;</span> SMQCD<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diags<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span>   </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">1024</span><span class="op">,</span> <span class="dv">256</span><span class="op">}]</span>;</span></code></pre></div>
+<p><img src="img/05sh7fbq1em3j.svg" alt="05sh7fbq1em3j" /></p>
+<p><img src="img/08o391s12dph8.svg" alt="08o391s12dph8" /></p>
+<p><img src="img/07bb7u7mnbgfv.svg" alt="07bb7u7mnbgfv" /></p>
+<h2 id="obtain-the-amplitude">Obtain the amplitude</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ampRaw <span class="ex">=</span> FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>DiagramExtract<span class="op">[</span>diags<span class="op">,</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">}],</span> Truncated <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        PreFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> GaugeRules <span class="ot">-&gt;</span> <span class="op">{}],</span> IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">},</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> <span class="fu">List</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        DropSumOver <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>MQU<span class="op">[</span>Index<span class="op">[</span>Generation<span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> GaugeXi<span class="op">[</span>_<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span> <span class="sc">-</span> GaugeXi<span class="op">}]</span> <span class="sc">//</span> SMPToSymbol;</span></code></pre></div>
+<h2 id="fix-the-kinematics">Fix the kinematics</h2>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ScalarProduct<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> pp;</span></code></pre></div>
+<h2 id="calculate-the-amplitude">Calculate the amplitude</h2>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>ampSimp <span class="ex">=</span> (ampRaw) <span class="sc">//</span> Contract <span class="sc">//</span> DiracSimplify <span class="sc">//</span> SUNSimplify;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{2.51085,\text{Null}\}</span></p>
+<h2 id="identify-and-minimize-the-topologies">Identify and minimize the
+topologies</h2>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>amp<span class="op">,</span> topos<span class="op">}</span> <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>ampSimp<span class="op">,</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">}]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+initial candidate topologies: }3</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified unique topologies: }3</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+preferred topologies among the unique topologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified subtopologies: }0</span></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>subtopos <span class="ex">=</span> FCLoopFindSubtopologies<span class="op">[</span>topos<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mappings <span class="ex">=</span> FCLoopFindTopologyMappings<span class="op">[</span>topos<span class="op">,</span> PreferredTopologies <span class="ot">-&gt;</span> subtopos<span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Found }2\text{ mapping relations }</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of independent topologies: }1</span></p>
+<h2 id="rewrite-the-amplitude-in-terms-of-glis">Rewrite the amplitude in
+terms of GLIs</h2>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>ampReduced <span class="ex">=</span> FCLoopTensorReduce<span class="op">[</span>amp<span class="op">,</span> topos<span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{1.10573,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>ampPreFinal <span class="ex">=</span> FCLoopApplyTopologyMappings<span class="op">[</span>ampReduced<span class="op">,</span> mappings<span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.38536,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>ampFinal <span class="ex">=</span> ampPreFinal <span class="sc">//</span> DiracSimplify <span class="sc">//</span> SUNSimplify;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{1.55753,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">(*FCReloadAddOns[{&quot;FeynHelpers&quot;}];</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">FIREPrepareStartFile[mappings[[2]],FCGetNotebookDirectory[]]</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">FIRECreateLiteRedFiles[FCGetNotebookDirectory[],mappings[[2]]]</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">FIRECreateStartFile[FCGetNotebookDirectory[],mappings[[2]]]</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">FIRECreateConfigFile[mappings[[2]],FCGetNotebookDirectory[]]</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">FIRECreateIntegralFile[Cases2[ampPreFinal,GLI],mappings[[2]],FCGetNotebookDirectory[]]</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">FIRERunReduction[FCGetNotebookDirectory[],mappings[[2]]]</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">tables=FIREImportResults[mappings[[2]],FCGetNotebookDirectory[]]//Flatten;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">Put[tables,FileNameJoin[{FCGetNotebookDirectory[],&quot;ReductionTable-Gh-Gh.m&quot;}]];*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>reductionTable <span class="ex">=</span> <span class="fu">Get</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span>FCGetNotebookDirectory<span class="op">[],</span> <span class="st">&quot;ReductionTable-Gh-Gh.m&quot;</span><span class="op">}]]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>resPreFinal <span class="ex">=</span> Collect2<span class="op">[</span><span class="fu">Total</span><span class="op">[</span>ampFinal <span class="ot">/.</span> reductionTable<span class="op">]</span> <span class="sc">//</span> FeynAmpDenominatorExplicit<span class="op">,</span> GLI<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{16 (D-6) (D-4)^2}i \;\text{gs}^4
+C_A G^{\text{fctopology1}}(0,1,1,0,1) \delta ^{\text{Glu1}\;\text{Glu2}}
+\left(6 D^5 \xi ^2 C_A-115 D^4 \xi ^2 C_A+2 D^4 \xi  C_A+867 D^3 \xi ^2
+C_A-130 D^3 \xi  C_A-16 D^3 C_A-3216 D^2 \xi ^2 C_A+1188 D^2 \xi  C_A+24
+D^2 C_A+5884 D \xi ^2 C_A-3840 D \xi  C_A+432 D C_A-4256 \xi ^2 C_A+4160
+\xi  C_A-1024 C_A+16 D^3-128 D^2+320 D-256\right)-\frac{i \;\text{gs}^4
+\;\text{pp} C_A^2 \left(2 D^2 \xi ^2-8 D^2 \xi -15 D \xi ^2+58 D \xi -16
+D+26 \xi ^2-104 \xi +56\right) G^{\text{fctopology1}}(1,1,0,1,1) \delta
+^{\text{Glu1}\;\text{Glu2}}}{32 (D-4)}</span></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>integralMappings <span class="ex">=</span> FCLoopFindIntegralMappings<span class="op">[</span>Cases2<span class="op">[</span>resPreFinal<span class="op">,</span> GLI<span class="op">],</span> mappings<span class="op">[[</span><span class="dv">2</span><span class="op">]]]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\{\},\left\{G^{\text{fctopology1}}(0,1,1,0,1),G^{\text{fctopology1}}(1,1,0,1,1)\right\}\right\}</span></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>resFinal <span class="ex">=</span> Collect2<span class="op">[</span>resPreFinal <span class="ot">/.</span> integralMappings<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> GLI<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{16 (D-6) (D-4)^2}i \;\text{gs}^4
+C_A G^{\text{fctopology1}}(0,1,1,0,1) \delta ^{\text{Glu1}\;\text{Glu2}}
+\left(6 D^5 \xi ^2 C_A-115 D^4 \xi ^2 C_A+2 D^4 \xi  C_A+867 D^3 \xi ^2
+C_A-130 D^3 \xi  C_A-16 D^3 C_A-3216 D^2 \xi ^2 C_A+1188 D^2 \xi  C_A+24
+D^2 C_A+5884 D \xi ^2 C_A-3840 D \xi  C_A+432 D C_A-4256 \xi ^2 C_A+4160
+\xi  C_A-1024 C_A+16 D^3-128 D^2+320 D-256\right)-\frac{i \;\text{gs}^4
+\;\text{pp} C_A^2 \left(2 D^2 \xi ^2-8 D^2 \xi -15 D \xi ^2+58 D \xi -16
+D+26 \xi ^2-104 \xi +56\right) G^{\text{fctopology1}}(1,1,0,1,1) \delta
+^{\text{Glu1}\;\text{Glu2}}}{32 (D-4)}</span></p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ruleMasters <span class="ex">=</span> <span class="op">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span><span class="st">&quot;fctopology1&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="ot">-&gt;</span> (<span class="sc">-</span>pp)<span class="sc">^</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>ep)<span class="sc">*</span>(<span class="dv">13</span><span class="sc">/</span><span class="dv">8</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">4</span><span class="sc">*</span>ep) <span class="sc">+</span> (<span class="dv">115</span><span class="sc">*</span>ep)<span class="sc">/</span><span class="dv">16</span> <span class="sc">+</span> (<span class="dv">49</span><span class="sc">*</span>ep<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> (ep<span class="sc">*</span>Zeta2)<span class="sc">/</span><span class="dv">4</span> <span class="sc">-</span> (<span class="dv">13</span><span class="sc">*</span>ep<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>Zeta2)<span class="sc">/</span><span class="dv">8</span> <span class="sc">+</span> (<span class="dv">9</span><span class="sc">*</span>ep<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">Zeta</span><span class="op">[</span><span class="dv">3</span><span class="op">]</span>))<span class="sc">/</span><span class="dv">8</span> <span class="sc">-</span> (<span class="dv">5</span><span class="sc">*</span>ep<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fu">Zeta</span><span class="op">[</span><span class="dv">3</span><span class="op">]</span>)<span class="sc">/</span><span class="dv">12</span>)<span class="op">,</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>   GLI<span class="op">[</span><span class="st">&quot;fctopology1&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="ot">-&gt;</span> (<span class="dv">2</span> <span class="sc">+</span> ep<span class="sc">^</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>ep <span class="sc">+</span> (<span class="dv">16</span><span class="sc">*</span>ep<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> (ep<span class="sc">*</span>Zeta2)<span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> ep<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>Zeta2 <span class="sc">+</span> (<span class="dv">4</span><span class="sc">*</span>ep<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">Zeta</span><span class="op">[</span><span class="dv">3</span><span class="op">]</span>))<span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> (ep<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fu">Zeta</span><span class="op">[</span><span class="dv">3</span><span class="op">]</span>)<span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="sc">-</span>pp)<span class="sc">^</span>(<span class="dv">2</span><span class="sc">*</span>ep) </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
+<p><span
+class="math display">\left\{G^{\text{fctopology1}}(0,1,1,0,1)\to
+(-\text{pp})^{1-2 \;\text{ep}} \left(-\frac{13}{8} \;\text{ep}^2 \zeta
+(2)-\frac{5 \;\text{ep}^2 \zeta (3)}{12}+\frac{9}{8} \;\text{ep}^2
+\left(\frac{9}{4}-2 \zeta (3)\right)+\frac{49
+\;\text{ep}^2}{2}-\frac{1}{4} \;\text{ep} \zeta (2)+\frac{115
+\;\text{ep}}{16}+\frac{1}{4
+\;\text{ep}}+\frac{13}{8}\right),G^{\text{fctopology1}}(1,1,0,1,1)\to
+(-\text{pp})^{-2 \;\text{ep}} \left(\text{ep}^2 (-\zeta
+(2))+\frac{\text{ep}^2 \zeta (3)}{3}+\frac{4}{3} \;\text{ep}^2 (2-2
+\zeta (3))+\frac{16 \;\text{ep}^2}{3}-\frac{1}{2} \;\text{ep} \zeta
+(2)+4 \;\text{ep}+\frac{1}{\text{ep}}+2\right)^2\right\}</span></p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>resEpPre <span class="ex">=</span> FCReplaceD<span class="op">[</span>resFinal <span class="ot">/.</span> ruleMasters<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{64 (-2 \;\text{ep}-2)
+\;\text{ep}^2}i \;\text{gs}^4 C_A (-\text{pp})^{1-2 \;\text{ep}}
+\left(-\frac{13}{8} \;\text{ep}^2 \zeta (2)-\frac{5 \;\text{ep}^2 \zeta
+(3)}{12}+\frac{9}{8} \;\text{ep}^2 \left(\frac{9}{4}-2 \zeta
+(3)\right)+\frac{49 \;\text{ep}^2}{2}-\frac{1}{4} \;\text{ep} \zeta
+(2)+\frac{115 \;\text{ep}}{16}+\frac{1}{4
+\;\text{ep}}+\frac{13}{8}\right) \delta ^{\text{Glu1}\;\text{Glu2}}
+\left(6 (4-2 \;\text{ep})^5 \xi ^2 C_A-115 (4-2 \;\text{ep})^4 \xi ^2
+C_A+2 (4-2 \;\text{ep})^4 \xi  C_A+867 (4-2 \;\text{ep})^3 \xi ^2
+C_A-130 (4-2 \;\text{ep})^3 \xi  C_A-3216 (4-2 \;\text{ep})^2 \xi ^2
+C_A+1188 (4-2 \;\text{ep})^2 \xi  C_A+5884 (4-2 \;\text{ep}) \xi ^2
+C_A-3840 (4-2 \;\text{ep}) \xi  C_A-16 (4-2 \;\text{ep})^3 C_A+24 (4-2
+\;\text{ep})^2 C_A+432 (4-2 \;\text{ep}) C_A-4256 \xi ^2 C_A+4160
+\xi  C_A-1024 C_A+16 (4-2 \;\text{ep})^3-128 (4-2 \;\text{ep})^2+320
+(4-2 \;\text{ep})-256\right)+\frac{1}{64 \;\text{ep}}i \;\text{gs}^4
+\;\text{pp} C_A^2 \left(2 (4-2 \;\text{ep})^2 \xi ^2-8 (4-2
+\;\text{ep})^2 \xi -15 (4-2 \;\text{ep}) \xi ^2+58 (4-2 \;\text{ep}) \xi
+-16 (4-2 \;\text{ep})+26 \xi ^2-104 \xi +56\right) (-\text{pp})^{-2
+\;\text{ep}} \left(\text{ep}^2 (-\zeta (2))+\frac{\text{ep}^2 \zeta
+(3)}{3}+\frac{4}{3} \;\text{ep}^2 (2-2 \zeta (3))+\frac{16
+\;\text{ep}^2}{3}-\frac{1}{2} \;\text{ep} \zeta (2)+4
+\;\text{ep}+\frac{1}{\text{ep}}+2\right)^2 \delta
+^{\text{Glu1}\;\text{Glu2}}</span></p>
+<p>To bring our result into the suitable form comparable with the
+literature, we must divide it (1- Zeta2/2 ep<sup>2)</sup>2 and again
+expand it in ep. This yields a prefactor called eta^2. We also factor
+out the prefactor (-pp)^(-2ep)</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>resEp <span class="ex">=</span> Collect2<span class="op">[</span><span class="fu">Series</span><span class="op">[</span>eta<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> Zeta2<span class="sc">/</span><span class="dv">2</span> ep<span class="sc">^</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span> FCReplaceD<span class="op">[</span><span class="fu">Cancel</span><span class="op">[</span>resEpPre<span class="sc">/</span>(<span class="sc">-</span>pp)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span> ep)<span class="op">],</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">],</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> SUNSimplify<span class="op">,</span> ep<span class="op">,</span> CA<span class="op">,</span> ep<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\frac{i \;\text{eta}^2 \;\text{gs}^4
+\left(\xi ^2-14 \xi -40\right) \;\text{pp} C_A^2 \delta
+^{\text{Glu1}\;\text{Glu2}}}{32 \;\text{ep}^2}-\frac{i \;\text{eta}^2
+\;\text{gs}^4 \;\text{pp} C_A \delta ^{\text{Glu1}\;\text{Glu2}}}{4
+\;\text{ep}^2}+\frac{i \;\text{eta}^2 \;\text{gs}^4 (7 \xi +166)
+\;\text{pp} C_A^2 \delta ^{\text{Glu1}\;\text{Glu2}}}{32
+\;\text{ep}}-\frac{7 i \;\text{eta}^2 \;\text{gs}^4 \;\text{pp} C_A
+\delta ^{\text{Glu1}\;\text{Glu2}}}{8 \;\text{ep}}-\frac{53}{16} i
+\;\text{eta}^2 \;\text{gs}^4 \;\text{pp} C_A \delta
+^{\text{Glu1}\;\text{Glu2}}-\frac{1}{64} i \;\text{eta}^2 \;\text{gs}^4
+\;\text{pp} C_A^2 \left(-24 \xi ^2+9 \xi +12 \xi ^2 \zeta (3)+48 \zeta
+(3)-1198\right) \delta ^{\text{Glu1}\;\text{Glu2}}</span></p>
+<h2 id="check-the-final-results">Check the final results</h2>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>G2xPaper <span class="ex">=</span> (((CA<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>eta<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>gs<span class="sc">^</span><span class="dv">4</span>)<span class="sc">/</span>(<span class="sc">-</span>pp)<span class="sc">^</span>(<span class="dv">2</span><span class="sc">*</span>ep)) <span class="sc">*</span> ((<span class="dv">83</span><span class="sc">/</span><span class="dv">16</span> <span class="sc">+</span> <span class="dv">7</span><span class="sc">/</span><span class="dv">32</span><span class="sc">*</span>GaugeXi)<span class="sc">/</span>ep <span class="sc">+</span> (<span class="dv">5</span><span class="sc">/</span><span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span><span class="sc">/</span><span class="dv">16</span><span class="sc">*</span>GaugeXi <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">32</span> GaugeXi<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>ep<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>        <span class="dv">599</span><span class="sc">/</span><span class="dv">32</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span> <span class="fu">Zeta</span><span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="sc">-</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">64</span> GaugeXi <span class="sc">+</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">8</span> GaugeXi<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">16</span> GaugeXi<span class="sc">^</span><span class="dv">2</span> <span class="fu">Zeta</span><span class="op">[</span><span class="dv">3</span><span class="op">]</span> )<span class="sc">/</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">Pi</span>)<span class="sc">^</span><span class="fu">D</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>G2qPaper <span class="ex">=</span> (((CA<span class="sc">*</span>eta<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>gs<span class="sc">^</span><span class="dv">4</span><span class="sc">*</span>Tf)<span class="sc">/</span>(<span class="sc">-</span>pp)<span class="sc">^</span>(<span class="dv">2</span><span class="sc">*</span>ep))<span class="sc">*</span>(<span class="sc">-</span><span class="dv">53</span><span class="sc">/</span><span class="dv">8</span> <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>ep<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="dv">7</span><span class="sc">/</span>(<span class="dv">4</span><span class="sc">*</span>ep))<span class="sc">/</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">Pi</span>)<span class="sc">^</span><span class="fu">D</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>G2xPaperFinal <span class="ex">=</span> pp FCI@SUNDelta<span class="op">[</span>Glu1<span class="op">,</span> Glu2<span class="op">]</span> Collect2<span class="op">[</span><span class="fu">Series</span><span class="op">[</span>FCReplaceD<span class="op">[</span><span class="fu">I</span> (<span class="dv">4</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="fu">D</span> <span class="fu">Cancel</span><span class="op">[</span>(G2xPaper)<span class="sc">/</span>(<span class="sc">-</span>pp)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span> ep)<span class="op">],</span> <span class="op">{</span><span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">}],</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> <span class="fu">PowerExpand</span><span class="op">,</span> ep<span class="op">]</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>G2qPaperFinal <span class="ex">=</span> pp FCI@SUNDelta<span class="op">[</span>Glu1<span class="op">,</span> Glu2<span class="op">]</span> Collect2<span class="op">[</span><span class="fu">Series</span><span class="op">[</span>FCReplaceD<span class="op">[</span><span class="fu">I</span> (<span class="dv">4</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="fu">D</span> <span class="fu">Cancel</span><span class="op">[</span>(G2qPaper)<span class="sc">/</span>(<span class="sc">-</span>pp)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span> ep)<span class="op">],</span> <span class="op">{</span><span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">}],</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> <span class="fu">PowerExpand</span><span class="op">,</span> ep<span class="op">]</span> <span class="ot">/.</span> Tf <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
+<p><span class="math display">\text{pp} \delta
+^{\text{Glu1}\;\text{Glu2}} \left(-\frac{i \;\text{eta}^2 \;\text{gs}^4
+\left(\xi ^2-14 \xi -40\right) C_A^2}{32 \;\text{ep}^2}+\frac{i
+\;\text{eta}^2 \;\text{gs}^4 (7 \xi +166) C_A^2}{32
+\;\text{ep}}-\frac{1}{64} i \;\text{eta}^2 \;\text{gs}^4 C_A^2 \left(-24
+\xi ^2+9 \xi +12 \xi ^2 \zeta (3)+48 \zeta
+(3)-1198\right)\right)</span></p>
+<p><span class="math display">\text{pp} \delta
+^{\text{Glu1}\;\text{Glu2}} \left(-\frac{i \;\text{eta}^2 \;\text{gs}^4
+C_A}{4 \;\text{ep}^2}-\frac{7 i \;\text{eta}^2 \;\text{gs}^4 C_A}{8
+\;\text{ep}}-\frac{53}{16} i \;\text{eta}^2 \;\text{gs}^4
+C_A\right)</span></p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>resLit <span class="ex">=</span> G2xPaperFinal <span class="sc">+</span> G2qPaperFinal</span></code></pre></div>
+<p><span class="math display">\text{pp} \delta
+^{\text{Glu1}\;\text{Glu2}} \left(-\frac{i \;\text{eta}^2 \;\text{gs}^4
+C_A}{4 \;\text{ep}^2}-\frac{7 i \;\text{eta}^2 \;\text{gs}^4 C_A}{8
+\;\text{ep}}-\frac{53}{16} i \;\text{eta}^2 \;\text{gs}^4
+C_A\right)+\text{pp} \delta ^{\text{Glu1}\;\text{Glu2}} \left(-\frac{i
+\;\text{eta}^2 \;\text{gs}^4 \left(\xi ^2-14 \xi -40\right) C_A^2}{32
+\;\text{ep}^2}+\frac{i \;\text{eta}^2 \;\text{gs}^4 (7 \xi +166)
+C_A^2}{32 \;\text{ep}}-\frac{1}{64} i \;\text{eta}^2 \;\text{gs}^4 C_A^2
+\left(-24 \xi ^2+9 \xi +12 \xi ^2 \zeta (3)+48 \zeta
+(3)-1198\right)\right)</span></p>
+<p>```mathematica FCCompareResults[resLit, resEp, Text -&gt; {“to
+Davydychev, Osland and Tarasov, hep-ph/9801380, Eqs. 6.14-6.15:”,
+“CORRECT.”, “WRONG!”}, Interrupt -&gt; {Hold[Quit[1]], Automatic},
+Factoring -&gt; Simplify]; Print[“Time used:”, Round[N[TimeUsed[], 4],
+0.001], ” s.”];</p>
+<p>```mathematica</p>
+<p><span class="math display">\text{$\backslash $tCompare to Davydychev,
+Osland and Tarasov,     hep-ph/9801380, Eqs. 6.14-6.15:}
+\;\text{CORRECT.}</span></p>
+<p><span class="math display">\text{$\backslash $tCPU Time used:
+}21.73\text{ s.}</span></p>
+</body>
+</html>

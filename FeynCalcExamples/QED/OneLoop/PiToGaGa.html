@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>QED manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../FeynCalcBookDev/css/feyncalc.css" />
+  <script defer=""
+  src="../../../FeynCalcBookDev/js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="../../../FeynCalcBookDev/js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">QED manual (development version)</h1>
+</header>
+<h2 id="load-feyncalc-and-the-necessary-add-ons-or-other-packages">Load
+FeynCalc and the necessary add-ons or other packages</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>description <span class="ex">=</span> <span class="st">&quot;Pi -&gt; Ga Ga, QED, axial current, 1-loop&quot;</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$FrontEnd</span> <span class="ex">===</span> <span class="cn">Null</span><span class="op">,</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span>; </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Print</span><span class="op">[</span>description<span class="op">]</span>; </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$Notebooks</span> <span class="ex">===</span> <span class="cn">False</span><span class="op">,</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc`</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">9</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FeynCalc }\;\text{10.0.0 (dev
+version, 2023-12-20 22:40:59 +01:00, dff3b835). For help, use the
+}\underline{\text{online} \;\text{documentation}}\;\text{, check out the
+}\underline{\text{wiki}}\;\text{ or visit the
+}\underline{\text{forum}.}</span></p>
+<p><span class="math display">\text{Please check our
+}\underline{\text{FAQ}}\;\text{ for answers to some common FeynCalc
+questions and have a look at the supplied
+}\underline{\text{examples}.}</span></p>
+<p><span class="math display">\text{If you use FeynCalc in your
+research, please evaluate FeynCalcHowToCite[] to learn how to cite this
+software.}</span></p>
+<p><span class="math display">\text{Please keep in mind that the proper
+academic attribution of our work is crucial to ensure the future
+development of this package!}</span></p>
+<h2 id="obtain-the-amplitude">Obtain the amplitude</h2>
+<p>Nicer typesetting</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">MakeBoxes</span><span class="op">[</span>mu<span class="op">,</span> <span class="fu">TraditionalForm</span><span class="op">]</span> <span class="ex">:=</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Mu]&quot;</span>;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">MakeBoxes</span><span class="op">[</span>nu<span class="op">,</span> <span class="fu">TraditionalForm</span><span class="op">]</span> <span class="ex">:=</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Nu]&quot;</span>;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">MakeBoxes</span><span class="op">[</span>la<span class="op">,</span> <span class="fu">TraditionalForm</span><span class="op">]</span> <span class="ex">:=</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Lambda]&quot;</span>;</span></code></pre></div>
+<p>According to Peskin and Schroeder (Ch 19.2), the amplitude for the
+first triangle diagram reads</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>amp1<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> ((<span class="sc">-</span><span class="dv">1</span>) (<span class="sc">-</span><span class="fu">I</span> SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span>)<span class="sc">^</span><span class="dv">2</span> DiracTrace<span class="op">[</span>GAD<span class="op">[</span>mu<span class="op">]</span> . GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span> . </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        QuarkPropagator<span class="op">[</span><span class="fu">l</span> <span class="sc">-</span> <span class="fu">k</span><span class="op">]</span> . GAD<span class="op">[</span>la<span class="op">]</span> . QuarkPropagator<span class="op">[</span><span class="fu">l</span><span class="op">]</span> . </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        GAD<span class="op">[</span>nu<span class="op">]</span> . QuarkPropagator<span class="op">[</span><span class="fu">l</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">]]</span>) <span class="sc">//</span> Explicit</span></code></pre></div>
+<p><span class="math display">\text{e}^2 \;\text{tr}\left(\gamma ^{\mu
+}.\bar{\gamma }^5.\frac{i \gamma \cdot (l-k)}{(l-k)^2}.\gamma ^{\lambda
+}.\frac{i \gamma \cdot l}{l^2}.\gamma ^{\nu }.\frac{i \gamma \cdot
+(l+p)}{(l+p)^2}\right)</span></p>
+<p>And the second one follows from the first by interchanging k with p
+and la with nu</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>amp2<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> amp1<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ot">/.</span> <span class="op">{</span><span class="fu">k</span> <span class="ot">-&gt;</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> <span class="ot">-&gt;</span> <span class="fu">k</span><span class="op">,</span> la <span class="ot">-&gt;</span> nu<span class="op">,</span> nu <span class="ot">-&gt;</span> la<span class="op">}</span></span></code></pre></div>
+<p><span class="math display">\text{e}^2 \;\text{tr}\left(\gamma ^{\mu
+}.\bar{\gamma }^5.\frac{i \gamma \cdot (l-p)}{(l-p)^2}.\gamma ^{\nu
+}.\frac{i \gamma \cdot l}{l^2}.\gamma ^{\lambda }.\frac{i \gamma \cdot
+(k+l)}{(k+l)^2}\right)</span></p>
+<h2 id="calculate-the-amplitude">Calculate the amplitude</h2>
+<p>Contracting both amplitudes with I*(k+p)^mu we can check the
+non-conservation of the axial current.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> Contract<span class="op">[</span><span class="fu">I</span><span class="sc">*</span>FVD<span class="op">[</span><span class="fu">k</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> (amp1<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="sc">+</span> amp2<span class="op">[</span><span class="dv">0</span><span class="op">]</span>)<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">i \;\text{e}^2 \;\text{tr}\left(-\frac{i
+(\gamma \cdot (k+p)).\bar{\gamma }^5.(\gamma \cdot (l-p)).\gamma ^{\nu
+}.(\gamma \cdot l).\gamma ^{\lambda }.(\gamma \cdot (k+l))}{l^2 (k+l)^2
+(l-p)^2}\right)+i \;\text{e}^2 \;\text{tr}\left(-\frac{i (\gamma \cdot
+(k+p)).\bar{\gamma }^5.(\gamma \cdot (l-k)).\gamma ^{\lambda }.(\gamma
+\cdot l).\gamma ^{\nu }.(\gamma \cdot (l+p))}{l^2 (l-k)^2
+(l+p)^2}\right)</span></p>
+<p>For this calculation it is crucial to use a correct scheme for
+gamma^5. As in the book, we use the Breitenlohner-Maison-t’Hooft-Veltman
+prescription.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span>;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> TID<span class="op">[</span>amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">,</span> <span class="fu">l</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{4 \pi ^2
+\;\text{B}_0\left(k^2,0,0\right) \bar{\epsilon }^{\lambda \nu
+\overline{k}\overline{p}} \left(-\left((2-D) (k\cdot p)^2\right)-(2-D)
+k^2 (k\cdot p)-4 k^2 (k\cdot p)+2 k^2 \left(k\cdot p-p^2\right)+(2-D)
+\left((k\cdot p)^2-k^2 p^2\right)\right) \;\text{e}^2}{(2-D)
+\left((k\cdot p)^2-k^2 p^2\right)}+\frac{4 \pi ^2
+\;\text{B}_0\left(p^2,0,0\right) \bar{\epsilon }^{\lambda \nu
+\overline{k}\overline{p}} \left(-\left((2-D) (k\cdot p)^2\right)-(2-D)
+p^2 (k\cdot p)-4 p^2 (k\cdot p)-2 \left(k^2-k\cdot p\right) p^2+(2-D)
+\left((k\cdot p)^2-k^2 p^2\right)\right) \;\text{e}^2}{(2-D)
+\left((k\cdot p)^2-k^2 p^2\right)}-\frac{1}{(2-D) \left((k\cdot p)^2-k^2
+p^2\right)}4 \pi ^2 \;\text{C}_0\left(k^2,p^2,k^2+2 (k\cdot
+p)+p^2,0,0,0\right) \bar{\epsilon }^{\lambda \nu
+\overline{k}\overline{p}} \left(-2 p^2 k^4-(2-D) (k\cdot p)^2 k^2-2 p^4
+k^2-2 (2-D) (k\cdot p) p^2 k^2-4 (k\cdot p) p^2 k^2+(2-D) \left((k\cdot
+p)^2-k^2 p^2\right) k^2-(2-D) (k\cdot p)^2 p^2+(2-D) p^2 \left((k\cdot
+p)^2-k^2 p^2\right)\right) \;\text{e}^2+\left(4 \pi ^2
+\;\text{B}_0\left(k^2+2 (k\cdot p)+p^2,0,0\right) \bar{\epsilon
+}^{\lambda \nu \overline{k}\overline{p}} \left(4 (2-D) (k\cdot p)^3+4
+(2-D) k^2 (k\cdot p)^2+4 (2-D) p^2 (k\cdot p)^2+(2-D) k^4 (k\cdot
+p)+(2-D) p^4 (k\cdot p)+2 (2-D) k^2 p^2 (k\cdot p)+16 \left((k\cdot
+p)^2-k^2 p^2\right) (k\cdot p)+4 \left(k^2 \left(-(k\cdot
+p)-p^2\right)+2 (k\cdot p) \left(-(k\cdot p)-p^2\right)+p^2
+\left(-(k\cdot p)-p^2\right)+\left(k^2+2 (k\cdot p)+p^2\right)
+\left(k^2+2 p^2\right)\right) (k\cdot p)+8 k^2 \left((k\cdot p)^2-k^2
+p^2\right)+8 p^2 \left((k\cdot p)^2-k^2 p^2\right)+2 p^2 \left(-k^2
+\left(-k^2-k\cdot p\right)-2 (k\cdot p) \left(-k^2-k\cdot p\right)-p^2
+\left(-k^2-k\cdot p\right)+\left(k^2-2 (k\cdot p)\right) \left(k^2+2
+(k\cdot p)+p^2\right)\right)+2 k^2 \left(k^2 \left(-(k\cdot
+p)-p^2\right)+2 (k\cdot p) \left(-(k\cdot p)-p^2\right)+p^2
+\left(-(k\cdot p)-p^2\right)+3 p^2 \left(k^2+2 (k\cdot
+p)+p^2\right)\right)\right) \;\text{e}^2\right)/\left((2-D) \left(k^2+2
+(k\cdot p)+p^2\right) \left((k\cdot p)^2-k^2
+p^2\right)\right)</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Momentum<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">|</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">4</span><span class="op">]</span> <span class="ex">=</span> Momentum<span class="op">[</span><span class="fu">k</span><span class="op">]</span>;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">|</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">4</span><span class="op">]</span> <span class="ex">=</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]</span>;</span></code></pre></div>
+<p>The explicit values for the PaVe functions B0 and C0 can be obtained
+e.g. from H. Patel’s Package-X. Here we just insert the known results.
+The C0 function is finite here, so because of the prefactor (D-4) it
+gives no contribution in the D-&gt;4 limit.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="ex">=</span> Collect2<span class="op">[</span>amp<span class="op">[</span><span class="dv">1</span><span class="op">],</span> <span class="op">{</span>B0<span class="op">,</span> C0<span class="op">}]</span> <span class="sc">/</span><span class="ot">/.</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    B0<span class="op">[</span>FCI@SP<span class="op">[</span><span class="at">p_</span><span class="op">,</span> <span class="at">p_</span><span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span> :&gt; </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            <span class="dv">1</span><span class="sc">/</span>(<span class="dv">16</span> Epsilon <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span>) <span class="sc">-</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">EulerGamma</span>)<span class="sc">/</span>(<span class="dv">16</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">Log</span><span class="op">[</span><span class="sc">-</span>((<span class="dv">4</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span> ScaleMu<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">p</span><span class="op">]]</span>)<span class="op">]</span><span class="sc">/</span>(<span class="dv">16</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Pi</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span>)<span class="op">,</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    B0<span class="op">[</span>FCI<span class="op">[</span>SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span> SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> <span class="sc">+</span> SP<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">k</span><span class="op">]],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span> :&gt; </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            B0<span class="op">[</span>FCI<span class="op">[</span>SP<span class="op">[</span><span class="fu">k</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">k</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">]],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">],</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">D</span> <span class="sc">-</span> <span class="dv">4</span>) ExpandScalarProduct<span class="op">[</span>C0<span class="op">[</span>SP<span class="op">[</span><span class="fu">k</span><span class="op">],</span> SP<span class="op">[</span><span class="fu">p</span><span class="op">],</span> SP<span class="op">[</span><span class="fu">k</span> <span class="sc">+</span> <span class="fu">p</span><span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">]]</span> <span class="ot">-&gt;</span> <span class="dv">0</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span></code></pre></div>
+<p><span class="math display">-\frac{4 \pi ^2 (D-4) \;\text{e}^2
+\overline{p}^2 \left(\overline{k}\cdot
+\overline{p}+\overline{k}^2\right) \left(\frac{\log \left(-\frac{4
+\pi  \mu ^2}{\overline{p}^2}\right)}{16 \pi ^4}+\frac{1}{16 \pi ^4
+\varepsilon }-\frac{\gamma -2}{16 \pi ^4}\right) \bar{\epsilon
+}^{\lambda \nu \overline{k}\overline{p}}}{(D-2) \left((\overline{k}\cdot
+\overline{p})^2-\overline{k}^2 \overline{p}^2\right)}-\frac{4 \pi ^2
+(D-4) \;\text{e}^2 \overline{k}^2 \left(\overline{k}\cdot
+\overline{p}+\overline{p}^2\right) \left(\frac{\log \left(-\frac{4
+\pi  \mu ^2}{\overline{k}^2}\right)}{16 \pi ^4}+\frac{1}{16 \pi ^4
+\varepsilon }-\frac{\gamma -2}{16 \pi ^4}\right) \bar{\epsilon
+}^{\lambda \nu \overline{k}\overline{p}}}{(D-2) \left((\overline{k}\cdot
+\overline{p})^2-\overline{k}^2 \overline{p}^2\right)}-\frac{4 \pi ^2
+(D-4) \;\text{e}^2 \left(\overline{k}\cdot \overline{p}\right) \left(2
+\left(\overline{k}\cdot
+\overline{p}\right)+\overline{k}^2+\overline{p}^2\right) \bar{\epsilon
+}^{\lambda \nu \overline{k}\overline{p}} \left(\frac{\log \left(-\frac{4
+\pi  \mu ^2}{(\overline{k}+\overline{p})^2}\right)}{16 \pi
+^4}+\frac{1}{16 \pi ^4 \varepsilon }-\frac{\gamma -2}{16 \pi
+^4}\right)}{(D-2) \left(\overline{k}^2 \overline{p}^2-(\overline{k}\cdot
+\overline{p})^2\right)}</span></p>
+<p>Now we insert the explicit values, convert the external momenta to 4
+dimensions and expand in Epsilon</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="ex">=</span> amp<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="sc">//</span> FCReplaceD<span class="op">[</span>#<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>Epsilon<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span></span></code></pre></div>
+<p><span class="math display">-\frac{\text{e}^2 \bar{\epsilon }^{\lambda
+\nu \overline{k}\overline{p}}}{2 \pi ^2}</span></p>
+<p>The result should be twice Eq. 19.59 in Peskin and Schroeder</p>
+<h2 id="check-the-final-results">Check the final results</h2>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knownResult <span class="ex">=</span> <span class="dv">2</span> (SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">4</span> <span class="fu">Pi</span><span class="sc">^</span><span class="dv">2</span>) LC<span class="op">[</span>al<span class="op">,</span> la<span class="op">,</span> be<span class="op">,</span> nu<span class="op">]</span> FV<span class="op">[</span><span class="fu">k</span><span class="op">,</span> al<span class="op">]</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> be<span class="op">]</span>) <span class="sc">//</span> Contract;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[</span>amp<span class="op">[</span><span class="dv">3</span><span class="op">],</span> knownResult<span class="op">,</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Peskin and Schroeder, An Introduction to QFT, Eq 19.59:&quot;</span><span class="op">,</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{$\backslash $tCompare to Peskin and
+Schroeder, An Introduction to QFT, Eq 19.59:}
+\;\text{CORRECT.}</span></p>
+<p><span class="math display">\text{$\backslash $tCPU Time used:
+}17.634\text{ s.}</span></p>
+</body>
+</html>
