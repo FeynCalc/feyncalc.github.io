@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -136,7 +136,7 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FunctionalD<span class="op">[</span>QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> QuantumField<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Phi<span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">2 \phi</span></p>
-<p>Instead of the usual <span class="math inline">(\delta \partial
+<p>Instead of the usual <span class="math inline">(\delta  \partial
 _{\mu} \phi (x) )/ \delta \phi (y)= \partial _{\mu}
 \delta^{(D)}(x-y)</span> the arguments are omitted, and the <span
 class="math inline">\partial_\mu</span> operator is specified by default
@@ -156,7 +156,7 @@ _{\mu }\phi \right)\right).\left(\left.(\partial _{\mu }\phi
 \right)\right)-m^2 \phi .\phi \right)</span></p>
 <p><span class="math display">m^2 (-\phi )-\left(\partial _{\mu
 }\partial _{\mu }\phi \right)</span></p>
-<p>Consider <span class="math inline">S[A] = -\int d^D x \frac{1}{4}
+<p>Consider <span class="math inline">S[A] = -\int  d^D x \frac{1}{4}
 F_a^{\mu \nu }(x) F_{\mu \nu }(x)</span></p>
 <p>First approach:</p>
 <div class="sourceCode" id="cb5"><pre
@@ -184,9 +184,9 @@ operators (coming from the substitution of the derivative of the delta
 function) act.</p>
 <p>Act with the functional derivative operator on the first field
 strength:</p>
-<p><span class="math inline">0 = (\delta S) / ( \delta A_ {\sigma }^g(y)
-) =-2/4 \int d^D x (\delta / (\delta A_ {\sigma }^g (y) ) F^a_{\mu
-\nu}(x)) F_a^{\mu \nu} (x)</span></p>
+<p><span class="math inline">0 = (\delta S)  / ( \delta A_ {\sigma
+}^g(y) ) =-2/4 \int d^D x (\delta / (\delta A_ {\sigma }^g (y) )
+F^a_{\mu \nu}(x)) F_a^{\mu \nu} (x)</span></p>
 <p>See what happens with just <span class="math inline">(\delta S[A]) /
 (\delta A_{\sigma }^g)</span></p>
 <div class="sourceCode" id="cb6"><pre

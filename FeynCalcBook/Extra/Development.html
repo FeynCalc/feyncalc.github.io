@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="development">Development</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<p>If you are using FeynCalc in your research activities on a regular
+basis, sooner or later you will encounter situations, where FeynCalc is
+missing something that you need. Provided that you have some knowledge
+in Mathematica programming, you can in principle extend FeynCalc with
+whatever you want, where the only limits are your skills and the amount
+of time you want to invest into it.</p>
+<p>Here we collect some tips and recommendations for extending/modifying
+FeynCalc</p>
+<h3 id="unit-tests">Unit tests</h3>
+<p>To improve the code quality of FeynCalc and avoid new bugs or
+regressions we employ a large number of <a
+href="https://en.wikipedia.org/wiki/Unit_testing">unit tests</a>. The
+tests are written using Mathematica’s native framework
+<code>MUnit</code> and can be found in the <a
+href="https://github.com/FeynCalc/feyncalc/tree/master/Tests">Tests</a>
+directory of the FeynCalc repository</p>
+<p>The unit tests are useful not only for the developers. If you are
+modifying the source code of FeynCalc for your own needs or using
+FeynCalc together with other packages on the same kernel, it might be
+useful to check if FeynCalc is still working properly. This can be done
+by running the test suite and analyzing the results.</p>
+<h3 id="modifying-the-source-code">Modifying the source code</h3>
+<p>In general, it is not a very good idea to modify the source code of
+FeynCalc directly, since this may give you a lot of troubles when
+updating to a newer version. Also, there is a fair chance to break
+existing functionality which might lead to erroneous results. However,
+for some deep modifications this might be sometimes necessary.</p>
+<p>Still, if you think that the feature that you want to implement could
+be useful also for other people, it won’t harm to publish your request
+on the mailing list.</p>
+<ul>
+<li>The source code of FeynCalc is located in the
+<code>$FeynCalcDirectory</code> directory. The package is loaded via the
+<code>FeynCalc.m</code> file.</li>
+<li>In <code>FeynCalc.m</code> there is a code snippet that starts with
+<code>boostrappingList = ...</code>. This is where different parts of
+the FeynCalc package are loaded. Those parts are contained in different
+directories inside <code>$FeynCalcDirectory</code>
+(e.g. <code>Shared</code>, <code>NonCommAlgebra</code>,
+<code>Lorentz</code>) depending on their purpose. Every .m file from
+those directories is loaded into Mathematica.</li>
+</ul>
+<h3 id="add-ons">Add-ons</h3>
+<p>Starting with the version 9.0, FeynCalc features a new add-on system.
+The purpose of add-ons is to extend FeynCalc with new features without
+the need to modify FeynCalc itself.</p>
+<p>The add-ons are placed in the directory <code>AddOns</code> inside
+<code>$FeynCalcDirectory</code>. They are loaded in the same fashion as
+regular FeynCalc objects and functions and live in the context
+<code>FeynCalc`NameOfTheAddon`</code>.</p>
+<p>A toy add-on <a
+href="https://github.com/FeynCalc/feyncalc/tree/master/FeynCalc/AddOns/FVProjection">FVProjection</a>
+that represents a minimal working example is shipped together with
+FeynCalc. You can use its source code as a template for writing your own
+addons. The general structure of the main .m file
+(e.g. <code>MyAddon.m</code>) for an add-on looks like</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Foo::usage<span class="ex">=</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Description of Foo&quot;</span>;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Bar::usage<span class="ex">=</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Description of Bar&quot;</span>;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>$MyAddonVersion::usage<span class="ex">=</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;$MyAddonVersion is the string that represents the version of MyAddon&quot;</span>;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$MyAddonDirectory::usage<span class="ex">=</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;$MyAddonDirectory is the string that represents the full path to the MyAddon directory&quot;</span>;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">Begin</span><span class="op">[</span><span class="st">&quot;`Package`&quot;</span><span class="op">]</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">End</span><span class="op">[]</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>$MyAddonVersion<span class="ex">=</span><span class="st">&quot;1.0.0&quot;</span>;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>$MyAddonDirectory <span class="ex">=</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>ToFileName<span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;AddOns&quot;</span><span class="op">,</span> <span class="st">&quot;MyAddon&quot;</span><span class="op">}]</span>;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">Begin</span><span class="op">[</span><span class="st">&quot;`MyAddon`Private`&quot;</span><span class="op">]</span>;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Foo<span class="op">[</span><span class="at">x_</span><span class="op">,</span><span class="at">y_</span><span class="op">]</span><span class="ex">:=</span> Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">x</span><span class="op">],</span>Momentum<span class="op">[</span><span class="fu">y</span><span class="op">]]</span>;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Bar<span class="op">[</span><span class="at">x_</span><span class="op">,</span><span class="at">y_</span><span class="op">]</span><span class="ex">:=</span> DiracGamma<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="fu">x</span><span class="op">]]</span>.DiracGamma<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">y</span><span class="op">]]</span>;</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">(* Print startup message *)</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> Global`$FeynCalcStartupMessages <span class="ex">=</span>!<span class="ex">=</span> <span class="cn">False</span><span class="op">,</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Print</span><span class="op">[</span><span class="fu">Style</span><span class="op">[</span><span class="st">&quot;MyAddon &quot;</span><span class="op">,</span> <span class="st">&quot;Text&quot;</span><span class="op">,</span> <span class="fu">Bold</span><span class="op">],</span> <span class="fu">Style</span><span class="op">[</span>$MyAddonVersion &lt;&gt; <span class="st">&quot; loaded.&quot;</span><span class="op">,</span> <span class="st">&quot;Text&quot;</span><span class="op">]]</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="op">]</span>;</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">End</span><span class="op">[]</span></span></code></pre></div>
+<h3 id="packages-that-use-feyncalc">Packages that use FeynCalc</h3>
+<p>Starting with FeynCalc 9.0 one can easily write something like</p>
+<p>``<code>mathematica BeginPackage["MyPackage</code>“,{”FeynCalc`“}]</p>
+<p>MySP::usage= “Description of MySP”;</p>
+<p>Begin[“<code>Private</code>”];</p>
+<p>MySP[a_,b_]:= FCI[SP[a,b]];</p>
+<p>End[] EndPackage[]</p>
+<p>```mathematica</p>
+<h3 id="package-or-add-on">Package or add-on?</h3>
+<p>The decision, whether you want to write an add-on or a separate
+package that requires FeynCalc should be made depending on your working
+style.</p>
+<ul>
+<li>If you use FeynCalc as your primary tool for doing computations, an
+add-on would be the best way to add things that you’re missing.</li>
+<li>If for you FeynCalc is only a part of a bigger framework, then a
+package that combines different tools (including FeynCalc) would
+probably be a better idea.</li>
+</ul>
+</body>
+</html>

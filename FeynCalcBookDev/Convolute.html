@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -112,8 +112,8 @@
 <p><code>Convolute[f, g, x]</code> convolutes <span
 class="math inline">f(x)</span> and <span
 class="math inline">g(x)</span>, i.e., <span class="math inline">\int
-_0^1 dx_1 \int _0^1 dx_2 \delta \left(x - x_1 x_2\right) f (x_1)
-g(x_2)</span>.</p>
+_0^1 dx_1 \int _0^1 dx_2  \delta \left(x - x_1 x_2\right) f
+(x_1)  g(x_2)</span>.</p>
 <p><code>Convolute[f, g]</code> is equivalent to
 <code>Convolute[f, g, x]</code>.</p>
 <p><code>Convolute[exp, {x1, x2}]</code> assumes that <code>exp</code>

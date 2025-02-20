@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -99,36 +108,52 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h2 id="fclooppropagatorpowerscombine">FCLoopPropagatorPowersCombine</h2>
-<p><code>FCLoopPropagatorPowersCombine[exp]</code> combines the same propagators in a <code>FeynAmpDenominator</code> to one propagator raised to an integer power.</p>
+<h2
+id="fclooppropagatorpowerscombine">FCLoopPropagatorPowersCombine</h2>
+<p><code>FCLoopPropagatorPowersCombine[exp]</code> combines the same
+propagators in a <code>FeynAmpDenominator</code> to one propagator
+raised to an integer power.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCLoopPropagatorPowersExpand.html">FCLoopPropagatorPowersExpand</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FCLoopPropagatorPowersExpand.html">FCLoopPropagatorPowersExpand</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">q</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">},</span> <span class="op">{{</span><span class="fu">q</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span> </span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">q</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">},</span> <span class="op">{{</span><span class="fu">q</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FCLoopPropagatorPowersCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{(q^2-m+i \eta )^2}</span></p>
 <p><span class="math display">\frac{1}{(q^2-m+i \eta )^2}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FeynAmpDenominator[StandardPropagatorDenominator[Momentum[q, D], 0, -m, {2, 1}]]*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">q</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="op">{{</span><span class="fu">q</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span> </span>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SFAD<span class="op">[{{</span><span class="fu">q</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="sc">-</span><span class="dv">1</span><span class="op">},</span> <span class="op">{{</span><span class="fu">q</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> FCLoopPropagatorPowersCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{\frac{1}{(q^2-m+i \eta )}.(q^2-m+i \eta )}</span></p>
+<p><span class="math display">\frac{1}{\frac{1}{(q^2-m+i \eta
+)}.(q^2-m+i \eta )}</span></p>
 <p><span class="math display">1</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ex <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*1*)</span></span></code></pre></div>
-<p>The function automatically employs <code>FeynAmpDenominatorCombine</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> SFAD<span class="op">[{{</span><span class="sc">-</span>k1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span>mc<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span>  SFAD<span class="op">[{{</span><span class="sc">-</span>k1 <span class="sc">-</span> k2 <span class="sc">+</span> k3 <span class="sc">+</span> p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span> SFAD<span class="op">[{{</span><span class="sc">-</span>k1 <span class="sc">-</span> k2 <span class="sc">+</span> k3 <span class="sc">+</span> p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(\text{k1}^2-\text{mc}^2+i \eta ) ((-\text{k1}-\text{k2}+\text{k3}+\text{p1})^2+i \eta )^3}</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>int <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<p>The function automatically employs
+<code>FeynAmpDenominatorCombine</code>.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> SFAD<span class="op">[{{</span><span class="sc">-</span>k1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span>mc<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span>  SFAD<span class="op">[{{</span><span class="sc">-</span>k1 <span class="sc">-</span> k2 <span class="sc">+</span> k3 <span class="sc">+</span> p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]</span> SFAD<span class="op">[{{</span><span class="sc">-</span>k1 <span class="sc">-</span> k2 <span class="sc">+</span> k3 <span class="sc">+</span> p1<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{(\text{k1}^2-\text{mc}^2+i \eta )
+((-\text{k1}-\text{k2}+\text{k3}+\text{p1})^2+i \eta )^3}</span></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>int <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FeynAmpDenominator[StandardPropagatorDenominator[-Momentum[k1, D], 0, -mc^2, {1, 1}]] FeynAmpDenominator[StandardPropagatorDenominator[-Momentum[k1, D] - Momentum[k2, D] + Momentum[k3, D] + Momentum[p1, D], 0, 0, {1, 1}]] FeynAmpDenominator[StandardPropagatorDenominator[-Momentum[k1, D] - Momentum[k2, D] + Momentum[k3, D] + Momentum[p1, D], 0, 0, {2, 1}]]*)</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCLoopPropagatorPowersCombine<span class="op">[</span>int<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(\text{k1}^2-\text{mc}^2+i \eta ).((-\text{k1}-\text{k2}+\text{k3}+\text{p1})^2+i \eta )^3}</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> FCLoopPropagatorPowersCombine<span class="op">[</span>int<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{(\text{k1}^2-\text{mc}^2+i \eta
+).((-\text{k1}-\text{k2}+\text{k3}+\text{p1})^2+i \eta )^3}</span></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*FeynAmpDenominator[StandardPropagatorDenominator[-Momentum[k1, D], 0, -mc^2, {1, 1}], StandardPropagatorDenominator[-Momentum[k1, D] - Momentum[k2, D] + Momentum[k3, D] + Momentum[p1, D], 0, 0, {3, 1}]]*)</span></span></code></pre></div>
 </body>

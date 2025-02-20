@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,27 +109,58 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fcfeynmanprojectivize">FCFeynmanProjectivize</h2>
-<p><code>FCFeynmanProjectivize[int, x]</code> checks if the given Feynman parameter integral (without prefactors) depending on x[1], x[2], … is a projective form. If this is not the case, the integral will be projectivized.</p>
-<p>Projectivity is a necessary condition for computing the integral with the aid of the Cheng-Wu theorem</p>
+<p><code>FCFeynmanProjectivize[int, x]</code> checks if the given
+Feynman parameter integral (without prefactors) depending on x[1], x[2],
+… is a projective form. If this is not the case, the integral will be
+projectivized.</p>
+<p>Projectivity is a necessary condition for computing the integral with
+the aid of the Cheng-Wu theorem</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCFeynmanParametrize.html">FCFeynmanParametrize</a>, <a href="FCFeynmanPrepare.html">FCFeynmanPrepare</a>, <a href="FCFeynmanProjectiveQ.html">FCFeynmanProjectiveQ</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FCFeynmanParametrize.html">FCFeynmanParametrize</a>, <a
+href="FCFeynmanPrepare.html">FCFeynmanPrepare</a>, <a
+href="FCFeynmanProjectiveQ.html">FCFeynmanProjectiveQ</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> SFAD<span class="op">[{</span>p3<span class="op">,</span> mg<span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> SFAD<span class="op">[{</span>p3 <span class="sc">-</span> p1<span class="op">,</span> mg<span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">2</span> p1 . <span class="fu">q</span><span class="op">}}]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{(\text{p3}^2-\text{mg}^2+i \eta ) ((\text{p3}-\text{p1})^2-\text{mg}^2+i \eta ) (-2 (\text{p1}\cdot q)+i \eta )}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fp <span class="ex">=</span> FCFeynmanParametrize<span class="op">[</span>int<span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="fu">Names</span> <span class="ot">-&gt;</span> <span class="fu">x</span><span class="op">,</span> Indexed <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FCReplaceD <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">},</span> </span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> SFAD<span class="op">[{</span>p3<span class="op">,</span> mg<span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> SFAD<span class="op">[{</span>p3 <span class="sc">-</span> p1<span class="op">,</span> mg<span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">2</span> p1 . <span class="fu">q</span><span class="op">}}]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{(\text{p3}^2-\text{mg}^2+i \eta )
+((\text{p3}-\text{p1})^2-\text{mg}^2+i \eta ) (-2 (\text{p1}\cdot q)+i
+\eta )}</span></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fp <span class="ex">=</span> FCFeynmanParametrize<span class="op">[</span>int<span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">},</span> <span class="fu">Names</span> <span class="ot">-&gt;</span> <span class="fu">x</span><span class="op">,</span> Indexed <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FCReplaceD <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">},</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Simplify</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> <span class="fu">Assumptions</span> <span class="ot">-&gt;</span> <span class="op">{</span>mg &gt; <span class="dv">0</span><span class="op">,</span> ep &gt; <span class="dv">0</span><span class="op">},</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="ot">-&gt;</span> qq<span class="op">,</span> mg<span class="sc">^</span><span class="dv">2</span> <span class="ot">-&gt;</span> mg2<span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\left\{(x(2) x(3))^{3 \;\text{ep}-3} \left((x(2)+x(3)) \left(\text{mg2} x(2) x(3)+\text{qq} x(1)^2\right)\right)^{1-2 \;\text{ep}},-\Gamma (2 \;\text{ep}-1),\{x(1),x(2),x(3)\}\right\}</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCFeynmanProjectivize<span class="op">[</span>fp<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> <span class="fu">x</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{FCFeynmanProjectivize: The integral is already projective, no further transformations are required.}</span></p>
-<p><span class="math display">(x(2) x(3))^{3 \;\text{ep}-3} \left((x(2)+x(3)) \left(\text{mg2} x(2) x(3)+\text{qq} x(1)^2\right)\right)^{1-2 \;\text{ep}}</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCFeynmanProjectivize<span class="op">[</span>(<span class="fu">x</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span>)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>ep)<span class="sc">/</span>(mb2<span class="sc">*</span>(<span class="fu">x</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="sc">*</span><span class="fu">x</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="sc">+</span> </span>
+<p><span class="math display">\left\{(x(2) x(3))^{3 \;\text{ep}-3}
+\left((x(2)+x(3)) \left(\text{mg2} x(2) x(3)+\text{qq}
+x(1)^2\right)\right)^{1-2 \;\text{ep}},-\Gamma (2
+\;\text{ep}-1),\{x(1),x(2),x(3)\}\right\}</span></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCFeynmanProjectivize<span class="op">[</span>fp<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> <span class="fu">x</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FCFeynmanProjectivize: The integral
+is already projective, no further transformations are
+required.}</span></p>
+<p><span class="math display">(x(2) x(3))^{3 \;\text{ep}-3}
+\left((x(2)+x(3)) \left(\text{mg2} x(2) x(3)+\text{qq}
+x(1)^2\right)\right)^{1-2 \;\text{ep}}</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCFeynmanProjectivize<span class="op">[</span>(<span class="fu">x</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span>)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>ep)<span class="sc">/</span>(mb2<span class="sc">*</span>(<span class="fu">x</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">x</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="sc">*</span><span class="fu">x</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="sc">+</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">x</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span>))<span class="sc">^</span>ep<span class="op">,</span> <span class="fu">x</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{FCFeynmanProjectivize: The integral is already projective, no further transformations are required.}</span></p>
-<p><span class="math display">(x(1)+x(2))^{2 \;\text{ep}-2} \left(\text{mb2} \left(x(1)^2+x(2) x(1)+x(2)^2\right)\right)^{-\text{ep}}</span></p>
-<p>Feynman parametrizations derived from propagator representations should be projective in most cases. However, arbitrary Feynman parameter integrals do not necessarily have this property.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCFeynmanProjectivize<span class="op">[</span><span class="fu">x</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="sc">^</span>(<span class="fu">x</span> <span class="sc">-</span> <span class="dv">1</span>) (<span class="fu">x</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span>)<span class="sc">^</span>(<span class="fu">y</span> <span class="sc">-</span> <span class="dv">1</span>)<span class="op">,</span> <span class="fu">x</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{FCFeynmanProjectivize: The integral is not projective, trying to projectivize.}</span></p>
-<p><span class="math display">\text{FCFeynmanProjectivize: Projective transformation successful, the integral is now projective.}</span></p>
-<p><span class="math display">\frac{\left(\frac{x(1)}{x(1)+x(2)}\right)^{x-1} \left(\frac{x(2)}{x(1)+x(2)}\right)^{y-1}}{(x(1)+x(2))^2}</span></p>
+<p><span class="math display">\text{FCFeynmanProjectivize: The integral
+is already projective, no further transformations are
+required.}</span></p>
+<p><span class="math display">(x(1)+x(2))^{2 \;\text{ep}-2}
+\left(\text{mb2} \left(x(1)^2+x(2)
+x(1)+x(2)^2\right)\right)^{-\text{ep}}</span></p>
+<p>Feynman parametrizations derived from propagator representations
+should be projective in most cases. However, arbitrary Feynman parameter
+integrals do not necessarily have this property.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCFeynmanProjectivize<span class="op">[</span><span class="fu">x</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="sc">^</span>(<span class="fu">x</span> <span class="sc">-</span> <span class="dv">1</span>) (<span class="fu">x</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span>)<span class="sc">^</span>(<span class="fu">y</span> <span class="sc">-</span> <span class="dv">1</span>)<span class="op">,</span> <span class="fu">x</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FCFeynmanProjectivize: The integral
+is not projective, trying to projectivize.}</span></p>
+<p><span class="math display">\text{FCFeynmanProjectivize: Projective
+transformation successful, the integral is now projective.}</span></p>
+<p><span
+class="math display">\frac{\left(\frac{x(1)}{x(1)+x(2)}\right)^{x-1}
+\left(\frac{x(2)}{x(1)+x(2)}\right)^{y-1}}{(x(1)+x(2))^2}</span></p>
 </body>
 </html>

@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
 
@@ -21,11 +29,22 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="setdimensions">SetDimensions</h2>
-<p><code>SetDimensions</code> is an option for <code>ScalarProduct</code>, <code>CartesianScalarProduct</code> and various <code>FCLoopBasis*</code> functions.</p>
-<p>For scalar products it specifies the dimensions for which the scalar products will be set when <code>ScalarProduct</code> or <code>CartesianScalarProduct</code> are used with the equality sign, e.g. in <code>ScalarProduct[a, b] = m^2</code>. By default, the scalar products are set for 4 and D dimensions. By changing this option the user can add other dimensions or remove the existing ones.</p>
-<p>In case of the <code>FCLoopBasis*</code> functions this option specifies the dimensions of the loop and external momenta to be taken into account when extracting the propagator basis.</p>
+<p><code>SetDimensions</code> is an option for
+<code>ScalarProduct</code>, <code>CartesianScalarProduct</code> and
+various <code>FCLoopBasis*</code> functions.</p>
+<p>For scalar products it specifies the dimensions for which the scalar
+products will be set when <code>ScalarProduct</code> or
+<code>CartesianScalarProduct</code> are used with the equality sign,
+e.g. in <code>ScalarProduct[a, b] = m^2</code>. By default, the scalar
+products are set for 4 and D dimensions. By changing this option the
+user can add other dimensions or remove the existing ones.</p>
+<p>In case of the <code>FCLoopBasis*</code> functions this option
+specifies the dimensions of the loop and external momenta to be taken
+into account when extracting the propagator basis.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="ScalarProduct.html">ScalarProduct</a>, <a href="CartesianScalarProduct.html">CartesianScalarProduct</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="ScalarProduct.html">ScalarProduct</a>, <a
+href="CartesianScalarProduct.html">CartesianScalarProduct</a>.</p>
 <h3 id="examples">Examples</h3>
 </body>
 </html>

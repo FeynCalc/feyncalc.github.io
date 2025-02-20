@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -116,7 +116,7 @@ components</h3>
 <p>FeynCalc is equipped with special symbols that facilitate
 calculations involving light-cone vectors. The default <span
 class="math inline">n</span> and <span
-class="math inline">\bar{n}</span> vectors are defined via the global
+class="math display">\bar{n}</span> vectors are defined via the global
 variables <code>$FCDefaultLightconeVectorN</code> and
 <code>$FCDefaultLightconeVectorNB</code>. By default those are set to
 <code>FCGV["n"]</code> and <code>FCGV["nb"]</code> to avoid possible
@@ -338,6 +338,13 @@ _{\perp }\nu _{\perp }\overline{n}\;\overline{\text{nb}}}-2 i
 \overline{\text{nb}}^{\sigma } \bar{\epsilon }^{\mu _{\perp }\nu _{\perp
 }\overline{n}\;\overline{\text{nb}}}-4 i \bar{\epsilon }^{\mu _{\perp
 }\nu _{\perp }\rho _{\perp }\sigma _{\perp }}</span></p>
+<p>In order to handle Dirac matrices involving light-cone components
+effectively, one needs to define some ordering. The current (hard-coded)
+choice is that the perpendicular component always get anticommuted to
+the very right of each Dirac chain, while every remaining occurence of
+<span class="math inline">(\gamma \cdot \bar{n}) (\gamma \cdot n)</span>
+is changed to <span class="math inline">(\gamma \cdot n) (\gamma \cdot
+\bar{n})</span>.</p>
 <h3 id="introducing-light-cone-components-by-hand">Introducing
 light-cone components by hand</h3>
 <p>In some calculations one might end up with a mixture of explicit

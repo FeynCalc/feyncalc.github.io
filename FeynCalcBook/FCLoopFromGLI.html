@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,34 +109,85 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="fcloopfromgli">FCLoopFromGLI</h2>
-<p><code>FCLoopFromGLI[exp, topologies]</code> replaces <code>GLI</code>s in <code>exp</code> with the corresponding loop integrals in the <code>FeynAmpDenominator</code> notation according to the information provided in topologies.</p>
+<p><code>FCLoopFromGLI[exp, topologies]</code> replaces
+<code>GLI</code>s in <code>exp</code> with the corresponding loop
+integrals in the <code>FeynAmpDenominator</code> notation according to
+the information provided in topologies.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="FCTopology.html">FCTopology</a>, <a href="GLI.html">GLI</a>, <a href="FCLoopValidTopologyQ.html">FCLoopValidTopologyQ</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FCTopology.html">FCTopology</a>, <a href="GLI.html">GLI</a>, <a
+href="FCLoopValidTopologyQ.html">FCLoopValidTopologyQ</a>.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span>FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> m0<span class="op">}],</span> FAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> p1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> p2<span class="op">,</span> m2<span class="op">}],</span> FAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> p2<span class="op">,</span> m3<span class="op">}]},</span> </span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>topos <span class="ex">=</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span>FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> m0<span class="op">}],</span> FAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> p1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> p2<span class="op">,</span> m2<span class="op">}],</span> FAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">+</span> p3<span class="op">,</span> m3<span class="op">}]},</span> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">,</span> p3<span class="op">},</span> <span class="op">{},</span> <span class="op">{}],</span> </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span><span class="st">&quot;topoTad2L&quot;</span><span class="op">,</span> <span class="op">{</span>FAD<span class="op">[{</span>q1<span class="op">,</span> m1<span class="op">}],</span> FAD<span class="op">[{</span>q2<span class="op">,</span> m2<span class="op">}],</span> FAD<span class="op">[{</span>q1 <span class="sc">-</span> q2<span class="op">,</span> <span class="dv">0</span><span class="op">}]},</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">},</span> <span class="op">{},</span> <span class="op">{},</span> <span class="op">{}]}</span></span></code></pre></div>
-<p><span class="math display">\left\{\text{FCTopology}\left(\text{topoBox1L},\left\{\frac{1}{q^2-\text{m0}^2},\frac{1}{(\text{p1}+q)^2-\text{m1}^2},\frac{1}{(\text{p2}+q)^2-\text{m2}^2},\frac{1}{(\text{p2}+q)^2-\text{m3}^2}\right\},\{q\},\{\text{p1},\text{p2},\text{p3}\},\{\},\{\}\right),\text{FCTopology}\left(\text{topoTad2L},\left\{\frac{1}{\text{q1}^2-\text{m1}^2},\frac{1}{\text{q2}^2-\text{m2}^2},\frac{1}{(\text{q1}-\text{q2})^2}\right\},\{\text{q1},\text{q2}\},\{\},\{\},\{\}\right)\right\}</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="ex">=</span> a1 GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">+</span> a2 GLI<span class="op">[</span><span class="st">&quot;topoTad2L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\text{a1} G^{\text{topoBox1L}}(1,1,1,1)+\text{a2} G^{\text{topoTad2L}}(1,2,2)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> topos<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{\text{a1}}{\left(q^2-\text{m0}^2\right) \left((\text{p1}+q)^2-\text{m1}^2\right) \left((\text{p2}+q)^2-\text{m2}^2\right) \left((\text{p2}+q)^2-\text{m3}^2\right)}+\frac{\text{a2}}{\left(\text{q1}^2-\text{m1}^2\right) \left(\text{q2}^2-\text{m2}^2\right)^2 (\text{q1}-\text{q2})^4}</span></p>
-<p>Notice that it is necessary to specify all topologies present in <code>exp</code>. The function will not accept <code>GLI</code>s defined for unknown topologies</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span>GLI<span class="op">[</span><span class="st">&quot;topoXYZ&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> topos<span class="op">]</span></span></code></pre></div>
-<p><img src="img/047duy8jklfe9.svg" alt="047duy8jklfe9" /></p>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{topoBox1L},\left\{\frac{1}{q^2-\text{m0}^2},\frac{1}{(\text{p1}+q)^2-\text{m1}^2},\frac{1}{(\text{p2}+q)^2-\text{m2}^2},\frac{1}{(\text{p3}+q)^2-\text{m3}^2}\right\},\{q\},\{\text{p1},\text{p2},\text{p3}\},\{\},\{\}\right),\text{FCTopology}\left(\text{topoTad2L},\left\{\frac{1}{\text{q1}^2-\text{m1}^2},\frac{1}{\text{q2}^2-\text{m2}^2},\frac{1}{(\text{q1}-\text{q2})^2}\right\},\{\text{q1},\text{q2}\},\{\},\{\},\{\}\right)\right\}</span></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="ex">=</span> a1 GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> <span class="sc">+</span> a2 GLI<span class="op">[</span><span class="st">&quot;topoTad2L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{a1}
+G^{\text{topoBox1L}}(1,1,1,1)+\text{a2}
+G^{\text{topoTad2L}}(1,2,2)</span></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> topos<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\frac{\text{a1}}{\left(q^2-\text{m0}^2\right)
+\left((\text{p1}+q)^2-\text{m1}^2\right)
+\left((\text{p2}+q)^2-\text{m2}^2\right)
+\left((\text{p3}+q)^2-\text{m3}^2\right)}+\frac{\text{a2}}{\left(\text{q1}^2-\text{m1}^2\right)
+\left(\text{q2}^2-\text{m2}^2\right)^2
+(\text{q1}-\text{q2})^4}</span></p>
+<p>Notice that it is necessary to specify all topologies present in
+<code>exp</code>. The function will not accept <code>GLI</code>s defined
+for unknown topologies</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span>GLI<span class="op">[</span><span class="st">&quot;topoXYZ&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> topos<span class="op">]</span></span></code></pre></div>
+<p><img src="img/0jtbiuq3nviq2.svg" alt="0jtbiuq3nviq2" /></p>
 <p><span class="math display">\text{\$Aborted}</span></p>
-<p><code>FCLoopFromGLI</code> can also handle products of <code>GLI</code>s (currently only for standalone integrals or lists of integrals but not for amplitudes). In this case it will automatically introduce dummy names for the loop momenta.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span>GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> topos<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{\left(\text{FCGV}(\text{lmom21})^2-\text{m0}^2\right) \left((\text{p1}+\text{FCGV}(\text{lmom11}))^2-\text{m1}^2\right) \left((\text{p2}+\text{FCGV}(\text{lmom11}))^2-\text{m3}^2\right) \left((\text{p2}+\text{FCGV}(\text{lmom21}))^2-\text{m2}^2\right)}</span></p>
-<p>You can customize the naming scheme for the momenta via the <code>LoopMomentum</code> option. The first argument gives the number of the loop integral, while the second corresponds to a particular loop momentum this integral depends on.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SelectNotFree<span class="op">[</span><span class="fu">Options</span><span class="op">[</span>FCLoopFromGLI<span class="op">],</span> LoopMomenta<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\{\text{LoopMomenta}\to (\{\text{FeynCalc$\grave{ }$FCLoopFromGLI$\grave{ }$Private$\grave{ }$x},\text{FeynCalc$\grave{ }$FCLoopFromGLI$\grave{ }$Private$\grave{ }$y}\}\to \;\text{FCGV}(\text{lmom}&lt;&gt;\text{ToString}[\text{FeynCalc$\grave{ }$FCLoopFromGLI$\grave{ }$Private$\grave{ }$x}]&lt;&gt;\text{ToString}[\text{FeynCalc$\grave{ }$FCLoopFromGLI$\grave{ }$Private$\grave{ }$y}]))\}</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span>GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> topos<span class="op">,</span> </span>
+<p><code>FCLoopFromGLI</code> can also handle products of
+<code>GLI</code>s (currently only for standalone integrals or lists of
+integrals but not for amplitudes). In this case it will automatically
+introduce dummy names for the loop momenta.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span>GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> topos<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\frac{1}{\left(\text{FCGV}(\text{lmom21})^2-\text{m0}^2\right)
+\left((\text{p1}+\text{FCGV}(\text{lmom11}))^2-\text{m1}^2\right)
+\left((\text{p3}+\text{FCGV}(\text{lmom11}))^2-\text{m3}^2\right)
+\left((\text{p2}+\text{FCGV}(\text{lmom21}))^2-\text{m2}^2\right)}</span></p>
+<p>You can customize the naming scheme for the momenta via the
+<code>LoopMomentum</code> option. The first argument gives the number of
+the loop integral, while the second corresponds to a particular loop
+momentum this integral depends on.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SelectNotFree<span class="op">[</span><span class="fu">Options</span><span class="op">[</span>FCLoopFromGLI<span class="op">],</span> LoopMomenta<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{\text{LoopMomenta}\to
+(\{\text{FeynCalc$\grave{ }$FCLoopFromGLI$\grave{ }$Private$\grave{
+}$x},\text{FeynCalc$\grave{ }$FCLoopFromGLI$\grave{ }$Private$\grave{
+}$y}\}\to
+\;\text{FCGV}(\text{lmom}&lt;&gt;\text{ToString}[\text{FeynCalc$\grave{
+}$FCLoopFromGLI$\grave{ }$Private$\grave{
+}$x}]&lt;&gt;\text{ToString}[\text{FeynCalc$\grave{
+}$FCLoopFromGLI$\grave{ }$Private$\grave{ }$y}]))\}</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span>GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> GLI<span class="op">[</span><span class="st">&quot;topoBox1L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> topos<span class="op">,</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  LoopMomenta <span class="ot">-&gt;</span> <span class="fu">Function</span><span class="op">[{</span><span class="fu">x</span><span class="op">,</span> <span class="fu">y</span><span class="op">},</span> <span class="st">&quot;p&quot;</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">x</span><span class="op">]</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">x</span><span class="op">]]]</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{\left(\text{p22}^2-\text{m0}^2\right) \left((\text{p11}+\text{p1})^2-\text{m1}^2\right) \left((\text{p22}+\text{p2})^2-\text{m2}^2\right) \left((\text{p11}+\text{p2})^2-\text{m3}^2\right)}</span></p>
-<p>In general, <code>FCLoopFromGLI</code> can change the ordering of propagators inside <code>FeynAmpDenominator</code>, as compared to the their ordering inside <code>FCTopology</code>. This is because by default it calls <code>FeynAmpDenominatorCombine</code>. Ordering may also change when applying <code>FeynAmpDenominatorSimplify</code>. You want the ordering to remain unchanged, the following should help</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> topos<span class="op">,</span> FeynAmpDenominatorCombine <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="fu">List</span> <span class="ot">-&gt;</span> FeynAmpDenominator<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{\text{a1}}{\left(q^2-\text{m0}^2\right).\left((\text{p1}+q)^2-\text{m1}^2\right).\left((\text{p2}+q)^2-\text{m2}^2\right).\left((\text{p2}+q)^2-\text{m3}^2\right)}+\frac{\text{a2}}{\left(\text{q1}^2-\text{m1}^2\right).\left(\text{q2}^2-\text{m2}^2\right)^2.(\text{q1}-\text{q2})^4}</span></p>
+<p><span
+class="math display">\frac{1}{\left(\text{p22}^2-\text{m0}^2\right)
+\left((\text{p11}+\text{p1})^2-\text{m1}^2\right)
+\left((\text{p22}+\text{p2})^2-\text{m2}^2\right)
+\left((\text{p11}+\text{p3})^2-\text{m3}^2\right)}</span></p>
+<p>In general, <code>FCLoopFromGLI</code> can change the ordering of
+propagators inside <code>FeynAmpDenominator</code>, as compared to the
+their ordering inside <code>FCTopology</code>. This is because by
+default it calls <code>FeynAmpDenominatorCombine</code>. Ordering may
+also change when applying <code>FeynAmpDenominatorSimplify</code>. You
+want the ordering to remain unchanged, the following should help</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCLoopFromGLI<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> topos<span class="op">,</span> FeynAmpDenominatorCombine <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> <span class="fu">List</span> <span class="ot">-&gt;</span> FeynAmpDenominator<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\frac{\text{a1}}{\left(q^2-\text{m0}^2\right).\left((\text{p1}+q)^2-\text{m1}^2\right).\left((\text{p2}+q)^2-\text{m2}^2\right).\left((\text{p3}+q)^2-\text{m3}^2\right)}+\frac{\text{a2}}{\left(\text{q1}^2-\text{m1}^2\right).\left(\text{q2}^2-\text{m2}^2\right)^2.(\text{q1}-\text{q2})^4}</span></p>
 </body>
 </html>

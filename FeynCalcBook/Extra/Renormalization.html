@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <script defer="" src="../js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="../js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="renormalization">Renormalization</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<h3 id="renormalization-constants-and-mass-dimensions">Renormalization
+constants and mass dimensions</h3>
+<p>The procedure of renormalization allows us to get rid of the UV poles
+in a renormalizable theory. However, for that aim we need to know
+explicit values of the renormalization constants.</p>
+<p>The first step is to rewrite the (bare) Lagrangian of our theory in
+terms of the renormalized Lagrangian <span
+class="math inline">\mathcal{L}_{\textrm{ren}}</span> and the
+counter-term Lagrangian <span
+class="math inline">\mathcal{L}_{\textrm{ct}}</span></p>
+<p><span class="math display">\begin{equation}
+\mathcal{L}  = \mathcal{L}_{\textrm{ren}} + \mathcal{L}_{\textrm{ct}}
+\end{equation}</span></p>
+<p>The renormalization constants <span class="math inline">Z_x</span>
+establish a connection between bare and renormalized quantities
+appearing in the Lagrangian. For some generic masses, coupling constants
+and fields we can write</p>
+<p><span class="math display">\begin{align*}
+g_{\textrm{bare}} &amp;=  \mu^{n \varepsilon} Z_g g_{\textrm{ren}}, \\
+m_{\textrm{bare}} &amp;=  Z_m m_{\textrm{ren}}, \\
+\psi_{\textrm{bare}} &amp;=  \sqrt{Z_m} \psi_{\textrm{ren}}, \\
+A^\mu_{\textrm{bare}} &amp;=  \sqrt{Z_A} A^\mu_{\textrm{ren}}. \\
+\end{align*}</span></p>
+<p>The renormalization scale <span class="math inline">\mu</span> is
+needed to account for the fact, that when going from <span
+class="math inline">4</span> to <span class="math inline">D</span>
+dimensions, dimensionless coupling constants suddenly become
+dimensionful.</p>
+<p>For example, a scalar field (mass dimension 1 in 4 dimensions) gets
+mass dimension <span class="math inline">(D-2)/2</span> in <span
+class="math inline">D</span> dimensions. This can be deduced by looking
+at the kinetic term and using that the mass dimension of the partial
+derivative remains unity,</p>
+<p><span class="math display">\begin{align*}
+[(\partial_\mu \phi_{\textrm{bare}})^2] &amp;= D \Rightarrow
+[\partial_\mu \phi_{\textrm{bare}}] = \frac{D}{2},  \\
+[\partial_\mu] &amp; = 1 \Rightarrow [\phi_{\textrm{bare}}] =
+\frac{D-2}{2}
+\end{align*}</span></p>
+<p>Then for the <span class="math inline">\lambda \phi^4</span>-vertex
+we follow that</p>
+<p><span class="math display">\begin{equation}
+[\lambda_{\textrm{bare}} \phi_{\textrm{bare}}^4] = D \Rightarrow
+[\lambda_{\textrm{bare}}] = D - 4 \frac{D-2}{2} = 4 - D,
+\end{equation}</span></p>
+<p>For <span class="math inline">D = 4- 2 \varepsilon</span> this yields
+<span class="math inline">[\lambda_{\textrm{bare}}] = 2
+\varepsilon</span>, which is precisely compensated by imposing</p>
+<p><span class="math display">\begin{equation}
+\lambda_{\textrm{bare}} =  \mu^{2 \varepsilon} Z_\lambda
+\lambda_{\textrm{ren}},
+\end{equation}</span></p>
+<p>so that <span class="math inline">[\lambda_{\textrm{ren}}] =
+0</span>.</p>
+<p>A similar exercise for the fermion yields</p>
+<p><span class="math display">\begin{equation}
+[\bar{\psi}_{\textrm{bare}} i \gamma \cdot \partial \psi_{\textrm{bare}}
+] = D \Rightarrow [\psi_{\textrm{bare}}] = \frac{D-1}{2}
+\end{equation}</span></p>
+<p>The splitting of the bare Lagrangian <span
+class="math inline">\mathcal{L}</span> into <span
+class="math inline">\mathcal{L}_{\textrm{ren}}</span> and <span
+class="math inline">\mathcal{L}_{\textrm{ct}}</span> is done by first
+replacing all bare quantities by the renormalized ones and then using
+the trivial decompositions</p>
+<p><span class="math display">\begin{align*}
+\sqrt{Z_x} &amp;= (\sqrt{Z_x} - 1) + 1, \\
+Z_x &amp;= (Z_x - 1) + 1, \\
+Z_x^2 &amp;= (Z_x^2 - 1) + 1, \\
+Z_y Z_x^2 &amp;= (Z_y Z_x^2 - 1) + 1. \\
+\end{align*}</span></p>
+<p>Each of the renormalization constants can be written as</p>
+<p><span class="math display">\begin{equation}
+Z_x = 1 + \delta Z_x,
+\end{equation}</span></p>
+<p>where <span class="math inline">\delta Z_x</span> contains poles in
+<span class="math inline">\varepsilon</span> and possibly also finite
+pieces (depending on the chosen renormalization scheme). Parametrically,
+<span class="math inline">\delta Z_x</span> is of order of the small
+coupling constant so that we can “expand” in it as if <span
+class="math inline">\delta Z_x \ll 1</span>.</p>
+<h3 id="examples-of-renormalized-and-counter-term-lagrangians">Examples
+of renormalized and counter-term Lagrangians</h3>
+<p>In the following, for the sake of convenience we drop the subscript
+“ren” in the renormalized Lagrangian</p>
+<p>In the case of the <strong>real <span
+class="math inline">\phi^4</span>-theory</strong> (cf. e.g. <a
+href="https://arxiv.org/pdf/1606.09210.pdf">arXiv:1606.0921</a>) we
+have</p>
+<p><span class="math display">\begin{align*}
+\mathcal{L}_{\phi^4} &amp;= \frac{1}{2} \partial_\mu
+\phi_{\textrm{bare}} \partial^\mu \phi_{\textrm{bare}} - \frac{1}{2}
+m_{\textrm{bare}}^2 \phi_{\textrm{bare}}^2 - \frac{\lambda}{4!}
+\phi_{\textrm{bare}}^4 \\
+&amp; = \frac{1}{2} Z_\phi \partial_\mu \phi \partial^\mu \phi -
+\frac{1}{2} Z_m^2 Z_\phi m^2 \phi^2 - \mu^{2 \varepsilon} Z_\lambda
+Z_\phi^2 \frac{\lambda}{4!} \phi^4 \\
+&amp; = \mathcal{L}_{\phi,\textrm{ren}} + \mathcal{L}_{\phi,\textrm{ct}}
+\end{align*}</span></p>
+<p>with</p>
+<p><span class="math display">\begin{equation}
+\mathcal{L}_{\phi,{\textrm{ren}}} = \frac{1}{2} \partial_\mu \phi
+\partial^\mu \phi - \frac{1}{2} m^2 \phi^2 - \frac{\lambda}{4!} \phi^4
+\end{equation}</span></p>
+<p>and</p>
+<p><span class="math display">\begin{equation}
+\mathcal{L}_{\phi,{\textrm{ct}}} = \frac{1}{2} (Z_\phi - 1) \partial_\mu
+\phi \partial^\mu \phi - \frac{1}{2} (Z_m^2 Z_\phi - 1) m^2 \phi^2 -
+(Z_\lambda Z_\phi^2 - 1) \frac{\lambda}{4!} \phi^4
+\end{equation}</span></p>
+<p>Another simple example is the <strong>scalar Yukawa theory</strong>
+with</p>
+<p><span class="math display">\begin{equation}
+\mathcal{L}_{Y,{\textrm{ren}}} = \bar{\psi} (i \gamma \cdot \partial -
+M) \psi + \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - \frac{1}{2}
+m^2 \phi^2 - \frac{\lambda}{4!} \phi^4 - g \bar{\psi} \psi \phi
+\end{equation}</span></p>
+<p>and</p>
+<p><span class="math display">\begin{align*}
+\mathcal{L}_{Y,{\textrm{ct}}} &amp;= (Z_\psi - 1) \bar{\psi} i \gamma
+\cdot \partial \psi - (Z_M Z_\psi - 1) M \bar{\psi} \psi + \frac{1}{2}
+(Z_\phi - 1) \partial_\mu \phi \partial^\mu \phi \\
+&amp;- \frac{1}{2} (Z_m Z_\phi -1) m^2 \phi^2 -  (Z_\lambda Z_\phi^2 -1)
+\frac{\lambda}{4!} \phi^4 - (Z_g Z_x \sqrt{Z_\phi} -1) g \bar{\psi} \psi
+\phi
+\end{align*}</span></p>
+<p>Finally, in the case of <strong>QED</strong> we have</p>
+<p><span class="math display">\begin{equation}
+  \mathcal{L}_{\textrm{QED},\textrm{ren}} = -\frac{1}{4} F_{\mu
+\nu}F^{\mu \nu} - \frac{1}{2 \xi}(\partial^\mu A_\mu)^2 +
+  \bar{\psi} (i \gamma \cdot \partial -m) \psi + e  \bar{\psi} \gamma
+\cdot A \psi ,\\
+\end{equation}</span></p>
+<p>and</p>
+<p><span class="math display">\begin{align*}
+  \mathcal{L}_{\textrm{QED},\textrm{ct}}  &amp; = - (Z_A-1)
+\frac{1}{4}F_{\mu \nu}F^{\mu \nu} - \frac{1}{2\xi} (Z_A Z^{-1}_\xi - 1)
+(\partial^\mu A_\mu)^2 \nonumber \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &amp; + (Z_\psi-1) \bar{\psi} i \gamma \cdot \partial \psi- (Z_\psi
+Z_m -1) m \bar{\psi} \psi + (Z_\psi \sqrt{Z_A} Z_e -1) e \bar{\psi}
+\gamma^\mu \psi A_\mu.
+\end{align*}</span></p>
+<p>Notice that Ward identities for the photon propagator and the
+electron-photon vertex link some of the renromalization constants to
+each other</p>
+<p><span class="math display">\begin{equation}
+Z_\xi = Z_A, \quad Z_e = 1/\sqrt{Z_A}.
+\end{equation}</span></p>
+<p>This way we only need to determine <span
+class="math inline">Z_A</span>, <span class="math inline">Z_\psi</span>
+and <span class="math inline">Z_m</span>, which can be done by looking
+at the self-energies of the electron and photon fields.</p>
+<h3 id="feynman-rules">Feynman rules</h3>
+<p>Having clarified the situation with the Lagrangian, let us discuss
+the derivation of the Feynman rules. The main difference as compared to
+the usual calculations is that here we also need to derive additional
+Feynman rules for the counter terms.</p>
+<p>Although those can be always derived by hand, doing so automatically
+is more convenient and allows to avoid many stupid mistakes. To this aim
+it is useful to employ <a
+href="https://feynrules.irmp.ucl.ac.be/">FeynRules</a> for generating
+the corresponding FeynArts model. When writing down the Lagrangian of
+our model we need to multiply every term in the counter term Lagragnian
+by <code>FR$CT</code>, for example</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>LPhi4 <span class="ex">=</span> LPhi4R <span class="sc">+</span> LPhi4CT;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>LPhi4R <span class="ex">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="fu">del</span><span class="op">[</span>phi<span class="op">,</span> mu<span class="op">]</span> <span class="fu">del</span><span class="op">[</span>phi<span class="op">,</span> mu<span class="op">]</span> <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> Mphi<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>phi<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">4</span>!) <span class="fu">g</span><span class="sc">*</span>phi<span class="sc">^</span><span class="dv">4</span>;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>LPhi4CT <span class="ex">=</span>  <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> FR$CT (Zphi<span class="dv">-1</span>) <span class="fu">del</span><span class="op">[</span>phi<span class="op">,</span> mu<span class="op">]</span> <span class="fu">del</span><span class="op">[</span>phi<span class="op">,</span> mu<span class="op">]</span> <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> Mphi<span class="sc">^</span><span class="dv">2</span> FR$CT (Zm Zphi<span class="dv">-1</span>)<span class="sc">*</span>phi<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">4</span>!) FR$CT (Zg Zphi<span class="sc">^</span><span class="dv">2-1</span>)<span class="sc">*</span><span class="fu">g</span><span class="sc">*</span>phi<span class="sc">^</span><span class="dv">4</span>;</span></code></pre></div>
+<p>Furthermore, before saving the FeynArts model via
+<code>WriteFeynArtsOutput</code> we need to set the global variable
+<code>FR$Loop</code> to <code>True</code>. For example,</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FR$Loop<span class="ex">=</span><span class="cn">True</span>;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SetDirectory</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$UserBaseDirectory</span><span class="op">,</span><span class="st">&quot;Applications&quot;</span><span class="op">,</span><span class="st">&quot;FeynCalc&quot;</span><span class="op">,</span><span class="st">&quot;FeynArts&quot;</span><span class="op">,</span><span class="st">&quot;Models&quot;</span><span class="op">}]]</span>;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>WriteFeynArtsOutput<span class="op">[</span>LPhi4<span class="op">,</span>Output<span class="ot">-&gt;</span><span class="st">&quot;Phi4&quot;</span><span class="op">,</span>CouplingRename<span class="ot">-&gt;</span><span class="cn">False</span><span class="op">]</span>;</span></code></pre></div>
+<h3 id="renormalization-schemes">Renormalization schemes</h3>
+<p>From the computational point of view, the most convenient scheme is
+Modified Minimal Subtraction <span
+class="math inline">\overline{\textrm{MS}}</span>. In this scheme all
+<span class="math inline">\delta Z_x</span> are chosen such, that they
+subtract the poles and certain terms involving <span
+class="math inline">\gamma_E</span> and <span
+class="math inline">\log(4\pi)</span>. More precisely, at 1-loop for
+<span class="math inline">D= 4 - 2 \varepsilon</span> we subtract</p>
+<p><span class="math display">\begin{equation}
+\frac{1}{\varepsilon} - \gamma_E + \log (4\pi)
+\end{equation}</span></p>
+<p><span class="math inline">\overline{\textrm{MS}}</span>
+renormalization constants are comparably easy to calculate, since we
+only need to extract the UV-poles of the occurring loop integrals and
+can ignore their finite parts.</p>
+<p>On the other hand, we should be very careful to regularize all
+IR-divergences in such a way, that they do not show up as <span
+class="math inline">\varepsilon</span> poles. Otherwise we would include
+IR poles into our renormalization constants and obtain wrong results. In
+practice, this issue arises when dealing with theories containing
+massless particles. It can be avoided by giving those particles
+fictitious masses or using more advances techniques such as infrared
+rearrangement.</p>
+<p>Unfortunately, in most cases <span
+class="math inline">\overline{\textrm{MS}}</span> renormalization
+constants alone are not sufficient to make physical predictions. First
+of all, according to the LSZ reduction formula, in physical observables
+such as cross sections or decay rates, external legs must be
+renormalized in the on-shell (OS) scheme. This is why we at least need
+to know <span class="math inline">Z^{\textrm{OS}}</span> for all
+external fields in our computation.</p>
+<p>Second, in many effective field theories the expansion in heavy
+masses relies on the fact that those masses are also defined in the OS
+scheme.</p>
+<p>Apart from that there are many other renormalization schemes such as
+Momentum Subtraction (MOM) etc. They can be useful in special cases, but
+usually what we are most interested in are the <span
+class="math inline">\overline{\textrm{MS}}</span> and OS schemes.</p>
+<h4 id="renormalization-conditions-for-the-os-scheme">Renormalization
+conditions for the OS scheme</h4>
+<p>Following the presentation in <a
+href="https://inspirehep.net/literature/571258">Gauge theories of the
+strong and electroweak interaction</a> by Boehm, Denner and Joos let us
+provide explicit formulas for the on-shell renormalization conditions
+when dealing with two-point functions of different field types</p>
+<h5 id="scalar-field">Scalar field</h5>
+<p>The bare 2-point vertex function for the scalar field is defined
+as</p>
+<p><span class="math display">\begin{equation}
+\Gamma(q^2) = (q^2 - m^2) + \Pi(q^2)
+\end{equation}</span></p>
+<p>and the renormalized one reads</p>
+<p><span class="math display">\begin{equation}
+\Gamma_R(q^2) = \Gamma(q^2) + \textrm{CT} = (q^2 - m^2) + \Pi(q^2) +
+\delta Z_{\phi} q^2 - m^2 (\delta Z_{\phi} + \delta Z_{m}   )
+\end{equation}</span></p>
+<p>For convenience we also introduce</p>
+<p><span class="math display">\begin{equation}
+\tilde{\Gamma}_R(q^2) = \Pi(q^2) + \delta Z_{\phi} q^2 - m^2 (\delta
+Z_{\phi} + \delta Z_{m}   )
+\end{equation}</span></p>
+<p>which corresponds to what one actually calculates when considering
+the sum of a bare amplitude and the corresponding counter-term.</p>
+<p>The renormalization condition reads</p>
+<p><span class="math display">\begin{equation}
+\lim_{q^2 \to m^2} \left [ \frac{\Gamma_R (q^2)}{q^2 - m^2}  = 1 \right
+]
+\end{equation}</span></p>
+<p>Multiplying both sides of the equality by <span
+class="math inline">q^2-m^2</span> we get</p>
+<p><span class="math display">\begin{equation}
+\Gamma_R (q^2)  = ( q^2-m^2) \overset{q^2 \to m^2}{=} 0 \Rightarrow
+\Gamma_R (q^2) \biggl |_{q^2=m^2}  = 0
+\end{equation}</span></p>
+<p>which implies that <span class="math inline">m</span> is the physical
+mass of the particle and that the renormalized particle propagator has
+residue 1.</p>
+<p>Using</p>
+<p><span class="math display">\begin{equation}
+\Gamma_R (q^2) =  \Gamma_R (m^2) + (q^2 - m^2) \Gamma&#39;_R (m^2) +
+\mathcal{O}( (q^2 - m^2)^2)
+\end{equation}</span></p>
+<p>we arrive at</p>
+<p><span class="math display">\begin{equation}
+\Gamma_R(m^2) = 0, \quad \Gamma_R&#39;(m^2) = 1
+\end{equation}</span></p>
+<p>which is equivalent to</p>
+<p><span class="math display">\begin{equation}
+\tilde{\Gamma}_R(m^2) = 0, \quad \tilde{\Gamma}_R&#39;(m^2) = 0
+\end{equation}</span></p>
+<p>because setting <span class="math inline">q^2 = m^2</span> kills the
+<span class="math inline">(q^2-m^2)</span>-term.</p>
+<h5 id="massless-vector-field">Massless vector field</h5>
+<p>The bare 2-point function for the massless vector field is defined
+as</p>
+<p><span class="math display">\begin{equation}
+    \Gamma^{\mu \nu} (q) = -g^{\mu \nu} q^2 - \frac{1-\xi}{\xi} q^{\mu}
+q^{\nu}  - \Pi^{\mu \nu} (q)
+\end{equation}</span></p>
+<p>and the renormalized one reads</p>
+<p><span class="math display">\begin{equation}
+    \Gamma_R^{\mu \nu} (q) = \Gamma^{\mu \nu} (q) + \;\text{CT}.
+\end{equation}</span></p>
+<p>For convenience we also introduce</p>
+<p><span class="math display">\begin{equation}
+    \tilde{\Gamma}^{\mu \nu}_R(q) = - \Pi^{\mu \nu} (q) + \;\text{CT}
+\end{equation}</span></p>
+<p>which corresponds to what one actually calculates when considering
+the sum of a bare amplitude and the corresponding counter-term.</p>
+<p>The renormalization condition reads,</p>
+<p><span class="math display">\begin{equation}
+\lim_{q^2 \to 0} \left [ \frac{\Gamma_R^{\mu \nu} (q)
+\varepsilon(q)_\nu}{q^2}  = - \varepsilon_{\mu}(q) \right ]
+\end{equation}</span></p>
+<p>where the minus sign comes from the fact that <span
+class="math inline">\varepsilon^{\ast \mu} \varepsilon_\mu = -1</span>
+and <span class="math inline">\varepsilon^\mu q_\mu =0</span> for the
+projection onto the physical degrees of freedom of an on-shell massless
+vector boson.</p>
+<p>Multiplying both sides of the equality by <span
+class="math inline">q^2</span> we get</p>
+<p><span class="math display">\begin{equation}
+\Gamma_R^{\mu \nu} (q^2)   \varepsilon_\nu (q) = - q^2
+\varepsilon^{\mu}(q) \overset{q^2 \to 0}{=} 0 \Rightarrow \Gamma_R^{\mu
+\nu} (q^2) \varepsilon_\nu (q) \biggl|_{q^2=0}  = 0,
+\end{equation}</span></p>
+<p>which implies that the physical particle is massless and that the
+renormalized particle propagator has residue 1.</p>
+<p>It is always possible to decompose this into transverse and
+longitudinal parts</p>
+<p><span class="math display">\begin{equation}
+\Gamma_R^{\mu \nu} (q) = \left ( g^{\mu \nu} - \frac{q^\mu q^\nu}{q^2}
+\right ) \Gamma_{R,T} (q^2) + \frac{q^\mu q^\nu}{q^2} \Gamma_{R,L}
+(q^2).
+\end{equation}</span></p>
+<p>Plugging this into the renormalization condition and using that <span
+class="math inline">\varepsilon^\mu q_\mu = 0</span>, we end up with</p>
+<p><span class="math display">\begin{equation}
+        \lim_{q^2 \to 0} \left [ \frac{\varepsilon_{\mu}(q) \Gamma_{R,T}
+(q)}{q^2}  = - \varepsilon_{\mu}(q) \right ]
+\end{equation}</span></p>
+<p>which implies</p>
+<p><span class="math display">\begin{equation}
+        \lim_{q^2 \to 0} \left [ \frac{\Gamma_{R,T} (q^2)}{q^2}   \right
+] = - 1 \Leftrightarrow \frac{\partial \Gamma_{R,T} (q^2) }{\partial
+q^2} \biggl |_{q^2=0} = - 1
+\end{equation}</span></p>
+<p>and is equivalent to</p>
+<p><span class="math display">\begin{equation}
+        \frac{\partial \tilde{\Gamma}_{R,T} (q^2) }{\partial q^2} \biggl
+|_{q^2=0} = 0
+\end{equation}</span></p>
+<p>Notice that if our <span class="math inline">\Gamma_R^{\mu
+\nu}</span> does not happen to have a transverse structure, then most
+likely something went wrong in the calculation, since the longitudinal
+part is not supposed to receive higher-order corrections!</p>
+<p>In practice, we will of course use projectors to extract the
+transverse and longitudinal components <span
+class="math display">\begin{align*}
+        P^{\mu \nu}_T &amp;= \frac{1}{D-1}  \left ( g^{\mu \nu} -
+\frac{q^\mu q^\nu}{q^2} \right ), \\
+        P^{\mu \nu}_L &amp;= \frac{q^\mu q^\nu}{q^2}.
+\end{align*}</span></p>
+<p>In the special case of the QED photon things can be further
+simplified by making use of the Ward identity for the renormalized
+propagator as Green function</p>
+<p><span class="math display">\begin{equation}
+    -\frac{1}{Z_\xi} \frac{1}{\xi} q^2 q_\mu Z_A \Gamma_R^{\mu \nu} (q)
+= i q^\nu,
+\end{equation}</span></p>
+<p>which implies that <span class="math inline">Z_A/Z_{\xi}</span> must
+be finite so that one can fix <span class="math inline">Z_\xi =
+Z_A</span>.</p>
+<p>Decomposing the propagator into transverse and longitudinal parts and
+applying the Ward identity for the renormalized propagator as vertex
+function (1PI-part of the Green function)</p>
+<p><span class="math display">\begin{equation}
+    q_\mu   \Gamma_R^{\mu \nu} (q) = - \frac{1}{\xi} q^2 q^\nu
+\end{equation}</span></p>
+<p>we get</p>
+<p><span class="math display">\begin{equation}
+    q_\mu   \Gamma_R^{\mu \nu} (q) = q_\mu \Gamma_{R,L}^{\mu \nu} (q) =
+- \frac{1}{\xi} q^2 q^\nu \Rightarrow  \Gamma_{R,L} (q^2) = -
+\frac{1}{\xi} q^2
+\end{equation}</span></p>
+<p>which means that the longitudinal part does not receive higher-order
+corrections.</p>
+<p>From the Ward identity and the absence of poles in vertex functions
+one can follow that the transverse part of the vertex function vanishes
+at <span class="math inline">q^2=0</span></p>
+<p><span class="math display">\begin{equation}
+    \Gamma_{R,T} (0) = \Gamma_{R,L} (0) = 0.
+\end{equation}</span></p>
+<h5 id="massive-vector-field-renormalization">Massive vector field
+renormalization</h5>
+<p>The bare 2-point function for the massive vector field is defined
+as</p>
+<p><span class="math display">\begin{equation}
+    \Gamma^{\mu \nu} (q) = -g^{\mu \nu} (q^2 - m^2) - \frac{1-\xi}{\xi}
+q^{\mu} q^{\nu}  - \Pi^{\mu \nu} (q)
+\end{equation}</span></p>
+<p>and the renormalized one reads</p>
+<p><span class="math display">\begin{equation}
+    \Gamma_R^{\mu \nu} (q) = \Gamma^{\mu \nu} (q) + \;\text{CT}
+\end{equation}</span></p>
+<p>For convenience we also introduce</p>
+<p><span class="math display">\begin{equation}
+    \tilde{\Gamma}^{\mu \nu}_R(q) = - \Pi^{\mu \nu} (q) + \;\text{CT}
+\end{equation}</span></p>
+<p>which corresponds to what one actually calculates when considering
+the sum of a bare amplitude and the corresponding counter-term.</p>
+<p>The renormalization condition reads,</p>
+<p><span class="math display">\begin{equation}
+    \lim_{q^2 \to m^2} \left [ \frac{\Gamma_R^{\mu \nu} (q)
+\varepsilon(q)_\nu}{q^2 - m^2}  = - \varepsilon^{\mu}(q) \right ]
+\end{equation}</span></p>
+<p>Multiplying both sides of the equality by <span
+class="math inline">q^2</span> we get</p>
+<p><span class="math display">\begin{equation}
+    \Gamma_R^{\mu \nu} (q^2)   \varepsilon_\nu (q) = - (q^2 - m^2)
+\varepsilon^{\mu}(q) \overset{q^2 \to m^2}{=} 0 \Rightarrow
+\Gamma_R^{\mu \nu} (q^2) \varepsilon_\nu(q) \biggl|_{q^2=m^2}  = 0.
+\end{equation}</span></p>
+<p>Decomposition into transverse and longitudinal parts</p>
+<p><span class="math display">\begin{equation}
+    \Gamma_R^{\mu \nu} (q) = \left ( g^{\mu \nu} - \frac{q^\mu
+q^\nu}{q^2} \right ) \Gamma_{R,T} (q^2) + \frac{q^\mu q^\nu}{q^2}
+\Gamma_{R,L} (q^2),
+\end{equation}</span></p>
+<p>Contracting with the polarization vector we find</p>
+<p><span class="math display">\begin{equation}
+     \Gamma_R^{\mu \nu} (q^2)  \varepsilon_\nu (q) \biggl |_{q^2=m^2}  =
+0 \Rightarrow \varepsilon^\mu (q) \, \Gamma_{R,T} (m^2) = 0 \Rightarrow
+\Gamma_{R,T} (m^2) = 0
+\end{equation}</span></p>
+<p>Plugging the decomposition into the renormalization condition and
+choosing the vector to be transverse we end up with</p>
+<p><span class="math display">\begin{equation}
+        \lim_{q^2 \to m^2} \left [ \frac{\varepsilon_{\mu}(q)
+\Gamma_{R,T} (q)}{q^2 -m ^2}  = - \varepsilon_{\mu}(q) \right ]
+\end{equation}</span></p>
+<p>Using</p>
+<p><span class="math display">\begin{equation}
+    \Gamma_{R,T} (q^2) =  \Gamma_{R,T} (m^2) + (q^2 - m^2)
+\Gamma&#39;_{R,T} (m^2) + \mathcal{O}( (q^2 - m^2)^2)
+\end{equation}</span></p>
+<p>we arrive at</p>
+<p><span class="math display">\begin{equation}
+    \Gamma_{R,T}(m^2) = 0, \quad \Gamma_{R,T}&#39;(m^2) = -1
+\end{equation}</span></p>
+<p>which is equivalent to</p>
+<p><span class="math display">\begin{equation}
+    \tilde{\Gamma}_{R,T}(m^2) = 0, \quad \tilde{\Gamma}_{R,T}&#39;(m^2)
+= 0
+\end{equation}</span></p>
+<h5 id="fermion-field-renormalization">Fermion field
+renormalization</h5>
+<p>The bare 2-point vertex function for the fermion field is defined
+as</p>
+<p><span class="math display">\begin{equation}
+    \Gamma(p) = (\gamma \cdot p - m) + \Sigma(p)
+\end{equation}</span></p>
+<p>and the renormalized one reads</p>
+<p><span class="math display">\begin{equation}
+    \Gamma_R(p) = \Gamma(p) + \textrm{CT} =  (\gamma \cdot p - m)  +
+\Sigma(p) + (\gamma \cdot p - m) \delta Z_{\psi} - m  \delta Z_{m}
+\end{equation}</span></p>
+<p>For convenience we also introduce</p>
+<p><span class="math display">\begin{equation}
+        \tilde{\Gamma}_R(p) = \Sigma(p) + (\gamma \cdot p - m) \delta
+Z_{\psi} - m  \delta Z_{m} \equiv (\gamma \cdot p - m)
+{\Sigma}_{V,R}(p^2) + m ({\Sigma}_{V,R}(p^2) + {\Sigma}_{S,R}(p^2))
+\end{equation}</span></p>
+<p>which corresponds to what one actually calculates when considering
+the sum of a bare amplitude and the corresponding counter-term.</p>
+<p>The renormalization constants <span class="math inline">Z_m</span>
+and <span class="math inline">Z_\psi</span> are fixed by the
+condition</p>
+<p><span class="math display">\begin{equation}
+    \lim_{p^2 \to m^2} \left [ \frac{(\gamma \cdot p + m )\Gamma_R (p)
+u(p)}{p^2-m^2}  = u(p) \right ],
+\end{equation}</span></p>
+<p>where</p>
+<p><span class="math display">\begin{equation}
+        (\gamma \cdot p-m) u (p) = 0, \quad  (\gamma \cdot p+m) (\gamma
+\cdot p-m) = p^2 - m^2.
+\end{equation}</span></p>
+<p>Multiplying both sides of the equality by <span
+class="math inline">p^2-m^2</span> we get</p>
+<p><span class="math display">\begin{equation}
+        (\gamma \cdot p + m )\Gamma_R (p) u(p) = u(p)( p^2-m^2)
+\overset{p^2 \to m^2}{=} 0 \Rightarrow \Gamma_R (p) u(p)
+\biggl|_{p^2=m^2}  = 0,
+\end{equation}</span></p>
+<p>which implies that <span class="math inline">m</span> is the physical
+mass of the particle and that the renormalized particle propagator has
+residue 1.</p>
+<p>We can apply the usual decomposition</p>
+<p><span class="math display">\begin{equation}
+    \Sigma (\gamma \cdot p) = \gamma \cdot p \Sigma_V (p^2) + m \Sigma_S
+(p^2) = (\gamma \cdot p -m) \Sigma_V (p^2) + m (\Sigma_V (p^2) +
+\Sigma_S (p^2)) ,
+\end{equation}</span></p>
+<p>Expanding it around <span class="math inline">\gamma \cdot p=m</span>
+we find</p>
+<p><span class="math display">\begin{align*}
+    \Sigma (\gamma \cdot p) &amp; =  \Sigma (\gamma \cdot p)
+\biggl|_{\gamma \cdot p=m} + (\gamma \cdot p-m) \frac{ \partial \Sigma
+(\gamma \cdot p)}{\partial \gamma \cdot p } \biggl|_{\gamma \cdot p=m} +
+\mathcal{O} ((\gamma \cdot p-m)^2) \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &amp; =   m (\Sigma_V(m^2) + \Sigma_S(m^2) ) +   (\gamma \cdot p -
+m) \left [ \Sigma_V(m^2) + 2 m^2 \left ( \frac{\partial \Sigma_S (p^2)
+}{\partial p^2}  + \frac{\partial \Sigma_V (p^2) }{\partial p^2}  \right
+)\biggl|_{p^2 = m^2} \right ] + \mathcal{O} ((\gamma \cdot p-m)^2) \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &amp; =   m (\Sigma_V(m^2) + \Sigma_S(m^2) ) +   (\gamma \cdot p -
+m) \left [ \Sigma_V(m^2) + 2 m^2 \left ( \Sigma&#39;_S (m^2) +
+\Sigma&#39;_V (m^2)  \right ) \right ] + \mathcal{O} ((\gamma \cdot
+p-m)^2).
+\end{align*}</span></p>
+<p>Plugging the expansion into the renormalization condition we arrive
+at</p>
+<p><span class="math display">\begin{equation}
+    \lim_{p^2 \to m^2} \left [ \frac{2m^2}{p^2-m^2} (\Sigma_V(m^2) +
+\Sigma_S(m^2) - \delta Z_m) +
+    \left ( \Sigma_V(m^2) + 2 m^2 \left ( \Sigma&#39;_S (m^2) +
+\Sigma&#39;_V (m^2)  \right) + \delta Z_\psi \right ) = 0 \right ],
+\end{equation}</span></p>
+<p>which amounts to the requirements</p>
+<p><span class="math display">\begin{equation}
+        \Gamma_{R,V}(m^2) + \Gamma_{R,S}(m^2)  = 0, \\
+        \left ( \Gamma_{R,V}(m^2) + 2 m^2 \left ( \Gamma&#39;_{R,S}
+(m^2) + \Gamma&#39;_{R,V} (m^2)  \right) \right ) = 1,
+\end{equation}</span> or equivalently</p>
+<p><span class="math display">\begin{equation}
+         \Sigma_{V,R}(m^2) + \Sigma_{S,R}(m^2)  = 0, \\
+        \left ( \Sigma_{V,R}(m^2) + 2 m^2 \left ( \Sigma&#39;_{S,R}
+(m^2) + \Sigma&#39;_{V,R} (m^2)  \right) \right ) = 0,
+\end{equation}</span> where the first one fixes <span
+class="math inline">Z_m</span> and the second one <span
+class="math inline">Z_\psi</span>.</p>
+<p>In practical calculations it is better to introduce a projector that
+can extract <span class="math inline">\Sigma_i(m^2)</span> ( or well
+<span class="math inline">\Sigma_{i,R}(m^2)</span>) directly</p>
+<p><span class="math display">\begin{align*}
+\mathrm{Tr} \left( \frac{\gamma \cdot p+m}{4m^2} \Sigma (\gamma \cdot p)
+\right ) &amp; = \Sigma_S (p^2) + \frac{p^2}{m^2} \Sigma_V(p^2) =
+\Sigma_S (p^2) + \Sigma_V(p^2) + \frac{p^2-m^2}{m^2} \Sigma_V(p^2) \\
+    &amp;  = \Sigma_1 (p^2) + \frac{p^2-m^2}{m^2} \Sigma_2(p^2).
+\end{align*}</span></p>
+<p>Applying the projector to the series expansion yields</p>
+<p><span class="math display">\begin{equation}
+    \mathrm{Tr} \left( \frac{\gamma \cdot p+m}{4m^2} \Sigma (\gamma
+\cdot p) \right )  = \Sigma_1(m^2) +
+    \frac{p^2-m^2}{m^2}  \left [ \Sigma_2(m^2) + 2 m^2 \Sigma&#39;_1
+(m^2)  \right ] + \mathcal{O}((p^2 -m^2)^2)
+\end{equation}</span></p>
+<p>Of course, one can also get <span class="math inline">\Sigma_V</span>
+and <span class="math inline">\Sigma_S</span> separately using
+projectors</p>
+<p><span class="math display">\begin{equation}
+\Sigma_V = \frac{1}{4} \mathrm{Tr}(\gamma \cdot p \Sigma (\gamma \cdot
+p)), \quad \Sigma_S = \frac{1}{4 m} \mathrm{Tr}(\Sigma (\gamma \cdot p))
+\end{equation}</span></p>
+<p>Notice also that</p>
+<p><span class="math display">\begin{equation}
+\frac{\partial \Sigma_{S,V}(p^2)}{\partial p^\mu} = \frac{\partial
+\Sigma_{S,V}(p^2)}{\partial p^2} \frac{\partial p^2}{\partial p^\mu} = 2
+p^\mu \frac{\partial \Sigma_{S,V}(p^2)}{\partial p^2} \Rightarrow
+  \frac{\partial \Sigma_{S,V}(p^2)}{\partial p^2} = \frac{p_\mu}{2 p^2 }
+\frac{\partial \Sigma_{S,V}(p^2)}{\partial p^\mu}
+\end{equation}</span></p>
+<h3 id="one-loop-renormalization">One-loop renormalization</h3>
+<p>At one loop the calculations on renormalization constants can be very
+much streamlined using the capabilities of FeynCalc and FeynHelpers.</p>
+<p>As far as the <span class="math inline">\overline{\textrm{MS}}</span>
+scheme is concerned, it is not really necessary to regularize IR
+divergences with fake masses. Instead, we can set the global variable
+<code>$KeepLogDivergentScalelessIntegrals</code> to <code>True</code>,
+which will prevent FeynCalc from setting <span
+class="math inline">\log</span>-divergent integrals (i.e. the ones that
+are proportional to <span
+class="math inline">1/\varepsilon_{\textrm{UV}} -
+1/\varepsilon_{\textrm{IR}}</span>). Then, we can either use Package-X
+or directly employ the built-in function <code>PaVeUVPart</code> to
+extract the UV poles of all occurring 1-loop integrals.</p>
+<p>As long as we are dealing with amplitudes containing only quadratic
+propagators, this toolset is fully sufficient to determine the <span
+class="math inline">\overline{\textrm{MS}}</span> renormalization
+constants of any theory at one loop.</p>
+<p>The OS renormalization usually requires slightly more effort, but
+using the formulas provided in this document and the capabilities of
+Package-X provided via FeynHelpers, such calculations are always
+doable.</p>
+</body>
+</html>

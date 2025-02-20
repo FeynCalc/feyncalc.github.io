@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <script defer="" src="../js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="../js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="treatment-of-gamma5-in-d-dimensions">Treatment of gamma5 in D
+dimensions</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<h3 id="nature-of-the-problem">Nature of the problem</h3>
+<p>It is a well-known fact (cf. eg. <a
+href="https://arxiv.org/pdf/hep-th/0005255">Jegerlehner:2000dz</a>) that
+the definition of <span class="math inline">\gamma^5</span> in 4
+dimensions cannot be consistently extended to <span
+class="math inline">D</span> dimensions without giving up either the
+anticommutativity property</p>
+<p><span class="math display">\begin{equation}
+\{\gamma^5, \gamma^\mu\} = 0
+\end{equation}</span></p>
+<p>or the cyclicity of the Dirac trace, e.g. that</p>
+<p><span class="math display">\begin{equation}
+\mathrm{Tr}( \gamma^{\mu_1} \ldots \gamma^{\mu_{2n}} \gamma^5 ) =
+\mathrm{Tr}( \gamma^{\mu_2} \ldots \gamma^{\mu_{2n}} \gamma^5
+\gamma^{\mu_1} ) = \mathrm{Tr}( \gamma^{\mu_3} \ldots \gamma^{\mu_{2n}}
+\gamma^5 \gamma^{\mu_1} \gamma^{\mu_2} ) = \ldots
+\end{equation}</span></p>
+<p>This explains the existence of multiple prescriptions (called <span
+class="math inline">\gamma^5</span>-schemes) that aim at avoiding these
+issues and obtaining physical results in the <em>given
+calculation</em>.</p>
+<p>Indeed, as of now there is no simple solution or cookbook recipe that
+can be readily applied to any theory at any loop order in a fully
+automatic fashion.</p>
+<p>The reason for this is that calculations involving <span
+class="math inline">\gamma^5</span> are not limited to the algebraic
+manipulations of Dirac matrices. In general, once <span
+class="math inline">\gamma^5</span> shows up in <span
+class="math inline">D</span>-dimensional amplitudes, there is a high
+chance that the final result will violate some of the essential
+symmetries, such as generalized Ward identities or Bose symmetry.</p>
+<p>Once this happens, symmetries violated due to the chosen <span
+class="math inline">\gamma^5</span> scheme must be restored by hand,
+e.g. by introducing special finite counterterms. Unfortunately, an
+explicit determination of such counterterms for a given model is a
+nontrivial task, especially beyond 1-loop. This explains why people
+usually try to avoid this situation and would rather opt for figuring
+out special tricks that work only for this particular calculation but
+manage to preserve the symmetries.</p>
+<p>Further discussions on this topic can be found e.g. in</p>
+<ul>
+<li>chapter D of <a
+href="https://arxiv.org/pdf/1809.01830">Blondel:2018mad</a></li>
+<li><a
+href="https://arxiv.org/pdf/hep-ph/9504315.pdf">Trueman:1995ca</a></li>
+<li><a
+href="https://arxiv.org/pdf/1912.06823.pdf">Denner:2019vbn</a></li>
+<li><a
+href="https://arxiv.org/abs/1705.01827">Gnendiger:2017pys</a></li>
+<li><a
+href="https://arxiv.org/abs/2312.11291">Stockinger:2023ndm</a></li>
+</ul>
+<h3 id="feyncalc-implementation">FeynCalc implementation</h3>
+<p>FeynCalc has built-in support for several <span
+class="math inline">\gamma^5</span>-schemes in the sense that it can
+manipulate <span class="math inline">D</span>-dimensional algebraic
+expressions involving <span class="math inline">\gamma^5</span> in
+accordance with the rules provided by the scheme authors.</p>
+<p>The nonalgebraic part of a typical <span
+class="math inline">\gamma^5</span>-calculation, e.g. checking for
+violated symmetries and restoring them is <strong>not handled</strong>
+by FeynCalc. This is also not something easy to automatize (due to the
+reasons explained above) so that here we expect the user to employ their
+understanding of physics and common sense.</p>
+<p>The responsibility of FeynCalc is to ensure that algebraic
+manipulations of Dirac matrices (including <span
+class="math inline">\gamma^5</span>) are consistent within the chosen
+scheme. For the purpose of dealing with <span
+class="math inline">\gamma^5</span> in <span
+class="math inline">D</span> dimensions FeynCalc implements three
+different schemes.</p>
+<h4 id="ndr">NDR</h4>
+<p>The Naive or Conventional Dimensional Regularization (NDR or CDR
+respectively) <a
+href="https://doi.org/10.1016/0550-3213(79)90333-X">Chanowitz:1979zu</a>
+simply <em>assumes</em> that one can define a <span
+class="math inline">D</span>-dimensional <span
+class="math inline">\gamma^5</span> that anticommutes with any other
+Dirac matrix and does not break the cyclicity of the trace. For FeynCalc
+this means that in every string of Dirac matrices all <span
+class="math inline">\gamma^5</span> can be safely anticommuted to the
+right end of the string. In the course of this operation FeynCalc can
+always apply <span class="math inline">(\gamma^5)^2 = 1</span>.</p>
+<p>Consequently, all Dirac traces with an even number of <span
+class="math inline">\gamma^5</span> can be rewritten as traces that
+involve only the first four <span
+class="math inline">\gamma</span>-matrices and evaluated directly,
+e.g.</p>
+<p><span class="math display">\begin{equation}
+\mathrm{Tr}( \gamma^{\mu_1} \gamma^{\mu_2} \gamma^5 \gamma^{\mu_3}
+\ldots \gamma^{\mu_{2n}} \gamma^5 ) =
+\mathrm{Tr}( \gamma^{\mu_1} \gamma^{\mu_2} \ldots \gamma^{\mu_{2n}}  )
+\end{equation}</span></p>
+<p>The problematic cases are <span
+class="math inline">\gamma^5</span>-odd traces with an even number of
+other Dirac matrices, where the <span
+class="math inline">\mathcal{O}(D-4)</span> pieces of the result depend
+on the initial position of <span class="math inline">\gamma^5</span> in
+the string. Using the anticommutativity property they can be always
+rewritten as traces of a string of other Dirac matrices and one <span
+class="math inline">\gamma^5</span>. If the number of the other Dirac
+matrices is odd, such a trace is put to zero i.e. <span
+class="math display">\begin{equation}
+\mathrm{Tr}(\gamma^{\mu_1} \ldots \gamma^{\mu_{2n-1}} \gamma^5) = 0,
+\quad n \in \mathbb{N}
+\end{equation}</span> If the number is even, the trace <span
+class="math display">\begin{equation}
+\mathrm{Tr}(\gamma^{\mu_1} \ldots \gamma^{\mu_{2n}} \gamma^5)
+\end{equation}</span> is returned unevaluated, since FeynCalc does not
+know how to calculate it in a consistent way. A user who knows how these
+ambiguous objects should be treated in the particular calculation can
+still take care of the remaining traces by hand. This ensures that the
+output produced by FeynCalc is algebraically consistent to the maximal
+extent possible in the NDR scheme without extra assumptions.</p>
+<p>In FeynCalc, this scheme the default choice. It can also be
+explicitly activated via</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span></span></code></pre></div>
+<p>Sometimes <span class="math inline">\gamma^5</span> may show up in
+the calculation as an artifact of using a particular set of operators or
+projectors even though the results itself is not supposed to be affected
+by the <span class="math inline">\gamma^5</span>-problem. For such cases
+FeynCalc offers a variety of the NDR scheme, where all traces of the
+form <span class="math display">\begin{equation}
+\mathrm{Tr}(\gamma^{\mu_1} \ldots \gamma^{\mu_{2n}} \gamma^5)
+\end{equation}</span> are simply put to zero. It can be used to
+e.g. examine the effects of the chosen scheme on the final result and
+can be activated via</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR-Discard&quot;</span><span class="op">]</span></span></code></pre></div>
+<h3 id="bmhv">BMHV</h3>
+<p>FeynCalc also supports the Breitenlohner-Maison implementation <a
+href="https://doi.org/10.1007/BF01609069">Breitenlohner:1977hr</a> of
+the t’Hooft-Veltman <a
+href="https://doi.org/10.1016/0550-3213(72)90279-9">tHooft:1972tcz</a>
+prescription, often abbreviated as BMHV, HVBM, HV or BM scheme. In this
+approach <span class="math inline">\gamma^5</span> is treated as a
+purely 4-dimensional object, while <span
+class="math inline">D</span>-dimensional Dirac matrices and 4-vectors
+are decomposed into <span class="math inline">4</span>- and <span
+class="math inline">D-4</span>-dimensional components. Following <a
+href="https://doi.org/10.1016/0550-3213(90)90223-Z">Buras:1989xd</a>
+FeynCalc typesets the former with a bar and the latter with a hat
+e.g.</p>
+<p><span class="math display">\begin{equation}
+\gamma^\mu = \bar{\gamma}^\mu + \hat{\gamma}^\mu, \quad p^\mu =
+\bar{p}^\mu + \hat{p}^\mu
+\end{equation}</span></p>
+<p>The main advantage of the BMHV scheme is that the Dirac algebra
+(including traces) can be evaluated without any algebraic ambiguities.
+However, calculations involving tensors from three different spaces
+(<span class="math inline">D</span>, <span class="math inline">4</span>
+and <span class="math inline">D-4</span>) often turn out to be rather
+cumbersome, even when using computer codes. Moreover, this prescription
+is known to artificially violate Ward identities in chiral theories,
+which is something that can be often avoided when using NDR. Within BMHV
+FeynCalc can simplify arbitrary strings of Dirac matrices and calculate
+arbitrary traces out-of-the-box. The evaluation of <span
+class="math inline">\gamma^5</span>-odd Dirac traces is performed using
+the West-formula from <a
+href="https://doi.org/10.1016/0010-4655(93)90011-Z">West:1991xv</a>. It
+is worth noting that <span class="math inline">D-4</span>-dimensional
+components of external momenta are not set to zero by default, as it is
+conventionally done in the literature. If this is required, the user
+should evaluate <code>Momentum[pi,D-4]=0</code> for each relevant
+momentum <span class="math inline">p_i</span>. To remove such
+assignments one should use <code>FCClearScalarProducts[]</code>.</p>
+<p>This scheme is activated by evaluating</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span></span></code></pre></div>
+<h3 id="larins-scheme">Larin’s scheme</h3>
+<p>Larin’s scheme <a
+href="https://arxiv.org/pdf/hep-ph/9302240.pdf">Larin:1993tq</a> is a
+variety of the BMHV scheme that has been extensively used in QCD
+calculations involving axial vector currents. The main idea is to
+replace the products of <span class="math inline">\gamma^\mu</span> and
+<span class="math inline">\gamma^5</span> in a chiral trace as in</p>
+<p><span class="math display">\begin{equation}
+\gamma^\mu \gamma^5 \to \frac{1}{6} i \varepsilon^{\mu \nu \rho \sigma}
+\gamma_\nu \gamma_\rho \gamma_\sigma
+\end{equation}</span></p>
+<p>and then calculate the resulting trace. Then, all <span
+class="math inline">\varepsilon^{\mu \nu \rho \sigma}</span>-tensors
+occurring in the amplitude should be evaluated in <span
+class="math inline">D</span> dimensions. Together with the correct
+counterterm, this prescription is known to give the same result as when
+using the full BMHV scheme.</p>
+<p>FeynCalc implement the so-called Moch-Vermaseren-Vogt MVV formula
+from <a href="https://arxiv.org/pdf/1506.04517.pdf">Moch:2015usa</a> for
+calculating <span class="math inline">\gamma^5</span>-traces in this
+scheme. The scheme itself is activated by setting</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;Larin&quot;</span><span class="op">]</span></span></code></pre></div>
+</body>
+</html>

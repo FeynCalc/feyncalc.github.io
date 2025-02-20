@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,20 +86,20 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
-  <script src="js/katex.min.js"></script>
+  <script defer="" src="js/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: true
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
   </script>
   <link rel="stylesheet" href="js/katex.min.css" />
 
@@ -100,119 +109,306 @@
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
 <h2 id="diracsimplify">DiracSimplify</h2>
-<p><code>DiracSimplify[exp]</code> simplifies products of Dirac matrices in <code>exp</code> and expands noncommutative products. The simplifications are done by applying <code>Contract</code>, <code>DiracEquation</code>, <code>DiracTrick</code>, <code>SpinorChainTrick</code> and <code>SirlinSimplify</code>. All <span class="math inline">\gamma^5</span>, <span class="math inline">\gamma^6</span> and <span class="math inline">\gamma^7</span> are moved to the right. The order of the other Dirac matrices is not changed, unless the option DiracOrder is set to <code>True</code>.</p>
+<p><code>DiracSimplify[exp]</code> simplifies products of Dirac matrices
+in <code>exp</code> and expands noncommutative products. The
+simplifications are done by applying <code>Contract</code>,
+<code>DiracEquation</code>, <code>DiracTrick</code>,
+<code>SpinorChainTrick</code> and <code>SirlinSimplify</code>. All <span
+class="math inline">\gamma^5</span>, <span
+class="math inline">\gamma^6</span> and <span
+class="math inline">\gamma^7</span> are moved to the right. The order of
+the other Dirac matrices is not changed, unless the option DiracOrder is
+set to <code>True</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="Contract.html">Contract</a>, <a href="DiracEquation.html">DiracEquation</a>, <a href="DiracSigmaExplicit.html">DiracSigmaExplicit</a>, <a href="DiracSubstitute5.html">DiracSubstitute5</a>, <a href="DiracSubstitute67.html">DiracSubstitute67</a>, <a href="DiracGamma.html">DiracGamma</a>, <a href="DiracGammaExpand.html">DiracGammaExpand</a>, <a href="DiracOrder.html">DiracOrder</a>, <a href="DiracTrace.html">DiracTrace</a>, <a href="DiracTraceEvaluate.html">DiracTraceEvaluate</a>, <a href="DiracTrick.html">DiracTrick</a>, <a href="FCDiracIsolate.html">FCDiracIsolate</a>, <a href="SirlinSimplify.html">SirlinSimplify</a>, <a href="SpinorChainTrick.html">SpinorChainTrick</a>, <a href="SpinorChainEvaluate.html">SpinorChainEvaluate</a>, <a href="ToDiracGamma67.html">ToDiracGamma67</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="Contract.html">Contract</a>, <a
+href="DiracEquation.html">DiracEquation</a>, <a
+href="DiracSigmaExplicit.html">DiracSigmaExplicit</a>, <a
+href="DiracSubstitute5.html">DiracSubstitute5</a>, <a
+href="DiracSubstitute67.html">DiracSubstitute67</a>, <a
+href="DiracGamma.html">DiracGamma</a>, <a
+href="DiracGammaExpand.html">DiracGammaExpand</a>, <a
+href="DiracOrder.html">DiracOrder</a>, <a
+href="DiracTrace.html">DiracTrace</a>, <a
+href="DiracTraceEvaluate.html">DiracTraceEvaluate</a>, <a
+href="DiracTrick.html">DiracTrick</a>, <a
+href="FCDiracIsolate.html">FCDiracIsolate</a>, <a
+href="SirlinSimplify.html">SirlinSimplify</a>, <a
+href="SpinorChainTrick.html">SpinorChainTrick</a>, <a
+href="SpinorChainEvaluate.html">SpinorChainEvaluate</a>, <a
+href="ToDiracGamma67.html">ToDiracGamma67</a>.</p>
 <h3 id="examples">Examples</h3>
-<p>Simplify a 4-dimensional Dirac matrix chain with a dummy Lorentz index</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<p>Simplify a 4-dimensional Dirac matrix chain with a dummy Lorentz
+index</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\mu }</span></p>
+<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}.\bar{\gamma }^{\mu }</span></p>
 <p><span class="math display">-2 \bar{\gamma }^{\nu }</span></p>
-<p>Another common simplification concerns Dirac matrices contracted to the same <span class="math inline">4</span>-vector</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
+<p>Another common simplification concerns Dirac matrices contracted to
+the same <span class="math inline">4</span>-vector</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\bar{\gamma }\cdot \overline{p}\right).\left(\bar{\gamma }\cdot \overline{p}\right)</span></p>
+<p><span class="math display">\left(\bar{\gamma }\cdot
+\overline{p}\right).\left(\bar{\gamma }\cdot
+\overline{p}\right)</span></p>
 <p><span class="math display">\overline{p}^2</span></p>
-<p>Unlike <code>DiracTrick</code>, <code>DiracSimplify</code> also carries out noncommutative expansions</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GS<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">c</span> <span class="sc">+</span> <span class="fu">d</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
+<p>Unlike <code>DiracTrick</code>, <code>DiracSimplify</code> also
+carries out noncommutative expansions</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GS<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">c</span> <span class="sc">+</span> <span class="fu">d</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\bar{\gamma }\cdot \left(\overline{a}+\overline{b}\right)\right).\left(\bar{\gamma }\cdot \overline{p}\right).\left(\bar{\gamma }\cdot \left(\overline{c}+\overline{d}\right)\right).\left(\bar{\gamma }\cdot \overline{p}\right)</span></p>
-<p><span class="math display">2 \left(\overline{c}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot \overline{a}\right).\left(\bar{\gamma }\cdot \overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot \overline{a}\right).\left(\bar{\gamma }\cdot \overline{c}\right)+2 \left(\overline{d}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot \overline{a}\right).\left(\bar{\gamma }\cdot \overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot \overline{a}\right).\left(\bar{\gamma }\cdot \overline{d}\right)+2 \left(\overline{c}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma }\cdot \overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma }\cdot \overline{c}\right)+2 \left(\overline{d}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma }\cdot \overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma }\cdot \overline{d}\right)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DiracTrick<span class="op">[</span>GS<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">c</span> <span class="sc">+</span> <span class="fu">d</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">2 \left(\bar{\gamma }\cdot \left(\overline{a}+\overline{b}\right)\right).\left(\bar{\gamma }\cdot \overline{p}\right) \left((\overline{c}+\overline{d})\cdot \overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot \left(\overline{a}+\overline{b}\right)\right).\left(\bar{\gamma }\cdot \left(\overline{c}+\overline{d}\right)\right)</span></p>
-<p>Some of those expansions can be inhibited via the option <code>Expanding</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GS<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">c</span> <span class="sc">+</span> <span class="fu">d</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Expanding <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\overline{p}^2 \left(\bar{\gamma }\cdot \overline{a}+\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma }\cdot \overline{c}+\bar{\gamma }\cdot \overline{d}\right)+2 \left(\overline{c}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot \overline{a}+\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma }\cdot \overline{p}\right)+2 \left(\overline{d}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot \overline{a}+\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma }\cdot \overline{p}\right)</span></p>
-<p>The matrix chain may also live in <span class="math inline">D</span> dimensions</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<p><span class="math display">\left(\bar{\gamma }\cdot
+\left(\overline{a}+\overline{b}\right)\right).\left(\bar{\gamma }\cdot
+\overline{p}\right).\left(\bar{\gamma }\cdot
+\left(\overline{c}+\overline{d}\right)\right).\left(\bar{\gamma }\cdot
+\overline{p}\right)</span></p>
+<p><span class="math display">2 \left(\overline{c}\cdot
+\overline{p}\right) \left(\bar{\gamma }\cdot
+\overline{a}\right).\left(\bar{\gamma }\cdot
+\overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot
+\overline{a}\right).\left(\bar{\gamma }\cdot \overline{c}\right)+2
+\left(\overline{d}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot
+\overline{a}\right).\left(\bar{\gamma }\cdot
+\overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot
+\overline{a}\right).\left(\bar{\gamma }\cdot \overline{d}\right)+2
+\left(\overline{c}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot
+\overline{b}\right).\left(\bar{\gamma }\cdot
+\overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot
+\overline{b}\right).\left(\bar{\gamma }\cdot \overline{c}\right)+2
+\left(\overline{d}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot
+\overline{b}\right).\left(\bar{\gamma }\cdot
+\overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot
+\overline{b}\right).\left(\bar{\gamma }\cdot
+\overline{d}\right)</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DiracTrick<span class="op">[</span>GS<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">c</span> <span class="sc">+</span> <span class="fu">d</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">2 \left(\bar{\gamma }\cdot
+\left(\overline{a}+\overline{b}\right)\right).\left(\bar{\gamma }\cdot
+\overline{p}\right) \left((\overline{c}+\overline{d})\cdot
+\overline{p}\right)-\overline{p}^2 \left(\bar{\gamma }\cdot
+\left(\overline{a}+\overline{b}\right)\right).\left(\bar{\gamma }\cdot
+\left(\overline{c}+\overline{d}\right)\right)</span></p>
+<p>Some of those expansions can be inhibited via the option
+<code>Expanding</code>.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GS<span class="op">[</span><span class="fu">a</span> <span class="sc">+</span> <span class="fu">b</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">c</span> <span class="sc">+</span> <span class="fu">d</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">],</span> Expanding <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">-\overline{p}^2 \left(\bar{\gamma }\cdot
+\overline{a}+\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma
+}\cdot \overline{c}+\bar{\gamma }\cdot \overline{d}\right)+2
+\left(\overline{c}\cdot \overline{p}\right) \left(\bar{\gamma }\cdot
+\overline{a}+\bar{\gamma }\cdot \overline{b}\right).\left(\bar{\gamma
+}\cdot \overline{p}\right)+2 \left(\overline{d}\cdot \overline{p}\right)
+\left(\bar{\gamma }\cdot \overline{a}+\bar{\gamma }\cdot
+\overline{b}\right).\left(\bar{\gamma }\cdot
+\overline{p}\right)</span></p>
+<p>The matrix chain may also live in <span class="math inline">D</span>
+dimensions</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\gamma ^{\mu }.\gamma ^{\nu }.\gamma ^{\mu }</span></p>
-<p><span class="math display">2 \gamma ^{\nu }-D \gamma ^{\nu }</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> . GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
+<p><span class="math display">\gamma ^{\mu }.\gamma ^{\nu }.\gamma ^{\mu
+}</span></p>
+<p><span class="math display">2 \gamma ^{\nu }-D \gamma ^{\nu
+}</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> . GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">(\gamma \cdot p).\gamma ^{\alpha }.\gamma ^{\beta }.(\gamma \cdot p)</span></p>
-<p><span class="math display">p^2 \gamma ^{\alpha }.\gamma ^{\beta }+2 p^{\alpha } \gamma ^{\beta }.(\gamma \cdot p)-2 p^{\beta } \gamma ^{\alpha }.(\gamma \cdot p)</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>GAD @@ <span class="fu">Join</span><span class="op">[{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]},</span> <span class="fu">Table</span><span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">i</span><span class="op">],</span> <span class="op">{</span><span class="fu">i</span><span class="op">,</span> <span class="dv">6</span><span class="op">}],</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}]</span> </span>
+<p><span class="math display">(\gamma \cdot p).\gamma ^{\alpha }.\gamma
+^{\beta }.(\gamma \cdot p)</span></p>
+<p><span class="math display">p^2 \gamma ^{\alpha }.\gamma ^{\beta }+2
+p^{\alpha } \gamma ^{\beta }.(\gamma \cdot p)-2 p^{\beta } \gamma
+^{\alpha }.(\gamma \cdot p)</span></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>GAD @@ <span class="fu">Join</span><span class="op">[{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]},</span> <span class="fu">Table</span><span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">i</span><span class="op">],</span> <span class="op">{</span><span class="fu">i</span><span class="op">,</span> <span class="dv">6</span><span class="op">}],</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}]</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\gamma ^{\mu }.\gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu _6}.\gamma ^{\mu }</span></p>
-<p><span class="math display">-12 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu _6}+D \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu _6}+4 \gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _1\nu _2}-4 \gamma ^{\nu _2}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _1\nu _3}+4 \gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _1\nu _4}-4 \gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _6} g^{\nu _1\nu _5}+4 \gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _5} g^{\nu _1\nu _6}+4 \gamma ^{\nu _1}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _2\nu _3}-4 \gamma ^{\nu _1}.\gamma ^{\nu _3}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _2\nu _4}+4 \gamma ^{\nu _1}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _6} g^{\nu _2\nu _5}-4 \gamma ^{\nu _1}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _5} g^{\nu _2\nu _6}+4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _3\nu _4}-4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _4}.\gamma ^{\nu _6} g^{\nu _3\nu _5}+4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _4}.\gamma ^{\nu _5} g^{\nu _3\nu _6}+4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _6} g^{\nu _4\nu _5}-4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _5} g^{\nu _4\nu _6}+4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _4} g^{\nu _5\nu _6}</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span> . (GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GSD<span class="op">[</span><span class="fu">v</span><span class="op">]</span> <span class="sc">-</span> FVD<span class="op">[</span><span class="fu">v</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span>) FVD<span class="op">[</span><span class="fu">v</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<p><span class="math display">\gamma ^{\mu }.\gamma ^{\nu _1}.\gamma
+^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma
+^{\nu _6}.\gamma ^{\mu }</span></p>
+<p><span class="math display">-12 \gamma ^{\nu _1}.\gamma ^{\nu
+_2}.\gamma ^{\nu _3}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu
+_6}+D \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu
+_4}.\gamma ^{\nu _5}.\gamma ^{\nu _6}+4 \gamma ^{\nu _3}.\gamma ^{\nu
+_4}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _1\nu _2}-4 \gamma ^{\nu
+_2}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _1\nu
+_3}+4 \gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _5}.\gamma ^{\nu
+_6} g^{\nu _1\nu _4}-4 \gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu
+_4}.\gamma ^{\nu _6} g^{\nu _1\nu _5}+4 \gamma ^{\nu _2}.\gamma ^{\nu
+_3}.\gamma ^{\nu _4}.\gamma ^{\nu _5} g^{\nu _1\nu _6}+4 \gamma ^{\nu
+_1}.\gamma ^{\nu _4}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _2\nu
+_3}-4 \gamma ^{\nu _1}.\gamma ^{\nu _3}.\gamma ^{\nu _5}.\gamma ^{\nu
+_6} g^{\nu _2\nu _4}+4 \gamma ^{\nu _1}.\gamma ^{\nu _3}.\gamma ^{\nu
+_4}.\gamma ^{\nu _6} g^{\nu _2\nu _5}-4 \gamma ^{\nu _1}.\gamma ^{\nu
+_3}.\gamma ^{\nu _4}.\gamma ^{\nu _5} g^{\nu _2\nu _6}+4 \gamma ^{\nu
+_1}.\gamma ^{\nu _2}.\gamma ^{\nu _5}.\gamma ^{\nu _6} g^{\nu _3\nu
+_4}-4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _4}.\gamma ^{\nu
+_6} g^{\nu _3\nu _5}+4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu
+_4}.\gamma ^{\nu _5} g^{\nu _3\nu _6}+4 \gamma ^{\nu _1}.\gamma ^{\nu
+_2}.\gamma ^{\nu _3}.\gamma ^{\nu _6} g^{\nu _4\nu _5}-4 \gamma ^{\nu
+_1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu _5} g^{\nu _4\nu
+_6}+4 \gamma ^{\nu _1}.\gamma ^{\nu _2}.\gamma ^{\nu _3}.\gamma ^{\nu
+_4} g^{\nu _5\nu _6}</span></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span> . (GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GSD<span class="op">[</span><span class="fu">v</span><span class="op">]</span> <span class="sc">-</span> FVD<span class="op">[</span><span class="fu">v</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span>) FVD<span class="op">[</span><span class="fu">v</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\frac{1}{2} v^{\mu } \bar{\gamma }^5.\left(\gamma ^{\mu }.(\gamma \cdot v)-v^{\mu }\right)</span></p>
+<p><span class="math display">-\frac{1}{2} v^{\mu } \bar{\gamma
+}^5.\left(\gamma ^{\mu }.(\gamma \cdot v)-v^{\mu }\right)</span></p>
 <p><span class="math display">0</span></p>
-<p><span class="math inline">\gamma^5</span> and the chirality projectors are always moved to the right</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="dv">5</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
+<p><span class="math inline">\gamma^5</span> and the chirality
+projectors are always moved to the right</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="dv">5</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^5.\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }</span></p>
-<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^5</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="dv">6</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> </span>
+<p><span class="math display">\bar{\gamma }^5.\bar{\gamma }^{\mu
+}.\bar{\gamma }^{\nu }</span></p>
+<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}.\bar{\gamma }^5</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="dv">6</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^6.\left(\bar{\gamma }\cdot \left(\overline{p}+\overline{q}\right)\right)</span></p>
-<p><span class="math display">\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^7+\left(\bar{\gamma }\cdot \overline{q}\right).\bar{\gamma }^7</span></p>
-<p>The properties of the chirality projectors are taken into account without substituting explicit expressions for <span class="math inline">\gamma^6</span> and <span class="math inline">\gamma^7</span>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (c1 GA<span class="op">[</span><span class="dv">6</span><span class="op">]</span> <span class="sc">+</span> c2 GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span>) . (GA<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">m</span>) . (c3 GA<span class="op">[</span><span class="dv">6</span><span class="op">]</span> <span class="sc">+</span> c4 GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span>) . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<p><span class="math display">\bar{\gamma }^6.\left(\bar{\gamma }\cdot
+\left(\overline{p}+\overline{q}\right)\right)</span></p>
+<p><span class="math display">\left(\bar{\gamma }\cdot
+\overline{p}\right).\bar{\gamma }^7+\left(\bar{\gamma }\cdot
+\overline{q}\right).\bar{\gamma }^7</span></p>
+<p>The properties of the chirality projectors are taken into account
+without substituting explicit expressions for <span
+class="math inline">\gamma^6</span> and <span
+class="math inline">\gamma^7</span>.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (c1 GA<span class="op">[</span><span class="dv">6</span><span class="op">]</span> <span class="sc">+</span> c2 GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span>) . (GA<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">m</span>) . (c3 GA<span class="op">[</span><span class="dv">6</span><span class="op">]</span> <span class="sc">+</span> c4 GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span>) . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^{\mu }.\left(\text{c1} \bar{\gamma }^6+\text{c2} \bar{\gamma }^7\right).\left(\bar{\gamma }^p+m\right).\left(\text{c3} \bar{\gamma }^6+\text{c4} \bar{\gamma }^7\right).\bar{\gamma }^{\mu }</span></p>
-<p><span class="math display">4 \;\text{c1} \;\text{c3} m \bar{\gamma }^7-2 \;\text{c1} \;\text{c4} \bar{\gamma }^p.\bar{\gamma }^6-2 \;\text{c2} \;\text{c3} \bar{\gamma }^p.\bar{\gamma }^7+4 \;\text{c2} \;\text{c4} m \bar{\gamma }^6</span></p>
-<p>Moreover, <span class="math inline">\frac{1}{2} \left( 1 \pm \gamma^5 \right)</span> is automatically replaced by <span class="math inline">\gamma^{6/7}</span>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) . (<span class="sc">-</span>((<span class="fu">a</span> <span class="sc">+</span> GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span>)<span class="sc">/</span><span class="fu">b</span>)) . (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) </span>
+<p><span class="math display">\bar{\gamma }^{\mu }.\left(\text{c1}
+\bar{\gamma }^6+\text{c2} \bar{\gamma }^7\right).\left(\bar{\gamma
+}^p+m\right).\left(\text{c3} \bar{\gamma }^6+\text{c4} \bar{\gamma
+}^7\right).\bar{\gamma }^{\mu }</span></p>
+<p><span class="math display">4 \;\text{c1} \;\text{c3} m \bar{\gamma
+}^7-2 \;\text{c1} \;\text{c4} \bar{\gamma }^p.\bar{\gamma }^6-2
+\;\text{c2} \;\text{c3} \bar{\gamma }^p.\bar{\gamma }^7+4 \;\text{c2}
+\;\text{c4} m \bar{\gamma }^6</span></p>
+<p>Moreover, <span class="math inline">\frac{1}{2} \left( 1 \pm \gamma^5
+\right)</span> is automatically replaced by <span
+class="math inline">\gamma^{6/7}</span>.</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) . (<span class="sc">-</span>((<span class="fu">a</span> <span class="sc">+</span> GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span>)<span class="sc">/</span><span class="fu">b</span>)) . (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\frac{1}{2}-\frac{\bar{\gamma }^5}{2}\right).\left(-\frac{\bar{\gamma }\cdot \left(\overline{p}+\overline{q}\right)+a}{b}\right).\left(\frac{\bar{\gamma }^5}{2}+\frac{1}{2}\right)</span></p>
-<p><span class="math display">-\frac{\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^6}{b}-\frac{\left(\bar{\gamma }\cdot \overline{q}\right).\bar{\gamma }^6}{b}</span></p>
-<p>Suitable combinations of <span class="math inline">\gamma^5</span> will not be rewritten in terms of chirality projectors, if the option <code>ToDiracGamma67</code> is set to <code>False</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) . (<span class="sc">-</span>((<span class="fu">a</span> <span class="sc">+</span> GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span>)<span class="sc">/</span><span class="fu">b</span>)) . (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>)<span class="op">,</span> </span>
+<p><span class="math display">\left(\frac{1}{2}-\frac{\bar{\gamma
+}^5}{2}\right).\left(-\frac{\bar{\gamma }\cdot
+\left(\overline{p}+\overline{q}\right)+a}{b}\right).\left(\frac{\bar{\gamma
+}^5}{2}+\frac{1}{2}\right)</span></p>
+<p><span class="math display">-\frac{\left(\bar{\gamma }\cdot
+\overline{p}\right).\bar{\gamma }^6}{b}-\frac{\left(\bar{\gamma }\cdot
+\overline{q}\right).\bar{\gamma }^6}{b}</span></p>
+<p>Suitable combinations of <span class="math inline">\gamma^5</span>
+will not be rewritten in terms of chirality projectors, if the option
+<code>ToDiracGamma67</code> is set to <code>False</code>.</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) . (<span class="sc">-</span>((<span class="fu">a</span> <span class="sc">+</span> GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span>)<span class="sc">/</span><span class="fu">b</span>)) . (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>)<span class="op">,</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  ToDiracGamma67 <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\frac{\bar{\gamma }\cdot \overline{p}}{2 b}-\frac{\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^5}{2 b}-\frac{\bar{\gamma }\cdot \overline{q}}{2 b}-\frac{\left(\bar{\gamma }\cdot \overline{q}\right).\bar{\gamma }^5}{2 b}</span></p>
-<p>However, it the final result must contain only <span class="math inline">\gamma^5</span> but not <span class="math inline">\gamma^6</span> or <span class="math inline">\gamma^7</span>, it is better to invoke the option <code>DiracSubstitute67</code>. This way DiracSimplify can perform more intermediate simplifications before presenting the final result.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) . (<span class="sc">-</span>((<span class="fu">a</span> <span class="sc">+</span> GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span>)<span class="sc">/</span><span class="fu">b</span>)) . (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>)<span class="op">,</span> </span>
+<p><span class="math display">-\frac{\bar{\gamma }\cdot \overline{p}}{2
+b}-\frac{\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^5}{2
+b}-\frac{\bar{\gamma }\cdot \overline{q}}{2 b}-\frac{\left(\bar{\gamma
+}\cdot \overline{q}\right).\bar{\gamma }^5}{2 b}</span></p>
+<p>However, it the final result must contain only <span
+class="math inline">\gamma^5</span> but not <span
+class="math inline">\gamma^6</span> or <span
+class="math inline">\gamma^7</span>, it is better to invoke the option
+<code>DiracSubstitute67</code>. This way DiracSimplify can perform more
+intermediate simplifications before presenting the final result.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>) . (<span class="sc">-</span>((<span class="fu">a</span> <span class="sc">+</span> GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span>)<span class="sc">/</span><span class="fu">b</span>)) . (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span><span class="sc">/</span><span class="dv">2</span>)<span class="op">,</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  DiracSubstitute67 <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\frac{\bar{\gamma }\cdot \overline{p}}{2 b}-\frac{\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^5}{2 b}-\frac{\bar{\gamma }\cdot \overline{q}}{2 b}-\frac{\left(\bar{\gamma }\cdot \overline{q}\right).\bar{\gamma }^5}{2 b}</span></p>
-<p>It is also possible to eliminate <span class="math inline">\gamma^5</span> by rewriting it in terms of the chirality projectors</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="dv">5</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> DiracSubstitute5 <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^6-\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^7</span></p>
-<p>The Dirac equation is routinely used to simplify closed spinor chains.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(SpinorVBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> . (GS<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> <span class="sc">+</span> </span>
+<p><span class="math display">-\frac{\bar{\gamma }\cdot \overline{p}}{2
+b}-\frac{\left(\bar{\gamma }\cdot \overline{p}\right).\bar{\gamma }^5}{2
+b}-\frac{\bar{\gamma }\cdot \overline{q}}{2 b}-\frac{\left(\bar{\gamma
+}\cdot \overline{q}\right).\bar{\gamma }^5}{2 b}</span></p>
+<p>It is also possible to eliminate <span
+class="math inline">\gamma^5</span> by rewriting it in terms of the
+chirality projectors</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="dv">5</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]],</span> DiracSubstitute5 <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}.\bar{\gamma }^6-\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma
+}^7</span></p>
+<p>The Dirac equation is routinely used to simplify closed spinor
+chains.</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(SpinorVBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> . (GS<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> <span class="sc">+</span> </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span>) . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span>) </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{v}\left(p_2,m_2\right).\left(\bar{\gamma }\cdot \overline{p}_1+m_1\right).u\left(p_1,m_1\right)</span></p>
-<p><span class="math display">2 m_1 \left(\varphi (-\overline{p}_2,m_2)\right).\left(\varphi (\overline{p}_1,m_1)\right)</span></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>SpinorVBar<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">q</span><span class="op">]</span> </span>
+<p><span
+class="math display">\bar{v}\left(p_2,m_2\right).\left(\bar{\gamma
+}\cdot \overline{p}_1+m_1\right).u\left(p_1,m_1\right)</span></p>
+<p><span class="math display">2 m_1 \left(\varphi
+(-\overline{p}_2,m_2)\right).\left(\varphi
+(\overline{p}_1,m_1)\right)</span></p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>SpinorVBar<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">q</span><span class="op">]</span> </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{v}(p).\left(\bar{\gamma }\cdot \overline{p}\right).u(q)</span></p>
+<p><span class="math display">\bar{v}(p).\left(\bar{\gamma }\cdot
+\overline{p}\right).u(q)</span></p>
 <p><span class="math display">0</span></p>
-<p>Use the option <code>DiracEquation</code> to deactivate this type of simplifications.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>SpinorVBar<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">q</span><span class="op">],</span> DiracEquation <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\varphi (-\overline{p})\right).\left(\bar{\gamma }\cdot \overline{p}\right).\left(\varphi (\overline{q})\right)</span></p>
-<p>Suitable products of <span class="math inline">4</span>-dimensional spinor chains are simplified using Sirlin’s identities</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>(SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> </span>
+<p>Use the option <code>DiracEquation</code> to deactivate this type of
+simplifications.</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>SpinorVBar<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">q</span><span class="op">],</span> DiracEquation <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(\varphi
+(-\overline{p})\right).\left(\bar{\gamma }\cdot
+\overline{p}\right).\left(\varphi (\overline{q})\right)</span></p>
+<p>Suitable products of <span class="math inline">4</span>-dimensional
+spinor chains are simplified using Sirlin’s identities</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>(SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">4</span><span class="op">],</span> </span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">4</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Tau<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span>) </span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{u}\left(p_3,m_3\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_1,m_1\right) \bar{u}\left(p_4,m_4\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_2,m_2\right)</span></p>
-<p><span class="math display">\left(\varphi (\overline{p}_3,m_3)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_1,m_1)\right) \left(\varphi (\overline{p}_4,m_4)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_2,m_2)\right)</span></p>
-<p>The applications of Sirlin’s identities can be disabled by setting the option <code>SirlinSimplify</code> to <code>False</code>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> </span>
+<p><span class="math display">\bar{u}\left(p_3,m_3\right).\bar{\gamma
+}^{\mu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma
+}^6.u\left(p_1,m_1\right) \bar{u}\left(p_4,m_4\right).\bar{\gamma }^{\mu
+}.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma
+}^6.u\left(p_2,m_2\right)</span></p>
+<p><span class="math display">\left(\varphi
+(\overline{p}_3,m_3)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_1,m_1)\right) \left(\varphi
+(\overline{p}_4,m_4)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_2,m_2)\right)</span></p>
+<p>The applications of Sirlin’s identities can be disabled by setting
+the option <code>SirlinSimplify</code> to <code>False</code>.</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span><span class="sc">*</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>   SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">4</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">4</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Tau<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>     <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]],</span> SirlinSimplify <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\varphi (\overline{p}_3,m_3)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_1,m_1)\right) \left(\varphi (\overline{p}_4,m_4)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_2,m_2)\right)</span></p>
-<p>Even when the usage of Sirlin’s identities is disabled, DiracSimplify will still try to perform some simplifications on the spinor chains, e.g. by canonicalizing the dummy indices.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>(c1 SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> </span>
+<p><span class="math display">\left(\varphi
+(\overline{p}_3,m_3)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_1,m_1)\right) \left(\varphi
+(\overline{p}_4,m_4)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_2,m_2)\right)</span></p>
+<p>Even when the usage of Sirlin’s identities is disabled, DiracSimplify
+will still try to perform some simplifications on the spinor chains,
+e.g. by canonicalizing the dummy indices.</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>(c1 SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">4</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        <span class="dv">4</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Tau<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="sc">+</span> </span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    c2 SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> </span>
@@ -220,10 +416,32 @@
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="dv">4</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">4</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Tau<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span>) </span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">,</span> SirlinSimplify <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">Factor</span></span></code></pre></div>
-<p><span class="math display">\text{c1} \bar{u}\left(p_3,m_3\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_1,m_1\right) \bar{u}\left(p_4,m_4\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_2,m_2\right)+\text{c2} \bar{u}\left(p_3,m_3\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_1,m_1\right) \bar{u}\left(p_4,m_4\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_2,m_2\right)</span></p>
-<p><span class="math display">\text{c1} \left(\varphi (\overline{p}_3,m_3)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_1,m_1)\right) \left(\varphi (\overline{p}_4,m_4)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_2,m_2)\right)+\text{c2} \left(\varphi (\overline{p}_3,m_3)\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_1,m_1)\right) \left(\varphi (\overline{p}_4,m_4)\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_2,m_2)\right)</span></p>
-<p>Setting <code>SpinorChainTrick</code> to `False disables this behavior.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>c1 SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> </span>
+<p><span class="math display">\text{c1}
+\bar{u}\left(p_3,m_3\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_1,m_1\right)
+\bar{u}\left(p_4,m_4\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_2,m_2\right)+\text{c2}
+\bar{u}\left(p_3,m_3\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_1,m_1\right)
+\bar{u}\left(p_4,m_4\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\tau
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.u\left(p_2,m_2\right)</span></p>
+<p><span class="math display">\text{c1} \left(\varphi
+(\overline{p}_3,m_3)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_1,m_1)\right) \left(\varphi
+(\overline{p}_4,m_4)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_2,m_2)\right)+\text{c2} \left(\varphi
+(\overline{p}_3,m_3)\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_1,m_1)\right) \left(\varphi
+(\overline{p}_4,m_4)\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\tau
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_2,m_2)\right)</span></p>
+<p>Setting <code>SpinorChainTrick</code> to `False disables this
+behavior.</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>c1 SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">3</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> </span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>      <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> </span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>       <span class="dv">4</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">4</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Tau<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> </span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="sc">+</span> c2 SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">3</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> </span>
@@ -231,117 +449,291 @@
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>       <span class="dv">1</span><span class="op">]]</span> SpinorUBar<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">4</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">4</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Tau<span class="op">],</span> </span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>      <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="dv">6</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">m</span><span class="op">,</span> <span class="dv">2</span><span class="op">]],</span> </span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  SirlinSimplify <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> SpinorChainTrick <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{c1} \left(\varphi (\overline{p}_3,m_3)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_1,m_1)\right) \left(\varphi (\overline{p}_4,m_4)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_2,m_2)\right)+\text{c2} \left(\varphi (\overline{p}_3,m_3)\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_1,m_1)\right) \left(\varphi (\overline{p}_4,m_4)\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\tau }.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi (\overline{p}_2,m_2)\right)</span></p>
-<p><code>DiracSimplify</code> will not reorder Dirac matrices lexicographically, but can be forced to do so via the option <code>DiracOrder</code>.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
+<p><span class="math display">\text{c1} \left(\varphi
+(\overline{p}_3,m_3)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_1,m_1)\right) \left(\varphi
+(\overline{p}_4,m_4)\right).\bar{\gamma }^{\mu }.\bar{\gamma }^{\tau
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_2,m_2)\right)+\text{c2} \left(\varphi
+(\overline{p}_3,m_3)\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\rho
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_1,m_1)\right) \left(\varphi
+(\overline{p}_4,m_4)\right).\bar{\gamma }^{\alpha }.\bar{\gamma }^{\tau
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^6.\left(\varphi
+(\overline{p}_2,m_2)\right)</span></p>
+<p><code>DiracSimplify</code> will not reorder Dirac matrices
+lexicographically, but can be forced to do so via the option
+<code>DiracOrder</code>.</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> DiracOrder <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^{\nu }.\bar{\gamma }^{\mu }</span></p>
-<p><span class="math display">2 \bar{g}^{\mu \nu }-\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }</span></p>
-<p>Setting <code>InsideDiracTrace</code> to <code>True</code>$ makes the function assume that it is acting inside a Dirac trace. For instance, chains with an odd number of Dirac matrices will be set to zero.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]</span> </span>
+<p><span class="math display">\bar{\gamma }^{\nu }.\bar{\gamma }^{\mu
+}</span></p>
+<p><span class="math display">2 \bar{g}^{\mu \nu }-\bar{\gamma }^{\mu
+}.\bar{\gamma }^{\nu }</span></p>
+<p>Setting <code>InsideDiracTrace</code> to <code>True</code>$ makes the
+function assume that it is acting inside a Dirac trace. For instance,
+chains with an odd number of Dirac matrices will be set to zero.</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">,</span> InsideDiracTrace <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }</span></p>
+<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}.\bar{\gamma }^{\rho }</span></p>
 <p><span class="math display">0</span></p>
 <p>Yet, it will not explicitly calculate the trace</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">,</span> InsideDiracTrace <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\sigma }</span></p>
-<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\sigma }</span></p>
-<p>Since FeynCalc 9.3, <code>DiracSimplify</code> will automatically evaluate Dirac traces in the input expression</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]]</span> </span>
+<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}.\bar{\gamma }^{\rho }.\bar{\gamma }^{\sigma }</span></p>
+<p><span class="math display">\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu
+}.\bar{\gamma }^{\rho }.\bar{\gamma }^{\sigma }</span></p>
+<p>Since FeynCalc 9.3, <code>DiracSimplify</code> will automatically
+evaluate Dirac traces in the input expression</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]]]</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{tr}\left(\bar{\gamma }^{\mu }.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\sigma }\right)</span></p>
-<p><span class="math display">4 \bar{g}^{\mu \sigma } \bar{g}^{\nu \rho }-4 \bar{g}^{\mu \rho } \bar{g}^{\nu \sigma }+4 \bar{g}^{\mu \nu } \bar{g}^{\rho \sigma }</span></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>(<span class="sc">-</span>GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . (GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
+<p><span class="math display">\text{tr}\left(\bar{\gamma }^{\mu
+}.\bar{\gamma }^{\nu }.\bar{\gamma }^{\rho }.\bar{\gamma }^{\sigma
+}\right)</span></p>
+<p><span class="math display">4 \bar{g}^{\mu \sigma } \bar{g}^{\nu \rho
+}-4 \bar{g}^{\mu \rho } \bar{g}^{\nu \sigma }+4 \bar{g}^{\mu \nu }
+\bar{g}^{\rho \sigma }</span></p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>(<span class="sc">-</span>GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . (GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{tr}\left(\left(m_e-\gamma \cdot q\right).\gamma ^{\nu }.\left(m_e+\gamma \cdot (p-q)\right).\gamma ^{\mu }\right)</span></p>
-<p><span class="math display">4 m_e^2 g^{\mu \nu }+4 g^{\mu \nu } (p\cdot q)-4 q^2 g^{\mu \nu }-4 p^{\nu } q^{\mu }-4 p^{\mu } q^{\nu }+8 q^{\mu } q^{\nu }</span></p>
-<p>This will not happen if the option <code>DiracTraceEvaluate</code> is set to <code>False</code>. However, <code>DiracSimplify</code> will still perform some simplifications inside the trace, without evaluating it explicitly.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracTrace<span class="op">[</span>(<span class="sc">-</span>GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . (GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> </span>
+<p><span class="math display">\text{tr}\left(\left(m_e-\gamma \cdot
+q\right).\gamma ^{\nu }.\left(m_e+\gamma \cdot (p-q)\right).\gamma ^{\mu
+}\right)</span></p>
+<p><span class="math display">4 m_e^2 g^{\mu \nu }+4 g^{\mu \nu }
+(p\cdot q)-4 q^2 g^{\mu \nu }-4 p^{\nu } q^{\mu }-4 p^{\mu } q^{\nu }+8
+q^{\mu } q^{\nu }</span></p>
+<p>This will not happen if the option <code>DiracTraceEvaluate</code> is
+set to <code>False</code>. However, <code>DiracSimplify</code> will
+still perform some simplifications inside the trace, without evaluating
+it explicitly.</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracTrace<span class="op">[</span>(<span class="sc">-</span>GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . (GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> </span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>      SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> <span class="op">,</span> DiracTraceEvaluate <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{tr}\left(m_e^2 \gamma ^{\nu }.\gamma ^{\mu }+m_e \gamma ^{\nu }.(\gamma \cdot p).\gamma ^{\mu }-m_e \gamma ^{\nu }.(\gamma \cdot q).\gamma ^{\mu }-m_e (\gamma \cdot q).\gamma ^{\nu }.\gamma ^{\mu }-(\gamma \cdot q).\gamma ^{\nu }.(\gamma \cdot p).\gamma ^{\mu }-q^2 \gamma ^{\nu }.\gamma ^{\mu }+2 q^{\nu } (\gamma \cdot q).\gamma ^{\mu }\right)</span></p>
-<p>Set <code>DiracTrace</code> to <code>False</code> if you want <code>DiracSimplify</code> not to touch the Dirac traces.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracTrace<span class="op">[</span>(<span class="sc">-</span>GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . (GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> </span>
+<p><span class="math display">\text{tr}\left(m_e^2 \gamma ^{\nu }.\gamma
+^{\mu }+m_e \gamma ^{\nu }.(\gamma \cdot p).\gamma ^{\mu }-m_e \gamma
+^{\nu }.(\gamma \cdot q).\gamma ^{\mu }-m_e (\gamma \cdot q).\gamma
+^{\nu }.\gamma ^{\mu }-(\gamma \cdot q).\gamma ^{\nu }.(\gamma \cdot
+p).\gamma ^{\mu }-q^2 \gamma ^{\nu }.\gamma ^{\mu }+2 q^{\nu } (\gamma
+\cdot q).\gamma ^{\mu }\right)</span></p>
+<p>Set <code>DiracTrace</code> to <code>False</code> if you want
+<code>DiracSimplify</code> not to touch the Dirac traces.</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracTrace<span class="op">[</span>(<span class="sc">-</span>GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . (GSD<span class="op">[</span><span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span> <span class="sc">+</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>      SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> <span class="op">,</span> DiracTraceEvaluate <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> DiracTrace <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{tr}\left(\left(m_e-\gamma \cdot q\right).\gamma ^{\nu }.\left(m_e+\gamma \cdot (p-q)\right).\gamma ^{\mu }\right)</span></p>
-<p>When doing calculations at one loop and above, you may encounter expressions that contain <span class="math inline">D</span>- and <span class="math inline">4</span>-dimensional objects.</p>
-<p>Although <code>DiracSimplify</code> can handle such terms effortlessly, it will not do so unless you certify that you fully understand what you are doing: being sloppy with the dimensions easily leads to inconsistencies and wrong results!</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (GA<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">m</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
+<p><span class="math display">\text{tr}\left(\left(m_e-\gamma \cdot
+q\right).\gamma ^{\nu }.\left(m_e+\gamma \cdot (p-q)\right).\gamma ^{\mu
+}\right)</span></p>
+<p>When doing calculations at one loop and above, you may encounter
+expressions that contain <span class="math inline">D</span>- and <span
+class="math inline">4</span>-dimensional objects.</p>
+<p>Although <code>DiracSimplify</code> can handle such terms
+effortlessly, it will not do so unless you certify that you fully
+understand what you are doing: being sloppy with the dimensions easily
+leads to inconsistencies and wrong results!</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (GA<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">m</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> </span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\gamma ^{\mu }.\left(\bar{\gamma }^p+m\right).\gamma ^{\mu }</span></p>
+<p><span class="math display">\gamma ^{\mu }.\left(\bar{\gamma
+}^p+m\right).\gamma ^{\mu }</span></p>
 <p><img src="img/161ti5temvheu.svg" alt="161ti5temvheu" /></p>
 <p><span class="math display">\text{\$Aborted}</span></p>
-<p>By default, FeynCalc uses the naive dimensional regularization (NDR) scheme, where all Dirac matrices are taken to be <span class="math inline">D</span>-dimensional. Therefore, in NDR you may not have mixtures of Dirac matrices living in <span class="math inline">D</span> and <span class="math inline">4</span> dimensions. However, such expressions are possible in the t’Hooft-Veltman-Breitenlohner-Maison (BMHV) scheme.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span>; </span>
+<p>By default, FeynCalc uses the naive dimensional regularization (NDR)
+scheme, where all Dirac matrices are taken to be <span
+class="math inline">D</span>-dimensional. Therefore, in NDR you may not
+have mixtures of Dirac matrices living in <span
+class="math inline">D</span> and <span class="math inline">4</span>
+dimensions. However, such expressions are possible in the
+t’Hooft-Veltman-Breitenlohner-Maison (BMHV) scheme.</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span>; </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . (GA<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="sc">+</span> <span class="fu">m</span>) . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span></span></code></pre></div>
-<p><span class="math display">-D \bar{\gamma }^p+2 \bar{\gamma }^p+D m</span></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span>;</span></code></pre></div>
-<p>The BMHV scheme is a special prescription for handling <span class="math inline">\gamma^5</span> in dimensional regularization. Do not activate this scheme mindlessly just to get rid of errors from DiracSimplify! If you are doing a calculation in NDR or a calculation that does not involve <span class="math inline">\gamma^5</span>, better make sure that your input expressions are correctly written to be <span class="math inline">D</span>-dimensional objects.</p>
-<p>Traces that contain an odd number of <span class="math inline">\gamma^5</span> or chirality projectors cannot be calculated unambiguously in NDR. To avoid inconsistencies, DiracTrace will refuse to evaluate such traces in NDR.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> . GA<span class="op">[</span><span class="dv">5</span><span class="op">]]</span> </span>
+<p><span class="math display">-D \bar{\gamma }^p+2 \bar{\gamma }^p+D
+m</span></p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span>;</span></code></pre></div>
+<p>The BMHV scheme is a special prescription for handling <span
+class="math inline">\gamma^5</span> in dimensional regularization. Do
+not activate this scheme mindlessly just to get rid of errors from
+DiracSimplify! If you are doing a calculation in NDR or a calculation
+that does not involve <span class="math inline">\gamma^5</span>, better
+make sure that your input expressions are correctly written to be <span
+class="math inline">D</span>-dimensional objects.</p>
+<p>Traces that contain an odd number of <span
+class="math inline">\gamma^5</span> or chirality projectors cannot be
+calculated unambiguously in NDR. To avoid inconsistencies, DiracTrace
+will refuse to evaluate such traces in NDR.</p>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> . GA<span class="op">[</span><span class="dv">5</span><span class="op">]]</span> </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{tr}\left(\gamma ^{\mu }.\gamma ^{\nu }.\gamma ^{\rho }.\gamma ^{\sigma }.\gamma ^{\alpha }.\gamma ^{\beta }.\bar{\gamma }^5\right)</span></p>
-<p><span class="math display">\text{tr}\left(\gamma ^{\mu }.\gamma ^{\nu }.\gamma ^{\rho }.\gamma ^{\sigma }.\gamma ^{\alpha }.\gamma ^{\beta }.\bar{\gamma }^5\right)</span></p>
-<p>Such traces can be consistently calculated in the BMHV scheme. Our scheme choice as of course also possible, but those are not implemented in FeynCalc.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span>; </span>
+<p><span class="math display">\text{tr}\left(\gamma ^{\mu }.\gamma ^{\nu
+}.\gamma ^{\rho }.\gamma ^{\sigma }.\gamma ^{\alpha }.\gamma ^{\beta
+}.\bar{\gamma }^5\right)</span></p>
+<p><span class="math display">\text{tr}\left(\gamma ^{\mu }.\gamma ^{\nu
+}.\gamma ^{\rho }.\gamma ^{\sigma }.\gamma ^{\alpha }.\gamma ^{\beta
+}.\bar{\gamma }^5\right)</span></p>
+<p>Such traces can be consistently calculated in the BMHV scheme. Our
+scheme choice as of course also possible, but those are not implemented
+in FeynCalc.</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;BMHV&quot;</span><span class="op">]</span>; </span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracTrace<span class="op">[</span>GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> . GA<span class="op">[</span><span class="dv">5</span><span class="op">]]]</span></span></code></pre></div>
-<p><span class="math display">-4 i g^{\alpha \beta } \bar{\epsilon }^{\mu \nu \rho \sigma }-4 i g^{\alpha \mu } \bar{\epsilon }^{\beta \nu \rho \sigma }+4 i g^{\alpha \nu } \bar{\epsilon }^{\beta \mu \rho \sigma }-4 i g^{\alpha \rho } \bar{\epsilon }^{\beta \mu \nu \sigma }+4 i g^{\alpha \sigma } \bar{\epsilon }^{\beta \mu \nu \rho }+4 i g^{\beta \mu } \bar{\epsilon }^{\alpha \nu \rho \sigma }-4 i g^{\beta \nu } \bar{\epsilon }^{\alpha \mu \rho \sigma }+4 i g^{\beta \rho } \bar{\epsilon }^{\alpha \mu \nu \sigma }-4 i g^{\beta \sigma } \bar{\epsilon }^{\alpha \mu \nu \rho }-4 i g^{\mu \nu } \bar{\epsilon }^{\alpha \beta \rho \sigma }+4 i g^{\mu \rho } \bar{\epsilon }^{\alpha \beta \nu \sigma }-4 i g^{\mu \sigma } \bar{\epsilon }^{\alpha \beta \nu \rho }-4 i g^{\nu \rho } \bar{\epsilon }^{\alpha \beta \mu \sigma }+4 i g^{\nu \sigma } \bar{\epsilon }^{\alpha \beta \mu \rho }-4 i g^{\rho \sigma } \bar{\epsilon }^{\alpha \beta \mu \nu }</span></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span>;</span></code></pre></div>
-<p>Keep in mind that the BMHV scheme violates axial Ward identities and requires special model-dependent counter-terms to restore those. Therefore, just setting <code>FCSetDiracGammaScheme["BMHV"]</code> does not magically resolve all your troubles with <span class="math inline">\gamma^5</span> in <span class="math inline">D</span>-dimensions. The proper treatment of <span class="math inline">\gamma^5</span> in dimensional regularization is an intricate issue that cannot be boiled down to a simple and universal recipe. FeynCalc merely carries out the algebraic operations that you request, but it is still your task to ensure that what you do makes sense.</p>
-<p>Since FeynCalc 9.3 it is also possible to simplify Dirac matrices with Cartesian or temporal indices. However, the support of nonrelativistic calculations is a very new feature, so that things may not work as smooth as they do for manifestly Lorentz covariant expressions.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> . CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> </span>
+<p><span class="math display">-4 i g^{\alpha \beta } \bar{\epsilon
+}^{\mu \nu \rho \sigma }-4 i g^{\alpha \mu } \bar{\epsilon }^{\beta \nu
+\rho \sigma }+4 i g^{\alpha \nu } \bar{\epsilon }^{\beta \mu \rho \sigma
+}-4 i g^{\alpha \rho } \bar{\epsilon }^{\beta \mu \nu \sigma }+4 i
+g^{\alpha \sigma } \bar{\epsilon }^{\beta \mu \nu \rho }+4 i g^{\beta
+\mu } \bar{\epsilon }^{\alpha \nu \rho \sigma }-4 i g^{\beta \nu }
+\bar{\epsilon }^{\alpha \mu \rho \sigma }+4 i g^{\beta \rho }
+\bar{\epsilon }^{\alpha \mu \nu \sigma }-4 i g^{\beta \sigma }
+\bar{\epsilon }^{\alpha \mu \nu \rho }-4 i g^{\mu \nu } \bar{\epsilon
+}^{\alpha \beta \rho \sigma }+4 i g^{\mu \rho } \bar{\epsilon }^{\alpha
+\beta \nu \sigma }-4 i g^{\mu \sigma } \bar{\epsilon }^{\alpha \beta \nu
+\rho }-4 i g^{\nu \rho } \bar{\epsilon }^{\alpha \beta \mu \sigma }+4 i
+g^{\nu \sigma } \bar{\epsilon }^{\alpha \beta \mu \rho }-4 i g^{\rho
+\sigma } \bar{\epsilon }^{\alpha \beta \mu \nu }</span></p>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;NDR&quot;</span><span class="op">]</span>;</span></code></pre></div>
+<p>Keep in mind that the BMHV scheme violates axial Ward identities and
+requires special model-dependent counter-terms to restore those.
+Therefore, just setting <code>FCSetDiracGammaScheme["BMHV"]</code> does
+not magically resolve all your troubles with <span
+class="math inline">\gamma^5</span> in <span
+class="math inline">D</span>-dimensions. The proper treatment of <span
+class="math inline">\gamma^5</span> in dimensional regularization is an
+intricate issue that cannot be boiled down to a simple and universal
+recipe. FeynCalc merely carries out the algebraic operations that you
+request, but it is still your task to ensure that what you do makes
+sense.</p>
+<p>Since FeynCalc 9.3 it is also possible to simplify Dirac matrices
+with Cartesian or temporal indices. However, the support of
+nonrelativistic calculations is a very new feature, so that things may
+not work as smooth as they do for manifestly Lorentz covariant
+expressions.</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> . CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{\gamma }^i.\overline{\gamma }^i</span></p>
+<p><span class="math display">\overline{\gamma }^i.\overline{\gamma
+}^i</span></p>
 <p><span class="math display">-3</span></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> . CGS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . CGA<span class="op">[</span><span class="fu">j</span><span class="op">]</span> . CGS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> </span>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> . CGS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . CGA<span class="op">[</span><span class="fu">j</span><span class="op">]</span> . CGS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> </span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{\gamma }^i.\left(\overline{\gamma }\cdot \overline{p}\right).\overline{\gamma }^j.\left(\overline{\gamma }\cdot \left(\overline{p}+\overline{q}\right)\right)</span></p>
-<p><span class="math display">\overline{p}^2 \overline{\gamma }^i.\overline{\gamma }^j-2 \overline{p}^j \overline{\gamma }^i.\left(\overline{\gamma }\cdot \overline{p}\right)+\overline{\gamma }^i.\left(\overline{\gamma }\cdot \overline{p}\right).\overline{\gamma }^j.\left(\overline{\gamma }\cdot \overline{q}\right)</span></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> . CGS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . CGA<span class="op">[</span><span class="fu">j</span><span class="op">]</span> . CGS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> KD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> </span>
+<p><span class="math display">\overline{\gamma
+}^i.\left(\overline{\gamma }\cdot \overline{p}\right).\overline{\gamma
+}^j.\left(\overline{\gamma }\cdot
+\left(\overline{p}+\overline{q}\right)\right)</span></p>
+<p><span class="math display">\overline{p}^2 \overline{\gamma
+}^i.\overline{\gamma }^j-2 \overline{p}^j \overline{\gamma
+}^i.\left(\overline{\gamma }\cdot \overline{p}\right)+\overline{\gamma
+}^i.\left(\overline{\gamma }\cdot \overline{p}\right).\overline{\gamma
+}^j.\left(\overline{\gamma }\cdot \overline{q}\right)</span></p>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> . CGS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> . CGA<span class="op">[</span><span class="fu">j</span><span class="op">]</span> . CGS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> KD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\delta }^{ij} \overline{\gamma }^i.\left(\overline{\gamma }\cdot \overline{p}\right).\overline{\gamma }^j.\left(\overline{\gamma }\cdot \left(\overline{p}+\overline{q}\right)\right)</span></p>
-<p><span class="math display">\left(\overline{\gamma }\cdot \overline{p}\right).\left(\overline{\gamma }\cdot \overline{q}\right)-\overline{p}^2</span></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>TGA<span class="op">[]</span> . CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> . TGA<span class="op">[]</span> </span>
+<p><span class="math display">\bar{\delta }^{ij} \overline{\gamma
+}^i.\left(\overline{\gamma }\cdot \overline{p}\right).\overline{\gamma
+}^j.\left(\overline{\gamma }\cdot
+\left(\overline{p}+\overline{q}\right)\right)</span></p>
+<p><span class="math display">\left(\overline{\gamma }\cdot
+\overline{p}\right).\left(\overline{\gamma }\cdot
+\overline{q}\right)-\overline{p}^2</span></p>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>TGA<span class="op">[]</span> . CGA<span class="op">[</span><span class="fu">i</span><span class="op">]</span> . TGA<span class="op">[]</span> </span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^0.\overline{\gamma }^i.\bar{\gamma }^0</span></p>
+<p><span class="math display">\bar{\gamma }^0.\overline{\gamma
+}^i.\bar{\gamma }^0</span></p>
 <p><span class="math display">-\overline{\gamma }^i</span></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>CGAD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">,</span> <span class="fu">l</span><span class="op">]]</span> </span>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>DiracTrace<span class="op">[</span>CGAD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">,</span> <span class="fu">l</span><span class="op">]]</span> </span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{tr}\left(\gamma ^i.\gamma ^j.\gamma ^k.\gamma ^l\right)</span></p>
-<p><span class="math display">4 \delta ^{il} \delta ^{jk}-4 \delta ^{ik} \delta ^{jl}+4 \delta ^{ij} \delta ^{kl}</span></p>
-<p>For performance reasons <code>DiracSimplify</code> will not canonically order Dirac matrices and canonicalize Lorentz/Cartesian indices by default. However, amplitudes involving 4-fermion operators may require such additional simplifications. In this case they should explicitly activated by the user. Of course, this will somewhat slow down the evaluation.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> (Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>p1<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> mb<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> . </span>
+<p><span class="math display">\text{tr}\left(\gamma ^i.\gamma ^j.\gamma
+^k.\gamma ^l\right)</span></p>
+<p><span class="math display">4 \delta ^{il} \delta ^{jk}-4 \delta ^{ik}
+\delta ^{jl}+4 \delta ^{ij} \delta ^{kl}</span></p>
+<p>For performance reasons <code>DiracSimplify</code> will not
+canonically order Dirac matrices and canonicalize Lorentz/Cartesian
+indices by default. However, amplitudes involving 4-fermion operators
+may require such additional simplifications. In this case they should
+explicitly activated by the user. Of course, this will somewhat slow
+down the evaluation.</p>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> (Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>p1<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> mb<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> . </span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>      GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]</span> . GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span> . Spinor<span class="op">[</span><span class="sc">-</span>Momentum<span class="op">[</span>p4<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span> Spinor<span class="op">[</span>Momentum<span class="op">[</span>p3<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> <span class="dv">0</span><span class="op">,</span> </span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>       <span class="dv">1</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]</span> . GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . </span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>      GA<span class="op">[</span><span class="dv">7</span><span class="op">]</span> . Spinor<span class="op">[</span>Momentum<span class="op">[</span>p2<span class="op">,</span> <span class="fu">D</span><span class="op">],</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span>) </span>
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">(\varphi (\text{p3})).\gamma ^{\alpha }.\gamma ^{\beta }.\gamma ^{\delta }.\bar{\gamma }^7.\gamma ^{\nu }.\gamma ^{\mu }.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma ^{\mu }.\bar{\gamma }^7.\gamma ^{\nu }.\gamma ^{\alpha }.\gamma ^{\beta }.\gamma ^{\delta }.\bar{\gamma }^7.(\varphi (-\text{p4}))</span></p>
-<p><span class="math display">(\varphi (\text{p3})).\gamma ^{\alpha }.\gamma ^{\beta }.\gamma ^{\delta }.\gamma ^{\nu }.\gamma ^{\mu }.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma ^{\mu }.\gamma ^{\nu }.\gamma ^{\alpha }.\gamma ^{\beta }.\gamma ^{\delta }.\bar{\gamma }^7.(\varphi (-\text{p4}))</span></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>ex<span class="op">,</span> DiracOrder <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>i1<span class="op">,</span> i2<span class="op">,</span> i3<span class="op">,</span> i4<span class="op">,</span> i5<span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">-24 D^2 (\varphi (\text{p3})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi (-\text{p4}))+14 D (\varphi (\text{p3})).\gamma ^{\text{i1}}.\gamma ^{\text{i2}}.\gamma ^{\text{i3}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\gamma ^{\text{i2}}.\gamma ^{\text{i3}}.\bar{\gamma }^7.(\varphi (-\text{p4}))+112 D (\varphi (\text{p3})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi (-\text{p4}))-(\varphi (\text{p3})).\gamma ^{\text{i1}}.\gamma ^{\text{i2}}.\gamma ^{\text{i3}}.\gamma ^{\text{i4}}.\gamma ^{\text{i5}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\gamma ^{\text{i2}}.\gamma ^{\text{i3}}.\gamma ^{\text{i4}}.\gamma ^{\text{i5}}.\bar{\gamma }^7.(\varphi (-\text{p4}))-36 (\varphi (\text{p3})).\gamma ^{\text{i1}}.\gamma ^{\text{i2}}.\gamma ^{\text{i3}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\gamma ^{\text{i2}}.\gamma ^{\text{i3}}.\bar{\gamma }^7.(\varphi (-\text{p4}))-64 (\varphi (\text{p3})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi (-\text{p4}))</span></p>
-<p><code>DiracSimplify</code> automatically evaluates suitable spinor products with equal momenta, e.g.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> SpinorUBar<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span> </span>
+<p><span class="math display">(\varphi (\text{p3})).\gamma ^{\alpha
+}.\gamma ^{\beta }.\gamma ^{\delta }.\bar{\gamma }^7.\gamma ^{\nu
+}.\gamma ^{\mu }.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi
+(-\text{p1},\text{mb})).\gamma ^{\mu }.\bar{\gamma }^7.\gamma ^{\nu
+}.\gamma ^{\alpha }.\gamma ^{\beta }.\gamma ^{\delta }.\bar{\gamma
+}^7.(\varphi (-\text{p4}))</span></p>
+<p><span class="math display">(\varphi (\text{p3})).\gamma ^{\alpha
+}.\gamma ^{\beta }.\gamma ^{\delta }.\gamma ^{\nu }.\gamma ^{\mu
+}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi
+(-\text{p1},\text{mb})).\gamma ^{\mu }.\gamma ^{\nu }.\gamma ^{\alpha
+}.\gamma ^{\beta }.\gamma ^{\delta }.\bar{\gamma }^7.(\varphi
+(-\text{p4}))</span></p>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>ex<span class="op">,</span> DiracOrder <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>i1<span class="op">,</span> i2<span class="op">,</span> i3<span class="op">,</span> i4<span class="op">,</span> i5<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">-24 D^2 (\varphi (\text{p3})).\gamma
+^{\text{i1}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi
+(-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi
+(-\text{p4}))+14 D (\varphi (\text{p3})).\gamma ^{\text{i1}}.\gamma
+^{\text{i2}}.\gamma ^{\text{i3}}.\bar{\gamma }^7.(\varphi (\text{p2}))
+(\varphi (-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\gamma
+^{\text{i2}}.\gamma ^{\text{i3}}.\bar{\gamma }^7.(\varphi
+(-\text{p4}))+112 D (\varphi (\text{p3})).\gamma
+^{\text{i1}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi
+(-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi
+(-\text{p4}))-(\varphi (\text{p3})).\gamma ^{\text{i1}}.\gamma
+^{\text{i2}}.\gamma ^{\text{i3}}.\gamma ^{\text{i4}}.\gamma
+^{\text{i5}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi
+(-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\gamma ^{\text{i2}}.\gamma
+^{\text{i3}}.\gamma ^{\text{i4}}.\gamma ^{\text{i5}}.\bar{\gamma
+}^7.(\varphi (-\text{p4}))-36 (\varphi (\text{p3})).\gamma
+^{\text{i1}}.\gamma ^{\text{i2}}.\gamma ^{\text{i3}}.\bar{\gamma
+}^7.(\varphi (\text{p2})) (\varphi (-\text{p1},\text{mb})).\gamma
+^{\text{i1}}.\gamma ^{\text{i2}}.\gamma ^{\text{i3}}.\bar{\gamma
+}^7.(\varphi (-\text{p4}))-64 (\varphi (\text{p3})).\gamma
+^{\text{i1}}.\bar{\gamma }^7.(\varphi (\text{p2})) (\varphi
+(-\text{p1},\text{mb})).\gamma ^{\text{i1}}.\bar{\gamma }^7.(\varphi
+(-\text{p4}))</span></p>
+<p><code>DiracSimplify</code> automatically evaluates suitable spinor
+products with equal momenta, e.g.</p>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> SpinorUBar<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span> . SpinorU<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="op">]</span> </span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>ex<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{u}(p,m).u(p,m)</span></p>
 <p><span class="math display">2 m</span></p>
-<p>This behavior can be turned off by setting the option <code>SpinorChainEvaluate</code> to <code>False</code></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>ex<span class="op">,</span> SpinorChainEvaluate <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\varphi (\overline{p},m)\right).\left(\varphi (\overline{p},m)\right)</span></p>
+<p>This behavior can be turned off by setting the option
+<code>SpinorChainEvaluate</code> to <code>False</code></p>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>ex<span class="op">,</span> SpinorChainEvaluate <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(\varphi
+(\overline{p},m)\right).\left(\varphi (\overline{p},m)\right)</span></p>
 </body>
 </html>

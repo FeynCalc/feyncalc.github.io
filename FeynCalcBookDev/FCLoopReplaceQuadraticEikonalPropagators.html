@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -179,6 +179,121 @@ n+\frac{\text{meta} \;\text{u0b} \;\text{nb}}{2})^2-2 \;\text{gkin}
 \;\text{meta} \;\text{u0b} n+\frac{\text{meta} \;\text{u0b}
 \;\text{nb}}{2})^2-2 \;\text{gkin} \;\text{meta}^2 \;\text{u0b}^2+i \eta
 )}\right\},\{\text{k1},\text{k2}\},\{n,\text{nb}\},\{\text{Hold}[\text{SPD}][n]\to
+0,\text{Hold}[\text{SPD}][\text{nb}]\to
+0,\text{Hold}[\text{SPD}][n,\text{nb}]\to
+2\},\{\}\right)\right\}</span></p>
+<p>Notice that the ordering of scalar products in the
+<code>InitialSubstitutions</code> option is important. It is recommended
+to put the longest and most complicated rules first and all simpler
+rules thereafter. Otherwise, it might happen that a simple rule will be
+first applied to a complicated expression making it impossible to apply
+the actually needed complicated rule later on. For example, this fails,
+because the most complicated rule containing 3 loop momenta comes
+last</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>testTopo <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;topology1230&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span>k3<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span>k2 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    SFAD<span class="op">[{{</span>k1<span class="op">,</span> <span class="sc">-</span>(meta<span class="sc">*</span>u0b<span class="sc">*</span>k1 . nb)<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>k1<span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>u0b<span class="sc">*</span>k1 . <span class="fu">n</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> <span class="sc">-</span>(k1 <span class="sc">+</span> k2) . nb<span class="op">},</span> <span class="op">{</span><span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>u0b<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>k1 <span class="sc">+</span> k2<span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>u0b<span class="sc">*</span>(k1 <span class="sc">+</span> k2) . <span class="fu">n</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>k2<span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>k2 . <span class="fu">n</span> <span class="sc">+</span> meta<span class="sc">*</span>u0b<span class="sc">*</span>k2 . nb<span class="op">},</span> <span class="op">{</span><span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>u0b<span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>k1 <span class="sc">+</span> k2<span class="op">,</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>u0b<span class="sc">*</span>(k1 <span class="sc">+</span> k2) . <span class="fu">n</span> <span class="sc">+</span> k3 . (<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>k1 <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>k2 <span class="sc">+</span> k3) <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>u0b<span class="sc">*</span>k3 . <span class="fu">n</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> (k1 <span class="sc">-</span> k3) . nb<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>k1<span class="op">,</span> meta<span class="sc">*</span>u0b<span class="sc">*</span>(k1 <span class="sc">-</span> k3) . nb <span class="sc">+</span> k3 . (<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>k1 <span class="sc">+</span> k3)<span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> SFAD<span class="op">[{{</span>k1<span class="op">,</span> <span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>k1 . <span class="fu">n</span> <span class="sc">+</span> k3 . (<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>k1 <span class="sc">+</span> k3) <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>gkin<span class="sc">*</span>meta<span class="sc">*</span>k3 . <span class="fu">n</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}],</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>     SFAD<span class="op">[{{</span>k1 <span class="sc">-</span> k2<span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> <span class="dv">1</span><span class="op">}]},</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">,</span> k3<span class="op">},</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">},</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">},</span> <span class="op">{}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCTopology}\left(\text{topology1230},\left\{\frac{1}{(\text{k3}^2+i
+\eta )},\frac{1}{(-\text{k2}\cdot \;\text{nb}+i \eta
+)},\frac{1}{(\text{k1}^2-\text{meta} \;\text{u0b} (\text{k1}\cdot
+\;\text{nb})+i \eta )},\frac{1}{(\text{k1}^2-2 \;\text{gkin}
+\;\text{meta} \;\text{u0b} (\text{k1}\cdot n)+i \eta
+)},\frac{1}{(-(\text{k1}+\text{k2})\cdot \;\text{nb}+2 \;\text{gkin}
+\;\text{meta} \;\text{u0b}+i \eta )},\frac{1}{((\text{k1}+\text{k2})^2-2
+\;\text{gkin} \;\text{meta} \;\text{u0b} ((\text{k1}+\text{k2})\cdot
+n)+i \eta )},\frac{1}{(\text{k2}^2+\text{meta} \;\text{u0b}
+(\text{k2}\cdot \;\text{nb})-2 \;\text{gkin} \;\text{meta}
+(\text{k2}\cdot n)-2 \;\text{gkin} \;\text{meta}^2 \;\text{u0b}+i \eta
+)},\frac{1}{((\text{k1}+\text{k2})^2+-2 \;\text{gkin} \;\text{meta}
+\;\text{u0b} ((\text{k1}+\text{k2})\cdot n)+\text{k3}\cdot (-2
+\;\text{k1}-2 \;\text{k2}+\text{k3})+2 \;\text{gkin} \;\text{meta}
+\;\text{u0b} (\text{k3}\cdot n)+i \eta
+)},\frac{1}{((\text{k1}-\text{k3})\cdot \;\text{nb}+i \eta
+)},\frac{1}{(\text{k1}^2+\text{meta} \;\text{u0b}
+((\text{k1}-\text{k3})\cdot \;\text{nb})+\text{k3}\cdot (\text{k3}-2
+\;\text{k1})+i \eta )},\frac{1}{(\text{k1}^2+2 \;\text{gkin}
+\;\text{meta} (\text{k1}\cdot n)+\text{k3}\cdot (\text{k3}-2
+\;\text{k1})-2 \;\text{gkin} \;\text{meta} (\text{k3}\cdot n)+i \eta
+)},\frac{1}{((\text{k1}-\text{k2})^2+i \eta
+)}\right\},\{\text{k1},\text{k2},\text{k3}\},\{n,\text{nb}\},\{\text{Hold}[\text{SPD}][n]\to
+0,\text{Hold}[\text{SPD}][\text{nb}]\to
+0,\text{Hold}[\text{SPD}][n,\text{nb}]\to 2\},\{\}\right)</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCLoopReplaceQuadraticEikonalPropagators<span class="op">[</span>testTopo<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">,</span> k3<span class="op">},</span> InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k2 <span class="sc">-</span> k3<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k2 <span class="sc">-</span> k3<span class="op">],</span> ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">-</span> k3<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">-</span> k3<span class="op">],</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k3<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k3<span class="op">],</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">],</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k2 <span class="sc">-</span> k3<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k2 <span class="sc">-</span> k3<span class="op">]</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>   <span class="op">},</span> IntermediateSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{FromGFAD: }\;\text{Some of the
+converted propagators are not strictly quadratic or eikonal.}</span></p>
+<p><span class="math display">\text{FromGFAD:
+}\left\{\frac{1}{(\text{k1}^2+2 (\text{k1}\cdot \;\text{k2})-2
+(\text{k1}\cdot \;\text{k3})+\text{k2}^2-2 (\text{k2}\cdot
+\;\text{k3})+\text{k3}^2-2 \;\text{gkin} \;\text{meta} \;\text{u0b}
+(\text{k1}\cdot n+\text{k2}\cdot n-\text{k3}\cdot n)+i \eta
+)}\right\}</span></p>
+<p><span class="math display">\text{FromGFAD: }\;\text{These propagators
+may later cause issues with topology minimization routines.}</span></p>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{topology1230},\left\{\frac{1}{(\text{k3}^2+i
+\eta )},\frac{1}{(-\text{k2}\cdot \;\text{nb}+i \eta
+)},\frac{1}{((\text{k1}-\frac{\text{meta} \;\text{u0b}
+\;\text{nb}}{2})^2+i \eta )},\frac{1}{((\text{k1}-\text{gkin}
+\;\text{meta} \;\text{u0b} n)^2+i \eta
+)},\frac{1}{(-(\text{k1}+\text{k2})\cdot \;\text{nb}+2 \;\text{gkin}
+\;\text{meta} \;\text{u0b}+i \eta
+)},\frac{1}{((\text{k1}+\text{k2}-\text{gkin} \;\text{meta} \;\text{u0b}
+n)^2+i \eta )},\frac{1}{((\text{k2}-\text{gkin} \;\text{meta}
+n+\frac{\text{meta} \;\text{u0b} \;\text{nb}}{2})^2-2 \;\text{gkin}
+\;\text{meta}^2 \;\text{u0b}+i \eta )},\frac{1}{(\text{k1}^2+2
+(\text{k1}\cdot \;\text{k2})-2 (\text{k1}\cdot
+\;\text{k3})+\text{k2}^2-2 (\text{k2}\cdot \;\text{k3})+\text{k3}^2-2
+\;\text{gkin} \;\text{meta} \;\text{u0b} (\text{k1}\cdot
+n+\text{k2}\cdot n-\text{k3}\cdot n)+i \eta
+)},\frac{1}{((\text{k1}-\text{k3})\cdot \;\text{nb}+i \eta
+)},\frac{1}{((\text{k1}-\text{k3}+\frac{\text{meta} \;\text{u0b}
+\;\text{nb}}{2})^2+i \eta )},\frac{1}{((\text{k1}-\text{k3}+\text{gkin}
+\;\text{meta} n)^2+i \eta )},\frac{1}{((\text{k1}-\text{k2})^2+i \eta
+)}\right\},\{\text{k1},\text{k2},\text{k3}\},\{n,\text{nb}\},\{\text{Hold}[\text{SPD}][n]\to
+0,\text{Hold}[\text{SPD}][\text{nb}]\to
+0,\text{Hold}[\text{SPD}][n,\text{nb}]\to
+2\},\{\}\right)\right\}</span></p>
+<p>Rearranging the rules accordingly, we can make the conversion
+succeed</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCLoopReplaceQuadraticEikonalPropagators<span class="op">[</span>testTopo<span class="op">,</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">,</span> k3<span class="op">},</span> InitialSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k2 <span class="sc">-</span> k3<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k2 <span class="sc">-</span> k3<span class="op">],</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k2 <span class="sc">-</span> k3<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k2 <span class="sc">-</span> k3<span class="op">],</span> ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">-</span> k3<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">-</span> k3<span class="op">],</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k3<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k3<span class="op">],</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ExpandScalarProduct<span class="op">[</span>SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span>k1 <span class="sc">+</span> k2<span class="op">]</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="op">},</span> IntermediateSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span><span class="fu">n</span><span class="op">,</span> nb<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{topology1230},\left\{\frac{1}{(\text{k3}^2+i
+\eta )},\frac{1}{(-\text{k2}\cdot \;\text{nb}+i \eta
+)},\frac{1}{((\text{k1}-\frac{\text{meta} \;\text{u0b}
+\;\text{nb}}{2})^2+i \eta )},\frac{1}{((\text{k1}-\text{gkin}
+\;\text{meta} \;\text{u0b} n)^2+i \eta
+)},\frac{1}{(-(\text{k1}+\text{k2})\cdot \;\text{nb}+2 \;\text{gkin}
+\;\text{meta} \;\text{u0b}+i \eta
+)},\frac{1}{((\text{k1}+\text{k2}-\text{gkin} \;\text{meta} \;\text{u0b}
+n)^2+i \eta )},\frac{1}{((\text{k2}-\text{gkin} \;\text{meta}
+n+\frac{\text{meta} \;\text{u0b} \;\text{nb}}{2})^2-2 \;\text{gkin}
+\;\text{meta}^2 \;\text{u0b}+i \eta
+)},\frac{1}{((\text{k1}+\text{k2}-\text{k3}-\text{gkin} \;\text{meta}
+\;\text{u0b} n)^2+i \eta )},\frac{1}{((\text{k1}-\text{k3})\cdot
+\;\text{nb}+i \eta )},\frac{1}{((\text{k1}-\text{k3}+\frac{\text{meta}
+\;\text{u0b} \;\text{nb}}{2})^2+i \eta
+)},\frac{1}{((\text{k1}-\text{k3}+\text{gkin} \;\text{meta} n)^2+i \eta
+)},\frac{1}{((\text{k1}-\text{k2})^2+i \eta
+)}\right\},\{\text{k1},\text{k2},\text{k3}\},\{n,\text{nb}\},\{\text{Hold}[\text{SPD}][n]\to
 0,\text{Hold}[\text{SPD}][\text{nb}]\to
 0,\text{Hold}[\text{SPD}][n,\text{nb}]\to
 2\},\{\}\right)\right\}</span></p>

@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -107,6 +107,8 @@ experiencing issues setting up a particular tools please contact the
 corresponding developer team.</em></p>
 <h3 id="feynhelpers">FeynHelpers</h3>
 <h4 id="automatic-installation">Automatic installation</h4>
+<p><em>Currently the stable version of FeynHelpers is not compatible
+with FeynCalc 10. Please use the development version instead!</em></p>
 <p>Run the following instruction in a Kernel or Notebook session of
 Mathematica to install the stable version</p>
 <div class="sourceCode" id="cb1"><pre
@@ -130,7 +132,7 @@ href="https://home.bway.net/lewis/zip.html">developer’s website</a>.</p>
 <p>Copy the directory <code>ferl64</code> to
 <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</p>
 <h4 id="macos">macOS</h4>
-<p>Copy the directory <code>ferm64</code> to
+<p>Copy the directory <code>ferm6</code> to
 <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "Fermat"}]</code>.</p>
 <h4 id="windows">Windows</h4>
 <p>Currently there is no native Windows version of FERMAT. The Linux

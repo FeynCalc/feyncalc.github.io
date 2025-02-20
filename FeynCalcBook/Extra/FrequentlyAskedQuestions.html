@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <script defer="" src="../js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="../js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<h3
+id="feyncalc-is-open-source-but-it-requires-mathematica-which-is-proprietary.-why">FeynCalc
+is open-source but it requires Mathematica which is proprietary.
+Why?</h3>
+<p>Even though Mathematica is proprietary, we consider it to be an
+exceptionally good tool for symbolic manipulations in terms of
+performance, functionality and documentation. Furthermore, as far as QFT
+computations are concerned, there are plenty of tools like FORM, GiNaC,
+GoSam, sympy etc. that are open-source and don’t rely on proprietary
+software. Therefore, no one is forced to use FeynCalc and Mathematica if
+they don’t want to.</p>
+<h3
+id="since-feyncalc-is-open-source-why-cant-you-just-port-it-to-work-with-maxima-axiom-sympy-etc.">Since
+FeynCalc is open-source, why can’t you just port it to work with Maxima,
+Axiom, sympy etc.?</h3>
+<p>The source code of FeynCalc strongly relies on the rule based
+programming paradigm that is common in Mathematica. Porting this amount
+of internal logic to a different system would require a lot of time and
+effort that can be better spent on improving FeynCalc and adding new
+features. However, since FeynCalc is published und GPLv3 there is
+nothing preventing a person with enough time, knowledge and motivation
+to port the source code to something tehy find more appropriate than
+Mathematica.</p>
+<h3
+id="why-should-i-use-feyncalc-when-there-are-other-tools-that-can-compute-feynman-diagrams-faster-and-easier">Why
+should I use FeynCalc when there are other tools that can compute
+Feynman diagrams faster and easier?</h3>
+<p>It is true that some tools provide much higher automation level than
+FeynCalc, such that in some cases the user just has to specify which
+fields go in and out and then enter a couple of standard commands. This
+is especially true for Standard Model processes, where the corresponding
+models are usually already supplied by the developers.</p>
+<p>However, you must also be aware that such tools often act like a
+black box, where you can hardly understand how the computation is
+actually done without looking into the source code. This behavior can be
+rather inconvenient if the result you obtain is not what you expect and
+you would like to “debug” the computation.</p>
+<p>FeynCalc, on the other hand, allows you to organize your computations
+in the manner which is most convenient for you. For example, you can
+decide if the SU(N) algebra should be done before or after tensor
+decomposition of the loop integrals or whether it makes sense to
+simplify the Dirac algebra before squaring the matrix element or not.
+With this amount of flexibility you can work with FeynCalc in a similar
+way as you would do when doing a calculation with pen and paper. It also
+makes it easier for you to compare to the results of other people or
+perform cross checks of the intermediate results. Of course, to benefit
+from all this freedom you must very well understand what you are
+computing and what kind of result you expect to obtain.</p>
+<p>Last but not least, if you are familiar with Mathematica programming,
+it is quite easy to extend FeynCalc and add features that are required
+for your computation but are not available in the official version.</p>
+<h3
+id="why-would-one-use-slow-mathematica-for-algebraic-manipulations-when-you-can-take-form">Why
+would one use “slow” Mathematica for algebraic manipulations when you
+can take FORM?</h3>
+<p>When it comes to algebraic manipulations that are common in QFT
+computations, FORM is indeed a valid alternative to Mathematica, in
+particular in terms of performance. Unfortunately, FORM does not provide
+any convenient interface to interact with the user. While this is fine
+if you write code for a particular computation, a general framework
+would inevitably require some kind of wrapper that generates FORM code
+out of user’s input and converts FORM output to something more readable.
+While similar approaches have been successfully employed by different
+developers, we believe that choosing Mathematica over FORM does not
+automatically make FeynCalc worse than similar software tools.</p>
+<h3 id="what-is-the-relation-between-feyncalc-and-formcalc">What is the
+relation between FeynCalc and FormCalc?</h3>
+<p><a href="http://www.feynarts.de/formcalc/">FormCalc</a> is a
+Mathematica package for calculating Feynman diagrams developed by Thomas
+Hahn (<a href="http://arxiv.org/abs/hep-ph/9807565">hep-ph/9807565</a>).
+For performance reasons, most of the computations are done using <a
+href="http://www.nikhef.nl/~form/">FORM</a>. However, the input and
+output are handled by Mathematica, so that the user doesn’t really need
+to know FORM in order to use FormCalc. A nice feature of FormCalc is the
+seamless integration with FeynArts, i.e. FormCalc can evaluate FeynArts
+diagrams out of the box. This is not surprising since both packages are
+mainly developed by the same person.</p>
+<p>Despite the similarity in the names and the fact that both tools are
+used for doing similar things, FeynCalc and FormCalc are not related to
+each other in any way. Both are independent projects developed by
+different people.</p>
+<h3 id="is-feyncalc-used-in-professional-research">Is FeynCalc used in
+professional research?</h3>
+<p>Yes! See the citations list of the original FeynCalc paper on <a
+href="http://inspirehep.net/record/28757/citations?ln=en">INSPIRE</a>.</p>
+<h3
+id="what-is-the-difference-between-stable-and-development-versions-of-feyncalc">What
+is the difference between stable and development versions of
+FeynCalc?</h3>
+<p>In short, the stable version of FeynCalc is the last officially
+released version of the package. This version receives support until the
+next official release, in the sense that we will provide patches to fix
+the discovered issues or ensure the compatibility to the newly released
+Mathematica versions. While those patches will fix bugs, they will not
+introduce any new features.</p>
+<p>The development version of FeynCalc is the test ground for new ideas,
+features and functions. There is no guarantee that everything will work
+and some previously introduced symbols may be renamed or removed without
+further notice. When the development version is considered to be robust
+enough, it gets released as the new stable version.</p>
+<p>Both versions are publicly available in the official FeynCalc
+repository.</p>
+<ul>
+<li>The stable version is contained in the <a
+href="https://github.com/FeynCalc/feyncalc/tree/hotfix-stable">hotfix-stable</a>
+branch</li>
+<li>The development version resides in the <a
+href="https://github.com/FeynCalc/feyncalc/tree/master">master</a>
+branch</li>
+</ul>
+<p>Notice that many of the <a
+href="https://github.com/FeynCalc/feyncalc/tree/master/FeynCalc/Examples">examples</a>
+shipped with the development version will not run with the stable
+version since they make use of new, previously unavailable routines.</p>
+<h3
+id="does-feyncalc-support-working-in-other-spacetime-dimensions-than-4">Does
+FeynCalc support working in other spacetime dimensions than
+<code>4</code>?</h3>
+<p>FeynCalc can handle objects in <code>4</code> and <code>D</code>
+dimensions, where <code>D</code> is understood in the sense of
+dimensional regularization. Explicitly, the user can enter objects
+(e.g. momenta, metric tensors, Dirac matrices) that live in
+<code>4</code>, <code>D</code> and <code>D-4</code> dimensions, where
+<code>D</code> can be any symbol like <code>D</code>, <code>d</code>,
+<code>dim</code> etc. Specifying dimension in a different way (e.g. by
+writing <code>2</code>, <code>10</code>, <code>D-5</code>,
+<code>D+1</code>, <code>2 Epsilon</code> etc.) is not supported. If
+quantities in different dimensions are contracted with each other, the
+contraction is always resolved according to the rules of the
+Breitenlohner-Maison-’t Hooft-Veltman (BMHV) scheme. For example,
+contracting a <code>D</code>-dimensional vector with a
+<code>D-4</code>-dimensional metric tensor will return a
+<code>D-4</code>-dimensional vector, while contracting a
+<code>4</code>-dimensional Dirac matrix with a
+<code>D-4</code>-dimensional Dirac matrix will give zero.</p>
+<h3
+id="what-is-the-meaning-of-feyncalcexternal-fci-feyncalcexternal-or-fce">What
+is the meaning of “FeynCalcExternal”, “FCI”, “FeynCalcExternal” or
+“FCE”?</h3>
+<p><code>FeynCalcInternal</code> or <code>FCI</code> is the name of the
+notation that FeynCalc uses to encode different physical entities as
+Mathematica functions. This notation is very useful for
+<em>programming</em> FeynCalc, but can be rather inconvenient and
+verbose when used by the user for <em>working</em> with FeynCalc. To
+address this issue FeynCalc also supports a different notation, called
+<code>FeynCalcExternal</code> or <code>FCE</code> which is much shorter
+and easier to use than <code>FCI</code>. For example, a
+<code>D</code>-dimensional momentum vector in the FCI notation reads
+<code>Pair[LorentzIndex[mu, D], Momentum[p, D]]</code> while in the
+<code>FCE</code>-notation it is just <code>FVD[p,mu]</code>. FeynCalc
+provides the functions <code>FeynCalcInternal</code> or <code>FCI</code>
+and <code>FeynCalcExternal</code> or <code>FCE</code> to convert between
+the two notations. The user input can use any of the two notations or
+even mix them. For example,</p>
+<p><code>Contract[FV[p,mu] MT[mu,nu]]</code>,
+<code>Contract[Pair[LorentzIndex[mu], LorentzIndex[nu]]*Pair[LorentzIndex[mu], Momentum[p]]]</code>
+and <code>Contract[Pair[LorentzIndex[mu], Momentum[p] MT[mu,nu]]]</code>
+are all valid FeynCalc expressions. This is because all FeynCalc
+functions first convert the user input to the <code>FCI</code> notation.
+Some commonly used FCE functions are</p>
+<ul>
+<li><code>GA[mu]</code> (Dirac matrix in <code>4</code> dimensions) for
+<code>DiracGamma[LorentzIndex[mu]]</code></li>
+<li><code>GS[p]</code> (Dirac slash in <code>4</code> dimensions) for
+<code>DiracGamma[Momentum[p]]</code></li>
+<li><code>FV[p,mu]</code> (vector in <code>4</code> dimensions) for
+<code>Pair[LorentzIndex[mu], Momentum[p]]</code></li>
+<li><code>LC[mu, nu, rho, sigma]</code> (epsilon tensor in
+<code>4</code> dimensions) for
+<code>Eps[LorentzIndex[mu], LorentzIndex[nu], LorentzIndex[rho], LorentzIndex[sigma]]</code></li>
+<li><code>MT[mu, nu]</code> (metric tensor in <code>4</code> dimensions)
+for <code>Pair[LorentzIndex[mu], LorentzIndex[nu]]</code></li>
+<li><code>SP[p1,p2]</code> (scalar product in <code>4</code> dimensions)
+for <code>Pair[Momentum[p1], Momentum[p2]]</code></li>
+</ul>
+<h3
+id="how-can-i-automatically-generate-amplitudes-for-my-feynman-diagrams-to-evaluate-them-with-feyncalc">How
+can I automatically generate amplitudes for my Feynman diagrams to
+evaluate them with FeynCalc?</h3>
+<p>The simplest way is to use FeynArts and convert its output to
+Feyncalc. An interface to QGRAF is available via the FeynHelpers
+extension.</p>
+<h3
+id="feynarts-functions-createtopologies-insertfields-or-paint-generate-a-lot-of-text-output-that-makes-my-notebook-difficult-to-read.-how-can-i-avoid-this">FeynArts’
+functions <code>CreateTopologies</code>, <code>InsertFields</code> or
+<code>Paint</code> generate a lot of text output that makes my notebook
+difficult to read. How can I avoid this?</h3>
+<p>First of all, make sure that you put a semicolon after each FeynArts
+function, e.g.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    tops <span class="ex">=</span> CreateTopologies<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    diags <span class="ex">=</span> InsertFields<span class="op">[</span>tops<span class="op">,</span> ...<span class="op">]</span>;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    Paint<span class="op">[</span>diags<span class="op">]</span>;</span></code></pre></div>
+<p>Second, you can prevent FeynArts from printing info messages by
+setting</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    $FAVerbose<span class="ex">=</span><span class="dv">0</span>;</span></code></pre></div>
+<p>Finally, as far as the graphical output via <code>Paint</code> is
+concerned, you can use the options <code>Numbering</code> and
+<code>SheetHeader</code> to control the amount of additional information
+when visualizing your diagrams. Last but not least, using the
+<code>ColumnsXRows</code> option can make the diagrams look bigger and
+thus more readable. Compare the output of</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    tops <span class="ex">=</span> CreateTopologies<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    diags <span class="ex">=</span> InsertFields<span class="op">[</span>tops<span class="op">,</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}],</span> <span class="sc">-</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}],</span> <span class="sc">-</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Classes<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="st">&quot;SM&quot;</span><span class="op">,</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">S</span><span class="op">[</span><span class="dv">1</span><span class="op">],</span> <span class="fu">S</span><span class="op">[</span><span class="dv">2</span><span class="op">],</span> <span class="fu">V</span><span class="op">[</span><span class="dv">2</span><span class="op">]}]</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    Paint<span class="op">[</span>diags<span class="op">]</span></span></code></pre></div>
+<p>with</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    $FAVerbose<span class="ex">=</span><span class="dv">0</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    tops <span class="ex">=</span> CreateTopologies<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">]</span>;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    diags <span class="ex">=</span> InsertFields<span class="op">[</span> tops<span class="op">,</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}],</span> <span class="sc">-</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}],</span> <span class="sc">-</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Classes<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="st">&quot;SM&quot;</span><span class="op">,</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">S</span><span class="op">[</span><span class="dv">1</span><span class="op">],</span> <span class="fu">S</span><span class="op">[</span><span class="dv">2</span><span class="op">],</span> <span class="fu">V</span><span class="op">[</span><span class="dv">2</span><span class="op">]}]</span>;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    Paint<span class="op">[</span>diags<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> Numbering <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span>;</span></code></pre></div>
+<p>and you will immediately see the difference.</p>
+<h3 id="why-diractrace-doesnt-evaluate-my-expression">Why DiracTrace
+doesn’t evaluate my expression?</h3>
+<p>By default <code>DiracTrace</code> isn’t immediately applied. This is
+because in practical computations one often does not evaluate the trace
+right away, either because one wants to work with the expression inside
+the trace first or because it is desirable to have the final result with
+an unevaluated trace. An immediate evaluation of DiracTrace can be
+invoked by setting the option <code>DiracTraceEvaluate</code> to
+<code>True</code> or applying <code>DiracSimplify</code> to the whole
+expression. For example, <code>DiracTrace[GA[mu, nu]]</code> remains
+unevaluated but
+<code>DiracTrace[GA[mu, nu],DiracTraceEvaluate -&gt; True]</code> or
+<code>DiracTrace[GA[mu, nu]]//DiracSimplify</code> are evaluated
+immediately.</p>
+<h3
+id="can-i-use-feyncalcs-tensors-together-with-mathematicas-tensors-e.g.-kroneckerdelta-levicivitatensor-and-tensor-functions-e.g.-tensorcontract-tensortranspose-tensorproduct">Can
+I use FeynCalc’s tensors together with Mathematica’s tensors
+(e.g. <code>KroneckerDelta</code>, <code>LeviCivitaTensor</code>) and
+tensor functions (e.g. <code>TensorContract</code>,
+<code>TensorTranspose</code>, <code>TensorProduct</code>)?</h3>
+<p>No, you cannot mix those objects. FeynCalc’s tensor functions like
+<code>Contract</code> can work properly only with tensors that are
+defined in FeynCalc (i.e. <code>FV</code>, <code>MTD</code>,
+<code>TensorFunction</code>). The same goes for Mathematica’s
+<code>TensorContract</code> applied to FeynCalc’s tensors. Trying to
+combine tensors from Mathematica and FeynCalc will either not evaluate
+at all or produce wrong results.</p>
+<h3 id="why-there-is-no-kronecker-delta-in-feyncalc">Why there is no
+Kronecker delta in FeynCalc?</h3>
+<p>FeynCalc doesn’t really distinguish between upper and lower Lorentz
+indices. This is perfectly fine as long as you’re working with
+manifestly Lorentz covariant expressions where Einstein summation
+convention is understood (which is normally the case in relativistic,
+manifestly Lorentz covariant QFTs like QED, QCD etc.). Hence, instead of
+Kronecker’s delta you would use the metric tensor <code>MT[mu,nu]</code>
+(in 4-dimensions) or <code>MTD[mu,nu]</code> (in D-dimensions). This is
+not surprising since the Minkowskian Kronecker delta is just the metric
+tensor with one index up and the other down. If one of those indices is
+a dummy index, you can always pull it upstairs or downstairs, thus
+converting your Kronecker delta into a metric tensor with both indices
+up or down.</p>
+<h3
+id="feyncalc-denotes-all-spinors-with-a-varphi-letter.-how-do-i-distinguish-between-u-baru-v-and-barv">FeynCalc
+denotes all spinors with a <span class="math inline">\varphi</span>
+letter. How do I distinguish between <span class="math inline">u</span>,
+<span class="math inline">\bar{u}</span>, <span
+class="math inline">v</span> and <span
+class="math inline">\bar{v}</span>?</h3>
+<p>FeynCalc (and FeynArts) figure out the type of the spinor depending
+on its position in the chain and the sign of its momentum. The first
+spinor in the chain with positive momentum is <span
+class="math inline">\bar{u}</span> (outgoing fermion) and if the
+momentum is negative it is <span class="math inline">\bar{v}</span>
+(ingoing antifermion). Likewise, the last spinor in the chain with
+positive momentum is <span class="math inline">u</span> (ingoing
+fermion) and if the momentum is negative it is <span
+class="math inline">v</span> (outgoing antifermion).</p>
+<h3
+id="in-feyncalc-the-lorentz-indices-of-the-epsilon-tensor-are-sometimes-replaced-by-4-momenta.-what-does-this-mean">In
+FeynCalc the Lorentz indices of the epsilon tensor are sometimes
+replaced by 4-momenta. What does this mean?</h3>
+<p>It is just a convention (also used e.g. in FORM) to denote
+contractions between 4-vectors and the epsilon tensor. So,
+<code>LC[mu, nu, rho][p]</code> is the same as
+<code>Contract[LC[mu, nu, rho, si] FV[p, si]]</code>. There is also a
+technical reason for using this notation. Writing contractions without
+explicitly introducing dummy indices avoids the necessity to
+canonicalize the indices, e.g. to ensure that say
+<code>LC[mu, nu, rho, si] FV[p, si] - LC[mu, nu, rho, tau] FV[p, tau]</code>
+is indeed zero.</p>
+<h3 id="how-are-the-loop-integrals-in-feyncalc-normalized">How are the
+loop integrals in FeynCalc normalized?</h3>
+<p>FeynCalc contains several objects that represent loop integrals:
+<code>FAD</code> (and its varieties such as <code>SFAD</code>,
+<code>CFAD</code> and <code>GFAD</code>), <code>PaVe</code> and
+<code>GLI</code>. <code>FAD</code>is the denominator of a general loop
+integral and does not imply any normalization factors. E.g.
+<code>FAD[{p,m}]</code> stands for <span class="math inline">\int d^D p
+\frac{1}{p^2-m^2}</span>. <code>PaVe</code> stands (depending on its
+arguments) for a Passarino-Veltman coefficient or scalar function. In
+FeynCalc they are normalized differently as compared to the literature,
+such that <code>PaVe[0, {}, {m}]</code> (1-point scalar function)
+denotes <span class="math inline">\frac{1}{i Pi^2} \int d^D p
+\frac{1}{p^2-m^2}</span>. The same normalization holds also for all the
+other PaVe functions. This normalization is used also e.g. in the
+OneLoop package.</p>
+<p>To sum it up, if we denote <span class="math inline">\int \frac{d^D
+p}{(2 \pi)^4} \frac{1}{p^2-m^2}</span> (1-loop tadpole integral with the
+standard normalization) as <span class="math inline">I_0</span> and
+<span class="math inline">-i (16 \pi^2) I_0</span> (1-point PaVe scalar
+function with the standard normalization) as <span
+class="math inline">A_0</span>, then we have</p>
+<p><span class="math display">\begin{align*}
+\mathtt{FAD}[\{p,m\}] = (2\pi)^D I_0 = I \pi^2 (2 \pi)^{D-4} A_0 = i
+\pi^2 \, \mathtt{PaVe}[0, \{\}, \{m\}]
+\end{align*}</span></p>
+<p>This is consistent with the well-known relation</p>
+<p><span class="math display">\begin{align*}
+I_0 = \frac{i}{16 \pi^2} A_0
+\end{align*}</span></p>
+<p>Note, than when you convert <code>FAD</code>-type loop integrals to
+<code>PaVe</code>, FeynCalc automatically introduces the prefactor <span
+class="math inline">\frac{1}{\pi^2}</span>, to account for the fact
+that</p>
+<p><span class="math display">\begin{align*}
+\mathtt{PaVe}[0, \{\}, \{m\}] \to \frac{1}{i \pi^2}
+\mathtt{FAD}[\{p,m\}]
+\end{align*}</span></p>
+<p>If the prefactor <span class="math inline">\frac{1}{(\pi^2)^D}</span>
+in front of each 1-loop integral from <code>FAD</code> or
+<code>PaVe</code> is taken to be implicit (i.e. it understood but not
+written down explicitly), then one can conveniently work with the
+following replacements</p>
+<p><span class="math display">\begin{align*}
+\mathtt{FAD}[\{p,m\}] &amp;\to I_0, \\
+\mathtt{FAD}[\{p,m\}] &amp;\to \frac{i}{16 \pi^2} A_0, \\
+\mathtt{PaVe}[0, \{\}, \{m\}] &amp;\to \frac{1}{i \pi^2} I_0, \\
+\mathtt{PaVe}[0, \{\}, \{m\}] &amp;\to \frac{1}{(2 \pi)^4} A_0.
+\end{align*}</span></p>
+<p>For practical purposes, this approach is indeed the most convenient
+one. If you are generating your amplitudes with FeynArts, you need to
+use the option <code>Prefactor</code> of <code>CreateFeynAmp</code> to
+prevent FeynArts from adding explicit <code>1/(2Pi)^D</code> prefactors.
+For example, <code>CreateFeynAmp[myDiagrams, PreFactor -&gt; 1]</code>
+will generate you the amplitude (I*M) without those prefactors.</p>
+<h3 id="how-can-i-define-a-complex-four-vector">How can I define a
+complex four vector?</h3>
+<p>The simplest way is to write something like
+<code>FV[{a,I},mu]</code>. The presence of an explicit <code>I</code>
+will make this vector change under <code>ComplexConjugate</code>, such
+that</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ComplexConjugate<span class="op">[</span>FV<span class="op">[{</span><span class="fu">a</span><span class="op">,</span><span class="fu">I</span><span class="op">},</span>mu<span class="op">]]</span><span class="sc">//</span>FCE</span></code></pre></div>
+<p>will give you <code>FV[{a,-I},mu]</code>.</p>
+<h3
+id="i-created-a-custom-model-for-feynarts-using-feynrules.-how-can-i-use-it-for-calculations-with-feyncalc">I
+created a custom model for FeynArts using FeynRules. How can I use it
+for calculations with FeynCalc?</h3>
+<p>You need to copy your model to
+<code>FileNameJoin[{$FeynArtsDirectory, "Models"}]</code> and evaluate
+(needed only once)</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FAPatch<span class="op">[</span>PatchModelsOnly <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<p>This will patch the new model to be compatible with FeynCalc, after
+which you can follow the standard procedure of generating amplitudes
+with patched FeynArts and converting them to FeynCalc using
+<code>FCFAConvert</code>. Notice that some models you create with
+FeynRules might not work with FeynCalc, if they contain objects that are
+not present in FeynCalc.</p>
+<h3
+id="how-does-feyncalc-treat-the-5th-dirac-matrix-gamma5-in-d-dimensions">How
+does FeynCalc treat the 5th Dirac matrix <span
+class="math inline">\gamma^5</span> in <span
+class="math inline">D</span> dimensions?</h3>
+<p>FeynCalc essentially offers two ways to handle the Dirac algebra
+involving <span class="math inline">\gamma^5</span> in <span
+class="math inline">D</span> dimensions. The default is anticommuting
+<span class="math inline">\gamma^5</span> which corresponds to the naive
+dimensional regularization (NDR). That is,</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span>.GAD<span class="op">[</span>mu<span class="op">]]</span></span></code></pre></div>
+<p>returns</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>GAD<span class="op">[</span>mu<span class="op">]</span>.GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span></span></code></pre></div>
+<p>As far as Dirac traces are concerned, a trace that contains an even
+number of <span class="math inline">\gamma^5</span> (so that they can be
+anticommuted to the very right and eliminated via <span
+class="math inline">(\gamma^5)^2 = 1</span> can be computed directly,
+e.g.</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracTrace<span class="op">[</span>GAD<span class="op">[</span>i1<span class="op">,</span>i2<span class="op">,</span>i3<span class="op">,</span>i4<span class="op">]</span>.GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span>.GAD<span class="op">[</span>i5<span class="op">,</span>i6<span class="op">]</span>.GA<span class="op">[</span><span class="dv">5</span><span class="op">]]]</span></span></code></pre></div>
+<p>does not cause any problems. If the trace contains an odd number of
+<span class="math inline">\gamma^5</span>, NDR does not provide an
+unambiguous prescription to deal with such quantities. Therefore,
+FeynCalc will refuse to calculate such a trace, cf.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracTrace<span class="op">[</span>GAD<span class="op">[</span>i1<span class="op">,</span>i2<span class="op">,</span>i3<span class="op">,</span>i4<span class="op">]</span>.GA<span class="op">[</span><span class="dv">5</span><span class="op">]]]</span></span></code></pre></div>
+<p>An alternative prescription to handle <span
+class="math inline">\gamma^5</span> available in FeynCalc is the
+so-called t’Hooft-Veltman scheme, also known as
+Breitenlohner-Maison-t’Hooft-Veltman (BMHV) scheme. This scheme is
+algebraically consistent in the sense that D-dimensional traces
+involving any number of <span class="math inline">\gamma^5</span> can be
+evaluated unambiguously. However, it is often perceived as cumbersome,
+as in this scheme we must explicitly distinguish between quantities
+(Dirac matrices, Lorentz vectors etc.) that live in <span
+class="math inline">D</span>, <span class="math inline">4</span> and
+<span class="math inline">D-4</span> dimensions. Furthermore, this
+scheme breaks axial Ward identitites that have to be manually restored
+with a special counter-term. Cf. e.g. arXiv:1809.01830, p. 101 for a
+brief overview. This scheme is activated by setting the global variable
+<code>$BreitMaison</code> to <code>True</code>. After that FeynCalc can
+directly calculate traces with an odd number of <span
+class="math inline">\gamma^5</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>$BreitMaison<span class="ex">=</span><span class="cn">True</span>;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>DiracTrace<span class="op">[</span>GAD<span class="op">[</span>i1<span class="op">,</span>i2<span class="op">,</span>i3<span class="op">,</span>i4<span class="op">,</span>i5<span class="op">,</span>i6<span class="op">]</span>.GA<span class="op">[</span><span class="dv">5</span><span class="op">]]]</span></span></code></pre></div>
+<p>As one can immediately see, the price to pay is that the algebra
+involving <span class="math inline">\gamma^5</span> becomes more
+complicated</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>DiracSimplify<span class="op">[</span>GA<span class="op">[</span><span class="dv">5</span><span class="op">]</span>.GAD<span class="op">[</span>mu<span class="op">]]</span></span></code></pre></div>
+<p>In this context quantities living in different dimensions are
+distinguished by having a bar (4-dimensions) a hat (D-4 dimensions) or
+no additional markers (D-dimensions). Cf.</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>GAD<span class="op">[</span>mu<span class="op">],</span> GSD<span class="op">[</span>mu<span class="op">],</span> FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span>mu<span class="op">],</span> SPD<span class="op">[</span><span class="fu">p</span><span class="op">,</span><span class="fu">q</span><span class="op">]}</span> <span class="co">(*D-dim*)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>GA<span class="op">[</span>mu<span class="op">],</span> GS<span class="op">[</span>mu<span class="op">],</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span>mu<span class="op">],</span> SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span><span class="fu">q</span><span class="op">]}</span> <span class="co">(*4-dim*)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>GAE<span class="op">[</span>mu<span class="op">],</span> GSE<span class="op">[</span>mu<span class="op">],</span> FVE<span class="op">[</span><span class="fu">p</span><span class="op">,</span>mu<span class="op">],</span> SPE<span class="op">[</span><span class="fu">p</span><span class="op">,</span><span class="fu">q</span><span class="op">]}</span> <span class="co">(*D-4-dim*)</span></span></code></pre></div>
+<p>To return to the NDR scheme, you need to set</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>$BreitMaison<span class="ex">=</span><span class="cn">False</span></span></code></pre></div>
+<p>Notice that FeynCalc merely evaluates the user expressions according
+to the scheme setting. Since <span class="math inline">\gamma^5</span>
+in <span class="math inline">D</span> dimensions is always a problematic
+topic, it is up to you to make sure that what you are calculating makes
+sense from the physics point of view. Moreover, in case of the BMHV
+scheme, it is your task to workout the additional counter terms (which
+is often very nontrivial) and ensure that the axial current conservation
+is restored.</p>
+<h3 id="why-should-i-avoid-using-oneloop">Why should I avoid using
+OneLoop?</h3>
+<p><code>OneLoop</code> is a legacy function that was originally
+introduced to completely handle the evaluation of 1-loop amplitudes in
+FeynCalc. Over the years, we realized that this approach is not very
+flexible and that it is often better to tackle the evaluation of the
+amplitude by applying lower level functions such as <code>TID</code>,
+<code>DiracSimplify</code>, <code>SUNSimplify</code> etc. in the order
+determined by the type of the given amplitude. Moreover, it was observed
+that in some cases <code>OneLoop</code> may return inconsistent results,
+especially when calculating diagrams that involve <span
+class="math inline">\gamma^5</span>. Unfortunately, the enormous
+complexity of the <code>OneLoop</code> source code makes it unlikely
+that it can be fixed and debugged in the near future. This is why we
+recommend the FeynCalc users to avoid calling <code>OneLoop</code>
+altogether and use other (simpler) functions instead. In particular, as
+far as the tensor reduction of 1-loop integrals is concerned,
+<code>TID</code> can do everything (and even more) than is offered by
+<code>OneLoop</code>.</p>
+<h3
+id="tensor-reduction-with-tid-is-very-slow-is-there-a-way-to-accelerate-it">Tensor
+reduction with TID is very slow, is there a way to accelerate it?</h3>
+<p>By default <code>TID</code> attempts to reduce all the occurring
+tensor integrals to scalar ones (tadpole, bubble, triangle and box). For
+integrals that are of a high rank and/or depend on many complicated
+invariants, such a reduction will generate a huge number of terms. This
+is why in such cases <code>TID</code> might require a lot of time to
+generate the output. However, very often the reduction to the basic
+scalar integrals is not really needed. If the output will be evaluated
+numerically (e.g. using <code>LoopTools</code>) or analytically with the
+aid of <code>FeynHelpers</code>, it is fully sufficient to reduce each
+tensor integral to the corresponding Passarino-Veltman coefficient
+functions. In this case the reduction occurs much faster and the output
+is very compact. This mode can be activated via the option
+<code>UsePaVeBasis</code>. Compare e.g. the output of</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> nu<span class="op">]</span> FAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> m0<span class="op">},</span> <span class="op">{</span><span class="fu">p</span> <span class="sc">+</span> q1<span class="op">,</span> m1<span class="op">},</span> <span class="op">{</span><span class="fu">p</span> <span class="sc">+</span> q2<span class="op">,</span> m2<span class="op">}],</span> <span class="fu">p</span><span class="op">]</span></span></code></pre></div>
+<p>with</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> nu<span class="op">]</span> FAD<span class="op">[{</span><span class="fu">p</span><span class="op">,</span> m0<span class="op">},</span> <span class="op">{</span><span class="fu">p</span> <span class="sc">+</span> q1<span class="op">,</span> m1<span class="op">},</span> <span class="op">{</span><span class="fu">p</span> <span class="sc">+</span> q2<span class="op">,</span> m2<span class="op">}],</span> <span class="fu">p</span><span class="op">,</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  UsePaVeBasis <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p>to see the difference.</p>
+</body>
+</html>

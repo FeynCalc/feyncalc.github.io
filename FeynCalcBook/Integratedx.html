@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="css/feyncalc.css" />
 
@@ -20,9 +28,15 @@
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<p><code>Integratedx[x, low, up]</code> is a variable representing the integration operator <code>Integrate[#, {x,low,up}]&amp;</code>.</p>
+<p><code>Integratedx[x, low, up]</code> is a variable representing the
+integration operator <code>Integrate[#, {x,low,up}]&amp;</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="Extra/FeynCalc.html">Overview</a>, <a href="CalculateCounterTerm.html">CalculateCounterTerm</a>, <a href="TimedIntegrate.html">TimedIntegrate</a>, <a href="HypergeometricIR.html">HypergeometricIR</a>, <a href="HypInt.html">HypInt</a>, <a href="TimedIntegrate.html">TimedIntegrate</a>.</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="CalculateCounterTerm.html">CalculateCounterTerm</a>, <a
+href="TimedIntegrate.html">TimedIntegrate</a>, <a
+href="HypergeometricIR.html">HypergeometricIR</a>, <a
+href="HypInt.html">HypInt</a>, <a
+href="TimedIntegrate.html">TimedIntegrate</a>.</p>
 <h3 id="examples">Examples</h3>
 </body>
 </html>
