@@ -128,7 +128,7 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 \left(\overline{p}^{\rho }+\overline{q}^{\rho }\right)</span></p>
 <p><span class="math display">\overline{r}^2 \left(\overline{p}\cdot
 \overline{r}+\overline{q}\cdot \overline{r}\right)^2</span></p>
-<p>However, since FeynCalc 9 there is a function for that</p>
+<p>However, FeynCalc offers a function for that</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCRenameDummyIndices<span class="op">[</span>ex1<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{r}^{\nu }
@@ -153,15 +153,15 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$22})}
 \overline{q}^{\text{\$AL}(\text{\$22})}-\overline{p}^{\text{\$AL}(\text{\$21})}
 \overline{q}^{\text{\$AL}(\text{\$21})}</span></p>
-<p>But since FeynCalc 9.1 there is a function for that too</p>
+<p>There is a function for that too</p>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> <span class="sc">-</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^{\nu } \overline{q}^{\nu
 }-\overline{p}^{\mu } \overline{q}^{\mu }</span></p>
 <p><span class="math display">0</span></p>
-<p>Finally, often we also need to uncontract already contracted indices.
-This is done by <code>Uncontract</code>. By default, it handles only
+<p>Often we also need to uncontract already contracted indices. This is
+done by <code>Uncontract</code>. By default, it handles only
 contractions with Dirac matrices and Levi-Civita tensors</p>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span></span>
@@ -186,5 +186,47 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> Pair <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$34})}
 \overline{q}^{\text{\$AL}(\text{\$34})}</span></p>
+<p>Sometimes one might want to define custom symbolic tensors that are
+not specified in terms of the 4-vectors, metric tensors and
+Levi-Civitas. This is possible in FeynCalc, but the handling of such
+objects is not as good as that of the built-in quantities</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DeclareFCTensor<span class="op">[</span>myTensor<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>myTensor<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ex <span class="ex">=</span> Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\overline{p}^{\nu } \overline{q}^{\mu }
+\;\text{myTensor}(\mu ,\nu )</span></p>
+<p><span
+class="math display">\text{myTensor}\left(\overline{q},\overline{p}\right)</span></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span>ex<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> Pair <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$36})}
+\overline{q}^{\text{\$AL}(\text{\$35})}
+\;\text{myTensor}(\text{\$AL}(\text{\$35}),\text{\$AL}(\text{\$36}))</span></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(myTensor<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> MT<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   myTensor<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]]</span> MT<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]],</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]]</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>FCCanonicalizeDummyIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>i1<span class="op">,</span> i2<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\bar{g}^{\alpha \beta }
+\;\text{myTensor}(\alpha ,\beta )+\bar{g}^{\mu \nu }
+\;\text{myTensor}(\mu ,\nu )</span></p>
+<p><span class="math display">2 \bar{g}^{\text{i1}\;\text{i2}}
+\;\text{myTensor}(\text{i1},\text{i2})</span></p>
+<p>To extract the list of free or dummy indices present in the
+expression, one can use <code>FCGetFreeIndices</code> and
+<code>FCGetDummyIndices</code> respectively</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>FCGetFreeIndices<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{</span>LorentzIndex<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\overline{p}^{\mu } \overline{q}^{\nu
+}</span></p>
+<p><span class="math display">\{\mu ,\nu \}</span></p>
+<p>```mathematica FCI[FV[p, [Mu]] FV[q, [Mu]]] FCGetDummyIndices[%,
+{LorentzIndex}]</p>
+<p>```mathematica</p>
+<p><span class="math display">\overline{p}^{\mu } \overline{q}^{\mu
+}</span></p>
+<p><span class="math display">\{\mu \}</span></p>
 </body>
 </html>

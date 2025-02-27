@@ -168,23 +168,57 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\hat{q}^{\mu } \overline{p}^{\mu
 }</span></p>
 <p><span class="math display">0</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">+</span> FVE<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span>) (FVD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">+</span> FVE<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(p^{\mu }+\hat{p}^{\mu }\right)
+\left(q^{\mu }+\hat{q}^{\mu }\right)</span></p>
+<p><span class="math display">3 \left(\hat{p}\cdot \hat{q}\right)+p\cdot
+q</span></p>
 <p>Sometimes we need to switch from one dimension to another, e.g. to
 convert a 4-dimensional object to a <span
 class="math inline">D</span>-dimensional one or vice versa. This is done
 via</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="dv">4</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="dv">4</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">p^{\mu }</span></p>
 <p><span class="math display">\overline{p}^{\mu }</span></p>
 <p>The second argument of <code>ChangeDimension</code> is the new
 dimension . The most common choices are <span
 class="math inline">4</span>, <span class="math inline">D</span> or
 <span class="math inline">D-4</span></p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">4</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">D</span> <span class="sc">-</span> <span class="dv">4</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">p^{\mu }</span></p>
 <p><span class="math display">\hat{p}^{\mu }</span></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ChangeDimension<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">D</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
+<p><span class="math display">p\cdot q</span></p>
+<p>To check the dimension of the given expression one can use
+<code>FCGetDimensions</code></p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>FCGetDimensions<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="op">{}]</span></span></code></pre></div>
+<p><span class="math display">p^{\mu } \overline{q}^{\mu }</span></p>
+<p><span class="math display">\{4,D\}</span></p>
+<p>If one needs to replace the dimensional symbols <code>D</code> in the
+prefactors of the Lorentz tensors, it is better to use
+<code>FCReplaceD</code> instead of a replacement rule. Otherwise, the
+dimensions of the tensors will get messed up</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>FCI<span class="op">[</span>(<span class="fu">D</span> <span class="sc">+</span> <span class="dv">2</span>) MTD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="ot">/.</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon</span></code></pre></div>
+<p><span class="math display">(D+2) g^{\mu \nu }</span></p>
+<p><span class="math display">(6-2 \varepsilon ) g_{\{4-2 \varepsilon
+,4-2 \varepsilon \}}{}^{\mu \nu }</span></p>
+<p>```mathematica (D + 2) MTD[[Mu], [Nu]] FCReplaceD[%, D -&gt; 4 - 2
+Epsilon]</p>
+<p>```mathematica</p>
+<p><span class="math display">(D+2) g^{\mu \nu }</span></p>
+<p><span class="math display">(6-2 \varepsilon ) g^{\mu \nu }</span></p>
 </body>
 </html>
