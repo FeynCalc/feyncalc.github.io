@@ -31,12 +31,40 @@
 <h2 id="custom-feynrules-models">Custom FeynRules models</h2>
 <h3 id="see-also">See also</h3>
 <p><a href="FeynCalc.html">Overview</a>.</p>
-<p>If you want to create new FeynArts models using <a
-href="https://feynrules.irmp.ucl.ac.be/">FeynRules</a>, please keep in
-mind that those models must be patched for compatibility with FeynCalc
-before they can be used for calculations.</p>
-<p>The patching is done by using the function <code>FAPatch</code> with
-the option <code>PatchModelsOnly</code> set to <code>True</code></p>
+<p>Mathematica package <a
+href="https://feynrules.irmp.ucl.ac.be/">FeynRules</a> allows you to
+create new FeynArts models that can be used for calculations using
+FeynCalc. FeynRules is not a part of FeynCalc and must thus be
+downloaded and installed separately. You can obtain your copy from the
+<a href="https://feynrules.irmp.ucl.ac.be/">developer website</a>.</p>
+<p>FeynCalc contains some examples of custom FeynRules models that are
+located inside</p>
+<pre><code>FileNameJoin[{$UserBaseDirectory, &quot;Applications&quot;, &quot;FeynCalc&quot;, &quot;Examples&quot;, &quot;FeynRules&quot;}]</code></pre>
+<p>The <code>XYZ.fr</code>-file is a FeynRules model, while the
+<code>GenerateModelXYZ.m</code> script creates a FeynArts model out of
+it. The script expects FeynRules to be located in</p>
+<pre><code>   FileNameJoin[{$UserBaseDirectory,&quot;Applications&quot;,&quot;FeynRules&quot;}]</code></pre>
+<p>This means that you should be able to load FeynRules on a fresh
+Mathematica kernel using</p>
+<pre><code>$FeynRulesPath=FileNameJoin[{$UserBaseDirectory,&quot;Applications&quot;,&quot;FeynRules&quot;}];
+&lt;&lt;FeynRules`;</code></pre>
+<p>without any error messages. If this does not work, then FeynRules
+have not been installed properly on your computer and cannot be
+used.</p>
+<p>The script <code>GenerateModelXYZ.m</code> must be evaluated on a
+fresh Mathematica kernel. You must ensure that no other packages are
+loaded, otherwise the process will most likely fail. For that you can
+either evaluate <code>Quit[]</code> before running the commands from the
+script or manually kill the kernel(s) via
+<code>Evaluation -&gt; Quit Kernel -&gt; ...</code>. After the script
+has successfully finished you must close the kernel again. Do not try to
+load FeynCalc on the same kernel, or you will run into more issues.</p>
+<p>The new FeynArts model should be now located inside</p>
+<pre><code>FileNameJoin[{$UserBaseDirectory,&quot;Applications&quot;,&quot;FeynCalc&quot;,&quot;FeynArts&quot;,&quot;Models&quot;}]</code></pre>
+<p>Before it can be used for calculations, it must be patched for
+compatibility with FeynCalc. The patching is done by using the function
+<code>FAPatch</code> with the option <code>PatchModelsOnly</code> set to
+<code>True</code></p>
 <ul>
 <li>If the model is located inside the <code>Models</code> directory of
 <code>$FeynArtsDirectory</code>, it is sufficient to evaluate
@@ -49,5 +77,8 @@ and FeynArts in the usual way.</li>
 rerunning <code>FAPatch[PatchModelsOnly -&gt; True]</code> would not do
 any harm, so if you often modify existing or add new models, you might
 want to keep this command in your working notebooks.</p>
+<p><strong>Please note that we don’t provide support on how to create or
+debug a particular FeynRules model. For that please consult the package
+manual or contact the package developers </strong></p>
 </body>
 </html>
