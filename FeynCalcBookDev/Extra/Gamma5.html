@@ -302,7 +302,32 @@ using the full BMHV scheme.</p>
 <p>FeynCalc implement the so-called Moch-Vermaseren-Vogt MVV formula
 from <a href="https://arxiv.org/pdf/1506.04517.pdf">Moch:2015usa</a> for
 calculating <span class="math inline">\gamma^5</span>-traces in this
-scheme. The scheme itself is activated by setting</p>
+scheme. This implementation has been developed for very particular types
+of calculations (DIS in QCD) and is not automatically applicable to any
+other process. In particular, there might be ambiguities that were not
+present in the calculation that the authors of <a
+href="https://arxiv.org/pdf/1506.04517.pdf">Moch:2015usa</a> had in
+mind. For example, traces of the form</p>
+<p><span class="math display">\begin{equation}
+\mathrm{Tr}(\ldots \gamma^5 \gamma^{\mu_1} \ldots \gamma^{\mu_j}
+\gamma^5 \ldots )
+\end{equation}</span></p>
+<p>where the chain $ ^{_1} ^{_j}$ can be simplified to something
+like</p>
+<p><span class="math display">\begin{equation}
+\gamma^{\mu_1} \ldots \gamma^{\mu_j} = 1 + \ldots
+\end{equation}</span></p>
+<p>are not well defined in this scheme. Depending on whether one applies
+the above simplification before or after calculating the <span
+class="math inline">\gamma^5</span>-trace, the results will differ.</p>
+<p>The problem may arise already for traces like</p>
+<p><span class="math display">\begin{equation}
+\mathrm{Tr}(\gamma^\nu \gamma^\mu \gamma^5 (\gamma \cdot p) (\gamma
+\cdot q) \gamma^{5})
+\end{equation}</span></p>
+<p>where we may want to set <span class="math inline">p=q</span> before
+or after calculating the trace.</p>
+<p>The scheme itself is activated by setting</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCSetDiracGammaScheme<span class="op">[</span><span class="st">&quot;Larin&quot;</span><span class="op">]</span></span></code></pre></div>
 <p>The usage of this scheme implies that all axial-vector matrices from
@@ -336,6 +361,6 @@ to avoid incorrect results.</p>
 class="math inline">\varepsilon</span>-tensors in the input expression,
 it is advised to rename the unrelated Levi-Civitas to something else
 while doing the trace calculations and reintroduce them after the traces
-have been succesfully evaluated.</p>
+have been successfully evaluated.</p>
 </body>
 </html>
