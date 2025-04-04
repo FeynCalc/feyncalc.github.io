@@ -216,32 +216,107 @@ automatically if there are zero Gram determinants</p>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> <span class="ex">=</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span>; </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ex">=</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span>; </span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ex">=</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span>; </span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">//</span> FCI<span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span></code></pre></div>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> <span class="fu">k</span><span class="op">]</span></span></code></pre></div>
+<p><img src="img/1d92pz2yqj2pc.svg" alt="1d92pz2yqj2pc" /></p>
 <p><span class="math display">-i \pi ^2 \left(p_1{}^{\mu }+p_2{}^{\mu
-}\right) \;\text{C}_1\left(0,0,0,0,0,m^2\right)</span></p>
+}\right) \;\text{C}_1\left(0,M^2,M^2,0,0,m^2\right)</span></p>
+<p>A vanishing Gram determinant signals that the external momenta are
+linearly dependent on each other. This redundancy can be resolved by
+switching to a different basis. To that aim we need to run
+<code>FCLoopFindTensorBasis</code> to analyze the set of external
+momenta causing troubles</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span><span class="sc">-</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="sc">-</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]},</span> <span class="op">{},</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+-p_1 \\
+-p_2 \\
+-p_2\to -p_1 \;\text{FCGV}(\text{Prefactor})(1) \\
+\end{array}
+\right)</span></p>
+<p>We see that <span class="math inline">p_1</span> and <span
+class="math inline">p_2</span> are proportional to each other, so that
+only one of these vectors is linearly independent. This also means that
+the scalar products involving loop momentum <span
+class="math inline">p_1 \cdot k</span> and <span class="math inline">p_2
+\cdot k</span> are identical. Supplying this information to
+<code>TID</code> we can now achieve the desired reduction to
+scalars.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> <span class="fu">k</span><span class="op">,</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{{</span><span class="sc">-</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="sc">-</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="sc">-</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]}},</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]}]</span></span></code></pre></div>
+<p><span class="math display">\frac{\left((m-M) (m+M)+2 M^2\right)
+p_1{}^{\mu }}{2 M^2
+\left(k^2\right)^2.\left((k+p_1){}^2-m^2\right)}-\frac{p_1{}^{\mu }}{2
+M^2 k^2.\left((k+p_1){}^2-m^2\right)}</span></p>
+<p>Notice that the result contains a propagator squared. This can be
+reduced further using IBPs (e.g. by employing FIRE or KIRA via the
+FeynHelpers interface).</p>
+<p>For cases involving light-like external momenta we often need to
+introduce an auxiliary vector, since the available vector are not
+sufficient to form a basis</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> <span class="fu">k</span><span class="op">]</span></span></code></pre></div>
+<p><img src="img/0kz04gd9tjslc.svg" alt="0kz04gd9tjslc" /></p>
+<p><span class="math display">\frac{p^{\mu
+}}{k^2.\left((k-p)^2-m^2\right)}+i \pi ^2 p^{\mu }
+\;\text{B}_1\left(0,0,m^2\right)</span></p>
+<p>Running <code>FCLoopFindTensorBasis</code> we get a suggestion to
+introduce an auxiliary vector <span class="math inline">n</span> to the
+basis. The scalar products of this vector with other external momenta
+must be nonvanishing, but we are free to make the vector itself
+light-like (for simplicity)</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span><span class="sc">-</span><span class="fu">p</span><span class="op">},</span> <span class="op">{},</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{\{-p,n\},\{\},\{\}\}</span></p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]],</span> <span class="fu">k</span><span class="op">,</span> TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{{</span><span class="sc">-</span><span class="fu">p</span><span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="sc">-</span><span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">}},</span> AuxiliaryMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{-2 p^{\mu } (k\cdot n)+m^2 n^{\mu
+}+2 p^{\mu } (n\cdot p)}{2 (n\cdot p)
+k^2.\left((k-p)^2-m^2\right)}-\frac{n^{\mu }}{2 (n\cdot p)
+\left(k^2-m^2\right)}</span></p>
+<p>Unfortunately, in this case <code>TID</code> alone cannot eliminate
+the scalar products of <span class="math inline">n</span> with the loop
+momentum in the numerator. For that we need to use IBPs. Still, it
+manages to reduce the tensor integral to scalars, even though at this
+stage not all of them can be mapped to scalar PaVe functions.</p>
+<p>The dependence on the auxiliary vector <span
+class="math inline">n</span> must cancel in the final result for this
+integral, as the auxiliary vector is unphysical and the original
+integral does not depend on it. To arrive at these cancellations for
+more complicated tensor integral it might be necessary to exploit the
+relations between the physical vectors as given by
+<code>FCLoopFindTensorBasis</code> and contract those with <span
+class="math inline">n</span>.</p>
 <p>In FeynCalc, Passarino-Veltman coefficient functions are defined in
 the same way as in LoopTools. If one wants to use a different
 definition, it is useful to activate the option GenPaVe</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">//</span> FCI<span class="op">,</span> <span class="fu">k</span><span class="op">,</span> GenPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> <span class="ex">=</span> <span class="dv">0</span>; </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> <span class="fu">k</span> <span class="sc">-</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">]]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">//</span> FCI<span class="op">,</span> <span class="fu">k</span><span class="op">,</span> GenPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span></code></pre></div>
+<p><img src="img/1mx6pq1c6qsv5.svg" alt="1mx6pq1c6qsv5" /></p>
 <p><span class="math display">-i \pi ^2 p_1{}^{\mu }
 \;\text{GenPaVe}\left(\{1\},\left(
 \begin{array}{cc}
@@ -261,19 +336,19 @@ Passarino-Veltman functions, we may employ the option
 <code>PaVeLimitTo4</code> (must be used together with
 <code>ToPaVe</code>). The result is valid up to 0th order in
 <code>Epsilon</code>, i.e. sufficient for 1-loop calculations.</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> (<span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span>) (<span class="fu">D</span> <span class="sc">-</span> <span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">D</span> <span class="sc">-</span> <span class="dv">3</span>) FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> nu<span class="op">]</span> FAD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>; </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> (<span class="fu">D</span> <span class="sc">-</span> <span class="dv">1</span>) (<span class="fu">D</span> <span class="sc">-</span> <span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">D</span> <span class="sc">-</span> <span class="dv">3</span>) FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> mu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> nu<span class="op">]</span> FAD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span> <span class="sc">-</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{(D-2) (D-1) p^{\text{mu}}
 p^{\text{nu}}}{(D-3) p^2.(p-q)^2}</span></p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>int<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>int<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{i \pi ^2 (2-D)
 \;\text{B}_0\left(q^2,0,0\right) \left(D q^{\text{mu}} q^{\text{nu}}-q^2
 g^{\text{mu}\;\text{nu}}\right)}{4 (3-D)}</span></p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>int<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> PaVeLimitTo4 <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>int<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> PaVeLimitTo4 <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{2} i \pi ^2
 \;\text{B}_0\left(\overline{q}^2,0,0\right) \left(4
 \overline{q}^{\text{mu}} \overline{q}^{\text{nu}}-\overline{q}^2
@@ -284,17 +359,19 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 symbolic parameters in the propagators. In this case one should first
 declare the corresponding variables to be of <code>FCVariable</code>
 type</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">a</span><span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">b</span><span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span>SP<span class="op">[</span><span class="fu">P</span><span class="op">,</span> <span class="fu">Q</span><span class="op">]</span> <span class="ot">/.</span> <span class="fu">P</span> <span class="ot">-&gt;</span> <span class="fu">a</span> P1 <span class="sc">+</span> <span class="fu">b</span> P2<span class="op">]</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">a \left(\overline{\text{P1}}\cdot
-\overline{Q}\right)+b \left(\overline{\text{P2}}\cdot
-\overline{Q}\right)</span></p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">(*a Pair[Momentum[P1], Momentum[Q]] + b Pair[Momentum[P2], Momentum[Q]]*)</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">a</span><span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">b</span><span class="op">,</span> FCVariable<span class="op">]</span> <span class="ex">=</span> <span class="cn">True</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span>SP<span class="op">[</span><span class="fu">P</span><span class="op">,</span> <span class="fu">Q</span><span class="op">]</span> <span class="ot">/.</span> <span class="fu">P</span> <span class="ot">-&gt;</span> <span class="fu">a</span> P1 <span class="sc">+</span> <span class="fu">b</span> P2<span class="op">]</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StandardForm</span><span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>```mathematica</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>$$a <span class="sc">\</span><span class="fu">left</span>(<span class="sc">\</span>overline<span class="op">{</span><span class="sc">\</span><span class="fu">text</span><span class="op">{</span>P1<span class="op">}}</span><span class="sc">\</span>cdot <span class="sc">\</span>overline<span class="op">{</span><span class="fu">Q</span><span class="op">}</span><span class="sc">\</span><span class="fu">right</span>)<span class="sc">+</span><span class="fu">b</span> <span class="sc">\</span><span class="fu">left</span>(<span class="sc">\</span>overline<span class="op">{</span><span class="sc">\</span><span class="fu">text</span><span class="op">{</span>P2<span class="op">}}</span><span class="sc">\</span>cdot <span class="sc">\</span>overline<span class="op">{</span><span class="fu">Q</span><span class="op">}</span><span class="sc">\</span><span class="fu">right</span>)$$</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>```mathematica</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">(*a Pair[Momentum[P1], Momentum[Q]] + b Pair[Momentum[P2], Momentum[Q]]*)</span></span></code></pre></div>
 </body>
 </html>

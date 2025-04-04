@@ -131,8 +131,7 @@ resulting scalar integrals. These integrals will depend on the new
 kinematic invariants but as the invariants should cancel in the final
 result for the reduced tensor integral. To see this cancellation
 explicitly one might need to use the linear relations between the
-external momenta uncovered by
-<code>FCLoopFindTensorBasis&lt;&lt;Feyn</code></p>
+external momenta uncovered by <code>FCLoopFindTensorBasis</code></p>
 <p>Using the option <code>All</code> one can get all possible sets of
 new basis vectors. This can be useful if one needs to select one of them
 for the tensor reduction.</p>
@@ -144,14 +143,14 @@ href="FCLoopTensorReduce.html">FCLoopTensorReduce</a>.</p>
 <p>One light-like momentum. Here we need to add an auxiliary vector to
 our basis. There are no linearly dependent vectors</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>k1<span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span>k1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">},</span> <span class="fu">n</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> pref<span class="op">]</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>k1<span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span>k1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">},</span> <span class="fu">n</span><span class="op">,</span> Prefactor <span class="ot">-&gt;</span> pref<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\{\{\text{k1},n\},\{\},\{\}\}</span></p>
 <p>Two light-like momenta. Apart from constructing a new basis that
 contains an auxiliary vector, we also notice that <code>k2</code> can be
 expressed through <code>k1</code></p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>k1<span class="op">,</span> k2<span class="op">},</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span>SPD<span class="op">[</span>k1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>k2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">},</span> <span class="fu">n</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> pref<span class="op">]</span></span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span>SPD<span class="op">[</span>k1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>k2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">},</span> <span class="fu">n</span><span class="op">,</span> Prefactor <span class="ot">-&gt;</span> pref<span class="op">]</span></span></code></pre></div>
 <p><span
 class="math display">\left\{\{\text{k1},n\},\{\text{k2}\},\left\{\text{k2}\to
 \;\text{k1} \;\text{pref}\left(\frac{\text{k2}\cdot n}{\text{k1}\cdot
@@ -159,7 +158,7 @@ n}\right)\right\}\right\}</span></p>
 <p>Of course <code>{k1,n}</code> is not the only possible choice</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>k1<span class="op">,</span> k2<span class="op">},</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span>SPD<span class="op">[</span>k1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>k2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">},</span> <span class="fu">n</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> pref<span class="op">,</span> <span class="cn">All</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span>SPD<span class="op">[</span>k1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>k2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> SPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">},</span> <span class="fu">n</span><span class="op">,</span> Prefactor <span class="ot">-&gt;</span> pref<span class="op">,</span> <span class="cn">All</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\left(
 \begin{array}{ccc}
 \{\text{k1},n\} &amp; \{\text{k2}\} &amp; \left\{\text{k2}\to
@@ -227,6 +226,26 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 \;\text{k2} \\
 \;\text{k2}\to \;\text{k1}
 \;\text{FCGV}(\text{Prefactor})\left(\frac{d}{c}\right) \\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span>k1<span class="op">]</span> <span class="ot">-&gt;</span> m2<span class="op">,</span> SPD<span class="op">[</span>k2<span class="op">]</span> <span class="ot">-&gt;</span> m2<span class="op">,</span> SPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="ot">-&gt;</span> m2 <span class="op">},</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+\;\text{k1} \\
+\;\text{k2} \\
+\;\text{k2}\to \;\text{k1} \;\text{FCGV}(\text{Prefactor})(1) \\
+\end{array}
+\right)</span></p>
+<p>Cartesian momenta also supported too</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>k1<span class="op">,</span> k2<span class="op">},</span> <span class="op">{</span>CSPD<span class="op">[</span>k1<span class="op">]</span> <span class="ot">-&gt;</span> m2<span class="op">,</span> CSPD<span class="op">[</span>k2<span class="op">]</span> <span class="ot">-&gt;</span> m2<span class="op">,</span> CSPD<span class="op">[</span>k1<span class="op">,</span> k2<span class="op">]</span> <span class="ot">-&gt;</span> m2 <span class="op">},</span> <span class="fu">n</span><span class="op">,</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Head</span> <span class="ot">-&gt;</span> <span class="op">{</span>CartesianPair<span class="op">,</span> CartesianMomentum<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+\;\text{k1} \\
+\;\text{k2} \\
+\;\text{k2}\to \;\text{k1} \;\text{FCGV}(\text{Prefactor})(1) \\
 \end{array}
 \right)</span></p>
 </body>
