@@ -85,82 +85,23 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <link rel="stylesheet" href="css/feyncalc.css" />
 
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">FeynCalc manual (development version)</h1>
 </header>
-<h2 id="parallelization">Parallelization</h2>
+<h2 id="fccleardatatypes">FCClearDataTypes</h2>
+<p><code>FCClearDataTypes[]</code> removes all user-defined attachments
+of data types to variables.</p>
+<p>To remove all existing cache values use
+<code>FCClearCache[All]</code>.</p>
 <h3 id="see-also">See also</h3>
-<p><a href="FeynCalc.html">Overview</a>.</p>
-<p>Some FeynCalc routines can be parallelized meaning that the code will
-try to distribute chunks of the calculation to multiple Mathematica
-kernels.</p>
-<p>To this aim the number of subkernels should roughly correspond to the
-number of CPU cores</p>
-<h3 id="enabling-parallelization">Enabling parallelization</h3>
-<p>To enable the parallelization you need to actively launch some
-parallel kernels and then set the variable
-<code>$ParallelizeFeynCalc</code> to <code>True</code>. In this case a
-copy of FeynCalc will be loaded on each of the parallel kernels and used
-to parallelize some selected operations. For example,</p>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="DataType.html">DataType</a>.</p>
+<h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LaunchKernels</span><span class="op">[</span><span class="dv">8</span><span class="op">]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span></span></code></pre></div>
-<p>Notice that as of now only a small subset of FeynCalc routines
-supports parallelization. Every such function has an option
-<code>FCParallelize</code> that is set to <code>False</code> by default.
-To enable the parallel mode you explicitly need to call the given
-function with the option <code>FCParallelize-&gt;True</code>.</p>
-<h3
-id="synchronizing-definitions-between-multiple-kernels">Synchronizing
-definitions between multiple kernels</h3>
-<p>All definitions made via <code>DataType[x,y]=True</code>,
-<code>ScalarProduct[a,b] = c</code>, <code>SPD[a,b] = c</code> as well
-as <code>Commutator</code> or <code>AntiCommutator</code>
-<em>before</em> activating the parallel mode must be repeated. This is
-necessary to ensure that they are synchronized between the master kernel
-and the subkernels. To this aim it is recommended to remove all
-definitions via</p>
-<pre><code>FCClearScalarProducts[]
-FCClearDataTypes[]
-UnDeclareAllCommutators[]
-UnDeclareAllAntiCommutators[]</code></pre>
-<p>and then introduce them again.</p>
-<p>Alternatively, you can <em>first</em> activate the parallel mode
-without making any definitions and <em>then</em> define everything as
-you like. <code>DataType</code>, <code>ScalarProduct</code>,
-<code>Commutator</code> and <code>AntiCommutator</code> will
-automatically distribute the definitions among all subkernels if they
-detect the parallel mode.</p>
-<h3
-id="functions-that-support-automatic-execution-on-parallel-kernels">Functions
-that support automatic execution on parallel kernels</h3>
-<ul>
-<li><code>FCLoopFromGLI</code></li>
-<li><code>FCFeynmanPrepare</code></li>
-<li><code>FCLoopToPakForm</code></li>
-<li><code>FCLoopFindIntegralMappings</code></li>
-<li><code>FCLoopFindTopologyMappings</code></li>
-<li><code>FCLoopFindSubtopologies</code></li>
-<li><code>FCLoopFindTopologies</code></li>
-<li><code>FCLoopCreatePartialFractioningRules</code></li>
-<li><code>FCLoopApplyTopologyMappings</code></li>
-<li><code>FCLoopGetKinematicInvariants</code></li>
-<li><code>FCLoopTensorReduce</code></li>
-<li><code>Tdec</code></li>
-<li><code>FCLoopIsolate</code></li>
-<li><code>MomentumCombine</code></li>
-<li><code>Collect2</code> (only when isolation is disabled)</li>
-<li><code>FCClearScalarProducts</code> (parallelization is enabled by
-default)</li>
-<li><code>ScalarProduct</code> (parallelization is enabled by
-default)</li>
-<li><code>DataType</code> (parallelization is enabled by default)</li>
-<li><code>FCClearDataTypes</code> (parallelization is enabled by
-default)</li>
-</ul>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCClearDataTypes<span class="op">[]</span></span></code></pre></div>
 </body>
 </html>

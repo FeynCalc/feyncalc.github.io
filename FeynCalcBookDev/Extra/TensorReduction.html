@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <script defer="" src="../js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="../js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="tensor-reduction">Tensor reduction</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<h3 id="brief-description">Brief description</h3>
+<p>Loop tensor integrals that depend on loop momenta with open indices
+can be converted to scalar integrals by means of tensor reduction. The
+same also applies to cases where the loop momenta are contracted with
+Dirac matrices, Levi-Civita tensors, polarization vectors or any other
+<span class="math inline">4</span>-vectors that are not contained in the
+propagators of the respective loop integrals.</p>
+<p>This technique is usually called <a
+href="https://doi.org/10.1016/0550-3213(79)90234-7%7D">Passarino-Veltman
+reduction</a> or simply <em>tensor reduction</em>. The main idea is to
+start from the most generic ansatz for the tensor structures (e.g. <span
+class="math inline">g^{\mu \nu}</span>, <span
+class="math inline">p_1^\mu p_1^\nu</span>, <span
+class="math inline">p_2^\mu p_2^\nu</span>, <span
+class="math inline">p_2^\mu p_1^\nu</span> and <span
+class="math inline">p_1^\mu p_2^\nu</span> for a 3-point rank 2
+integral) that can appear in the final result and use it to write down a
+tensor equation with unknown scalar coefficients <span
+class="math inline">S_i</span> multiplying those structures. The tensor
+structures may only contain metric tensors and the external momenta the
+given loop integral depends on.</p>
+<p>Then, contracting the resulting tensor equation with the present
+tensor structures one can obtain a linear system of equations and solve
+it for <span class="math inline">S_i</span>. The size of the linear
+system can be considerably simplified by making use of the symmetries
+between different coefficients, e.g. by employing <a
+href="https://arxiv.org/pdf/1111.0868">Pak’s algorithm</a>.</p>
+<h3 id="implementation">Implementation</h3>
+<p>FeynCalc features several routines that implement this procedure. At
+1 loop it is convenient to use <a href="../TID.html">TID</a> that can
+reduce tensor integrals with quadratic propagators to scalar integrals
+with unit numerators. The result can be also presented in terms of the
+so-called Passarino-Veltman coefficient (e.g <span
+class="math inline">B_{11}</span>, <span
+class="math inline">C_{00}</span>, <span
+class="math inline">D_{1}</span> etc.) or scalar functions (<span
+class="math inline">A_0</span>, <span class="math inline">B_0</span>,
+<span class="math inline">C_0</span>, <span
+class="math inline">D_0</span>).</p>
+<p>Loop integrals with more generic propagators as well as integrals
+with more loops can be treated using <a
+href="../FCMultiLoopTID.html">FCMultiLoopTID</a>. For such integrals the
+reduction to unit numerators is not always possible. Therefore, the
+function merely tries to get rid of loop momenta with open indices by
+converting the original integral into a linear combination of scalar
+integrals multiplying tensor structures made of metric tensors and
+external momenta. The scalar integrals still may have numerators with
+loop momenta contracted to other loop momenta or external momenta.</p>
+<p>To reduce such expressions to a set of simpler integrals it is
+necessary to use IBP-reduction tools that can be accessed e.g. via the
+FeynHelpers add-on.</p>
+<p>Calculations that make use of the multiloop functionality introduced
+in FeynCalc 10 require a somewhat different approach. To deal with
+amplitudes written in terms of <a href="../GLI.html">GLIs</a> as they
+are usually generated by <a
+href="../FCLoopFindTopologies.html">FCLoopFindTopologies</a>, one should
+use the special function <a
+href="../FCLoopTensorReduce.html">FCLoopTensorReduce</a>.</p>
+<p>Last but not least, sometimes one wants to calculate a tensor
+reduction formula without referring to a particular integral, but rather
+just specifying the tensor structure and the external momenta. This is
+useful e.g. when using such tools as <a
+href="https://github.com/vermaseren/form">FORM</a>. To this aim one can
+use the auxiliary routine <a href="../Tdec.html">Tdec</a>.</p>
+<h3 id="reduction-for-zero-gram-determinants">Reduction for zero Gram
+determinants</h3>
+<p>The naive Passarino-Veltman reduction breaks down when the Gram
+determinant of the given set of external momenta vanishes. A zero
+Gramian means that the external momenta are linearly dependent,
+i.e. there is a redundancy in the reduction. In this case the linear
+system constructed out of these momenta is not solvable and it is not
+possible to determine the coefficients <span
+class="math inline">S_i</span>.</p>
+<p>One way to circumvent this issue consists of constructing a new set
+of external momenta, where all vectors are linearly independent from
+each other. Reducing the loop integral with respect to these new vectors
+produces a solvable linear system which effectively resolves the
+problem. Here one should distinguish between two possible cases.</p>
+<h4 id="new-basis-using-only-available-momenta">New basis using only
+available momenta</h4>
+<p>If the new set of linearly independent momenta is just a subset of
+the old external momenta, then the reduction can be done
+straightforwardly. The same goes for the subsequent IBP reduction. In
+particular, it is not necessary to tell the IBP-reduction tool which
+external momenta are linearly dependent.</p>
+<h4 id="new-basis-containing-auxiliary-momentum">New basis containing
+auxiliary momentum</h4>
+<p>Unfortunately, for some kinematic configurations the available
+external momenta are not sufficient to produce a valid tensor basis.
+This usually happens when almost all external momenta are light-like
+(i.e. their squares vanish). The simplest example for this case is the
+2-point function with <span class="math inline">p^2=0</span>, e.g. </p>
+<p><span class="math display">\begin{equation}
+\int_k k^{\mu} f(k,p,m_i) = p^\mu A(p,m_i).
+\end{equation}</span></p>
+<p>Contracting this equation with <span
+class="math inline">p^{\mu}</span> we get zero on the right hand side,
+which does not allow us to extract the value of <span
+class="math inline">A(p,m_i)</span>. Solving it for <span
+class="math inline">p^2 \neq 0</span> also would not help, as the limit
+<span class="math inline">p \to 0</span> cannot be taken naively.</p>
+<p>The workaround here (and for all similar cases) is to extend the
+tensor basis by adding an auxiliary momentum (say <span
+class="math inline">n</span>). For simplicity, it is convenient to
+choose this auxiliary momentum to be light-like (i.e. <span
+class="math inline">n^2=0</span>), but this condition is not strictly
+necessary. On the other hand, it is very important to stress that the
+scalar products of <span class="math inline">n</span> with other
+external momenta (<span class="math inline">n \cdot p_i</span>) must be
+nonvanishing. The new equation</p>
+<p><span class="math display">\begin{equation}
+\int_k k^{\mu} f(k,p,m_i) = p^\mu \tilde{A}(p,m_i) + n^\mu
+\tilde{B}(p,m_i)
+\end{equation}</span></p>
+<p>leads to</p>
+<p><span class="math display">\begin{equation}
+\tilde{A}(p,m_i) = \frac{1}{n \cdot p} \int_k (n \cdot k) \, f(k,p,m_i),
+\\
+\tilde{B}(p,m_i) = \frac{1}{n \cdot p} \int_k (p \cdot k) \, f(k,p,m_i),
+\end{equation}</span></p>
+<p>which formally solves the task of removing loop momenta with open
+indices in the numerator.</p>
+<p>Nevertheless, the results for the so-obtained reduction formulas are
+not immediately usable in the existing calculation.</p>
+<p>First of all, the scalar products of <span
+class="math inline">n</span> with the loop momenta in the numerator
+cannot be removed using partial fraction decomposition even at 1-loop
+order. This is because the propagators do not depend on <span
+class="math inline">n</span>, so there is nothing we can cancel those
+scalar products against. Hence, to get rid of <span
+class="math inline">n \cdot k_i</span> we need to use IBP reduction.
+What is more, to set up the reduction we need to augment the loop
+integral topologies with propagators containing <span
+class="math inline">n</span>. Otherwise our propagator basis will not be
+complete. In practice it is sufficient to use propagators of the type
+<span class="math inline">1/(k_i \cdot n + i \eta)</span> for each loop
+momentum <span class="math inline">k_i</span>. The reduction also
+becomes more involved due to the presence of the additional kinematic
+invariants <span class="math inline">n \cdot p_i</span>.</p>
+<p>Second, even upon performing the IBP reduction the final result may
+still seem to depend on <span class="math inline">n</span>. We know that
+this cannot be the case, as <span class="math inline">n</span> is an
+arbitrary auxiliary vector not present in the original integral.
+Usually, upon exploiting the existing symmetries between master
+integrals as well as other external vectors and scalar products one can
+show that the <span class="math inline">n</span>-dependence cancels as
+it should. However, for complicated integrals with many kinematic
+invariants enforcing this cancellation can be tricky.</p>
+<h4 id="feyncalc-routines">FeynCalc routines</h4>
+<p>In FeynCalc, the tensor reduction routines (<a
+href="../TID.html">TID</a>, <a
+href="../FCMultiLoopTID.html">FCMultiLoopTID</a>, <a
+href="../FCLoopTensorReduce.html">FCLoopTensorReduce</a>) will
+automatically alert the user if the external momenta present in the
+given loop integrals lead to a zero Gram determinant. The warning
+message will also contain the exact sets of the problematic momenta.</p>
+<p>Each of these sets should be passed to the special function <a
+href="../FCLoopFindTensorBasis.html">FCLoopFindTensorBasis</a> as its
+first argument. The second argument is meant for kinematic constraints,
+in the case that they have not been already defined via
+<code>SPD[...] = ...;</code>. Finally, the third argument denotes an
+auxiliary vector that might become necessary in some particular cases
+(see below).</p>
+<p>The output <a
+href="../FCLoopFindTensorBasis.html">FCLoopFindTensorBasis</a> will
+contain a set of linearly independent external momenta and the linear
+dependencies between the original momenta. The set of linearly
+independent momenta should be passed to the tensor reduction routines
+via the option <code>TensorReductionBasisChange</code> as follows</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{</span>oldBasis1<span class="ot">-&gt;</span>newBasis1<span class="op">,</span>oldBasis2<span class="ot">-&gt;</span>newBasis2<span class="op">,</span> ...<span class="op">}</span></span></code></pre></div>
+<p>If some of the new bases contain an auxiliary vector, it should be
+specified via the option <code>AuxiliaryMomenta</code>, e.g.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>AuxiliaryMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">}</span></span></code></pre></div>
+<p>Finally, when using <a href="../TID.html">TID</a>, to ensure the
+reduction to unit numerators (only for bases without the auxiliary
+vector) it can be necessary to specify the relations between scalar
+products involving loop momenta. Such relations follow from the output
+of <a href="../FCLoopFindTensorBasis.html">FCLoopFindTensorBasis</a> and
+can be passed via the option <code>FinalSubstitutions</code>. For
+example, for two linearly dependent external momenta <span
+class="math inline">p_1</span>, <span class="math inline">p_2</span></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>p1<span class="op">,</span> p2<span class="op">},</span> <span class="op">{</span>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="fu">s</span><span class="op">,</span> SPD<span class="op">[</span>p2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="fu">s</span><span class="op">,</span> SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="fu">s</span><span class="op">},</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p>the corresponding substitution reads</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> p2<span class="op">]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> p1<span class="op">]}</span></span></code></pre></div>
+<p>Tensor reduction results containing the auxiliary vector <span
+class="math inline">n</span> need to be processed further using IBPs.
+For few simple integrals obtained from <a href="../TID.html">TID</a> and
+<a href="../FCMultiLoopTID.html">FCMultiLoopTID</a> it might be easier
+to do this via the FeynHelpers interface to the Mathematica version of
+FIRE.</p>
+<p>Large results as well as results originating from <a
+href="../FCLoopTensorReduce.html">FCLoopTensorReduce</a> will require a
+more explicit treatment. To that aim we need to augment the topologies
+of the affected integrals to contain propagators that depend on <span
+class="math inline">n</span>. This can be done using <a
+href="../FCLoopAugmentTopology.html">FCLoopAugmentTopology</a> where we
+specify the topology in the first argument and the list of propagators
+in the second one. Usually, it is sufficient to use an eikonal
+propagator per each loop momentum, e.g. something like</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>newtopo<span class="op">,</span> gliRule<span class="op">}</span> <span class="ex">=</span> FCLoopAugmentTopology<span class="op">[</span>oldtopo<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> k1.<span class="fu">n</span><span class="op">}}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> k2.<span class="fu">n</span><span class="op">}}],</span> ...<span class="op">}]</span></span></code></pre></div>
+<p>Then we can apply the GLI conversion rule <code>gliRule</code> to the
+output of <code>FCLoopTensorReduce</code></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ampRed <span class="ot">/.</span> gliRule</span></code></pre></div>
+<p>and use <code>newtopo</code> when setting up the IBP reduction.</p>
+<h4 id="examples">Examples</h4>
+<p>In the following we provide several examples for tensor reduction of
+loop integrals with zero Gram determinants. More examples and
+explanations can be found on the reference pages for <a
+href="../TID.html">TID</a>, <a
+href="../FCMultiLoopTID.html">FCMultiLoopTID</a> and <a
+href="../FCLoopTensorReduce.html">FCLoopTensorReduce</a>. Notice that
+the so-obtained results can be possibly simplified further using
+IBPs.</p>
+<p><strong>1-loop 1-point rank 2 integral with <span
+class="math inline">p^2=0</span></strong></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> mu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> nu<span class="op">]</span> FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span><span class="fu">k</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">}]</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">(*TID[int,k];*)</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">(*FCLoopFindTensorBasis[{-p},{},n]*)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>int<span class="op">,</span> <span class="fu">k</span><span class="op">,</span> TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{{</span><span class="sc">-</span><span class="fu">p</span><span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="sc">-</span><span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">}},</span> AuxiliaryMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">}]</span></span></code></pre></div>
+<p><strong>1-loop 2-point rank 2 integral with <span
+class="math inline">p_1^2=p_2^2 = p_1 \cdot p_2 = s</span></strong></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="ex">=</span> <span class="fu">s</span>;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p2<span class="op">]</span> <span class="ex">=</span> <span class="fu">s</span>;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ex">=</span> <span class="fu">s</span>;</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> mu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> nu<span class="op">]</span> FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">k</span> <span class="sc">+</span> p1<span class="op">,</span> m1<span class="op">},</span> <span class="op">{</span><span class="fu">k</span> <span class="sc">+</span> p2<span class="op">,</span> m2<span class="op">}]</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">(*TID[int,k];*)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">(*FCLoopFindTensorBasis[{-p1, -p2}, {}, n]*)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>int<span class="op">,</span> <span class="fu">k</span><span class="op">,</span>TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{{</span><span class="sc">-</span>p1<span class="op">,</span> <span class="sc">-</span>p2<span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="sc">-</span>p1<span class="op">}},</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> p2<span class="op">]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> p1<span class="op">]}]</span></span></code></pre></div>
+<p><strong>1-loop 2-point rank 1 integral with <span
+class="math inline">p_1^2=p_2^2 = p_1 \cdot p_2 = 0</span></strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p2<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> mu<span class="op">]</span> FVD<span class="op">[</span><span class="fu">k</span><span class="op">,</span> nu<span class="op">]</span> FAD<span class="op">[{</span><span class="fu">k</span><span class="op">,</span> <span class="dv">0</span><span class="op">},</span> <span class="op">{</span><span class="fu">k</span> <span class="sc">+</span> p1<span class="op">,</span> m1<span class="op">},</span> <span class="op">{</span><span class="fu">k</span> <span class="sc">+</span> p2<span class="op">,</span> m2<span class="op">}]</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>TID<span class="op">[</span>int<span class="op">,</span> <span class="fu">k</span><span class="op">,</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a> TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{{</span><span class="sc">-</span>p1<span class="op">,</span> <span class="sc">-</span>p2<span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> <span class="sc">-</span>p1<span class="op">},</span> <span class="op">{</span><span class="sc">-</span>p2<span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> <span class="sc">-</span>p2<span class="op">},</span> <span class="op">{</span><span class="sc">-</span>p1<span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> <span class="sc">-</span>p1<span class="op">},</span> </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>p2 <span class="sc">-</span> p1<span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> p2 <span class="sc">-</span> p1<span class="op">}},</span> AuxiliaryMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">}]</span></span></code></pre></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="fcvaluessynchronizedq">FCValuesSynchronizedQ</h2>
+<p><code>FCValuesSynchronizedQ[{val1, val2}, type]</code> compares
+definitions of <code>val1</code>, <code>val2</code>, … between the
+master kernel and the subkernels and returns <code>True</code> if all of
+them identical. Supported <code>type</code>s are
+<code>DownValues</code>, <code>UpValues</code> and
+<code>OwnValues</code>.</p>
+<p>This routine is only relevant in the parallel mode of FeynCalc. It
+helps to avoid inconsistencies through definitions that were introduced
+before activating the parallel mode and not correctly propagated to the
+subkernels</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="DataType.html">DataType</a>, <a
+href="FCScalarProductsSynchronizedQ.html">FCScalarProductsSynchronizedQ</a></p>
+<h3 id="examples">Examples</h3>
+</body>
+</html>
