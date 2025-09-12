@@ -119,20 +119,21 @@ id="synchronizing-definitions-between-multiple-kernels">Synchronizing
 definitions between multiple kernels</h3>
 <p>All definitions made via <code>DataType[x,y]=True</code>,
 <code>ScalarProduct[a,b] = c</code>, <code>SPD[a,b] = c</code> as well
-as <code>Commutator</code> or <code>AntiCommutator</code>
+as <code>FCCommutator</code> or <code>FCAntiCommutator</code>
 <em>before</em> activating the parallel mode must be repeated. This is
 necessary to ensure that they are synchronized between the master kernel
 and the subkernels. To this aim it is recommended to remove all
 definitions via</p>
-<pre><code>FCClearScalarProducts[]
-FCClearDataTypes[]
-UnDeclareAllCommutators[]
-UnDeclareAllAntiCommutators[]</code></pre>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCClearDataTypes<span class="op">[]</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>UnDeclareAllCommutators<span class="op">[]</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>UnDeclareAllAntiCommutators<span class="op">[]</span></span></code></pre></div>
 <p>and then introduce them again.</p>
 <p>Alternatively, you can <em>first</em> activate the parallel mode
 without making any definitions and <em>then</em> define everything as
 you like. <code>DataType</code>, <code>ScalarProduct</code>,
-<code>Commutator</code> and <code>AntiCommutator</code> will
+<code>FCCommutator</code> and <code>FCAntiCommutator</code> will
 automatically distribute the definitions among all subkernels if they
 detect the parallel mode.</p>
 <h3
