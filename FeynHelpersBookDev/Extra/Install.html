@@ -143,10 +143,10 @@ for that in FeynHelpers.</p>
 href="https://bitbucket.org/feynmanIntegrals/fire">developer’s
 website</a>. The content should be extracted to
 <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FIRE"}]</code>.</p>
-<p>We recommend to enable support for zstd, lthreads, tcmalloc, snappy
-and zlib via</p>
+<p>We recommend to enable support for flint, zstd, lthreads, tcmalloc,
+snappy and zlib via</p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>configure <span class="sc">--</span><span class="at">enable_</span>zlib <span class="sc">--</span><span class="at">enable_</span>snappy <span class="sc">--</span><span class="at">enable_</span>lthreads <span class="sc">--</span><span class="at">enable_</span>tcmalloc <span class="sc">--</span><span class="at">enable_</span>zstd</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>configure <span class="sc">--</span><span class="at">enable_</span>zlib <span class="sc">--</span><span class="at">enable_</span>snappy <span class="sc">--</span><span class="at">enable_</span>lthreads <span class="sc">--</span><span class="at">enable_</span>tcmalloc <span class="sc">--</span><span class="at">enable_</span>zstd <span class="sc">--</span><span class="at">enable_</span>flint</span></code></pre></div>
 <p>If you compile FIRE without the zstd support, you should change the
 option <code>FIRECompressor</code> of <code>FIRECreateConfigFile</code>
 to <code>"lz4"</code>. However, for performance reasons it is better to
