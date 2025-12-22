@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -121,27 +121,30 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$Notebooks</span> <span class="ex">===</span> <span class="cn">False</span><span class="op">,</span> </span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span> </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>$LoadAddOns <span class="ex">=</span> <span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">}</span>;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc`</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>; </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">9</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span>;</span></code></pre></div>
-<p><span class="math display">\text{FeynCalc }\;\text{10.0.0 (dev
-version, 2023-12-20 22:40:59 +01:00, dff3b835). For help, use the
-}\underline{\text{online} \;\text{documentation}}\;\text{, check out the
-}\underline{\text{wiki}}\;\text{ or visit the
-}\underline{\text{forum}.}</span></p>
-<p><span class="math display">\text{Please check our
-}\underline{\text{FAQ}}\;\text{ for answers to some common FeynCalc
-questions and have a look at the supplied
-}\underline{\text{examples}.}</span></p>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">LaunchKernels</span><span class="op">[</span><span class="dv">4</span><span class="op">]</span>;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>$LoadAddOns <span class="ex">=</span> <span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">,</span> <span class="st">&quot;FeynHelpers&quot;</span><span class="op">}</span>;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc`</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span>; </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span>;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span><span class="fu">ToExpression</span><span class="op">[</span><span class="fu">StringSplit</span><span class="op">[</span>$FeynHelpersVersion<span class="op">,</span> <span class="st">&quot;.&quot;</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]]</span> &lt; <span class="dv">2</span><span class="op">,</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Print</span><span class="op">[</span><span class="st">&quot;You need at least FeynHelpers 2.0 to run this example.&quot;</span><span class="op">]</span>; </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Abort</span><span class="op">[]</span>; </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> <span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FeynCalc }\;\text{10.2.0 (dev
+version, 2025-12-22 21:09:03 +01:00, fcd53f9b). For help, use the
+}\underline{\text{online} \;\text{documentation},}\;\text{ visit the
+}\underline{\text{forum}}\;\text{ and have a look at the supplied
+}\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
+be downloaded }\underline{\text{here}.}</span></p>
 <p><span class="math display">\text{If you use FeynCalc in your
 research, please evaluate FeynCalcHowToCite[] to learn how to cite this
 software.}</span></p>
 <p><span class="math display">\text{Please keep in mind that the proper
 academic attribution of our work is crucial to ensure the future
 development of this package!}</span></p>
-<p><span class="math display">\text{FeynArts }\;\text{3.11 (3 Aug 2020)
+<p><span class="math display">\text{FeynArts }\;\text{3.12 (27 Mar 2025)
 patched for use with FeynCalc, for documentation see the
 }\underline{\text{manual}}\;\text{ or visit
 }\underline{\text{www}.\text{feynarts}.\text{de}.}</span></p>
@@ -149,6 +152,15 @@ patched for use with FeynCalc, for documentation see the
 research, please cite}</span></p>
 <p><span class="math display">\text{ $\bullet $ T. Hahn, Comput. Phys.
 Commun., 140, 418-431, 2001, arXiv:hep-ph/0012260}</span></p>
+<p><span class="math display">\text{FeynHelpers }\;\text{2.0.0
+(2025-12-22 19:07:44 +01:00, c92fb9f5). For help, use the
+}\underline{\text{online} \;\text{documentation},}\;\text{ visit the
+}\underline{\text{forum}}\;\text{ and have a look at the supplied
+}\underline{\text{examples}.}\;\text{The PDF-version of the manual can
+be downloaded }\underline{\text{here}.}</span></p>
+<p><span class="math display">\text{ If you use FeynHelpers in your
+research, please evaluate FeynHelpersHowToCite[] to learn how to cite
+this work.}</span></p>
 <h2 id="configure-some-options">Configure some options</h2>
 <p>We keep scaleless B0 functions, since otherwise the UV part would not
 come out right.</p>
@@ -161,23 +173,23 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diags<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">256</span><span class="op">,</span> <span class="dv">256</span><span class="op">}]</span>;</span></code></pre></div>
-<p><img src="img/1123tdcz6igxy.svg" alt="1123tdcz6igxy" /></p>
+<p><img src="img/1nffgfkxw4o1s.svg" alt="1nffgfkxw4o1s" /></p>
 <h2 id="obtain-the-amplitude">Obtain the amplitude</h2>
 <p>The 1/(2Pi)^D prefactor is implicit.</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>diags<span class="op">,</span> Truncated <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> GaugeRules <span class="ot">-&gt;</span> <span class="op">{},</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    PreFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">],</span> IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> <span class="fu">List</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    DropSumOver <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> Contract <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\left(g_s^2
-f^{\text{Glu1}\;\text{Glu3}\;\text{Glu4}}
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    DropSumOver <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left\{g_s^2 \left(-q^{\text{Lor1}}\right)
+p^{\text{Lor2}} f^{\text{Glu1}\;\text{Glu3}\;\text{Glu4}}
 f^{\text{Glu2}\;\text{Glu3}\;\text{Glu4}} \left(\frac{\left(1-\xi
-_g\right) \left(p^2-p\cdot q\right) \left(q^2-p\cdot
-q\right)}{q^2.(q-p)^4}+\frac{p\cdot
-q}{q^2.(q-p)^2}\right)\right)</span></p>
+_g\right) (q-p)^{\text{Lor1}}
+(p-q)^{\text{Lor2}}}{q^2.(q-p)^4}+\frac{g^{\text{Lor1}\;\text{Lor2}}}{q^2.(q-p)^2}\right)\right\}</span></p>
 <h2 id="calculate-the-amplitude">Calculate the amplitude</h2>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="sc">//</span> SUNSimplify <span class="sc">//</span> TID<span class="op">[</span>#<span class="op">,</span> <span class="fu">q</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="sc">//</span> SUNSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    TID<span class="op">[</span>#<span class="op">,</span> <span class="fu">q</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Total</span></span></code></pre></div>
 <p><span class="math display">-\frac{1}{4} i \pi ^2 p^2 C_A \left(1-\xi
 _g\right) g_s^2 \;\text{B}_0(0,0,0) \delta
 ^{\text{Glu1}\;\text{Glu2}}-\frac{1}{2} i \pi ^2 p^2 C_A g_s^2 \delta
@@ -199,19 +211,20 @@ g_s^2 \delta ^{\text{Glu1}\;\text{Glu2}}}{64 \pi ^2 \varepsilon
 <p>The self-energy amplitude is usually defined as (p^2 delta^ab
 Pi(p^2)</p>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pi</span><span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCI<span class="op">[</span>ampDiv<span class="op">[</span><span class="dv">0</span><span class="op">]</span><span class="sc">/</span>(<span class="fu">I</span> SUNDelta<span class="op">[</span>SUNIndex<span class="op">[</span>Glu1<span class="op">],</span> SUNIndex<span class="op">[</span>Glu2<span class="op">]]</span><span class="sc">*</span>SPD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span>)<span class="op">]</span> <span class="sc">//</span><span class="fu">Cancel</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pi</span><span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCI<span class="op">[</span>ampDiv<span class="op">[</span><span class="dv">0</span><span class="op">]</span><span class="sc">/</span>(<span class="fu">I</span> SUNDelta<span class="op">[</span>SUNIndex<span class="op">[</span>Glu1<span class="op">],</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        SUNIndex<span class="op">[</span>Glu2<span class="op">]]</span><span class="sc">*</span>SPD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span>)<span class="op">]</span> <span class="sc">//</span> <span class="fu">Cancel</span></span></code></pre></div>
 <p><span class="math display">\frac{C_A \left(\xi _g-3\right) g_s^2}{64
 \pi ^2 \varepsilon }</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knownResult <span class="ex">=</span> <span class="sc">-</span>SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">4</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="dv">2</span> CA (<span class="dv">3</span> <span class="sc">-</span> GaugeXi<span class="op">[</span><span class="fu">g</span><span class="op">]</span>)<span class="sc">/</span><span class="dv">4</span><span class="sc">*</span><span class="dv">1</span><span class="sc">/</span>Epsilon;</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[</span><span class="fu">pi</span><span class="op">[</span><span class="dv">0</span><span class="op">],</span> knownResult<span class="op">,</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Muta, Foundations of QCD, Eq. 2.5.136:&quot;</span><span class="op">,</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
+<p>```mathematica knownResult = -SMP[“g_s”]^2/(4 Pi)^2 CA (3 -
+GaugeXi[g])/4*1/Epsilon; FCCompareResults[pi[0], knownResult, Text -&gt;
+{“to Muta, Foundations of QCD, Eq. 2.5.136:”, “CORRECT.”, “WRONG!”},
+Interrupt -&gt; {Hold[Quit[1]], Automatic}]; Print[“Time used:”,
+Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
+<p>```mathematica</p>
 <p><span class="math display">\text{$\backslash $tCompare to Muta,
 Foundations of QCD, Eq. 2.5.136:} \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{$\backslash $tCPU Time used:
-}17.793\text{ s.}</span></p>
+}34.508\text{ s.}</span></p>
 </body>
 </html>

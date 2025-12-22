@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -121,27 +121,26 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$Notebooks</span> <span class="ex">===</span> <span class="cn">False</span><span class="op">,</span> </span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span> </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>$LoadAddOns <span class="ex">=</span> <span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">}</span>;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc`</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>; </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">9</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span>;</span></code></pre></div>
-<p><span class="math display">\text{FeynCalc }\;\text{10.0.0 (dev
-version, 2023-12-20 22:40:59 +01:00, dff3b835). For help, use the
-}\underline{\text{online} \;\text{documentation}}\;\text{, check out the
-}\underline{\text{wiki}}\;\text{ or visit the
-}\underline{\text{forum}.}</span></p>
-<p><span class="math display">\text{Please check our
-}\underline{\text{FAQ}}\;\text{ for answers to some common FeynCalc
-questions and have a look at the supplied
-}\underline{\text{examples}.}</span></p>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">LaunchKernels</span><span class="op">[</span><span class="dv">4</span><span class="op">]</span>;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>$LoadAddOns <span class="ex">=</span> <span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">}</span>;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc`</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span>; </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FeynCalc }\;\text{10.2.0 (dev
+version, 2025-12-22 21:09:03 +01:00, fcd53f9b). For help, use the
+}\underline{\text{online} \;\text{documentation},}\;\text{ visit the
+}\underline{\text{forum}}\;\text{ and have a look at the supplied
+}\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
+be downloaded }\underline{\text{here}.}</span></p>
 <p><span class="math display">\text{If you use FeynCalc in your
 research, please evaluate FeynCalcHowToCite[] to learn how to cite this
 software.}</span></p>
 <p><span class="math display">\text{Please keep in mind that the proper
 academic attribution of our work is crucial to ensure the future
 development of this package!}</span></p>
-<p><span class="math display">\text{FeynArts }\;\text{3.11 (3 Aug 2020)
+<p><span class="math display">\text{FeynArts }\;\text{3.12 (27 Mar 2025)
 patched for use with FeynCalc, for documentation see the
 }\underline{\text{manual}}\;\text{ or visit
 }\underline{\text{www}.\text{feynarts}.\text{de}.}</span></p>
@@ -163,24 +162,24 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diags<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">256</span><span class="op">,</span> <span class="dv">256</span><span class="op">}]</span>;</span></code></pre></div>
-<p><img src="img/1v49gnh8hxl8s.svg" alt="1v49gnh8hxl8s" /></p>
+<p><img src="img/0lmcve0rn7thz.svg" alt="0lmcve0rn7thz" /></p>
 <h2 id="obtain-the-amplitude">Obtain the amplitude</h2>
 <p>The 1/(2Pi)^D prefactor is implicit. We keep the full gauge
 dependence.</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>diags<span class="op">,</span> Truncated <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    PreFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> GaugeRules <span class="ot">-&gt;</span> <span class="op">{}],</span> IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> <span class="fu">List</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> Contract <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\frac{\text{e}^2 \gamma
-^{\text{Lor2}}.\left(m_e+\gamma \cdot q\right).\gamma
-^{\text{Lor2}}}{\left(q^2-m_e^2\right).(q-p)^2}-\frac{\text{e}^2
-\left(1-\xi _A\right) (\gamma \cdot (p-q)).\left(m_e+\gamma \cdot
-q\right).(\gamma \cdot
-(q-p))}{\left(q^2-m_e^2\right).(q-p)^4}</span></p>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left\{\left(i \;\text{e} \gamma
+^{\text{Lor2}}\right).\left(m_e+\gamma \cdot q\right).\left(i \;\text{e}
+\gamma ^{\text{Lor1}}\right) \left(\frac{\left(1-\xi _A\right)
+(q-p)^{\text{Lor1}}
+(p-q)^{\text{Lor2}}}{\left(q^2-m_e^2\right).(q-p)^4}+\frac{g^{\text{Lor1}\;\text{Lor2}}}{\left(q^2-m_e^2\right).(q-p)^2}\right)\right\}</span></p>
 <h2 id="calculate-the-amplitude">Calculate the amplitude</h2>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> TID<span class="op">[</span>amp<span class="op">[</span><span class="dv">0</span><span class="op">],</span> <span class="fu">q</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> TID<span class="op">[</span>amp<span class="op">[</span><span class="dv">0</span><span class="op">],</span> <span class="fu">q</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">Total</span></span></code></pre></div>
 <p><span class="math display">\frac{1}{2 p^2}i \pi ^2 \;\text{e}^2
 \;\text{B}_0\left(p^2,0,m_e^2\right) \left(\xi _A m_e^2 \gamma \cdot p-2
 \xi _A m_e (\gamma \cdot p).(\gamma \cdot p)+p^2 \xi _A \gamma \cdot p-D
@@ -221,21 +220,21 @@ m_e\right)}{16 \pi ^2 \varepsilon }</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
 <p>Keep in mind that Peskin and Schroeder use D = 4-Epsilon, while we
 did the calculation with D = 4-2Epsilon.</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knownResult <span class="ex">=</span> SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">4</span> <span class="fu">Pi</span>)<span class="sc">^</span>(<span class="fu">D</span><span class="sc">/</span><span class="dv">2</span>) <span class="fu">Gamma</span><span class="op">[</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">D</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span><span class="sc">/</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>            ((<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>) SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">x</span> ScaleMu<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">x</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">x</span>) SPD<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span>)<span class="sc">^</span>(<span class="dv">2</span> <span class="sc">-</span> <span class="fu">D</span><span class="sc">/</span><span class="dv">2</span>)<span class="sc">*</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>            ((<span class="dv">4</span> <span class="sc">-</span> Epsilon) SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span> <span class="sc">-</span> (<span class="dv">2</span> <span class="sc">-</span> Epsilon) <span class="fu">x</span> GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span>) <span class="sc">//</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>            FCReplaceD<span class="op">[</span>#<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> Epsilon<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>Epsilon<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> &amp; <span class="sc">//</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Normal</span> <span class="sc">//</span> SelectNotFree2<span class="op">[</span>#<span class="op">,</span> Epsilon<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Integrate</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span><span class="fu">x</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="dv">1</span><span class="sc">/</span>Epsilon <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span> Epsilon)<span class="op">]</span> &amp;;</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[</span>sigmaFeynmanGauge<span class="op">[</span><span class="dv">0</span><span class="op">],</span> knownResult<span class="op">,</span> </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Peskin and Schroeder, An Introduction to QFT, Eq 10.41:&quot;</span><span class="op">,</span> </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
+<p>```mathematica knownResult = SMP[“e”]^2/(4 Pi)^(D/2) Gamma[2 - D/2]/
+((1 - x) SMP[“m_e”]^2 + x ScaleMu^2 - x (1 - x) SPD[p, p])^(2 - D/2)*
+((4 - Epsilon) SMP[“m_e”] - (2 - Epsilon) x GSD[p]) // FCReplaceD[#, D
+-&gt; 4 - Epsilon] &amp; // Series[#, {Epsilon, 0, 0}] &amp; // Normal
+// SelectNotFree2[#, Epsilon] &amp; // Integrate[#, {x, 0, 1}] &amp; //
+ReplaceAll[#, 1/Epsilon -&gt; 1/(2 Epsilon)] &amp;;
+FCCompareResults[sigmaFeynmanGauge[0], knownResult, Text -&gt; {“to
+Peskin and Schroeder, An Introduction to QFT, Eq 10.41:”, “CORRECT.”,
+“WRONG!”}, Interrupt -&gt; {Hold[Quit[1]], Automatic}]; Print[“Time
+used:”, Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
+<p>```mathematica</p>
 <p><span class="math display">\text{$\backslash $tCompare to Peskin and
 Schroeder, An Introduction to QFT, Eq 10.41:}
 \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{$\backslash $tCPU Time used:
-}15.789\text{ s.}</span></p>
+}35.071\text{ s.}</span></p>
 </body>
 </html>
