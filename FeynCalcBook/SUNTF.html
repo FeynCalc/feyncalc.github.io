@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -147,5 +147,10 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>SUNTF<span class="op">[{</span><span class="fu">a</span><span class="op">,</span> <span class="fu">b</span><span class="op">},</span> <span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> <span class="sc">//</span> FCI <span class="sc">//</span> <span class="fu">StandardForm</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*SUNTF[{SUNIndex[a], SUNIndex[b]}, SUNFIndex[i], SUNFIndex[j]]*)</span></span></code></pre></div>
+<p>If there are no adjoint indices, the symbol automatically evaluates
+to a Kronecker delta</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>SUNTF<span class="op">[{},</span> <span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\delta _{ij}</span></p>
 </body>
 </html>

@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -135,7 +135,8 @@ can be performed only after multiplying <code>amp</code> with
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
 href="FCApart.html">FCApart</a>, <a
-href="FeynAmpDenominatorSimplify.html">FeynAmpDenominatorSimplify</a>.</p>
+href="FeynAmpDenominatorSimplify.html">FeynAmpDenominatorSimplify</a>,
+<a href="FCLoopFindTensorBasis.html">FCLoopFindTensorBasis</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span></code></pre></div>
@@ -152,7 +153,7 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\frac{(p\cdot q) (q\cdot
 r)}{q^2.(q-p)^2.(q-r)^2}</span></p>
 <p><span class="math display">\frac{p^2 r^2}{4
-q^2.(q-r)^2.(q-p)^2}+\frac{p^2+2 (q\cdot r)+2 r^2}{4
+q^2.(q-p)^2.(q-r)^2}+\frac{p^2+2 (q\cdot r)+2 r^2}{4
 q^2.(-p+q+r)^2}+-\frac{p^2}{4 q^2.(q-p)^2}-\frac{r^2}{4
 q^2.(q-r)^2}</span></p>
 <div class="sourceCode" id="cb4"><pre
@@ -169,18 +170,18 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\frac{(p\cdot \;\text{q1}) (p\cdot
 \;\text{q2})^2}{\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q2}-p)^2.(\text{q1}-\text{q2})^2}</span></p>
 <p><span class="math display">\frac{\left(m^2+p^2\right)^3}{8
-\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q2}-p)^2.(\text{q1}-\text{q2})^2.(\text{q1}-p)^2}-\frac{\left(m^2+p^2\right)^2}{4
-\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-\text{q2})^2.(\text{q1}-p)^2}+\frac{\left(m^2+p^2\right)
+\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q1}-\text{q2})^2.(\text{q2}-p)^2}-\frac{\left(m^2+p^2\right)^2}{4
+\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q1}-\text{q2})^2}+\frac{\left(m^2+p^2\right)
 \left(m^2+2 p^2\right)}{4
-\;\text{q2}^2.\text{q1}^2.\left((\text{q1}-p)^2-m^2\right).(\text{q1}-\text{q2})^2}-\frac{\left(m^2+p^2\right)
+\;\text{q1}^2.\text{q2}^2.\left((\text{q1}-p)^2-m^2\right).(\text{q1}-\text{q2})^2}-\frac{\left(m^2+p^2\right)
 (p\cdot \;\text{q1})}{4
-\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q2}-p)^2.(\text{q1}-\text{q2})^2}-\frac{\left(m^2+p^2\right)
+\;\text{q1}^2.\text{q2}^2.(\text{q1}-\text{q2})^2.\left((\text{q2}-p)^2-m^2\right)}-\frac{\left(m^2+p^2\right)
 (p\cdot \;\text{q1})}{4
-\;\text{q2}^2.\text{q1}^2.(\text{q1}-\text{q2})^2.\left((\text{q2}-p)^2-m^2\right)}-\frac{p\cdot
+\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-\text{q2})^2.(\text{q2}-p)^2}-\frac{p\cdot
 \;\text{q1}}{4
-\left(\text{q2}^2-m^2\right).(\text{q1}-\text{q2})^2.(\text{q1}-p)^2}-\frac{m^2+p\cdot
+\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q1}-\text{q2})^2}-\frac{m^2+p\cdot
 \;\text{q1}+p^2}{4
-\left(\text{q1}^2-m^2\right).(\text{q2}-p)^2.(\text{q1}-\text{q2})^2}+\frac{m^2+2
+\left(\text{q1}^2-m^2\right).(\text{q1}-\text{q2})^2.(\text{q2}-p)^2}+\frac{m^2+2
 (p\cdot \;\text{q1})+p^2}{8
 \left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-\text{q2})^2}</span></p>
 <div class="sourceCode" id="cb6"><pre
@@ -202,23 +203,23 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ApartFF<span class="op">[</span>int<span class="op">,</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\frac{\left(m^2+p^2\right)^2}{4
-\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q2}-p)^2.(\text{q1}-\text{q2})^2.(\text{q1}-p)^2}-\frac{m^2+p^2}{2
-\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-\text{q2})^2.(\text{q1}-p)^2}+\frac{m^2+p^2}{2
-\;\text{q2}^2.\text{q1}^2.\left((\text{q1}-p)^2-m^2\right).(\text{q1}-\text{q2})^2}-\frac{1}{2
-\left(\text{q1}^2-m^2\right).(\text{q2}-p)^2.(\text{q1}-\text{q2})^2}+\frac{1}{4
+\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q1}-\text{q2})^2.(\text{q2}-p)^2}+\frac{m^2+p^2}{2
+\;\text{q1}^2.\text{q2}^2.\left((\text{q1}-p)^2-m^2\right).(\text{q1}-\text{q2})^2}-\frac{m^2+p^2}{2
+\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q1}-\text{q2})^2}-\frac{1}{2
+\left(\text{q1}^2-m^2\right).(\text{q1}-\text{q2})^2.(\text{q2}-p)^2}+\frac{1}{4
 \left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-\text{q2})^2}</span></p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ApartFF<span class="op">[</span>int<span class="op">,</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">},</span> FDS <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\frac{\left(m^2+p^2\right)^2}{4
-\left(\text{q2}^2-m^2\right).(\text{q2}-p)^2.(\text{q2}-\text{q1})^2.\left(\text{q1}^2-m^2\right).(\text{q1}-p)^2}-\frac{m^2+p^2}{4
-\left(\text{q1}^2-m^2\right).(\text{q1}-p)^2.\left(\text{q2}^2-m^2\right).(\text{q2}-\text{q1})^2}+\frac{m^2+p^2}{4
+\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q2}-p)^2.(\text{q2}-\text{q1})^2}+\frac{m^2+p^2}{4
 \left(\text{q1}^2-m^2\right).(\text{q1}-p)^2.(\text{q2}-p)^2.(\text{q2}-\text{q1})^2}-\frac{m^2+p^2}{4
+\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q2}-\text{q1})^2}-\frac{m^2+p^2}{4
 \left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q2}-p)^2.(\text{q2}-\text{q1})^2}+\frac{m^2+p^2}{4
-(\text{q1}-p)^2.\left(\text{q2}^2-m^2\right).(\text{q2}-p)^2.(\text{q2}-\text{q1})^2}-\frac{1}{4
-(\text{q2}-\text{q1})^2.\left(\text{q1}^2-m^2\right).(\text{q2}-p)^2}-\frac{1}{4
-(\text{q2}-\text{q1})^2.(\text{q1}-p)^2.\left(\text{q2}^2-m^2\right)}+\frac{1}{4
-(\text{q2}-\text{q1})^2.\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right)}+\frac{1}{4
-(\text{q2}-\text{q1})^2.(\text{q1}-p)^2.(\text{q2}-p)^2}</span></p>
+\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q2}-p)^2.(\text{q2}-\text{q1})^2}-\frac{1}{4
+\left(\text{q1}^2-m^2\right).(\text{q2}-p)^2.(\text{q2}-\text{q1})^2}-\frac{1}{4
+\left(\text{q2}^2-m^2\right).(\text{q1}-p)^2.(\text{q2}-\text{q1})^2}+\frac{1}{4
+\left(\text{q1}^2-m^2\right).\left(\text{q2}^2-m^2\right).(\text{q2}-\text{q1})^2}+\frac{1}{4
+(\text{q1}-p)^2.(\text{q2}-p)^2.(\text{q2}-\text{q1})^2}</span></p>
 <p>If the partial fractioning should be performed only w. r. t. the
 denominators but not numerators, use the option
 <code>Numerator-&gt;False</code></p>
@@ -251,7 +252,7 @@ k^2.\left((k-p)^2-m^2\right)}+-\frac{1}{2 m^2
 <div class="sourceCode" id="cb15"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ApartFF<span class="op">[</span>int<span class="op">,</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> FeynAmpDenominator <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
 <p><span
-class="math display">\frac{q^2}{k^2.(p-k)^2.\left(k^2-m^2\right)}+\frac{m^2+p^2}{2
+class="math display">\frac{q^2}{k^2.\left(k^2-m^2\right).(p-k)^2}+\frac{m^2+p^2}{2
 m^2 k^2.\left((k-p)^2-m^2\right)}+-\frac{1}{2 m^2
 \left(k^2-m^2\right)}-\frac{p^2}{2 m^2 k^2.(k-p)^2}</span></p>
 <p>The <code>extraPiece</code>-trick is useful for cases where a direct
@@ -315,5 +316,44 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">1-\frac{\text{k1}\cdot
 \;\text{nb}}{(\text{k1}\cdot \;\text{nb}+\text{k2}\cdot \;\text{nb}+i
 \eta )}</span></p>
+<p>When we need to deal with linearly dependent external momenta, there
+might be some relations between scalar products involving those momenta
+and loop momenta. Since the routine cannot determine those relations
+automatically, we need to supply them by hand via the option
+<code>FinalSubstitutions</code></p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>int3 <span class="ex">=</span> SPD<span class="op">[</span>p1<span class="op">,</span> <span class="fu">q</span><span class="op">]</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{\text{p1}\cdot
+q}{\left(q^2-m^2\right).(-\text{p1}-\text{p2}+q)^2}</span></p>
+<p>Supplying the kinematics alone doesn’t work</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>kinRules <span class="ex">=</span> <span class="op">{</span>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="ot">-&gt;</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> SPD<span class="op">[</span>p2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ot">-&gt;</span> <span class="fu">M</span><span class="sc">^</span><span class="dv">2</span><span class="op">}</span></span></code></pre></div>
+<p><span class="math display">\left\{\text{p1}^2\to M^2,\text{p2}^2\to
+M^2,\text{p1}\cdot \;\text{p2}\to M^2\right\}</span></p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>ApartFF<span class="op">[</span>SPD<span class="op">[</span>p1<span class="op">,</span> <span class="fu">q</span><span class="op">]</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2<span class="op">}],</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> FinalSubstitutions <span class="ot">-&gt;</span> kinRules<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{\text{p1}\cdot
+q}{\left(q^2-m^2\right).(-\text{p1}-\text{p2}+q)^2}</span></p>
+<p>Using <code>FCLoopFindTensorBasis</code> we see that <code>p2</code>
+is proportional to <code>p1</code>. Hence, we have an equality between
+<code>p1.q</code> and <code>p2.q</code></p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>p1<span class="op">,</span> p2<span class="op">},</span> kinRules<span class="op">,</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+\;\text{p1} \\
+\;\text{p2} \\
+\;\text{p2}\to \;\text{p1} \;\text{FCGV}(\text{Prefactor})(1) \\
+\end{array}
+\right)</span></p>
+<p>Supplying this information to <code>ApartFF</code> we can finally
+achieve the desired simplification</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ApartFF<span class="op">[</span>SPD<span class="op">[</span>p1<span class="op">,</span> <span class="fu">q</span><span class="op">]</span> FAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">-</span> p1 <span class="sc">-</span> p2<span class="op">}],</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="fu">Join</span><span class="op">[</span>kinRules<span class="op">,</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span>SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> p2<span class="op">]</span> <span class="ot">-&gt;</span> SPD<span class="op">[</span><span class="fu">q</span><span class="op">,</span> p1<span class="op">]}]]</span></span></code></pre></div>
+<p><span class="math display">\frac{m^2+4 M^2}{4
+\left(q^2-m^2\right).(-\text{p1}-\text{p2}+q)^2}-\frac{1}{4
+\left(q^2-m^2\right)}</span></p>
 </body>
 </html>

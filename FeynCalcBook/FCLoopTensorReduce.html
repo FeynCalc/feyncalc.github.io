@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -148,10 +148,10 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 class="math display">\text{FCGV}(\text{GLIProduct})\left(\frac{(2-D) q^2
 \gamma ^{\mu }}{D},G^{\text{tad1l}}(1)\right)</span></p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>topo2 <span class="ex">=</span> FCTopology<span class="op">[</span>prop1l<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">},</span> <span class="op">{</span><span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>topo2 <span class="ex">=</span> FCTopology<span class="op">[</span>prop1l<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">-</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span></code></pre></div>
 <p><span
 class="math display">\text{FCTopology}\left(\text{prop1l},\left\{\frac{1}{(q^2-m^2+i
-\eta ).((q-p)^2-m^2+i \eta
+\eta )},\frac{1}{((q-p)^2-m^2+i \eta
 )}\right\},\{q\},\{p\},\{\},\{\}\right)</span></p>
 <p>1-loop self-energy topology</p>
 <div class="sourceCode" id="cb5"><pre
@@ -176,5 +176,168 @@ x,G^{\text{prop1l}}(1,2)\right)</span></p>
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FCLoopTensorReduce<span class="op">[</span>amp3<span class="op">,</span> <span class="op">{</span>topo2<span class="op">},</span> Uncontract <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">x</span><span class="op">},</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> gliProduct<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{gliProduct}\left(\frac{(p\cdot q)
 (p\cdot x)}{p^2},G^{\text{prop1l}}(1,2)\right)</span></p>
+<p>2-loop self-energy topology</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>topo3 <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;prop2L&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span>q1<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[{</span>q2<span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[</span>q1 <span class="sc">-</span> q2<span class="op">],</span> SFAD<span class="op">[</span>q1 <span class="sc">-</span> <span class="fu">p</span><span class="op">],</span> SFAD<span class="op">[</span>q2 <span class="sc">-</span> <span class="fu">p</span><span class="op">]},</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">},</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCTopology}\left(\text{prop2L},\left\{\frac{1}{(\text{q1}^2-m^2+i
+\eta )},\frac{1}{(\text{q2}^2-m^2+i \eta
+)},\frac{1}{((\text{q1}-\text{q2})^2+i \eta
+)},\frac{1}{((\text{q1}-p)^2+i \eta )},\frac{1}{((\text{q2}-p)^2+i \eta
+)}\right\},\{\text{q1},\text{q2}\},\{p\},\{\},\{\}\right)</span></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>amp3 <span class="ex">=</span> FCGV<span class="op">[</span><span class="st">&quot;GLIProduct&quot;</span><span class="op">][</span>GSD<span class="op">[</span>q1<span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GSD<span class="op">[</span>q2<span class="op">],</span> GLI<span class="op">[</span><span class="st">&quot;prop2L&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCGV}(\text{GLIProduct})\left((\gamma \cdot
+\;\text{q1}).\gamma ^{\mu }.(\gamma \cdot
+\;\text{q2}),G^{\text{prop2L}}(1,1,1,1,1)\right)</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>amp3Red <span class="ex">=</span> FCLoopTensorReduce<span class="op">[</span>amp3<span class="op">,</span> <span class="op">{</span>topo3<span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCGV}(\text{GLIProduct})\left(-\frac{p^4
+(\text{q1}\cdot \;\text{q2}) \gamma ^{\text{\$AL}(\text{\$46})}.\gamma
+^{\mu }.\gamma ^{\text{\$AL}(\text{\$46})}-p^2 (p\cdot \;\text{q1})
+(p\cdot \;\text{q2}) \gamma ^{\text{\$AL}(\text{\$46})}.\gamma ^{\mu
+}.\gamma ^{\text{\$AL}(\text{\$46})}+D (p\cdot \;\text{q1}) (p\cdot
+\;\text{q2}) (\gamma \cdot p).\gamma ^{\mu }.(\gamma \cdot p)-p^2
+(\text{q1}\cdot \;\text{q2}) (\gamma \cdot p).\gamma ^{\mu }.(\gamma
+\cdot p)}{(1-D) p^4},G^{\text{prop2L}}(1,1,1,1,1)\right)</span></p>
+<p>Some choices of kinematics lead to the so-called zero Gram
+determinants, meaning that the external momenta are not linearly
+independent. This prevents the usual tensor reduction but can be handled
+via a basis change</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">0</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>FCLoopTensorReduce<span class="op">[</span>amp3<span class="op">,</span> <span class="op">{</span>topo3<span class="op">}]</span></span></code></pre></div>
+<p><img src="img/01k9v9jxkacva.svg" alt="01k9v9jxkacva" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<p>Using <code>FCLoopFindTensorBasis</code> we can construct an
+alternative basis and supply it to the reduction procedure. In this case
+we need to introduce an auxiliary vector <code>n</code>. For simplicity,
+we choose it to be light-like</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span><span class="fu">p</span><span class="op">},</span> <span class="op">{},</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{\{p,n\},\{\},\{\}\}</span></p>
+<p>In this case to complete the reduction we need to use IBPs.
+Furthermore, the existing topology should be augmented to include the
+new auxiliary vector.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>amp3red <span class="ex">=</span> FCLoopTensorReduce<span class="op">[</span>amp3<span class="op">,</span> <span class="op">{</span>topo3<span class="op">},</span> TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{{</span><span class="fu">p</span><span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">,</span> <span class="fu">n</span><span class="op">}},</span> AuxiliaryMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">},</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>   FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SPD<span class="op">[</span><span class="fu">n</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCGV}(\text{GLIProduct})\left(\frac{1}{(2-D)
+(n\cdot p)^2}\left((\text{q1}\cdot \;\text{q2}) \left(-\gamma
+^{\text{\$AL}(\text{\$58})}.\gamma ^{\mu }.\gamma
+^{\text{\$AL}(\text{\$58})}\right) (n\cdot p)^2+(n\cdot p) (n\cdot
+\;\text{q2}) (p\cdot \;\text{q1}) \gamma
+^{\text{\$AL}(\text{\$58})}.\gamma ^{\mu }.\gamma
+^{\text{\$AL}(\text{\$58})}+(n\cdot p) (n\cdot \;\text{q1}) (p\cdot
+\;\text{q2}) \gamma ^{\text{\$AL}(\text{\$58})}.\gamma ^{\mu }.\gamma
+^{\text{\$AL}(\text{\$58})}-D (n\cdot \;\text{q1}) (n\cdot \;\text{q2})
+(\gamma \cdot p).\gamma ^{\mu }.(\gamma \cdot p)-D (n\cdot \;\text{q2})
+(p\cdot \;\text{q1}) (\gamma \cdot n).\gamma ^{\mu }.(\gamma \cdot p)-D
+(n\cdot \;\text{q1}) (p\cdot \;\text{q2}) (\gamma \cdot p).\gamma ^{\mu
+}.(\gamma \cdot n)-D (p\cdot \;\text{q1}) (p\cdot \;\text{q2}) (\gamma
+\cdot n).\gamma ^{\mu }.(\gamma \cdot n)+(n\cdot p) (\text{q1}\cdot
+\;\text{q2}) (\gamma \cdot n).\gamma ^{\mu }.(\gamma \cdot p)+(n\cdot p)
+(\text{q1}\cdot \;\text{q2}) (\gamma \cdot p).\gamma ^{\mu }.(\gamma
+\cdot n)+2 (n\cdot \;\text{q1}) (n\cdot \;\text{q2}) (\gamma \cdot
+p).\gamma ^{\mu }.(\gamma \cdot p)+(n\cdot \;\text{q2}) (p\cdot
+\;\text{q1}) (\gamma \cdot n).\gamma ^{\mu }.(\gamma \cdot p)-(n\cdot
+\;\text{q2}) (p\cdot \;\text{q1}) (\gamma \cdot p).\gamma ^{\mu
+}.(\gamma \cdot n)-(n\cdot \;\text{q1}) (p\cdot \;\text{q2}) (\gamma
+\cdot n).\gamma ^{\mu }.(\gamma \cdot p)+(n\cdot \;\text{q1}) (p\cdot
+\;\text{q2}) (\gamma \cdot p).\gamma ^{\mu }.(\gamma \cdot n)+2 (p\cdot
+\;\text{q1}) (p\cdot \;\text{q2}) (\gamma \cdot n).\gamma ^{\mu
+}.(\gamma \cdot n)\right),G^{\text{prop2L}}(1,1,1,1,1)
+\;\text{FCGV}(\text{AddPropagators})(\{n\})\right)</span></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>newtopo<span class="op">,</span> gliRule<span class="op">}</span> <span class="ex">=</span> FCLoopAugmentTopology<span class="op">[</span>topo3<span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> q1 . <span class="fu">n</span><span class="op">}}],</span> SFAD<span class="op">[{{</span><span class="dv">0</span><span class="op">,</span> q2 . <span class="fu">n</span><span class="op">}}]}]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{FCTopology}\left(\text{prop2LA},\left\{\frac{1}{(\text{q1}^2-m^2+i
+\eta )},\frac{1}{(\text{q2}^2-m^2+i \eta
+)},\frac{1}{((\text{q1}-\text{q2})^2+i \eta
+)},\frac{1}{((\text{q1}-p)^2+i \eta )},\frac{1}{((\text{q2}-p)^2+i \eta
+)},\frac{1}{(n\cdot \;\text{q1}+i \eta )},\frac{1}{(n\cdot \;\text{q2}+i
+\eta
+)}\right\},\{\text{q1},\text{q2}\},\{p,n\},\{\},\{\}\right),\text{FCGV}(\text{AddPropagators})(\{n\})
+G^{\text{prop2L}}(\text{n1$\_$},\text{n2$\_$},\text{n3$\_$},\text{n4$\_$},\text{n5$\_$}):\to
+G^{\text{prop2LA}}(\text{n1},\text{n2},\text{n3},\text{n4},\text{n5},0,0)\right\}</span></p>
+<p>In this form the expression can be converted into <code>GLI</code>s
+and passed to an IBP reduction tool</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>amp3red <span class="ot">/.</span> gliRule</span></code></pre></div>
+<p><span
+class="math display">\text{FCGV}(\text{GLIProduct})\left(\frac{1}{(2-D)
+(n\cdot p)^2}\left((\text{q1}\cdot \;\text{q2}) \left(-\gamma
+^{\text{\$AL}(\text{\$58})}.\gamma ^{\mu }.\gamma
+^{\text{\$AL}(\text{\$58})}\right) (n\cdot p)^2+(n\cdot p) (n\cdot
+\;\text{q2}) (p\cdot \;\text{q1}) \gamma
+^{\text{\$AL}(\text{\$58})}.\gamma ^{\mu }.\gamma
+^{\text{\$AL}(\text{\$58})}+(n\cdot p) (n\cdot \;\text{q1}) (p\cdot
+\;\text{q2}) \gamma ^{\text{\$AL}(\text{\$58})}.\gamma ^{\mu }.\gamma
+^{\text{\$AL}(\text{\$58})}-D (n\cdot \;\text{q1}) (n\cdot \;\text{q2})
+(\gamma \cdot p).\gamma ^{\mu }.(\gamma \cdot p)-D (n\cdot \;\text{q2})
+(p\cdot \;\text{q1}) (\gamma \cdot n).\gamma ^{\mu }.(\gamma \cdot p)-D
+(n\cdot \;\text{q1}) (p\cdot \;\text{q2}) (\gamma \cdot p).\gamma ^{\mu
+}.(\gamma \cdot n)-D (p\cdot \;\text{q1}) (p\cdot \;\text{q2}) (\gamma
+\cdot n).\gamma ^{\mu }.(\gamma \cdot n)+(n\cdot p) (\text{q1}\cdot
+\;\text{q2}) (\gamma \cdot n).\gamma ^{\mu }.(\gamma \cdot p)+(n\cdot p)
+(\text{q1}\cdot \;\text{q2}) (\gamma \cdot p).\gamma ^{\mu }.(\gamma
+\cdot n)+2 (n\cdot \;\text{q1}) (n\cdot \;\text{q2}) (\gamma \cdot
+p).\gamma ^{\mu }.(\gamma \cdot p)+(n\cdot \;\text{q2}) (p\cdot
+\;\text{q1}) (\gamma \cdot n).\gamma ^{\mu }.(\gamma \cdot p)-(n\cdot
+\;\text{q2}) (p\cdot \;\text{q1}) (\gamma \cdot p).\gamma ^{\mu
+}.(\gamma \cdot n)-(n\cdot \;\text{q1}) (p\cdot \;\text{q2}) (\gamma
+\cdot n).\gamma ^{\mu }.(\gamma \cdot p)+(n\cdot \;\text{q1}) (p\cdot
+\;\text{q2}) (\gamma \cdot p).\gamma ^{\mu }.(\gamma \cdot n)+2 (p\cdot
+\;\text{q1}) (p\cdot \;\text{q2}) (\gamma \cdot n).\gamma ^{\mu
+}.(\gamma \cdot
+n)\right),G^{\text{prop2LA}}(1,1,1,1,1,0,0)\right)</span></p>
+<p>Not all cases of zero Gram determinants require an auxiliary vector.
+If the new basis can be constructed from a subset of the present
+external momenta, this should be sufficient for the reduction. Consider
+e.g. this threshold kinematics</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="ex">=</span> mm;</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p2<span class="op">]</span> <span class="ex">=</span> mm;</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ex">=</span> mm;</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>topo4 <span class="ex">=</span> FCTopology<span class="op">[</span><span class="st">&quot;tri1l&quot;</span><span class="op">,</span> <span class="op">{</span>SFAD<span class="op">[{</span><span class="fu">q</span><span class="op">,</span> <span class="fu">m</span><span class="sc">^</span><span class="dv">2</span><span class="op">}],</span> SFAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">-</span> p1<span class="op">,</span> <span class="dv">0</span><span class="op">}],</span> SFAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">-</span> p2<span class="op">,</span> <span class="dv">0</span><span class="op">}]},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCTopology}\left(\text{tri1l},\left\{\frac{1}{(q^2-m^2+i
+\eta )},\frac{1}{((q-\text{p1})^2+i \eta )},\frac{1}{((q-\text{p2})^2+i
+\eta
+)}\right\},\{q\},\{\text{p1},\text{p2}\},\{\},\{\}\right)</span></p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>amp4 <span class="ex">=</span> FCGV<span class="op">[</span><span class="st">&quot;GLIProduct&quot;</span><span class="op">][</span>GSD<span class="op">[</span><span class="fu">q</span><span class="op">]</span> . GAD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GSD<span class="op">[</span><span class="fu">r</span><span class="op">],</span> GLI<span class="op">[</span><span class="st">&quot;tri1l&quot;</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCGV}(\text{GLIProduct})\left((\gamma \cdot
+q).\gamma ^{\mu }.(\gamma \cdot
+r),G^{\text{tri1l}}(1,1,1)\right)</span></p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>FCLoopTensorReduce<span class="op">[</span>amp4<span class="op">,</span> <span class="op">{</span>topo4<span class="op">}]</span></span></code></pre></div>
+<p><img src="img/1stlzmp72npin.svg" alt="1stlzmp72npin" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>p1<span class="op">,</span> p2<span class="op">},</span> <span class="op">{},</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+\;\text{p1} \\
+\;\text{p2} \\
+\;\text{p2}\to \;\text{p1} \;\text{FCGV}(\text{Prefactor})(1) \\
+\end{array}
+\right)</span></p>
+<p>Here the momenta p1 and p2 are obviously identical, so we need to do
+the reduction w.r.t p1 only</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>FCLoopTensorReduce<span class="op">[</span>amp4<span class="op">,</span> <span class="op">{</span>topo4<span class="op">},</span> TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{{</span>p1<span class="op">,</span> p2<span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">}}]</span></span></code></pre></div>
+<p><span
+class="math display">\text{FCGV}(\text{GLIProduct})\left(\frac{(\text{p1}\cdot
+q) (\gamma \cdot \;\text{p1}).\gamma ^{\mu }.(\gamma \cdot
+r)}{\text{mm}},G^{\text{tri1l}}(1,1,1)\right)</span></p>
 </body>
 </html>

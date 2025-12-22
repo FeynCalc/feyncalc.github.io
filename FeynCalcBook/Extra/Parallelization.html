@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -109,6 +109,33 @@ to parallelize some selected operations. For example,</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LaunchKernels</span><span class="op">[</span><span class="dv">8</span><span class="op">]</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span></span></code></pre></div>
+<p>Notice that as of now only a small subset of FeynCalc routines
+supports parallelization. Every such function has an option
+<code>FCParallelize</code> that is set to <code>False</code> by default.
+To enable the parallel mode you explicitly need to call the given
+function with the option <code>FCParallelize-&gt;True</code>.</p>
+<h3
+id="synchronizing-definitions-between-multiple-kernels">Synchronizing
+definitions between multiple kernels</h3>
+<p>All definitions made via <code>DataType[x,y]=True</code>,
+<code>ScalarProduct[a,b] = c</code>, <code>SPD[a,b] = c</code> as well
+as <code>FCCommutator</code> or <code>FCAntiCommutator</code>
+<em>before</em> activating the parallel mode must be repeated. This is
+necessary to ensure that they are synchronized between the master kernel
+and the subkernels. To this aim it is recommended to remove all
+definitions via</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCClearDataTypes<span class="op">[]</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>UnDeclareAllCommutators<span class="op">[]</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>UnDeclareAllAntiCommutators<span class="op">[]</span></span></code></pre></div>
+<p>and then introduce them again.</p>
+<p>Alternatively, you can <em>first</em> activate the parallel mode
+without making any definitions and <em>then</em> define everything as
+you like. <code>DataType</code>, <code>ScalarProduct</code>,
+<code>FCCommutator</code> and <code>FCAntiCommutator</code> will
+automatically distribute the definitions among all subkernels if they
+detect the parallel mode.</p>
 <h3
 id="functions-that-support-automatic-execution-on-parallel-kernels">Functions
 that support automatic execution on parallel kernels</h3>
@@ -117,6 +144,24 @@ that support automatic execution on parallel kernels</h3>
 <li><code>FCFeynmanPrepare</code></li>
 <li><code>FCLoopToPakForm</code></li>
 <li><code>FCLoopFindIntegralMappings</code></li>
+<li><code>FCLoopFindTopologyMappings</code></li>
+<li><code>FCLoopFindSubtopologies</code></li>
+<li><code>FCLoopFindTopologies</code></li>
+<li><code>FCLoopCreatePartialFractioningRules</code></li>
+<li><code>FCLoopApplyTopologyMappings</code></li>
+<li><code>FCLoopGetKinematicInvariants</code></li>
+<li><code>FCLoopTensorReduce</code></li>
+<li><code>Tdec</code></li>
+<li><code>FCLoopIsolate</code></li>
+<li><code>MomentumCombine</code></li>
+<li><code>Collect2</code> (only when isolation is disabled)</li>
+<li><code>FCClearScalarProducts</code> (parallelization is enabled by
+default)</li>
+<li><code>ScalarProduct</code> (parallelization is enabled by
+default)</li>
+<li><code>DataType</code> (parallelization is enabled by default)</li>
+<li><code>FCClearDataTypes</code> (parallelization is enabled by
+default)</li>
 </ul>
 </body>
 </html>

@@ -60,6 +60,10 @@ FeynArts</a></li>
 <li><a href="UpperLowerIndices.html">Upper and lower indices</a></li>
 <li><a href="CustomModels.html">Custom FeynRules models</a></li>
 <li><a href="Gamma5.html">Treatment of gamma5 in D dimensions</a></li>
+<li><a href="DiracTracesSchouten.html">Dirac traces in 4 dimensions and
+Schouten identity</a></li>
+<li><a href="TensorReduction.html">Tensor reduction of loop
+integrals</a></li>
 <li><a href="DiracAlgebraFormulas.html">Useful formulas for Dirac
 algebra</a></li>
 <li><a href="Renormalization.html">Renormalization</a></li>
@@ -171,6 +175,8 @@ href="../CFAD.html">CFAD</a>, <a href="../GFAD.html">GFAD</a>, <a
 href="../FeynAmpDenominator.html">FeynAmpDenominator</a> - denominators
 of Feynman amplitudes</li>
 <li><a href="../FCGV.html">FCGV</a> - a global variable</li>
+<li><a href="../FCIndexDelta.html">FCIndexDelta</a> - a generic
+Kronecker delta placeholder</li>
 <li><a href="../FCIteratedIntegral.html">FCIteratedIntegral</a> - Chen’s
 iterated integral</li>
 <li><a href="../FCHPL.html">FCHPL</a>, <a href="../FCGPL.html">FCGPL</a>
@@ -252,6 +258,7 @@ internal representation to represent the metric, scalar products or
 href="../PauliChain.html">PauliChain</a> - Pauli chain with explicit
 open Pauli indices</li>
 <li><a href="../PauliEta.html">PauliEta</a>, <a
+href="../PauliEtaC.html">PauliEtaC</a>, <a
 href="../PauliXi.html">PauliXi</a> - Pauli spinors</li>
 <li><a href="../PauliIndexDelta.html">PauliIndexDelta</a>, <a
 href="../PIDelta.html">PIDelta</a> - Kronecker delta in the Pauli
@@ -355,9 +362,8 @@ Mathematica’s <code>Coefficient</code></li>
 <code>Together</code></li>
 <li><a href="../Complement1.html">Complement1</a> - alternative to
 Mathematica’s <code>Complement</code></li>
-<li><a href="../Collect2.html">Collect2</a>, <a
-href="../Collect3.html">Collect3</a> - alternatives to Mathematica’s
-<code>Collect</code></li>
+<li><a href="../Collect2.html">Collect2</a> - alternative to
+Mathematica’s <code>Collect</code></li>
 <li><a href="../DataType.html">DataType</a> - defines data types</li>
 <li><a href="../Expand2.html">Expand2</a> - alternative to Mathematica’s
 <code>Expand</code></li>
@@ -377,6 +383,8 @@ href="../FeynCalcForm.html">FeynCalcForm</a></li>
 abbreviations</li>
 <li><a href="../FCAntiSymmetrize.html">FCAntiSymmetrize</a> -
 antisymmetrizes with respect to the given variables</li>
+<li><a href="../FCClearDataTypes.html">FCClearDataTypes</a> - removes
+all user-defined data types</li>
 <li><a href="../FCDeclareHeader.html">FCDeclareHeader</a>, <a
 href="../FCPrint.html">FCPrint</a>, <a
 href="../FCReloadAddOns.html">FCReloadAddOns</a>, <a
@@ -445,6 +453,8 @@ href="../SelectSplit.html">SelectSplit</a> - alternatives to
 Mathematica’s <code>Select</code></li>
 <li><a href="../FCSymmetrize.html">FCSymmetrize</a> - symmetrizes with
 respect to the given variables</li>
+<li><a href="../FCValuesSynchronizedQ.html">FCValuesSynchronizedQ</a> -
+checks consistency of specified definitions in the parallel mode</li>
 <li><a href="../FeynCalcHowToCite.html">FeynCalcHowToCite</a> - lists
 relevant FeynCalc publications</li>
 <li><a href="../FI.html">FI</a> - changes the output format to
@@ -563,6 +573,9 @@ class="math inline">D</span> with e.g. <span class="math inline">4-2
 \varepsilon</span></li>
 <li><a href="../FCRerouteMomenta.html">FCRerouteMomenta</a> - improves
 routing of the external momenta using momentum conservation</li>
+<li><a
+href="../FCScalarProductsSynchronizedQ.html">FCScalarProductsSynchronizedQ</a>
+- checks consistency of kinematic definitions in the parallel mode</li>
 <li><a href="../FCSchoutenBruteForce.html">FCSchoutenBruteForce</a> -
 brute force application of the <a href="../Schouten.html">Schouten</a>
 identity to minimize the number of terms</li>
@@ -726,13 +739,9 @@ expansions</li>
 <h2 id="algebra-of-noncommutative-objects">Algebra of noncommutative
 objects</h2>
 <ul>
-<li><a href="../AntiCommutator.html">AntiCommutator</a> - defines an
-anti-commutator</li>
 <li><a href="../Calc.html">Calc</a>, <a href="../Trick.html">Trick</a> -
 multiple simplifications for Dirac and <span
 class="math inline">SU(N)</span> algebra</li>
-<li><a href="../Commutator.html">Commutator</a> - defines a
-commutator</li>
 <li><a href="../CommutatorExplicit.html">CommutatorExplicit</a> -
 substitutes explicit definitions of commutators and anticommutators</li>
 <li><a href="../CommutatorOrder.html">CommutatorOrder</a> - canonical
@@ -743,6 +752,10 @@ declares noncommutative objects</li>
 products</li>
 <li><a href="../DotSimplify.html">DotSimplify</a> - expands and reorders
 noncommutative terms</li>
+<li><a href="../FCAntiCommutator.html">FCAntiCommutator</a> - defines an
+anti-commutator</li>
+<li><a href="../FCCommutator.html">FCCommutator</a> - defines a
+commutator</li>
 <li><a href="../FCMatrixIsolate.html">FCMatrixIsolate</a> - wraps Dirac,
 Pauli and <span class="math inline">SU(N)</span> objects into specified
 heads</li>
@@ -779,6 +792,8 @@ the color factor</li>
 Kronecker deltas with adjoint color indices</li>
 <li><a href="../SUNFDeltaContract.html">SUNFDeltaContract</a> -
 contracts Kronecker deltas with fundamental color indices</li>
+<li><a href="../SUNFierz.html">SUNFierz</a> - applies color Fierz
+identity</li>
 <li><a href="../SUNSimplify.html">SUNSimplify</a> - simplifies
 expressions that contain <span class="math inline">SU(N)</span>
 matrices</li>
@@ -868,6 +883,8 @@ topology identification and minimization</li>
 <li><a href="../FCGraphCuttableQ.html">FCGraphCuttableQ</a>, <a
 href="../FCGraphFindPath.html">FCGraphFindPath</a> - graph
 manipulations</li>
+<li><a href="../FCLoopAugmentTopology.html">FCLoopAugmentTopology</a> -
+adds extra propagators to the topology</li>
 <li><a
 href="../FCLoopBasisCreateScalarProducts.html">FCLoopBasisCreateScalarProducts</a>
 - auxiliary function that generates all possible loop momenta dependent
@@ -901,6 +918,8 @@ href="../FCLoopEikonalPropagatorFreeQ.html">FCLoopEikonalPropagatorFreeQ</a>
 integrals</li>
 <li><a href="../FCLoopFindSectors.html">FCLoopFindSectors</a> - returns
 sectors for the given <a href="../GLI.html">GLI</a>s</li>
+<li><a href="../FCLoopFindTensorBasis.html">FCLoopFindTensorBasis</a> -
+find a linearly independent set of external momenta</li>
 <li><a href="../FCLoopFromGLI.html">FCLoopFromGLI</a> - converts <a
 href="../GLI.html">GLI</a>s into explicit integrals with <a
 href="../FeynAmpDenominator.html">FeynAmpDenominator</a>s</li>
@@ -1293,6 +1312,7 @@ href="../$ScalarProducts.html">$ScalarProducts</a> - global variables
 needed for the proper functioning of FeynCalc</li>
 <li><a href="../A0ToB0.html">A0ToB0</a>, <a
 href="../AuxiliaryMomenta.html">AuxiliaryMomenta</a>, <a
+href="../AugmentedTopologyMarker.html">AugmentedTopologyMarker</a>, <a
 href="../B0Real.html">B0Real</a>, <a
 href="../B0Unique.html">B0Unique</a>, <a
 href="../Bracket.html">Bracket</a>, <a
@@ -1313,6 +1333,7 @@ href="../DiracTraceEvaluate.html">DiracTraceEvaluate</a>, <a
 href="../Divideout.html">Divideout</a>, <a
 href="../DotPower.html">DotPower</a>, <a
 href="../DotSimplifyRelations.html">DotSimplifyRelations</a>, <a
+href="../DropIndexSum.html">DropIndexSum</a>, <a
 href="../DropScaleless.html">DropScaleless</a>, <a
 href="../DropSumOver.html">DropSumOver</a>, <a
 href="../DummyIndex.html">DummyIndex</a>, <a
@@ -1332,6 +1353,7 @@ href="../FactoringDenominator.html">FactoringDenominator</a>, <a
 href="../Factorout.html">Factorout</a>, <a
 href="../FAModelsDirectory.html">FAModelsDirectory</a>, <a
 href="../FCDoControl.html">FCDoControl</a>, <a
+href="../FCParallelize.html">FCParallelize</a>, <a
 href="../FCJoinDOTs.html">FCJoinDOTs</a>, <a
 href="../FCVerbose.html">FCVerbose</a>, <a
 href="../FeynmanIntegralPrefactor.html">FeynmanIntegralPrefactor</a>, <a
@@ -1408,7 +1430,8 @@ href="../SUNIndexNames.html">SUNIndexNames</a>, <a
 href="../SUNFIndexNames.html">SUNFIndexNames</a>, <a
 href="../SUNTraceEvaluate.html">SUNTraceEvaluate</a>, <a
 href="../SUNNToCACF.html">SUNNToCACF</a>, <a
-href="../TraceDimension.html">TraceDimension</a>, <a
+href="../TensorReductionBasisChange.html">TensorReductionBasisChange</a>,
+<a href="../TraceDimension.html">TraceDimension</a>, <a
 href="../TraceOfOne.html">TraceOfOne</a>, <a
 href="../Transversality.html">Transversality</a>, <a
 href="../TransversePolarizationVectors.html">TransversePolarizationVectors</a>,

@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -120,34 +120,86 @@ corresponding function is called <code>Contract</code></p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\mu } \bar{g}^{\mu \nu
-}</span></p>
-<p><span class="math display">\overline{p}^{\nu }</span></p>
+<p><span class="math display">\text{FV}(p,\mu ) \;\text{MT}(\mu ,\nu
+)</span></p>
+<p><span class="math display">\text{Contract}(\text{FV}(p,\mu )
+\;\text{MT}(\mu ,\nu ))</span></p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\alpha }
-\overline{q}^{\alpha }</span></p>
-<p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
+<p><span class="math display">\text{FV}(p,\alpha ) \;\text{FV}(q,\alpha
+)</span></p>
+<p><span class="math display">\text{Contract}(\text{FV}(p,\alpha )
+\;\text{FV}(q,\alpha ))</span></p>
 <p>Notice that when we enter noncommutative objects, such as Dirac
 matrices, we use <code>Dot</code> (<code>.</code>) and not
 <code>Times</code> (<code>*</code>)</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">]]</span> GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Gamma</span><span class="op">]]</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\alpha } \bar{\gamma
-}^{\alpha }.\bar{\gamma }^{\beta }.\bar{\gamma }^{\gamma }
-\bar{g}^{\beta \gamma }</span></p>
-<p><span class="math display">\left(\bar{\gamma }\cdot
-\overline{p}\right).\bar{\gamma }^{\gamma }.\bar{\gamma }^{\gamma
-}</span></p>
+<p><span class="math display">\text{FV}(p,\alpha ) \;\text{MT}(\beta
+,\gamma ) \;\text{GA}(\alpha ).\text{GA}(\beta ).\text{GA}(\gamma
+)</span></p>
+<p><span class="math display">\text{Contract}(\text{FV}(p,\alpha )
+\;\text{MT}(\beta ,\gamma ) \;\text{GA}(\alpha ).\text{GA}(\beta
+).\text{GA}(\gamma ))</span></p>
 <p>This is because <code>Times</code> is commutative, so writing
 something like</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Delta<span class="op">]]</span> GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">]]</span> GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">]]</span></span></code></pre></div>
-<p><span class="math display">\bar{\gamma }^{\alpha } \bar{\gamma
-}^{\beta } \bar{\gamma }^{\delta }</span></p>
+<p><span class="math display">\text{GA}(\alpha ) \;\text{GA}(\beta )
+\;\text{GA}(\delta )</span></p>
 <p>will give you completely wrong results. It is also a very common
 beginner’s mistake!</p>
+<p>It might be surprising that FeynCalc does not seem to distinguish
+between upper and lower Lorentz indices.</p>
+<p>In fact, FeynCalc tacitly assumes that all your expressions with
+Lorentz indices are manifestly Lorentz covariant and respect Einstein’s
+summation. In particular, this implies that</p>
+<p>In an equality, if a free Lorentz index appears upstairs on the right
+hand side, it must also appear upstairs on the left hand side. Something
+like <span class="math inline">p^{\mu} = c q_{\mu}</span> would violate
+manifest Lorentz covariance. Hence,</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="ex">==</span> <span class="fu">c</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">\text{FV}(p,\mu )=c \;\text{FV}(q,\mu
+)</span></p>
+<p>could equally stand for <span class="math inline">p^{\mu} = c
+q^{\mu}</span> or <span class="math inline">p_{\mu} = c
+q_{\mu}</span>.</p>
+<p>For the sake of definiteness, we impose that a free Lorentz should be
+always understood to be an upper index. This becomes important when
+dealing with nonrelativistic expressions involving Cartesian indices,
+where there’s no manifest Lorentz covariance.</p>
+<p>Since FeynCalc assumes that the expressions you enter are
+mathematically sensible, it will not check your input or complain, even
+if the expression you provided is obviously incorrect</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>MT<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FV}(p,\mu ) \;\text{FV}(q,\mu )
+\;\text{MT}(\mu ,\nu )</span></p>
+<p><span class="math display">\text{Contract}(\text{FV}(p,\mu )
+\;\text{FV}(q,\mu ) \;\text{MT}(\mu ,\nu ))</span></p>
+<p>When it comes to products of Levi-Civita tensors (<code>Eps</code>),
+<code>Contract</code> will by default apply the product formula with the
+determinant of metric tensors</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]][</span><span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span> FV<span class="op">[</span><span class="fu">x</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FV}(x,\mu ) \;\text{LC}(\mu ,\nu
+)(p,q) \;\text{LC}(\rho ,\sigma )(r,s)</span></p>
+<p><span class="math display">\text{Contract}(\text{FV}(x,\mu )
+\;\text{LC}(\mu ,\nu )(p,q) \;\text{LC}(\rho ,\sigma )(r,s))</span></p>
+<p>This is, however, not always what we want and can be inhibited via
+the option <code>EpsContract</code></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span> LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">]][</span><span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span> FV<span class="op">[</span><span class="fu">x</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Contract<span class="op">[</span><span class="sc">%</span><span class="op">,</span> EpsContract <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FV}(x,\mu ) \;\text{LC}(\mu ,\nu
+)(p,q) \;\text{LC}(\rho ,\sigma )(r,s)</span></p>
+<p><span class="math display">\text{Contract}(\text{FV}(x,\mu )
+\;\text{LC}(\mu ,\nu )(p,q) \;\text{LC}(\rho ,\sigma
+)(r,s),\text{EpsContract}\to \;\text{False})</span></p>
 </body>
 </html>

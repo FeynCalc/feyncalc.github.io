@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="css/feyncalc.css" />
+  <script defer="" src="js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="sunfierz">SUNFierz</h2>
+<p><code>SUNFierz[exp, {i, j, k, l}]</code> applies Fierz identity to
+the product of two Kronecker deltas the in fundamental representation
+(<code>SUNFDelta</code>) carrying indices <code>i</code>,
+<code>j</code>, <code>k</code> and <code>l</code> present in
+<code>exp</code>.</p>
+<h3 id="see-also">See also</h3>
+<p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="SUNSimplify.html">SUNSimplify</a>, <a href="SUNT.html">SUNT</a>,
+<a href="SUNTF.html">SUNTF</a>, <a
+href="SUNFDelta.html">SUNFDelta</a>.</p>
+<h3 id="examples">Examples</h3>
+<p>```mathematica SUNFDelta[i, j] SUNFDelta[k, l]</p>
+<p>SUNFierz[%, {i, j, k, l}, SUNIndexNames -&gt; {a}]</p>
+<p>```mathematica</p>
+<p><span class="math display">\delta _{ij} \delta _{kl}</span></p>
+<p><span class="math display">2 T_{il}^a T_{kj}^a+\frac{\delta _{il}
+\delta _{jk}}{N}</span></p>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FeynCalc manual (development version)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <script defer="" src="../js/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: true
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="../js/katex.min.css" />
+
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">FeynCalc manual (development version)</h1>
+</header>
+<h2 id="dirac-traces-in-4-dimensions-and-schouten-identity">Dirac traces
+in 4 dimensions and Schouten identity</h2>
+<h3 id="see-also">See also</h3>
+<p><a href="FeynCalc.html">Overview</a>.</p>
+<p>Dirac traces computer in 4 dimensions are not unique. Depending on
+the way how such traces are computerd, one may end up with expressions
+of different length. The reason for this is the so-called Schouten
+identity.</p>
+<p>The underlying issue comes from the fact that a totally antisymmetric
+tensor with 5 indices must identically vanish in 4-dimensional Minkowski
+space, where each index runs only from 0 to 3 This is an obvious
+statement, since with this setup you will always have two indices with
+the same value between 0 and 3 and so the tensor will vanish by
+symmetry.</p>
+<p>We can define such a 5-index totally antisymmetric tensor as</p>
+<p><span class="math display">
+\begin{align}
+T^{\mu\nu\rho\sigma\tau} = \varepsilon^{\mu\nu\rho\sigma} p^\tau +
+\varepsilon^{\nu \rho \sigma \tau} p^\mu +
+\varepsilon^{\rho \sigma \tau \mu} p^\nu +
+\varepsilon^{\sigma \tau \mu \nu} p^\rho +
+\varepsilon^{\tau \mu \nu \rho} p^\sigma,
+\end{align}
+</span></p>
+<p>where <span class="math inline">p</span> is just some arbitrary
+4-vector.</p>
+<p>It is easy to check that <span
+class="math inline">T^{\mu\nu\rho\sigma\tau}</span> is indeed totally
+antisymmetric by exchanging any of the two neighboring indices and
+adding that to the original expression, e.g.</p>
+<p><span class="math display">
+\begin{align}
+T^{\mu\nu\rho\sigma\tau} + T^{\nu\mu\rho\sigma\tau} = 0
+\end{align}
+</span></p>
+<p>According to the argument above the necessary vanishing of a 5-index
+totally antisymmetric tensor in the 4-dimensional spacetime, we must
+conclude that</p>
+<p><span class="math display">
+\begin{align}
+\varepsilon^{\mu\nu\rho\sigma} p^\tau +
+\varepsilon^{\nu \rho \sigma \tau} p^\mu +
+\varepsilon^{\rho \sigma \tau \mu} p^\nu +
+\varepsilon^{\sigma \tau \mu \nu} p^\rho +
+\varepsilon^{\tau \mu \nu \rho} p^\sigma = 0
+\end{align}
+</span></p>
+<p>This relation is known under the name of Schouten identity. We can
+also write it in a somewhat different way by noticing that</p>
+<p><span class="math display">
+\begin{align}
+p^\alpha = g^{\alpha \beta} p_{\beta}
+\end{align}
+</span></p>
+<p>which allows us to eliminate the arbitrary vector <span
+class="math inline">p</span>. This yields</p>
+<p><span class="math display">
+\begin{align}
+\varepsilon^{\mu \nu \rho \sigma} g^{\kappa \tau} +
+\varepsilon^{\nu \rho \sigma \tau} g^{\kappa \mu} +
+\varepsilon^{\rho \sigma \tau \mu} g^{\kappa \nu} +
+\varepsilon^{\sigma \tau \mu \nu} g^{\kappa \rho} +
+\varepsilon^{\tau \mu \nu \rho} g^{\kappa \sigma} = 0
+\end{align}
+</span></p>
+<p>The above demonstrates a nontrivial linear combination of Levi-Civita
+and metric tensors that add up to zero. Furthermore, if all indices are
+contracted with other tensors or vectors, then recognizing a Schouten
+identity in a large expression with many terms becomes a formidable
+task. For example, consider multiplying Schouten identity with <span
+class="math inline">\varepsilon^{\alpha \beta \gamma \delta}</span>.
+Using the formula for products of two Levi-Civita tensors, the amount of
+terms on the l.h.s. will increase to 120, still giving zero when added
+together.</p>
+<p>In practice, not only Dirac traces but any kind of tensor
+calculations involving multiple products of Levi-Civita and metric
+tensors will sooner or later contain spurious zeros induced by the
+Schouten identity. There is no known systematic way to eliminate such
+redundancies.</p>
+<p>The same issue arises when comparing two expressions that are
+expected to be the same but happen to look very different from each
+other and even contain a different number of terms. In many cases the
+equality can be demonstrated by applying Schouten identity multiple
+times in a particular way.</p>
+<p>It is somewhat unfortunate that Schouten identity is never mentioned
+in most popular QFT books and lectures apart from its variety used in
+the spinor-helicity formalism. Hence, there are many particle physicists
+who have never heard of it. The FORM manual, however, <a
+href="https://www.nikhef.nl/~form/maindir/documentation/trace4">does
+mention it</a>.</p>
+<p>FeynCalc has a function called <a
+href="..//FCSchoutenBruteForce.html">FCSchoutenBruteForce</a> that tries
+to automatize the application of Schouten identity in a brute force by
+trying all possible combinations and checking which of them lead to the
+largest decrease in the number of terms. However, it there is absolutely
+no warranty that it can simplify all relevant cases. Often the brute
+force procedure gets stuck in the sense, that there is no single
+replacement possible that would decrease the number of terms.
+Surprisingly, in such cases it often helps to make a replacement that
+would actually make the given expression larger. But then one is out of
+the pit and the next replacement is most likely to be a good one,
+i.e. making the expression much shorter.</p>
+<p>Another possibility to show the equality of two expression that
+differ by Schouten is to manifestly break the Lorentz invariance by
+rewriting everything in terms of single components.</p>
+</body>
+</html>

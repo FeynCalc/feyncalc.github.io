@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -116,6 +116,7 @@ applied only to the loop integrals where loop momenta are contracted
 with Dirac matrices or epsilon tensors.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FCLoopFindTensorBasis.html">FCLoopFindTensorBasis</a>, <a
 href="TID.html">TID</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre
@@ -134,5 +135,39 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 \;\text{p1}^{\mu } \;\text{p1}^{\nu }-\text{p1}^2 g^{\mu \nu }}{2 (1-D)
 \;\text{p1}^4
 \;\text{q1}^2.(\text{q1}-\text{q2})^2.(\text{q2}-\text{p1})^2}</span></p>
+<p>In the case of vanishing Gram determinants one can apply the same
+procedure as in the case of TID or FCLoopTensorReduce: one uses
+<code>FCLoopFindTensorBasis</code> to find a linear independent basis of
+external momenta and then supplies this basis to the function.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">]</span> <span class="ex">=</span> m1<span class="sc">^</span><span class="dv">2</span>;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p2<span class="op">]</span> <span class="ex">=</span> m2<span class="sc">^</span><span class="dv">2</span>;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span>p1<span class="op">,</span> p2<span class="op">]</span> <span class="ex">=</span> m1 m2;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FCMultiLoopTID<span class="op">[</span>FVD<span class="op">[</span>q1<span class="op">,</span> mu<span class="op">]</span> FAD<span class="op">[{</span>q1<span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span>q1 <span class="sc">+</span> p1<span class="op">},</span> <span class="op">{</span>q1 <span class="sc">+</span> p2<span class="op">}],</span> <span class="op">{</span>q1<span class="op">}]</span></span></code></pre></div>
+<p><img src="img/0h2gltw65l2pe.svg" alt="0h2gltw65l2pe" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCLoopFindTensorBasis<span class="op">[{</span>p1<span class="op">,</span> p2<span class="op">},</span> <span class="op">{},</span> <span class="fu">n</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+\;\text{p1} \\
+\;\text{p2} \\
+\;\text{p2}\to \;\text{p1}
+\;\text{FCGV}(\text{Prefactor})\left(\frac{\text{m2}}{\text{m1}}\right)
+\\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCMultiLoopTID<span class="op">[</span>FVD<span class="op">[</span>q1<span class="op">,</span> mu<span class="op">]</span> FAD<span class="op">[{</span>q1<span class="op">,</span> <span class="fu">m</span><span class="op">},</span> <span class="op">{</span>q1 <span class="sc">+</span> p1<span class="op">},</span> <span class="op">{</span>q1 <span class="sc">+</span> p2<span class="op">}],</span> <span class="op">{</span>q1<span class="op">},</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  TensorReductionBasisChange <span class="ot">-&gt;</span> <span class="op">{{</span>p1<span class="op">,</span> p2<span class="op">}</span> <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">}}]</span></span></code></pre></div>
+<p><span class="math display">\frac{\text{p1}^{\text{mu}}}{2
+\;\text{m1}^2
+\;\text{q1}^2.\left((\text{q1}-\text{p2})^2-m^2\right)}-\frac{\left(m^2+\text{m1}^2\right)
+\;\text{p1}^{\text{mu}}}{2 \;\text{m1}^2
+\left(\text{q1}^2-m^2\right).(\text{q1}-\text{p1})^2.(\text{q1}-\text{p2})^2}-\frac{\text{p1}^{\text{mu}}}{2
+\;\text{m1}^2
+\;\text{q1}^2.(-\text{p1}+\text{p2}+\text{q1})^2}</span></p>
 </body>
 </html>

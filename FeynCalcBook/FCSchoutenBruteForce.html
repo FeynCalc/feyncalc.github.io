@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -162,6 +162,103 @@ rule was applied: }\bar{\epsilon
 \left(\overline{\text{p5}}\cdot \overline{\text{p6}}\right)</span></p>
 <p><span class="math display">\text{FCSchoutenBruteForce: The numbers of
 terms in the expression decreased by: }5</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: Current length
+of the expression: }0</span></p>
+<p><span class="math display">0</span></p>
+<p>Here is a more involved example, where the identity must be applied
+multiple times</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span> <span class="ex">=</span> SP<span class="op">[</span>q1<span class="op">,</span> q2<span class="op">]</span> (MT<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> LC<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">j</span><span class="op">][</span>q1<span class="op">,</span> q2<span class="op">]</span> <span class="sc">-</span> MT<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> LC<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">k</span><span class="op">][</span>q1<span class="op">,</span> q2<span class="op">]</span> <span class="sc">-</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       MT<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> LC<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">j</span><span class="op">][</span>q1<span class="op">,</span> q2<span class="op">]</span> <span class="sc">+</span> MT<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">j</span><span class="op">]</span> LC<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">k</span><span class="op">][</span>q1<span class="op">,</span> q2<span class="op">]</span> <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       FV<span class="op">[</span>q2<span class="op">,</span> <span class="fu">b</span><span class="op">]</span> LC<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">][</span>q1<span class="op">]</span> <span class="sc">-</span> FV<span class="op">[</span>q1<span class="op">,</span> <span class="fu">b</span><span class="op">]</span> LC<span class="op">[</span><span class="fu">a</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">][</span>q2<span class="op">]</span> <span class="sc">-</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       FV<span class="op">[</span>q2<span class="op">,</span> <span class="fu">a</span><span class="op">]</span> LC<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">][</span>q1<span class="op">]</span> <span class="sc">+</span> FV<span class="op">[</span>q1<span class="op">,</span> <span class="fu">a</span><span class="op">]</span> LC<span class="op">[</span><span class="fu">b</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">][</span>q2<span class="op">]</span>)</span></code></pre></div>
+<p><span class="math display">\left(\overline{\text{q1}}\cdot
+\overline{\text{q2}}\right) \left(\bar{g}^{bk} \bar{\epsilon
+}^{aj\overline{\text{q1}}\;\overline{\text{q2}}}-\bar{g}^{bj}
+\bar{\epsilon
+}^{ak\overline{\text{q1}}\;\overline{\text{q2}}}-\bar{g}^{ak}
+\bar{\epsilon
+}^{bj\overline{\text{q1}}\;\overline{\text{q2}}}+\bar{g}^{aj}
+\bar{\epsilon
+}^{bk\overline{\text{q1}}\;\overline{\text{q2}}}+\overline{\text{q2}}^b
+\bar{\epsilon }^{ajk\overline{\text{q1}}}-\overline{\text{q1}}^b
+\bar{\epsilon }^{ajk\overline{\text{q2}}}-\overline{\text{q2}}^a
+\bar{\epsilon }^{bjk\overline{\text{q1}}}+\overline{\text{q1}}^a
+\bar{\epsilon }^{bjk\overline{\text{q2}}}\right)</span></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>res1 <span class="ex">=</span> FCSchoutenBruteForce<span class="op">[</span><span class="fu">exp</span><span class="op">,</span> <span class="op">{},</span> <span class="op">{},</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    SchoutenAllowNegativeGain <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> SchoutenAllowZeroGain <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\text{FCSchoutenBruteForce: The following
+rule was applied: }\bar{\epsilon }^{ajk\overline{\text{q1}}}
+\overline{\text{q2}}^b:\to \bar{\epsilon }^{bjk\overline{\text{q1}}}
+\overline{\text{q2}}^a+\bar{\epsilon }^{abk\overline{\text{q1}}}
+\overline{\text{q2}}^j-\bar{\epsilon }^{abj\overline{\text{q1}}}
+\overline{\text{q2}}^k+\bar{\epsilon }^{abjk}
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The number of
+terms increased by: }-1</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: Current length
+of the expression: }9</span></p>
+<p><span class="math display">(\overline{\text{q1}}\cdot
+\overline{\text{q2}})^2 \bar{\epsilon }^{abjk}+\bar{g}^{aj}
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)
+\bar{\epsilon
+}^{bk\overline{\text{q1}}\;\overline{\text{q2}}}-\bar{g}^{ak}
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)
+\bar{\epsilon
+}^{bj\overline{\text{q1}}\;\overline{\text{q2}}}-\bar{g}^{bj}
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)
+\bar{\epsilon
+}^{ak\overline{\text{q1}}\;\overline{\text{q2}}}+\bar{g}^{bk}
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)
+\bar{\epsilon
+}^{aj\overline{\text{q1}}\;\overline{\text{q2}}}+\overline{\text{q1}}^a
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)
+\bar{\epsilon }^{bjk\overline{\text{q2}}}-\overline{\text{q1}}^b
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)
+\bar{\epsilon }^{ajk\overline{\text{q2}}}+\overline{\text{q2}}^j
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)
+\bar{\epsilon }^{abk\overline{\text{q1}}}-\overline{\text{q2}}^k
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)
+\bar{\epsilon }^{abj\overline{\text{q1}}}</span></p>
+<p>```mathematica FixedPoint[FCSchoutenBruteForce[#, {}, {}] &amp;,
+res1]</p>
+<p>```mathematica</p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The following
+rule was applied: }\bar{\epsilon
+}^{aj\overline{\text{q1}}\;\overline{\text{q2}}} \bar{g}^{bk}:\to
+\bar{\epsilon }^{bj\overline{\text{q1}}\;\overline{\text{q2}}}
+\bar{g}^{ak}+\bar{\epsilon
+}^{ab\overline{\text{q1}}\;\overline{\text{q2}}}
+\bar{g}^{jk}-\bar{\epsilon }^{abj\overline{\text{q2}}}
+\overline{\text{q1}}^k+\bar{\epsilon }^{abj\overline{\text{q1}}}
+\overline{\text{q2}}^k</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The numbers of
+terms in the expression decreased by: }1</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: Current length
+of the expression: }8</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The following
+rule was applied: }\bar{\epsilon
+}^{ak\overline{\text{q1}}\;\overline{\text{q2}}} \bar{g}^{bj}:\to
+\bar{\epsilon }^{bk\overline{\text{q1}}\;\overline{\text{q2}}}
+\bar{g}^{aj}+\bar{\epsilon
+}^{ab\overline{\text{q1}}\;\overline{\text{q2}}}
+\bar{g}^{jk}-\bar{\epsilon }^{abk\overline{\text{q2}}}
+\overline{\text{q1}}^j+\bar{\epsilon }^{abk\overline{\text{q1}}}
+\overline{\text{q2}}^j</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The numbers of
+terms in the expression decreased by: }3</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: Current length
+of the expression: }5</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The following
+rule was applied: }\bar{\epsilon }^{abj\overline{\text{q2}}}
+\overline{\text{q1}}^k:\to \bar{\epsilon }^{bjk\overline{\text{q2}}}
+\overline{\text{q1}}^a-\bar{\epsilon }^{ajk\overline{\text{q2}}}
+\overline{\text{q1}}^b+\bar{\epsilon }^{abk\overline{\text{q2}}}
+\overline{\text{q1}}^j+\bar{\epsilon }^{abjk}
+\left(\overline{\text{q1}}\cdot \overline{\text{q2}}\right)</span></p>
+<p><span class="math display">\text{FCSchoutenBruteForce: The numbers of
+terms in the expression decreased by: }3</span></p>
 <p><span class="math display">\text{FCSchoutenBruteForce: Current length
 of the expression: }0</span></p>
 <p><span class="math display">0</span></p>

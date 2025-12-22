@@ -22,7 +22,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -137,39 +137,88 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span>ex2<span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\overline{p}^{\mu }+\overline{q}^{\mu
 }+\overline{r}^{\mu }</span></p>
-<p>For the expansion of <code>Eps</code> tensors, we use</p>
+<p>Notice that <code>ExpandScalarProduct</code> can also do expansions
+only for the given momentum, while leaving the rest of the expression
+untouched, e.g.</p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[][</span>p1 <span class="sc">+</span> p2<span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>EpsEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x</span> SP<span class="op">[</span>p1 <span class="sc">+</span> p2<span class="op">,</span> q1 <span class="sc">+</span> q2<span class="op">]</span> <span class="sc">+</span> <span class="fu">y</span> SP<span class="op">[</span>p3 <span class="sc">+</span> p4<span class="op">,</span> q3 <span class="sc">+</span> q4<span class="op">]</span> <span class="sc">+</span> <span class="fu">z</span> SP<span class="op">[</span>p5 <span class="sc">+</span> p6<span class="op">,</span> q5 <span class="sc">+</span> q6<span class="op">]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">x
+\left((\overline{\text{p1}}+\overline{\text{p2}})\cdot
+(\overline{\text{q1}}+\overline{\text{q2}})\right)+y
+\left((\overline{\text{p3}}+\overline{\text{p4}})\cdot
+(\overline{\text{q3}}+\overline{\text{q4}})\right)+z
+\left((\overline{\text{p5}}+\overline{\text{p6}})\cdot
+(\overline{\text{q5}}+\overline{\text{q6}})\right)</span></p>
+<p><span class="math display">x \left(\overline{\text{p1}}\cdot
+(\overline{\text{q1}}+\overline{\text{q2}})+\overline{\text{p2}}\cdot
+(\overline{\text{q1}}+\overline{\text{q2}})\right)+y
+\left((\overline{\text{p3}}+\overline{\text{p4}})\cdot
+(\overline{\text{q3}}+\overline{\text{q4}})\right)+z
+\left((\overline{\text{p5}}+\overline{\text{p6}})\cdot
+(\overline{\text{q5}}+\overline{\text{q6}})\right)</span></p>
+<p>For the expansion of <code>Eps</code> tensors, we use</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[][</span>p1 <span class="sc">+</span> p2<span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>EpsEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon
 }^{\overline{\text{p1}}+\overline{\text{p2}}\overline{q}\overline{r}\overline{s}}</span></p>
 <p><span class="math display">\bar{\epsilon
 }^{\overline{\text{p1}}\overline{q}\overline{r}\overline{s}}+\bar{\epsilon
 }^{\overline{\text{p2}}\overline{q}\overline{r}\overline{s}}</span></p>
-<p>EpsEvaluate also reorders the arguments of Eps according to its
-antisymmetric properties</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>EpsEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><code>EpsEvaluate</code> also reorders the arguments of
+<code>Eps</code> according to its antisymmetric properties</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Sigma<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>EpsEvaluate<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\mu \sigma \rho \nu
 }</span></p>
 <p><span class="math display">-\bar{\epsilon }^{\mu \nu \rho \sigma
 }</span></p>
 <p>The inverse of <code>ExpandScalarProduct</code> is called
 <code>MomentumCombine</code></p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">+</span> <span class="dv">4</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> FV<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> <span class="sc">+</span> <span class="dv">4</span> FV<span class="op">[</span><span class="fu">q</span><span class="op">,</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">3 \overline{p}^{\mu }+4 \overline{q}^{\mu
 }</span></p>
 <p><span class="math display">\left(3 \overline{p}+4
 \overline{q}\right)^{\mu }</span></p>
+<p>This also works for scalar products, but the results may not be
+always optimal</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span> <span class="sc">+</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">(\overline{r}+\overline{s})\cdot
+(\overline{p}+\overline{q}+\overline{t})</span></p>
+<p><span class="math display">\overline{p}\cdot
+\overline{r}+\overline{p}\cdot \overline{s}+\overline{q}\cdot
+\overline{r}+\overline{q}\cdot \overline{s}+\overline{r}\cdot
+\overline{t}+\overline{s}\cdot \overline{t}</span></p>
+<p><span class="math display">(\overline{r}+\overline{s})\cdot
+(\overline{p}+\overline{q}+\overline{t})</span></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>SP<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span> <span class="sc">+</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]</span> <span class="sc">+</span> SP<span class="op">[</span><span class="fu">r</span><span class="op">,</span> <span class="fu">s</span><span class="op">]</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ExpandScalarProduct<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>MomentumCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">(\overline{r}+\overline{s})\cdot
+(\overline{p}+\overline{q}+\overline{t})+\overline{r}\cdot
+\overline{s}</span></p>
+<p><span class="math display">\overline{p}\cdot
+\overline{r}+\overline{p}\cdot \overline{s}+\overline{q}\cdot
+\overline{r}+\overline{q}\cdot \overline{s}+\overline{r}\cdot
+\overline{s}+\overline{r}\cdot \overline{t}+\overline{s}\cdot
+\overline{t}</span></p>
+<p><span class="math display">(\overline{p}+\overline{q})\cdot
+(\overline{r}+\overline{s})+\overline{r}\cdot
+(\overline{s}+\overline{t})+\overline{s}\cdot \overline{t}</span></p>
 <p>For Dirac matrices the corresponding functions are
 <code>DiracGammaExpand</code> and <code>DiracGammaCombine</code></p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . GS<span class="op">[</span><span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>DiracGammaExpand<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>DiracGammaCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . GS<span class="op">[</span><span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>DiracGammaExpand<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>DiracGammaCombine<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\mu }.\left(\bar{\gamma
 }\cdot \left(\overline{p}+\overline{q}\right)\right).\bar{\gamma }^{\nu
 }.\left(\bar{\gamma }\cdot
@@ -185,9 +234,9 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p>Notice the <code>DiracGammaExpand</code> does not expand the whole
 noncommutative product. If you need that, use
 <code>DotSimplify</code></p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . GS<span class="op">[</span><span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> DiracGammaExpand <span class="sc">//</span> DotSimplify</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . GS<span class="op">[</span><span class="fu">p</span> <span class="sc">+</span> <span class="fu">q</span><span class="op">]</span> . GA<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> . GS<span class="op">[</span><span class="fu">r</span> <span class="sc">+</span> <span class="fu">s</span><span class="op">]</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> DiracGammaExpand <span class="sc">//</span> DotSimplify</span></code></pre></div>
 <p><span class="math display">\bar{\gamma }^{\mu }.\left(\bar{\gamma
 }\cdot \left(\overline{p}+\overline{q}\right)\right).\bar{\gamma }^{\nu
 }.\left(\bar{\gamma }\cdot
