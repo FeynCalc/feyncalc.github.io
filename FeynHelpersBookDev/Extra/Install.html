@@ -107,8 +107,6 @@ experiencing issues setting up a particular tools please contact the
 corresponding developer team.</em></p>
 <h3 id="feynhelpers">FeynHelpers</h3>
 <h4 id="automatic-installation">Automatic installation</h4>
-<p><em>Currently the stable version of FeynHelpers is not compatible
-with FeynCalc 10. Please use the development version instead!</em></p>
 <p>Run the following instruction in a Kernel or Notebook session of
 Mathematica to install the stable version</p>
 <div class="sourceCode" id="cb1"><pre
@@ -140,7 +138,7 @@ version appears to be usable via WSL, but currently there is no support
 for that in FeynHelpers.</p>
 <h3 id="fire">FIRE</h3>
 <p>You can download the source code of FIRE from the <a
-href="https://bitbucket.org/feynmanIntegrals/fire">developer’s
+href="https://gitlab.srcc.msu.ru/feynmanintegrals/fire">developer’s
 website</a>. The content should be extracted to
 <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FIRE"}]</code>.</p>
 <p>We recommend to enable support for flint, zstd, lthreads, tcmalloc,
@@ -221,7 +219,7 @@ precompiled binaries</p>
 <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "LoopTools"}]</code>.</p>
 <h3 id="qgraf">QGRAF</h3>
 <p>You can download the source code of QGRAF from the <a
-href="http://cfif.ist.utl.pt/~paulo/qgraf.html">developer’s
+href="http://cefema-gt.tecnico.ulisboa.pt/~paulo/qgraf.html">developer’s
 website</a>.</p>
 <h4 id="linux-and-macos-1">Linux and macOS</h4>
 <p>The compilation instructions can be found in the section “Compiling”
@@ -229,7 +227,7 @@ of the manual <code>qgraf-3.x.y.pdf</code> inside the tarball. For
 example, on a Linux system equipped with a GNU Fortran compiler
 something like</p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gfortran qgraf<span class="dv">-3</span>.<span class="dv">6</span>.<span class="fl">3.</span>f08 <span class="sc">-</span><span class="fu">o</span> qgraf</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gfortran qgraf<span class="fl">-3.</span><span class="fu">x</span>.<span class="fu">y</span>.f08 <span class="sc">-</span><span class="fu">o</span> qgraf</span></code></pre></div>
 <p>should do the job. Having compiled the program you need to move the
 binary file <code>qgraf</code> to
 <code>FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "AddOns", "FeynHelpers", "ExternalTools", "QGRAF", "Binary"}]</code>.</p>
