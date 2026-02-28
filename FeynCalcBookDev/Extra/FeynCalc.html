@@ -461,8 +461,8 @@ relevant FeynCalc publications</li>
 <code>InputForm</code></li>
 <li><a href="../FreeQ2.html">FreeQ2</a> - alternative to Mathematica’s
 <code>FreeQ</code></li>
-<li><a href="../FRH.html">FRH</a> - alternative to Mathematica’s
-<code>ReleaseHold</code></li>
+<li><a href="../FRH.html">FRH</a>, <a href="../FRH2.html">FRH2</a> -
+alternative to Mathematica’s <code>ReleaseHold</code></li>
 <li><a href="../ILimit.html">ILimit</a>, <a
 href="../MLimit.html">MLimit</a> - alternatives to Mathematica’s
 <code>Limit</code></li>
@@ -585,6 +585,9 @@ of <span class="math inline">4</span>-vectors</li>
 <li><a href="../FCSetMetricSignature.html">FCSetMetricSignature</a>, <a
 href="../FCGetMetricSignature.html">FCGetMetricSignature</a> - changes
 the signature of the flat-space metric</li>
+<li><a href="../FourSeries.html">FourSeries</a> - calculates Taylor
+expansion with respect to a <span
+class="math inline">4</span>-vector</li>
 <li><a href="../FourDivergence.html">FourDivergence</a> - calculates
 partial derivative with respect to a <span
 class="math inline">4</span>-vector</li>
@@ -859,6 +862,9 @@ href="../FCFeynmanProjectiveQ.html">FCFeynmanProjectiveQ</a>, <a
 href="../FCFeynmanProjectivize.html">FCFeynmanProjectivize</a>, <a
 href="../FCMellinJoin.html">FCMellinJoin</a> - derivation and
 manipulation of Feynman parameter integrals</li>
+<li><a href="../FCLoopAddAuxiliaryMass.html">FCLoopAddAuxiliaryMass</a>
+- for implementing Chetyrkin’s Infrared Rearrangement (IRR) also known
+as tadpole expansion.</li>
 <li><a href="../FCLoopAddEdgeTags.html">FCLoopAddEdgeTags</a>, <a
 href="../FCLoopGraphPlot.html">FCLoopGraphPlot</a>, <a
 href="../FCLoopIntegralToGraph.html">FCLoopIntegralToGraph</a>, <a
@@ -912,20 +918,40 @@ integrals</li>
 - rewrites scalar products as linear combinations of <a
 href="../GLI.html">GLI</a>s with negative indices</li>
 <li><a
+href="../FCLoopCreateFactorizingRules.html">FCLoopCreateFactorizingRules</a>
+- generates replacement rules for factorizing <a
+href="../GLI.html">GLI</a>s</li>
+<li><a
 href="../FCLoopEikonalPropagatorFreeQ.html">FCLoopEikonalPropagatorFreeQ</a>
 - checks if the integral contains eikonal propagators</li>
 <li><a href="../FCLoopExtract.html">FCLoopExtract</a> - extracts loop
 integrals</li>
+<li><a href="../FCLoopFactorizingQ.html">FCLoopFactorizingQ</a> - checks
+whether the integral factorizes</li>
+<li><a href="../FCLoopFactorizingSplit.html">FCLoopFactorizingSplit</a>
+- rewrites factorizing integrals in terms of simpler integrals</li>
 <li><a href="../FCLoopFindSectors.html">FCLoopFindSectors</a> - returns
 sectors for the given <a href="../GLI.html">GLI</a>s</li>
 <li><a href="../FCLoopFindTensorBasis.html">FCLoopFindTensorBasis</a> -
-find a linearly independent set of external momenta</li>
+finds a linearly independent set of external momenta</li>
+<li><a
+href="../FCLoopFindIncompleteTopologies.html">FCLoopFindIncompleteTopologies</a>
+- finds all incomplete topologies in the list</li>
+<li><a
+href="../FCLoopFindOverdeterminedTopologies.html">FCLoopFindOverdeterminedTopologies</a>
+- finds all overdetermined topologies in the list</li>
+<li><a
+href="../FCLoopFindScalelessTopologies.html">FCLoopFindScalelessTopologies</a>
+- finds all scaleless topologies in the list</li>
 <li><a href="../FCLoopFromGLI.html">FCLoopFromGLI</a> - converts <a
 href="../GLI.html">GLI</a>s into explicit integrals with <a
 href="../FeynAmpDenominator.html">FeynAmpDenominator</a>s</li>
 <li><a href="../FCLoopGetEtaSigns.html">FCLoopGetEtaSigns</a> - extracts
 the signs of <span class="math inline">i \eta</span> from all
 propagators</li>
+<li><a
+href="../FCLoopGetFeynAmpDenominators.html">FCLoopGetFeynAmpDenominators</a>
+- extracts all propagator denominators in the expression</li>
 <li><a
 href="../FCLoopGetKinematicInvariants.html">FCLoopGetKinematicInvariants</a>
 - kinematic invariants from the given topology.</li>
@@ -988,6 +1014,13 @@ href="../FCLoopReplaceQuadraticEikonalPropagators.html">FCLoopReplaceQuadraticEi
 - tries to eliminate quadratic-eikonal propagators by completing the
 square</li>
 <li><a
+href="../FCLoopRewriteIncompleteTopologies.html">FCLoopRewriteIncompleteTopologies</a>
+- handles incomplete topologies in the expression</li>
+<li><a
+href="../FCLoopRewriteOverdeterminedTopologies.html">FCLoopRewriteOverdeterminedTopologies</a>
+- handles overdetermined topologies in the expression using partial
+fraction decompositions</li>
+<li><a
 href="../FCLoopSamePropagatorHeadsQ.html">FCLoopSamePropagatorHeadsQ</a>
 - checks if the integral contains different types of propagators</li>
 <li><a
@@ -1010,6 +1043,8 @@ href="../FCLoopCanonicalize.html">FCLoopCanonicalize</a></li>
 <li><a href="../FCLoopSplit.html">FCLoopSplit</a> - splits the
 expressions into pieces that contain different types of loop
 integrals</li>
+<li><a href="../FCLoopToGLI.html">FCLoopToGLI</a> - converts <a
+href="../FAD.m">FAD</a>s to <a href="../GLI.m">GLI</a>s</li>
 <li><a
 href="../FCLoopTopologyNameToSymbol.html">FCLoopTopologyNameToSymbol</a>
 - converts string topology ids to expressions</li>
