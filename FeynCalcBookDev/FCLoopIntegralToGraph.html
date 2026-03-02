@@ -136,6 +136,7 @@ href="https://graphviz.org/">graphviz</a>.</p>
 <code>FCLoopIntegralToGraph[FCTopology[...]]</code>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
+href="FCLoopFactorizingSplit.html">FCLoopFactorizingSplit</a>, <a
 href="FCLoopGraphPlot.html">FCLoopGraphPlot</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre
@@ -150,13 +151,13 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 )}\right\},1\right\}</span></p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCLoopGraphPlot<span class="op">[</span><span class="fu">out</span><span class="op">]</span></span></code></pre></div>
-<p><img src="img/0bfm86ewusrdi.svg" alt="0bfm86ewusrdi" /></p>
+<p><img src="img/0gffghxrhsdaq.svg" alt="0gffghxrhsdaq" /></p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Labeled</span> @@@ <span class="fu">Transpose</span><span class="op">[</span><span class="fu">out</span><span class="op">[[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]]</span></span></code></pre></div>
-<p><img src="img/01p715ugi4jrv.svg" alt="01p715ugi4jrv" /></p>
+<p><img src="img/1sdh86qtjcuid.svg" alt="1sdh86qtjcuid" /></p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">GraphPlot</span><span class="op">[</span><span class="fu">List</span> @@@ <span class="fu">Transpose</span><span class="op">[</span><span class="fu">out</span><span class="op">[[</span><span class="dv">1</span> ;; <span class="dv">2</span><span class="op">]]]]</span></span></code></pre></div>
-<p><img src="img/0blv15cgm9d0u.svg" alt="0blv15cgm9d0u" /></p>
+<p><img src="img/0f7wd5u42u06b.svg" alt="0f7wd5u42u06b" /></p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">-</span> k1<span class="op">},</span> k1<span class="op">,</span> <span class="fu">q</span> <span class="sc">-</span> k2<span class="op">,</span> k2<span class="op">,</span> <span class="op">{</span>k2 <span class="sc">-</span> k3<span class="op">,</span> mb<span class="op">},</span> <span class="op">{</span>k1 <span class="sc">-</span> k3<span class="op">,</span> mb<span class="op">}],</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">,</span>k3<span class="op">}]</span></span></code></pre></div>
 <p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 3,1\to
@@ -199,16 +200,112 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p>If the second argument contains multiple topologies, the function
 will automatically select the relevant ones.</p>
 <div class="sourceCode" id="cb9"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}],</span> </span>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>GLI<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}],</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span>FCTopology<span class="op">[</span>topo1<span class="op">,</span> <span class="op">{</span>FAD<span class="op">[</span><span class="fu">q</span> <span class="sc">-</span> k1<span class="op">],</span> FAD<span class="op">[</span>k1<span class="op">],</span> FAD<span class="op">[</span><span class="fu">q</span> <span class="sc">-</span> k2<span class="op">],</span> FAD<span class="op">[</span>k2<span class="op">],</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>     FAD<span class="op">[{</span>k2 <span class="sc">-</span> k3<span class="op">,</span> mb<span class="op">}],</span> FAD<span class="op">[{</span>k1 <span class="sc">-</span> k3<span class="op">,</span> mb<span class="op">}]},</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">,</span> k3<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}],</span> </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>   FCTopology<span class="op">[</span>topo2<span class="op">,</span> <span class="op">{</span>FAD<span class="op">[</span><span class="fu">q</span> <span class="sc">-</span> k1<span class="op">],</span> FAD<span class="op">[</span>k1<span class="op">],</span> FAD<span class="op">[</span><span class="fu">q</span> <span class="sc">-</span> k2<span class="op">],</span> FAD<span class="op">[</span>k2<span class="op">],</span> </span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>     FAD<span class="op">[{</span>k2 <span class="sc">-</span> k3<span class="op">,</span> mg<span class="op">}],</span> FAD<span class="op">[{</span>k1 <span class="sc">-</span> k3<span class="op">,</span> mg<span class="op">}]},</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">,</span> k3<span class="op">},</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> <span class="op">{},</span> <span class="op">{}]</span> </span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 2,1\to
-2,2\to
-2\},\{-q,q,\{\text{k1},1,0\},\{q-\text{k1},1,0\},\{q-\text{k2},1,0\}\},\left\{0,0,\frac{1}{(\text{k1}^2+i
-\eta )},\frac{1}{((q-\text{k2})^2+i \eta )},\frac{1}{((q-\text{k1})^2+i
-\eta )}\right\},1\right\}</span></p>
+<p><span class="math display">\left\{\{-3\to 2,-1\to 1,1\to 3,1\to
+4,2\to 3,2\to 4,3\to 4,3\to
+4\},\left\{-q,q,\{\text{k2},1,0\},\{q-\text{k2},1,0\},\{\text{k1},1,0\},\{q-\text{k1},1,0\},\left\{\text{k2}-\text{k3},1,-\text{mb}^2\right\},\left\{\text{k1}-\text{k3},1,-\text{mb}^2\right\}\right\},\left\{0,0,\frac{1}{(\text{k2}^2+i
+\eta )},\frac{1}{(\text{k1}^2+i \eta )},\frac{1}{((q-\text{k2})^2+i \eta
+)},\frac{1}{((q-\text{k1})^2+i \eta
+)},\frac{1}{((\text{k2}-\text{k3})^2-\text{mb}^2+i \eta
+)},\frac{1}{((\text{k1}-\text{k3})^2-\text{mb}^2+i \eta
+)}\right\},1\right\}</span></p>
+<p>Factorizing integrals cannot be reliably converted to graphs, so once
+such integrals are detected, the evaluation automatically halts. In this
+case the user should employ <code>FCLoopFactorizingSplit</code> or
+<code>FCLoopCreateFactorizingRules</code> to split the integrals into
+simpler ones and graph those.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>int <span class="ex">=</span> SFAD<span class="op">[</span>p1<span class="op">,</span> <span class="fu">Q</span> <span class="sc">-</span> p1<span class="op">,</span> p2<span class="op">,</span> <span class="fu">Q</span> <span class="sc">-</span> p2<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{1}{(\text{p1}^2+i \eta
+).((Q-\text{p1})^2+i \eta ).(\text{p2}^2+i \eta ).((Q-\text{p2})^2+i
+\eta )}</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>int<span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">}]</span></span></code></pre></div>
+<p><img src="img/0oqv7cyq1xvy8.svg" alt="0oqv7cyq1xvy8" /></p>
+<p><span class="math display">\text{\$Aborted}</span></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>aux <span class="ex">=</span> FCLoopFactorizingSplit<span class="op">[</span>int<span class="op">,</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{ccc}
+\frac{1}{(\text{p1}^2+i \eta ) ((Q-\text{p1})^2+i \eta )} &amp;
+\{\text{p1}\} &amp; \{\} \\
+\frac{1}{(\text{p2}^2+i \eta ) ((Q-\text{p2})^2+i \eta )} &amp;
+\{\text{p2}\} &amp; \{\} \\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>#<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> #<span class="op">[[</span><span class="dv">2</span><span class="op">]]]</span> &amp; <span class="sc">/</span>@ aux</span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{cccc}
+\{-3\to 2,-1\to 1,1\to 2,1\to 2\} &amp;
+\{-Q,Q,\{\text{p1},1,0\},\{Q-\text{p1},1,0\}\} &amp;
+\left\{0,0,\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{((Q-\text{p1})^2+i
+\eta )}\right\} &amp; 1 \\
+\{-3\to 2,-1\to 1,1\to 2,1\to 2\} &amp;
+\{-Q,Q,\{\text{p2},1,0\},\{Q-\text{p2},1,0\}\} &amp;
+\left\{0,0,\frac{1}{(\text{p2}^2+i \eta )},\frac{1}{((Q-\text{p2})^2+i
+\eta )}\right\} &amp; 1 \\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>aux <span class="ex">=</span> FCLoopFactorizingSplit<span class="op">[</span>SFAD<span class="op">[</span>p1<span class="op">,</span> <span class="fu">Q</span> <span class="sc">-</span> p1<span class="op">,</span> p3<span class="op">,</span> <span class="fu">Q</span> <span class="sc">-</span> p3<span class="op">],</span> <span class="op">{</span>p1<span class="op">,</span> p3<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{ccc}
+\frac{1}{(\text{p1}^2+i \eta ) ((Q-\text{p1})^2+i \eta )} &amp;
+\{\text{p1}\} &amp; \{\} \\
+\frac{1}{(\text{p3}^2+i \eta ) ((Q-\text{p3})^2+i \eta )} &amp;
+\{\text{p3}\} &amp; \{\} \\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>#<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> #<span class="op">[[</span><span class="dv">2</span><span class="op">]]]</span> &amp; <span class="sc">/</span>@ aux</span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{cccc}
+\{-3\to 2,-1\to 1,1\to 2,1\to 2\} &amp;
+\{-Q,Q,\{\text{p1},1,0\},\{Q-\text{p1},1,0\}\} &amp;
+\left\{0,0,\frac{1}{(\text{p1}^2+i \eta )},\frac{1}{((Q-\text{p1})^2+i
+\eta )}\right\} &amp; 1 \\
+\{-3\to 2,-1\to 1,1\to 2,1\to 2\} &amp;
+\{-Q,Q,\{\text{p3},1,0\},\{Q-\text{p3},1,0\}\} &amp;
+\left\{0,0,\frac{1}{(\text{p3}^2+i \eta )},\frac{1}{((Q-\text{p3})^2+i
+\eta )}\right\} &amp; 1 \\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>aux <span class="ex">=</span> FCLoopFactorizingSplit<span class="op">[</span>FAD<span class="op">[{</span><span class="fu">q</span> <span class="sc">-</span> k1<span class="op">},</span> k1<span class="op">,</span> <span class="op">{</span>k2<span class="op">,</span> mg<span class="op">},</span> <span class="op">{</span>k3<span class="op">,</span> mb<span class="op">},</span> <span class="op">{</span>k2 <span class="sc">-</span> k3<span class="op">,</span> mb<span class="op">}],</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">,</span> k3<span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{ccc}
+\frac{1}{\left(\text{k2}^2-\text{mg}^2\right)
+\left(\text{k3}^2-\text{mb}^2\right)
+\left((\text{k2}-\text{k3})^2-\text{mb}^2\right)} &amp;
+\{\text{k2},\text{k3}\} &amp; \{\} \\
+\frac{1}{\text{k1}^2 (q-\text{k1})^2} &amp; \{\text{k1}\} &amp; \{\} \\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>FCLoopIntegralToGraph<span class="op">[</span>#<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> #<span class="op">[[</span><span class="dv">2</span><span class="op">]]]</span> &amp; <span class="sc">/</span>@ aux</span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{cccc}
+\{1\to 2,1\to 2,1\to 2\} &amp; \left(
+\begin{array}{ccc}
+\;\text{k3} &amp; 1 &amp; -\text{mb}^2 \\
+\;\text{k2} &amp; 1 &amp; -\text{mg}^2 \\
+\;\text{k2}-\text{k3} &amp; 1 &amp; -\text{mb}^2 \\
+\end{array}
+\right) &amp; \left\{\frac{1}{(\text{k3}^2-\text{mb}^2+i \eta
+)},\frac{1}{(\text{k2}^2-\text{mg}^2+i \eta
+)},\frac{1}{((\text{k2}-\text{k3})^2-\text{mb}^2+i \eta )}\right\} &amp;
+1 \\
+\{-3\to 2,-1\to 1,1\to 2,1\to 2\} &amp;
+\{-q,q,\{\text{k1},1,0\},\{q-\text{k1},1,0\}\} &amp;
+\left\{0,0,\frac{1}{(\text{k1}^2+i \eta )},\frac{1}{((q-\text{k1})^2+i
+\eta )}\right\} &amp; 1 \\
+\end{array}
+\right)</span></p>
 </body>
 </html>
