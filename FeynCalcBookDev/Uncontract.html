@@ -115,8 +115,7 @@
 <p><code>Uncontract[exp, q1, q2, Pair -&gt; {p}]</code> uncontracts also
 <span class="math inline">p \cdot q_1</span> and <span
 class="math inline">p \cdot q_2</span>;</p>
-<p>The option <code>Pair -&gt; All</code> uncontracts all momenta except
-<code>OPEDelta</code>.</p>
+<p>The option <code>Pair -&gt; All</code> uncontracts all momenta.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
 href="Contract.html">Contract</a>.</p>
@@ -127,21 +126,21 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\mu \nu
 \overline{p}\overline{q}}</span></p>
-<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$19})}
+<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$11})}
 \bar{\epsilon }^{\mu \nu
-\;\text{\$AL}(\text{\$19})\overline{q}}</span></p>
+\;\text{\$AL}(\text{\$11})\overline{q}}</span></p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GS<span class="op">[</span><span class="fu">p</span><span class="op">]</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span><span class="sc">%</span><span class="op">,</span> <span class="fu">p</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\gamma }\cdot \overline{p}</span></p>
-<p><span class="math display">\bar{\gamma }^{\text{\$AL}(\text{\$20})}
-\overline{p}^{\text{\$AL}(\text{\$20})}</span></p>
+<p><span class="math display">\bar{\gamma }^{\text{\$AL}(\text{\$12})}
+\overline{p}^{\text{\$AL}(\text{\$12})}</span></p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]][</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">],</span> <span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$22})}
-\overline{q}^{\text{\$AL}(\text{\$21})} \left(-\bar{\epsilon }^{\mu \nu
-\;\text{\$AL}(\text{\$21})\text{\$AL}(\text{\$22})}\right)</span></p>
+<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$14})}
+\overline{q}^{\text{\$AL}(\text{\$13})} \left(-\bar{\epsilon }^{\mu \nu
+\;\text{\$AL}(\text{\$13})\text{\$AL}(\text{\$14})}\right)</span></p>
 <p>By default scalar products are not uncontracted.</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span>SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">],</span> <span class="fu">q</span><span class="op">]</span></span></code></pre></div>
@@ -150,14 +149,14 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 care of the scalar products as well</p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span>SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">],</span> <span class="fu">q</span><span class="op">,</span> Pair <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$23})}
-\overline{q}^{\text{\$AL}(\text{\$23})}</span></p>
+<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$15})}
+\overline{q}^{\text{\$AL}(\text{\$15})}</span></p>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span>SP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> Pair <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$24})}
-\overline{p}^{\text{\$AL}(\text{\$25})}
-\overline{q}^{\text{\$AL}(\text{\$24})}
-\overline{q}^{\text{\$AL}(\text{\$25})}</span></p>
+<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$16})}
+\overline{p}^{\text{\$AL}(\text{\$17})}
+\overline{q}^{\text{\$AL}(\text{\$16})}
+\overline{q}^{\text{\$AL}(\text{\$17})}</span></p>
 <p>For Cartesian scalar products you need to use the option
 <code>CartesianPair-&gt;All</code></p>
 <div class="sourceCode" id="cb7"><pre
@@ -165,7 +164,7 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\overline{p}\cdot \overline{q}</span></p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Uncontract<span class="op">[</span>CSP<span class="op">[</span><span class="fu">p</span><span class="op">,</span> <span class="fu">q</span><span class="op">],</span> <span class="fu">q</span><span class="op">,</span> CartesianPair <span class="ot">-&gt;</span> <span class="cn">All</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$26})}
-\overline{q}^{\text{\$AL}(\text{\$26})}</span></p>
+<p><span class="math display">\overline{p}^{\text{\$AL}(\text{\$18})}
+\overline{q}^{\text{\$AL}(\text{\$18})}</span></p>
 </body>
 </html>

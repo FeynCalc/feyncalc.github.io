@@ -351,7 +351,7 @@ tensor functions (e.g. <code>TensorContract</code>,
 <p>No, you cannot mix those objects. FeynCalc’s tensor functions like
 <code>Contract</code> can work properly only with tensors that are
 defined in FeynCalc (i.e. <code>FV</code>, <code>MTD</code>,
-<code>TensorFunction</code>). The same goes for Mathematica’s
+<code>LC</code>). The same goes for Mathematica’s
 <code>TensorContract</code> applied to FeynCalc’s tensors. Trying to
 combine tensors from Mathematica and FeynCalc will either not evaluate
 at all or produce wrong results.</p>
@@ -412,8 +412,7 @@ FeynCalc they are normalized differently as compared to the literature,
 such that <code>PaVe[0, {}, {m}]</code> (1-point scalar function)
 denotes <span class="math inline">\frac{1}{i Pi^2} \int d^D p
 \frac{1}{p^2-m^2}</span>. The same normalization holds also for all the
-other PaVe functions. This normalization is used also e.g. in the
-OneLoop package.</p>
+other PaVe functions.</p>
 <p>To sum it up, if we denote <span class="math inline">\int \frac{d^D
 p}{(2 \pi)^4} \frac{1}{p^2-m^2}</span> (1-loop tadpole integral with the
 standard normalization) as <span class="math inline">I_0</span> and
@@ -548,25 +547,6 @@ sense from the physics point of view. Moreover, in case of the BMHV
 scheme, it is your task to workout the additional counter terms (which
 is often very nontrivial) and ensure that the axial current conservation
 is restored.</p>
-<h3 id="why-should-i-avoid-using-oneloop">Why should I avoid using
-OneLoop?</h3>
-<p><code>OneLoop</code> is a legacy function that was originally
-introduced to completely handle the evaluation of 1-loop amplitudes in
-FeynCalc. Over the years, we realized that this approach is not very
-flexible and that it is often better to tackle the evaluation of the
-amplitude by applying lower level functions such as <code>TID</code>,
-<code>DiracSimplify</code>, <code>SUNSimplify</code> etc. in the order
-determined by the type of the given amplitude. Moreover, it was observed
-that in some cases <code>OneLoop</code> may return inconsistent results,
-especially when calculating diagrams that involve <span
-class="math inline">\gamma^5</span>. Unfortunately, the enormous
-complexity of the <code>OneLoop</code> source code makes it unlikely
-that it can be fixed and debugged in the near future. This is why we
-recommend the FeynCalc users to avoid calling <code>OneLoop</code>
-altogether and use other (simpler) functions instead. In particular, as
-far as the tensor reduction of 1-loop integrals is concerned,
-<code>TID</code> can do everything (and even more) than is offered by
-<code>OneLoop</code>.</p>
 <h3
 id="tensor-reduction-with-tid-is-very-slow-is-there-a-way-to-accelerate-it">Tensor
 reduction with TID is very slow, is there a way to accelerate it?</h3>

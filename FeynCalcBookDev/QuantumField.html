@@ -145,35 +145,13 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*QuantumField[GaugeField, LorentzIndex[\[Mu]], SUNIndex[a]]*)</span></span></code></pre></div>
 <p><span class="math inline">A_{\Delta}^a</span> is a short form for
 <span class="math inline">\Delta ^{mu } A_{mu }^a</span></p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> <span class="op">{</span>OPEDelta<span class="op">},</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">A_{\Delta }^a</span></p>
-<p>The first list of indices is usually interpreted as type
-<code>LorentzIndex</code>, except for <code>OPEDelta</code>, which gets
-converted to type <code>Momentum</code>.</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> <span class="op">{</span>OPEDelta<span class="op">},</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span> <span class="sc">//</span> <span class="fu">StandardForm</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*QuantumField[A, Momentum[OPEDelta], SUNIndex[a]]*)</span></span></code></pre></div>
 <p>Derivatives of fields are denoted as follows.</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]],</span> <span class="fu">A</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}]</span></span></code></pre></div>
-<p><span class="math display">\left.(\partial _{\mu }A_{\mu
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]],</span> <span class="fu">A</span><span class="op">,</span> <span class="op">{</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]}]</span></span></code></pre></div>
+<p><span class="math display">\left(\partial _{\mu }A_{\mu
 }\right)</span></p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>OPEDelta<span class="op">],</span> <span class="fu">S</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left.(\partial _{\Delta
-}S\right)</span></p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>OPEDelta<span class="op">],</span> <span class="fu">A</span><span class="op">,</span> <span class="op">{</span>OPEDelta<span class="op">},</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\left.(\partial _{\Delta }A_{\Delta
-}^a\right)</span></p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span>FCPartialD<span class="op">[</span>OPEDelta<span class="op">]</span><span class="sc">^</span>OPEm<span class="op">,</span> <span class="fu">A</span><span class="op">,</span> <span class="op">{</span>OPEDelta<span class="op">},</span> <span class="op">{</span><span class="fu">a</span><span class="op">}]</span></span></code></pre></div>
-<p><span class="math display">\partial _{\Delta }^m{}^{A\Delta
-a}</span></p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]]</span> <span class="ex">===</span> QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]]</span> <span class="ex">===</span> QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{True}</span></p>
 </body>
 </html>

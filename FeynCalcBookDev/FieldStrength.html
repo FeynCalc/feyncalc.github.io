@@ -119,9 +119,7 @@ A_{\mu})</span>.</p>
 <p>The name of the field (<span class="math inline">A</span>) and the
 coupling constant (<span class="math inline">g</span>) can be set
 through the options or by additional arguments. The first two indices
-are interpreted as type <code>LorentzIndex</code>, except
-<code>OPEDelta</code>, which is converted to
-<code>Momentum[OPEDelta]</code>.</p>
+are interpreted as type <code>LorentzIndex</code>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a></p>
 <h3 id="examples">Examples</h3>
@@ -133,17 +131,17 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">F_{\mu \nu }^a</span></p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left.(\partial _{\mu }A_{\nu
-}\right)-\left.(\partial _{\nu }A_{\mu }\right)</span></p>
+<p><span class="math display">\left(\partial _{\mu }A_{\nu
+}\right)-\left(\partial _{\nu }A_{\mu }\right)</span></p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">g_s f^{a\text{b19}\;\text{c20}} A_{\mu
-}^{\text{b19}}.A_{\nu }^{\text{c20}}+\left.(\partial _{\mu }A_{\nu
-}^a\right)-\left.(\partial _{\nu }A_{\mu }^a\right)</span></p>
+<p><span class="math display">g_s f^{a\text{b12}\;\text{c13}} A_{\mu
+}^{\text{b12}}.A_{\nu }^{\text{c13}}+\left(\partial _{\mu }A_{\nu
+}^a\right)-\left(\partial _{\nu }A_{\mu }^a\right)</span></p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FieldStrength<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="fu">a</span><span class="op">,</span> CouplingConstant <span class="ot">-&gt;</span> <span class="sc">-</span>SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">],</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-g_s f^{a\text{b21}\;\text{c22}} A_{\mu
-}^{\text{b21}}.A_{\nu }^{\text{c22}}+\left.(\partial _{\mu }A_{\nu
-}^a\right)-\left.(\partial _{\nu }A_{\mu }^a\right)</span></p>
+<p><span class="math display">-g_s f^{a\text{b14}\;\text{c15}} A_{\mu
+}^{\text{b14}}.A_{\nu }^{\text{c15}}+\left(\partial _{\mu }A_{\nu
+}^a\right)-\left(\partial _{\nu }A_{\mu }^a\right)</span></p>
 </body>
 </html>

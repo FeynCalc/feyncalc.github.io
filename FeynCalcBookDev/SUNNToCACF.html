@@ -114,16 +114,20 @@
 <code>CalcColorFactor</code>. If set to <code>True</code>, the Casimir
 operator eigenvalues <code>CA</code> (<span
 class="math inline">=n_c</span>) and <code>CF</code> (<span
-class="math inline">=(n_c^2-1)/(2 n_c)</span>) are introduced.</p>
+class="math inline">=(n_c^2-1)/(2 n_c)</span>) are reconstructed from
+the result in terms of <span class="math inline">n_c</span> using
+heuristics. The reconstruction is not always perfect, but mostly
+sufficient at tree and one-loop level.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
-href="CalcColorFactor.html">CalcColorFactor</a>, <a
-href="SUNSimplify.html">SUNSimplify</a>, <a href="Trick.html">Trick</a>,
-<a href="SUNN.html">SUNN</a>, <a href="CA.html">CA</a>, <a
-href="CF.html">CF</a>.</p>
+href="SUNSimplify.html">SUNSimplify</a>, <a href="SUNN.html">SUNN</a>,
+<a href="CA.html">CA</a>, <a href="CF.html">CF</a>.</p>
 <h3 id="examples">Examples</h3>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SUNSimplify<span class="op">[</span>SUNDelta<span class="op">[</span>SUNIndex<span class="op">[</span><span class="fu">a</span><span class="op">],</span> SUNIndex<span class="op">[</span><span class="fu">a</span><span class="op">]],</span> SUNNToCACF <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SUNSimplify<span class="op">[</span>SUNDelta<span class="op">[</span>SUNIndex<span class="op">[</span><span class="fu">a</span><span class="op">],</span> SUNIndex<span class="op">[</span><span class="fu">a</span><span class="op">]]]</span></span></code></pre></div>
 <p><span class="math display">2 C_A C_F</span></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SUNSimplify<span class="op">[</span>SUNDelta<span class="op">[</span>SUNIndex<span class="op">[</span><span class="fu">a</span><span class="op">],</span> SUNIndex<span class="op">[</span><span class="fu">a</span><span class="op">]],</span> SUNNToCACF <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">N^2-1</span></p>
 </body>
 </html>

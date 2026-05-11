@@ -116,31 +116,23 @@
 <code>exp1, exp2, ...</code> to have data-type <code>type</code>.</p>
 <p>The default setting is <code>DataType[__, _] := False</code>.</p>
 <p>To assign a certain data-type, do, e.g.,
-<code>DataType[x, PositiveInteger] = True</code>. Currently used
+<code>DataType[x, FCVariable] = True</code>. Currently used
 <code>DataTypes</code>:</p>
 <ul>
 <li><p><code>NonCommutative</code></p></li>
-<li><p><code>PositiveInteger</code></p></li>
-<li><p><code>NegativeInteger</code></p></li>
-<li><p><code>PositiveNumber</code></p></li>
 <li><p><code>FreeIndex</code></p></li>
-<li><p><code>GrassmannParity</code></p></li>
 <li><p><code>FCTensor</code></p></li>
+<li><p><code>FCVariable</code></p></li>
 <li><p><code>ImplicitDiracIndex</code></p></li>
 <li><p><code>ImplicitPauliIndex</code></p></li>
 <li><p><code>ImplicitSUNFIndex</code></p></li>
 </ul>
-<p>If loaded, PHI adds the <code>DataTypes</code>: <code>UMatrix</code>,
-<code>UScalar</code>.</p>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
 href="DeclareNonCommutative.html">DeclareNonCommutative</a>, <a
 href="NonCommutative.html">NonCommutative</a>, <a
-href="PositiveInteger.html">PositiveInteger</a>, <a
-href="NegativeInteger.html">NegativeInteger</a>, <a
-href="PositiveNumber.html">PositiveNumber</a>, <a
 href="FreeIndex.html">FreeIndex</a>, <a
-href="GrassmannParity.html">GrassmannParity</a>, <a
+href="FCVariable.html">FCVariable</a>, <a
 href="FCTensor.html">FCTensor</a>, <a
 href="ImplicitDiracIndex.html">ImplicitDiracIndex</a>, <a
 href="ImplicitPauliIndex.html">ImplicitPauliIndex</a>, <a
@@ -191,19 +183,5 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">f</span><span class="op">,</span> <span class="fu">g</span><span class="op">,</span> NonCommutative<span class="op">]</span> <span class="ex">=</span> <span class="cn">False</span>; </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span><span class="fu">m</span><span class="op">,</span> odd<span class="op">]</span> <span class="ex">=</span> DataType<span class="op">[</span><span class="fu">a</span><span class="op">,</span> even<span class="op">]</span> <span class="ex">=</span> <span class="cn">False</span>;</span></code></pre></div>
-<p>Certain FeynCalc objects have <code>DataType</code>
-<code>PositiveInteger</code> set to <code>True</code>.</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DataType<span class="op">[</span>OPEm<span class="op">,</span> PositiveInteger<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\text{True}</span></p>
-<p>PowerSimplify uses the DataType information.</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>PowerSimplify<span class="op">[</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span>(<span class="dv">2</span> OPEm)<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">1</span></p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>PowerSimplify<span class="op">[</span> (<span class="sc">-</span> SO<span class="op">[</span><span class="fu">q</span><span class="op">]</span>)<span class="sc">^</span>OPEm<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">(\Delta \cdot q)^m e^{2 i \pi  m
-\left\lfloor -\frac{\arg (\Delta \cdot q)}{2 \pi }\right\rfloor +i
-\pi  m}</span></p>
 </body>
 </html>

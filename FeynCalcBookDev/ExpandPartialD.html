@@ -164,81 +164,52 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\frac{1}{2} \left(\overleftarrow{\partial
 }_i.A_{\nu }-\left(\partial _iA_{\nu }\right)\right)</span></p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> . (LeftRightPartialD<span class="op">[</span>OPEDelta<span class="op">]</span><span class="sc">^</span><span class="dv">2</span>) . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Rho<span class="op">]]]</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">A_{\mu }.\overleftrightarrow{\partial
-}_{\Delta }^2.A_{\rho }</span></p>
-<p><span class="math display">\frac{1}{4} \left(A_{\mu }.\left(\partial
-_{\Delta }\partial _{\Delta }A_{\rho }\right)-2 \left(\partial _{\Delta
-}A_{\mu }\right).\left(\partial _{\Delta }A_{\rho
-}\right)+\left(\partial _{\Delta }\partial _{\Delta }A_{\mu
-}\right).A_{\rho }\right)</span></p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span> LeftRightPartialD<span class="op">[</span>OPEDelta<span class="op">]</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
-<p><span class="math display">8 \overleftrightarrow{\partial }_{\Delta
-}^3</span></p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ExplicitPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left(\vec{\partial }_{\Delta
-}-\overleftarrow{\partial }_{\Delta }\right){}^3</span></p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">-\overleftarrow{\partial }_{\Delta
-}.\overleftarrow{\partial }_{\Delta }.\overleftarrow{\partial }_{\Delta
-}+3 \overleftarrow{\partial }_{\Delta }.\overleftarrow{\partial
-}_{\Delta }.\vec{\partial }_{\Delta }-3 \overleftarrow{\partial
-}_{\Delta }.\vec{\partial }_{\Delta }.\vec{\partial }_{\Delta
-}+\vec{\partial }_{\Delta }.\vec{\partial }_{\Delta }.\vec{\partial
-}_{\Delta }</span></p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Tau<span class="op">]]</span> RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>LC<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Rho<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Tau<span class="op">]]</span> RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Alpha<span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Mu<span class="op">],</span> <span class="sc">\</span><span class="op">[</span><span class="fu">Beta</span><span class="op">],</span> <span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{\mu \nu \rho \tau }
 \vec{\partial }_{\alpha }.\vec{\partial }_{\mu }.\vec{\partial }_{\beta
 }.\vec{\partial }_{\nu }</span></p>
 <p><span class="math display">0</span></p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>CLC<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> RightNablaD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>CLC<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> RightNablaD<span class="op">[</span><span class="fu">i</span><span class="op">,</span> <span class="fu">j</span><span class="op">,</span> <span class="fu">k</span><span class="op">]</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span><span class="sc">%</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\bar{\epsilon }^{ijk} \vec{\nabla
 }^i.\vec{\nabla }^j.\vec{\nabla }^k</span></p>
 <p><span class="math display">0</span></p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">S</span><span class="op">,</span> <span class="fu">x</span><span class="op">]</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ExpandPartialD</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">S</span><span class="op">,</span> <span class="fu">x</span><span class="op">]</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ExpandPartialD</span></code></pre></div>
 <p><span class="math display">\vec{\partial }_i.S^x</span></p>
 <p><span class="math display">\left(\partial _iS^x\right)</span></p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[{</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="fu">x</span><span class="op">}]</span> . QuantumField<span class="op">[</span><span class="fu">S</span><span class="op">,</span> <span class="fu">x</span><span class="op">]</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ExpandPartialD</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>RightPartialD<span class="op">[{</span>CartesianIndex<span class="op">[</span><span class="fu">i</span><span class="op">],</span> <span class="fu">x</span><span class="op">}]</span> . QuantumField<span class="op">[</span><span class="fu">S</span><span class="op">,</span> <span class="fu">x</span><span class="op">]</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%</span> <span class="sc">//</span> ExpandPartialD</span></code></pre></div>
 <p><span class="math display">\vec{\partial }_{\{i,x\}}.S^x</span></p>
 <p><span class="math display">\left(\partial
 _{\{i,x\}}S^x\right)</span></p>
 <p>By default the derivative won’t act on anything outside of the input
 expression. But it can be made to by setting the option
 <code>RightPartialD</code> to <code>True</code></p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]]</span></span></code></pre></div>
 <p><span class="math display">A_{\mu }.\left(\partial _{\mu }A_{\nu
 }\right)+\left(\partial _{\mu }A_{\mu }\right).A_{\nu }</span></p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]],</span> RightPartialD <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>RightPartialD<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Mu<span class="op">]]]</span> . QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]],</span> RightPartialD <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">A_{\mu }.\left(\partial _{\mu }A_{\nu
 }\right)+\left(\partial _{\mu }A_{\mu }\right).A_{\nu }+A_{\mu }.A_{\nu
 }.\vec{\partial }_{\mu }</span></p>
 <p>The same applies also to <code>LeftPartialD</code></p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> . LeftNablaD<span class="op">[</span><span class="fu">i</span><span class="op">]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> . LeftNablaD<span class="op">[</span><span class="fu">i</span><span class="op">]]</span></span></code></pre></div>
 <p><span class="math display">-\left(\partial _iA_{\nu
 }\right)</span></p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> . LeftNablaD<span class="op">[</span><span class="fu">i</span><span class="op">],</span> LeftPartialD <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ExpandPartialD<span class="op">[</span>QuantumField<span class="op">[</span><span class="fu">A</span><span class="op">,</span> LorentzIndex<span class="op">[</span><span class="sc">\</span><span class="op">[</span>Nu<span class="op">]]]</span> . LeftNablaD<span class="op">[</span><span class="fu">i</span><span class="op">],</span> LeftPartialD <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
 <p><span class="math display">-\left(\partial _iA_{\nu
 }\right)-\overleftarrow{\partial }_i.A_{\nu }</span></p>
 </body>
