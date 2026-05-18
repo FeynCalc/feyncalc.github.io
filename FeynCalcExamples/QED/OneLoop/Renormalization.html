@@ -21,8 +21,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -112,11 +113,9 @@
 </header>
 <h2 id="load-feyncalc-and-the-necessary-add-ons-or-other-packages">Load
 FeynCalc and the necessary add-ons or other packages</h2>
-<p>This example uses a custom QED model created with FeynRules. Please
-evaluate the file FeynCalc/Examples/FeynRules/QED/GenerateModelQED.m
-before running it for the first time.</p>
+<p>This example uses a custom QED model created with FeynRules.</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>description <span class="ex">=</span> <span class="st">&quot;Renormalization, QED, MS and MSbar, 1-loop&quot;</span>;</span>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>description <span class="ex">=</span> <span class="st">&quot;Renormalization, QED, MSbar, 1-loop&quot;</span>;</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span> <span class="va">$FrontEnd</span> <span class="ex">===</span> <span class="cn">Null</span><span class="op">,</span> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span>; </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Print</span><span class="op">[</span>description<span class="op">]</span>; </span>
@@ -125,12 +124,18 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    $FeynCalcStartupMessages <span class="ex">=</span> <span class="cn">False</span> </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">LaunchKernels</span><span class="op">[</span><span class="dv">4</span><span class="op">]</span>;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>$LoadAddOns <span class="ex">=</span> <span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">}</span>;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>$LoadAddOns <span class="ex">=</span> <span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">,</span> <span class="st">&quot;FeynHelpers&quot;</span><span class="op">}</span>;</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc`</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>;</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span>;</span></code></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span>; </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span>;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">If</span><span class="op">[</span><span class="fu">ToExpression</span><span class="op">[</span><span class="fu">StringSplit</span><span class="op">[</span>$FeynHelpersVersion<span class="op">,</span> <span class="st">&quot;.&quot;</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]]</span> &lt; <span class="dv">2</span><span class="op">,</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Print</span><span class="op">[</span><span class="st">&quot;You need at least FeynHelpers 2.0 to run this example.&quot;</span><span class="op">]</span>; </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Abort</span><span class="op">[]</span>; </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> <span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{FeynCalc }\;\text{10.2.0 (dev
-version, 2025-12-22 21:09:03 +01:00, fcd53f9b). For help, use the
+version, 2026-05-18 15:58:48 +02:00, 1a8e687c). For help, use the
 }\underline{\text{online} \;\text{documentation},}\;\text{ visit the
 }\underline{\text{forum}}\;\text{ and have a look at the supplied
 }\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
@@ -149,507 +154,599 @@ patched for use with FeynCalc, for documentation see the
 research, please cite}</span></p>
 <p><span class="math display">\text{ $\bullet $ T. Hahn, Comput. Phys.
 Commun., 140, 418-431, 2001, arXiv:hep-ph/0012260}</span></p>
+<p><span class="math display">\text{FeynHelpers }\;\text{2.0.0
+(2026-02-05 17:03:01 +02:00, 5db84fbb). For help, use the
+}\underline{\text{online} \;\text{documentation},}\;\text{ visit the
+}\underline{\text{forum}}\;\text{ and have a look at the supplied
+}\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
+be downloaded }\underline{\text{here}.}</span></p>
+<p><span class="math display">\text{ If you use FeynHelpers in your
+research, please evaluate FeynHelpersHowToCite[] to learn how to cite
+this work.}</span></p>
 <h2 id="configure-some-options">Configure some options</h2>
-<p>We keep scaleless B0 functions, since otherwise the UV part would not
-come out right.</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$KeepLogDivergentScalelessIntegrals <span class="ex">=</span> <span class="cn">True</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>modelDir <span class="ex">=</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$UserBaseDirectory</span><span class="op">,</span> <span class="st">&quot;Applications&quot;</span><span class="op">,</span> <span class="st">&quot;FeynCalc&quot;</span><span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> <span class="st">&quot;Models&quot;</span><span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FAPatch<span class="op">[</span>PatchModelsOnly <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FAPatch<span class="op">[</span>PatchModelsOnly <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FAModelsDirectory <span class="ot">-&gt;</span> modelDir<span class="op">]</span>;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">(*Successfully patched FeynArts.*)</span></span></code></pre></div>
+<p>Here we define all Z-factors for renormalization constants present in
+the Lagrangian</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>renConstants <span class="ex">=</span> Zm <span class="sc">|</span> Zpsi <span class="sc">|</span> ZA <span class="sc">|</span> ZAmxt <span class="sc">|</span> Ze <span class="sc">|</span> Zxi</span></code></pre></div>
+<p><span
+class="math display">\text{Zm}|\text{Zpsi}|\text{ZA}|\text{ZAmxt}|\text{Ze}|\text{Zxi}</span></p>
 <h2 id="generate-feynman-diagrams">Generate Feynman diagrams</h2>
 <p>Nicer typesetting</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>mu<span class="op">,</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Mu]&quot;</span><span class="op">]</span>;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>nu<span class="op">,</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Nu]&quot;</span><span class="op">]</span>;</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>rho<span class="op">,</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Rho]&quot;</span><span class="op">]</span>;</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>si<span class="op">,</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Sigma]&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>params <span class="ex">=</span> <span class="op">{</span>InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Particles<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="st">&quot;QED&quot;</span><span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    GenericModel <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="st">&quot;QED&quot;</span><span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span><span class="op">}]}}</span>;</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">top</span><span class="op">[</span><span class="at">i_</span><span class="op">,</span> <span class="at">j_</span><span class="op">]</span> <span class="ex">:=</span> CreateTopologies<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="fu">i</span> <span class="ot">-&gt;</span> <span class="fu">j</span><span class="op">,</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">,</span> WFCorrections<span class="op">,</span> WFCorrectionCTs<span class="op">}]</span>;</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>topCT<span class="op">[</span><span class="at">i_</span><span class="op">,</span> <span class="at">j_</span><span class="op">]</span> <span class="ex">:=</span> CreateCTTopologies<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="fu">i</span> <span class="ot">-&gt;</span> <span class="fu">j</span><span class="op">,</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>     ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">,</span> WFCorrections<span class="op">,</span> WFCorrectionCTs<span class="op">}]</span>; </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>diagElectronSE<span class="op">,</span> diagElectronSECT<span class="op">}</span> <span class="ex">=</span> InsertFields<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">Sequence</span> @@ params<span class="op">]</span> &amp; <span class="sc">/</span>@ <span class="op">{</span><span class="fu">top</span><span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> topCT<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">]}</span>;</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>diagPhotonSE<span class="op">,</span> diagPhotonSECT<span class="op">}</span> <span class="ex">=</span> InsertFields<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]},</span> </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">Sequence</span> @@ params<span class="op">]</span> &amp; <span class="sc">/</span>@ <span class="op">{</span><span class="fu">top</span><span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> topCT<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">]}</span>;</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>diagVertex<span class="op">,</span> diagVertexCT<span class="op">}</span> <span class="ex">=</span> InsertFields<span class="op">[</span>#<span class="op">,</span>  <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}],</span> <span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">Sequence</span> @@ params<span class="op">]</span> &amp; <span class="sc">/</span>@ <span class="op">{</span><span class="fu">top</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">],</span> topCT<span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">]}</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>mu<span class="op">,</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Mu]&quot;</span><span class="op">]</span>;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>nu<span class="op">,</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Nu]&quot;</span><span class="op">]</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>rho<span class="op">,</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Rho]&quot;</span><span class="op">]</span>;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>si<span class="op">,</span> <span class="st">&quot;</span><span class="sc">\[</span><span class="st">Sigma]&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>diag1<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> diagElectronSE<span class="op">[[</span><span class="dv">0</span><span class="op">]][</span>diagElectronSE<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> diagElectronSECT<span class="op">[[</span><span class="dv">1</span><span class="op">]]]</span>;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>diag2<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> diagPhotonSE<span class="op">[[</span><span class="dv">0</span><span class="op">]][</span>diagPhotonSE<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> diagPhotonSECT<span class="op">[[</span><span class="dv">1</span><span class="op">]]]</span>;</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>diag3<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> diagVertex<span class="op">[[</span><span class="dv">0</span><span class="op">]][</span>diagVertex<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> diagVertexCT<span class="op">[[</span><span class="dv">1</span><span class="op">]]]</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>diagLeptonSE <span class="ex">=</span> InsertFields<span class="op">[</span>CreateTopologies<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">,</span> WFCorrections<span class="op">,</span> WFCorrectionCTs<span class="op">}],</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Particles<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    GenericModel <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span><span class="op">}]}]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diag1<span class="op">[</span><span class="dv">0</span><span class="op">],</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">512</span><span class="op">,</span> <span class="dv">256</span><span class="op">}]</span>;</span></code></pre></div>
-<p><img src="img/1cxw4zyvpd3ll.svg" alt="1cxw4zyvpd3ll" /></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>diagPhotonSE <span class="ex">=</span> InsertFields<span class="op">[</span>CreateTopologies<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">,</span> WFCorrections<span class="op">,</span> WFCorrectionCTs<span class="op">}],</span> <span class="op">{</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]},</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Particles<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    GenericModel <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span><span class="op">}]}]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diag2<span class="op">[</span><span class="dv">0</span><span class="op">],</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">512</span><span class="op">,</span> <span class="dv">256</span><span class="op">}]</span>;</span></code></pre></div>
-<p><img src="img/11yqcu0tiph7r.svg" alt="11yqcu0tiph7r" /></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>diagLeptonPhotonVTX <span class="ex">=</span> InsertFields<span class="op">[</span>CreateTopologies<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>     ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">,</span> WFCorrections<span class="op">,</span> WFCorrectionCTs<span class="op">}],</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}],</span> <span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Particles<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    GenericModel <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span><span class="op">}]}]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diag3<span class="op">[</span><span class="dv">0</span><span class="op">],</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">512</span><span class="op">,</span> <span class="dv">256</span><span class="op">}]</span>;</span></code></pre></div>
-<p><img src="img/02syui52uzcpa.svg" alt="02syui52uzcpa" /></p>
-<h2 id="obtain-the-amplitudes">Obtain the amplitudes</h2>
-<p>The 1/(2Pi)^D prefactor is implicit. We need to replace e with -e to
-be compatible with the convention D^mu = d^mu + ie A^mu</p>
-<p>Electron self-energy including the counter-term</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>diagLeptonSECT <span class="ex">=</span> InsertFields<span class="op">[</span>CreateCTTopologies<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>     ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">,</span> WFCorrections<span class="op">,</span> WFCorrectionCTs<span class="op">}],</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Particles<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    GenericModel <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span><span class="op">}]}]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb10"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>amp1<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>diag1<span class="op">[</span><span class="dv">0</span><span class="op">],</span> Truncated <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    GaugeRules <span class="ot">-&gt;</span> <span class="op">{},</span> PreFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">],</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>mu<span class="op">},</span> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">l</span><span class="op">},</span> UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>Zm <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;Z_m&quot;</span><span class="op">],</span> Zpsi <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;Z_psi&quot;</span><span class="op">],</span> </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="fu">Sqrt</span><span class="op">[</span><span class="dv">4</span> <span class="fu">Pi</span> SMP<span class="op">[</span><span class="st">&quot;alpha_fs&quot;</span><span class="op">]],</span> GaugeXi<span class="op">[</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">-&gt;</span> GaugeXi<span class="op">},</span> </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    Contract <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left\{-\frac{4 \pi  \alpha  \gamma ^{\mu
-}.\left(m_e+\gamma \cdot l\right).\gamma ^{\mu
-}}{\left(l^2-m_e^2\right).(l-p)^2}-\frac{4 \pi  \alpha  (1-\xi ) (\gamma
-\cdot (p-l)).\left(m_e+\gamma \cdot l\right).(\gamma \cdot
-(l-p))}{\left(l^2-m_e^2\right).(l-p)^4},i \left(Z_{\psi }-1\right)
-\gamma \cdot p-i m_e \left(Z_m Z_{\psi }-1\right)\right\}</span></p>
-<p>Photon self-energy including the counter-term</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>diagPhotonSECT <span class="ex">=</span> InsertFields<span class="op">[</span>CreateCTTopologies<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>     ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">,</span> WFCorrections<span class="op">,</span> WFCorrectionCTs<span class="op">}],</span> <span class="op">{</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]},</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Particles<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    GenericModel <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span><span class="op">}]}]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>amp2<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>diag2<span class="op">[</span><span class="dv">0</span><span class="op">],</span> Truncated <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        GaugeRules <span class="ot">-&gt;</span> <span class="op">{},</span> PreFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">],</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>mu<span class="op">,</span> nu<span class="op">},</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">l</span><span class="op">},</span> UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>ZA <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;Z_A&quot;</span><span class="op">],</span> Zxi <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;Z_xi&quot;</span><span class="op">],</span> </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="fu">Sqrt</span><span class="op">[</span><span class="dv">4</span> <span class="fu">Pi</span> SMP<span class="op">[</span><span class="st">&quot;alpha_fs&quot;</span><span class="op">]],</span> GaugeXi<span class="op">[</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">-&gt;</span> GaugeXi<span class="op">},</span> </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    Contract <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="sc">//</span> FCTraceFactor</span></code></pre></div>
-<p><span class="math display">\left\{-\frac{4
-\pi  \alpha  \;\text{tr}\left(\left(m_e-\gamma \cdot l\right).\gamma
-^{\nu }.\left(m_e+\gamma \cdot (p-l)\right).\gamma ^{\mu
-}\right)}{\left(l^2-m_e^2\right).\left((l-p)^2-m_e^2\right)},-i p^2
-\left(Z_A-1\right) g^{\mu \nu }-\frac{i p^{\mu } p^{\nu }
-\left(Z_A-Z_{\xi }\right)}{\xi  Z_{\xi }}+i \left(Z_A-1\right) p^{\mu }
-p^{\nu }\right\}</span></p>
-<p>Electron-photon vertex including the counter-term</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>diagLeptonPhotonVTXCT <span class="ex">=</span> InsertFields<span class="op">[</span>CreateCTTopologies<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>     ExcludeTopologies <span class="ot">-&gt;</span> <span class="op">{</span>Tadpoles<span class="op">,</span> WFCorrections<span class="op">,</span> WFCorrectionCTs<span class="op">}],</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}],</span> <span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]}</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Particles<span class="op">},</span> Model <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    GenericModel <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span>modelDir<span class="op">,</span> <span class="st">&quot;QED&quot;</span><span class="op">}],</span> ExcludeParticles <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">2</span><span class="op">,</span> <span class="op">{</span><span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span><span class="op">}]}]</span>;</span></code></pre></div>
+<p>Self-energy and vertex diagrams</p>
 <div class="sourceCode" id="cb12"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>amp3<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>diag3<span class="op">[</span><span class="dv">0</span><span class="op">],</span> Truncated <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        GaugeRules <span class="ot">-&gt;</span> <span class="op">{},</span> PreFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">],</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">,</span> <span class="fu">k</span><span class="op">},</span> OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span>p2<span class="op">},</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>mu<span class="op">},</span> LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">l</span><span class="op">},</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FinalSubstitutions <span class="ot">-&gt;</span> </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span>ZA <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;Z_A&quot;</span><span class="op">],</span> Ze <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;Z_e&quot;</span><span class="op">],</span> Zpsi <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;Z_psi&quot;</span><span class="op">],</span> </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">3</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="fu">Pi</span> SMP<span class="op">[</span><span class="st">&quot;alpha_fs&quot;</span><span class="op">]</span> SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">],</span> GaugeXi<span class="op">[</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">-&gt;</span> GaugeXi<span class="op">},</span> </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    Contract <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="ot">/.</span> SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="sc">-</span>SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\left\{-\frac{4 \pi  \alpha  \;\text{e}
-\gamma ^{\text{Lor3}}.\left(m_e+\gamma \cdot (k+l)\right).\gamma ^{\mu
-}.\left(m_e+\gamma \cdot l\right).\gamma
-^{\text{Lor3}}}{\left(l^2-m_e^2\right).\left((k+l)^2-m_e^2\right).(k+l-\text{p2})^2}-\frac{4
-\pi  \alpha  \;\text{e} (1-\xi ) (\gamma \cdot
-(-k-l+\text{p2})).\left(m_e+\gamma \cdot (k+l)\right).\gamma ^{\mu
-}.\left(m_e+\gamma \cdot l\right).(\gamma \cdot
-(k+l-\text{p2}))}{\left(l^2-m_e^2\right).\left((k+l)^2-m_e^2\right).(k+l-\text{p2})^4},-i
-\;\text{e} \gamma ^{\mu } \left(\sqrt{Z_A} Z_e Z_{\psi
-}-1\right)\right\}</span></p>
-<h2 id="calculate-the-amplitudes">Calculate the amplitudes</h2>
-<h3 id="electron-self-energy">Electron self-energy</h3>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diagLeptonSE<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="dv">128</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span>;</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diagPhotonSE<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="dv">128</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span>;</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diagLeptonPhotonVTX<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="dv">128</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span>;</span></code></pre></div>
+<p><img src="img/0t70bp37udj24.svg" alt="0t70bp37udj24" /></p>
+<p><img src="img/0g7au6x3j2jbm.svg" alt="0g7au6x3j2jbm" /></p>
+<p><img src="img/19isxnjzm3uyq.svg" alt="19isxnjzm3uyq" /></p>
+<p>Counter-term diagrams</p>
 <div class="sourceCode" id="cb13"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>amp1<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> amp1<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;Z_psi&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span> <span class="sc">+</span> alpha SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">],</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>         SMP<span class="op">[</span><span class="st">&quot;Z_m&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span> <span class="sc">+</span> alpha SMP<span class="op">[</span><span class="st">&quot;d_m&quot;</span><span class="op">]}]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>alpha<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Normal</span> <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> alpha <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">]</span> &amp;</span></code></pre></div>
-<p><span class="math display">\left\{-\frac{4 \pi  \alpha  \gamma ^{\mu
-}.\left(m_e+\gamma \cdot l\right).\gamma ^{\mu
-}}{\left(l^2-m_e^2\right).(l-p)^2}-\frac{4 \pi  \alpha  (1-\xi ) (\gamma
-\cdot (p-l)).\left(m_e+\gamma \cdot l\right).(\gamma \cdot
-(l-p))}{\left(l^2-m_e^2\right).(l-p)^4},i \delta _{\psi } \gamma \cdot
-p-i m_e \left(\delta _{\psi }+\delta _m\right)\right\}</span></p>
-<p>Tensor reduction allows us to express the electron self-energy in
-tems of the Passarino-Veltman coefficient functions.</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diagLeptonSECT<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="dv">128</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span>;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diagPhotonSECT<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="dv">128</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span>;</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diagLeptonPhotonVTXCT<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>   Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="dv">128</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span>;</span></code></pre></div>
+<p><img src="img/1f92t1u6f6clk.svg" alt="1f92t1u6f6clk" /></p>
+<p><img src="img/1s0wjpsig6ggu.svg" alt="1s0wjpsig6ggu" /></p>
+<p><img src="img/0c3xwjwr24gny.svg" alt="0c3xwjwr24gny" /></p>
+<h2 id="master-integrals">Master integrals</h2>
+<p>The only required masters are 1-loop tadpoles</p>
 <div class="sourceCode" id="cb14"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>amp1<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="ex">=</span> TID<span class="op">[</span>amp1<span class="op">[</span><span class="dv">1</span><span class="op">],</span> <span class="fu">l</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">Total</span></span></code></pre></div>
-<p><span class="math display">\frac{1}{p^2}2 i \pi ^3
-\alpha  \;\text{B}_0\left(p^2,0,m_e^2\right) \left(-D
-\left(p^2-m_e^2\right) \gamma \cdot p-2 D p^2 m_e+2 D p^2 \gamma \cdot
-p+\xi  m_e^2 \gamma \cdot p-2 \xi  m_e (\gamma \cdot p).(\gamma \cdot
-p)-m_e^2 \gamma \cdot p+2 m_e (\gamma \cdot p).(\gamma \cdot p)+2
-\left(p^2-m_e^2\right) \gamma \cdot p+\xi  p^2 \gamma \cdot p-5 p^2
-\gamma \cdot p\right)-\frac{2 i \pi ^3 \alpha  (1-\xi )
-\;\text{B}_0(0,0,0) \left(m_e^2 (-(\gamma \cdot p))+2 m_e (\gamma \cdot
-p).(\gamma \cdot p)-2 p^2 m_e+p^2 \gamma \cdot p\right)}{p^2}+\frac{2 i
-\pi ^3 \alpha  (1-\xi ) \left(-m_e^2 \left(p^2-m_e^2\right) \gamma \cdot
-p-4 p^2 m_e (\gamma \cdot p).(\gamma \cdot p)+2 m_e
-\left(p^2-m_e^2\right) (\gamma \cdot p).(\gamma \cdot p)+p^2
-\left(p^2-m_e^2\right) \gamma \cdot p+2 p^2 m_e^3+2 p^4 m_e\right)
-\;\text{C}_0\left(0,p^2,p^2,0,0,m_e^2\right)}{p^2}+\frac{2 i \pi ^3
-\alpha  (2-D) \gamma \cdot p \;\text{A}_0\left(m_e^2\right)}{p^2}-i m_e
-\left(\delta _{\psi }+\delta _m\right)+i \delta _{\psi } \gamma \cdot
-p</span></p>
-<p>Discard all the finite pieces of the 1-loop amplitude</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tadpoleMaster <span class="ex">=</span> <span class="fu">Get</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span>$FeynCalcDirectory<span class="op">,</span> <span class="st">&quot;Examples&quot;</span><span class="op">,</span> <span class="st">&quot;MasterIntegrals&quot;</span><span class="op">,</span><span class="st">&quot;Tadpoles&quot;</span><span class="op">,</span> <span class="st">&quot;tad1LxFx1x1xxEp999x.m&quot;</span><span class="op">}]]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb15"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>amp1Div<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> PaVeUVPart<span class="op">[</span>amp1<span class="op">[</span><span class="dv">2</span><span class="op">],</span> Prefactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="fu">D</span><span class="op">]</span> <span class="sc">//</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>        FCReplaceD<span class="op">[</span>#<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>Epsilon<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>     FCHideEpsilon <span class="sc">//</span> SelectNotFree2<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;Delta&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;d_m&quot;</span><span class="op">],</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>       SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">]}]</span> &amp; <span class="sc">//</span> <span class="fu">Simplify</span></span></code></pre></div>
-<p><span class="math display">\frac{i \left(\gamma \cdot p
-\left(\alpha  \Delta  \xi +4 \pi  \delta _{\psi }\right)-m_e
-\left(\alpha  \Delta  (\xi +3)+4 \pi  \left(\delta _{\psi }+\delta
-_m\right)\right)\right)}{4 \pi }</span></p>
-<p>Equating the result to zero and solving for d_psi and d_m we obtain
-the renormalization constants in the minimal subtraction schemes.</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tadpoleMaster1 <span class="ex">=</span> tadpoleMaster <span class="ot">/.</span> m1 <span class="ot">-&gt;</span> ml <span class="ot">/.</span> tad1LxFx1x1xxEp999x <span class="ot">-&gt;</span> <span class="st">&quot;tad1Lv1&quot;</span>;</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tadpoleMaster2 <span class="ex">=</span> tadpoleMaster <span class="ot">/.</span> m1 <span class="ot">-&gt;</span> mxt <span class="ot">/.</span> tad1LxFx1x1xxEp999x <span class="ot">-&gt;</span> <span class="st">&quot;tad1Lv2&quot;</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sol<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">Solve</span><span class="op">[</span>SelectNotFree2<span class="op">[</span>amp1Div<span class="op">[</span><span class="dv">0</span><span class="op">],</span> DiracGamma<span class="op">]</span> <span class="ex">==</span> <span class="dv">0</span><span class="op">,</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">Flatten</span> <span class="sc">//</span> <span class="fu">Simplify</span>;</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>sol<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">Solve</span><span class="op">[</span>(SelectFree2<span class="op">[</span>amp1Div<span class="op">[</span><span class="dv">0</span><span class="op">],</span> DiracGamma<span class="op">]</span> <span class="ex">==</span> <span class="dv">0</span>) <span class="ot">/.</span> sol<span class="op">[</span><span class="dv">1</span><span class="op">],</span> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        SMP<span class="op">[</span><span class="st">&quot;d_m&quot;</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">Flatten</span> <span class="sc">//</span> <span class="fu">Simplify</span>;</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>solMS1 <span class="ex">=</span> <span class="fu">Join</span><span class="op">[</span>sol<span class="op">[</span><span class="dv">1</span><span class="op">],</span> sol<span class="op">[</span><span class="dv">2</span><span class="op">]]</span> <span class="ot">/.</span> <span class="op">{</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;d_psi^MS&quot;</span><span class="op">],</span> </span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    SMP<span class="op">[</span><span class="st">&quot;d_m&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;d_m^MS&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;Delta&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>Epsilon </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>solMSbar1 <span class="ex">=</span> <span class="fu">Join</span><span class="op">[</span>sol<span class="op">[</span><span class="dv">1</span><span class="op">],</span> sol<span class="op">[</span><span class="dv">2</span><span class="op">]]</span> <span class="ot">/.</span> <span class="op">{</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;d_psi^MSbar&quot;</span><span class="op">],</span> </span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    SMP<span class="op">[</span><span class="st">&quot;d_m&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;d_m^MSbar&quot;</span><span class="op">]</span> </span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span></code></pre></div>
-<p><span class="math display">\left\{\delta _{\psi }^{\text{MS}}\to
--\frac{\alpha  \xi }{4 \pi  \varepsilon },\delta _m^{\text{MS}}\to
--\frac{3 \alpha }{4 \pi  \varepsilon }\right\}</span></p>
-<p><span class="math display">\left\{\delta _{\psi
-}^{\overset{---}{\text{MS}}}\to -\frac{\alpha  \Delta  \xi }{4 \pi
-},\delta _m^{\overset{---}{\text{MS}}}\to -\frac{3 \alpha  \Delta }{4
-\pi }\right\}</span></p>
-<h3 id="photon-self-energy">Photon self-energy</h3>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tadpoleMaster1</span></code></pre></div>
+<p><span class="math display">\left\{G^{\text{tad1Lv1}}(1)\to
+-e^{\gamma  \;\text{ep}} \left(\text{ml}^2\right)^{1-\text{ep}} \Gamma
+(\text{ep}-1),\left\{\text{FCTopology}\left(\text{tad1Lv1},\left\{\frac{1}{(\text{k1}^2-\text{ml}^2+i
+\eta
+)}\right\},\{\text{k1}\},\{\},\{\},\{\}\right)\right\}\right\}</span></p>
 <div class="sourceCode" id="cb17"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>amp2<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> amp2<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">ReplaceRepeated</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;Z_xi&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;Z_A&quot;</span><span class="op">],</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>         SMP<span class="op">[</span><span class="st">&quot;Z_A&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span> <span class="sc">+</span> alpha SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">]}]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>alpha<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Normal</span> <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> alpha <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">]</span> &amp;</span></code></pre></div>
-<p><span class="math display">\left\{-\frac{4
-\pi  \alpha  \;\text{tr}\left(\left(m_e-\gamma \cdot l\right).\gamma
-^{\nu }.\left(m_e+\gamma \cdot (p-l)\right).\gamma ^{\mu
-}\right)}{\left(l^2-m_e^2\right).\left((l-p)^2-m_e^2\right)},i
-\left(\delta _A p^{\mu } p^{\nu }-p^2 \delta _A g^{\mu \nu
-}\right)\right\}</span></p>
-<p>Tensor reduction allows us to express the electron self-energy in
-tems of the Passarino-Veltman coefficient functions.</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tadpoleMaster2</span></code></pre></div>
+<p><span class="math display">\left\{G^{\text{tad1Lv2}}(1)\to
+-e^{\gamma  \;\text{ep}} \left(\text{mxt}^2\right)^{1-\text{ep}} \Gamma
+(\text{ep}-1),\left\{\text{FCTopology}\left(\text{tad1Lv2},\left\{\frac{1}{(\text{k1}^2-\text{mxt}^2+i
+\eta
+)}\right\},\{\text{k1}\},\{\},\{\},\{\}\right)\right\}\right\}</span></p>
+<h2 id="obtain-the-amplitudes">Obtain the amplitudes</h2>
 <div class="sourceCode" id="cb18"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>amp2<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="ex">=</span> TID<span class="op">[</span>amp2<span class="op">[</span><span class="dv">1</span><span class="op">],</span> <span class="fu">l</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">Total</span></span></code></pre></div>
-<p><span class="math display">\frac{8 i \pi ^3
-\alpha  \;\text{B}_0\left(p^2,m_e^2,m_e^2\right) \left(-\left((1-D) p^4
-g^{\mu \nu }\right)+2 (1-D) p^2 p^{\mu } p^{\nu }+D p^2 p^{\mu } p^{\nu
-}+4 p^2 m_e^2 g^{\mu \nu }-4 m_e^2 p^{\mu } p^{\nu }-p^4 g^{\mu \nu
-}\right)}{(1-D) p^2}-\frac{16 i \pi ^3
-\alpha  \;\text{A}_0\left(m_e^2\right) \left(-(1-D) p^2 g^{\mu \nu }-D
-p^{\mu } p^{\nu }-p^2 g^{\mu \nu }+2 p^{\mu } p^{\nu }\right)}{(1-D)
-p^2}+i \left(\delta _A p^{\mu } p^{\nu }-p^2 \delta _A g^{\mu \nu
-}\right)</span></p>
-<p>Discard all the finite pieces of the 1-loop amplitude</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>leptonSE$RawAmp<span class="op">,</span> photonSE$RawAmp<span class="op">,</span> leptonSECT$RawAmp<span class="op">,</span> photonSECT$RawAmp<span class="op">}</span> <span class="ex">=</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>   FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>#<span class="op">,</span> Truncated <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        GaugeRules <span class="ot">-&gt;</span> <span class="op">{},</span> PreFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">],</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>mu<span class="op">,</span> nu<span class="op">},</span> DropSumOver <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> ml<span class="op">,</span> SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="fu">Pi</span> <span class="fu">Sqrt</span><span class="op">[</span>a4<span class="op">]}]</span> &amp; <span class="sc">/</span>@ <span class="op">{</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        diagLeptonSE<span class="op">,</span> diagPhotonSE<span class="op">,</span> diagLeptonSECT<span class="op">,</span> diagPhotonSECT<span class="op">}</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>amp2Div<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> PaVeUVPart<span class="op">[</span>amp2<span class="op">[</span><span class="dv">2</span><span class="op">],</span> Prefactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="fu">D</span><span class="op">]</span> <span class="sc">//</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>        FCReplaceD<span class="op">[</span>#<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>Epsilon<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>     FCHideEpsilon <span class="sc">//</span> SelectNotFree2<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;Delta&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">]}]</span> &amp; <span class="sc">//</span> <span class="fu">Simplify</span></span></code></pre></div>
-<p><span class="math display">\frac{i \left(\alpha  \Delta +3
-\pi  \delta _A\right) \left(p^{\mu } p^{\nu }-p^2 g^{\mu \nu }\right)}{3
-\pi }</span></p>
-<p>Equating this to zero and solving for d_A we obtain the wave-function
-renormalization constant for the photon in the minimal subtraction
-schemes.</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>leptonPhotonVTX$RawAmp<span class="op">,</span> leptonPhotonVTXCT$RawAmp<span class="op">}</span> <span class="ex">=</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>   FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>#<span class="op">,</span> Truncated <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        GaugeRules <span class="ot">-&gt;</span> <span class="op">{},</span> PreFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">],</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">},</span> OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">q</span><span class="op">},</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        LorentzIndexNames <span class="ot">-&gt;</span> <span class="op">{</span>mu<span class="op">,</span> nu<span class="op">},</span> DropSumOver <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        LoopMomenta <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;m_e&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> ml<span class="op">,</span> SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="fu">Pi</span> <span class="fu">Sqrt</span><span class="op">[</span>a4<span class="op">]}]</span> &amp; <span class="sc">/</span>@ <span class="op">{</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        diagLeptonPhotonVTX<span class="op">,</span> diagLeptonPhotonVTXCT </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span>;</span></code></pre></div>
+<h2 id="calculate-the-amplitudes">Calculate the amplitudes</h2>
+<p>Infrared rearrangement works both for massive and massless leptons.
+However, in both cases we get different renormalization constants for
+the “photon mass”. This is why both calculations are needed if we want
+to reuse these results at higher loops orders.</p>
+<h3 id="lepton-self-energy">Lepton self-energy</h3>
+<p>The 1-loop lepton self-energy has superficial degree of divergence
+equal to 1</p>
 <div class="sourceCode" id="cb20"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sol<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">Solve</span><span class="op">[</span>amp2Div<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">==</span> <span class="dv">0</span><span class="op">,</span> SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">]]</span> <span class="sc">//</span> <span class="fu">Flatten</span>;</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>solMS2 <span class="ex">=</span> sol<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="ot">/.</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;d_A^MS&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;Delta&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>Epsilon<span class="op">}</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>solMSbar2 <span class="ex">=</span> sol<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="ot">/.</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;d_A^MSbar&quot;</span><span class="op">]}</span></span></code></pre></div>
-<p><span class="math display">\left\{\delta _A^{\text{MS}}\to
--\frac{\alpha }{3 \pi  \varepsilon }\right\}</span></p>
-<p><span class="math display">\left\{\delta
-_A^{\overset{---}{\text{MS}}}\to -\frac{\alpha  \Delta }{3 \pi
-}\right\}</span></p>
-<h3 id="electron-photon-vertex">Electron-photon vertex</h3>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>divDegree <span class="ex">=</span> <span class="dv">1</span>;</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>aux1 <span class="ex">=</span> FCLoopGetFeynAmpDenominators<span class="op">[</span>leptonSE$RawAmp<span class="op">,</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> denHead<span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="st">&quot;Massless&quot;</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>aux2 <span class="ex">=</span> FCLoopAddAuxiliaryMass<span class="op">[</span>aux1<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> <span class="sc">-</span>mxt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> denHead<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{denHead}\left(\frac{1}{((k-p)^2+i \eta
+)}\right)\to \frac{1}{((k-p)^2-\text{mxt}^2+i \eta )}\right\}</span></p>
 <div class="sourceCode" id="cb21"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>amp3<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> amp3<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">ReplaceRepeated</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;Z_psi&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span> <span class="sc">+</span> alpha SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">],</span> </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>         SMP<span class="op">[</span><span class="st">&quot;Z_A&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span> <span class="sc">+</span> alpha SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;Z_e&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">1</span> <span class="sc">+</span> alpha SMP<span class="op">[</span><span class="st">&quot;d_e&quot;</span><span class="op">]}]</span> &amp; <span class="sc">//</span> </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>alpha<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> alpha <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">]</span> &amp;</span></code></pre></div>
-<p><span class="math display">\left\{-\frac{4 \pi  \alpha  \;\text{e}
-\gamma ^{\text{Lor3}}.\left(m_e+\gamma \cdot (k+l)\right).\gamma ^{\mu
-}.\left(m_e+\gamma \cdot l\right).\gamma
-^{\text{Lor3}}}{\left(l^2-m_e^2\right).\left((k+l)^2-m_e^2\right).(k+l-\text{p2})^2}-\frac{4
-\pi  \alpha  \;\text{e} (1-\xi ) (\gamma \cdot
-(-k-l+\text{p2})).\left(m_e+\gamma \cdot (k+l)\right).\gamma ^{\mu
-}.\left(m_e+\gamma \cdot l\right).(\gamma \cdot
-(k+l-\text{p2}))}{\left(l^2-m_e^2\right).\left((k+l)^2-m_e^2\right).(k+l-\text{p2})^4},-i
-\;\text{e} \gamma ^{\mu } \left(\frac{\delta _A}{2}+\delta _{\psi
-}+\delta _e\right)\right\}</span></p>
-<p>The result of the tensor reduction is quite large, since we keep the
-full gauge dependence and do not specify the kinematics</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>leptonSE$StrName <span class="ex">=</span> <span class="fu">StringReplace</span><span class="op">[</span><span class="fu">ToString</span><span class="op">[</span><span class="fu">Hold</span><span class="op">[</span>leptonSE$Amp<span class="op">]],</span> <span class="op">{</span><span class="st">&quot;Hold[&quot;</span> <span class="ot">-&gt;</span> <span class="st">&quot;&quot;</span><span class="op">,</span> <span class="st">&quot;]&quot;</span> <span class="ot">-&gt;</span> <span class="st">&quot;&quot;</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{leptonSE\$Amp}</span></p>
 <div class="sourceCode" id="cb22"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>amp3<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="ex">=</span> TID<span class="op">[</span>amp3<span class="op">[</span><span class="dv">1</span><span class="op">],</span> <span class="fu">l</span><span class="op">,</span> ToPaVe <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> UsePaVeBasis <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">Total</span></span></code></pre></div>
-<p><span class="math display">8 i (1-\xi ) \pi ^3 \;\text{B}_0(0,0,0)
-\gamma ^{\mu } \alpha  \;\text{e}+4 i (2-D) \pi ^3
-\;\text{B}_0\left(\text{p2}^2,0,m_e^2\right) \gamma ^{\mu }
-\alpha  \;\text{e}-4 i D (1-\xi ) \pi ^3 \gamma ^{\mu }
-\;\text{C}_{00}\left(0,k^2-2 (k\cdot \;\text{p2})+\text{p2}^2,k^2-2
-(k\cdot \;\text{p2})+\text{p2}^2,0,0,m_e^2\right) \alpha  \;\text{e}-8 i
-(2-D) \pi ^3 \gamma ^{\mu } \;\text{C}_{00}\left(k^2,\text{p2}^2,k^2-2
-(k\cdot \;\text{p2})+\text{p2}^2,m_e^2,m_e^2,0\right)
-\alpha  \;\text{e}-8 i (2-D) \pi ^3 \gamma \cdot k k^{\mu }
-\;\text{C}_{11}\left(k^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,\text{p2}^2,m_e^2,m_e^2,0\right)
-\alpha  \;\text{e}-8 i (2-D) \pi ^3 \gamma \cdot \;\text{p2}
-\;\text{p2}^{\mu } \;\text{C}_{11}\left(\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,k^2,m_e^2,0,m_e^2\right) \alpha  \;\text{e}-4 i
-(1-\xi ) \pi ^3 \gamma ^{\mu } \left(k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2\right) \;\text{C}_{11}\left(k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,0,m_e^2,0\right) \alpha  \;\text{e}-8 i (2-D)
-\pi ^3 \left(\gamma \cdot \;\text{p2} k^{\mu }+\gamma \cdot k
-\;\text{p2}^{\mu }\right) \;\text{C}_{12}\left(k^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,\text{p2}^2,m_e^2,m_e^2,0\right)
-\alpha  \;\text{e}-i \gamma ^{\mu } \left(\frac{\delta _A}{2}+\delta
-_e+\delta _{\psi }\right) \;\text{e}+4 i (1-\xi ) \pi ^3
-\;\text{C}_1\left(k^2-2 (k\cdot \;\text{p2})+\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,0,m_e^2,0\right) \alpha  \left(\gamma ^{\mu
-}.(-(\gamma \cdot (k-\text{p2}))).(\gamma \cdot k)-\gamma ^{\mu
-}.(-(\gamma \cdot (k-\text{p2}))).(\gamma \cdot \;\text{p2})-2 \gamma
-\cdot \;\text{p2} k^{\mu }+2 \gamma \cdot \;\text{p2} \;\text{p2}^{\mu
-}-2 \gamma ^{\mu } k^2+4 \gamma ^{\mu } (k\cdot \;\text{p2})-2 \gamma
-^{\mu } \;\text{p2}^2+\gamma ^{\mu }.(-(\gamma \cdot (k-\text{p2})))
-m_e\right) \;\text{e}+4 i (1-\xi ) \pi ^3
-\;\text{C}_1\left(\text{p2}^2,\text{p2}^2,0,0,m_e^2,0\right)
-\alpha  \left((\gamma \cdot k).(\gamma \cdot \;\text{p2}).\gamma ^{\mu
-}+(\gamma \cdot \;\text{p2}).(\gamma \cdot k).\gamma ^{\mu }-(\gamma
-\cdot \;\text{p2}).(\gamma \cdot \;\text{p2}).\gamma ^{\mu }-2 \gamma
-^{\mu } (k\cdot \;\text{p2})+(\gamma \cdot \;\text{p2}).\gamma ^{\mu }
-m_e\right) \;\text{e}+4 i \pi ^3 \;\text{C}_0\left(k^2,\text{p2}^2,k^2-2
-(k\cdot \;\text{p2})+\text{p2}^2,m_e^2,m_e^2,0\right) \alpha  \left(-D
-(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot k)+2 (\gamma \cdot
-k).\gamma ^{\mu }.(\gamma \cdot k)+\xi  (\gamma \cdot k).\gamma ^{\mu
-}.(\gamma \cdot \;\text{p2})-(\gamma \cdot k).\gamma ^{\mu }.(\gamma
-\cdot \;\text{p2})+2 D \gamma \cdot k k^{\mu }-4 \gamma \cdot k k^{\mu
-}-2 \xi  \gamma \cdot \;\text{p2} k^{\mu }+2 \gamma \cdot \;\text{p2}
-k^{\mu }+D \gamma ^{\mu }.(\gamma \cdot k) m_e-4 \gamma ^{\mu }.(\gamma
-\cdot k) m_e+4 k^{\mu } m_e\right) \;\text{e}+4 i \pi ^3
-\;\text{C}_1\left(k^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,\text{p2}^2,m_e^2,m_e^2,0\right)
-\alpha  \left(-D (\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot k)+2
-(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot k)+4 D \gamma \cdot k
-k^{\mu }-8 \gamma \cdot k k^{\mu }-2 \xi  \gamma \cdot \;\text{p2}
-k^{\mu }+2 \gamma \cdot \;\text{p2} k^{\mu }+D \gamma ^{\mu }.(\gamma
-\cdot k) m_e-4 \gamma ^{\mu }.(\gamma \cdot k) m_e+D (\gamma \cdot
-k).\gamma ^{\mu } m_e-4 (\gamma \cdot k).\gamma ^{\mu } m_e+8 k^{\mu }
-m_e\right) \;\text{e}+4 i \pi ^3 \;\text{C}_1\left(\text{p2}^2,k^2-2
-(k\cdot \;\text{p2})+\text{p2}^2,k^2,m_e^2,0,m_e^2\right)
-\alpha  \left(-D (\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2})+4 (\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2})-2 (\gamma \cdot \;\text{p2}).\gamma ^{\mu }.(\gamma \cdot
-k)+2 D \gamma \cdot \;\text{p2} k^{\mu }-4 \gamma \cdot \;\text{p2}
-k^{\mu }+2 D \gamma \cdot k \;\text{p2}^{\mu }-4 \gamma \cdot k
-\;\text{p2}^{\mu }-2 \xi  \gamma \cdot \;\text{p2} \;\text{p2}^{\mu }+2
-\gamma \cdot \;\text{p2} \;\text{p2}^{\mu }+D \gamma ^{\mu }.(\gamma
-\cdot \;\text{p2}) m_e-4 \gamma ^{\mu }.(\gamma \cdot \;\text{p2}) m_e+D
-(\gamma \cdot \;\text{p2}).\gamma ^{\mu } m_e-4 (\gamma \cdot
-\;\text{p2}).\gamma ^{\mu } m_e+8 \;\text{p2}^{\mu } m_e\right)
-\;\text{e}-4 i (1-\xi ) \pi ^3 \;\text{C}_0\left(0,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,0,m_e^2\right) \alpha  \left(-\gamma ^{\mu }
-m_e^2+\gamma ^{\mu }.(\gamma \cdot k) m_e-\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2}) m_e+\gamma ^{\mu }.(\gamma \cdot k).(\gamma \cdot k)-\gamma
-^{\mu }.(\gamma \cdot k).(\gamma \cdot \;\text{p2})-\gamma ^{\mu
-}.(\gamma \cdot \;\text{p2}).(\gamma \cdot k)+\gamma ^{\mu }.(\gamma
-\cdot \;\text{p2}).(\gamma \cdot \;\text{p2})-(\gamma \cdot k).\gamma
-^{\mu }.(\gamma \cdot \;\text{p2})-(\gamma \cdot \;\text{p2}).\gamma
-^{\mu }.(\gamma \cdot k)+2 \gamma \cdot \;\text{p2} k^{\mu }-2 \gamma
-\cdot \;\text{p2} \;\text{p2}^{\mu }+\gamma ^{\mu } k^2-2 \gamma ^{\mu }
-(k\cdot \;\text{p2})+\gamma ^{\mu } \;\text{p2}^2\right) \;\text{e}-4 i
-(1-\xi ) \pi ^3
-\;\text{C}_0\left(0,\text{p2}^2,\text{p2}^2,0,0,m_e^2\right)
-\alpha  \left(-\gamma ^{\mu } m_e^2-(\gamma \cdot \;\text{p2}).\gamma
-^{\mu } m_e+2 (\gamma \cdot k).(\gamma \cdot k).\gamma ^{\mu }-(\gamma
-\cdot k).(\gamma \cdot \;\text{p2}).\gamma ^{\mu }-(\gamma \cdot
-\;\text{p2}).(\gamma \cdot k).\gamma ^{\mu }+(\gamma \cdot
-\;\text{p2}).(\gamma \cdot \;\text{p2}).\gamma ^{\mu }+2 \gamma \cdot
-\;\text{p2} \;\text{p2}^{\mu }-2 \gamma ^{\mu } k^2+2 \gamma ^{\mu }
-(k\cdot \;\text{p2})-\gamma ^{\mu } \;\text{p2}^2\right) \;\text{e}-8 i
-(1-\xi ) \pi ^3 \;\text{D}_{00}\left(0,\text{p2}^2,k^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,0,m_e^2,m_e^2\right) \alpha  \left(-\gamma
-^{\mu } m_e^2-\gamma ^{\mu }.(\gamma \cdot k) m_e+\gamma ^{\mu }.(\gamma
-\cdot \;\text{p2}) m_e+(\gamma \cdot \;\text{p2}).\gamma ^{\mu }
-m_e+(\gamma \cdot \;\text{p2}).\gamma ^{\mu }.(\gamma \cdot k)+\gamma
-^{\mu } \;\text{p2}^2\right) \;\text{e}-8 i (1-\xi ) \pi ^3 k^{\mu }
-\;\text{D}_{11}\left(k^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,\text{p2}^2,\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,m_e^2,m_e^2,0,0\right) \alpha  \left(-(\gamma
-\cdot k) m_e^2-(\gamma \cdot k).(\gamma \cdot k) m_e+(\gamma \cdot
-k).(\gamma \cdot \;\text{p2}) m_e+(\gamma \cdot \;\text{p2}).(\gamma
-\cdot k) m_e+(\gamma \cdot \;\text{p2}).(\gamma \cdot k).(\gamma \cdot
-k)+\gamma \cdot k \;\text{p2}^2\right) \;\text{e}-16 i (1-\xi ) \pi ^3
-\;\text{p2}^{\mu } \;\text{D}_{11}\left(0,\text{p2}^2,k^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,0,m_e^2,m_e^2\right) \alpha  \left(-(\gamma
-\cdot \;\text{p2}) m_e^2-(\gamma \cdot \;\text{p2}).(\gamma \cdot k)
-m_e+2 (\gamma \cdot \;\text{p2}).(\gamma \cdot \;\text{p2}) m_e+(\gamma
-\cdot \;\text{p2}).(\gamma \cdot \;\text{p2}).(\gamma \cdot k)+\gamma
-\cdot \;\text{p2} \;\text{p2}^2\right) \;\text{e}-16 i (1-\xi ) \pi ^3
-\;\text{p2}^{\mu } \;\text{D}_{12}\left(\text{p2}^2,0,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,k^2,\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,m_e^2,0,0,m_e^2\right) \alpha  \left(-(\gamma
-\cdot \;\text{p2}) m_e^2-(\gamma \cdot \;\text{p2}).(\gamma \cdot k)
-m_e+2 (\gamma \cdot \;\text{p2}).(\gamma \cdot \;\text{p2}) m_e+(\gamma
-\cdot \;\text{p2}).(\gamma \cdot \;\text{p2}).(\gamma \cdot k)+\gamma
-\cdot \;\text{p2} \;\text{p2}^2\right) \;\text{e}-16 i (1-\xi ) \pi ^3
-\;\text{D}_{12}\left(0,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,k^2,\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,\text{p2}^2,0,0,m_e^2,m_e^2\right)
-\alpha  \left(-(\gamma \cdot \;\text{p2}) k^{\mu } m_e^2-\gamma \cdot k
-\;\text{p2}^{\mu } m_e^2-(\gamma \cdot \;\text{p2}).(\gamma \cdot k)
-k^{\mu } m_e+2 (\gamma \cdot \;\text{p2}).(\gamma \cdot \;\text{p2})
-k^{\mu } m_e-(\gamma \cdot k).(\gamma \cdot k) \;\text{p2}^{\mu }
-m_e+(\gamma \cdot k).(\gamma \cdot \;\text{p2}) \;\text{p2}^{\mu }
-m_e+(\gamma \cdot \;\text{p2}).(\gamma \cdot k) \;\text{p2}^{\mu }
-m_e+(\gamma \cdot \;\text{p2}).(\gamma \cdot \;\text{p2}).(\gamma \cdot
-k) k^{\mu }+(\gamma \cdot \;\text{p2}).(\gamma \cdot k).(\gamma \cdot k)
-\;\text{p2}^{\mu }+\gamma \cdot \;\text{p2} k^{\mu }
-\;\text{p2}^2+\gamma \cdot k \;\text{p2}^{\mu } \;\text{p2}^2\right)
-\;\text{e}+4 i (1-\xi ) \pi ^3 \;\text{D}_0\left(0,\text{p2}^2,k^2,k^2-2
-(k\cdot \;\text{p2})+\text{p2}^2,\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,0,m_e^2,m_e^2\right) \alpha  \left(-\gamma
-^{\mu }.(\gamma \cdot k) m_e^3-\gamma ^{\mu }.(\gamma \cdot k).(\gamma
-\cdot k) m_e^2+\gamma ^{\mu }.(\gamma \cdot k).(\gamma \cdot
-\;\text{p2}) m_e^2-2 (\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot k)
-m_e^2+(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot \;\text{p2}) m_e^2-2
-(\gamma \cdot k).(\gamma \cdot k).\gamma ^{\mu } m_e^2+(\gamma \cdot
-\;\text{p2}).\gamma ^{\mu }.(\gamma \cdot k) m_e^2+4 \gamma \cdot k
-k^{\mu } m_e^2-2 \gamma \cdot \;\text{p2} k^{\mu } m_e^2+(\gamma \cdot
-k).\gamma ^{\mu }.(\gamma \cdot k).(\gamma \cdot \;\text{p2}) m_e+2
-(\gamma \cdot k).(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2}) m_e+(\gamma \cdot \;\text{p2}).\gamma ^{\mu }.(\gamma \cdot
-k).(\gamma \cdot k) m_e+2 (\gamma \cdot \;\text{p2}).(\gamma \cdot
-k).\gamma ^{\mu }.(\gamma \cdot k) m_e-2 (\gamma \cdot k).(\gamma \cdot
-\;\text{p2}) k^{\mu } m_e-4 (\gamma \cdot \;\text{p2}).(\gamma \cdot k)
-k^{\mu } m_e-2 (\gamma \cdot k).(\gamma \cdot \;\text{p2})
-\;\text{p2}^{\mu } m_e-\gamma ^{\mu }.(\gamma \cdot \;\text{p2}) k^2
-m_e+(\gamma \cdot \;\text{p2}).\gamma ^{\mu } k^2 m_e+2 \gamma ^{\mu
-}.(\gamma \cdot \;\text{p2}) (k\cdot \;\text{p2}) m_e-\gamma ^{\mu
-}.(\gamma \cdot k) \;\text{p2}^2 m_e+2 (\gamma \cdot k).(\gamma \cdot
-k).(\gamma \cdot \;\text{p2}) \;\text{p2}^{\mu }-2 \gamma ^{\mu
-}.(\gamma \cdot k).(\gamma \cdot \;\text{p2}) (k\cdot \;\text{p2})-2
-(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot \;\text{p2}) (k\cdot
-\;\text{p2})+4 \gamma \cdot \;\text{p2} k^{\mu } (k\cdot
-\;\text{p2})+(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot k)
-\;\text{p2}^2+(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot \;\text{p2})
-\;\text{p2}^2-2 \gamma \cdot k k^{\mu } \;\text{p2}^2-2 \gamma \cdot
-\;\text{p2} k^{\mu } \;\text{p2}^2\right) \;\text{e}-4 i (1-\xi ) \pi ^3
-\;\text{D}_1\left(k^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,\text{p2}^2,\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,m_e^2,m_e^2,0,0\right) \alpha  \left(\gamma
-^{\mu }.(\gamma \cdot k) m_e^3+(\gamma \cdot k).\gamma ^{\mu }
-m_e^3+\gamma ^{\mu }.(\gamma \cdot k).(\gamma \cdot k) m_e^2-\gamma
-^{\mu }.(\gamma \cdot k).(\gamma \cdot \;\text{p2}) m_e^2+2 (\gamma
-\cdot k).\gamma ^{\mu }.(\gamma \cdot k) m_e^2-(\gamma \cdot k).\gamma
-^{\mu }.(\gamma \cdot \;\text{p2}) m_e^2+2 (\gamma \cdot k).(\gamma
-\cdot k).\gamma ^{\mu } m_e^2-(\gamma \cdot \;\text{p2}).\gamma ^{\mu
-}.(\gamma \cdot k) m_e^2-(\gamma \cdot \;\text{p2}).(\gamma \cdot
-k).\gamma ^{\mu } m_e^2-4 \gamma \cdot k k^{\mu } m_e^2+2 \gamma \cdot
-\;\text{p2} k^{\mu } m_e^2-(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot
-k).(\gamma \cdot \;\text{p2}) m_e-2 (\gamma \cdot k).(\gamma \cdot
-k).\gamma ^{\mu }.(\gamma \cdot \;\text{p2}) m_e-(\gamma \cdot
-\;\text{p2}).\gamma ^{\mu }.(\gamma \cdot k).(\gamma \cdot k) m_e-2
-(\gamma \cdot \;\text{p2}).(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot
-k) m_e-2 (\gamma \cdot k).(\gamma \cdot k) k^{\mu } m_e+4 (\gamma \cdot
-k).(\gamma \cdot \;\text{p2}) k^{\mu } m_e+4 (\gamma \cdot
-\;\text{p2}).(\gamma \cdot k) k^{\mu } m_e+\gamma ^{\mu }.(\gamma \cdot
-k) k^2 m_e+\gamma ^{\mu }.(\gamma \cdot k) \;\text{p2}^2 m_e+(\gamma
-\cdot k).\gamma ^{\mu } \;\text{p2}^2 m_e+2 (\gamma \cdot
-\;\text{p2}).(\gamma \cdot k).(\gamma \cdot k) k^{\mu }-2 (\gamma \cdot
-k).(\gamma \cdot k).(\gamma \cdot \;\text{p2}) \;\text{p2}^{\mu
-}-(\gamma \cdot \;\text{p2}).\gamma ^{\mu }.(\gamma \cdot k) k^2+2
-\gamma ^{\mu }.(\gamma \cdot k).(\gamma \cdot \;\text{p2}) (k\cdot
-\;\text{p2})-4 \gamma \cdot \;\text{p2} k^{\mu } (k\cdot
-\;\text{p2})-(\gamma \cdot k).\gamma ^{\mu }.(\gamma \cdot k)
-\;\text{p2}^2+4 \gamma \cdot k k^{\mu } \;\text{p2}^2+2 \gamma \cdot
-\;\text{p2} k^{\mu } \;\text{p2}^2\right) \;\text{e}+8 i (1-\xi ) \pi ^3
-\;\text{D}_1\left(0,\text{p2}^2,k^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,\text{p2}^2,k^2-2 (k\cdot
-\;\text{p2})+\text{p2}^2,0,0,m_e^2,m_e^2\right) \alpha  \left(-\gamma
-^{\mu }.(\gamma \cdot \;\text{p2}) m_e^3-(\gamma \cdot
-\;\text{p2}).\gamma ^{\mu } m_e^3-\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2}).(\gamma \cdot k) m_e^2+\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2}).(\gamma \cdot \;\text{p2}) m_e^2-(\gamma \cdot k).\gamma
-^{\mu }.(\gamma \cdot \;\text{p2}) m_e^2-(\gamma \cdot k).(\gamma \cdot
-\;\text{p2}).\gamma ^{\mu } m_e^2-(\gamma \cdot \;\text{p2}).\gamma
-^{\mu }.(\gamma \cdot k) m_e^2+2 (\gamma \cdot \;\text{p2}).\gamma ^{\mu
-}.(\gamma \cdot \;\text{p2}) m_e^2-(\gamma \cdot \;\text{p2}).(\gamma
-\cdot k).\gamma ^{\mu } m_e^2+(\gamma \cdot \;\text{p2}).(\gamma \cdot
-\;\text{p2}).\gamma ^{\mu } m_e^2+2 \gamma \cdot \;\text{p2} k^{\mu }
-m_e^2+2 \gamma \cdot k \;\text{p2}^{\mu } m_e^2-2 \gamma \cdot
-\;\text{p2} \;\text{p2}^{\mu } m_e^2+(\gamma \cdot k).\gamma ^{\mu
-}.(\gamma \cdot \;\text{p2}).(\gamma \cdot \;\text{p2}) m_e+(\gamma
-\cdot k).(\gamma \cdot \;\text{p2}).\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2}) m_e+(\gamma \cdot \;\text{p2}).\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2}).(\gamma \cdot k) m_e+2 (\gamma \cdot \;\text{p2}).(\gamma
-\cdot k).\gamma ^{\mu }.(\gamma \cdot \;\text{p2}) m_e+(\gamma \cdot
-\;\text{p2}).(\gamma \cdot \;\text{p2}).\gamma ^{\mu }.(\gamma \cdot k)
-m_e-4 (\gamma \cdot \;\text{p2}).(\gamma \cdot \;\text{p2}) k^{\mu }
-m_e+2 (\gamma \cdot k).(\gamma \cdot k) \;\text{p2}^{\mu } m_e-2 (\gamma
-\cdot k).(\gamma \cdot \;\text{p2}) \;\text{p2}^{\mu } m_e-2 (\gamma
-\cdot \;\text{p2}).(\gamma \cdot k) \;\text{p2}^{\mu } m_e-\gamma ^{\mu
-}.(\gamma \cdot \;\text{p2}) k^2 m_e-\gamma ^{\mu }.(\gamma \cdot
-\;\text{p2}) \;\text{p2}^2 m_e-(\gamma \cdot \;\text{p2}).\gamma ^{\mu }
-\;\text{p2}^2 m_e+2 (\gamma \cdot k).(\gamma \cdot \;\text{p2}).(\gamma
-\cdot \;\text{p2}) \;\text{p2}^{\mu }-2 (\gamma \cdot
-\;\text{p2}).(\gamma \cdot k).(\gamma \cdot k) \;\text{p2}^{\mu
-}+(\gamma \cdot \;\text{p2}).\gamma ^{\mu }.(\gamma \cdot \;\text{p2})
-k^2-2 \gamma ^{\mu }.(\gamma \cdot \;\text{p2}).(\gamma \cdot
-\;\text{p2}) (k\cdot \;\text{p2})+4 \gamma \cdot \;\text{p2}
-\;\text{p2}^{\mu } (k\cdot \;\text{p2})+(\gamma \cdot k).\gamma ^{\mu
-}.(\gamma \cdot \;\text{p2}) \;\text{p2}^2-2 \gamma \cdot \;\text{p2}
-k^{\mu } \;\text{p2}^2-2 \gamma \cdot k \;\text{p2}^{\mu }
-\;\text{p2}^2-2 \gamma \cdot \;\text{p2} \;\text{p2}^{\mu }
-\;\text{p2}^2\right) \;\text{e}</span></p>
-<p>Discard all the finite pieces of the 1-loop amplitude</p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonSE$Amp <span class="ex">=</span> (aux1<span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">/.</span> aux2) <span class="sc">//</span> Contract<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>      SUNSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> DiracSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp;;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.143688,\text{Null}\}</span></p>
+<p>flagCheck is a safety flag to ensure that higher order terms in p
+(higher than the divergence degree) do not contribute to the poles</p>
 <div class="sourceCode" id="cb23"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>amp3Div<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> PaVeUVPart<span class="op">[</span>amp3<span class="op">[</span><span class="dv">2</span><span class="op">],</span> Prefactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="fu">D</span><span class="op">]</span> <span class="sc">//</span> DiracSimplify <span class="sc">//</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>        FCReplaceD<span class="op">[</span>#<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> Epsilon<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>Epsilon<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>     FCHideEpsilon <span class="sc">//</span> SelectNotFree2<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;Delta&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">],</span> </span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>       SMP<span class="op">[</span><span class="st">&quot;d_e&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">]}]</span> &amp; <span class="sc">//</span> <span class="fu">Simplify</span></span></code></pre></div>
-<p><span class="math display">-\frac{i \;\text{e} \gamma ^{\mu }
-\left(\alpha  \Delta  \xi +2 \pi  \delta _A+4 \pi  \delta _{\psi }+4
-\pi  \delta _e\right)}{4 \pi }</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonSE$Amp1 <span class="ex">=</span> Collect2<span class="op">[</span>leptonSE$Amp<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK<span class="op">]</span>;<span class="op">]</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonSE$Amp2 <span class="ex">=</span> FourSeries<span class="op">[</span>leptonSE$Amp1<span class="op">,</span> <span class="op">{</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> divDegree<span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonSE$Amp3 <span class="ex">=</span> Collect2<span class="op">[</span>FRH<span class="op">[</span>leptonSE$Amp2<span class="op">],</span> FeynAmpDenominator<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.038089,\text{Null}\}</span></p>
+<p><span class="math display">\{0.076349,\text{Null}\}</span></p>
+<p><span class="math display">\{0.023505,\text{Null}\}</span></p>
+<p>The rest of the calculation follows the standard multiloop
+template</p>
 <div class="sourceCode" id="cb24"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ward<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">Simplify</span><span class="op">[</span>amp3Div<span class="op">[</span><span class="dv">0</span><span class="op">]</span><span class="sc">/</span>(<span class="sc">-</span>FCI <span class="op">[</span><span class="fu">I</span> SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span> GAD<span class="op">[</span>mu<span class="op">]]</span>) <span class="ex">==</span> <span class="dv">0</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\alpha  \Delta  \xi +2 \pi  \delta _A+4
-\pi  \delta _{\psi }+4 \pi  \delta _e=0</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> pp;</span></code></pre></div>
 <div class="sourceCode" id="cb25"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>wardMS<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">Simplify</span><span class="op">[</span>ward<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ot">/.</span> Epsilon <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span>SMP<span class="op">[</span><span class="st">&quot;Delta&quot;</span><span class="op">]</span> <span class="ot">/.</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;d_psi^MSbar&quot;</span><span class="op">]}</span> <span class="ot">/.</span> solMSbar1<span class="op">]</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>wardMSbar<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> <span class="fu">Simplify</span><span class="op">[</span>ward<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ot">/.</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;d_psi&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> SMP<span class="op">[</span><span class="st">&quot;d_psi^MSbar&quot;</span><span class="op">]}</span> <span class="ot">/.</span> </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    solMSbar1<span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\delta _A+2 \delta _e=0</span></p>
-<p><span class="math display">\delta _A+2 \delta _e=0</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>leptonSE$Amp4<span class="op">,</span> leptonSE$Topos<span class="op">}</span> <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>leptonSE$Amp3<span class="op">,</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    FCLoopBasisOverdeterminedQ <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">p</span><span class="op">]</span> <span class="ot">-&gt;</span> pp<span class="op">},</span> <span class="fu">Names</span> <span class="ot">-&gt;</span> leptonSEtopo<span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+initial candidate topologies: }1</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified unique topologies: }1</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+preferred topologies among the unique topologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified subtopologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of found topologies: }1</span></p>
 <div class="sourceCode" id="cb26"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>knownResults <span class="ex">=</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;d_e&quot;</span><span class="op">]</span> <span class="ex">==</span> <span class="dv">0</span><span class="op">,</span> </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    SMP<span class="op">[</span><span class="st">&quot;d_A&quot;</span><span class="op">]</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;d_e&quot;</span><span class="op">]</span> <span class="ex">==</span> <span class="dv">0</span><span class="op">}</span>;</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[{</span>wardMS<span class="op">[</span><span class="dv">0</span><span class="op">],</span> wardMSbar<span class="op">[</span><span class="dv">0</span><span class="op">]},</span> knownResults<span class="op">,</span> </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Verify Ward&#39;s identity:&quot;</span><span class="op">,</span> </span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span></code></pre></div>
-<p><span class="math display">\text{$\backslash $tVerify Ward&#39;s
-identity:} \;\text{CORRECT.}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonSE$Amp5 <span class="ex">=</span> FCLoopTensorReduce<span class="op">[</span>leptonSE$Amp4<span class="op">,</span> leptonSE$Topos<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.387859,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>leptonSE$Amp6<span class="op">,</span> leptonSE$Topos2<span class="op">}</span> <span class="ex">=</span> FCLoopRewriteOverdeterminedTopologies<span class="op">[</span>leptonSE$Amp5<span class="op">,</span> leptonSE$Topos<span class="op">]</span>;</span></code></pre></div>
+<p><span
+class="math display">\text{FCLoopRewriteOverdeterminedTopologies:
+}\;\text{Found }1\text{ overdetermined topologies.}</span></p>
+<p><span
+class="math display">\text{FCLoopRewriteOverdeterminedTopologies:
+}\;\text{Generated }9\text{ new topologies through partial
+fractioning.}</span></p>
+<p><span
+class="math display">\text{FCLoopRewriteOverdeterminedTopologies:
+}\;\text{Final number of topologies: }2</span></p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>leptonSE$SubTopos <span class="ex">=</span> FCLoopFindSubtopologies<span class="op">[</span>leptonSE$Topos2<span class="op">,</span> <span class="fu">Flatten</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> <span class="fu">Remove</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{\}</span></p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>leptonSE$TopoMappings<span class="op">,</span> leptonSE$FinalTopos<span class="op">}</span> <span class="ex">=</span> FCLoopFindTopologyMappings<span class="op">[</span>leptonSE$Topos2<span class="op">,</span> PreferredTopologies <span class="ot">-&gt;</span> leptonSE$SubTopos<span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Found }0\text{ mapping relations }</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of independent topologies: }2</span></p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>leptonSE$AmpGLI <span class="ex">=</span> FCLoopApplyTopologyMappings<span class="op">[</span>leptonSE$Amp6<span class="op">,</span> <span class="op">{</span>leptonSE$TopoMappings<span class="op">,</span> leptonSE$FinalTopos<span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>leptonSE$GLIs <span class="ex">=</span> Cases2<span class="op">[</span>leptonSE$AmpGLI<span class="op">,</span> GLI<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>leptonSE$dir <span class="ex">=</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$TemporaryDirectory</span><span class="op">,</span> <span class="st">&quot;Reduction-&quot;</span> &lt;&gt; leptonSE$StrName &lt;&gt; <span class="st">&quot;-1L&quot;</span><span class="op">}]</span>;</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Quiet</span><span class="op">[</span><span class="fu">CreateDirectory</span><span class="op">[</span>leptonSE$dir<span class="op">]]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>KiraCreateJobFile<span class="op">[</span>leptonSE$FinalTopos<span class="op">,</span> leptonSE$GLIs<span class="op">,</span> leptonSE$dir<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\{\text{/tmp/Reduction-leptonSE\$Amp-1L/fcPFRTopology1/job.yaml},\text{/tmp/Reduction-leptonSE\$Amp-1L/fcPFRTopology2/job.yaml}\}</span></p>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>KiraCreateIntegralFile<span class="op">[</span>leptonSE$GLIs<span class="op">,</span> leptonSE$FinalTopos<span class="op">,</span> leptonSE$dir<span class="op">]</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>KiraCreateConfigFiles<span class="op">[</span>leptonSE$FinalTopos<span class="op">,</span> leptonSE$GLIs<span class="op">,</span> leptonSE$dir<span class="op">,</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  KiraMassDimensions <span class="ot">-&gt;</span> <span class="op">{</span>pp <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">,</span> ml <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> mxt <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{KiraCreateIntegralFile: Number of
+loop integrals: }3</span></p>
+<p><span class="math display">\text{KiraCreateIntegralFile: Number of
+loop integrals: }5</span></p>
+<p><span
+class="math display">\{\text{/tmp/Reduction-leptonSE\$Amp-1L/fcPFRTopology1/KiraLoopIntegrals},\text{/tmp/Reduction-leptonSE\$Amp-1L/fcPFRTopology2/KiraLoopIntegrals}\}</span></p>
+<p><span class="math display">\left(
+\begin{array}{cc}
+\;\text{/tmp/Reduction-leptonSE\$Amp-1L/fcPFRTopology1/config/integralfamilies.yaml}
+&amp;
+\;\text{/tmp/Reduction-leptonSE\$Amp-1L/fcPFRTopology1/config/kinematics.yaml}
+\\
+\;\text{/tmp/Reduction-leptonSE\$Amp-1L/fcPFRTopology2/config/integralfamilies.yaml}
+&amp;
+\;\text{/tmp/Reduction-leptonSE\$Amp-1L/fcPFRTopology2/config/kinematics.yaml}
+\\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>KiraRunReduction<span class="op">[</span>leptonSE$dir<span class="op">,</span> leptonSE$FinalTopos<span class="op">,</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  KiraBinaryPath <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$HomeDirectory</span><span class="op">,</span> <span class="st">&quot;.local&quot;</span><span class="op">,</span> <span class="st">&quot;bin&quot;</span><span class="op">,</span> <span class="st">&quot;kira&quot;</span><span class="op">}],</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  KiraFermatPath <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$HomeDirectory</span><span class="op">,</span> <span class="st">&quot;bin&quot;</span><span class="op">,</span> <span class="st">&quot;ferl64&quot;</span><span class="op">,</span> <span class="st">&quot;fer64&quot;</span><span class="op">}]]</span></span></code></pre></div>
+<p><span class="math display">\{\text{True},\text{True}\}</span></p>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>leptonSE$ReductionTables <span class="ex">=</span> KiraImportResults<span class="op">[</span>leptonSE$FinalTopos<span class="op">,</span> leptonSE$dir<span class="op">]</span> <span class="sc">//</span> <span class="fu">Flatten</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>leptonSE$resPreFinal <span class="ex">=</span> Collect2<span class="op">[</span><span class="fu">Total</span><span class="op">[</span>leptonSE$AmpGLI <span class="ot">/.</span> <span class="fu">Dispatch</span><span class="op">[</span>leptonSE$ReductionTables<span class="op">]]</span> <span class="sc">//</span> FeynAmpDenominatorExplicit<span class="op">,</span> GLI<span class="op">,</span> </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    GaugeXi<span class="op">,</span> flagCheck<span class="op">,</span> <span class="fu">D</span><span class="op">,</span> DiracGamma<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>leptonSE$masters <span class="ex">=</span> Cases2<span class="op">[</span>leptonSE$resPreFinal<span class="op">,</span> GLI<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>leptonSE$MIMappings <span class="ex">=</span> FCLoopFindIntegralMappings<span class="op">[</span>leptonSE$masters<span class="op">,</span> <span class="fu">Join</span><span class="op">[</span>tadpoleMaster1<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    leptonSE$FinalTopos<span class="op">],</span> PreferredIntegrals <span class="ot">-&gt;</span> <span class="op">{</span>tadpoleMaster1<span class="op">[[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]]}]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{cc}
+G^{\text{fcPFRTopology1}}(1)\to G^{\text{tad1Lv1}}(1) &amp;
+G^{\text{fcPFRTopology2}}(1)\to G^{\text{tad1Lv2}}(1) \\
+G^{\text{tad1Lv1}}(1) &amp; G^{\text{tad1Lv2}}(1) \\
+\end{array}
+\right)</span></p>
+<p>Our master integrals are calculated using the standard multiloop
+normalization. To convert it back to the textbook normalization we need
+to multiply by I*(4 Pi)^(ep-2)</p>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>leptonSE$resFinal <span class="ex">=</span> Collect2<span class="op">[</span>leptonSE$resPreFinal<span class="op">,</span> <span class="fu">D</span><span class="op">,</span> GLI<span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK<span class="op">]</span> <span class="sc">//</span> FCReplaceD<span class="op">[</span>#<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> leptonSE$MIMappings<span class="op">[[</span><span class="dv">1</span><span class="op">]]]</span> &amp; <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>tadpoleMaster1<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">1</span><span class="op">]]}]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>       Collect2<span class="op">[</span>#<span class="op">,</span> ep<span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK2<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>(<span class="fu">I</span><span class="sc">*</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">Pi</span>)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> ep)) #<span class="op">,</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> FRH <span class="sc">//</span>Collect2<span class="op">[</span>#<span class="op">,</span> DiracGamma<span class="op">]</span> &amp;</span></code></pre></div>
+<p><span class="math display">\frac{i \;\text{a4} \xi _{V(1)} \gamma
+\cdot p}{\text{ep}}-\frac{i \;\text{a4} \;\text{ml} \left(\xi
+_{V(1)}+3\right)}{\text{ep}}</span></p>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>leptonSE$RenConstants <span class="ex">=</span> (leptonSE$resFinal <span class="sc">+</span> <span class="fu">Total</span><span class="op">[</span>leptonSECT$RawAmp<span class="op">]</span>) <span class="sc">//</span> <span class="fu">ReplaceRepeated</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>            (<span class="fu">h</span> : renConstants) :&gt; <span class="dv">1</span> <span class="sc">+</span> alpha a4 rc<span class="op">[</span><span class="fu">ToExpression</span><span class="op">[</span><span class="st">&quot;del&quot;</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">h</span><span class="op">]],</span> <span class="dv">1</span><span class="op">]}]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>alpha<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> alpha <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">]</span> &amp; <span class="sc">//</span> Collect2<span class="op">[</span>#<span class="op">,</span> DiracGamma<span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    FCMatchSolve<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>ep<span class="op">,</span> CF<span class="op">,</span> DiracGamma<span class="op">,</span> ml<span class="op">,</span> mxt<span class="op">,</span> SUNDelta<span class="op">,</span> SUNFDelta<span class="op">,</span> GaugeXi<span class="op">,</span> a4<span class="op">}]</span> &amp;</span></code></pre></div>
+<p><span class="math display">\text{FCMatchSolve: Solving for:
+}\{\text{rc}(\text{delZm},1),\text{rc}(\text{delZpsi},1)\}</span></p>
+<p><span class="math display">\text{FCMatchSolve: A solution
+exists.}</span></p>
+<p><span class="math display">\left\{\text{rc}(\text{delZm},1)\to
+-\frac{3}{\text{ep}},\text{rc}(\text{delZpsi},1)\to -\frac{\xi
+_{V(1)}}{\text{ep}}\right\}</span></p>
+<h3 id="photon-self-energy">Photon self-energy</h3>
+<p>The 1-loop photon self-energy has superficial degree of divergence
+equal to 2. We also add the number of flavors by hand by multiplying the
+corresponding diagrams with Nf.</p>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>photonSE$RawAmp2 <span class="ex">=</span> <span class="op">{</span>Nf photonSE$RawAmp<span class="op">[[</span><span class="dv">1</span><span class="op">]]}</span>;</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>divDegree <span class="ex">=</span> <span class="dv">2</span>;</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>aux1 <span class="ex">=</span> FCLoopGetFeynAmpDenominators<span class="op">[</span>photonSE$RawAmp2<span class="op">,</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> denHead<span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="st">&quot;Massless&quot;</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>aux2 <span class="ex">=</span> FCLoopAddAuxiliaryMass<span class="op">[</span>aux1<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> <span class="sc">-</span>mxt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> denHead<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{denHead}\left(\frac{1}{((k-p)^2-\text{ml}^2+i
+\eta )}\right)\to \frac{1}{((k-p)^2-\text{ml}^2+i \eta
+)}\right\}</span></p>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>photonSE$StrName <span class="ex">=</span> <span class="fu">StringReplace</span><span class="op">[</span><span class="fu">ToString</span><span class="op">[</span><span class="fu">Hold</span><span class="op">[</span>photonSE$Amp<span class="op">]],</span> <span class="op">{</span><span class="st">&quot;Hold[&quot;</span> <span class="ot">-&gt;</span> <span class="st">&quot;&quot;</span><span class="op">,</span> <span class="st">&quot;]&quot;</span> <span class="ot">-&gt;</span> <span class="st">&quot;&quot;</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{photonSE\$Amp}</span></p>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>photonSE$Amp <span class="ex">=</span> (aux1<span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">/.</span> aux2) <span class="sc">//</span> Contract<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>      SUNSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> DiracSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp;;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.1356,\text{Null}\}</span></p>
+<p>flagCheck is a safety flag to ensure that higher order terms in p
+(higher than the divergence degree) do not contribute to the poles</p>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>photonSE$Amp1 <span class="ex">=</span> Collect2<span class="op">[</span>photonSE$Amp<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK<span class="op">]</span>;<span class="op">]</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>photonSE$Amp2 <span class="ex">=</span> FourSeries<span class="op">[</span>photonSE$Amp1<span class="op">,</span> <span class="op">{</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> divDegree<span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>photonSE$Amp3 <span class="ex">=</span> Collect2<span class="op">[</span>FRH<span class="op">[</span>photonSE$Amp2<span class="op">],</span> FeynAmpDenominator<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.012634,\text{Null}\}</span></p>
+<p><span class="math display">\{0.087919,\text{Null}\}</span></p>
+<p><span class="math display">\{0.035541,\text{Null}\}</span></p>
+<p>The rest of the calculation follows the standard multiloop
+template</p>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> pp;</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>photonSE$Amp4<span class="op">,</span> photonSE$Topos<span class="op">}</span> <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>photonSE$Amp3<span class="op">,</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    FCLoopBasisOverdeterminedQ <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">p</span><span class="op">]</span> <span class="ot">-&gt;</span> pp<span class="op">},</span> <span class="fu">Names</span> <span class="ot">-&gt;</span> photonSEtopo<span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+initial candidate topologies: }1</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified unique topologies: }1</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+preferred topologies among the unique topologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified subtopologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of found topologies: }1</span></p>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>photonSE$Amp5 <span class="ex">=</span> FCLoopTensorReduce<span class="op">[</span>photonSE$Amp4<span class="op">,</span> photonSE$Topos<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.283148,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>photonSE$Amp6<span class="op">,</span> photonSE$Topos2<span class="op">}</span> <span class="ex">=</span> FCLoopRewriteOverdeterminedTopologies<span class="op">[</span>photonSE$Amp5<span class="op">,</span> photonSE$Topos<span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopRewriteIncompleteTopologies:
+}\;\text{No overdetermined topologies detected.}</span></p>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>photonSE$SubTopos <span class="ex">=</span> FCLoopFindSubtopologies<span class="op">[</span>photonSE$Topos2<span class="op">,</span> <span class="fu">Flatten</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> <span class="fu">Remove</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{\}</span></p>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>photonSE$TopoMappings<span class="op">,</span> photonSE$FinalTopos<span class="op">}</span> <span class="ex">=</span> FCLoopFindTopologyMappings<span class="op">[</span>photonSE$Topos2<span class="op">,</span> PreferredTopologies <span class="ot">-&gt;</span> photonSE$SubTopos<span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Found }0\text{ mapping relations }</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of independent topologies: }1</span></p>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>photonSE$AmpGLI <span class="ex">=</span> FCLoopApplyTopologyMappings<span class="op">[</span>photonSE$Amp6<span class="op">,</span> <span class="op">{</span>photonSE$TopoMappings<span class="op">,</span> photonSE$FinalTopos<span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>photonSE$GLIs <span class="ex">=</span> Cases2<span class="op">[</span>photonSE$AmpGLI<span class="op">,</span> GLI<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>photonSE$dir <span class="ex">=</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$TemporaryDirectory</span><span class="op">,</span> <span class="st">&quot;Reduction-&quot;</span> &lt;&gt; photonSE$StrName &lt;&gt; <span class="st">&quot;-1L&quot;</span><span class="op">}]</span>;</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Quiet</span><span class="op">[</span><span class="fu">CreateDirectory</span><span class="op">[</span>photonSE$dir<span class="op">]]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>KiraCreateJobFile<span class="op">[</span>photonSE$FinalTopos<span class="op">,</span> photonSE$GLIs<span class="op">,</span> photonSE$dir<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\{\text{/tmp/Reduction-photonSE\$Amp-1L/photonSEtopo1/job.yaml}\}</span></p>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>KiraCreateIntegralFile<span class="op">[</span>photonSE$GLIs<span class="op">,</span> photonSE$FinalTopos<span class="op">,</span> photonSE$dir<span class="op">]</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>KiraCreateConfigFiles<span class="op">[</span>photonSE$FinalTopos<span class="op">,</span> photonSE$GLIs<span class="op">,</span> photonSE$dir<span class="op">,</span> </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  KiraMassDimensions <span class="ot">-&gt;</span> <span class="op">{</span>pp <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">,</span> ml <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> mxt <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{KiraCreateIntegralFile: Number of
+loop integrals: }4</span></p>
+<p><span
+class="math display">\{\text{/tmp/Reduction-photonSE\$Amp-1L/photonSEtopo1/KiraLoopIntegrals}\}</span></p>
+<p><span class="math display">\left(
+\begin{array}{cc}
+\;\text{/tmp/Reduction-photonSE\$Amp-1L/photonSEtopo1/config/integralfamilies.yaml}
+&amp;
+\;\text{/tmp/Reduction-photonSE\$Amp-1L/photonSEtopo1/config/kinematics.yaml}
+\\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>KiraRunReduction<span class="op">[</span>photonSE$dir<span class="op">,</span> photonSE$FinalTopos<span class="op">,</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  KiraBinaryPath <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$HomeDirectory</span><span class="op">,</span> <span class="st">&quot;.local&quot;</span><span class="op">,</span> <span class="st">&quot;bin&quot;</span><span class="op">,</span> <span class="st">&quot;kira&quot;</span><span class="op">}],</span> </span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  KiraFermatPath <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$HomeDirectory</span><span class="op">,</span> <span class="st">&quot;bin&quot;</span><span class="op">,</span> <span class="st">&quot;ferl64&quot;</span><span class="op">,</span> <span class="st">&quot;fer64&quot;</span><span class="op">}]]</span></span></code></pre></div>
+<p><span class="math display">\{\text{True}\}</span></p>
+<div class="sourceCode" id="cb58"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>photonSE$ReductionTables <span class="ex">=</span> KiraImportResults<span class="op">[</span>photonSE$FinalTopos<span class="op">,</span> photonSE$dir<span class="op">]</span> <span class="sc">//</span> <span class="fu">Flatten</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>photonSE$resPreFinal <span class="ex">=</span> Collect2<span class="op">[</span><span class="fu">Total</span><span class="op">[</span>photonSE$AmpGLI <span class="ot">/.</span> <span class="fu">Dispatch</span><span class="op">[</span>photonSE$ReductionTables<span class="op">]]</span> <span class="sc">//</span> FeynAmpDenominatorExplicit<span class="op">,</span> GLI<span class="op">,</span> </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>    GaugeXi<span class="op">,</span> flagCheck<span class="op">,</span> <span class="fu">D</span><span class="op">,</span> DiracGamma<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>photonSE$masters <span class="ex">=</span> Cases2<span class="op">[</span>photonSE$resPreFinal<span class="op">,</span> GLI<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>photonSE$MIMappings <span class="ex">=</span> FCLoopFindIntegralMappings<span class="op">[</span>photonSE$masters<span class="op">,</span> <span class="fu">Join</span><span class="op">[</span>tadpoleMaster1<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>    photonSE$FinalTopos<span class="op">],</span> PreferredIntegrals <span class="ot">-&gt;</span> <span class="op">{</span>tadpoleMaster1<span class="op">[[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]]}]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{c}
+G^{\text{photonSEtopo1}}(1)\to G^{\text{tad1Lv1}}(1) \\
+G^{\text{tad1Lv1}}(1) \\
+\end{array}
+\right)</span></p>
+<p>Our master integrals are calculated using the standard multiloop
+normalization. To convert it back to the textbook normalization we need
+to multiply by I*(4 Pi)^(ep-2)</p>
+<div class="sourceCode" id="cb62"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>photonSE$resFinal <span class="ex">=</span> Collect2<span class="op">[</span>photonSE$resPreFinal<span class="op">,</span> <span class="fu">D</span><span class="op">,</span> GLI<span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK<span class="op">]</span> <span class="sc">//</span> FCReplaceD<span class="op">[</span>#<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> photonSE$MIMappings<span class="op">[[</span><span class="dv">1</span><span class="op">]]]</span> &amp; <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>tadpoleMaster1<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">1</span><span class="op">]]}]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>       Collect2<span class="op">[</span>#<span class="op">,</span> ep<span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK2<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>(<span class="fu">I</span><span class="sc">*</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">Pi</span>)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> ep)) #<span class="op">,</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> FRH <span class="sc">//</span>Collect2<span class="op">[</span>#<span class="op">,</span> DiracGamma<span class="op">]</span> &amp;</span></code></pre></div>
+<p><span class="math display">-\frac{4 i \;\text{a4} N_f \left(\text{pp}
+g^{\mu \nu }-p^{\mu } p^{\nu }\right)}{3 \;\text{ep}}</span></p>
+<div class="sourceCode" id="cb63"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>photonSE$RenConstants <span class="ex">=</span> (photonSE$resFinal <span class="sc">+</span> <span class="fu">Total</span><span class="op">[</span>photonSECT$RawAmp<span class="op">]</span>) <span class="sc">//</span> <span class="fu">ReplaceRepeated</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>            (<span class="fu">h</span> : renConstants) :&gt; <span class="dv">1</span> <span class="sc">+</span> alpha a4 rc<span class="op">[</span><span class="fu">ToExpression</span><span class="op">[</span><span class="st">&quot;del&quot;</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">h</span><span class="op">]],</span> <span class="dv">1</span><span class="op">]}]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>alpha<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> </span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> alpha <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">]</span> &amp; <span class="sc">//</span> Collect2<span class="op">[</span>#<span class="op">,</span> DiracGamma<span class="op">,</span> pp<span class="op">,</span> Pair<span class="op">,</span> mxt<span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>    FCMatchSolve<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>ep<span class="op">,</span> CF<span class="op">,</span> DiracGamma<span class="op">,</span> ml<span class="op">,</span> mxt<span class="op">,</span> SUNDelta<span class="op">,</span> SUNFDelta<span class="op">,</span> CA<span class="op">,</span> GaugeXi<span class="op">,</span> a4<span class="op">,</span> Pair<span class="op">,</span> pp<span class="op">,</span> Nf<span class="op">}]</span> &amp;</span></code></pre></div>
+<p><span class="math display">\text{FCMatchSolve: Following coefficients
+trivially vanish: }\{\text{rc}(\text{delZAmxt},1)\to 0\}</span></p>
+<p><span class="math display">\text{FCMatchSolve: Solving for:
+}\{\text{rc}(\text{delZA},1),\text{rc}(\text{delZxi},1)\}</span></p>
+<p><span class="math display">\text{FCMatchSolve: A solution
+exists.}</span></p>
+<p><span class="math display">\left\{\text{rc}(\text{delZAmxt},1)\to
+0,\text{rc}(\text{delZA},1)\to -\frac{4 N_f}{3
+\;\text{ep}},\text{rc}(\text{delZxi},1)\to -\frac{4 N_f}{3
+\;\text{ep}}\right\}</span></p>
+<h3 id="lepton-photon-vertex">Lepton-photon vertex</h3>
+<p>The 1-loop lepton-photon-vertex has superficial degree of divergence
+equal to 0. We set q=0, so that p+p2=q yields p=-p2</p>
+<div class="sourceCode" id="cb64"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>divDegree <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>aux1 <span class="ex">=</span> FCLoopGetFeynAmpDenominators<span class="op">[</span>leptonPhotonVTX$RawAmp <span class="ot">/.</span> <span class="fu">q</span> <span class="ot">-&gt;</span> <span class="dv">0</span> <span class="ot">/.</span> p2 <span class="ot">-&gt;</span> <span class="sc">-</span><span class="fu">p</span><span class="op">,</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> denHead<span class="op">,</span> Momentum <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">p</span><span class="op">},</span> <span class="st">&quot;Massless&quot;</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>aux2 <span class="ex">=</span> FCLoopAddAuxiliaryMass<span class="op">[</span>aux1<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> <span class="sc">-</span>mxt<span class="sc">^</span><span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fu">Head</span> <span class="ot">-&gt;</span> denHead<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\left\{\text{denHead}\left(\frac{1}{((k-p)^2+i \eta
+)}\right)\to \frac{1}{((k-p)^2-\text{mxt}^2+i \eta
+)},\text{denHead}\left(\frac{1}{((k-p)^2-\text{ml}^2+i \eta )}\right)\to
+\frac{1}{((k-p)^2-\text{ml}^2+i \eta )}\right\}</span></p>
+<div class="sourceCode" id="cb65"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$StrName <span class="ex">=</span> <span class="fu">StringReplace</span><span class="op">[</span><span class="fu">ToString</span><span class="op">[</span><span class="fu">Hold</span><span class="op">[</span>leptonPhotonVTX$Amp<span class="op">]],</span> <span class="op">{</span><span class="st">&quot;Hold[&quot;</span> <span class="ot">-&gt;</span> <span class="st">&quot;&quot;</span><span class="op">,</span> <span class="st">&quot;]&quot;</span> <span class="ot">-&gt;</span> <span class="st">&quot;&quot;</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{leptonPhotonVTX\$Amp}</span></p>
+<div class="sourceCode" id="cb66"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonPhotonVTX$Amp <span class="ex">=</span> (aux1<span class="op">[[</span><span class="dv">1</span><span class="op">]]</span> <span class="ot">/.</span> aux2) <span class="sc">//</span> Contract<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>      SUNSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> DiracSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp;;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.234239,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb67"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonPhotonVTX$Amp1 <span class="ex">=</span> Collect2<span class="op">[</span>leptonPhotonVTX$Amp<span class="op">,</span> <span class="fu">p</span><span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK<span class="op">]</span>;<span class="op">]</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonPhotonVTX$Amp2 <span class="ex">=</span> FourSeries<span class="op">[</span>leptonPhotonVTX$Amp1<span class="op">,</span> <span class="op">{</span><span class="fu">p</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> divDegree<span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonPhotonVTX$Amp3 <span class="ex">=</span> Collect2<span class="op">[</span>FRH<span class="op">[</span>leptonPhotonVTX$Amp2<span class="op">],</span> FeynAmpDenominator<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.069615,\text{Null}\}</span></p>
+<p><span class="math display">\{0.029393,\text{Null}\}</span></p>
+<p><span class="math display">\{0.045947,\text{Null}\}</span></p>
+<p>The rest of the calculation follows the standard multiloop
+template</p>
+<div class="sourceCode" id="cb68"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>SPD<span class="op">[</span><span class="fu">p</span><span class="op">]</span> <span class="ex">=</span> pp;</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>leptonPhotonVTX$Amp4<span class="op">,</span> leptonPhotonVTX$Topos<span class="op">}</span> <span class="ex">=</span> FCLoopFindTopologies<span class="op">[</span>leptonPhotonVTX$Amp3<span class="op">,</span> <span class="op">{</span><span class="fu">k</span><span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>    FCLoopBasisOverdeterminedQ <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> FinalSubstitutions <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span>SPD<span class="op">][</span><span class="fu">p</span><span class="op">]</span> <span class="ot">-&gt;</span> pp<span class="op">},</span> <span class="fu">Names</span> <span class="ot">-&gt;</span> leptonPhotonVTXtopo<span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+initial candidate topologies: }1</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified unique topologies: }1</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+preferred topologies among the unique topologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologies: Number of the
+identified subtopologies: }0</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of found topologies: }1</span></p>
+<div class="sourceCode" id="cb70"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>leptonPhotonVTX$Amp5 <span class="ex">=</span> FCLoopTensorReduce<span class="op">[</span>leptonPhotonVTX$Amp4<span class="op">,</span> leptonPhotonVTX$Topos<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.340732,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb71"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>leptonPhotonVTX$Amp6<span class="op">,</span> leptonPhotonVTX$Topos2<span class="op">}</span> <span class="ex">=</span> FCLoopRewriteOverdeterminedTopologies<span class="op">[</span>leptonPhotonVTX$Amp5<span class="op">,</span> leptonPhotonVTX$Topos<span class="op">]</span>;</span></code></pre></div>
+<p><span
+class="math display">\text{FCLoopRewriteOverdeterminedTopologies:
+}\;\text{Found }1\text{ overdetermined topologies.}</span></p>
+<p><span
+class="math display">\text{FCLoopRewriteOverdeterminedTopologies:
+}\;\text{Generated }7\text{ new topologies through partial
+fractioning.}</span></p>
+<p><span
+class="math display">\text{FCLoopRewriteOverdeterminedTopologies:
+}\;\text{Final number of topologies: }2</span></p>
+<div class="sourceCode" id="cb72"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$SubTopos <span class="ex">=</span> FCLoopFindSubtopologies<span class="op">[</span>leptonPhotonVTX$Topos2<span class="op">,</span> <span class="fu">Flatten</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> <span class="fu">Remove</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{\}</span></p>
+<div class="sourceCode" id="cb73"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>leptonPhotonVTX$TopoMappings<span class="op">,</span> leptonPhotonVTX$FinalTopos<span class="op">}</span> <span class="ex">=</span> FCLoopFindTopologyMappings<span class="op">[</span>leptonPhotonVTX$Topos2<span class="op">,</span> PreferredTopologies <span class="ot">-&gt;</span> leptonPhotonVTX$SubTopos<span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Found }0\text{ mapping relations }</span></p>
+<p><span class="math display">\text{FCLoopFindTopologyMappings:
+}\;\text{Final number of independent topologies: }2</span></p>
+<div class="sourceCode" id="cb74"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$AmpGLI <span class="ex">=</span> FCLoopApplyTopologyMappings<span class="op">[</span>leptonPhotonVTX$Amp6<span class="op">,</span> <span class="op">{</span>leptonPhotonVTX$TopoMappings<span class="op">,</span> leptonPhotonVTX$FinalTopos<span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$GLIs <span class="ex">=</span> Cases2<span class="op">[</span>leptonPhotonVTX$AmpGLI<span class="op">,</span> GLI<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$dir <span class="ex">=</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$TemporaryDirectory</span><span class="op">,</span> <span class="st">&quot;Reduction-&quot;</span> &lt;&gt; leptonPhotonVTX$StrName &lt;&gt; <span class="st">&quot;-1L&quot;</span><span class="op">}]</span>;</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Quiet</span><span class="op">[</span><span class="fu">CreateDirectory</span><span class="op">[</span>leptonPhotonVTX$dir<span class="op">]]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>KiraCreateJobFile<span class="op">[</span>leptonPhotonVTX$FinalTopos<span class="op">,</span> leptonPhotonVTX$GLIs<span class="op">,</span> leptonPhotonVTX$dir<span class="op">]</span></span></code></pre></div>
+<p><span
+class="math display">\{\text{/tmp/Reduction-leptonPhotonVTX\$Amp-1L/fcPFRTopology1/job.yaml},\text{/tmp/Reduction-leptonPhotonVTX\$Amp-1L/fcPFRTopology2/job.yaml}\}</span></p>
+<div class="sourceCode" id="cb78"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>KiraCreateIntegralFile<span class="op">[</span>leptonPhotonVTX$GLIs<span class="op">,</span> leptonPhotonVTX$FinalTopos<span class="op">,</span> leptonPhotonVTX$dir<span class="op">]</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>KiraCreateConfigFiles<span class="op">[</span>leptonPhotonVTX$FinalTopos<span class="op">,</span> leptonPhotonVTX$GLIs<span class="op">,</span> leptonPhotonVTX$dir<span class="op">,</span> </span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>  KiraMassDimensions <span class="ot">-&gt;</span> <span class="op">{</span>pp <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">,</span> ml <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">,</span> mxt <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\text{KiraCreateIntegralFile: Number of
+loop integrals: }4</span></p>
+<p><span class="math display">\text{KiraCreateIntegralFile: Number of
+loop integrals: }4</span></p>
+<p><span
+class="math display">\{\text{/tmp/Reduction-leptonPhotonVTX\$Amp-1L/fcPFRTopology1/KiraLoopIntegrals},\text{/tmp/Reduction-leptonPhotonVTX\$Amp-1L/fcPFRTopology2/KiraLoopIntegrals}\}</span></p>
+<p><span class="math display">\left(
+\begin{array}{cc}
+\;\text{/tmp/Reduction-leptonPhotonVTX\$Amp-1L/fcPFRTopology1/config/integralfamilies.yaml}
+&amp;
+\;\text{/tmp/Reduction-leptonPhotonVTX\$Amp-1L/fcPFRTopology1/config/kinematics.yaml}
+\\
+\;\text{/tmp/Reduction-leptonPhotonVTX\$Amp-1L/fcPFRTopology2/config/integralfamilies.yaml}
+&amp;
+\;\text{/tmp/Reduction-leptonPhotonVTX\$Amp-1L/fcPFRTopology2/config/kinematics.yaml}
+\\
+\end{array}
+\right)</span></p>
+<div class="sourceCode" id="cb79"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>KiraRunReduction<span class="op">[</span>leptonPhotonVTX$dir<span class="op">,</span> leptonPhotonVTX$FinalTopos<span class="op">,</span> </span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  KiraBinaryPath <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$HomeDirectory</span><span class="op">,</span> <span class="st">&quot;.local&quot;</span><span class="op">,</span> <span class="st">&quot;bin&quot;</span><span class="op">,</span> <span class="st">&quot;kira&quot;</span><span class="op">}],</span> </span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  KiraFermatPath <span class="ot">-&gt;</span> <span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$HomeDirectory</span><span class="op">,</span> <span class="st">&quot;bin&quot;</span><span class="op">,</span> <span class="st">&quot;ferl64&quot;</span><span class="op">,</span> <span class="st">&quot;fer64&quot;</span><span class="op">}]]</span></span></code></pre></div>
+<p><span class="math display">\{\text{True},\text{True}\}</span></p>
+<div class="sourceCode" id="cb80"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$ReductionTables <span class="ex">=</span> KiraImportResults<span class="op">[</span>leptonPhotonVTX$FinalTopos<span class="op">,</span> leptonPhotonVTX$dir<span class="op">]</span> <span class="sc">//</span><span class="fu">Flatten</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$resPreFinal <span class="ex">=</span> Collect2<span class="op">[</span><span class="fu">Total</span><span class="op">[</span>leptonPhotonVTX$AmpGLI <span class="ot">/.</span> <span class="fu">Dispatch</span><span class="op">[</span>leptonPhotonVTX$ReductionTables<span class="op">]]</span> <span class="sc">//</span> FeynAmpDenominatorExplicit<span class="op">,</span> GLI<span class="op">,</span> </span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>    GaugeXi<span class="op">,</span> flagCheck<span class="op">,</span> <span class="fu">D</span><span class="op">,</span> DiracGamma<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$masters <span class="ex">=</span> Cases2<span class="op">[</span>leptonPhotonVTX$resPreFinal<span class="op">,</span> GLI<span class="op">]</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$MIMappings <span class="ex">=</span> FCLoopFindIntegralMappings<span class="op">[</span>leptonPhotonVTX$masters<span class="op">,</span> <span class="fu">Join</span><span class="op">[</span>tadpoleMaster1<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">2</span><span class="op">]],</span> </span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>    leptonPhotonVTX$FinalTopos<span class="op">],</span> PreferredIntegrals <span class="ot">-&gt;</span> <span class="op">{</span>tadpoleMaster1<span class="op">[[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">1</span><span class="op">]][[</span><span class="dv">1</span><span class="op">]]}]</span></span></code></pre></div>
+<p><span class="math display">\left(
+\begin{array}{cc}
+G^{\text{fcPFRTopology1}}(1)\to G^{\text{tad1Lv1}}(1) &amp;
+G^{\text{fcPFRTopology2}}(1)\to G^{\text{tad1Lv2}}(1) \\
+G^{\text{tad1Lv1}}(1) &amp; G^{\text{tad1Lv2}}(1) \\
+\end{array}
+\right)</span></p>
+<p>Our master integrals are calculated using the standard multiloop
+normalization. To convert it back to the textbook normalization we need
+to multiply by I*(4 Pi)^(ep-2)</p>
+<div class="sourceCode" id="cb84"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$resFinal <span class="ex">=</span> Collect2<span class="op">[</span>leptonPhotonVTX$resPreFinal<span class="op">,</span> <span class="fu">D</span><span class="op">,</span> GLI<span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK<span class="op">]</span> <span class="sc">//</span> FCReplaceD<span class="op">[</span>#<span class="op">,</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span> ep<span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> leptonPhotonVTX$MIMappings<span class="op">[[</span><span class="dv">1</span><span class="op">]]]</span> &amp; <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>tadpoleMaster1<span class="op">[[</span><span class="dv">1</span><span class="op">]],</span> tadpoleMaster2<span class="op">[[</span><span class="dv">1</span><span class="op">]]}]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>       Collect2<span class="op">[</span>#<span class="op">,</span> ep<span class="op">,</span> IsolateNames <span class="ot">-&gt;</span> KK2<span class="op">]</span> &amp; <span class="sc">//</span> <span class="fu">Series</span><span class="op">[</span>(<span class="fu">I</span><span class="sc">*</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">Pi</span>)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> ep)) #<span class="op">,</span> <span class="op">{</span>ep<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="sc">-</span><span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> FRH <span class="sc">//</span>Collect2<span class="op">[</span>#<span class="op">,</span> DiracGamma<span class="op">]</span> &amp;</span></code></pre></div>
+<p><span class="math display">\frac{4 i \pi  \;\text{a4}^{3/2} \gamma
+^{\mu } \xi _{V(1)}}{\text{ep}}</span></p>
+<div class="sourceCode" id="cb85"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$resFinal <span class="sc">+</span> <span class="fu">Total</span><span class="op">[</span>leptonPhotonVTXCT$RawAmp<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\frac{4 i \pi  \;\text{a4}^{3/2} \gamma
+^{\mu } \xi _{V(1)}}{\text{ep}}+4 i \pi  \sqrt{\text{a4}} \gamma ^{\mu }
+\left(\sqrt{\text{ZA}} \;\text{Ze} \;\text{Zpsi}-1\right)</span></p>
+<div class="sourceCode" id="cb86"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>leptonPhotonVTX$RenConstants <span class="ex">=</span> (leptonPhotonVTX$resFinal <span class="sc">+</span> <span class="fu">Total</span><span class="op">[</span>leptonPhotonVTXCT$RawAmp<span class="op">]</span>) <span class="sc">//</span> <span class="fu">ReplaceRepeated</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>            (<span class="fu">h</span> : renConstants) :&gt; <span class="dv">1</span> <span class="sc">+</span> alpha a4 rc<span class="op">[</span><span class="fu">ToExpression</span><span class="op">[</span><span class="st">&quot;del&quot;</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">h</span><span class="op">]],</span> <span class="dv">1</span><span class="op">]}]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Series</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>alpha<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Normal</span> <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="fu">Join</span><span class="op">[</span>photonSE$RenConstants<span class="op">,</span> leptonSE$RenConstants<span class="op">]]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> alpha <span class="ot">-&gt;</span> <span class="dv">1</span><span class="op">]</span> &amp; <span class="sc">//</span> Collect2<span class="op">[</span>#<span class="op">,</span> DiracGamma<span class="op">,</span> pp<span class="op">,</span> Pair<span class="op">,</span> mxt<span class="op">]</span> &amp; <span class="sc">//</span> </span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>    FCMatchSolve<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>ep<span class="op">,</span> CF<span class="op">,</span> DiracGamma<span class="op">,</span> ml<span class="op">,</span> mxt<span class="op">,</span> SUNDelta<span class="op">,</span> SUNTF<span class="op">,</span> SUNFDelta<span class="op">,</span> CA<span class="op">,</span> GaugeXi<span class="op">,</span> a4<span class="op">,</span> Pair<span class="op">,</span> pp<span class="op">,</span> Nf<span class="op">}]</span> &amp;</span></code></pre></div>
+<p><span class="math display">\text{FCMatchSolve: Solving for:
+}\{\text{rc}(\text{delZe},1)\}</span></p>
+<p><span class="math display">\text{FCMatchSolve: A solution
+exists.}</span></p>
+<p><span class="math display">\left\{\text{rc}(\text{delZe},1)\to
+\frac{2 N_f}{3 \;\text{ep}}\right\}</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
-<p>```mathematica knownResult = { SMP[“d_psi^MS”] -&gt;
--(GaugeXi<em>SMP[“alpha_fs”])/(4</em>Epsilon<em>Pi), SMP[“d_m^MS”] -&gt;
-(-3</em>SMP[“alpha_fs”])/(4<em>Epsilon</em>Pi), SMP[“d_A^MS”] -&gt;
--SMP[“alpha_fs”]/(3<em>Epsilon</em>Pi), SMP[“d_psi^MSbar”] -&gt;
--(GaugeXi<em>SMP[“alpha_fs”]</em>SMP[“Delta”])/(4<em>Pi),
-SMP[“d_m^MSbar”] -&gt;
-(-3</em>SMP[“alpha_fs”]<em>SMP[“Delta”])/(4</em>Pi), SMP[“d_A^MSbar”]
--&gt; -(SMP[“alpha_fs”]<em>SMP[“Delta”])/(3</em>Pi) };
-FCCompareResults[Join[solMS1, solMS2, solMSbar1, solMSbar2],
-knownResult, Text -&gt; {“the final result:”, “CORRECT.”, “WRONG!”},
-Interrupt -&gt; {Hold[Quit[1]], Automatic}]; Print[“Time used:”,
+<p>Our final QED 1-loop renormalization constants</p>
+<div class="sourceCode" id="cb87"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>finalResults <span class="ex">=</span> <span class="fu">Thread</span><span class="op">[</span><span class="fu">Rule</span><span class="op">[</span><span class="fu">List</span> @@ renConstants<span class="op">,</span> </span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">List</span> @@ renConstants <span class="ot">/.</span> (<span class="fu">h</span> : renConstants) :&gt; <span class="dv">1</span> <span class="sc">+</span> a4 rc<span class="op">[</span><span class="fu">ToExpression</span><span class="op">[</span><span class="st">&quot;del&quot;</span> &lt;&gt; <span class="fu">ToString</span><span class="op">[</span><span class="fu">h</span><span class="op">]],</span> <span class="dv">1</span><span class="op">]</span>) <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="fu">Join</span><span class="op">[</span>photonSE$RenConstants<span class="op">,</span> leptonSE$RenConstants<span class="op">,</span> </span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>        leptonPhotonVTX$RenConstants<span class="op">]]</span> &amp;<span class="op">]]</span></span></code></pre></div>
+<p><span class="math display">\left\{\text{Zm}\to 1-\frac{3
+\;\text{a4}}{\text{ep}},\text{Zpsi}\to 1-\frac{\text{a4} \xi
+_{V(1)}}{\text{ep}},\text{ZA}\to 1-\frac{4 \;\text{a4} N_f}{3
+\;\text{ep}},\text{ZAmxt}\to 1,\text{Ze}\to \frac{2 \;\text{a4} N_f}{3
+\;\text{ep}}+1,\text{Zxi}\to 1-\frac{4 \;\text{a4} N_f}{3
+\;\text{ep}}\right\}</span></p>
+<div class="sourceCode" id="cb88"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>knownResult <span class="ex">=</span> <span class="op">{</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>    rc<span class="op">[</span>delZAmxt<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">,</span> </span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>    rc<span class="op">[</span>delZA<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> <span class="ot">-&gt;</span> (<span class="sc">-</span><span class="dv">4</span><span class="sc">*</span>Nf)<span class="sc">/</span>(<span class="dv">3</span><span class="sc">*</span>ep)<span class="op">,</span> </span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>    rc<span class="op">[</span>delZxi<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> <span class="ot">-&gt;</span> (<span class="sc">-</span><span class="dv">4</span><span class="sc">*</span>Nf)<span class="sc">/</span>(<span class="dv">3</span><span class="sc">*</span>ep)<span class="op">,</span> rc<span class="op">[</span>delZm<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="sc">-</span><span class="dv">3</span><span class="sc">/</span>ep<span class="op">,</span> </span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>    rc<span class="op">[</span>delZpsi<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="sc">-</span>(GaugeXi<span class="op">[</span><span class="fu">V</span><span class="op">[</span><span class="dv">1</span><span class="op">]]</span><span class="sc">/</span>ep)<span class="op">,</span> </span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a>    rc<span class="op">[</span>delZe<span class="op">,</span> <span class="dv">1</span><span class="op">]</span> <span class="ot">-&gt;</span> (<span class="dv">2</span><span class="sc">*</span>Nf)<span class="sc">/</span>(<span class="dv">3</span><span class="sc">*</span>ep)<span class="op">}</span>;</span></code></pre></div>
+<p>```mathematica FCCompareResults[Join[photonSE<span
+class="math inline">RenConstants, leptonSE</span>RenConstants,
+leptonPhotonVTX$RenConstants] /. Rule -&gt; Equal, knownResult /. Rule
+-&gt; Equal, Text -&gt; {“the final result:”, “CORRECT.”, “WRONG!”},
+Interrupt -&gt; {Hold[Quit[1]], Automatic}] Print[“Time used:”,
 Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
 <p>```mathematica</p>
 <p><span class="math display">\text{$\backslash $tCheck the final
 result:} \;\text{CORRECT.}</span></p>
+<p><span class="math display">\text{True}</span></p>
 <p><span class="math display">\text{$\backslash $tCPU Time used:
-}23.186\text{ s.}</span></p>
+}38.337\text{ s.}</span></p>
 </body>
 </html>

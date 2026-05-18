@@ -21,8 +21,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -129,7 +130,7 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{FeynCalc }\;\text{10.2.0 (dev
-version, 2025-12-22 21:09:03 +01:00, fcd53f9b). For help, use the
+version, 2026-05-18 15:58:48 +02:00, 1a8e687c). For help, use the
 }\underline{\text{online} \;\text{documentation},}\;\text{ visit the
 }\underline{\text{forum}}\;\text{ and have a look at the supplied
 }\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
@@ -235,6 +236,6 @@ used:”, Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
 Schroeder, An Introduction to QFT, Eq 10.41:}
 \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{$\backslash $tCPU Time used:
-}35.071\text{ s.}</span></p>
+}21.835\text{ s.}</span></p>
 </body>
 </html>

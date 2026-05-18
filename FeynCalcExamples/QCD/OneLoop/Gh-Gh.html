@@ -21,8 +21,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -133,7 +134,7 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Abort</span><span class="op">[]</span>; </span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> <span class="op">]</span></span></code></pre></div>
 <p><span class="math display">\text{FeynCalc }\;\text{10.2.0 (dev
-version, 2025-12-22 21:09:03 +01:00, fcd53f9b). For help, use the
+version, 2026-05-18 14:09:14 +02:00, 9ab9d838). For help, use the
 }\underline{\text{online} \;\text{documentation},}\;\text{ visit the
 }\underline{\text{forum}}\;\text{ and have a look at the supplied
 }\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
@@ -153,10 +154,10 @@ research, please cite}</span></p>
 <p><span class="math display">\text{ $\bullet $ T. Hahn, Comput. Phys.
 Commun., 140, 418-431, 2001, arXiv:hep-ph/0012260}</span></p>
 <p><span class="math display">\text{FeynHelpers }\;\text{2.0.0
-(2025-12-22 19:07:44 +01:00, c92fb9f5). For help, use the
+(2026-02-05 17:03:01 +02:00, 5db84fbb). For help, use the
 }\underline{\text{online} \;\text{documentation},}\;\text{ visit the
 }\underline{\text{forum}}\;\text{ and have a look at the supplied
-}\underline{\text{examples}.}\;\text{The PDF-version of the manual can
+}\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
 be downloaded }\underline{\text{here}.}</span></p>
 <p><span class="math display">\text{ If you use FeynHelpers in your
 research, please evaluate FeynHelpersHowToCite[] to learn how to cite
@@ -225,6 +226,6 @@ Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
 <p><span class="math display">\text{$\backslash $tCompare to Muta,
 Foundations of QCD, Eq. 2.5.136:} \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{$\backslash $tCPU Time used:
-}34.508\text{ s.}</span></p>
+}40.927\text{ s.}</span></p>
 </body>
 </html>
