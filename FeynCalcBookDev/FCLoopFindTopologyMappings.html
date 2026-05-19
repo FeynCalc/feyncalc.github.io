@@ -168,16 +168,15 @@ In this case one has to distinguish between the following situations</p>
 <ul>
 <li><p><code>FCLoopFindSubtopologies</code> is applied to the same list
 of topologies that is passed as input to
-<code>FCLoopFindTopologyMappings</code>. Here everything should work as
-expected, because by default <code>FCLoopFindSubtopologies</code>removes
-the original input topologies from its output. Hence, there are no
-topologies appearing both in the input and preferred topologies
-lists.</p></li>
-<li><p><code>FCLoopFindSubtopologies</code> is applied to a same list of
+<code>FCLoopFindTopologyMappings</code>. Here
+<code>FCLoopFindSubtopologies</code> removes the original input
+topologies from its output by default. Hence, there are no topologies
+appearing both in the input and preferred topologies lists.</p></li>
+<li><p><code>FCLoopFindSubtopologies</code> is applied to a list of
 preferred topologies that are distinct from the input topologies. In
-this case one should set the <code>Remove</code> to <code>False</code>
-to ensure that the original preferred topologies are kept in the
-output.</p></li>
+this case one should set the option <code>Remove</code> to
+<code>False</code> to ensure that the original preferred topologies are
+kept in the output.</p></li>
 </ul>
 <h3 id="see-also">See also</h3>
 <p><a href="Extra/FeynCalc.html">Overview</a>, <a
