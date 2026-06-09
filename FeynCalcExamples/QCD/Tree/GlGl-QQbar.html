@@ -124,25 +124,24 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>$LoadAddOns <span class="ex">=</span> <span class="op">{</span><span class="st">&quot;FeynArts&quot;</span><span class="op">}</span>;</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>&lt;&lt; FeynCalc`</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>; </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">9</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">]</span>;</span></code></pre></div>
-<p><span class="math display">\text{FeynCalc }\;\text{10.0.0 (dev
-version, 2023-12-20 22:40:59 +01:00, dff3b835). For help, use the
-}\underline{\text{online} \;\text{documentation}}\;\text{, check out the
-}\underline{\text{wiki}}\;\text{ or visit the
-}\underline{\text{forum}.}</span></p>
-<p><span class="math display">\text{Please check our
-}\underline{\text{FAQ}}\;\text{ for answers to some common FeynCalc
-questions and have a look at the supplied
-}\underline{\text{examples}.}</span></p>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$FAVerbose <span class="ex">=</span> <span class="dv">0</span>;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">LaunchKernels</span><span class="op">[</span><span class="dv">8</span><span class="op">]</span>; </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span>; </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>FCCheckVersion<span class="op">[</span><span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span>;</span></code></pre></div>
+<p><span class="math display">\text{FeynCalc }\;\text{10.2.0 (dev
+version, 2026-06-09 14:14:02 +02:00, 96f9ea07). For help, use the
+}\underline{\text{online} \;\text{documentation},}\;\text{ visit the
+}\underline{\text{forum}}\;\text{ and have a look at the supplied
+}\underline{\text{examples}.}\;\text{ The PDF-version of the manual can
+be downloaded }\underline{\text{here}.}</span></p>
 <p><span class="math display">\text{If you use FeynCalc in your
 research, please evaluate FeynCalcHowToCite[] to learn how to cite this
 software.}</span></p>
 <p><span class="math display">\text{Please keep in mind that the proper
 academic attribution of our work is crucial to ensure the future
 development of this package!}</span></p>
-<p><span class="math display">\text{FeynArts }\;\text{3.11 (3 Aug 2020)
+<p><span class="math display">\text{FeynArts }\;\text{3.12 (27 Mar 2025)
 patched for use with FeynCalc, for documentation see the
 }\underline{\text{manual}}\;\text{ or visit
 }\underline{\text{www}.\text{feynarts}.\text{de}.}</span></p>
@@ -153,104 +152,102 @@ Commun., 140, 418-431, 2001, arXiv:hep-ph/0012260}</span></p>
 <h2 id="generate-feynman-diagrams">Generate Feynman diagrams</h2>
 <p>Nicer typesetting</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">MakeBoxes</span><span class="op">[</span>p1<span class="op">,</span> <span class="fu">TraditionalForm</span><span class="op">]</span> <span class="ex">:=</span> <span class="st">&quot;</span><span class="sc">\!\(\*</span><span class="st">SubscriptBox[</span><span class="sc">\(</span><span class="st">p</span><span class="sc">\)</span><span class="st">, </span><span class="sc">\(</span><span class="st">1</span><span class="sc">\)</span><span class="st">]</span><span class="sc">\)</span><span class="st">&quot;</span>;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">MakeBoxes</span><span class="op">[</span>p2<span class="op">,</span> <span class="fu">TraditionalForm</span><span class="op">]</span> <span class="ex">:=</span> <span class="st">&quot;</span><span class="sc">\!\(\*</span><span class="st">SubscriptBox[</span><span class="sc">\(</span><span class="st">p</span><span class="sc">\)</span><span class="st">, </span><span class="sc">\(</span><span class="st">2</span><span class="sc">\)</span><span class="st">]</span><span class="sc">\)</span><span class="st">&quot;</span>;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">MakeBoxes</span><span class="op">[</span>k1<span class="op">,</span> <span class="fu">TraditionalForm</span><span class="op">]</span> <span class="ex">:=</span> <span class="st">&quot;</span><span class="sc">\!\(\*</span><span class="st">SubscriptBox[</span><span class="sc">\(</span><span class="st">k</span><span class="sc">\)</span><span class="st">, </span><span class="sc">\(</span><span class="st">1</span><span class="sc">\)</span><span class="st">]</span><span class="sc">\)</span><span class="st">&quot;</span>;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">MakeBoxes</span><span class="op">[</span>k2<span class="op">,</span> <span class="fu">TraditionalForm</span><span class="op">]</span> <span class="ex">:=</span> <span class="st">&quot;</span><span class="sc">\!\(\*</span><span class="st">SubscriptBox[</span><span class="sc">\(</span><span class="st">k</span><span class="sc">\)</span><span class="st">, </span><span class="sc">\(</span><span class="st">2</span><span class="sc">\)</span><span class="st">]</span><span class="sc">\)</span><span class="st">&quot;</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>p1<span class="op">,</span> <span class="op">{</span><span class="fu">SubscriptBox</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>p2<span class="op">,</span> <span class="op">{</span><span class="fu">SubscriptBox</span><span class="op">,</span> <span class="fu">p</span><span class="op">,</span> <span class="dv">2</span><span class="op">}]</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>q1<span class="op">,</span> <span class="op">{</span><span class="fu">SubscriptBox</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>FCAttachTypesettingRule<span class="op">[</span>q2<span class="op">,</span> <span class="op">{</span><span class="fu">SubscriptBox</span><span class="op">,</span> <span class="fu">q</span><span class="op">,</span> <span class="dv">2</span><span class="op">}]</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>diags <span class="ex">=</span> InsertFields<span class="op">[</span>CreateTopologies<span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="ot">-&gt;</span> <span class="dv">2</span><span class="op">],</span> <span class="op">{</span><span class="fu">V</span><span class="op">[</span><span class="dv">5</span><span class="op">],</span> <span class="fu">V</span><span class="op">[</span><span class="dv">5</span><span class="op">]}</span> <span class="ot">-&gt;</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span><span class="fu">F</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}],</span> <span class="sc">-</span><span class="fu">F</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="op">{</span><span class="dv">1</span><span class="op">}]},</span> InsertionLevel <span class="ot">-&gt;</span> <span class="op">{</span>Classes<span class="op">},</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>            Model <span class="ot">-&gt;</span> <span class="st">&quot;SMQCD&quot;</span><span class="op">]</span>; </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diags<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">512</span><span class="op">,</span> <span class="dv">256</span><span class="op">}]</span>;</span></code></pre></div>
-<p><img src="img/1vrrrpz2pvdsp.svg" alt="1vrrrpz2pvdsp" /></p>
-<p><img src="img/0tuhs963f9qap.svg" alt="0tuhs963f9qap" /></p>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Paint<span class="op">[</span>diags<span class="op">,</span> ColumnsXRows <span class="ot">-&gt;</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span> Numbering <span class="ot">-&gt;</span> Simple<span class="op">,</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    SheetHeader <span class="ot">-&gt;</span> <span class="cn">None</span><span class="op">,</span> <span class="fu">ImageSize</span> <span class="ot">-&gt;</span> <span class="dv">128</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">}]</span>;</span></code></pre></div>
+<p><img src="img/0l4drw563781p.svg" alt="0l4drw563781p" /></p>
 <h2 id="obtain-the-amplitude">Obtain the amplitude</h2>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>diags<span class="op">],</span> IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">},</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span>k1<span class="op">,</span> k2<span class="op">},</span> UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> ChangeDimension <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">,</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    TransversePolarizationVectors <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">},</span> <span class="fu">List</span> <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    Contract <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> DropSumOver <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span></span></code></pre></div>
-<p><span class="math display">\frac{g_s^2
-T_{\text{Col3}\;\text{Col5}}^{\text{Glu2}}
-T_{\text{Col5}\;\text{Col4}}^{\text{Glu1}} \left(\varphi
-(\overline{k_1},m_u)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon
-}\left(p_2\right)\right).\left(\bar{\gamma }\cdot
-\left(\overline{k_1}-\overline{p_2}\right)+m_u\right).\left(\bar{\gamma
-}\cdot \bar{\varepsilon }\left(p_1\right)\right).\left(\varphi
-(-\overline{k_2},m_u)\right)}{(\overline{p_2}-\overline{k_1}){}^2-m_u^2}+\frac{g_s^2
-T_{\text{Col3}\;\text{Col5}}^{\text{Glu1}}
-T_{\text{Col5}\;\text{Col4}}^{\text{Glu2}} \left(\varphi
-(\overline{k_1},m_u)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon
-}\left(p_1\right)\right).\left(\bar{\gamma }\cdot
-\left(\overline{p_2}-\overline{k_2}\right)+m_u\right).\left(\bar{\gamma
-}\cdot \bar{\varepsilon }\left(p_2\right)\right).\left(\varphi
-(-\overline{k_2},m_u)\right)}{(\overline{k_2}-\overline{p_2}){}^2-m_u^2}-\frac{i
-g_s^2 T_{\text{Col3}\;\text{Col4}}^{\text{Glu5}}
-f^{\text{Glu1}\;\text{Glu2}\;\text{Glu5}} \left(\overline{k_1}\cdot
-\bar{\varepsilon }\left(p_2\right)+\overline{k_2}\cdot \bar{\varepsilon
-}\left(p_2\right)+\overline{p_1}\cdot \bar{\varepsilon
-}\left(p_2\right)\right) \left(\varphi
-(\overline{k_1},m_u)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon
-}\left(p_1\right)\right).\left(\varphi
-(-\overline{k_2},m_u)\right)}{(\overline{k_1}+\overline{k_2}){}^2}-\frac{i
-g_s^2 T_{\text{Col3}\;\text{Col4}}^{\text{Glu5}}
-f^{\text{Glu1}\;\text{Glu2}\;\text{Glu5}}
-\left(-\left(\overline{k_1}\cdot \bar{\varepsilon
-}\left(p_1\right)\right)-\overline{k_2}\cdot \bar{\varepsilon
-}\left(p_1\right)-\overline{p_2}\cdot \bar{\varepsilon
-}\left(p_1\right)\right) \left(\varphi
-(\overline{k_1},m_u)\right).\left(\bar{\gamma }\cdot \bar{\varepsilon
-}\left(p_2\right)\right).\left(\varphi
-(-\overline{k_2},m_u)\right)}{(\overline{k_1}+\overline{k_2}){}^2}-\frac{i
-g_s^2 T_{\text{Col3}\;\text{Col4}}^{\text{Glu5}}
-f^{\text{Glu1}\;\text{Glu2}\;\text{Glu5}} \left(\bar{\varepsilon
-}\left(p_1\right)\cdot \bar{\varepsilon }\left(p_2\right)\right)
-\left(\varphi (\overline{k_1},m_u)\right).\left(\bar{\gamma }\cdot
-\left(\overline{p_2}-\overline{p_1}\right)\right).\left(\varphi
-(-\overline{k_2},m_u)\right)}{(\overline{k_1}+\overline{k_2}){}^2}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> FCFAConvert<span class="op">[</span>CreateFeynAmp<span class="op">[</span>diags<span class="op">],</span> IncomingMomenta <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">},</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    OutgoingMomenta <span class="ot">-&gt;</span> <span class="op">{</span>q1<span class="op">,</span> q2<span class="op">},</span> UndoChiralSplittings <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> ChangeDimension <span class="ot">-&gt;</span> <span class="fu">D</span><span class="op">,</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    TransversePolarizationVectors <span class="ot">-&gt;</span> <span class="op">{</span>p1<span class="op">,</span> p2<span class="op">},</span> <span class="fu">List</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> SMP <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    Contract <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> DropSumOver <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
 <h2 id="fix-the-kinematics">Fix the kinematics</h2>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>FCClearScalarProducts<span class="op">[]</span>;</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>SetMandelstam<span class="op">[</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> p1<span class="op">,</span> p2<span class="op">,</span> <span class="sc">-</span>k1<span class="op">,</span> <span class="sc">-</span>k2<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">]]</span>;</span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>SetMandelstam<span class="op">[</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> p1<span class="op">,</span> p2<span class="op">,</span> <span class="sc">-</span>q1<span class="op">,</span> <span class="sc">-</span>q2<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">],</span> SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">]]</span>;</span></code></pre></div>
 <h2 id="square-the-amplitude">Square the amplitude</h2>
 <div class="sourceCode" id="cb6"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ampSquared<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">1</span><span class="sc">/</span>((SUNN<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span>) (amp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> (ComplexConjugate<span class="op">[</span>amp<span class="op">[</span><span class="dv">0</span><span class="op">]]</span>)) <span class="sc">//</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>            FeynAmpDenominatorExplicit <span class="sc">//</span> SUNSimplify<span class="op">[</span>#<span class="op">,</span> Explicit <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            SUNNToCACF <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span> &amp; <span class="sc">//</span> FermionSpinSum <span class="sc">//</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        DiracSimplify <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> p1<span class="op">,</span> p2<span class="op">,</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        ExtraFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span> &amp; <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> p2<span class="op">,</span> p1<span class="op">,</span> ExtraFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span> &amp; <span class="sc">//</span> </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    TrickMandelstam<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">2</span>  SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]</span> &amp; <span class="sc">//</span> <span class="fu">Simplify</span></span></code></pre></div>
-<p><span class="math display">\frac{g_s^4 \left(-m_u^4 \left(3 t^2+14 t
-u+3 u^2\right)+m_u^2 \left(t^3+7 t^2 u+7 t u^2+u^3\right)+6 m_u^8-t u
-\left(t^2+u^2\right)\right) \left(2 N^2 m_u^2 (t+u)-2 N^2 m_u^4-N^2
-\left(t^2+u^2\right)+s^2\right)}{2 N \left(N^2-1\right) s^2
-\left(u-m_u^2\right){}^2 \left(t-m_u^2\right){}^2}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ampSquared<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> SquareAmplitude<span class="op">[</span>amp<span class="op">[</span><span class="dv">0</span><span class="op">],</span> ComplexConjugate<span class="op">[</span>amp<span class="op">[</span><span class="dv">0</span><span class="op">]],</span> <span class="fu">Real</span> <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span>;</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ampSquaredMassless<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> ampSquared<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">}]</span> &amp; <span class="sc">//</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    TrickMandelstam<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span> &amp;</span></code></pre></div>
-<p><span class="math display">\frac{g_s^4 \left(t^2+u^2\right)
-\left(-N^2 t^2-N^2 u^2+s^2\right)}{2 N \left(1-N^2\right) s^2 t
-u}</span></p>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>ampSquared<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">=</span> FeynAmpDenominatorExplicit<span class="op">[</span>ampSquared<span class="op">[</span><span class="dv">0</span><span class="op">],</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> <span class="sc">//</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     SUNSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp;;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.11661,\text{Null}\}</span></p>
 <div class="sourceCode" id="cb8"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ampSquaredMasslessSUNN3<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> ampSquaredMassless<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ot">/.</span> SUNN <span class="ot">-&gt;</span> <span class="dv">3</span></span></code></pre></div>
-<p><span class="math display">-\frac{g_s^4 \left(t^2+u^2\right)
-\left(s^2-9 t^2-9 u^2\right)}{48 s^2 t u}</span></p>
-<h2 id="check-the-final-results">Check the final results</h2>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>ampSquared<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="ex">=</span> ampSquared<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> p1<span class="op">,</span> p2<span class="op">,</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> ExtraFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span> &amp; <span class="sc">//</span> DoPolarizationSums<span class="op">[</span>#<span class="op">,</span> p2<span class="op">,</span> p1<span class="op">,</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">,</span> ExtraFactor <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">]</span> &amp;;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.725239,\text{Null}\}</span></p>
 <div class="sourceCode" id="cb9"><pre
-class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knownResults <span class="ex">=</span> <span class="op">{</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span> (<span class="fu">t</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">u</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">t</span> <span class="fu">u</span>) <span class="sc">-</span> (<span class="dv">3</span><span class="sc">/</span><span class="dv">8</span>) SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span> (<span class="fu">t</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">u</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">s</span><span class="sc">^</span><span class="dv">2</span>) </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span>;</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[{</span>ampSquaredMasslessSUNN3<span class="op">[</span><span class="dv">0</span><span class="op">]},</span> <span class="op">{</span>knownResults<span class="op">},</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Ellis, Stirling and Weber, QCD and Collider Physics, Table 7.1:&quot;</span><span class="op">,</span> <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">},</span> Factoring <span class="ot">-&gt;</span> </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Function</span><span class="op">[</span><span class="fu">x</span><span class="op">,</span> <span class="fu">Simplify</span><span class="op">[</span>TrickMandelstam<span class="op">[</span><span class="fu">x</span><span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]]]]</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">3</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>ampSquared<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="ex">=</span> ampSquared<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="sc">//</span> FermionSpinSum<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp; <span class="sc">//</span> DiracSimplify<span class="op">[</span>#<span class="op">,</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp;;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{2.67024,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AbsoluteTiming</span><span class="op">[</span>ampSquared<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="ex">=</span> <span class="dv">1</span><span class="sc">/</span>((SUNN<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span>) ampSquared<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="sc">//</span> TrickMandelstam<span class="op">[</span>#<span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">2</span>  SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">},</span> FCParallelize <span class="ot">-&gt;</span> <span class="cn">True</span><span class="op">]</span> &amp;;<span class="op">]</span></span></code></pre></div>
+<p><span class="math display">\{0.670016,\text{Null}\}</span></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ampSquared<span class="op">[</span><span class="dv">5</span><span class="op">]</span> <span class="ex">=</span> Collect2<span class="op">[</span>ampSquared<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">Total</span><span class="op">,</span> CA<span class="op">,</span> CF<span class="op">,</span> <span class="fu">D</span><span class="op">,</span> Factoring <span class="ot">-&gt;</span> <span class="fu">Function</span><span class="op">[{</span><span class="fu">x</span><span class="op">},</span> TrickMandelstam<span class="op">[</span><span class="fu">x</span><span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">2</span>  SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]]]</span></span></code></pre></div>
+<p><span class="math display">\frac{D^2 C_A C_F^2 g_s^4 \left(-2 t
+m_u^2+2 m_u^4-2 u m_u^2+t^2+u^2\right)}{2 \left(1-N^2\right)^2
+\left(u-m_u^2\right) \left(t-m_u^2\right)}-\frac{D C_A^2 C_F g_s^4
+\left(-2 t m_u^2+2 m_u^4-2 u m_u^2+t^2+u^2\right)}{\left(1-N^2\right)^2
+s^2}-\frac{2 D C_A C_F^2 g_s^4 \left(-2 t m_u^2+2 m_u^4-2 u
+m_u^2+t^2+u^2\right)}{\left(1-N^2\right)^2 \left(u-m_u^2\right)
+\left(t-m_u^2\right)}+\frac{2 C_A^2 C_F g_s^4 \left(-t^3 m_u^2+2 t^2
+m_u^4-3 t^2 u m_u^2-3 t u^2 m_u^2-4 t m_u^6+8 t u m_u^4-u^3 m_u^2+2 u^2
+m_u^4+2 m_u^8-4 u m_u^6+2 t^3 u-2 t^2 u^2+2 t
+u^3\right)}{\left(1-N^2\right)^2 s^2 \left(u-m_u^2\right)
+\left(t-m_u^2\right)}+\frac{1}{\left(1-N^2\right)^2 s^2
+\left(u-m_u^2\right){}^2 \left(t-m_u^2\right){}^2}2 C_A C_F^2 g_s^4
+\left(-t^5 m_u^2+7 t^4 m_u^4-11 t^4 u m_u^2-20 t^3 u^2 m_u^2-18 t^3
+m_u^6+48 t^3 u m_u^4-20 t^2 u^3 m_u^2+58 t^2 u^2 m_u^4+16 t^2 m_u^8-78
+t^2 u m_u^6-11 t u^4 m_u^2+48 t u^3 m_u^4-78 t u^2 m_u^6+56 t u
+m_u^8-u^5 m_u^2+7 u^4 m_u^4-18 u^3 m_u^6+16 u^2 m_u^8-8 m_u^{12}+t^5 u+6
+t^3 u^3+t u^5\right)-\frac{D^2 C_F g_s^4}{2
+\left(1-N^2\right)^2}+\frac{3 D C_F g_s^4}{\left(1-N^2\right)^2}-\frac{2
+C_F g_s^4 \left(-2 t^3 m_u^2+9 t^2 m_u^4-18 t^2 u m_u^2-18 t u^2
+m_u^2-12 t m_u^6+38 t u m_u^4-2 u^3 m_u^2+9 u^2 m_u^4-12 u m_u^6+3 t^3
+u+2 t^2 u^2+3 t u^3\right)}{\left(1-N^2\right)^2 s^2
+\left(u-m_u^2\right) \left(t-m_u^2\right)}</span></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ampSquaredMassless<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> Collect2<span class="op">[</span>ampSquared<span class="op">[</span><span class="dv">5</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">ReplaceAll</span><span class="op">[</span>#<span class="op">,</span> <span class="op">{</span>SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">]</span> <span class="ot">-&gt;</span> <span class="dv">0</span><span class="op">}]</span> &amp;<span class="op">,</span> <span class="fu">D</span><span class="op">,</span> CA<span class="op">,</span> CF<span class="op">,</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   Factoring <span class="ot">-&gt;</span> <span class="fu">Function</span><span class="op">[{</span><span class="fu">x</span><span class="op">},</span> TrickMandelstam<span class="op">[</span><span class="fu">x</span><span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">2</span>  SMP<span class="op">[</span><span class="st">&quot;m_u&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="op">}]]]</span></span></code></pre></div>
+<p><span class="math display">\frac{D^2 C_A C_F^2 g_s^4
+\left(t^2+u^2\right)}{2 \left(1-N^2\right)^2 t u}-\frac{D C_A^2 C_F
+g_s^4 \left(t^2+u^2\right)}{\left(1-N^2\right)^2 s^2}-\frac{2 D C_A
+C_F^2 g_s^4 \left(t^2+u^2\right)}{\left(1-N^2\right)^2 t u}+\frac{4
+C_A^2 C_F g_s^4 \left(t^2-t u+u^2\right)}{\left(1-N^2\right)^2
+s^2}+\frac{2 C_A C_F^2 g_s^4 \left(t^4+6 t^2
+u^2+u^4\right)}{\left(1-N^2\right)^2 s^2 t u}-\frac{D^2 C_F g_s^4}{2
+\left(1-N^2\right)^2}+\frac{3 D C_F g_s^4}{\left(1-N^2\right)^2}-\frac{2
+C_F g_s^4 \left(3 t^2+2 t u+3 u^2\right)}{\left(1-N^2\right)^2
+s^2}</span></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ampSquaredMasslessSUNN3<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">=</span> TrickMandelstam<span class="op">[</span>SUNSimplify<span class="op">[</span>ampSquaredMassless<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ot">/.</span> <span class="fu">D</span> <span class="ot">-&gt;</span> <span class="dv">4</span><span class="op">,</span> SUNNToCACF <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span> <span class="ot">/.</span> SUNN <span class="ot">-&gt;</span> <span class="dv">3</span><span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]</span></span></code></pre></div>
+<p><span class="math display">\frac{g_s^4 \left(t^2+u^2\right) \left(4
+t^2-t u+4 u^2\right)}{24 s^2 t u}</span></p>
+<h2 id="check-the-final-results">Check the final results</h2>
+<p>```mathematica knownResults = { (1/6) SMP[“g_s”]^4 (t^2 + u^2)/(t u)
+- (3/8) SMP[“g_s”]^4 (t^2 + u<sup>2)/(s</sup>2) };
+FCCompareResults[{ampSquaredMasslessSUNN3[0]}, {knownResults}, Text
+-&gt; {“to Ellis, Stirling and Weber, QCD and Collider Physics, Table
+7.1:”, “CORRECT.”, “WRONG!”}, Interrupt -&gt; {Hold[Quit[1]],
+Automatic}, Factoring -&gt; Function[x, Simplify[TrickMandelstam[x, {s,
+t, u, 0}]]]] Print[“Time used:”, Round[N[TimeUsed[], 3], 0.001], ”
+s.”];</p>
+<p>```mathematica</p>
 <p><span class="math display">\text{$\backslash $tCompare to Ellis,
 Stirling and Weber, QCD and Collider Physics, Table 7.1:}
 \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{True}</span></p>
 <p><span class="math display">\text{$\backslash $tCPU Time used:
-}43.321\text{ s.}</span></p>
+}38.728\text{ s.}</span></p>
 </body>
 </html>

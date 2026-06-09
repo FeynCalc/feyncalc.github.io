@@ -86,7 +86,7 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../css/feyncalc.css" />
+  <link rel="stylesheet" href="../../../FeynCalcBookDev/../css/feyncalc.css" />
 
 </head>
 <body>
@@ -106,7 +106,8 @@ number of CPU cores</p>
 parallel kernels and then set the variable
 <code>$ParallelizeFeynCalc</code> to <code>True</code>. In this case a
 copy of FeynCalc will be loaded on each of the parallel kernels and used
-to parallelize some selected operations. For example,</p>
+to parallelize some selected operations. For example, for parallel 8
+kernels, use</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LaunchKernels</span><span class="op">[</span><span class="dv">8</span><span class="op">]</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>$ParallelizeFeynCalc <span class="ex">=</span> <span class="cn">True</span></span></code></pre></div>
@@ -140,29 +141,75 @@ detect the parallel mode.</p>
 <h3
 id="functions-that-support-automatic-execution-on-parallel-kernels">Functions
 that support automatic execution on parallel kernels</h3>
+<h2 id="shared-tools">Shared tools</h2>
 <ul>
-<li><code>FCLoopFromGLI</code></li>
-<li><code>FCFeynmanPrepare</code></li>
-<li><code>FCLoopToPakForm</code></li>
-<li><code>FCLoopFindIntegralMappings</code></li>
-<li><code>FCLoopFindTopologyMappings</code></li>
-<li><code>FCLoopFindSubtopologies</code></li>
-<li><code>FCLoopFindTopologies</code></li>
-<li><code>FCLoopCreatePartialFractioningRules</code></li>
-<li><code>FCLoopApplyTopologyMappings</code></li>
-<li><code>FCLoopGetKinematicInvariants</code></li>
-<li><code>FCLoopTensorReduce</code></li>
-<li><code>Tdec</code></li>
-<li><code>FCLoopIsolate</code></li>
-<li><code>MomentumCombine</code></li>
-<li><code>Collect2</code> (only when isolation is disabled)</li>
-<li><code>FCClearScalarProducts</code> (parallelization is enabled by
-default)</li>
-<li><code>ScalarProduct</code> (parallelization is enabled by
-default)</li>
+<li><code>Collect2</code> (isolation requires special care)</li>
 <li><code>DataType</code> (parallelization is enabled by default)</li>
 <li><code>FCClearDataTypes</code> (parallelization is enabled by
 default)</li>
+<li><code>FCValuesSynchronizedQ</code></li>
+<li><code>FRH2</code></li>
+<li><code>Solve2</code></li>
+<li><code>Solve3</code></li>
+</ul>
+<h2 id="tensor-algebra">Tensor algebra</h2>
+<ul>
+<li><code>Contract</code></li>
+<li><code>FCCanonicalizeDummyIndices</code></li>
+<li><code>FCClearScalarProducts</code> (parallelization is enabled by
+default)</li>
+<li><code>FCScalarProductsSynchronizedQ</code></li>
+<li><code>FourSeries</code></li>
+<li><code>MomentumCombine</code></li>
+<li><code>ScalarProduct</code> (parallelization is enabled by
+default)</li>
+<li><code>SetMandelstam</code></li>
+<li><code>TrickMandelstam</code></li>
+</ul>
+<h2 id="dirac-algebra">Dirac algebra</h2>
+<ul>
+<li><code>DiracSimplify</code></li>
+</ul>
+<h2 id="color-algebra">Color algebra</h2>
+<ul>
+<li><code>SUNSimplify</code></li>
+</ul>
+<h2 id="noncommutative-algebra">Noncommutative algebra</h2>
+<ul>
+<li><code>DotSimplify</code></li>
+<li><code>FCTraceFactor</code></li>
+</ul>
+<h2 id="feynman-rules-and-amplitudes">Feynman rules and amplitudes</h2>
+<ul>
+<li><code>DoPolarizationSums</code></li>
+<li><code>FermionSpinSum</code></li>
+</ul>
+<h2 id="loop-integrals">Loop integrals</h2>
+<ul>
+<li><code>CTdec</code></li>
+<li><code>FCFeynmanPrepare</code></li>
+<li><code>FCLoopCreateFactorizingRules</code></li>
+<li><code>FCLoopCreatePartialFractioningRules</code></li>
+<li><code>FCLoopFactorizingQ</code></li>
+<li><code>FCLoopFactorizingSplit</code></li>
+<li><code>FCLoopFindIncompleteTopologies</code></li>
+<li><code>FCLoopFindIntegralMappings</code></li>
+<li><code>FCLoopFindOverdeterminedTopologies</code></li>
+<li><code>FCLoopFindScalelessTopologies</code></li>
+<li><code>FCLoopFindSubtopologies</code></li>
+<li><code>FCLoopFindTopologies</code></li>
+<li><code>FCLoopFindTopologyMappings</code></li>
+<li><code>FCLoopFromGLI</code></li>
+<li><code>FCLoopGetFeynAmpDenominators</code></li>
+<li><code>FCLoopGetKinematicInvariants</code></li>
+<li><code>FCLoopIsolate</code></li>
+<li><code>FCLoopRewriteIncompleteTopologies</code></li>
+<li><code>FCLoopRewriteOverdeterminedTopologies</code></li>
+<li><code>FCLoopTensorReduce</code></li>
+<li><code>FCLoopToPakForm</code></li>
+<li><code>FeynAmpDenominatorExplicit</code></li>
+<li><code>Tdec</code></li>
+<li><code>TID</code></li>
 </ul>
 </body>
 </html>
