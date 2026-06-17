@@ -38,6 +38,7 @@ FileNameJoin[{$UserBaseDirectory, "Applications", "FeynCalc", "Examples"}]
 |:---:|:---:|:---:|:---:|
 | Renormalization ($\overline{\textrm{MS}}$) | X | [massive](FeynCalcExamples/QCD/OneLoop/Renormalization), [massless](FeynCalcExamples/QCD/OneLoop/RenormalizationMassless), [old massive](FeynCalcExamples/QCD/OneLoop/Renormalization2), [old massless](FeynCalcExamples/QCD/OneLoop/RenormalizationMassless2) | [$g \to g$](FeynCalcExamples/QCD/TwoLoops/Renormalization-GlGl), [$u_g \to u_g$](FeynCalcExamples/QCD/TwoLoops/Renormalization-GhGh), [$q \to q$](FeynCalcExamples/QCD/TwoLoops/Renormalization-QQbar), [massless $q \to q$](FeynCalcExamples/QCD/TwoLoops/Renormalization-QQbar-Massless), [$q g \to q$](FeynCalcExamples/QCD/TwoLoops/Renormalization-QQbarGl) |
 | $g g \to H$| X | | [link](FeynCalcExamples/QCD/TwoLoops/GlGl-H) |
+| $g g \to H H$| X | [link](FeynCalcExamples/QCD/OneLoop/GlGl-HH) |  |
 | $H \to g g$| X | [link](FeynCalcExamples/QCD/OneLoop/H-GlGl) |  |
 | $g \to g$| X | [BG field gauge](FeynCalcExamples/QCD/OneLoop/Gl-Gl-BackgroundFieldGauge) | [link](FeynCalcExamples/QCD/TwoLoops/Gl-Gl) |
 | $u_g \to u_g$| X |  | [link](FeynCalcExamples/QCD/TwoLoops/Gh-Gh) |
