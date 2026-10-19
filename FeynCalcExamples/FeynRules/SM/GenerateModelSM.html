@@ -166,11 +166,9 @@ classes.}</span></p>
 <p><span class="math display">\text{$\backslash $nModel
 }\;\text{Standard Model}\;\text{ loaded.}</span></p>
 <h3 id="create-feynarts-model">Create FeynArts model</h3>
-<p>```mathematica SetDirectory[FileNameJoin[{$UserBaseDirectory,
-“Applications”, “FeynCalc”, “FeynArts”, “Models”}]];
-WriteFeynArtsOutput[LSM, Output -&gt; “SM”, CouplingRename -&gt;
-False];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">SetDirectory</span><span class="op">[</span><span class="fu">FileNameJoin</span><span class="op">[{</span><span class="va">$UserBaseDirectory</span><span class="op">,</span> <span class="st">&quot;Applications&quot;</span><span class="op">,</span> <span class="st">&quot;FeynCalc&quot;</span><span class="op">,</span> <span class="st">&quot;FeynArts&quot;</span><span class="op">,</span> <span class="st">&quot;Models&quot;</span><span class="op">}]]</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>WriteFeynArtsOutput<span class="op">[</span>LSM<span class="op">,</span> Output <span class="ot">-&gt;</span> <span class="st">&quot;SM&quot;</span><span class="op">,</span> CouplingRename <span class="ot">-&gt;</span> <span class="cn">False</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{ - - - FeynRules interface to
 FeynArts - - -}</span></p>
 <p><span class="math display">\text{      C. Degrande C. Duhr,

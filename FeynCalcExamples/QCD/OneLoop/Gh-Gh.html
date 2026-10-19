@@ -217,12 +217,12 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\frac{C_A \left(\xi _g-3\right) g_s^2}{64
 \pi ^2 \varepsilon }</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
-<p>```mathematica knownResult = -SMP[“g_s”]^2/(4 Pi)^2 CA (3 -
-GaugeXi[g])/4*1/Epsilon; FCCompareResults[pi[0], knownResult, Text -&gt;
-{“to Muta, Foundations of QCD, Eq. 2.5.136:”, “CORRECT.”, “WRONG!”},
-Interrupt -&gt; {Hold[Quit[1]], Automatic}]; Print[“Time used:”,
-Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knownResult <span class="ex">=</span> <span class="sc">-</span>SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">4</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="dv">2</span> CA (<span class="dv">3</span> <span class="sc">-</span> GaugeXi<span class="op">[</span><span class="fu">g</span><span class="op">]</span>)<span class="sc">/</span><span class="dv">4</span><span class="sc">*</span><span class="dv">1</span><span class="sc">/</span>Epsilon;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[</span><span class="fu">pi</span><span class="op">[</span><span class="dv">0</span><span class="op">],</span> knownResult<span class="op">,</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Muta, Foundations of QCD, Eq. 2.5.136:&quot;</span><span class="op">,</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCompare to Muta,
 Foundations of QCD, Eq. 2.5.136:} \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{$\backslash $tCPU Time used:

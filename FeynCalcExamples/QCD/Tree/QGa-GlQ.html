@@ -217,13 +217,14 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">-\frac{16 \;\text{e}^2 e_Q^2 g_s^2 \left(2
 Q^4+2 Q^2 (s+t)+s^2+t^2\right)}{3 s t}</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
-<p>```mathematica knownResults = { (16/3) SMP[“e”]^2 SMP[“e_Q”]^2
-SMP[“g_s”]^2 (-t/s - s/t - 2 Q^2 (s + t + Q^2)/(t s)) };
-FCCompareResults[{ampSquaredMasslessSUNN3[0]}, {knownResults}, Text
--&gt; {“with R. Field, Applications of Perturbative QCD, Eq 4.3.10:”,
-“CORRECT.”, “WRONG!”}, Interrupt -&gt; {Hold[Quit[1]], Automatic}];
-Print[“Time used:”, Round[N[TimeUsed[], 3], 0.001], ” s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knownResults <span class="ex">=</span> <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">16</span><span class="sc">/</span><span class="dv">3</span>) SMP<span class="op">[</span><span class="st">&quot;e&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> SMP<span class="op">[</span><span class="st">&quot;e_Q&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span> (<span class="sc">-</span><span class="fu">t</span><span class="sc">/</span><span class="fu">s</span> <span class="sc">-</span> <span class="fu">s</span><span class="sc">/</span><span class="fu">t</span> <span class="sc">-</span> <span class="dv">2</span> <span class="fu">Q</span><span class="sc">^</span><span class="dv">2</span> (<span class="fu">s</span> <span class="sc">+</span> <span class="fu">t</span> <span class="sc">+</span> <span class="fu">Q</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">t</span> <span class="fu">s</span>)) </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span>;</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[{</span>ampSquaredMasslessSUNN3<span class="op">[</span><span class="dv">0</span><span class="op">]},</span> <span class="op">{</span>knownResults<span class="op">},</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Check with R. Field, Applications of Perturbative QCD, Eq 4.3.10:&quot;</span><span class="op">,</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">3</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCheck with R. Field,
 Applications of Perturbative QCD, Eq 4.3.10:}
 \;\text{CORRECT.}</span></p>

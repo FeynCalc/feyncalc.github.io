@@ -581,11 +581,11 @@ g^2}{3072 \pi ^4 \;\text{ep}}+\frac{3 g}{32 \pi ^2 \;\text{ep}}+1 \\
 \end{array}</span></p>
 <div class="sourceCode" id="cb82"><pre
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>knownResult <span class="ex">=</span> <span class="op">{</span>rc<span class="op">[</span>delZg<span class="op">,</span> <span class="dv">2</span><span class="op">]</span> <span class="ot">-&gt;</span> (<span class="dv">27</span> <span class="sc">-</span> <span class="dv">17</span><span class="sc">*</span>ep)<span class="sc">/</span>(<span class="dv">3072</span><span class="sc">*</span>ep<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fu">Pi</span><span class="sc">^</span><span class="dv">4</span>)<span class="op">}</span>;</span></code></pre></div>
-<p>```mathematica FCCompareResults[scalar4VTX$RenConstants2L,
-knownResult, Text -&gt; {“to the known result:”, “CORRECT.”, “WRONG!”},
-Interrupt -&gt; {Hold[Quit[1]], Automatic}] Print[“Time used:”,
-Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb83"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[</span>scalar4VTX$RenConstants2L<span class="op">,</span> knownResult<span class="op">,</span> </span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to the known result:&quot;</span><span class="op">,</span> </span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span></span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCompare to the known
 result:} \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{True}</span></p>

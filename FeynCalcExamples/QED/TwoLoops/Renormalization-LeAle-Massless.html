@@ -632,12 +632,11 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\left\{\text{rc}(\text{delZpsi},2)\to
 \frac{\xi _{V(1)}^2}{2 \;\text{ep}^2}+\frac{4 N_f+3}{4
 \;\text{ep}}\right\}</span></p>
-<p>```mathematica FCCompareResults[leptonSE$RenConstants2L, knownResult,
-Text -&gt; {“to Grozing, Lectures on QED and QCD, Eq 5.52
-hep-ph/0508242:”, “CORRECT.”, “WRONG!”}, Interrupt -&gt; {Hold[Quit[1]],
-Automatic}] Print[“Time used:”, Round[N[TimeUsed[], 4], 0.001], ”
-s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb87"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[</span>leptonSE$RenConstants2L<span class="op">,</span> knownResult<span class="op">,</span> </span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Grozing, Lectures on QED and QCD, Eq 5.52 hep-ph/0508242:&quot;</span><span class="op">,</span> </span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span></span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCompare to Grozing,
 Lectures on QED and QCD, Eq 5.52 hep-ph/0508242:}
 \;\text{CORRECT.}</span></p>

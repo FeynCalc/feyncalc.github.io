@@ -192,11 +192,11 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res <span class="ex">=</span> amp<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="sc">//</span> <span class="fu">Total</span></span></code></pre></div>
 <p><span class="math display">0</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
-<p>```mathematica FCCompareResults[res, 0, Text -&gt; {“Furry’s theorem
-for 5-photons at 1-loop:”, “CORRECT.”, “WRONG!”}, Interrupt -&gt;
-{Hold[Quit[1]], Automatic}]; Print[“Time used:”, Round[N[TimeUsed[], 4],
-0.001], ” s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[</span>res<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Verify Furry&#39;s theorem for 5-photons at 1-loop:&quot;</span><span class="op">,</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tVerify Furry&#39;s
 theorem for 5-photons at 1-loop:} \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{$\backslash $tCPU Time used:

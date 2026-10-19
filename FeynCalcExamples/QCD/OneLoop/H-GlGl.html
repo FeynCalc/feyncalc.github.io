@@ -295,12 +295,13 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><img src="img/1gx23ju0ivcsq.svg" alt="1gx23ju0ivcsq" /></p>
 <p><span class="math display">0</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
-<p>```mathematica knownResults = {1, 0}; FCCompareResults[{limit1,
-limit2}, knownResults, Factoring -&gt; Simplify, Text -&gt; {“to Peskin
-and Schroeder,An Introduction to QFT, Final Project III, part (c):”,
-“CORRECT.”, “WRONG!”}, Interrupt -&gt; {Hold[Quit[1]], Automatic}];
-Print[“Time used:”, Round[N[TimeUsed[], 3], 0.001], ” s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>knownResults <span class="ex">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">}</span>;</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[{</span>limit1<span class="op">,</span> limit2<span class="op">},</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   knownResults<span class="op">,</span> Factoring <span class="ot">-&gt;</span> <span class="fu">Simplify</span><span class="op">,</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Peskin and Schroeder,An Introduction to QFT, Final Project III, part (c):&quot;</span><span class="op">,</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">3</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCompare to Peskin and
 Schroeder,An Introduction to QFT, Final Project III, part (c):}
 \;\text{CORRECT.}</span></p>

@@ -234,15 +234,14 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\frac{g_s^4 \left(t^2+u^2\right) \left(4
 t^2-t u+4 u^2\right)}{24 s^2 t u}</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
-<p>```mathematica knownResults = { (1/6) SMP[“g_s”]^4 (t^2 + u^2)/(t u)
-- (3/8) SMP[“g_s”]^4 (t^2 + u<sup>2)/(s</sup>2) };
-FCCompareResults[{ampSquaredMasslessSUNN3[0]}, {knownResults}, Text
--&gt; {“to Ellis, Stirling and Weber, QCD and Collider Physics, Table
-7.1:”, “CORRECT.”, “WRONG!”}, Interrupt -&gt; {Hold[Quit[1]],
-Automatic}, Factoring -&gt; Function[x, Simplify[TrickMandelstam[x, {s,
-t, u, 0}]]]] Print[“Time used:”, Round[N[TimeUsed[], 3], 0.001], ”
-s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>knownResults <span class="ex">=</span> <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span> (<span class="fu">t</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">u</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">t</span> <span class="fu">u</span>) <span class="sc">-</span> (<span class="dv">3</span><span class="sc">/</span><span class="dv">8</span>) SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">4</span> (<span class="fu">t</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">u</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">s</span><span class="sc">^</span><span class="dv">2</span>) </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span>;</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[{</span>ampSquaredMasslessSUNN3<span class="op">[</span><span class="dv">0</span><span class="op">]},</span> <span class="op">{</span>knownResults<span class="op">},</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Ellis, Stirling and Weber, QCD and Collider Physics, Table 7.1:&quot;</span><span class="op">,</span> <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">},</span> Factoring <span class="ot">-&gt;</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Function</span><span class="op">[</span><span class="fu">x</span><span class="op">,</span> <span class="fu">Simplify</span><span class="op">[</span>TrickMandelstam<span class="op">[</span><span class="fu">x</span><span class="op">,</span> <span class="op">{</span><span class="fu">s</span><span class="op">,</span> <span class="fu">t</span><span class="op">,</span> <span class="fu">u</span><span class="op">,</span> <span class="dv">0</span><span class="op">}]]]]</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">3</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCompare to Ellis,
 Stirling and Weber, QCD and Collider Physics, Table 7.1:}
 \;\text{CORRECT.}</span></p>

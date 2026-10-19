@@ -244,14 +244,13 @@ _{\text{Col1}\;\text{Col2}} \left(\gamma \cdot p-4 m_q\right)}{16 \pi ^2
 <p>Notice that the result in the book must be multiplied by (-1) due to
 the way how self-energy is defined there (c.f. Eq. 2.4.4 and Eq.
 2.4.6).</p>
-<p>```mathematica knownResult = -(-SMP[“g_s”]^2/(4 Pi)^2 CF<em>(3 +
-GaugeXi[g]) (1/Epsilon)</em>SMP[“m_q”] + GSD[p]<em>SMP[“g_s”]^2/(4
-Pi)^2</em>CF<em>GaugeXi[g]</em>(1/Epsilon)) SDF[Col1, Col2];
-FCCompareResults[sigma[0], knownResult, Text -&gt; {“to Muto,
-Foundations of QCD, Eq 10.41:”, “CORRECT.”, “WRONG!”}, Interrupt -&gt;
-{Hold[Quit[1]], Automatic}] Print[“Time used:”, Round[N[TimeUsed[], 4],
-0.001], ” s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knownResult <span class="ex">=</span> <span class="sc">-</span>(<span class="sc">-</span>SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">4</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="dv">2</span> CF<span class="sc">*</span>(<span class="dv">3</span> <span class="sc">+</span> GaugeXi<span class="op">[</span><span class="fu">g</span><span class="op">]</span>) (<span class="dv">1</span><span class="sc">/</span>Epsilon)<span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;m_q&quot;</span><span class="op">]</span> <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>            GSD<span class="op">[</span><span class="fu">p</span><span class="op">]</span><span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;g_s&quot;</span><span class="op">]</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">4</span> <span class="fu">Pi</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>CF<span class="sc">*</span>GaugeXi<span class="op">[</span><span class="fu">g</span><span class="op">]</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">/</span>Epsilon)) SDF<span class="op">[</span>Col1<span class="op">,</span> Col2<span class="op">]</span>;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[</span>sigma<span class="op">[</span><span class="dv">0</span><span class="op">],</span> knownResult<span class="op">,</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Muto, Foundations of QCD, Eq 10.41:&quot;</span><span class="op">,</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCompare to Muto,
 Foundations of QCD, Eq 10.41:} \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{True}</span></p>

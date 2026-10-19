@@ -371,14 +371,14 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 <p><span class="math display">\frac{C_F \alpha _s}{2 \pi  (k\cdot n)
 (k\cdot \;\text{nb})}</span></p>
 <h2 id="check-the-final-results">Check the final results</h2>
-<p>```mathematica knownResults = {
-(CF<em>SMP[“alpha_s”])/(2</em>Pi<em>Pair[Momentum[k, D], Momentum[n,
-D]]</em>Pair[Momentum[k, D], Momentum[nb, D]]) };
-FCCompareResults[{res}, knownResults, Text -&gt; {“to Automation, of
-Calculations in Soft-Collinear Effective Theory by R. Rahn, Eq. 5.3”,
-“CORRECT.”, “WRONG!”}, Interrupt -&gt; {Hold[Quit[1]], Automatic}];
-Print[“Time used:”, Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>knownResults <span class="ex">=</span> <span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    (CF<span class="sc">*</span>SMP<span class="op">[</span><span class="st">&quot;alpha_s&quot;</span><span class="op">]</span>)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span><span class="fu">Pi</span><span class="sc">*</span>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span><span class="fu">n</span><span class="op">,</span> <span class="fu">D</span><span class="op">]]</span><span class="sc">*</span>Pair<span class="op">[</span>Momentum<span class="op">[</span><span class="fu">k</span><span class="op">,</span> <span class="fu">D</span><span class="op">],</span> Momentum<span class="op">[</span>nb<span class="op">,</span> <span class="fu">D</span><span class="op">]]</span>) </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span>;</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[{</span>res<span class="op">},</span> knownResults<span class="op">,</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Compare to Automation, of Calculations in Soft-Collinear Effective Theory by R. Rahn, Eq. 5.3&quot;</span><span class="op">,</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span>;</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCompare to Automation,
 of Calculations in Soft-Collinear Effective Theory by R. Rahn, Eq. 5.3}
 \;\text{CORRECT.}</span></p>

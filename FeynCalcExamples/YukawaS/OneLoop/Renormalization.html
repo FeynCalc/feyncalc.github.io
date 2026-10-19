@@ -911,14 +911,12 @@ class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb
 \;\text{ep}},\frac{g^2}{8 \pi ^2 \;\text{ep}},\frac{\frac{3
 \;\text{la}}{16 \pi ^2}-\frac{3 g^4}{\pi ^2
 \;\text{la}}}{\text{ep}}\right\}</span></p>
-<p>```mathematica FCCompareResults[{rc[delZx<span
-class="math inline">SRQFT, 1], rc[delZphi</span>SRQFT, 1],
-rc[delZmx<span class="math inline">SRQFT, 1],
-    rc[delZg</span>SRQFT, 1], rc[delZla$SRQFT, 1]} /. Rule -&gt; Equal,
-resLit /. Rule -&gt; Equal, Text -&gt; {“the final result:”, “CORRECT.”,
-“WRONG!”}, Interrupt -&gt; {Hold[Quit[1]], Automatic}] Print[“Time
-used:”, Round[N[TimeUsed[], 4], 0.001], ” s.”];</p>
-<p>```mathematica</p>
+<div class="sourceCode" id="cb114"><pre
+class="sourceCode mathematica"><code class="sourceCode mathematica"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>FCCompareResults<span class="op">[{</span>rc<span class="op">[</span>delZx$SRQFT<span class="op">,</span> <span class="dv">1</span><span class="op">],</span> rc<span class="op">[</span>delZphi$SRQFT<span class="op">,</span> <span class="dv">1</span><span class="op">],</span> rc<span class="op">[</span>delZmx$SRQFT<span class="op">,</span> <span class="dv">1</span><span class="op">],</span> </span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>    rc<span class="op">[</span>delZg$SRQFT<span class="op">,</span> <span class="dv">1</span><span class="op">],</span> rc<span class="op">[</span>delZla$SRQFT<span class="op">,</span> <span class="dv">1</span><span class="op">]}</span> <span class="ot">/.</span> <span class="fu">Rule</span> <span class="ot">-&gt;</span> <span class="fu">Equal</span><span class="op">,</span> resLit <span class="ot">/.</span> <span class="fu">Rule</span> <span class="ot">-&gt;</span> <span class="fu">Equal</span><span class="op">,</span> </span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Text</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">Check the final result:&quot;</span><span class="op">,</span> </span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;CORRECT.&quot;</span><span class="op">,</span> <span class="st">&quot;WRONG!&quot;</span><span class="op">},</span> <span class="fu">Interrupt</span> <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">Hold</span><span class="op">[</span><span class="fu">Quit</span><span class="op">[</span><span class="dv">1</span><span class="op">]],</span> <span class="cn">Automatic</span><span class="op">}]</span></span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Print</span><span class="op">[</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">CPU Time used: &quot;</span><span class="op">,</span> <span class="fu">Round</span><span class="op">[</span><span class="fu">N</span><span class="op">[</span><span class="fu">TimeUsed</span><span class="op">[],</span> <span class="dv">4</span><span class="op">],</span> <span class="fl">0.001</span><span class="op">],</span> <span class="st">&quot; s.&quot;</span><span class="op">]</span>;</span></code></pre></div>
 <p><span class="math display">\text{$\backslash $tCheck the final
 result:} \;\text{CORRECT.}</span></p>
 <p><span class="math display">\text{True}</span></p>
