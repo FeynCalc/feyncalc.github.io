@@ -1,0 +1,1 @@
+[{"text":"PSDSumPackage[name, packageGenerators, order] is an auxiliary function that creates input for pySecDec’s sum_package routine. The result is returned as a string.","anchor":"psdsumpackage"},{"text":"Overview, PSDCreatePythonScripts, PSDIntegrate, PSDLoopIntegralFromPropagators, PSDLoopPackage.","anchor":"see-also","section":"See also"}]

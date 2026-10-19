@@ -1,0 +1,1 @@
+[{"text":"PSDMinEpsAbs is an option for PSDIntegrate and other functions of the pySecDec interface. It specifies the value of the min_epsabs parameter to be passed to pySecDec’s numerical integration library.","anchor":"psdminepsabs"},{"text":"Overview, PSDIntegrate.","anchor":"see-also","section":"See also"}]

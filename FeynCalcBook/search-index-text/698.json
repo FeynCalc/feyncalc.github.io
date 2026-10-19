@@ -1,0 +1,1 @@
+[{"text":"MLimit[expr, lims] takes multiple limits of expr using the limits lims.","anchor":"mlimit"},{"text":"Overview","anchor":"see-also","section":"See also"},{"text":"MLimit[y Log[y] + Sin[x - 1]/(x - 1), {x -> 1, y -> 0}]","anchor":"cb1","section":"Examples"},{"text":"\\[1\\]","anchor":"cb1-1","section":"Examples"}]

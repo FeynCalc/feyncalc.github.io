@@ -1,0 +1,43 @@
+---
+layout: page
+title: Search
+permalink: /search
+search: false
+---
+
+<!-- KaTeX draws the formulas in the results (without it they are shown as TeX) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+      integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+        integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+
+<form action="{{ site.url }}/search">
+  <input id="q" type="search" name="q" placeholder="e.g. Contract, DiracTrace, TID, γ^μ γ^ν, m_μ^2" autocomplete="off" spellcheck="false" autofocus />
+</form>
+
+<p id="status"></p>
+
+<ul id="results"></ul>
+
+<p><small>Searches the FeynCalc manual (stable and development), the FeynHelpers
+manual and the example gallery, right here in your browser. Pages whose name
+matches come first, then the paragraphs that mention it. To jump straight to a
+function by name, press <kbd>⌘K</kbd> (<kbd>Ctrl K</kbd>) or <kbd>/</kbd> on any
+page.</small></p>
+
+<p><small>Formulas are found however they are written: <code>γ^μγ^ν</code>,
+<code>\gamma^\mu \gamma^\nu</code> and Mathematica's <code>\[Mu]</code> all work.
+Type <kbd>\</kbd> and a few letters (<code>\gam</code>) in the box, or click Σ, to
+enter a symbol.</small></p>
+
+<script src="{{ site.baseurl }}/sitesearch/search.js"></script>
+<script src="{{ site.baseurl }}/sitesearch/symbols.js"></script>
+<script>
+SiteSearch.mount({
+    input: 'q', status: 'status', results: 'results',
+    sources: [
+        { url: '{{ site.baseurl }}/nav-index.json' },
+        { url: '{{ site.baseurl }}/search-index.json' },
+    ],
+});
+</script>

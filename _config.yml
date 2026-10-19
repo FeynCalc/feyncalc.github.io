@@ -31,3 +31,33 @@ github:
 markdown: kramdown
 
 port: 3000 # change server port to 3000
+
+# Search (see _data/sitesearch.yml). Listing `exclude` replaces Jekyll's
+# defaults, so they are repeated here.
+exclude:
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  # the builder of the manuals' search indexes, not a page
+  - tools/
+  # of the sitesearch submodule the site needs search.js, palette.js and the
+  # Jekyll index builder; the rest is its own documentation and checks
+  - sitesearch/README.md
+  - sitesearch/FORMAT.md
+  - sitesearch/check-fold.js
+  - sitesearch/check-prepare.js
+  - sitesearch/check-say.js
+  - sitesearch/check-math.js
+  - sitesearch/node/
+
+defaults:
+  # The old forum archive (1600 posts from 2000–2015) stays out of the search:
+  # it would triple the index, and the answers in it are about versions long gone.
+  - scope:
+      path: "OldForum"
+    values:
+      search: false

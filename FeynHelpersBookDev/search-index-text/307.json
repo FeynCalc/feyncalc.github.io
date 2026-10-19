@@ -1,0 +1,1 @@
+[{"text":"PSDLoopIntegralName is an option for PSDCreatePythonScripts and other functions of the pySecDec interface. It specifies the name assigned to the output of pySecDec’s LoopIntegralFromPropagators function. The default value is \"li\".","anchor":"psdloopintegralname"},{"text":"Overview, PSDCreatePythonScripts.","anchor":"see-also","section":"See also"}]

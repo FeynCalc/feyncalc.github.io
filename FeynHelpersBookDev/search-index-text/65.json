@@ -1,0 +1,1 @@
+[{"text":"FIREShowOutput is an option for FIRECreateStartFile and other FIRE-related functions.","anchor":"fireshowoutput"},{"text":"When set to True, the output of the current process run will be shown via Print. When set to False the output is suppressed.","anchor":"fireshowoutput"}]

@@ -1,0 +1,1 @@
+[{"text":"PSDDryRun is an option for PSDCreatePythonScripts and other functions of the pySecDec interface.","anchor":"psddryrun"},{"text":"When set to True, no files will be written to the disk.","anchor":"psddryrun"},{"text":"Overview, PSDCreatePythonScripts.","anchor":"see-also","section":"See also"}]

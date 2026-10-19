@@ -1,0 +1,1 @@
+[{"text":"IsolatePrint is an option of Isolate. If it is set to OutputForm (or any other *Form) the definitions of the abbreviations are printed during the operation of Isolate.","anchor":"isolateprint"},{"text":"The setting IsolatePrint -> False suppresses printing.","anchor":"isolateprint"},{"text":"Overview, Isolate.","anchor":"see-also","section":"See also"}]

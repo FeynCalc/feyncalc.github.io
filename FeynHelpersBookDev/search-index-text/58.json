@@ -1,0 +1,1 @@
+[{"text":"FIREPath is an option for FIREBurn. It specifies the full path the FIRE package.","anchor":"firepath"},{"text":"The default value is FileNameJoin[{$UserBaseDirectory, \"Applications\", \"FIRE6\", \"FIRE6.m\"}].","anchor":"firepath"},{"text":"Overview, FIREBurn.","anchor":"see-also","section":"See also"}]

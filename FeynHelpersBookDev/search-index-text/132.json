@@ -1,0 +1,1 @@
+[{"text":"FSAQHullPath is an option for FSAPrepareMathematicaScripts and other functions of the FIESTA interface.","anchor":"fsaqhullpath"},{"text":"It specifies the value of the QHullPath option to be passed to the FIESTA package when evaluating an integral.","anchor":"fsaqhullpath"},{"text":"Overview, FSAPrepareMathematicaScripts.","anchor":"see-also","section":"See also"}]

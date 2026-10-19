@@ -1,0 +1,1 @@
+[{"text":"FCClearDataTypes[] removes all user-defined attachments of data types to variables.","anchor":"fccleardatatypes"},{"text":"To remove all existing cache values use FCClearCache[All].","anchor":"fccleardatatypes"},{"text":"Overview, DataType.","anchor":"see-also","section":"See also"},{"text":"FCClearDataTypes[]","anchor":"cb1","section":"Examples"}]

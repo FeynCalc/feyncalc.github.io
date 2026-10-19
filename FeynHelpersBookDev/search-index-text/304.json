@@ -1,0 +1,1 @@
+[{"text":"PSDIntegrator is an option of PSDIntegrate and other functions of the pySecDec interface. It specifies the integrator to be used when performing the numerical evaluation of the integral. The default value is \"Qmc\".","anchor":"psdintegrator"},{"text":"Overview, PSDIntegrate.","anchor":"see-also","section":"See also"}]

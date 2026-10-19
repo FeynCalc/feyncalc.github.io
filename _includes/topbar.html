@@ -27,19 +27,10 @@
 			<li><a class="topbar-nav-item" href="https://github.com/FeynCalc/feyncalc/discussions">Forum</a></li>
 			<li><a class="topbar-nav-item" href="{{ site.url }}/OldForum/thread.html">Old forum archive</a></li>
 
-			<li><form id="qsearch" method="get" action="https://www.qwant.com/">
-				<input id="qsearch2" type="text" name="q" placeholder="Search with Qwant" />
+			<li><form id="qsearch" method="get" action="{{ site.url }}/search">
+				<input id="qsearch2" type="text" name="q" placeholder="Search the manuals" />
 			</form></li>
-
-			<script type="text/javascript">
-			window.onload = function() {
-			document.getElementById("qsearch").onsubmit = function() {			
-			var queryFixed = document.getElementById("qsearch2");
-			queryFixed.value = queryFixed.value + ' site:feyncalc.github.io';
-			return true;
-			};
-			};
-			</script>
+			<li id="nav-jump"></li>
 
 
 

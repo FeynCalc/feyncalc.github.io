@@ -1,0 +1,1 @@
+[{"text":"PSDRealParameters is an option for PSDLoopPackage and other functions of the pySecDec interface. It is a list of symbols (or strings) that will be passed to pySecDec’s loop_package argument real_parameters.","anchor":"psdrealparameters"},{"text":"Overview, PSDLoopPackage.","anchor":"see-also","section":"See also"}]

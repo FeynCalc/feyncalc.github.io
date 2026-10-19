@@ -1,0 +1,1 @@
+[{"text":"$LoadPhi is a legacy switch for loading Phi. The modern way to achieve the same effect is to evaluate $LoadAddOns={\"Phi\"} before loading FeynCalc.","anchor":"loadphi"},{"text":"Overview, $LoadAddOns.","anchor":"see-also","section":"See also"},{"text":"$LoadPhi","anchor":"cb1","section":"Examples"},{"text":"\\[\\text{False}\\]","anchor":"cb1-1","section":"Examples"}]

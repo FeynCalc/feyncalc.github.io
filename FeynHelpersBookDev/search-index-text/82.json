@@ -1,0 +1,1 @@
+[{"text":"FSAChunkSize is an option for FSAPrepareMathematicaScripts and other functions of the FIESTA interface.","anchor":"fsachunksize"},{"text":"It specifies the value of the ChunkSize option to be passed to the FIESTA package when evaluating an integral.","anchor":"fsachunksize"},{"text":"Overview, FSAPrepareMathematicaScripts.","anchor":"see-also","section":"See also"}]

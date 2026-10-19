@@ -1,0 +1,1 @@
+[{"text":"KiraJobFileName is an option for KiraCreateJobFile and other functions of the Kira interface.","anchor":"kirajobfilename"},{"text":"It specifies the file name for the created job file. The default value is \"job.yaml\".","anchor":"kirajobfilename"},{"text":"Overview, KiraCreateJobFile.","anchor":"see-also","section":"See also"}]

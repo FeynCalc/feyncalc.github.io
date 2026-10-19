@@ -1,0 +1,1 @@
+[{"text":"FIREIntegrals is an option for FIRECreateConfigFile and other functions of the FIRE interface.","anchor":"fireintegrals"},{"text":"It specifies the #integrals parameter to be set in a FIRE .config file. The default value is \"LoopIntegrals.m\".","anchor":"fireintegrals"}]

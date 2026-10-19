@@ -1,0 +1,1 @@
+[{"text":"FIREPosPref is an option for FIRECreateConfigFile and other functions of the FIRE interface.","anchor":"firepospref"},{"text":"It specifies the #pospref parameter to be set in a FIRE .config-file. The default value is Default meaning that this parameters is not set.","anchor":"firepospref"}]

@@ -1,0 +1,1 @@
+[{"text":"GrassmannParity is a data type.","anchor":"grassmannparity"},{"text":"E.g. DataType[F, GrassmannParity] = 1 declares F to be of bosonic type and DataType[F, GrassmannParity] = -1 of fermionic one.","anchor":"grassmannparity"},{"text":"Overview, DataType.","anchor":"see-also","section":"See also"}]

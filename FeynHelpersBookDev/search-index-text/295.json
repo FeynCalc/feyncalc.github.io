@@ -1,0 +1,1 @@
+[{"text":"PSDFormExecutable is an option for PSDSumPackage and other functions of the pySecDec interface. It specifies the path to the FORM executable and will be passed to pySecDec’s form_executable argument. The default value is None.","anchor":"psdformexecutable"},{"text":"Overview, PSDSumPackage.","anchor":"see-also","section":"See also"}]

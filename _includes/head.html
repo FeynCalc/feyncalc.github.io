@@ -21,6 +21,13 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/css/hyde.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.css">
 
+  <!-- Search: ⌘K / Ctrl-K jumps to a page of the manuals by name (sitesearch submodule) -->
+  <script src="{{ site.baseurl }}/sitesearch/palette.js" data-index="{{ site.baseurl }}/nav-index.json"
+          data-mount="#nav-jump" data-search="{{ site.baseurl }}/search"
+          data-search-index="{{ site.baseurl }}/search-index.json"
+          data-label="Jump to a page of the manuals"
+          data-placeholder="Where to? e.g. Contract, DiracTrace, TID" defer></script>
+
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/favicon.png">
   <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.png">

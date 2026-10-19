@@ -1,0 +1,1 @@
+[{"text":"PSDDecreaseToPercentage is an option for PSDIntegrate and other functions of the pySecDec interface. It specifies the value of the decrease_to_percentage parameter to be passed to pySecDec’s numerical integration library.","anchor":"psddecreasetopercentage"},{"text":"Overview, PSDIntegrate.","anchor":"see-also","section":"See also"}]

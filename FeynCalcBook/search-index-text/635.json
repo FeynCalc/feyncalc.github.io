@@ -1,0 +1,1 @@
+[{"text":"IntegralTable is an option of OneLoopSimplify and FeynAmpDenominatorSimplify. It may be set to a list of the form {FCIntegral[ ... ] :> bla, ...}.","anchor":"integraltable"},{"text":"Overview, OneLoopSimplify, FeynAmpDenominatorSimplify.","anchor":"see-also","section":"See also"}]

@@ -1,0 +1,1 @@
+[{"text":"SUNN denotes the number of colors. SUNSimplify[SUNDelta[a, a]] yields n_c^2 -1.","anchor":"sunn"},{"text":"Overview, SUNSimplify, SUNIndex, CA, CF.","anchor":"see-also","section":"See also"},{"text":"SUNSimplify[SUNDelta[SUNIndex[a], SUNIndex[a]], SUNNToCACF -> False]","anchor":"cb1","section":"Examples"},{"text":"\\[N^2-1\\]","anchor":"cb1-1","section":"Examples"}]

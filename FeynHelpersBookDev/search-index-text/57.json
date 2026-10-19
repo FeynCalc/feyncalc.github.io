@@ -1,0 +1,1 @@
+[{"text":"FIREParallel is an option for FIREPrepareStartFile and other functions of the FIRE interface.","anchor":"fireparallel"},{"text":"It specifies whether the preparation of start or sbases files should be parallelized. The default value is 2 meaning that 2 parallel kernels will be used for this task.","anchor":"fireparallel"}]

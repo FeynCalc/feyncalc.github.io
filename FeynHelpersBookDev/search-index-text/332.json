@@ -1,0 +1,1 @@
+[{"text":"PSDResultFile is an option for PSDCreatePythonScripts and other functions of the pySecDec interface.","anchor":"psdresultfile"},{"text":"It specifies the prefix of the file containing the result of the pySecDec run. The default value is numres.","anchor":"psdresultfile"},{"text":"Overview, PSDCreatePythonScripts.","anchor":"see-also","section":"See also"}]

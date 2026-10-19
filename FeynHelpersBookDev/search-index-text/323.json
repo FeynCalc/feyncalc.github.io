@@ -1,0 +1,1 @@
+[{"text":"PSDOutputDirectory is an option for PSDCreatePythonScripts and other functions of the pySecDec interface. It specifies the C++ namespace and the output directory. The default value is \"loopint\".","anchor":"psdoutputdirectory"},{"text":"Overview, PSDCreatePythonScripts.","anchor":"see-also","section":"See also"}]

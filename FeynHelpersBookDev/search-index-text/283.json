@@ -1,0 +1,1 @@
+[{"text":"PSDDeformationParametersMinimum is an option for PSDIntegrate and other functions of the pySecDec interface. It specifies the value of the deformation_parameters_minimum parameter to be passed to pySecDec’s IntegralLibrary function.","anchor":"psddeformationparametersminimum"},{"text":"Overview, PSDIntegrate.","anchor":"see-also","section":"See also"}]

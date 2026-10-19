@@ -1,0 +1,1 @@
+[{"text":"FIREShowOutput is an option for FIRECreateConfigFile and other FIRE-related functions.","anchor":"fireoutput"},{"text":"It specifies the #output parameter to be set in a FIRE .config file. When set to Default, the file name is just the name of topology preceded by \".config\"","anchor":"fireoutput"}]

@@ -1,0 +1,3 @@
+[submodule "sitesearch"]
+	path = sitesearch
+	url = https://github.com/tombouctou/sitesearch.git

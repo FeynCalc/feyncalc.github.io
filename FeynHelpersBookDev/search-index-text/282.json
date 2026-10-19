@@ -1,0 +1,1 @@
+[{"text":"PSDDeformationParametersMaximum is an option for PSDIntegrate and other functions of the pySecDec interface. It specifies the value of the deformation_parameters_maximum parameter to be passed to pySecDec’s IntegralLibrary function.","anchor":"psddeformationparametersmaximum"},{"text":"Overview, PSDIntegrate.","anchor":"see-also","section":"See also"}]

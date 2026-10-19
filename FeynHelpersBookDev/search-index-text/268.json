@@ -1,0 +1,1 @@
+[{"text":"PaXSimplifyEpsilon is an option for PaXEvaluate. When set to True, PaXEvaluate will attempt to simplify the final result by applying simplifications to the Epsilon-free parts of the expression. The default value is True.","anchor":"paxsimplifyepsilon"},{"text":"Overview, PaXEvaluate.","anchor":"see-also","section":"See also"}]

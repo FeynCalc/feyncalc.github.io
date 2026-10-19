@@ -1,0 +1,26 @@
+# Search (sitesearch submodule, see sitesearch/README.md).
+#
+# /search-index.json is built by Jekyll from the site's own Markdown pages
+# (sitesearch/jekyll/search-index.json); `default` names them. The manuals and
+# the examples are pandoc HTML that Jekyll does not read, so their indexes are
+# made by `node tools/search-index.js` and listed here as shards — rerun it
+# whenever the manuals are regenerated.
+#
+# Orders below ten belong to nav-index.json: the search page reads it first,
+# so a page whose name matches comes before every paragraph that mentions it.
+default:
+  title: FeynCalc
+  order: 10
+shards:
+  - url: /FeynCalcBook/search-index.json
+    section: FeynCalc manual
+    defer: true
+  - url: /FeynCalcBookDev/search-index.json
+    section: FeynCalc manual (development)
+    defer: true
+  - url: /FeynHelpersBookDev/search-index.json
+    section: FeynHelpers manual (development)
+    defer: true
+  - url: /FeynCalcExamples/search-index.json
+    section: Examples
+    defer: true

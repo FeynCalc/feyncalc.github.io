@@ -1,0 +1,1 @@
+[{"text":"FCClearCache[func] removes existing cached values for the function func that were introduced by FCUseCache.","anchor":"fcclearcache"},{"text":"To remove all existing cache values use FCClearCache[All].","anchor":"fcclearcache"},{"text":"Overview, FCUseCache, FCShowCache.","anchor":"see-also","section":"See also"}]

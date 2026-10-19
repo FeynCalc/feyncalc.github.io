@@ -346,3 +346,33 @@ body>h2 {
 }
 
 
+
+/* Search: the ⌘K button in the top bar and the palette it opens
+   (sitesearch/palette.js), in the colours of the site. */
+#nav-palette, #nav-open {
+  --p-bg: #fff; --p-fg: #515151; --p-line: #ccc;
+  --p-sel: rgba(38, 139, 210, .12); --p-mark: #268bd2; --p-veil: rgba(0, 0, 0, .35);
+}
+.navbar div div .nav > li > #nav-open {
+  margin: 13px 0 0 8px;
+  color: #999;
+  opacity: 1;
+  border-color: #555;
+}
+.navbar div div .nav > li > #nav-open:hover,
+.navbar div div .nav > li > #nav-open:focus {
+  color: #fff;
+}
+
+#q {
+  width: 100%;
+  max-width: 32em;
+  height: auto;
+  padding: .45em .6em;
+  font-size: 1em;
+}
+#results { margin: 1.2em 0; padding: 0; list-style: none; }
+#results li { margin: 0 0 1.2em; }
+#results .where { font-size: .85em; opacity: .75; margin-bottom: .15em; }
+#results .snippet { margin: 0; }
+#results mark { background: rgba(255, 220, 120, .5); color: inherit; padding: 0 .1em; }

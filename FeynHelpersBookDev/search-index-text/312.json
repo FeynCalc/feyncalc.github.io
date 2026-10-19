@@ -1,0 +1,1 @@
+[{"text":"PSDMaxEval is an option for PSDIntegrate and other functions of the pySecDec interface. It specifies the value of the maxeval parameter to be passed to pySecDec’s numerical integration library.","anchor":"psdmaxeval"},{"text":"Overview, PSDIntegrate.","anchor":"see-also","section":"See also"}]
